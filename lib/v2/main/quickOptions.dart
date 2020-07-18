@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/landingPage.dart';
 
 class QuickOptions extends StatefulWidget{
   @override
@@ -35,7 +36,10 @@ class QuickOptions extends StatefulWidget{
           List.generate(quickOptions.length, (index)  {
             return InkWell(
               onTap: (){
-                print("Index");
+                 Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LandingPage()),
+                    );
               },
                           child: Container(
               height: 2,
