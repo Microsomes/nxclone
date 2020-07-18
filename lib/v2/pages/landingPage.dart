@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/components/fancyOptions.dart';
 import 'package:nxclone/v2/main/bar.dart';
 
 
@@ -32,7 +33,11 @@ class LandingPageState extends State<LandingPage>{
             fontSize: 30
           ) ,
           ),
-          )
+          ),
+          SizedBox(height: 20,),
+          FancyOptions(title: "Home Page",isSelected: true,),
+           SizedBox(height: 10,),
+          FancyOptions(title: "Ticket only",isSelected: false,)
 
 
         ],
