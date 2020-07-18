@@ -17,10 +17,10 @@ class QuickOptions extends StatefulWidget{
 
      quickOptions= new List();
 
-    quickOptions.add({"title":"Landing Page"});
-    quickOptions.add({"title":"Default Ticket Page"});
-    quickOptions.add({"title":"Ejection Settings"});
-    quickOptions.add({"title":"Knowledge Base"});
+    quickOptions.add({"title":"Landing Page","icon":Icons.settings,"asset":"images/landing1.png"});
+    quickOptions.add({"title":"Default Ticket Page","icon":Icons.settings_applications,"asset":"images/ticket1.png"});
+    quickOptions.add({"title":"Ejection Settings","icon":Icons.settings_bluetooth,"asset":"images/ejection1.png"});
+    quickOptions.add({"title":"Knowledge Base","icon":Icons.settings_input_antenna,"asset":"images/knowledge1.png"});
 
   }
 
@@ -50,8 +50,8 @@ class QuickOptions extends StatefulWidget{
             child: Column(
               children: <Widget>[
                 Container(
-                  height:100,
-                  child: Center(child: Icon(Icons.settings,size: 40,color: Colors.black,),),
+                  height:110,
+                  child: Center(child:Image.asset(quickOptions[index]['asset'],width: 90,),),
                   decoration: BoxDecoration(
                   ),
                 ),

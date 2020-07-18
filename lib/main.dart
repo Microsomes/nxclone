@@ -163,13 +163,16 @@ class HomePagePre_state extends State<HomePagePre> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+          backgroundColor: Colors.black,
           appBar: PreferredSize(
             child: BarV2(),
             preferredSize: const Size.fromHeight(45)
           ),
           body: SafeArea(
               child: 
-              Column(children: [
+              Column(
+                
+                children: [
             Container(
               height: 200,
               child: Column(
@@ -185,8 +188,8 @@ class HomePagePre_state extends State<HomePagePre> {
                     margin: EdgeInsets.only(
                       top: 10
                     ),
-                    height: 100,
-                    width: 100,
+                    height: 120,
+                    width: 120,
                     child: Image.asset("images/mrskeleton.png",width: 200,)
                   )
                 ],
@@ -206,6 +209,7 @@ class HomePagePre_state extends State<HomePagePre> {
 
               ),
             ),
+            SizedBox(height: 20,),
             Expanded(
               child: QuickOptions(),
             )  
