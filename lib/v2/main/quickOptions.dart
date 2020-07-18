@@ -33,39 +33,44 @@ class QuickOptions extends StatefulWidget{
       child:GridView.count(crossAxisCount:2,
         children: 
           List.generate(quickOptions.length, (index)  {
-            return Container(
-            height: 2,
-            width: MediaQuery.of(context).size.width/3,
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(189, 189, 189,1),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                      new BoxShadow(
-                      color: Colors.lightGreen,
-                      offset: new Offset(2.0, 2.0),
-                    )
-                    ]
-            ),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  height:110,
-                  child: Center(child:Image.asset(quickOptions[index]['asset'],width: 90,),),
-                  decoration: BoxDecoration(
+            return InkWell(
+              onTap: (){
+                print("Index");
+              },
+                          child: Container(
+              height: 2,
+              width: MediaQuery.of(context).size.width/3,
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(189, 189, 189,1),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                        new BoxShadow(
+                        color: Colors.lightGreen,
+                        offset: new Offset(2.0, 2.0),
+                      )
+                      ]
+              ),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    height:110,
+                    child: Center(child:Image.asset(quickOptions[index]['asset'],width: 90,),),
+                    decoration: BoxDecoration(
+                    ),
                   ),
-                ),
-                Container(   
-                  child: Text(quickOptions[index]['title'],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                  ),),
-                )
-              ],
-            ),
-          );
+                  Container(   
+                    child: Text(quickOptions[index]['title'],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),),
+                  )
+                ],
+              ),
+          ),
+            );
           }) 
       )
     );
