@@ -170,8 +170,10 @@ class HomePagePre_state extends State<HomePagePre> {
           ),
           body: SafeArea(
               child: 
-              Column(
-                
+              Stack(
+                children: <Widget>[
+                  Expanded(
+                    child: Column( 
                 children: [
             Container(
               height: 200,
@@ -209,11 +211,16 @@ class HomePagePre_state extends State<HomePagePre> {
 
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 40,),
             Expanded(
               child: QuickOptions(),
             )  
-          ])),
+          ]),
+                  )
+                ],
+              )
+          
+          ),
         ));
   }
 }
