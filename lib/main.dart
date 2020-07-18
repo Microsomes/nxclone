@@ -211,7 +211,7 @@ class HomePagePre_state extends State<HomePagePre> {
 
               ),
             ),
-            SizedBox(height: 40,),
+            SizedBox(height: 30,),
             Expanded(
               child: QuickOptions(),
             )  
@@ -228,7 +228,7 @@ class HomePagePre_state extends State<HomePagePre> {
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
-        Color.fromRGBO(169, 27, 26, 1), // navigation bar color
+        Color.fromRGBO(0, 0, 0, 1), // navigation bar color
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
   return runApp(HomePagePre());
