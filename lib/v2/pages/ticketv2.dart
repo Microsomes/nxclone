@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/components/ticketColor.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class ActualTicket extends StatefulWidget{
@@ -107,6 +108,15 @@ class ActualTicketState extends State<ActualTicket>{
                             ),
                           ),
                         ), 
+
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left:20,
+                            right:20,
+                            top:14
+                          ),
+                          child: TicketColor(),
+                        ),
 
                         Expanded(
                           child: Text("")
