@@ -7,7 +7,7 @@ class ticketTwo extends StatelessWidget {
       
       child: Column(children: [
         Container(
-          height: 26,
+          height: 30,
           child: Row(
             children: <Widget>[
               SizedBox(
@@ -15,7 +15,7 @@ class ticketTwo extends StatelessWidget {
               ),
               Text(
                 "West Midlands",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
               ),
               Expanded(
                 child: Text(""),
@@ -42,14 +42,14 @@ class ticketTwo extends StatelessWidget {
         Container(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 15.0, top: 5),
+              padding: const EdgeInsets.only(left: 22.0, top: 5),
               child: Text(
                 "Daysaver",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
               ),
             )),
         SizedBox(
-          height: 5,
+          height: 3,
         ),
         Container(
           height: 2,
@@ -70,13 +70,16 @@ class ticketTwo extends StatelessWidget {
               ),
               SizedBox(width: 6,),
               Container(
-                 height: 25,
+                 height: 20,
                 alignment: Alignment.bottomCenter,
-                child: Text("Expires in 12 hours, 59 minutes", style: TextStyle(
-
-                  fontWeight: FontWeight.w700
-
-                ),))
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 2
+                  ),
+                  child: Text("Expires in 12 hours, 59 minutes", style: TextStyle(
+                    fontWeight: FontWeight.w700
+                  ),),
+                ))
             ],
           ),
         ))

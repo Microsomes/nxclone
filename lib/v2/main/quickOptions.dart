@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/defaultTicket.dart';
 import 'package:nxclone/v2/pages/landingPage.dart';
 
 class QuickOptions extends StatefulWidget{
@@ -36,10 +37,17 @@ class QuickOptions extends StatefulWidget{
           List.generate(quickOptions.length, (index)  {
             return InkWell(
               onTap: (){
+                if(index==0){
                  Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LandingPage()),
                     );
+                }else if(index==1){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DefaultTicket()),
+                    );
+                }
               },
                           child: Container(
               height: 2,
