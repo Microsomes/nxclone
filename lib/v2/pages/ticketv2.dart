@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/components/nxsig.dart';
 import 'package:nxclone/v2/components/ticketColor.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -109,15 +110,38 @@ class ActualTicketState extends State<ActualTicket>{
                           ),
                         ), 
 
-                        Padding(
+                       Container(
+                          height: 300,
+                         child: Stack(
+                         children: <Widget>[
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              child: Padding(
                           padding: const EdgeInsets.only(
-                            left:20,
-                            right:20,
-                            top:14
+                              left:20,
+                              right:20,
+                              top:3
                           ),
-                          child: TicketColor(),
+                          child: TicketColor(ctx: context,),
                         ),
-
+                            ),
+                        Positioned(
+                          top: 60,
+                          left: 2,
+                                child: Padding(
+                            padding: const EdgeInsets.only(
+                              left:18,
+                              right: 0
+                            ),
+                            child: Container(
+                             child: Nxsig()
+                             ),
+                          ),
+                        ),
+                         ],
+                       ),
+                       ),
                         Expanded(
                           child: Text("")
                         ),
