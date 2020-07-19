@@ -6,12 +6,14 @@ class FancyOptions extends StatefulWidget{
   bool isSelected;
   String assetRoute;
   Function clicked;
+  BoxFit boxFitt;
 
     FancyOptions({
       @required this.title,
       @required this.isSelected,
       @required this.assetRoute,
-      @required this.clicked
+      @required this.clicked,
+      @required this.boxFitt
     });
 
   @override
@@ -37,7 +39,7 @@ class FancyOptionsState extends State<FancyOptions>{
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
               image: AssetImage(widget.assetRoute),
-              fit:BoxFit.cover
+              fit:widget.boxFitt
             ),
             boxShadow: [
              widget.isSelected== true ? BoxShadow(
@@ -61,14 +63,14 @@ class FancyOptionsState extends State<FancyOptions>{
                 ),
                    ),
                  ),
-                 Container(
+                widget.title.length!=0? Container(
                    decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)
                    ),
                    padding: EdgeInsets.all(4),
                    child: Text(widget.title,textAlign: TextAlign.center,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
-                 )
+                 ):Container()
                 ],
               )
             ],

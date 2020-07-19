@@ -63,7 +63,9 @@ class LandingPageState extends State<LandingPage>{
               isShowing=false;               
             });
              resetState();
-          },);
+          },
+          boxFitt: BoxFit.cover,
+          );
 
         option2=  FancyOptions(title: "Ticket only",isSelected: false,assetRoute:"images/home2.png",clicked: ()async {
 
@@ -75,7 +77,7 @@ class LandingPageState extends State<LandingPage>{
             isShowing=false;
              });
               resetState();
-          },);
+          },boxFitt: BoxFit.cover,);
 
         restoreOption("defaulthomepage").then((value) {
 

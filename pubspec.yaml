@@ -91,6 +91,12 @@ flutter:
    - images/knowledge1.png
    - images/home1.png
    - images/home2.png
+   - images/single1.png
+   - images/daysaver1.png
+   - images/daysaversatsun.png
+   - images/eveningsaver.png
+   - images/groupdaysaver.png
+   - images/groupdaysaverafter6.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
