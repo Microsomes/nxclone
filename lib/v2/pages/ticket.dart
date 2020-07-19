@@ -169,6 +169,43 @@ class Ticket2State extends State<Ticket2>{
                               ),
                             ),
                           ),
+                        ),
+                        Expanded(
+                          child: Text("")
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.more_horiz),
+                                  onPressed: (){},
+                                ),
+                                Text("Actions",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(103, 119, 138, 1),
+                                  fontWeight: FontWeight.w500
+                                ),)
+                              ],
+                            ),
+                            Expanded(child: Container(),),
+                            Padding(
+                              padding: const EdgeInsets.only(right:17.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconButton(
+                                    icon: Icon(Icons.format_list_bulleted),
+                                    onPressed: (){},
+                                  ),
+                                  Text("Details",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(103, 119, 138, 1),
+                                    fontWeight: FontWeight.w500
+                                  ),)
+                                ],
+                              ),
+                            )
+                          ],
                         )
                       ],
                     ),
