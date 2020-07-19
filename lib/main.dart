@@ -4,6 +4,8 @@ import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/main/quickOptions.dart';
 
+import 'v2/pages/ticket.dart';
+
 
 
 class HomePagePre extends StatefulWidget {
@@ -67,7 +69,7 @@ class HomePagePre_state extends State<HomePagePre> {
 
                         Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Ticket()),
+                        MaterialPageRoute(builder: (context) => Ticket2()),
                       );
 
                     },

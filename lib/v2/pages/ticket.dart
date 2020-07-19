@@ -1,0 +1,188 @@
+import 'package:flutter/material.dart';
+import 'package:nxclone/v2/main/bar.dart';
+
+class Ticket2 extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+   return Ticket2State();
+  }
+}
+
+class Ticket2State extends State<Ticket2>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      
+
+      body: SafeArea(
+              child: Column(
+
+          children: <Widget>[
+              SizedBox(height: 10,),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 20,
+                      top:10
+                    ),
+                    child: Text("Close",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15
+                    ),
+                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(18),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          )
+                        ]
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          height: 35,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                                color: Color.fromRGBO(117, 28, 21, 1),
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  topLeft: Radius.circular(10)
+                                )
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Positioned(
+                                left: 10,
+                                child: Text("WEST MIDLANDS SINGLE JOURNEY",
+                                style: TextStyle(
+                                  letterSpacing: 0.3,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                                ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Container(
+                          child: Text(
+                            "ANY BUS ACROSS OUR NETWORK",
+                            style: TextStyle(
+                              fontSize: 16,
+                              letterSpacing: 0.3,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(124, 126, 136, 1,
+                              )
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 12,
+                              right: 12,
+                              top:5
+                            ),
+                            child: Image.asset("images/nxsig.png"),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Container(
+                          width: MediaQuery.of(context).size.width/1.7,
+                          child: Text(
+                            "ACTIVATE JUST BEFORE BOARDING",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                              letterSpacing: 0.3,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(124, 126, 136, 1,
+                              )
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 12,
+                            left: 12,
+                            top: 10
+                          ),
+                          child: Container(
+                            color: Color.fromRGBO(46, 150,32, 1),
+                            height: 70,
+                            child: Center(
+                              child: Text(
+                                "Activate Ticket",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  letterSpacing: 0.3
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 12,
+                            left: 12,
+                            top: 10
+                          ),
+                          child: Container(
+                            color: Color.fromRGBO(26, 108,151, 1),
+                            height: 70,
+                            child: Center(
+                              child: Text(
+                                "NX Rewards Cashback",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  letterSpacing: 0.3
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+
+          ],
+
+
+        ),
+      ),
+    );
+  }
+  
+
+}
