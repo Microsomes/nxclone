@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/main/bar.dart';
+import 'package:nxclone/v2/pages/ticketv2.dart';
 
 class Ticket2 extends StatefulWidget{
   @override
@@ -87,7 +88,12 @@ class Ticket2State extends State<Ticket2>{
                           ),
                           child: InkWell(
                             onTap: (){
-                             displayActivationDialog(context);
+                             //displayActivationDialog(context);
+                             print("show ticket and activate");
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ActualTicket()),
+                            );
                             },
                               child: Container(
                               color: Color.fromRGBO(46, 150,32, 1),
@@ -237,9 +243,9 @@ class Ticket2State extends State<Ticket2>{
                           ),
                           child: InkWell(
                             onTap: (){
-                             displayBottomSheet(context);
+                             displayActivationDialog(context);
                             },
-                                                      child: Container(
+                              child: Container(
                               color: Color.fromRGBO(46, 150,32, 1),
                               height: 70,
                               child: Center(
