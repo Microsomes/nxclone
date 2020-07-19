@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/pages/defaultTicket.dart';
+import 'package:nxclone/v2/pages/ejection.dart';
 import 'package:nxclone/v2/pages/landingPage.dart';
 
 class QuickOptions extends StatefulWidget{
@@ -46,6 +47,11 @@ class QuickOptions extends StatefulWidget{
                   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => DefaultTicket()),
+                    );
+                }else if(index==2){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Ejection()),
                     );
                 }
               },

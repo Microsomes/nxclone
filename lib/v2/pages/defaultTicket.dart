@@ -20,12 +20,14 @@ class DefaultTicketState extends State<DefaultTicket>{
      List ticketOptions=List();
      bool isShowing=true;
 
+     String currentTicketTitle="";
+
     @override
   void initState() {
     // TODO: implement initState
     super.initState();
     ticketOptions.add({"title":"Daysaver","icon":Icons.settings,"asset":"images/daysaver1.png","id":"daysaver","selected":false});
-    ticketOptions.add({"title":"Single","icon":Icons.settings,"asset":"images/single1.png","id":"single","selected":false});
+    ticketOptions.add({"title":"Single Journey","icon":Icons.settings,"asset":"images/single1.png","id":"single","selected":false});
     ticketOptions.add({"title":"Daysaver (Sat-Sun)","icon":Icons.settings,"asset":"images/daysaversatsun.png","id":"daysaversatsun","selected":false});
     ticketOptions.add({"title":"Evening Saver after 6pm","icon":Icons.settings,"asset":"images/eveningsaver.png","id":"eveningsaverafter6","selected":false});
     ticketOptions.add({"title":"Group Day Saver","icon":Icons.settings,"asset":"images/groupdaysaver.png","id":"groupdaysaver","selected":false});
@@ -40,6 +42,9 @@ class DefaultTicketState extends State<DefaultTicket>{
         ticketOptions.forEach((element) {
             if(element['id']==current){
               element['selected']=true;
+              setState(() {
+                currentTicketTitle=element['title'];
+              });
             }
         });
         resetState();
@@ -88,7 +93,7 @@ class DefaultTicketState extends State<DefaultTicket>{
               padding: EdgeInsets.all(20),
             color: Color.fromRGBO(123, 26, 17, 1),
           height: 160,
-          child: ticketTwo(),
+          child: ticketTwo(title: currentTicketTitle,),
         ),
         SizedBox(height: 20,),
         Text("Customise Ticket",style: TextStyle(
@@ -117,6 +122,9 @@ class DefaultTicketState extends State<DefaultTicket>{
                     ticketOptions.forEach((element) {
                         if(element['id']==current){
                           element['selected']=true;
+                          setState(() {
+                                currentTicketTitle=element['title'];
+                          });
                         }else{
                           element['selected']=false;
                         }

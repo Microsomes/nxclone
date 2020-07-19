@@ -97,6 +97,9 @@ flutter:
    - images/eveningsaver.png
    - images/groupdaysaver.png
    - images/groupdaysaverafter6.png
+   - images/crash.png
+   - images/launch.png
+   - images/error.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

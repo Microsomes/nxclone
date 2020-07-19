@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 class ticketTwo extends StatelessWidget {
+
+    String title;
+
+    ticketTwo({
+      this.title
+    });
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -43,7 +50,7 @@ class ticketTwo extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0, top: 5),
               child: Text(
-                "Daysaver",
+                title,
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
               ),
             )),

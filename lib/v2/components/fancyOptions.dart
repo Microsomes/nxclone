@@ -55,11 +55,12 @@ class FancyOptionsState extends State<FancyOptions>{
                  Padding(
                    padding: const EdgeInsets.all(20),
                    child: Container(
-                     height: 10,
-                     width: 10,
+                     height: 20,
+                     width: 20,
                     decoration: new BoxDecoration(
-                    color: widget.isSelected== true ? Colors.white : Colors.transparent,
+                    color: widget.isSelected== true ? Colors.black : Colors.transparent,
                     shape: BoxShape.circle,
+                    
                 ),
                    ),
                  ),
