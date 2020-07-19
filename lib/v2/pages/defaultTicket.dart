@@ -31,8 +31,29 @@ class DefaultTicketState extends State<DefaultTicket>{
     ticketOptions.add({"title":"Group Day Saver","icon":Icons.settings,"asset":"images/groupdaysaver.png","id":"groupdaysaver","selected":false});
     ticketOptions.add({"title":"Group Daysaver after 6pm","icon":Icons.settings,"asset":"images/groupdaysaverafter6.png","id":"groupdaysaverafter6","selected":false});
  
+
+    restoreOption("defaultticket").then((value){
+      if(value.length==0){
+        //do nothing
+      }else{
+        var current= value[0]['val'];
+        ticketOptions.forEach((element) {
+            if(element['id']==current){
+              element['selected']=true;
+            }
+        });
+        resetState();
+      }
+    });
+    
+
   }
 
+ Future restoreOption(String key) async {
+        var db= await openDatabase("main.db");
+        List<Map> list = await db.rawQuery('SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1',[key]);
+        return list;
+    }
 
   saveOption(String key,String val) async {
       var db= await openDatabase("main.db");
@@ -88,7 +109,21 @@ class DefaultTicketState extends State<DefaultTicket>{
                 assetRoute: ticketOptions[index]['asset'],
                 clicked: (){
                   saveOption("defaultticket",ticketOptions[index]['id']);
-                  resetState();
+                  restoreOption("defaultticket").then((value){
+                  if(value.length==0){
+                    //do nothing
+                  }else{
+                    var current= value[0]['val'];
+                    ticketOptions.forEach((element) {
+                        if(element['id']==current){
+                          element['selected']=true;
+                        }else{
+                          element['selected']=false;
+                        }
+                    });
+                    resetState();
+                  }
+                });
                 },
                 boxFitt: BoxFit.contain,
               ),
