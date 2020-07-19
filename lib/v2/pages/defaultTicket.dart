@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/components/fancyOptions.dart';
 
 import '../../components/daysaveractive.dart';
 import '../main/bar.dart';
@@ -14,6 +15,22 @@ class DefaultTicket extends StatefulWidget{
 }
 
 class DefaultTicketState extends State<DefaultTicket>{
+
+     List ticketOptions=List();
+
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ticketOptions.add({"title":"Daysaver","icon":Icons.settings,"asset":"images/landing2.png"});
+    ticketOptions.add({"title":"Single","icon":Icons.settings,"asset":"images/landing1.png"});
+    ticketOptions.add({"title":"Daysaver (Sat-Sun)","icon":Icons.settings,"asset":"images/landing1.png"});
+    ticketOptions.add({"title":"Evening Saver after 6pm","icon":Icons.settings,"asset":"images/landing1.png"});
+    ticketOptions.add({"title":"Group Day Saver","icon":Icons.settings,"asset":"images/landing1.png"});
+    ticketOptions.add({"title":"Group Daysaver after 6pm","icon":Icons.settings,"asset":"images/landing1.png"});
+ 
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -35,10 +52,27 @@ class DefaultTicketState extends State<DefaultTicket>{
         Text("Customise Ticket",style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold
-        ),)
+        ),),
 
-        
-      
+        Expanded(
+          child: Center(child: 
+          ListView.builder(
+            itemCount: ticketOptions.length,
+            itemBuilder: (context,index){
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: FancyOptions(
+                title: ticketOptions[index]['title'],
+                isSelected: false,
+                assetRoute: "images/home1.png",
+                clicked: (){},
+              ),
+            );
+          })
+          ),
+        )
+
+            
         ],
       )
     );

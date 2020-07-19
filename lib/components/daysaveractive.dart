@@ -3,8 +3,7 @@ class ticketTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      
+    return Container(  
       child: Column(children: [
         Container(
           height: 30,
@@ -42,7 +41,7 @@ class ticketTwo extends StatelessWidget {
         Container(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 22.0, top: 5),
+              padding: const EdgeInsets.only(left: 10.0, top: 5),
               child: Text(
                 "Daysaver",
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
