@@ -17,7 +17,7 @@ class NxsigState extends State<Nxsig>{
     return Container(
       height: 130,
       width: MediaQuery.of(context).size.width*0.785,
-      color: Color.fromRGBO(243, 199, 210, 1),
+      color: Color.fromRGBO(248, 233, 226, 1),
       child: Column(
         children: <Widget>[
           Container(
@@ -42,7 +42,34 @@ class NxsigState extends State<Nxsig>{
                 SizedBox(width: 10,)
               ],
             ),
-          )
+          ),
+          Expanded(child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+            SizedBox(width: 30,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("national",style: TextStyle(color: Color.fromRGBO(205, 192, 201, 1),
+                  letterSpacing: 0.1,
+                  fontWeight: FontWeight.w500),),
+                  Text("express",style: TextStyle(color: Color.fromRGBO(205, 192, 201, 1),
+                  letterSpacing: 0.1,
+                  fontWeight: FontWeight.w500),),
+                ],
+
+              ),
+              SizedBox(width: 5,),
+              Text("West Midlands",
+              style: TextStyle(
+                color: Color.fromRGBO(239, 193, 193, 1),
+                fontSize: 25,
+                fontWeight: FontWeight.bold
+              ),)
+
+            ],
+
+          ),)
         ],
       ),
     );
