@@ -13,7 +13,7 @@ class Ticket2State extends State<Ticket2>{
 
 
 
-   void displayBottomSheet(BuildContext context) {
+   void displayActivationDialog(BuildContext context) {
     showModalBottomSheet(
         context: context,
         builder: (ctx) {
@@ -87,7 +87,7 @@ class Ticket2State extends State<Ticket2>{
                           ),
                           child: InkWell(
                             onTap: (){
-                             displayBottomSheet(context);
+                             displayActivationDialog(context);
                             },
                               child: Container(
                               color: Color.fromRGBO(46, 150,32, 1),
@@ -106,7 +106,6 @@ class Ticket2State extends State<Ticket2>{
                             ),
                           ),
                         ),
-
                 ],
               )
             ),
