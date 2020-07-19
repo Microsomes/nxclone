@@ -48,6 +48,7 @@ class Ticket2State extends State<Ticket2>{
                     ),
                   ),
                   Container(
+                    alignment: Alignment.centerLeft,
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left: 30,
@@ -56,11 +57,55 @@ class Ticket2State extends State<Ticket2>{
                       child: Text(
                         "Please activate your ticket before just before boarding. A ticket remains active for only 30 minutes.",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500
+                          fontWeight: FontWeight.w500,
+                          height: 1.5
                         ),
                         ),
                     ),
-                  )
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 30,
+                        top: 30
+                      ),
+                      child: Text(
+                        "You may only activate your mTicket\nonce so please do not continue unless\nyou are travelling.",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          height: 1.5
+                        ),
+                        ),
+                    ),
+                  ),
+                  Padding(
+                          padding: const EdgeInsets.only(
+                            right: 20,
+                            left: 20,
+                            top: 40
+                          ),
+                          child: InkWell(
+                            onTap: (){
+                             displayBottomSheet(context);
+                            },
+                              child: Container(
+                              color: Color.fromRGBO(46, 150,32, 1),
+                              height: 70,
+                              child: Center(
+                                child: Text(
+                                  "Activate Ticket",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    letterSpacing: 0.3
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
 
                 ],
               )
