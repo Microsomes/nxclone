@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/main/quickOptions.dart';
 
@@ -60,13 +61,24 @@ class HomePagePre_state extends State<HomePagePre> {
                       style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: 10
+                  InkWell(
+                    onTap: (){
+                      print("open ticket page");
+
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Ticket()),
+                      );
+
+                    },
+                                      child: Container(
+                      margin: EdgeInsets.only(
+                        top: 10
+                      ),
+                      height: 120,
+                      width: 120,
+                      child: Image.asset("images/mrskeleton.png",width: 200,)
                     ),
-                    height: 120,
-                    width: 120,
-                    child: Image.asset("images/mrskeleton.png",width: 200,)
                   )
                 ],
               ),
