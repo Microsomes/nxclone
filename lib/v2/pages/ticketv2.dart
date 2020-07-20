@@ -111,7 +111,7 @@ class ActualTicketState extends State<ActualTicket>{
                         ), 
 
                        Container(
-                          height: 300,
+                          height: 240,
                          child: Stack(
                          children: <Widget>[
                             Positioned(
@@ -135,13 +135,59 @@ class ActualTicketState extends State<ActualTicket>{
                               right: 0
                             ),
                             child: Container(
-                             child: Nxsig()
+                             child: Column(
+                               children: <Widget>[
+                                 Nxsig(),
+                                 Container(
+                                   height: 30,
+                                   width: MediaQuery.of(context).size.width*0.785,
+                                   decoration: BoxDecoration(
+                                        color: Color.fromRGBO(156, 19, 26, 1),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(10),
+                                          bottomRight: Radius.circular(10)
+                                        ),
+                                   ),
+                                   child: Center(
+                                     child: Text("Activated 13:32",
+                                     style: TextStyle(
+                                       color: Colors.white,
+                                       fontWeight: FontWeight.bold,
+                                       fontSize: 17,
+                                       letterSpacing: 0.8
+                                     ),
+                                     ),
+                                   ),
+                                 ),
+                               ],
+                             )
                              ),
                           ),
                         ),
                          ],
                        ),
                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 20,
+                            left: 20,
+                           ),
+                          child: Container(
+                            color: Color.fromRGBO(26, 108,151, 1),
+                            height: 60,
+                            child: Center(
+                              child: Text(
+                                "NX Rewards Cashback",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  letterSpacing: 0.3
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                         Expanded(
                           child: Text("")
                         ),

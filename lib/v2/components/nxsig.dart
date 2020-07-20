@@ -65,13 +65,15 @@ class NxsigState extends State<Nxsig>{
               Text("West Midlands",
               style: TextStyle(
                 color: Color.fromRGBO(239, 193, 193, 1),
-                fontSize: 26,
+                fontSize: 27,
                 fontWeight: FontWeight.bold
               ),)
 
             ],
+            
 
-          ),)
+          ),
+          ),
         ],
       ),
     );
