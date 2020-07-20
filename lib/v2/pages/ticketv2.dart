@@ -3,6 +3,7 @@ import 'package:nxclone/v2/components/nxsig.dart';
 import 'package:nxclone/v2/components/ticketColor.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+
 class ActualTicket extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
