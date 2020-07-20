@@ -17,10 +17,11 @@ class Ticket2State extends State<Ticket2>{
 
    void displayActivationDialog(BuildContext context) {
     showModalBottomSheet(
+      isScrollControlled: true,
         context: context,
         builder: (ctx) {
           return Container(
-            height: MediaQuery.of(context).size.height  * 1,
+            height: MediaQuery.of(context).size.height  * 0.65,
             child: Center(
               child:Column(
                 children: <Widget>[
@@ -70,7 +71,7 @@ class Ticket2State extends State<Ticket2>{
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left: 30,
-                        top: 30
+                        top: 20
                       ),
                       child: Text(
                         "You may only activate your mTicket\nonce so please do not continue unless\nyou are travelling.",
@@ -85,7 +86,7 @@ class Ticket2State extends State<Ticket2>{
                           padding: const EdgeInsets.only(
                             right: 20,
                             left: 20,
-                            top: 40
+                            top: 60
                           ),
                           child: InkWell(
                             onTap: (){
@@ -98,7 +99,7 @@ class Ticket2State extends State<Ticket2>{
                             },
                               child: Container(
                               color: Color.fromRGBO(46, 150,32, 1),
-                              height: 70,
+                              height: 60,
                               child: Center(
                                 child: Text(
                                   "Activate Ticket",
@@ -113,6 +114,31 @@ class Ticket2State extends State<Ticket2>{
                             ),
                           ),
                         ),
+                         Container(
+                           width: MediaQuery.of(context).size.width,
+                          child: Padding(
+                              padding: const EdgeInsets.only(left:10,top:30),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                      padding: const EdgeInsets.all(0.0),
+                                      width: 30,
+                                    child: IconButton(
+                                      icon: Icon(Icons.close,color: Color.fromRGBO(81, 108, 137, 1),size: 20,),
+                                      onPressed: (){},
+                                    ),
+                                  ),
+                                  Text("Close",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(103, 119, 138, 1),
+                                    fontWeight: FontWeight.w500
+                                  ),)
+                                ],
+                              ),
+                            )
+                        
+                        )
                 ],
               )
             ),
