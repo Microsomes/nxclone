@@ -263,25 +263,32 @@ class Ticket2State extends State<Ticket2>{
                           ),
                         ),
 
-                        Padding(
+                       Padding(
                           padding: const EdgeInsets.only(
                             right: 12,
                             left: 12,
-                            top: 10
-                          ),
+                            top:10
+                           ),
                           child: Container(
                             color: Color.fromRGBO(26, 108,151, 1),
                             height: 70,
                             child: Center(
-                              child: Text(
+                              child: Row(
+                                children: <Widget>[
+                                  SizedBox(width: 15,),
+                                  Icon(Icons.launch,color: Colors.white,size: 16,),
+                                  SizedBox(width: 15,),
+                                  Text(
                                 "NX Rewards Cashback",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   letterSpacing: 0.3
                                 ),
                               ),
+                                ],
+                              )
                             ),
                           ),
                         ),
