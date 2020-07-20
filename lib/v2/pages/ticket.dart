@@ -239,7 +239,7 @@ class Ticket2State extends State<Ticket2>{
                           padding: const EdgeInsets.only(
                             right: 12,
                             left: 12,
-                            top: 10
+                            top: 6
                           ),
                           child: InkWell(
                             onTap: (){
@@ -247,7 +247,7 @@ class Ticket2State extends State<Ticket2>{
                             },
                               child: Container(
                               color: Color.fromRGBO(46, 150,32, 1),
-                              height: 70,
+                              height: 60,
                               child: Center(
                                 child: Text(
                                   "Activate Ticket",
@@ -271,7 +271,7 @@ class Ticket2State extends State<Ticket2>{
                            ),
                           child: Container(
                             color: Color.fromRGBO(26, 108,151, 1),
-                            height: 70,
+                            height: 60,
                             child: Center(
                               child: Row(
                                 children: <Widget>[
