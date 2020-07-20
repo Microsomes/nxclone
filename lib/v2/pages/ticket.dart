@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/components/nxsig.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/pages/ticketv2.dart';
 
@@ -213,11 +214,11 @@ class Ticket2State extends State<Ticket2>{
                         Container(
                           child: Padding(
                             padding: const EdgeInsets.only(
-                              left: 12,
-                              right: 12,
-                              top:5
+                              left: 10,
+                              right: 10,
+                              top:10
                             ),
-                            child: Image.asset("images/nxsig.png"),
+                            child: Nxsig(isRounded: true,)
                           ),
                         ),
                         SizedBox(height: 10,),

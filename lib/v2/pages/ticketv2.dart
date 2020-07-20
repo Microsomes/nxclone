@@ -139,7 +139,7 @@ class ActualTicketState extends State<ActualTicket>{
                             child: Container(
                              child: Column(
                                children: <Widget>[
-                                 Nxsig(),
+                                 Nxsig(isRounded: false,),
                                  Container(
                                    height: 30,
                                    width: MediaQuery.of(context).size.width*0.785,

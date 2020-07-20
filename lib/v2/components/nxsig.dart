@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Nxsig extends StatefulWidget{
+
+  final bool isRounded;
+
+  Nxsig({
+    @required this.isRounded
+  });
+
+    
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -22,8 +31,14 @@ class NxsigState extends State<Nxsig>{
         children: <Widget>[
           Container(
             height: 18,
-            color: Color.fromRGBO(140, 36, 40, 1),
-            child: Row(
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(140, 36, 40, 1),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular( widget.isRounded==true ? 10 : 0),
+                  topLeft: Radius.circular( widget.isRounded==true ? 10 : 0)
+                )
+            ),
+             child: Row(
               children: <Widget>[
                 SizedBox(width: 15,),
                 Text("West Midlands",
