@@ -87,13 +87,14 @@ class ActualTicketState extends State<ActualTicket>{
                             ],
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(height: 10,),
                         Container(
-                          height: 200,
+                          alignment: Alignment.center,
+                          height: 180,
                            child: QrImage(
                             data: "1234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm890",
                             version: QrVersions.auto,
-                            size: 200.0,
+                            size: 180,
                           ),
                         ),
                         SizedBox(height: 10,),
@@ -176,15 +177,22 @@ class ActualTicketState extends State<ActualTicket>{
                             color: Color.fromRGBO(26, 108,151, 1),
                             height: 60,
                             child: Center(
-                              child: Text(
+                              child: Row(
+                                children: <Widget>[
+                                  SizedBox(width: 15,),
+                                  Icon(Icons.launch,color: Colors.white,size: 16,),
+                                  SizedBox(width: 15,),
+                                  Text(
                                 "NX Rewards Cashback",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   letterSpacing: 0.3
                                 ),
                               ),
+                                ],
+                              )
                             ),
                           ),
                         ),
