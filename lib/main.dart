@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/main/quickOptions.dart';
+import 'package:nxclone/v2/pages/nxfront.dart';
 
 import 'v2/pages/ticket.dart';
 
@@ -69,7 +70,7 @@ class HomePagePre_state extends State<HomePagePre> {
 
                         Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Ticket2()),
+                        MaterialPageRoute(builder: (context) => Nxfront()),
                       );
 
                     },
