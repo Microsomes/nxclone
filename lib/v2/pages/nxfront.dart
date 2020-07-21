@@ -248,31 +248,38 @@ class NxfrontState extends State<Nxfront>{
                     ),
                     Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                          alignment: Alignment.bottomRight,
-                          width: sizeW,
-                          height: 16,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Text(
-                                "MORE TICKETS",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Image.asset(
-                                "images/rightwhite.png",
-                                width: 15,
-                              ),
-                              SizedBox(
-                                width: 12,
-                              )
-                            ],
-                          )),
+                      child: InkWell(
+                        onTap: (){
+                          print("ticket page");
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticketwallet()));
+                          //Ticketwallet
+                        },
+                                              child: Container(
+                            alignment: Alignment.bottomRight,
+                            width: sizeW,
+                            height: 16,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Text(
+                                  "MORE TICKETS",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Image.asset(
+                                  "images/rightwhite.png",
+                                  width: 15,
+                                ),
+                                SizedBox(
+                                  width: 12,
+                                )
+                              ],
+                            )),
+                      ),
                     ),
                   ],
                 ),
