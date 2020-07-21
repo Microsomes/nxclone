@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class ticketTwo extends StatelessWidget {
 
-    String title;
+    final String title;
 
     ticketTwo({
       this.title

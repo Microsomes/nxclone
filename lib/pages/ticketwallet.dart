@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
+import 'package:nxclone/v2/pages/ticket.dart';
 
 import './../components/daysaveractive.dart';
 
@@ -120,7 +121,7 @@ class _stpagestate extends State<stpage>{
                   child: Container(
             height: 110,
             width: MediaQuery.of(context).size.width*0.90,
-            child: ticketTwo(),
+            child: ticketTwo(title: "K",),
           ),
         ),
         SizedBox(height: 10,),
@@ -150,7 +151,8 @@ class SingleInactiveTicket extends StatelessWidget {
     return InkWell(
       onTap: (){
 
-        print("open ticket");
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticket2()));
+
 
           
 

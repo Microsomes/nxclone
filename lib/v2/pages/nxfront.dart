@@ -228,21 +228,19 @@ class NxfrontState extends State<Nxfront>{
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                        width: sizeW * 0.9,
-                        height: 120,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15)),
-                        child: InkWell(
-                          onTap: (){
-                            print("go to ticket");
+                    InkWell(
+                      onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticket2()));
 
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticket2()));
-
-                          },
-                          child: Text("Not coding the ui for this lul but click to go to the new ticket"))
-                        //ticketone(sizeW: sizeW),
-                        ),
+                      },
+                                          child: Container(
+                          width: sizeW * 0.9,
+                          height: 120,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: SingleInactiveTicket(sizeW: sizeW)
+                           ),
+                    ),
                     Expanded(
                       child: Text(""),
                     ),
