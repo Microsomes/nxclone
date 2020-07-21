@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'dart:async';
-import 'package:marquee/marquee.dart';
-import 'package:intl/intl.dart';
-import 'package:nxclone/main.dart';
-import 'dart:io';
-import 'package:qr_flutter/qr_flutter.dart';
+ import 'dart:async';
+ import 'package:intl/intl.dart';
+  import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../settings.dart';
-import './ticketInfo.dart';
+ import './ticketInfo.dart';
 import 'package:screen/screen.dart';
 
-import 'package:flutter_sequence_animation/flutter_sequence_animation.dart';
-
+ 
 class Ticket extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -1141,16 +1135,16 @@ class Stpagestate extends State<Stpage> {
 
                                             //restart app
 
-                                                    Fluttertoast.showToast(
-                      msg: "Restart app to load to home page",
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.CENTER,
-                      timeInSecForIos: 1,
-                      backgroundColor: Colors.lightBlue,
-                      textColor: Colors.white,
-                      fontSize: 16.0);
+                      //                               Fluttertoast.showToast(
+                      // msg: "Restart app to load to home page",
+                      // toastLength: Toast.LENGTH_SHORT,
+                      // gravity: ToastGravity.CENTER,
+                      // timeInSecForIos: 1,
+                      // backgroundColor: Colors.lightBlue,
+                      // textColor: Colors.white,
+                      // fontSize: 16.0);
 
-                                          });
+                                           });
                                       
 
 
