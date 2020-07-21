@@ -6,6 +6,7 @@ import 'package:nxclone/pages/offers.dart';
 import 'package:nxclone/pages/ticketwallet.dart';
 import 'package:nxclone/pages/tripTools.dart';
 import 'package:nxclone/v2/main/bar.dart';
+import 'package:nxclone/v2/pages/ticket.dart';
 
 class Nxfront extends StatefulWidget{
   @override
@@ -30,6 +31,7 @@ class NxfrontState extends State<Nxfront>{
           child: BarV2(),
       ),
       body: Container(
+        padding: EdgeInsets.all(10),
           height: 1000,
           width: double.infinity,
           color: Color.fromRGBO(169, 27, 26, 1),
@@ -210,10 +212,10 @@ class NxfrontState extends State<Nxfront>{
                           onTap: (){
                             print("go to ticket");
 
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticket()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticket2()));
 
                           },
-                          child: ticketTwo())
+                          child: Text("Not coding the ui for this lul but click to go to the new ticket"))
                         //ticketone(sizeW: sizeW),
                         ),
                     Expanded(
