@@ -28,7 +28,32 @@ class NxfrontState extends State<Nxfront>{
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(45),
-          child: BarV2(),
+          child:  AppBar(
+            elevation: 0.0,
+            title: Text(
+              "",
+              style: TextStyle(
+                  color: Color.fromRGBO(107, 107, 107, 1), fontSize: 22),
+            ),
+            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            actions: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(17.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(29)),
+                  width: 120,
+                  height: 10,
+                  child: Center(
+                    child: Text("")
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+            ],
+          ),
       ),
       body: Container(
         padding: EdgeInsets.all(10),
