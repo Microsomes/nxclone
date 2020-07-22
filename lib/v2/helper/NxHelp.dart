@@ -355,21 +355,42 @@ class NXHelp{
       var db= await openDatabase("main.db");
      await  db.execute("CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
      await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate text,ticketid text)");
-     await db.execute("CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettitle text,ticketsubtitle text, price text)");
+     await db.execute("CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
       print("run pre-runup setup");
+
+
+      this.getAllTickets().then((value){
+        for(var ele in value){
+        print("--------------------------------------------");
+
+          var curtitle=ele['tickettitle'];
+          var curstate=ele['state'];
+
+          print(curtitle);
+          print(curstate);
+
+          
+         print("--------------------------------------------");
+
+        }
+
+      });
 
 
       print(ticketTypes.length);
 
+  for(var element in ticketTypes) { 
 
-      // ticketTypes.forEach((element) { 
+    //check duplicate first
+    var dup=await this.checkTicketByState(element['title'],"West Midlands");
+    print(dup);
 
-      //   print(element['state']);
+     var id= await this.addTicket(element['title'], element['state'], element['price'], element['subtitle']);
+        //saves to db
+        var title= element['title'];
+        print("$id:$title");
+    }
 
-      // });
-
-
-      //db.close();
   }
 
  Future loadConfig(String key, int limit) async {
@@ -385,10 +406,26 @@ class NXHelp{
       return iid;
   }
 
+  Future getAllTickets() async {
+           var db= await openDatabase("main.db");
+      List<Map> list = await db.rawQuery('SELECT * FROM tickets');
+       return list;
+  }
+
+
+  Future checkTicketByState(String type,String state) async {
+       var db= await openDatabase("main.db");
+
+       print(state);
+       List<Map> list = await db.rawQuery('SELECT * FROM tickets WHERE tickettitle=? & state=?',[type,state]);
+       return list;
+  }
+
 
   Future addTicket(String type, String state, String price, String subtitle) async {
+    
       var db= await openDatabase("main.db");
-     var iid= await db.rawInsert("INSERT INTO tickets(tickettitle,state,price,ticketsubtitle)",[type,state,price,subtitle]);
+     var iid= await db.rawInsert("INSERT INTO tickets(tickettitle,state,price,ticketsubtitle) VALUES (?,?,?,?)",[type,state,price,subtitle]);
       return iid;
   }
 
