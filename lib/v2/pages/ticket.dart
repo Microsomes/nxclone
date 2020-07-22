@@ -22,6 +22,7 @@ class Ticket2State extends State<Ticket2>{
         builder: (ctx) {
           return Container(
             height: MediaQuery.of(context).size.height  * 0.65,
+            
             child: Center(
               child:Column(
                 children: <Widget>[
