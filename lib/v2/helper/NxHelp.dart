@@ -11,7 +11,8 @@ class NXHelp{
 
   void init() async {
       var db= await openDatabase("main.db");
-      db.execute("CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
+     await  db.execute("CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
+     await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate text,ticketid text)");
       print("run pre-runup setup");
       db.close();
   }

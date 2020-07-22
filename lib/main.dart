@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/main/quickOptions.dart';
 import 'package:nxclone/v2/pages/nxfront.dart';
@@ -20,6 +21,8 @@ class HomePagePre extends StatefulWidget {
 }
 class HomePagePre_state extends State<HomePagePre> {
 
+
+
   bool isShowing=false;
   double maxHeight;
   double containerHeight;
@@ -28,6 +31,9 @@ class HomePagePre_state extends State<HomePagePre> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    NXHelp();
+
     //maxHeight= MediaQuery.of(context).size.height;
     containerHeight=10;
     setState(() {

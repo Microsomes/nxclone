@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/components/fancyOptions.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -54,6 +55,8 @@ class LandingPageState extends State<LandingPage>{
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    NXHelp();
 
     option1= FancyOptions(title: "Home Page",isSelected: true,assetRoute:"images/home1.png" ,clicked: () async {
                 this.saveOption("defaulthomepage", "home");
