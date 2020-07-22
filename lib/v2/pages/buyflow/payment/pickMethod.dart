@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/pages/buyflow/components/addNewPaymentOption.dart';
+import 'package:nxclone/v2/pages/buyflow/components/allPaymentOptions.dart';
 import 'package:nxclone/v2/pages/buyflow/components/paymentOption.dart';
+import 'package:nxclone/v2/pages/buyflow/payment/paymentFinal.dart';
 
 
 class PickPaymentMethodAndConfirmItem extends StatelessWidget{
@@ -141,14 +143,18 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
                             ],
                           ),
                         ),
-                        PaymentOption(
-                              paymentTypeIcon: "images/v2/visa.png",
-                              paymentCard: "VISA",
-                              last4digits: "7824",
-                              expiresBy: "22/25",
-                            ),
-
-                          AddNewPaymentOption()
+                        InkWell(
+                          onTap: (){
+                              print("final confirm");
+                               Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => PaymentFinal(
+                                  selectedState: selectedState,
+                                  selectedTicket: selectedTicket,
+                                )),
+                              );
+                          },
+                          child: AllPaymentOptions()),
                             
                             
 
