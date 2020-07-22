@@ -25,6 +25,17 @@ class PaymentOption extends StatefulWidget{
 }
 
 class PaymentOptionState extends State<PaymentOption>{
+
+  String pc;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+     this.pc= widget.paymentCard;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -48,8 +59,54 @@ class PaymentOptionState extends State<PaymentOption>{
                   SizedBox(width: 10,),
                   Expanded(
                         child: Container(
+                          alignment: Alignment.centerLeft,
                       height: 120,
-                      child: Text("nkjn"),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("VISA",
+                          style: TextStyle(fontWeight: FontWeight.bold),),
+                          SizedBox(height: 10,),
+                          Row(
+                             children: <Widget>[
+                               SizedBox(width: 4,),
+                               Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 4,),
+                               Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 4,),
+                               Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 2,),
+                              Image.asset("images/v2/v2assets/dot.png",width:6),
+                               SizedBox(width: 4,),
+                               Text("8998",
+                               style: TextStyle(
+                                 color: Color.fromRGBO(80, 8, 8, 1)
+                               ),)
+
+                             ],
+                          ),
+                          SizedBox(height: 10,),
+                          Text("VISA",
+                          style: TextStyle(fontWeight: FontWeight.bold),)
+                        ],
+                      )
                     ),
                   ),
                   Container(
