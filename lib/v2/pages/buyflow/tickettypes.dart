@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/ticketoption.dart';
+
 
 class BuyTicketTypes extends StatefulWidget{
   @override
@@ -19,7 +21,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
     // TODO: implement initState
     super.initState();
 
-    
+
 
   }
 
@@ -30,7 +32,11 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
     return Column(
       children: <Widget>[
 
-        Text("option1")
+        TicketOption(
+          title: "Single Journey",
+          subtitle: "Any bus across our network",
+          price: "£2.40",
+        )
 
       ],
     );

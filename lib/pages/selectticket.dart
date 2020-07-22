@@ -50,8 +50,7 @@ class _stpagestate extends State<stpage> {
                    child:  Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.red,
-                    child: BuyTicketTypes()
+                     child: BuyTicketTypes()
                   ),
                  )
 
