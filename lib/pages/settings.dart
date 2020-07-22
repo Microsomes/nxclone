@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class Settings extends StatefulWidget {
 }
 
 class SettingsState extends State<Settings> {
+  
 
   String defaultHomePage="";
 
@@ -23,6 +25,18 @@ class SettingsState extends State<Settings> {
   Future setHomePage(String homePage) async {
     final SharedPreferences prefs= await SharedPreferences.getInstance();
     return prefs.setString("defaultPage",homePage);
+  }
+
+  NXHelp helpNx;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    helpNx= NXHelp();
+
+
   }
 
   @override
@@ -62,6 +76,16 @@ class SettingsState extends State<Settings> {
                   }).toList(),
                   onChanged: (a) {
                     print(a);
+
+                    //map to v2
+                    if(a=="precaution"){
+                      helpNx.saveConfig("defaulthomepage", "home");
+                    }else if(a=="ticket page"){
+                        helpNx.saveConfig("defaulthomepage", "ticket");
+                    }else{
+                      //default to home page
+                        helpNx.saveConfig("defaulthomepage", "home");
+                    }
 
                      setHomePage(a).then((onValue){
 
