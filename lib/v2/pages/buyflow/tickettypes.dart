@@ -13,7 +13,9 @@ class BuyTicketTypes extends StatefulWidget{
 
 class Ttype{
   static String singlejourney="Single Journey";
+  static String singlejourney_cov="Coventry Single Journey";
   static String daySaver="Daysaver";
+  static String daySaver_cov="Coventry Daysaver";
   static String daysaverafter930monfri="Daysaver after 9.30am (Mon-Fri)";
   static String daySaversatsun="Daysaver (Sat-Sun)";
   static String eveningSaverafter6="Evening Saver after 6pm";
@@ -108,7 +110,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       ////////conventry
       
       ticketTypes.add({
-        "title":"Conventry Single Journey",
+        "title":Ttype.singlejourney_cov,
         "subtitle":"Any bus acorss our network",
         "price":"2.20",
         "state":"Conventry",
@@ -123,7 +125,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
       ticketTypes.add({
-        "title":"Conventry Daysaver",
+        "title":Ttype.daySaver_cov,
         "subtitle":"All busses in the Conventry area",
         "price":"4.00",
         "state":"Conventry",
@@ -138,7 +140,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
       ticketTypes.add({
-        "title":"Daysaver after 9.30am (Mon-Fri)",
+        "title":Ttype.daysaverafter930monfri,
         "subtitle":"Any busses across our network",
         "price":"4.00",
         "state":"Conventry",
@@ -147,7 +149,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         ]
       });
       ticketTypes.add({
-        "title":"Daysaver (Sat-Sun)",
+        "title":Ttype.daySaversatsun,
         "subtitle":"Any busses across our network",
         "price":"4.00",
         "state":"Conventry",
@@ -157,7 +159,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
        ticketTypes.add({
-        "title":"Evening Saver after 6pm",
+        "title":Ttype.eveningSaverafter6,
         "subtitle":"Any busses across our network",
         "price":"3.00",
         "state":"Conventry",
@@ -167,7 +169,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
       ticketTypes.add({
-        "title":"Group Daysaver",
+        "title":Ttype.groupdaysaver,
         "subtitle":"Any busses across our network",
         "price":"6.00",
         "state":"Conventry",
@@ -177,7 +179,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
       ticketTypes.add({
-        "title":"Group Daysaver after 6pm",
+        "title":Ttype.groupdaysaverafter6,
         "subtitle":"Any busses across our network",
         "price":"4.00",
         "state":"Conventry",
@@ -189,7 +191,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       //black country
 
       ticketTypes.add({
-        "title":"Single Journey",
+        "title":Ttype.singlejourney,
         "subtitle":"Any bus acorss our network",
         "price":"2.40",
         "state":"Black Country",
@@ -199,7 +201,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
        ticketTypes.add({
-        "title":"DaySaver",
+        "title":Ttype.daySaver,
         "subtitle":"All busses across our network",
         "price":"4.60",
         "state":"Black Country",
@@ -208,7 +210,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         ]
       });
       ticketTypes.add({
-        "title":"DaySaver after 9.30am (Mon-Fri)",
+        "title":Ttype.daysaverafter930monfri,
         "subtitle":"All busses across our network",
         "price":"4.00",
         "state":"Black Country",
@@ -218,7 +220,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
       ticketTypes.add({
-        "title":"Daysaver (Sat-Sun)",
+        "title":Ttype.daySaversatsun,
         "subtitle":"All busses across our network",
         "price":"4.00",
         "state":"Black Country",
@@ -227,7 +229,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         ]
       });
       ticketTypes.add({
-        "title":"Evening Saver after 6pm",
+        "title":Ttype.eveningSaverafter6,
         "subtitle":"All busses across our network",
         "price":"3.00",
         "state":"Black Country",
@@ -236,7 +238,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         ]
       });
       ticketTypes.add({
-        "title":"Group Daysaver",
+        "title":Ttype.groupdaysaver,
         "subtitle":"All busses across our network",
         "price":"7.00",
         "state":"Black Country",
@@ -245,7 +247,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         ]
       });
       ticketTypes.add({
-        "title":"Group Daysaver after 6pm",
+        "title":Ttype.groupdaysaverafter6,
         "subtitle":"All busses across our network",
         "price":"7.00",
         "state":"Black Country",
@@ -253,6 +255,8 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
              "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
+
+      //Sandwell & Dudley low fare zone
 
 
 
