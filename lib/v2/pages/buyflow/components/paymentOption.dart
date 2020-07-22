@@ -40,7 +40,7 @@ class PaymentOptionState extends State<PaymentOption>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Padding(
-      padding: const EdgeInsets.only(top:8.0),
+      padding: const EdgeInsets.only(top:0.0),
       child: Container(
         height: 120,
         width: MediaQuery.of(context).size.width,
@@ -103,8 +103,20 @@ class PaymentOptionState extends State<PaymentOption>{
                              ],
                           ),
                           SizedBox(height: 10,),
-                          Text("VISA",
-                          style: TextStyle(fontWeight: FontWeight.bold),)
+                          Padding(
+                            padding: const EdgeInsets.only(left:2.0),
+                            child: Text("Expires 02/25",
+                            style: TextStyle(fontWeight: FontWeight.w500,
+                            shadows: [
+                               Shadow(
+                                offset: Offset(0.3, 0.2),
+                                blurRadius: 30.0,
+                                color: Colors.red,
+                              )
+                            ]
+                            
+                            ),),
+                          )
                         ],
                       )
                     ),

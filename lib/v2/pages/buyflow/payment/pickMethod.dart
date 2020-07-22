@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/buyflow/components/addNewPaymentOption.dart';
 import 'package:nxclone/v2/pages/buyflow/components/paymentOption.dart';
 
 
@@ -7,12 +8,20 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
     final String selectedState;
     final  selectedTicket;
 
+    String priceOfTicket="0.00";
+    String tickettitle="";
+
     PickPaymentMethodAndConfirmItem({
       @required this.selectedState,
       @required this.selectedTicket
     }){
 
       print("opened payment page");
+
+      print(this.selectedTicket);
+
+      priceOfTicket= this.selectedTicket['price'];
+      tickettitle= this.selectedTicket['state']+" " +this.selectedTicket['tickettitle'];
 
     }
     
@@ -71,14 +80,14 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
                           child: Row(
                             children: <Widget>[
                               SizedBox(width: 15,),
-                              Text("West Midlands Single Journey",
+                              Text("$tickettitle",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w300
                               ),
                               ),
                               Expanded(child: Text(""),),
-                              Text("1x £2.50",
+                              Text("1x  £$priceOfTicket",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600
@@ -101,7 +110,7 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
                                 fontWeight: FontWeight.bold
                               ),),
                               Expanded(child: Text(""),),
-                              Text("£2.50",
+                              Text("£$priceOfTicket",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
@@ -127,18 +136,16 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
                             ],
                           ),
                         ),
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: 10,
-                            itemBuilder: (context,index){
-                            return PaymentOption(
+                        PaymentOption(
                               paymentTypeIcon: "images/v2/visa.png",
                               paymentCard: "VISA",
                               last4digits: "7824",
                               expiresBy: "22/25",
-                            );
-                          }),
-                        )
+                            ),
+
+                          AddNewPaymentOption()
+                            
+                            
 
                     ],
                   ),
