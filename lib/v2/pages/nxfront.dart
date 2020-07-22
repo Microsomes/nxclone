@@ -3,6 +3,7 @@ import 'package:nxclone/components/daysaveractive.dart';
 import 'package:nxclone/pages/help.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/pages/offers.dart';
+import 'package:nxclone/pages/selectticket.dart';
 import 'package:nxclone/pages/ticketwallet.dart';
 import 'package:nxclone/pages/tripTools.dart';
 import 'package:nxclone/v2/main/bar.dart';
@@ -67,10 +68,10 @@ class NxfrontState extends State<Nxfront>{
               ),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => SelectTicket()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SelectTicket()),
+                  );
                 },
                 focusColor: Colors.red,
                 highlightColor: Colors.pink,

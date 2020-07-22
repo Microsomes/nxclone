@@ -32,7 +32,25 @@ class HomePagePre_state extends State<HomePagePre> {
     // TODO: implement initState
     super.initState();
 
-    NXHelp();
+    NXHelp aconfig= NXHelp();
+    aconfig.loadConfig("defaulthomepage", 1).then((value) {
+        if(value.length==0){
+
+        }else{
+          //=1;
+          var currentval= value[0]['val'];
+          if(currentval=="home"){
+            //home page
+          }else{
+              Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => Nxfront()),
+          (Route<dynamic> route) => false,
+          );
+          }
+        }
+    });
+    
 
     //maxHeight= MediaQuery.of(context).size.height;
     containerHeight=10;
