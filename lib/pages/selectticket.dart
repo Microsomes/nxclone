@@ -18,7 +18,7 @@ class stpage extends StatefulWidget {
 }
 
 class _stpagestate extends State<stpage> {
-  void displayBuyticketDialog(BuildContext context) {
+  void displayBuyticketDialog(BuildContext context,String selectedState) {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
@@ -50,7 +50,7 @@ class _stpagestate extends State<stpage> {
                    child:  Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                     child: BuyTicketTypes()
+                     child: BuyTicketTypes(selectedState: selectedState,)
                   ),
                  )
 
@@ -114,7 +114,11 @@ class _stpagestate extends State<stpage> {
                         print("click");
                         print(index.toString());
 
-                        displayBuyticketDialog(context);
+                        var ticketN= ticketTypes[index];
+
+                        print("seleced: $ticketN ");
+
+                        displayBuyticketDialog(context,ticketN);
 
                         //show buy overflow
                       },

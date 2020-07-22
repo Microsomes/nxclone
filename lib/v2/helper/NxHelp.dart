@@ -359,7 +359,7 @@ class NXHelp{
       print("run pre-runup setup");
 
 
-      this.getAllTickets().then((value){
+      this.getAllTickets("West Midlands").then((value){
         print(value.length);
 
       });
@@ -397,9 +397,9 @@ class NXHelp{
       return iid;
   }
 
-  Future getAllTickets() async {
+  Future getAllTickets(String state) async {
            var db= await openDatabase("main.db");
-      List<Map> list = await db.rawQuery('SELECT * FROM tickets');
+      List<Map> list = await db.rawQuery('SELECT * FROM tickets WHERE state=?',[state]);
        return list;
   }
 
