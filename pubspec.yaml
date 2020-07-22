@@ -99,6 +99,7 @@ flutter:
    - images/crash.png
    - images/launch.png
    - images/error.png
+   - images/v2/visa.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

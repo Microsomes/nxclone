@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/buyflow/components/paymentOption.dart';
 
 
 class PickPaymentMethodAndConfirmItem extends StatelessWidget{
@@ -124,6 +125,18 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
                               ),)
                             ],
                           ),
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: 10,
+                            itemBuilder: (context,index){
+                            return PaymentOption(
+                              paymentTypeIcon: "images/v2/visa.png",
+                              paymentCard: "VISA",
+                              last4digits: "7824",
+                              expiresBy: "22/25",
+                            );
+                          }),
                         )
 
                     ],
