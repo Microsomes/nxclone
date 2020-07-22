@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/helper/NxHelp.dart';
+import 'package:nxclone/v2/pages/buyflow/payment/pickMethod.dart';
 
 import 'components/ticketoption.dart';
 
@@ -63,21 +64,32 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
-      children: <Widget>[ 
-        ticketTypes.length>=1 ?Expanded(
-          child: ListView.builder(
-            itemCount: ticketTypes.length,
-            itemBuilder: (context,index){
-            return TicketOption(
-          title: ticketTypes[index]['tickettitle'],
-          subtitle: "Any bus across our network",
-          price: "£"+ticketTypes[index]['price'].toString(),
+        children: <Widget>[ 
+    ticketTypes.length>=1 ?Expanded(
+      child: ListView.builder(
+        itemCount: ticketTypes.length,
+        itemBuilder: (context,index){
+        return InkWell(
+          onTap: (){
+            print("open confirm");
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => PickPaymentMethodAndConfirmItem(
+      selectedState: widget.selectedState,
+      selectedTicket: ticketTypes[index],
+    )));
+          },
+                  child: TicketOption(
+      title: ticketTypes[index]['tickettitle'],
+      subtitle: "Any bus across our network",
+      price: "£"+ticketTypes[index]['price'].toString(),
+    ),
         );
-          }),
-        ): CircularProgressIndicator()
+      }),
+    ): CircularProgressIndicator()
 
-      ],
-    );
+        ],
+      );
   }
 
 }
