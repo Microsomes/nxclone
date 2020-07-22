@@ -360,19 +360,7 @@ class NXHelp{
 
 
       this.getAllTickets().then((value){
-        for(var ele in value){
-        print("--------------------------------------------");
-
-          var curtitle=ele['tickettitle'];
-          var curstate=ele['state'];
-
-          print(curtitle);
-          print(curstate);
-
-          
-         print("--------------------------------------------");
-
-        }
+        print(value.length);
 
       });
 
@@ -382,13 +370,16 @@ class NXHelp{
   for(var element in ticketTypes) { 
 
     //check duplicate first
-    var dup=await this.checkTicketByState(element['title'],"West Midlands");
-    print(dup);
-
-     var id= await this.addTicket(element['title'], element['state'], element['price'], element['subtitle']);
+    var dup=await this.checkTicketByState(element['title'],element['state']);
+    if(dup.length==0){
+      print("no dublicates");
+       var id= await this.addTicket(element['title'], element['state'], element['price'], element['subtitle']);
         //saves to db
         var title= element['title'];
-        print("$id:$title");
+     }else{
+      //print("duplicates");
+    }
+
     }
 
   }
@@ -414,10 +405,10 @@ class NXHelp{
 
 
   Future checkTicketByState(String type,String state) async {
+    
        var db= await openDatabase("main.db");
 
-       print(state);
-       List<Map> list = await db.rawQuery('SELECT * FROM tickets WHERE tickettitle=? & state=?',[type,state]);
+        List<Map> list = await db.rawQuery('SELECT * FROM tickets WHERE  state=? AND tickettitle=?',[state,type]);
        return list;
   }
 
