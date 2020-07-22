@@ -128,7 +128,7 @@ class LandingPageState extends State<LandingPage>{
           ),
           ),
           SizedBox(height: 10,),
-          Text("---"),
+          Text("Changes only reflect after reboot of app"),
           SizedBox(height: 20,),
         isShowing==true?  option1.createElement().widget:Container(),
           SizedBox(height: 20,),
