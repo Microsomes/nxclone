@@ -19,6 +19,7 @@ class Ttype{
   static String daySaver="Daysaver";
   static String daySaver_cov="Coventry Daysaver";
   static String daysaver_sandwellanddudley="Sandwell & Dudley Daysaver";
+  static String daysaver_wallsall="Walsall Daysaver";
   static String daysaverafter930monfri="Daysaver after 9.30am (Mon-Fri)";
   static String daySaversatsun="Daysaver (Sat-Sun)";
   static String eveningSaverafter6="Evening Saver after 6pm";
@@ -319,6 +320,45 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
 
       //wallsall low fare zone
 
+      ticketTypes.add({
+        "title":Ttype.singlejourney,
+        "subtitle":"Any bus acorss our network",
+        "price":"2.40",
+        "state":States.wallsalllowfarzone,
+        "info":[
+          "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+
+       ticketTypes.add({
+        "title":Ttype.daysaver_wallsall,
+        "subtitle":"All busses across our network",
+        "price":"3.00",
+        "state":States.wallsalllowfarzone,
+        "info":[
+            "Includes travel on all our busses within the Wallsall low fare zone"
+        ]
+      });
+      
+      ticketTypes.add({
+        "title":Ttype.groupdaysaver,
+        "subtitle":"All busses across our network",
+        "price":"6.00",
+        "state":States.wallsalllowfarzone,
+        "info":[
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+
+      ticketTypes.add({
+        "title":Ttype.groupdaysaverafter6,
+        "subtitle":"All busses across our network",
+        "price":"4.00",
+        "state":States.wallsalllowfarzone,
+        "info":[
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
 
 
 
