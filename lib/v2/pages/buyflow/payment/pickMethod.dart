@@ -123,16 +123,21 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
                           ),
                         ),
                         Container(
-                          height: 24,
+                          height: 27,
                           color: Color.fromRGBO(253, 237, 237, 1),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               SizedBox(width: 15,),
-                              Text("Payment methods",
-                              style: TextStyle(
-                                color: Color.fromRGBO(75, 8, 8, 1),
-                                fontWeight: FontWeight.bold
-                              ),)
+                              Padding(
+                                padding: const EdgeInsets.only(top:3.0),
+                                child: Text("Payment methods",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(75, 8, 8, 1),
+                                  fontWeight: FontWeight.bold
+                                ),),
+                              )
                             ],
                           ),
                         ),
