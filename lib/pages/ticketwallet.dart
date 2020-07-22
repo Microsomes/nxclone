@@ -177,7 +177,7 @@ class SingleInactiveTicket extends StatelessWidget {
                                   Text(
                                     "West Midlands",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   ),
                                   Text(
@@ -192,12 +192,15 @@ class SingleInactiveTicket extends StatelessWidget {
                             Expanded(
                               child: Text(""),
                             ),
-                            Text(
-                              "INACTIVE",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(211, 211, 211, 1),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500),
+                            Container(
+                               height: 40,
+                              child: Text(
+                                "INACTIVE",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(211, 211, 211, 1),
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ),
                             SizedBox(
                               width: 20,
@@ -205,7 +208,7 @@ class SingleInactiveTicket extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          width: sizeW * 0.7,
+                          width: sizeW * 0.8,
                           height: 2,
                           color: Color.fromRGBO(211, 211, 211, 0.6),
                         ),
@@ -217,7 +220,7 @@ class SingleInactiveTicket extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20),
                             child: Text(
-                              "Expires in 6 days, 7 hours",
+                              "Expires 16/10/2020 23:59",
                               style: TextStyle(fontWeight: FontWeight.w500),
                             ),
                           ),
