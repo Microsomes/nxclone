@@ -33,6 +33,8 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
           "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
         ]
       });
+
+
       ticketTypes.add({
         "title":"DaySaver",
         "subtitle":"Any busses across our network",
@@ -87,6 +89,41 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
              "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
         ]
       });
+
+
+
+      ////////conventry
+      
+      ticketTypes.add({
+        "title":"Conventry Single Journey",
+        "subtitle":"Any bus acorss our network",
+        "price":"2.20",
+        "state":"Conventry",
+        "info":[
+          "Includes travel on all our busss in the Conventry & surrounding areas as far as north as Bedworth & Keresley and along a southern corridor to Kenilworth & Leamington Spa.",
+          "The main places including in the Conventry area are:",
+          "Conventry City Centre, Binley, Finham,",
+          "Earlsdon, Canley, Longford, Bedworth,",
+          "Meriden, Tile Hill, Hearsall Common,",
+          "Leamington Spa & Kenilworth"
+        ]
+      });
+
+      ticketTypes.add({
+        "title":"Conventry Single Journey",
+        "subtitle":"All busses in the Conventry area",
+        "price":"4.00",
+        "state":"Conventry",
+        "info":[
+          "Includes travel on all our busss in the Conventry & surrounding areas as far as north as Bedworth & Keresley and along a southern corridor to Kenilworth & Leamington Spa.",
+          "The main places including in the Conventry area are:",
+          "Conventry City Centre, Binley, Finham,",
+          "Earlsdon, Canley, Longford, Bedworth,",
+          "Meriden, Tile Hill, Hearsall Common,",
+          "Leamington Spa & Kenilworth"
+        ]
+      });
+
 
 
 
