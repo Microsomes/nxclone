@@ -30,7 +30,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"2.40",
         "state":"West Midlands",
         "info":[
-          "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+          "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
 
@@ -41,7 +41,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"4.60",
         "state":"West Midlands",
         "info":[
-            "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
       ticketTypes.add({
@@ -50,7 +50,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"4.00",
         "state":"West Midlands",
         "info":[
-            "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
       ticketTypes.add({
@@ -59,7 +59,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"4.00",
         "state":"West Midlands",
         "info":[
-            "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
       ticketTypes.add({
@@ -68,7 +68,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"3.00",
         "state":"West Midlands",
         "info":[
-            "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
       ticketTypes.add({
@@ -77,7 +77,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"7.00",
         "state":"West Midlands",
         "info":[
-            "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+            "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
       ticketTypes.add({
@@ -86,7 +86,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"7.00",
         "state":"West Midlands",
         "info":[
-             "Includes travel on all our busss acorss the West Midlands, Black Country & Coventry."
+             "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
         ]
       });
 
@@ -100,7 +100,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
         "price":"2.20",
         "state":"Conventry",
         "info":[
-          "Includes travel on all our busss in the Conventry & surrounding areas as far as north as Bedworth & Keresley and along a southern corridor to Kenilworth & Leamington Spa.",
+          "Includes travel on all our busses in the Conventry & surrounding areas as far as north as Bedworth & Keresley and along a southern corridor to Kenilworth & Leamington Spa.",
           "The main places including in the Conventry area are:",
           "Conventry City Centre, Binley, Finham,",
           "Earlsdon, Canley, Longford, Bedworth,",
@@ -110,7 +110,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
       });
 
       ticketTypes.add({
-        "title":"Conventry Single Journey",
+        "title":"Conventry Daysaver",
         "subtitle":"All busses in the Conventry area",
         "price":"4.00",
         "state":"Conventry",
@@ -123,6 +123,56 @@ class BuyTicketTypesState extends State<BuyTicketTypes>{
           "Leamington Spa & Kenilworth"
         ]
       });
+
+      ticketTypes.add({
+        "title":"Daysaver after 9.30am (Mon-Fri)",
+        "subtitle":"Any busses across our network",
+        "price":"4.00",
+        "state":"Conventry",
+        "info":[
+              "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+      ticketTypes.add({
+        "title":"Daysaver (Sat-Sun)",
+        "subtitle":"Any busses across our network",
+        "price":"4.00",
+        "state":"Conventry",
+        "info":[
+              "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+
+       ticketTypes.add({
+        "title":"Evening Saver after 6pm",
+        "subtitle":"Any busses across our network",
+        "price":"3.00",
+        "state":"Conventry",
+        "info":[
+              "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+
+      ticketTypes.add({
+        "title":"Group Daysaver",
+        "subtitle":"Any busses across our network",
+        "price":"6.00",
+        "state":"Conventry",
+        "info":[
+              "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+
+      ticketTypes.add({
+        "title":"Group Daysaver after 6pm",
+        "subtitle":"Any busses across our network",
+        "price":"4.00",
+        "state":"Conventry",
+        "info":[
+              "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        ]
+      });
+
 
 
 
