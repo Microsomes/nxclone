@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/buyflow/tickettypes.dart';
 
 class SelectTicket extends StatelessWidget {
   @override
@@ -44,6 +45,16 @@ class _stpagestate extends State<stpage> {
                       ),
                     ),
                   ),
+
+                 Expanded(
+                   child:  Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.red,
+                    child: BuyTicketTypes()
+                  ),
+                 )
+
                 ],
               ));
         });
