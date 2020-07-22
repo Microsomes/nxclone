@@ -24,6 +24,7 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget{
     
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Color.fromRGBO(253, 241, 241, 1),
       appBar: AppBar(
                     backgroundColor: Colors.white,
                     leading: InkWell(
