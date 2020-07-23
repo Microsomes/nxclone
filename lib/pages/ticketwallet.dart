@@ -128,13 +128,24 @@ class _stpagestate extends State<Ticketwallet>{
           },
                   child: Container(
             height: 110,
-            width: MediaQuery.of(context).size.width*0.90,
+            width: MediaQuery.of(context).size.width*0.92,
             child: ticketTwo(title: "K",),
           ),
         ),
-        SizedBox(height: 10,),
-        SingleInactiveTicket(sizeW: sizeW), 
-        
+        SizedBox(height: 1,),
+        Expanded(
+          child: ListView.builder(
+            itemCount: allUnactivatdTickets.length,
+            itemBuilder: (context,index){
+            return Padding(
+              padding: const EdgeInsets.only(left:12,right:12,top:12),
+              child: SingleInactiveTicket(sizeW: sizeW,
+              ticketType: allUnactivatdTickets[index]['tickettype'],
+              state: allUnactivatdTickets[index]['state'],
+              ),
+            );
+          }),
+        ),        
         
         
         ]),

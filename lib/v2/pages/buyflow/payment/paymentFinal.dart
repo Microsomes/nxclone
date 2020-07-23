@@ -232,7 +232,6 @@ class PaymentFinalState extends State<PaymentFinal> {
                         //calls method to buys ticket
 
 
-                        return;
                         Navigator.push(
                           context,
                           MaterialPageRoute(

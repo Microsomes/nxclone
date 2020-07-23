@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/pages/ticket.dart';
 class SingleInactiveTicket extends StatelessWidget {
+
+
+  final String ticketType;
+  final String state;
+
+
   const SingleInactiveTicket({
     Key key,
     @required this.sizeW,
+    @required this.ticketType,
+    @required this.state
   }) : super(key: key);
 
   final double sizeW;
@@ -35,15 +43,16 @@ class SingleInactiveTicket extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    "West Midlands",
+                                    "$state",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   ),
                                   Text(
-                                    "Single Journey",
+                                    "$ticketType",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 15),

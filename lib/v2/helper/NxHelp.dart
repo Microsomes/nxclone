@@ -380,7 +380,7 @@ class NXHelp{
   //returns all tickets that can be useable
   Future getAllUseableTickets()async {
       var db= await openDatabase("main.db");
-      List<Map> list = await db.rawQuery("SELECT * FROM ticketwallet WHERE isActive=?",[-1]);
+      List<Map> list = await db.rawQuery("SELECT * FROM ticketwallet WHERE isActive=? ORDER BY id DESC",[-1]);
       return list;
   }
 
