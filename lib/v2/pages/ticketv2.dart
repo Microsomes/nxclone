@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nxclone/v2/components/nxsig.dart';
 import 'package:nxclone/v2/components/ticketColor.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:nxclone/v2/components/movingText.dart';
 
 
 class ActualTicket extends StatefulWidget{
@@ -76,14 +77,9 @@ class ActualTicketState extends State<ActualTicket>{
                             children: <Widget>[
                               Positioned(
                                 left: 10,
-                                child: Text("WEST MIDLANDS SINGLE JOURNEY",
-                                style: TextStyle(
-                                  letterSpacing: 0.3,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16
-                                ),
-                                ),
+                                child: MovingText(
+                                  textContent: "West Midlands",
+                                )
                               )
                             ],
                           ),

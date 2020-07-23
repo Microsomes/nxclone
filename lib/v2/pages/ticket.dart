@@ -4,6 +4,7 @@ import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/pages/ticketv2.dart';
 import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/overlays/ticketPreActivate.dart';
+import 'package:nxclone/v2/components/movingText.dart';
 
 class Ticket2 extends StatefulWidget{
 
@@ -116,14 +117,9 @@ class Ticket2State extends State<Ticket2>{
                             children: <Widget>[
                               Positioned(
                                 left: 10,
-                                child: Text("$state $tickettype",
-                                style: TextStyle(
-                                  letterSpacing: 0.3,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16
-                                ),
-                                ),
+                                child: MovingText(
+                                  textContent: "$state $tickettype",
+                                )
                               )
                             ],
                           ),
