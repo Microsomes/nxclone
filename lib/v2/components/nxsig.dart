@@ -4,8 +4,11 @@ class Nxsig extends StatefulWidget{
 
   final bool isRounded;
 
+  final String state;
+
   Nxsig({
-    @required this.isRounded
+    @required this.isRounded,
+    @required this.state
   });
 
     
@@ -22,6 +25,8 @@ class NxsigState extends State<Nxsig>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
+    var state= widget.state;
 
     return Container(
       height: 140,
@@ -41,7 +46,7 @@ class NxsigState extends State<Nxsig>{
              child: Row(
               children: <Widget>[
                 SizedBox(width: 15,),
-                Text("West Midlands",
+                Text("$state",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold
@@ -77,7 +82,7 @@ class NxsigState extends State<Nxsig>{
 
               ),
               SizedBox(width: 5,),
-              Text("West Midlands",
+              Text("$state",
               style: TextStyle(
                 color: Color.fromRGBO(239, 193, 193, 1),
                 fontSize: 27,
