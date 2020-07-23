@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/ticket.dart';
-
 import './../components/daysaveractive.dart';
 import 'components/singleInactive.dart';
 
-
-
-
 class Ticketwallet extends StatefulWidget{
-
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -26,8 +21,25 @@ class Ticketwallet extends StatefulWidget{
 
 
 class _stpagestate extends State<Ticketwallet>{
+
+
+    List allUnactivatdTickets=null;
+
+
+    _stpagestate(){
+     allUnactivatdTickets=List();
+      NXHelp().getAllUseableTickets().then((value){
+        var totalT= value.length;
+        print("total tickets: $totalT");
+        allUnactivatdTickets=value;
+              setState(() { });
+      });
+    }
+
   @override
   Widget build(BuildContext context) {
+
+    
 
      final sizeW = MediaQuery.of(context).size.width;
     final sizeH = MediaQuery.of(context).size.height;
@@ -57,7 +69,7 @@ class _stpagestate extends State<Ticketwallet>{
           )
         ],
       ),
-      body: Container(
+      body: allUnactivatdTickets!=null ? Container(
 
         height: double.infinity,
         color: Color.fromRGBO(123, 26, 17, 1),
@@ -126,7 +138,7 @@ class _stpagestate extends State<Ticketwallet>{
         
         
         ]),
-      ) 
+      ) : CircularProgressIndicator()
       
       );
     
