@@ -354,7 +354,7 @@ class NXHelp{
   void init() async {
       var db= await openDatabase("main.db");
      await  db.execute("CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
-     await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate text,ticketid text)");
+     await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
      await db.execute("CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
       print("run pre-runup setup");
       this.getAllTickets("West Midlands").then((value){
@@ -375,6 +375,17 @@ class NXHelp{
       //print("duplicates");
     }
     }
+  }
+
+
+  //stores ticket in to db and generates a unique ID
+  Future buyTicket({tickettype, state, price}) async{
+       var db= await openDatabase("main.db");
+
+    //     await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate text,ticketid text)");
+
+      await db.rawInsert("sql");
+      //TODO
   }
 
  Future loadConfig(String key, int limit) async {
