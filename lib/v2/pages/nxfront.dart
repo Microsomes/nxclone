@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nxclone/components/daysaveractive.dart';
+import 'package:nxclone/pages/components/singleInactive.dart';
 import 'package:nxclone/pages/help.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/pages/offers.dart';
