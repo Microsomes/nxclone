@@ -357,14 +357,9 @@ class NXHelp{
      await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate text,ticketid text)");
      await db.execute("CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
       print("run pre-runup setup");
-
-
       this.getAllTickets("West Midlands").then((value){
         print(value.length);
-
       });
-
-
       print(ticketTypes.length);
 
   for(var element in ticketTypes) { 
@@ -379,9 +374,7 @@ class NXHelp{
      }else{
       //print("duplicates");
     }
-
     }
-
   }
 
  Future loadConfig(String key, int limit) async {

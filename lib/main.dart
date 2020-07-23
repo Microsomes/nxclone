@@ -4,6 +4,7 @@ import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/main/quickOptions.dart';
+import 'package:nxclone/v2/pages/buyflow/payment/paymentConfirmed.dart';
 import 'package:nxclone/v2/pages/nxfront.dart';
 
 import 'v2/pages/ticket.dart';
@@ -146,6 +147,7 @@ void main() {
   ));
   return runApp( MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePagePre(),
+        //home: HomePagePre(),
+        home:PaymentConfirmed()
         ));
 }
