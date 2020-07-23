@@ -223,20 +223,23 @@ class PaymentFinalState extends State<PaymentFinal> {
                         //       (Route<dynamic> route) => false,
                         //     );
 
- 
-                        var ttitle=widget.selectedTicket['tickettitle'];
-                        var tstate=widget.selectedTicket['state'];
-                        var tprice=widget.selectedTicket['price'];
+                        var ttitle = widget.selectedTicket['tickettitle'];
+                        var tstate = widget.selectedTicket['state'];
+                        var tprice = widget.selectedTicket['price'];
 
-                        NXHelp().buyTicket(tickettype: ttitle, state: tstate, price: tprice);
+                        NXHelp()
+                            .buyTicket(
+                                tickettype: ttitle,
+                                state: tstate,
+                                price: tprice)
+                            .then((value) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PaymentConfirmed()),
+                          );
+                        });
                         //calls method to buys ticket
-
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PaymentConfirmed()),
-                        );
                       },
                       child: Container(
                         width: 380,
