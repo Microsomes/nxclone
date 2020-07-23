@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/buyflow/payment/paymentConfirmed.dart';
 
 class PaymentFinal extends StatefulWidget {
   final String selectedState;
@@ -213,6 +214,12 @@ class PaymentFinalState extends State<PaymentFinal> {
                     child: InkWell(
                       onTap: () {
                         //add ticket to your wallet and process it
+                        //PaymentConfirmed
+                        Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => PaymentConfirmed()),
+                              (Route<dynamic> route) => false,
+                            );
                       },
                       child: Container(
                         width: 380,

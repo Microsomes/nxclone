@@ -147,7 +147,7 @@ void main() {
   ));
   return runApp( MaterialApp(
         debugShowCheckedModeBanner: false,
-        //home: HomePagePre(),
-        home:PaymentConfirmed()
+        home: HomePagePre(),
+        //home:PaymentConfirmed()
         ));
 }

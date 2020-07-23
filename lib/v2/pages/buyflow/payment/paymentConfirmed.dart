@@ -54,7 +54,68 @@ class PaymentConfirmed extends StatelessWidget{
                   fontWeight: FontWeight.w500,
                   fontSize: 15
                 ),
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    alignment: Alignment.center,
+                          width: 380,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(123, 26, 17, 1),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromRGBO(215, 216, 218, 1),
+                                    offset: new Offset(0, 3))
+                              ]),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                            
+                            Text(
+                              "Go to Ticket Wallet",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 17),
+                            )
+                          ]),
+                        ),
+                ),
+
+                 Padding(
+                  padding: const EdgeInsets.only(left:20,right:20,top:0),
+                  child: Container(
+                    alignment: Alignment.center,
+                          width: 380,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(65, 98, 53, 1),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromRGBO(215, 216, 218, 1),
+                                    offset: new Offset(0, 3))
+                              ]),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                            
+                            Text(
+                              "NX Rewards Cashback",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 17),
+                            )
+                          ]),
+                        ),
+                ),
               ],
             ),
           )
