@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/pages/ticketwallet.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class PaymentConfirmed extends StatelessWidget{
   @override
@@ -55,67 +58,87 @@ class PaymentConfirmed extends StatelessWidget{
                   fontSize: 15
                 ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Container(
-                    alignment: Alignment.center,
-                          width: 380,
-                          height: 60,
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(123, 26, 17, 1),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(215, 216, 218, 1),
-                                    offset: new Offset(0, 3))
-                              ]),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                            
-                            Text(
-                              "Go to Ticket Wallet",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17),
-                            )
-                          ]),
-                        ),
+                InkWell(
+                  onTap: (){
+                    print("go to ticket page");
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Ticketwallet()),
+                        );
+                  },
+                                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Container(
+                      alignment: Alignment.center,
+                            width: 380,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(123, 26, 17, 1),
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color.fromRGBO(215, 216, 218, 1),
+                                      offset: new Offset(0, 3))
+                                ]),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                              
+                              Text(
+                                "Go to Ticket Wallet",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 17),
+                              )
+                            ]),
+                          ),
+                  ),
                 ),
 
-                 Padding(
-                  padding: const EdgeInsets.only(left:20,right:20,top:0),
-                  child: Container(
-                    alignment: Alignment.center,
-                          width: 380,
-                          height: 60,
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(65, 98, 53, 1),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(215, 216, 218, 1),
-                                    offset: new Offset(0, 3))
-                              ]),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                            
-                            Text(
-                              "NX Rewards Cashback",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17),
-                            )
-                          ]),
-                        ),
+                 InkWell(
+                   onTap: () async{
+                     const url = "https://www.nxrewards.com/";
+                      if (await canLaunch(url)) {
+                            await launch(url);
+                          } else {
+                            //throw 'Could not launch $url';
+                          }
+                   },
+                                    child: Padding(
+                    padding: const EdgeInsets.only(left:20,right:20,top:0),
+                    child: Container(
+                      alignment: Alignment.center,
+                            width: 380,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(65, 98, 53, 1),
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color.fromRGBO(215, 216, 218, 1),
+                                      offset: new Offset(0, 3))
+                                ]),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                              
+                              Text(
+                                "NX Rewards Cashback",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 17),
+                              )
+                            ]),
+                          ),
                 ),
+                 ),
               ],
             ),
           )

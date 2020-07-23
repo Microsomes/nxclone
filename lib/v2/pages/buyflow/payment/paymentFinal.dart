@@ -51,8 +51,8 @@ class PaymentFinalState extends State<PaymentFinal> {
           ),
         ),
       ),
-      body: SingleChildScrollView (
-              child: Column(
+      body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
             Container(
               child: Row(
@@ -119,18 +119,18 @@ class PaymentFinalState extends State<PaymentFinal> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                width: MediaQuery.of(context).size.width * 0.37,
-                                height: 38,
-                                alignment: Alignment.centerLeft,
-                                color: Color.fromRGBO(243, 244, 246, 1),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "",
-                                    contentPadding: EdgeInsets.only(left:10,bottom: 10)
-                                  ),
-                                )
-                              ),
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.37,
+                                  height: 38,
+                                  alignment: Alignment.centerLeft,
+                                  color: Color.fromRGBO(243, 244, 246, 1),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "",
+                                        contentPadding: EdgeInsets.only(
+                                            left: 10, bottom: 10)),
+                                  )),
                               Container(
                                 color: Color.fromRGBO(219, 220, 221, 1),
                                 height: 5,
@@ -178,10 +178,10 @@ class PaymentFinalState extends State<PaymentFinal> {
                                 color: Color.fromRGBO(243, 244, 246, 1),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "",
-                                    contentPadding: EdgeInsets.only(left:10,bottom: 10)
-                                  ),
+                                      border: InputBorder.none,
+                                      hintText: "",
+                                      contentPadding: EdgeInsets.only(
+                                          left: 10, bottom: 10)),
                                 ),
                               ),
                               Container(
@@ -203,23 +203,29 @@ class PaymentFinalState extends State<PaymentFinal> {
                         ),
                         Text(
                           "terms and conditions",
-                          style:
-                              TextStyle(color: Color.fromRGBO(169, 225, 244, 1)),
+                          style: TextStyle(
+                              color: Color.fromRGBO(169, 225, 244, 1)),
                         )
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left:20.0,right: 20,top:30),
+                    padding:
+                        const EdgeInsets.only(left: 20.0, right: 20, top: 30),
                     child: InkWell(
                       onTap: () {
                         //add ticket to your wallet and process it
                         //PaymentConfirmed
-                        Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => PaymentConfirmed()),
-                              (Route<dynamic> route) => false,
-                            );
+                        // Navigator.pushAndRemoveUntil(
+                        //       context,
+                        //       MaterialPageRoute(builder: (context) => PaymentConfirmed()),
+                        //       (Route<dynamic> route) => false,
+                        //     );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PaymentConfirmed()),
+                        );
                       },
                       child: Container(
                         width: 380,
@@ -236,7 +242,10 @@ class PaymentFinalState extends State<PaymentFinal> {
                           SizedBox(
                             width: 50,
                           ),
-                          Icon(Icons.lock,color: Colors.white,),
+                          Icon(
+                            Icons.lock,
+                            color: Colors.white,
+                          ),
                           SizedBox(
                             width: 6,
                           ),
@@ -250,7 +259,7 @@ class PaymentFinalState extends State<PaymentFinal> {
                           Expanded(
                             child: Text(""),
                           ),
-                           SizedBox(
+                          SizedBox(
                             width: 4,
                           )
                         ]),
