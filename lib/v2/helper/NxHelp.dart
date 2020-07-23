@@ -379,13 +379,18 @@ class NXHelp{
 
 
   //stores ticket in to db and generates a unique ID
-  Future buyTicket({tickettype, state, price}) async{
+  Future buyTicket({@required tickettype, @required state, @required price}) async{
        var db= await openDatabase("main.db");
-
-    //     await db.execute("CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate text,ticketid text)");
-
-      await db.rawInsert("sql");
+     var id= await db.rawInsert("INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid VALUES (?,?,?,?,?,?))",[
+        state,
+        tickettype,
+        "not used",
+        "1 hr",
+        -1,
+        3235346459
+      ]);
       //TODO
+      return id;
   }
 
  Future loadConfig(String key, int limit) async {

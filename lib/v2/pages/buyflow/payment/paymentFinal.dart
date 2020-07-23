@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/buyflow/payment/paymentConfirmed.dart';
 
 class PaymentFinal extends StatefulWidget {
@@ -221,6 +222,17 @@ class PaymentFinalState extends State<PaymentFinal> {
                         //       MaterialPageRoute(builder: (context) => PaymentConfirmed()),
                         //       (Route<dynamic> route) => false,
                         //     );
+
+ 
+                        var ttitle=widget.selectedTicket['tickettitle'];
+                        var tstate=widget.selectedTicket['state'];
+                        var tprice=widget.selectedTicket['price'];
+
+                        NXHelp().buyTicket(tickettype: ttitle, state: tstate, price: tprice);
+                        //calls method to buys ticket
+
+
+                        return;
                         Navigator.push(
                           context,
                           MaterialPageRoute(
