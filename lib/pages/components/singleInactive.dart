@@ -4,12 +4,15 @@ import 'package:nxclone/v2/pages/ticket.dart';
 class SingleInactiveTicket extends StatelessWidget {
   final String ticketType;
   final String state;
+  final int txdbid;
+  //ticket id is required
 
   const SingleInactiveTicket(
       {Key key,
       @required this.sizeW,
       @required this.ticketType,
-      @required this.state})
+      @required this.state,
+      @required this.txdbid})
       : super(key: key);
 
   final double sizeW;
@@ -19,7 +22,9 @@ class SingleInactiveTicket extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Ticket2()));
+            context, MaterialPageRoute(builder: (context) => Ticket2(
+              txdbid: txdbid,
+            )));
       },
       child: Container(
           width: sizeW * 0.9,

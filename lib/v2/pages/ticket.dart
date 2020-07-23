@@ -2,8 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:nxclone/v2/components/nxsig.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/pages/ticketv2.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 
 class Ticket2 extends StatefulWidget{
+
+  final int txdbid;
+  
+
+  Ticket2({
+    @required this.txdbid
+  });
+
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -14,6 +24,20 @@ class Ticket2 extends StatefulWidget{
 class Ticket2State extends State<Ticket2>{
 
 
+  var currentTicket=null;
+  //will load the current ticket
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+
+    NXHelp().getTicketById(id: widget.txdbid).then((ticket) {
+      print(ticket);
+    });
+
+  }
 
    void displayActivationDialog(BuildContext context) {
     showModalBottomSheet(
@@ -151,9 +175,7 @@ class Ticket2State extends State<Ticket2>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      
-
+    return Scaffold(  
       body: SafeArea(
               child: Column(
 

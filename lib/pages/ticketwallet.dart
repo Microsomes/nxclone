@@ -142,6 +142,7 @@ class _stpagestate extends State<Ticketwallet>{
               child: SingleInactiveTicket(sizeW: sizeW,
               ticketType: allUnactivatdTickets[index]['tickettype'],
               state: allUnactivatdTickets[index]['state'],
+              txdbid: allUnactivatdTickets[index]['id'],
               ),
             );
           }),

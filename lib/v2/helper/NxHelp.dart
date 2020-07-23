@@ -385,6 +385,13 @@ class NXHelp{
   }
 
 
+  //get ticket by id
+  Future getTicketById({@required id}) async {
+    var db= await openDatabase("main.db");
+    List<Map> list= await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?",[id]);
+    return list;
+  }
+
   //stores ticket in to db and generates a unique ID
   Future buyTicket({@required tickettype, @required state, @required price}) async{
        var db= await openDatabase("main.db");

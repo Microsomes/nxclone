@@ -230,14 +230,20 @@ class NxfrontState extends State<Nxfront> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Ticket2()));
+                                  builder: (context) => Ticket2(
+                                    txdbid: 0,
+                                  )));
                         },
                         child: Container(
                             width: sizeW * 0.9,
                             height: 120,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15)),
-                            child: SingleInactiveTicket(sizeW: sizeW)),
+                            child: SingleInactiveTicket(sizeW: sizeW,
+                            ticketType: "Daysaver",
+                            state: "West Midlands",
+                            txdbid: 0,
+                            )),
                       ),
                       Expanded(
                         child: Text(""),
