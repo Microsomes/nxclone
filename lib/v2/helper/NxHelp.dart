@@ -377,11 +377,18 @@ class NXHelp{
     }
   }
 
+  //returns all tickets that can be useable
+  Future getAllUseableTickets()async {
+      var db= await openDatabase("main.db");
+      List<Map> list = await db.rawQuery("SELECT * FROM ticketwallet WHERE isActive=?",[-1]);
+      return list;
+  }
+
 
   //stores ticket in to db and generates a unique ID
   Future buyTicket({@required tickettype, @required state, @required price}) async{
        var db= await openDatabase("main.db");
-     var id= await db.rawInsert("INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid VALUES (?,?,?,?,?,?))",[
+     var id= await db.rawInsert("INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid) VALUES (?,?,?,?,?,?)",[
         state,
         tickettype,
         "not used",
