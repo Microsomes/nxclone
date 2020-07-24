@@ -98,7 +98,7 @@ class ActualTicketState extends State<ActualTicket> {
                             Positioned(
                                 left: 10,
                                 child: MovingText(
-                                  textContent: "West Midlands",
+                                  textContent: "$state $ticketTitle",
                                 ))
                           ],
                         ),
