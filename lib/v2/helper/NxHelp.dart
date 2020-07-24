@@ -357,14 +357,17 @@ class NXHelp {
 
   List<Text> termsForDaysaver() {
     return [
-    Text("You must be over 16 to purchase this type of ticket",
+      Text("You must be over 16 to purchase this type of ticket",
           style: TextStyle(fontSize: 17)),
-          Text("This ticket is valid on the day of the first activation only.",
-          style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
+      Text("This ticket is valid on the day of the first activation only.",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
       Text(
           "Valid on all National Express West Midlands and National Express Conventry busses.",
           style: TextStyle(fontSize: 17)),
-          Text("No refunds can be provided.",style: TextStyle(fontSize: 17),),
+      Text(
+        "No refunds can be provided.",
+        style: TextStyle(fontSize: 17),
+      ),
       Text(
           "MTickets must be able to be displayed throughout the journey if requested by the driver or a member of staff",
           style: TextStyle(fontSize: 17)),
@@ -382,7 +385,7 @@ class NXHelp {
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
     await db.execute(
         "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
-        
+
     print("run pre-runup setup");
     this.getAllTickets("West Midlands").then((value) {
       print(value.length);
@@ -406,34 +409,24 @@ class NXHelp {
   }
 
   //todo future run this function to clean up old expired tickets
-  Future cleanUpOldTickets(){
+  Future cleanUpOldTickets() {
     //todo
   }
 
-
-  Map returnTicketExpiryInfo(String ttype){
-    /*
-      static String singlejourney = "Single Journey";
-  static String singlejourney_cov = "Coventry Single Journey";
-  static String daySaver = "Daysaver";
-  static String daySaver_cov = "Coventry Daysaver";
-  static String daysaver_sandwellanddudley = "Sandwell & Dudley Daysaver";
-  static String daysaver_wallsall = "Walsall Daysaver";
-  static String daysaverafter930monfri = "Daysaver after 9.30am (Mon-Fri)";
-  static String daySaversatsun = "Daysaver (Sat-Sun)";
-  static String eveningSaverafter6 = "Evening Saver after 6pm";
-  static String groupdaysaver = "Group Daysaver";
-  static String groupdaysaverafter6 = "Group Daysaver after 6pm";
-}
-    */
-
+  Map returnTicketExpiryInfo(String ttype) {
     //ticket expires in that many hours
-    if(ttype==Ttype.singlejourney || ttype== Ttype.singlejourney_cov){
-      return {"expires":168,"activationExpiry":0.5};
+    if (ttype == Ttype.singlejourney || ttype == Ttype.singlejourney_cov) {
+      return {"expires": 168, "activationExpiry": 0.5};
+    } else if (ttype == Ttype.daySaver ||
+        ttype == Ttype.daySaver_cov ||
+        ttype == Ttype.daySaversatsun ||
+        ttype == Ttype.daysaver_sandwellanddudley ||
+        ttype == Ttype.daysaver_wallsall ||
+        ttype == Ttype.daysaverafter930monfri) {
+      return {"expires": 2400, "activationExpiry": 24};
+    } else {
+      return {"expires": 2400, "activationExpiry": 24};
     }
-
-    
-
   }
 
   Future getAllActiveTickets() async {
@@ -446,9 +439,22 @@ class NXHelp {
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
     var db = await openDatabase("main.db");
+
+    List<Map> modifiedList = List<Map>();
+
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive!=2  ORDER BY isActive DESC, expires DESC");
-    return list;
+
+    list.forEach((curTicket) {
+      Map toCur = Map();
+      curTicket.forEach((key, value) {
+        toCur[key] = value;
+      });
+      toCur['expireDate'] = "26/07/2020 12:27";
+      modifiedList.add(toCur);
+    });
+
+    return modifiedList;
   }
 
   //get ticket by id
@@ -462,11 +468,13 @@ class NXHelp {
   //activates ticket by id
   //current time placed in expires to safe time
   Future activateTicket({@required id}) async {
-        var db = await openDatabase("main.db");
-        //lets grab the timestamp as well
-        var currentTime=new DateTime.now().millisecondsSinceEpoch;
-        var updateid=  await db.rawQuery("UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",[1,currentTime,id]);
-      return updateid;
+    var db = await openDatabase("main.db");
+    //lets grab the timestamp as well
+    var currentTime = new DateTime.now().millisecondsSinceEpoch;
+    var updateid = await db.rawQuery(
+        "UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",
+        [1, currentTime, id]);
+    return updateid;
   }
 
   //stores ticket in to db and generates a unique ID
