@@ -23,9 +23,12 @@ class TicketColorState extends State<TicketColor> {
   static DateTime now;
 
   int elaspedTime = 0;
-  
+
   Timer _timer;
 
+  Color opt1 = Colors.pink;
+  Color opt2 = Colors.red;
+  Color opt3 = Colors.green;
 
   @override
   void initState() {
@@ -60,12 +63,32 @@ class TicketColorState extends State<TicketColor> {
       }
     });
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
     _timer.cancel();
-    
+  }
+
+  void changeCol(Color col, index) {
+    switch (index) {
+      case 1:
+        setState(() {
+          opt1 = col;
+        });
+        break;
+      case 2:
+        setState(() {
+          opt2 = col;
+        });
+        break;
+      case 3:
+        setState(() {
+          opt3 = col;
+        });
+        break;
+    }
   }
 
   @override
@@ -83,33 +106,53 @@ class TicketColorState extends State<TicketColor> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width / 3.82,
-                  height: 55,
-                  decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius:
-                          BorderRadius.only(topLeft: Radius.circular(10))),
+                InkWell(
+                  onTap: () {
+                    ColorSelectOver(toSend: changeCol, index: 1)
+                        .ColorOverlay(context);
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 3.82,
+                    height: 55,
+                    decoration: BoxDecoration(
+                        color: opt1,
+                        borderRadius:
+                            BorderRadius.only(topLeft: Radius.circular(10))),
+                  ),
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width / 3.82,
-                  height: 55,
-                  decoration: BoxDecoration(
-                      color: Colors.red, borderRadius: BorderRadius.only()),
+                InkWell(
+                  onTap: () {
+                    ColorSelectOver(toSend: changeCol, index: 2)
+                        .ColorOverlay(context);
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 3.82,
+                    height: 55,
+                    decoration: BoxDecoration(
+                        color: opt2, borderRadius: BorderRadius.only()),
+                  ),
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width / 3.82,
-                  height: 55,
-                  decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius:
-                          BorderRadius.only(topRight: Radius.circular(10))),
+                InkWell(
+                  onTap: () {
+                    ColorSelectOver(toSend: changeCol, index: 3)
+                        .ColorOverlay(context);
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 3.82,
+                    height: 55,
+                    decoration: BoxDecoration(
+                        color: opt3,
+                        borderRadius:
+                            BorderRadius.only(topRight: Radius.circular(10))),
+                  ),
                 ),
               ],
             ),
-             AnimatedPositioned(
-                duration: Duration(milliseconds: 2000),
-                left: sizeW * currentRange,
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 2000),
+              left: sizeW * currentRange,
+              child: IgnorePointer(
+                ignoring: true,
                 child: Text(
                   formattedDate,
                   style: TextStyle(
@@ -130,6 +173,7 @@ class TicketColorState extends State<TicketColor> {
                       ]),
                 ),
               ),
+            ),
           ],
         ));
   }
