@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:nxclone/v2/pages/overlays/colorSelectorOver.dart';
 
 class TicketColor extends StatefulWidget {
   final BuildContext ctx;
