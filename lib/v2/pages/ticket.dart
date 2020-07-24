@@ -6,6 +6,7 @@ import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/overlays/ticketPreActivate.dart';
 import 'package:nxclone/v2/components/movingText.dart';
 import 'package:nxclone/v2/pages/overlays/ticketDetail.dart';
+import 'package:nxclone/v2/pages/overlays/actionsOverlay.dart';
 
 class Ticket2 extends StatefulWidget {
   final int txdbid;
@@ -219,20 +220,25 @@ class Ticket2State extends State<Ticket2> {
                             Expanded(child: Text("")),
                             Row(
                               children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    IconButton(
-                                      icon: Icon(Icons.more_horiz),
-                                      onPressed: () {},
-                                    ),
-                                    Text(
-                                      "Actions",
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(103, 119, 138, 1),
-                                          fontWeight: FontWeight.w500),
-                                    )
-                                  ],
+                                InkWell(
+                                  onTap: () {
+                                    ActionOverlay().display(context);
+                                  },
+                                  child: Row(
+                                    children: <Widget>[
+                                      IconButton(
+                                        icon: Icon(Icons.more_horiz),
+                                        onPressed: () {},
+                                      ),
+                                      Text(
+                                        "Actions",
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                103, 119, 138, 1),
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 Expanded(
                                   child: Container(),
