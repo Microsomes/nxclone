@@ -119,6 +119,7 @@ class Ticket2State extends State<Ticket2>{
                                 left: 10,
                                 child: MovingText(
                                   textContent: "$state $tickettype",
+                                  isUpper: true,
                                 )
                               )
                             ],

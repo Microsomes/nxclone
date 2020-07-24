@@ -3,8 +3,9 @@ import 'package:marquee/marquee.dart';
 
 class MovingText extends StatefulWidget {
   final String textContent;
+   bool isUpper=false;
 
-  MovingText({@required this.textContent});
+  MovingText({@required this.textContent,this.isUpper});
 
   @override
   State<StatefulWidget> createState() {
@@ -22,14 +23,14 @@ class MovingTextState extends State<MovingText> {
 
   Widget _buildMarquee() {
     return Marquee(
-      text: widget.textContent,
+      text: widget.isUpper==true ? widget.textContent.toUpperCase(): widget.textContent,
       style: TextStyle(
           letterSpacing: 0.3,
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 16),
-      pauseAfterRound: Duration(seconds: 3),
-      blankSpace: 30,
+          fontSize: 19),
+      pauseAfterRound: Duration(seconds: 1),
+      blankSpace: 100,
       showFadingOnlyWhenScrolling: true,
     );
   }
