@@ -30,6 +30,13 @@ class TicketColorState extends State<TicketColor> {
   Color opt2 = Colors.red;
   Color opt3 = Colors.green;
 
+  Timer _timer_for_opacity;
+
+  Timer _timer_for_opacity_2;
+
+  bool isUp = true;
+  double opacity1 = 1;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -62,6 +69,21 @@ class TicketColorState extends State<TicketColor> {
         });
       }
     });
+
+    _timer_for_opacity =
+        Timer.periodic(Duration(milliseconds: 500), (Timer time) {
+      isUp = !isUp;
+      print(isUp);
+      if (isUp) {
+        setState(() {
+          opacity1 = 1;
+        });
+      } else {
+        setState(() {
+          opacity1 = 0.4;
+        });
+      }
+    });
   }
 
   @override
@@ -69,6 +91,8 @@ class TicketColorState extends State<TicketColor> {
     // TODO: implement dispose
     super.dispose();
     _timer.cancel();
+    _timer_for_opacity.cancel();
+    _timer_for_opacity_2.cancel();
   }
 
   void changeCol(Color col, index) {
@@ -111,13 +135,17 @@ class TicketColorState extends State<TicketColor> {
                     ColorSelectOver(toSend: changeCol, index: 1)
                         .ColorOverlay(context);
                   },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 3.82,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: opt1,
-                        borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(10))),
+                  child: AnimatedOpacity(
+                    opacity: opacity1,
+                    duration: Duration(milliseconds: 800),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3.82,
+                      height: 55,
+                      decoration: BoxDecoration(
+                          color: opt1,
+                          borderRadius:
+                              BorderRadius.only(topLeft: Radius.circular(10))),
+                    ),
                   ),
                 ),
                 InkWell(
@@ -125,11 +153,15 @@ class TicketColorState extends State<TicketColor> {
                     ColorSelectOver(toSend: changeCol, index: 2)
                         .ColorOverlay(context);
                   },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 3.82,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: opt2, borderRadius: BorderRadius.only()),
+                  child: AnimatedOpacity(
+                    opacity: opacity1,
+                    duration: Duration(milliseconds: 800),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3.82,
+                      height: 55,
+                      decoration: BoxDecoration(
+                          color: opt2, borderRadius: BorderRadius.only()),
+                    ),
                   ),
                 ),
                 InkWell(
@@ -137,13 +169,17 @@ class TicketColorState extends State<TicketColor> {
                     ColorSelectOver(toSend: changeCol, index: 3)
                         .ColorOverlay(context);
                   },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 3.82,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: opt3,
-                        borderRadius:
-                            BorderRadius.only(topRight: Radius.circular(10))),
+                  child: AnimatedOpacity(
+                    opacity: opacity1,
+                    duration: Duration(milliseconds: 800),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3.82,
+                      height: 55,
+                      decoration: BoxDecoration(
+                          color: opt3,
+                          borderRadius:
+                              BorderRadius.only(topRight: Radius.circular(10))),
+                    ),
                   ),
                 ),
               ],
