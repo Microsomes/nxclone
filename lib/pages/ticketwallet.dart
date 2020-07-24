@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
 import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/ticket.dart';
+import 'package:nxclone/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
 import 'components/singleInactive.dart';
 
@@ -17,8 +18,11 @@ class _stpagestate extends State<Ticketwallet> {
   List allUnactivatdTickets = null;
 
   _stpagestate() {
+    //grabbs all unused tickets
     allUnactivatdTickets = List();
+
     NXHelp().getAllUseableTickets().then((value) {
+      print(value);
       var totalT = value.length;
       print("total tickets: $totalT");
       allUnactivatdTickets = value;
@@ -159,6 +163,39 @@ class _stpagestate extends State<Ticketwallet> {
                     child: ListView.builder(
                         itemCount: allUnactivatdTickets.length,
                         itemBuilder: (context, index) {
+                          if (allUnactivatdTickets[index]['isActive'] == -1) {
+                          } else {
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ActualTicket(
+                                              txid: allUnactivatdTickets[index]
+                                                  ['id'],
+                                                  
+                                            )));
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 12),
+                                child: Container(
+                                  height: 110,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.92,
+                                  child: ticketTwo(
+                                    title: allUnactivatdTickets[index]
+                                            ['state'] +
+                                        " " +
+                                        allUnactivatdTickets[index]
+                                            ['tickettype'],
+                                    id: allUnactivatdTickets[index]['id'],
+                                    whenActivated: allUnactivatdTickets[index]['expires'],
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
                           return Padding(
                             padding: const EdgeInsets.only(
                                 left: 12, right: 12, top: 12),

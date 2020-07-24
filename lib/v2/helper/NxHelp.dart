@@ -404,11 +404,23 @@ class NXHelp {
     }
   }
 
+  //todo future run this function to clean up old expired tickets
+  Future cleanUpOldTickets(){
+    //todo
+  }
+
+  Future getAllActiveTickets() async {
+    var db = await openDatabase("main.db");
+    List<Map> list = await db.rawQuery(
+        "SELECT * FROM ticketwallet WHERE isActive=? ORDER BY id DESC", [1]);
+    return list;
+  }
+
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
     var db = await openDatabase("main.db");
     List<Map> list = await db.rawQuery(
-        "SELECT * FROM ticketwallet WHERE isActive=? ORDER BY id DESC", [-1]);
+        "SELECT * FROM ticketwallet WHERE isActive!=2  ORDER BY isActive DESC, expires DESC");
     return list;
   }
 

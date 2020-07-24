@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 class ticketTwo extends StatelessWidget {
 
     final String title;
+    final int id;
 
+    String  whenActivated="Expires in 12 hours, 59 minutes";
     ticketTwo({
-      this.title
+      this.title,
+      @required this.id,
+      this.whenActivated
     });
 
   @override
@@ -20,7 +24,7 @@ class ticketTwo extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                "West Midlands",
+                "$title",
                 style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
               ),
               Expanded(
@@ -82,7 +86,7 @@ class ticketTwo extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     bottom: 2
                   ),
-                  child: Text("Expires in 12 hours, 59 minutes", style: TextStyle(
+                  child: Text("$whenActivated", style: TextStyle(
                     fontWeight: FontWeight.w700
                   ),),
                 ))

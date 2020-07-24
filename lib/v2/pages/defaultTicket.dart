@@ -93,7 +93,7 @@ class DefaultTicketState extends State<DefaultTicket>{
               padding: EdgeInsets.all(20),
             color: Color.fromRGBO(123, 26, 17, 1),
           height: 160,
-          child: ticketTwo(title: currentTicketTitle,),
+          child: ticketTwo(title: currentTicketTitle,id: 1,),
         ),
         SizedBox(height: 20,),
         Text("Customise Ticket",style: TextStyle(
