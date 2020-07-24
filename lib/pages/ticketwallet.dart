@@ -190,7 +190,7 @@ class _stpagestate extends State<Ticketwallet> {
                                         allUnactivatdTickets[index]
                                             ['tickettype'],
                                     id: allUnactivatdTickets[index]['id'],
-                                    whenActivated: allUnactivatdTickets[index]['expireDate'],
+                                    whenActivated: allUnactivatdTickets[index]['activationExpiry'],
                                   ),
                                 ),
                               ),

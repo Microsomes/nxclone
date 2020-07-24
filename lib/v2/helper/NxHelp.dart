@@ -450,7 +450,7 @@ class NXHelp {
       curTicket.forEach((key, value) {
         toCur[key] = value;
       });
-      toCur['expireDate'] = "26/07/2020 12:27";
+      toCur['activationExpiry'] = "26/07/2020 12:27";
       modifiedList.add(toCur);
     });
 
