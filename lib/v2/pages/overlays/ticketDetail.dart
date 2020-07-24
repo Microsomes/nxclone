@@ -108,20 +108,99 @@ class TicketDetailState extends State<TicketDetail> {
                                                   borderRadius:
                                                       BorderRadius.all(
                                                           Radius.circular(1))),
-                                                          child: Center(
-                                                            child: Text("99 DAYS LEFT",
-                                                            textAlign: TextAlign.center,
-                                                            style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontSize: 12,
-                                                              fontWeight: FontWeight.bold
-                                                            ),),
-                                                          ),
+                                              child: Center(
+                                                child: Text(
+                                                  "99 DAYS LEFT",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 20,),
-                                        Container(height: 1,width: MediaQuery.of(context).size.height*0.8,color: Color.fromRGBO(231, 231, 231, 1),)
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          height: 1,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.8,
+                                          color:
+                                              Color.fromRGBO(231, 231, 231, 1),
+                                        ),
+                                      ],
+                                    )),
+                                Container(
+                                    padding: EdgeInsets.all(12),
+                                    alignment: Alignment.centerLeft,
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "TRIP",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  110, 110, 110, 1),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16),
+                                        ),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: Text(
+                                                "West Midlands Daysaver",
+                                                style: TextStyle(
+                                                    color: Color.fromRGBO(
+                                                        61, 61, 61, 1),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 15,),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: Text(
+                                                "£4.00",
+                                                style: TextStyle(
+                                                    color: Color.fromRGBO(
+                                                        61, 61, 61, 1),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 17,
+                                        ),
+                                        Container(
+                                          height: 1,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.8,
+                                          color:
+                                              Color.fromRGBO(231, 231, 231, 1),
+                                        ),
                                       ],
                                     ))
                               ],
