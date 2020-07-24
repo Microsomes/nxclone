@@ -5,7 +5,7 @@ import 'package:nxclone/v2/pages/ticketv2.dart';
 
 class TicketOverlayHelper{
 
-  void  displayActivationDialog(BuildContext context) {
+  void  displayActivationDialog(BuildContext context,int txid) {
     showModalBottomSheet(
       isScrollControlled: true,
         context: context,
@@ -85,7 +85,9 @@ class TicketOverlayHelper{
                              print("show ticket and activate");
                               Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ActualTicket()),
+                              MaterialPageRoute(builder: (context) => ActualTicket(
+                                txid: txid,
+                              )),
                             );
                             },
                               child: Container(

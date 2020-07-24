@@ -6,8 +6,15 @@ import 'package:nxclone/v2/components/movingText.dart';
 
 import 'package:nxclone/v2/pages/overlays/ticketDetail.dart';
 import 'package:nxclone/v2/pages/overlays/actionsOverlay.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 
 class ActualTicket extends StatefulWidget {
+  final int txid;
+
+  ActualTicket({@required this.txid}) {
+    print("ticketv2 $txid");
+  }
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -16,6 +23,24 @@ class ActualTicket extends StatefulWidget {
 }
 
 class ActualTicketState extends State<ActualTicket> {
+  String state;
+  String ticketTitle;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    NXHelp().getTicketById(id: widget.txid).then((ticket) {
+      print(ticket);
+
+      setState(() {
+        state = ticket[0]['state'];
+        ticketTitle = ticket[0]['tickettype'];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -135,7 +160,7 @@ class ActualTicketState extends State<ActualTicket> {
                                   children: <Widget>[
                                     Nxsig(
                                       isRounded: false,
-                                      state: "",
+                                      state:state,
                                     ),
                                     Container(
                                       height: 30,

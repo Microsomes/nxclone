@@ -167,7 +167,7 @@ class Ticket2State extends State<Ticket2> {
                                 onTap: () {
                                   //displayActivationDialog(context);
                                   TicketOverlayHelper()
-                                      .displayActivationDialog(context);
+                                      .displayActivationDialog(context,widget.txdbid);
                                 },
                                 child: Container(
                                   color: Color.fromRGBO(46, 150, 32, 1),
