@@ -29,7 +29,7 @@ class NxfrontState extends State<Nxfront> {
     // TODO: implement build
     return WillPopScope(
       onWillPop: ()async {
-        
+
       },
           child: Scaffold(
           appBar: PreferredSize(
@@ -247,6 +247,7 @@ class NxfrontState extends State<Nxfront> {
                               ticketType: "Daysaver",
                               state: "West Midlands",
                               txdbid: 0,
+                              ticketExpiryDate: "30/07/2020 00:37",
                               )),
                         ),
                         Expanded(

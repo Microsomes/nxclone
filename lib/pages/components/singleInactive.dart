@@ -5,6 +5,8 @@ class SingleInactiveTicket extends StatelessWidget {
   final String ticketType;
   final String state;
   final int txdbid;
+  final String ticketExpiryDate;
+  //pre activation expiry date
   //ticket id is required
 
   const SingleInactiveTicket(
@@ -12,7 +14,9 @@ class SingleInactiveTicket extends StatelessWidget {
       @required this.sizeW,
       @required this.ticketType,
       @required this.state,
-      @required this.txdbid})
+      @required this.txdbid,
+      @required this.ticketExpiryDate
+      })
       : super(key: key);
 
   final double sizeW;
@@ -87,7 +91,7 @@ class SingleInactiveTicket extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
-                    "Expires 16/10/2020 23:59",
+                    "Expires $ticketExpiryDate",
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                 ),

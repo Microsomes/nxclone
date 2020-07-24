@@ -205,6 +205,7 @@ class _stpagestate extends State<Ticketwallet> {
                                   ['tickettype'],
                               state: allUnactivatdTickets[index]['state'],
                               txdbid: allUnactivatdTickets[index]['id'],
+                              ticketExpiryDate: allUnactivatdTickets[index]['ticketExpiry'],
                             ),
                           );
                         }),
