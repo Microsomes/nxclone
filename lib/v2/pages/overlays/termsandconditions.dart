@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 
 class TermsConditions extends StatefulWidget {
   @override
@@ -62,60 +63,36 @@ class TermsConditionsState extends State<TermsConditions> {
                               ]),
                           child: Column(
                             children: <Widget>[
-                              Expanded(
-                                  child: ListView(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Text(
-                                      "TERMS",
-                                      style: TextStyle(
-                                          color: Color.fromRGBO(110, 110, 110, 1),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                    ),
-                                  ),
-
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(20.0),
-                                      child: Column(
-                                        children: <Widget>[
-                                          Text("You must be over 16 to purchase this type of ticket",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),),
-                                  SizedBox(height:25),
-                                  Text("Valid for a single journey on all National Express West Midlands and National Express Conventry busses.",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),),
-                                  SizedBox(height:25),
-                                  Text("Tickets must be used within 7 days of purchase.",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),),
-                                  SizedBox(height:25),
-                                  Text("MTickets must be able to be displayed throughout the journey if requeste",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),),
-                                  SizedBox(height:25),
-                                  Text("Full mTicket terms and Conditions can be found at nxbus.co.uk/mticket and also subject to our Conditions of Carriage",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),),
-                                        ],
+                              Container(
+                                 width: MediaQuery.of(context).size.width,
+                                child: Padding(
+                                      padding: const EdgeInsets.all(20),
+                                      child: Text(
+                                        "TERMS",
+                                        style: TextStyle(
+                                            color:
+                                                Color.fromRGBO(110, 110, 110, 1),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
                                       ),
                                     ),
-                                  )
-                                ],
-                              )),
+                              ),
+                              Expanded(
+                                  child:ListView.builder(
+                                                itemCount: NXHelp().termsForSingle().length,
+                                                itemBuilder: (context, index) {
+                                                  return Padding(
+                                                    padding: const EdgeInsets.all(15),
+                                                    child: Column(
+                                                      children: <Widget>[
+                                                        SizedBox(height: 15),
+                                                    NXHelp().termsForSingle()[index]
+
+                                                      ],
+                                                    ),
+                                                  );
+                                                }),
+                              ),
                               Row(
                                 children: <Widget>[
                                   InkWell(
