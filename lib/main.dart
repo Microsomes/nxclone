@@ -73,7 +73,7 @@ class HomePagePre_state extends State<HomePagePre> {
           ),
           body: SafeArea(
               child: 
-              Stack(
+              Column(
                 children: <Widget>[
                   Expanded(
                     child: Column( 

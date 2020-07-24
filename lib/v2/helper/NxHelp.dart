@@ -420,6 +420,16 @@ class NXHelp {
     return list;
   }
 
+  //activates ticket by id
+  //current time placed in expires to safe time
+  Future activateTicket({@required id}) async {
+        var db = await openDatabase("main.db");
+        //lets grab the timestamp as well
+        var currentTime=new DateTime.now().millisecondsSinceEpoch;
+        var updateid=  await db.rawQuery("UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",[1,currentTime,id]);
+      return updateid;
+  }
+
   //stores ticket in to db and generates a unique ID
   Future buyTicket(
       {@required tickettype, @required state, @required price}) async {
