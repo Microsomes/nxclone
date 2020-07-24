@@ -382,6 +382,7 @@ class NXHelp {
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
     await db.execute(
         "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
+        
     print("run pre-runup setup");
     this.getAllTickets("West Midlands").then((value) {
       print(value.length);
@@ -407,6 +408,32 @@ class NXHelp {
   //todo future run this function to clean up old expired tickets
   Future cleanUpOldTickets(){
     //todo
+  }
+
+
+  Map returnTicketExpiryInfo(String ttype){
+    /*
+      static String singlejourney = "Single Journey";
+  static String singlejourney_cov = "Coventry Single Journey";
+  static String daySaver = "Daysaver";
+  static String daySaver_cov = "Coventry Daysaver";
+  static String daysaver_sandwellanddudley = "Sandwell & Dudley Daysaver";
+  static String daysaver_wallsall = "Walsall Daysaver";
+  static String daysaverafter930monfri = "Daysaver after 9.30am (Mon-Fri)";
+  static String daySaversatsun = "Daysaver (Sat-Sun)";
+  static String eveningSaverafter6 = "Evening Saver after 6pm";
+  static String groupdaysaver = "Group Daysaver";
+  static String groupdaysaverafter6 = "Group Daysaver after 6pm";
+}
+    */
+
+    //ticket expires in that many hours
+    if(ttype==Ttype.singlejourney || ttype== Ttype.singlejourney_cov){
+      return {"expires":168,"activationExpiry":0.5};
+    }
+
+    
+
   }
 
   Future getAllActiveTickets() async {
