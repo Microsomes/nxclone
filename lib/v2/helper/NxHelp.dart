@@ -355,13 +355,22 @@ class NXHelp {
     ];
   }
 
-  List<String> termsForDaysaver() {
+  List<Text> termsForDaysaver() {
     return [
-      "You must be over 16 to purchase this type of ticket",
-      "Valid for a single journey on all National Express West Midlands and National Express Conventry busses.",
-      "Tickets must be used within 7 days of purchase.",
-      "MTickets must be able to be displayed throughout the journey if requested by the driver or a member of staff",
-      "Full mTicket terms and Conditions can be found at nxbus.co.uk/mticket and also subject to our Conditions of Carriage"
+    Text("You must be over 16 to purchase this type of ticket",
+          style: TextStyle(fontSize: 17)),
+          Text("This ticket is valid on the day of the first activation only.",
+          style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
+      Text(
+          "Valid on all National Express West Midlands and National Express Conventry busses.",
+          style: TextStyle(fontSize: 17)),
+          Text("No refunds can be provided.",style: TextStyle(fontSize: 17),),
+      Text(
+          "MTickets must be able to be displayed throughout the journey if requested by the driver or a member of staff",
+          style: TextStyle(fontSize: 17)),
+      Text(
+          "Full mTicket terms and Conditions can be found at nxbus.co.uk/mticket and also subject to our Conditions of Carriage",
+          style: TextStyle(fontSize: 17))
     ];
   }
 

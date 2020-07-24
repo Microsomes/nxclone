@@ -82,11 +82,12 @@ class TermsConditionsState extends State<TermsConditions> {
                                                 itemCount: NXHelp().termsForSingle().length,
                                                 itemBuilder: (context, index) {
                                                   return Padding(
-                                                    padding: const EdgeInsets.all(15),
+                                                    padding: const EdgeInsets.only(bottom:15,left:15,right:15),
                                                     child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
                                                       children: <Widget>[
                                                         SizedBox(height: 15),
-                                                    NXHelp().termsForSingle()[index]
+                                                    NXHelp().termsForDaysaver()[index]
 
                                                       ],
                                                     ),
