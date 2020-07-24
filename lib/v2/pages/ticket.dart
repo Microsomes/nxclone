@@ -5,6 +5,7 @@ import 'package:nxclone/v2/pages/ticketv2.dart';
 import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/overlays/ticketPreActivate.dart';
 import 'package:nxclone/v2/components/movingText.dart';
+import 'package:nxclone/v2/pages/overlays/ticketDetail.dart';
 
 class Ticket2 extends StatefulWidget {
   final int txdbid;
@@ -236,22 +237,33 @@ class Ticket2State extends State<Ticket2> {
                                 Expanded(
                                   child: Container(),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 17.0),
-                                  child: Row(
-                                    children: <Widget>[
-                                      IconButton(
-                                        icon: Icon(Icons.format_list_bulleted),
-                                        onPressed: () {},
-                                      ),
-                                      Text(
-                                        "Details",
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(
-                                                103, 119, 138, 1),
-                                            fontWeight: FontWeight.w500),
-                                      )
-                                    ],
+                                InkWell(
+                                  onTap: () {
+                                    print("go to details page");
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => TicketDetail()),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 17.0),
+                                    child: Row(
+                                      children: <Widget>[
+                                        IconButton(
+                                          icon:
+                                              Icon(Icons.format_list_bulleted),
+                                          onPressed: () {},
+                                        ),
+                                        Text(
+                                          "Details",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  103, 119, 138, 1),
+                                              fontWeight: FontWeight.w500),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 )
                               ],
