@@ -451,6 +451,11 @@ class NXHelp {
         toCur[key] = value;
       });
       toCur['activationExpiry'] = "26/07/2020 12:27";
+      //when ticket is activated this is the expiry date
+
+      toCur['ticketExpiry'] = "26/07/2020 12:27";
+      //time before ticket expires when unactivated
+      
       modifiedList.add(toCur);
     });
 
