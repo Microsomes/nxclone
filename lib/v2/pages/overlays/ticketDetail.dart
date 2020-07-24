@@ -77,14 +77,14 @@ class TicketDetailState extends State<TicketDetail> {
                                   child: Row(
                                     children: <Widget>[
                                       IconButton(
-                                        icon: Icon(Icons.arrow_back_ios),
+                                        icon: Icon(Icons.arrow_back_ios,color: Color.fromRGBO(77, 84, 137, 1),size: 18,),
                                         onPressed: () {},
                                       ),
                                       Text(
                                         "Back",
                                         style: TextStyle(
                                             color: Color.fromRGBO(
-                                                103, 119, 138, 1),
+                                                58, 63, 103, 1),
                                             fontWeight: FontWeight.w500),
                                       )
                                     ],
@@ -98,14 +98,14 @@ class TicketDetailState extends State<TicketDetail> {
                                   child: Row(
                                     children: <Widget>[
                                       IconButton(
-                                        icon: Icon(Icons.format_list_bulleted),
+                                        icon: Icon(Icons.sort,color: Color.fromRGBO(74, 81, 133, 1),),
                                         onPressed: () {},
                                       ),
                                       Text(
-                                        "Details",
+                                        "Terms",
                                         style: TextStyle(
                                             color: Color.fromRGBO(
-                                                103, 119, 138, 1),
+                                                86, 94, 155, 1),
                                             fontWeight: FontWeight.w500),
                                       )
                                     ],
