@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nxclone/v2/pages/overlays/termsandconditions.dart';
 
 class TicketDetail extends StatefulWidget {
   @override
@@ -371,25 +372,36 @@ class TicketDetailState extends State<TicketDetail> {
                                 Expanded(
                                   child: Container(),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 17.0),
-                                  child: Row(
-                                    children: <Widget>[
-                                      IconButton(
-                                        icon: Icon(
-                                          Icons.sort,
-                                          color: Color.fromRGBO(74, 81, 133, 1),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                      Text(
-                                        "Terms",
-                                        style: TextStyle(
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              TermsConditions()),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 17.0),
+                                    child: Row(
+                                      children: <Widget>[
+                                        IconButton(
+                                          icon: Icon(
+                                            Icons.sort,
                                             color:
-                                                Color.fromRGBO(86, 94, 155, 1),
-                                            fontWeight: FontWeight.w500),
-                                      )
-                                    ],
+                                                Color.fromRGBO(74, 81, 133, 1),
+                                          ),
+                                          onPressed: () {},
+                                        ),
+                                        Text(
+                                          "Terms",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  86, 94, 155, 1),
+                                              fontWeight: FontWeight.w500),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 )
                               ],
