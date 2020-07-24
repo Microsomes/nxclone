@@ -172,7 +172,9 @@ class TicketDetailState extends State<TicketDetail> {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 15,),
+                                        SizedBox(
+                                          height: 15,
+                                        ),
                                         Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -202,7 +204,142 @@ class TicketDetailState extends State<TicketDetail> {
                                               Color.fromRGBO(231, 231, 231, 1),
                                         ),
                                       ],
-                                    ))
+                                    )),
+                                Container(
+                                    padding: EdgeInsets.all(12),
+                                    alignment: Alignment.centerLeft,
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "PURCHASE",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  110, 110, 110, 1),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16),
+                                        ),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text(
+                                                  "20 JUL 2020 12:32  ",
+                                                  style: TextStyle(
+                                                      color: Color.fromRGBO(
+                                                          61, 61, 61, 1),
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Text(
+                                                  "Card ending in ****8690 ",
+                                                  style: TextStyle(
+                                                      color: Color.fromRGBO(
+                                                          61, 61, 61, 1),
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+                                              ],
+                                            ),
+                                            Expanded(
+                                              child: Container(),
+                                            ),
+                                            // Container(
+                                            //   alignment:Alignment.center,
+                                            //   height: 50,
+                                            //   width: 90,
+                                            //   decoration: BoxDecoration(
+
+                                            //       borderRadius:
+                                            //           BorderRadius.all(
+                                            //               Radius.circular(1))),
+                                            //   child: Padding(
+
+                                            //     padding: EdgeInsets.only(top:20),
+
+                                            //   child: Image.asset("images/v2/v2assets/visa.png",width: 90,)),
+                                            // ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          height: 1,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.8,
+                                          color:
+                                              Color.fromRGBO(231, 231, 231, 1),
+                                        ),
+                                      ],
+                                    )),
+                                Container(
+                                    padding: EdgeInsets.all(12),
+                                    alignment: Alignment.centerLeft,
+                                    height: 100,
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "TICKET ID",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  110, 110, 110, 1),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16),
+                                        ),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: Text(
+                                                "AT547215684",
+                                                style: TextStyle(
+                                                    color: Color.fromRGBO(
+                                                        61, 61, 61, 1),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          height: 1,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.8,
+                                          color:
+                                              Color.fromRGBO(231, 231, 231, 1),
+                                        ),
+                                      ],
+                                    )),
                               ],
                             )),
                             Row(
