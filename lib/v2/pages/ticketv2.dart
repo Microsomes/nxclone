@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/components/nxsig.dart';
 import 'package:nxclone/v2/components/ticketColor.dart';
@@ -25,11 +28,41 @@ class ActualTicket extends StatefulWidget {
 class ActualTicketState extends State<ActualTicket> {
   String state;
   String ticketTitle;
+  List listOfQrCollections;
+  String currentQR;
+
+  Timer _qrTimer;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    listOfQrCollections = List();
+    listOfQrCollections.add("images/v2/v2assets/bar1.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar2.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar3.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar4.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar5.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar6.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar7.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar8.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar9.PNG");
+    listOfQrCollections.add("images/v2/v2assets/bar10.PNG");
+
+    currentQR = listOfQrCollections[0];
+
+    _qrTimer = Timer.periodic(Duration(seconds: 5), (timer) {
+      //grab random index
+      Random rnd;
+      int min = 0;
+      int max = listOfQrCollections.length;
+      rnd = new Random();
+      var r = min + rnd.nextInt(max - min);
+      setState(() {
+        currentQR= listOfQrCollections[r];
+      });
+    });
 
     NXHelp().getTicketById(id: widget.txid).then((ticket) {
       print(ticket);
@@ -39,6 +72,13 @@ class ActualTicketState extends State<ActualTicket> {
         ticketTitle = ticket[0]['tickettype'];
       });
     });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _qrTimer.cancel();
   }
 
   @override
@@ -104,19 +144,12 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                       Container(
-                        alignment: Alignment.center,
-                        height: 180,
-                        child: QrImage(
-                           gapless: true,
-                          data:
-                              "1234567lkl[plp[lmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm890",
-                          version: QrVersions.auto,
-                          size: 180,
-                        ),
-                      ),
+                          alignment: Alignment.center,
+                          height: 180,
+                          child: Image.asset(currentQR)),
                       SizedBox(
                         height: 10,
                       ),
@@ -162,7 +195,7 @@ class ActualTicketState extends State<ActualTicket> {
                                   children: <Widget>[
                                     Nxsig(
                                       isRounded: false,
-                                      state:state,
+                                      state: state,
                                       isBottomRounded: true,
                                     ),
                                     // Container(
@@ -194,11 +227,8 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                          right: 20,
-                          left: 20,
-                          top: 8
-                        ),
+                        padding:
+                            const EdgeInsets.only(right: 20, left: 20, top: 8),
                         child: Container(
                           color: Color.fromRGBO(26, 108, 151, 1),
                           height: 60,
