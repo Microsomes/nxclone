@@ -378,10 +378,11 @@ class NXHelp {
     ];
   }
 
-Future deleteAllTickets()async {
-    var db= await openDatabase("main.db");
-     await db.rawDelete("DELETE FROM ticketwallet"); 
+  Future deleteAllTickets() async {
+    var db = await openDatabase("main.db");
+    await db.rawDelete("DELETE FROM ticketwallet");
   }
+
   void init() async {
     var db = await openDatabase("main.db");
     await db.execute(
@@ -390,6 +391,8 @@ Future deleteAllTickets()async {
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
     await db.execute(
         "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
+
+    //load default values
 
     print("run pre-runup setup");
     this.getAllTickets("West Midlands").then((value) {
@@ -418,30 +421,39 @@ Future deleteAllTickets()async {
     //todo
   }
 
-
-  
-
   //if not null will buy and return an ticket id
   Future buyAndActivateDefaultTicket() async {
-
-    var defaultTicket= await this.loadConfig("deficketv2", 1);
-    if(defaultTicket.length==0){
+    var defaultTicket = await this.loadConfig("deficketv2", 1);
+    if (defaultTicket.length == 0) {
       //no default selected we must use west-midlands as default and a daysaver
-    }else{
 
-      var curDefault= defaultTicket[0]['val'].split(":");
+      var deftttype = Ttype.daySaver;
+      var defstate = States.westMidlands;
 
-      var ticketid=await this.buyTicket(tickettype: curDefault[1], state: curDefault[0], price: "0.00");
+      var ticketid = await this
+          .buyTicket(tickettype: deftttype, state: defstate, price: "0.00");
       //provisions a ticket
 
       await this.activateTicket(id: ticketid);
       //activates a ticket
 
-      return {"ticketid":ticketid,"state":curDefault[0],"tickettype":curDefault[1]};
-      
+      return {"ticketid": ticketid, "state": defstate, "tickettype": deftttype};
+    } else {
+      var curDefault = defaultTicket[0]['val'].split(":");
 
+      var ticketid = await this.buyTicket(
+          tickettype: curDefault[1], state: curDefault[0], price: "0.00");
+      //provisions a ticket
+
+      await this.activateTicket(id: ticketid);
+      //activates a ticket
+
+      return {
+        "ticketid": ticketid,
+        "state": curDefault[0],
+        "tickettype": curDefault[1]
+      };
     }
-
   }
 
   Map returnTicketExpiryInfo(String ttype) {
@@ -483,8 +495,8 @@ Future deleteAllTickets()async {
   }
 
   Future getAllAvailableToPurchaseTickets() async {
-    var db= await openDatabase("main.db");
-    List<Map> list= await db.rawQuery("SELECT * FROM tickets");
+    var db = await openDatabase("main.db");
+    List<Map> list = await db.rawQuery("SELECT * FROM tickets");
     return list;
   }
 
@@ -521,11 +533,11 @@ Future deleteAllTickets()async {
         print(dateOfExpiry);
         toCur['ticketExpiry'] = updatedDt;
         //time before ticket expires when unactivated
-      }else if(curTicket['isActive']==1){
+      } else if (curTicket['isActive'] == 1) {
         var ticketPurchased = curTicket['expires'];
         var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
         var expiriesIn = ticketMeta['activationExpiry'];
-         expiriesIn = expiriesIn.toInt();
+        expiriesIn = expiriesIn.toInt();
         var date = new DateTime.fromMicrosecondsSinceEpoch(
             int.parse(ticketPurchased) * 1000);
         var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
