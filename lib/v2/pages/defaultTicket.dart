@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:nxclone/v2/components/fancyOptions.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import '../../components/daysaveractive.dart';
 import '../main/bar.dart';
 import 'package:nxclone/v2/pages/overlays/defaultTicketOverlay.dart';
@@ -20,8 +23,20 @@ class DefaultTicketState extends State<DefaultTicket>{
 
      List ticketOptions=List();
      bool isShowing=false;
-
      String currentTicketTitle="";
+
+
+     Map currentTicket=null;
+
+
+     Timer _timer;
+
+     @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _timer.cancel();
+  }
 
     @override
   void initState() {
@@ -51,9 +66,23 @@ class DefaultTicketState extends State<DefaultTicket>{
         resetState();
       }
     });
+
+
+    _timer= Timer.periodic(Duration(seconds: 2), (timer) {
+
+        NXHelp().loadConfig("deficketv2", 1).then((deftik){
+      setState(() {
+        currentTicket=deftik[0];
+      });
+    });
     
 
+     });
+
+     
+
   }
+  
 
  Future restoreOption(String key) async {
         var db= await openDatabase("main.db");
@@ -94,7 +123,7 @@ class DefaultTicketState extends State<DefaultTicket>{
               padding: EdgeInsets.all(20),
             color: Color.fromRGBO(123, 26, 17, 1),
           height: 160,
-          child: ticketTwo(title: currentTicketTitle,id: 1,),
+          child: currentTicket!=null? ticketTwo(title: currentTicket['val'],id: 1,):CircularProgressIndicator(),
         ),
         SizedBox(height: 20,),
         Text("Customise Ticket",style: TextStyle(
