@@ -7,6 +7,8 @@ import 'package:nxclone/v2/main/quickOptions.dart';
 import 'package:nxclone/v2/pages/buyflow/payment/paymentConfirmed.dart';
 import 'package:nxclone/v2/pages/nxfront.dart';
 import 'package:nxclone/v2/pages/ticketv2.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
+
 
 import 'v2/pages/ticket.dart';
 
@@ -149,9 +151,11 @@ void main() {
         Color.fromRGBO(0, 0, 0, 1), // navigation bar color
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
-  return runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomePagePre(),
-    //home:PaymentConfirmed()
+  return runApp(Phoenix(
+      child: MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePagePre(),
+      //home:PaymentConfirmed()
+    ),
   ));
 }

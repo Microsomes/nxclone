@@ -61,7 +61,7 @@ class ActualTicketState extends State<ActualTicket> {
       rnd = new Random();
       var r = min + rnd.nextInt(max - min);
       setState(() {
-        currentQR= listOfQrCollections[r];
+        currentQR = listOfQrCollections[r];
       });
     });
 
@@ -86,13 +86,11 @@ class ActualTicketState extends State<ActualTicket> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return WillPopScope(
-      onWillPop: ()async{
+      onWillPop: () async {
         Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Nxfront()));
+            context, MaterialPageRoute(builder: (context) => Nxfront()));
       },
-          child: Scaffold(
+      child: Scaffold(
         body: SafeArea(
           child: Column(
             children: <Widget>[
@@ -100,10 +98,13 @@ class ActualTicketState extends State<ActualTicket> {
                 height: 10,
               ),
               InkWell(
-                onTap: (){
-                  Navigator.pop(context);
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Nxfront()),
+                  );
                 },
-                              child: Row(
+                child: Row(
                   children: <Widget>[
                     Expanded(
                       child: Container(),
@@ -112,7 +113,8 @@ class ActualTicketState extends State<ActualTicket> {
                       padding: const EdgeInsets.only(right: 20, top: 10),
                       child: Text(
                         "Close",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     )
                   ],
@@ -240,8 +242,8 @@ class ActualTicketState extends State<ActualTicket> {
                           ),
                         ),
                         Padding(
-                          padding:
-                              const EdgeInsets.only(right: 20, left: 20, top: 10),
+                          padding: const EdgeInsets.only(
+                              right: 20, left: 20, top: 10),
                           child: Container(
                             color: Color.fromRGBO(26, 108, 151, 1),
                             height: 60,
@@ -315,7 +317,8 @@ class ActualTicketState extends State<ActualTicket> {
                                     Text(
                                       "Details",
                                       style: TextStyle(
-                                          color: Color.fromRGBO(103, 119, 138, 1),
+                                          color:
+                                              Color.fromRGBO(103, 119, 138, 1),
                                           fontWeight: FontWeight.w500),
                                     )
                                   ],
