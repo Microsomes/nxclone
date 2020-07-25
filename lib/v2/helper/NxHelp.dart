@@ -452,6 +452,12 @@ class NXHelp {
     return list;
   }
 
+  Future getAllAvailableToPurchaseTickets() async {
+    var db= await openDatabase("main.db");
+    List<Map> list= await db.rawQuery("SELECT * FROM tickets");
+    return list;
+  }
+
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
     var db = await openDatabase("main.db");

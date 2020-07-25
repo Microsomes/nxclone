@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nxclone/v2/components/fancyOptions.dart';
 import '../../components/daysaveractive.dart';
 import '../main/bar.dart';
+import 'package:nxclone/v2/pages/overlays/defaultTicketOverlay.dart';
 
 import 'package:sqflite/sqflite.dart';
 
@@ -100,6 +101,35 @@ class DefaultTicketState extends State<DefaultTicket>{
           fontSize: 20,
           fontWeight: FontWeight.bold
         ),),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Determines the default ticket, that is automatically \npre-activated and purchased for you",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            color: Colors.lightGreen
+          ),
+          ),
+        ),
+
+        InkWell(
+          onTap: (){
+            print("select state");
+            DefaultTicketOverlay().showDefaultOverlay(context);
+          },
+                  child: Container(
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+             child: Center(
+               child: Text("Select state",
+               style: TextStyle(
+                 fontSize: 20,
+                 fontWeight: FontWeight.w800
+               ),),
+             )
+          ),
+        ),
 
       isShowing==true ?  Expanded(
           child: Center(child: 
