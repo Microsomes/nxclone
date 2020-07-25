@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nxclone/pages/journey/ticket.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/pages/overlays/colorSelectorOver.dart';
 
 class TicketColor extends StatefulWidget {
@@ -43,6 +44,47 @@ class TicketColorState extends State<TicketColor> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+
+    NXHelp().loadConfig("opt1col", 1).then((opt1colconfig) {
+      if(opt1colconfig.length==0){
+      }else{
+        print(opt1colconfig);
+        var curVal=opt1colconfig[0]['val'];
+        String valueString = curVal.split('(0x')[1].split(')')[0]; // kind of hacky..
+        int value = int.parse(valueString, radix: 16);
+        Color otherColor = new Color(value);
+        opt1=otherColor;
+        setState(() {
+        });
+      }
+    });
+     NXHelp().loadConfig("opt2col", 1).then((opt1colconfig) {
+      if(opt1colconfig.length==0){
+      }else{
+        print(opt1colconfig);
+        var curVal=opt1colconfig[0]['val'];
+        String valueString = curVal.split('(0x')[1].split(')')[0]; // kind of hacky..
+        int value = int.parse(valueString, radix: 16);
+        Color otherColor = new Color(value);
+        opt2=otherColor;
+        setState(() {
+        });
+      }
+    });
+     NXHelp().loadConfig("opt3col", 1).then((opt1colconfig) {
+      if(opt1colconfig.length==0){
+      }else{
+        print(opt1colconfig);
+        var curVal=opt1colconfig[0]['val'];
+        String valueString = curVal.split('(0x')[1].split(')')[0]; // kind of hacky..
+        int value = int.parse(valueString, radix: 16);
+        Color otherColor = new Color(value);
+        opt3=otherColor;
+        setState(() {
+        });
+      }
+    });
 
     final df = new DateFormat('dd-MM-yyyy');
     var myvalue = DateTime.now();
@@ -104,22 +146,29 @@ class TicketColorState extends State<TicketColor> {
     _timer_for_opacity_2.cancel();
   }
 
-  void changeCol(Color col, index) {
+  void changeCol(Color col, index) async {
     switch (index) {
       case 1:
         setState(() {
           opt1 = col;
         });
+        var cid = await NXHelp().saveConfig("opt1col", col.toString());
+        print("color saved $cid");
+
         break;
       case 2:
         setState(() {
           opt2 = col;
         });
+        var cid = await NXHelp().saveConfig("opt2col", col.toString());
+        print("color saved $cid");
         break;
       case 3:
         setState(() {
           opt3 = col;
         });
+        var cid = await NXHelp().saveConfig("opt3col", col.toString());
+        print("color saved $cid");
         break;
     }
   }
@@ -129,7 +178,7 @@ class TicketColorState extends State<TicketColor> {
     final sizeW = MediaQuery.of(context).size.width;
     final sizeH = MediaQuery.of(context).size.height;
 
-    var df= dy;
+    var df = dy;
 
     // TODO: implement build
     return Container(

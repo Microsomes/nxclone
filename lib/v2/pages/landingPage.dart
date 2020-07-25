@@ -20,6 +20,7 @@ class LandingPageState extends State<LandingPage>{
 
     FancyOptions option1;
     FancyOptions option2;
+    FancyOptions option3;
 
     bool isShowing=true;
 
@@ -70,13 +71,27 @@ class LandingPageState extends State<LandingPage>{
           boxFitt: BoxFit.cover,
           );
 
-        option2=  FancyOptions(title: "Ticket only",isSelected: false,assetRoute:"images/home2.png",clicked: ()async {
+        option2=  FancyOptions(title: "NX Home",isSelected: false,assetRoute:"images/home2.png",clicked: ()async {
+
+             this.saveOption("defaulthomepage", "nxhome");
+            
+            setState(() {
+              option1.isSelected=false;
+              option3.isSelected=false;
+            option2.isSelected=true;  
+            isShowing=false;
+             });
+              resetState();
+          },boxFitt: BoxFit.cover,);
+
+           option3=  FancyOptions(title: "Ticket only",isSelected: false,assetRoute:"images/home2.png",clicked: ()async {
 
              this.saveOption("defaulthomepage", "ticket");
             
             setState(() {
               option1.isSelected=false;
-            option2.isSelected=true;  
+              option3.isSelected=true;
+            option2.isSelected=false;  
             isShowing=false;
              });
               resetState();
@@ -132,7 +147,12 @@ class LandingPageState extends State<LandingPage>{
           SizedBox(height: 20,),
         isShowing==true?  option1.createElement().widget:Container(),
           SizedBox(height: 20,),
-         isShowing==true ? option2.createElement().widget: Container()
+         isShowing==true ? option2.createElement().widget: Container(),
+         SizedBox(height: 20,),
+         isShowing==true ? option3.createElement().widget: Container()
+
+
+
         ],
       )
     );

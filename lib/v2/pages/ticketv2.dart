@@ -52,7 +52,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     currentQR = listOfQrCollections[0];
 
-    _qrTimer = Timer.periodic(Duration(seconds: 5), (timer) {
+    _qrTimer = Timer.periodic(Duration(seconds: 4), (timer) {
       //grab random index
       Random rnd;
       int min = 0;
