@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 class ticketTwo extends StatelessWidget {
 
-    final String title;
+    final String state;
+    final String tickettype;
     final int id;
 
     String  whenActivated="Expires in 12 hours, 59 minutes";
     ticketTwo({
-      this.title,
+     @required this.state,
+     @required this.tickettype,
       @required this.id,
       this.whenActivated
     });
@@ -24,7 +26,7 @@ class ticketTwo extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                "$title",
+                "$state",
                 style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
               ),
               Expanded(
@@ -54,7 +56,7 @@ class ticketTwo extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0, top: 5),
               child: Text(
-                title,
+                "$tickettype",
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
               ),
             )),

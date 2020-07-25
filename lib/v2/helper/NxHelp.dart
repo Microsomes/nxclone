@@ -414,6 +414,30 @@ class NXHelp {
     //todo
   }
 
+
+  //if not null will buy and return an ticket id
+  Future buyAndActivateDefaultTicket() async {
+
+    var defaultTicket= await this.loadConfig("deficketv2", 1);
+    if(defaultTicket.length==0){
+      //no default selected we must use west-midlands as default and a daysaver
+    }else{
+
+      var curDefault= defaultTicket[0]['val'].split(":");
+
+      var ticketid=await this.buyTicket(tickettype: curDefault[1], state: curDefault[0], price: "0.00");
+      //provisions a ticket
+
+      await this.activateTicket(id: ticketid);
+      //activates a ticket
+
+      return {"ticketid":ticketid,"state":curDefault[0],"tickettype":curDefault[1]};
+      
+
+    }
+
+  }
+
   Map returnTicketExpiryInfo(String ttype) {
     //ticket expires in that many hours
     if (ttype == Ttype.singlejourney || ttype == Ttype.singlejourney_cov) {

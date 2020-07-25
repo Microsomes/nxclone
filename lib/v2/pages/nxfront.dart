@@ -7,8 +7,10 @@ import 'package:nxclone/pages/offers.dart';
 import 'package:nxclone/pages/selectticket.dart';
 import 'package:nxclone/pages/ticketwallet.dart';
 import 'package:nxclone/pages/tripTools.dart';
+import 'package:nxclone/v2/helper/NxHelp.dart';
 import 'package:nxclone/v2/main/bar.dart';
 import 'package:nxclone/v2/pages/ticket.dart';
+import 'package:nxclone/v2/pages/ticketv2.dart';
 
 class Nxfront extends StatefulWidget {
   @override
@@ -22,16 +24,35 @@ class NxfrontState extends State<Nxfront> {
   double heightOf = 60;
   double spaceApart = 20;
 
+  int defaultTicketid = null;
+
+  String state = "";
+  String tickettype = "";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    //call method to grab a preactivated default ticket useful
+    NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
+      print("$preactivatedid");
+      setState(() {
+        defaultTicketid = preactivatedid['ticketid'];
+        state = preactivatedid['state'];
+        tickettype = preactivatedid['tickettype'];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     final sizeH = MediaQuery.of(context).size.height;
     // TODO: implement build
     return WillPopScope(
-      onWillPop: ()async {
-
-      },
-          child: Scaffold(
+      onWillPop: () async {},
+      child: Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(45),
             child: AppBar(
@@ -219,7 +240,7 @@ class NxfrontState extends State<Nxfront> {
                     height: 3,
                   ),
                   Container(
-                    height: 186,
+                    height: 190,
                     width: sizeW * 0.96,
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(123, 26, 17, 1),
@@ -230,26 +251,38 @@ class NxfrontState extends State<Nxfront> {
                           height: 20,
                         ),
                         InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Ticket2(
-                                      txdbid: 0,
-                                    )));
-                          },
-                          child: Container(
-                              width: sizeW * 0.9,
-                              height: 120,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: SingleInactiveTicket(sizeW: sizeW,
-                              ticketType: "Daysaver",
-                              state: "West Midlands",
-                              txdbid: 0,
-                              ticketExpiryDate: "30/07/2020 00:37",
-                              )),
-                        ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Ticket2(
+                                            txdbid: 0,
+                                          )));
+                            },
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ActualTicket(
+                                            txid: defaultTicketid)));
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 12),
+                                child: Container(
+                                  height: 110,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.92,
+                                  child: ticketTwo(
+                                    state: state ,
+                                    tickettype: tickettype,
+                                    id: defaultTicketid,
+                                    whenActivated: "E",
+                                  ),
+                                ),
+                              ),
+                            )),
                         Expanded(
                           child: Text(""),
                         ),

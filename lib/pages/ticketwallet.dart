@@ -173,7 +173,6 @@ class _stpagestate extends State<Ticketwallet> {
                                         builder: (context) => ActualTicket(
                                               txid: allUnactivatdTickets[index]
                                                   ['id'],
-                                                  
                                             )));
                               },
                               child: Padding(
@@ -184,13 +183,12 @@ class _stpagestate extends State<Ticketwallet> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.92,
                                   child: ticketTwo(
-                                    title: allUnactivatdTickets[index]
-                                            ['state'] +
-                                        " " +
-                                        allUnactivatdTickets[index]
-                                            ['tickettype'],
+                                    state: allUnactivatdTickets[index]['state'],
+                                    tickettype: allUnactivatdTickets[index]
+                                        ['tickettype'],
                                     id: allUnactivatdTickets[index]['id'],
-                                    whenActivated: allUnactivatdTickets[index]['activationExpiry'],
+                                    whenActivated: allUnactivatdTickets[index]
+                                        ['activationExpiry'],
                                   ),
                                 ),
                               ),
@@ -205,7 +203,8 @@ class _stpagestate extends State<Ticketwallet> {
                                   ['tickettype'],
                               state: allUnactivatdTickets[index]['state'],
                               txdbid: allUnactivatdTickets[index]['id'],
-                              ticketExpiryDate: allUnactivatdTickets[index]['ticketExpiry'],
+                              ticketExpiryDate: allUnactivatdTickets[index]
+                                  ['ticketExpiry'],
                             ),
                           );
                         }),
