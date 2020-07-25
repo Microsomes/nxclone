@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nxclone/pages/journey/ticket.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
-import 'package:nxclone/v2/main/bar.dart';
-import 'package:nxclone/v2/main/quickOptions.dart';
-import 'package:nxclone/v2/pages/buyflow/payment/paymentConfirmed.dart';
-import 'package:nxclone/v2/pages/nxfront.dart';
-import 'package:nxclone/v2/pages/ticketv2.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/main/bar.dart';
+import 'package:BlackPie/v2/main/quickOptions.dart';
+import 'package:BlackPie/v2/pages/nxfront.dart';
+import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-
-
-import 'v2/pages/ticket.dart';
-
 class HomePagePre extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-
     return HomePagePre_state();
   }
 }
@@ -28,7 +20,6 @@ class HomePagePre_state extends State<HomePagePre> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     NXHelp aconfig = NXHelp();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/components/fancyOptions.dart';
-import 'package:nxclone/v2/main/bar.dart';
+import 'package:BlackPie/v2/components/fancyOptions.dart';
+import 'package:BlackPie/v2/main/bar.dart';
 import 'package:sqflite/sqflite.dart';
 
 

@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:nxclone/v2/components/fancyOptions.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
-import 'package:nxclone/v2/main/bar.dart';
+import 'package:BlackPie/v2/components/fancyOptions.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/main/bar.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LandingPage extends StatefulWidget {

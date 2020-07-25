@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/components/daysaveractive.dart';
-import 'package:nxclone/pages/components/singleInactive.dart';
-import 'package:nxclone/pages/help.dart';
-import 'package:nxclone/pages/journey/ticket.dart';
-import 'package:nxclone/pages/offers.dart';
-import 'package:nxclone/pages/selectticket.dart';
-import 'package:nxclone/pages/ticketwallet.dart';
-import 'package:nxclone/pages/tripTools.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
-import 'package:nxclone/v2/main/bar.dart';
-import 'package:nxclone/v2/pages/ticket.dart';
-import 'package:nxclone/v2/pages/ticketv2.dart';
+import 'package:BlackPie/components/daysaveractive.dart';
+import 'package:BlackPie/pages/help.dart';
+import 'package:BlackPie/pages/offers.dart';
+import 'package:BlackPie/pages/selectticket.dart';
+import 'package:BlackPie/pages/ticketwallet.dart';
+import 'package:BlackPie/pages/tripTools.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/pages/ticket.dart';
+import 'package:BlackPie/v2/pages/ticketv2.dart';
 
 class Nxfront extends StatefulWidget {
   @override

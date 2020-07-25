@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 
-
-
-class DefaultTicketOverlay{
-
-    void showDefaultOverlay(BuildContext btx) {
-
-       showModalBottomSheet(
+class DefaultTicketOverlay {
+  void showDefaultOverlay(BuildContext btx) {
+    showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
         context: btx,
@@ -26,42 +22,46 @@ class DefaultTicketOverlay{
                     "Select a Default Ticket",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Expanded(
-                    child: FutureBuilder(
-                      future: NXHelp().getAllAvailableToPurchaseTickets(),
-                      builder: (context,snapshot){
-                        if(snapshot.connectionState==ConnectionState.done){
-                          
-
-                          return ListView.builder(
+                      child: FutureBuilder(
+                    future: NXHelp().getAllAvailableToPurchaseTickets(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        return ListView.builder(
                             itemCount: snapshot.data.length,
-                            itemBuilder: (context,index){
+                            itemBuilder: (context, index) {
                               return ListTile(
-                                onTap: (){
-                                  print("save ticket");
-                                  print(snapshot.data[index]['state']);
-                                  print(snapshot.data[index]['tickettitle']);
+                                  onTap: () {
+                                    print("save ticket");
+                                    print(snapshot.data[index]['state']);
+                                    print(snapshot.data[index]['tickettitle']);
 
-                                  NXHelp().saveConfig("deficketv2",snapshot.data[index]['state']+":"+snapshot.data[index]['tickettitle']).then((value){
-                                    print("inserted $value");
-                                  });
-
-                                },
-                                title: Text(snapshot.data[index]['state']),
-                                subtitle: Text(snapshot.data[index]['tickettitle'],)
-                              );
-                          });
-                        }else{
-                          return CircularProgressIndicator();
-                        }
-                      },
-                    )
-                  )
+                                    NXHelp()
+                                        .saveConfig(
+                                            "deficketv2",
+                                            snapshot.data[index]['state'] +
+                                                ":" +
+                                                snapshot.data[index]
+                                                    ['tickettitle'])
+                                        .then((value) {
+                                      print("inserted $value");
+                                    });
+                                  },
+                                  title: Text(snapshot.data[index]['state']),
+                                  subtitle: Text(
+                                    snapshot.data[index]['tickettitle'],
+                                  ));
+                            });
+                      } else {
+                        return CircularProgressIndicator();
+                      }
+                    },
+                  ))
                 ],
               ));
         });
-    }
-
-
+  }
 }

@@ -2,15 +2,13 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/components/nxsig.dart';
-import 'package:nxclone/v2/components/ticketColor.dart';
-import 'package:nxclone/v2/pages/nxfront.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import 'package:nxclone/v2/components/movingText.dart';
-
-import 'package:nxclone/v2/pages/overlays/ticketDetail.dart';
-import 'package:nxclone/v2/pages/overlays/actionsOverlay.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/components/nxsig.dart';
+import 'package:BlackPie/v2/components/ticketColor.dart';
+import 'package:BlackPie/v2/pages/nxfront.dart';
+import 'package:BlackPie/v2/components/movingText.dart';
+import 'package:BlackPie/v2/pages/overlays/ticketDetail.dart';
+import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 
 class ActualTicket extends StatefulWidget {
   final int txid;

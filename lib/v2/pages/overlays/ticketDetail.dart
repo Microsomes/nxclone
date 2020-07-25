@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/pages/overlays/termsandconditions.dart';
+import 'package:BlackPie/v2/pages/overlays/termsandconditions.dart';
 
 class TicketDetail extends StatefulWidget {
   @override

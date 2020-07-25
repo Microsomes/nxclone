@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 
 class TermsConditions extends StatefulWidget {
   @override

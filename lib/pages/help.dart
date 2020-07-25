@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 
 import './help/applicationinfo.dart';
 
-
 import './help/customerService.dart';
-
 
 import './help/faq.dart';
 
-import 'package:nxclone/pages/settings.dart';
+import 'package:BlackPie/pages/settings.dart';
 
 class Help extends StatelessWidget {
   @override
@@ -68,9 +66,10 @@ class _stpagestate extends State<stpage> {
                 child: InkWell(
                   onTap: () {
                     print("open app info");
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context)=> ApplicationInfoPage()
-                    ));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ApplicationInfoPage()));
                   },
                   child: Container(
                     width: 380,
@@ -118,14 +117,15 @@ class _stpagestate extends State<stpage> {
               InkWell(
                 onTap: () {},
                 child: InkWell(
-
-                  onTap: (){
+                  onTap: () {
                     print("customer service page");
 
-                    Navigator.push(context, MaterialPageRoute(builder: (Context)=> CustomerServicePage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (Context) => CustomerServicePage()));
                   },
-
-                                  child: Container(
+                  child: Container(
                     width: 380,
                     height: 50,
                     decoration: BoxDecoration(
@@ -172,8 +172,8 @@ class _stpagestate extends State<stpage> {
                 onTap: () {
                   print("open faq page");
 
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=> FaqPage()));
-
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => FaqPage()));
                 },
                 child: Container(
                   width: 380,
@@ -221,9 +221,8 @@ class _stpagestate extends State<stpage> {
                 onTap: () {
                   print("tos");
 
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));
-
-
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Settings()));
                 },
                 child: Container(
                   width: 380,

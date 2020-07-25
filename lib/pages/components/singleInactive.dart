@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/pages/ticket.dart';
+import 'package:BlackPie/v2/pages/ticket.dart';
 
 class SingleInactiveTicket extends StatelessWidget {
   final String ticketType;

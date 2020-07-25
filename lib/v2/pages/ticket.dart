@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/components/nxsig.dart';
-import 'package:nxclone/v2/main/bar.dart';
-import 'package:nxclone/v2/pages/ticketv2.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
-import 'package:nxclone/v2/pages/overlays/ticketPreActivate.dart';
-import 'package:nxclone/v2/components/movingText.dart';
-import 'package:nxclone/v2/pages/overlays/ticketDetail.dart';
-import 'package:nxclone/v2/pages/overlays/actionsOverlay.dart';
+import 'package:BlackPie/v2/components/nxsig.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/pages/overlays/ticketPreActivate.dart';
+import 'package:BlackPie/v2/components/movingText.dart';
+import 'package:BlackPie/v2/pages/overlays/ticketDetail.dart';
+import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
 
 class Ticket2 extends StatefulWidget {
   final int txdbid;

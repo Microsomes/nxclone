@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/pages/journey/ticket.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
-import 'package:nxclone/v2/pages/ticket.dart';
-import 'package:nxclone/v2/pages/ticketv2.dart';
+import 'package:BlackPie/pages/journey/ticket.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/pages/ticket.dart';
+import 'package:BlackPie/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
 import 'components/singleInactive.dart';
 

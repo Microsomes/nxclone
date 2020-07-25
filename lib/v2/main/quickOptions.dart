@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/pages/defaultTicket.dart';
-import 'package:nxclone/v2/pages/ejection.dart';
-import 'package:nxclone/v2/pages/landingPage.dart';
+import 'package:BlackPie/v2/pages/defaultTicket.dart';
+import 'package:BlackPie/v2/pages/ejection.dart';
+import 'package:BlackPie/v2/pages/landingPage.dart';
 
 class QuickOptions extends StatefulWidget{
   @override

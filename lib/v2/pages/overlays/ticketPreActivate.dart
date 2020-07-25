@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/v2/helper/NxHelp.dart';
-import 'package:nxclone/v2/pages/ticketv2.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BlackPie/v2/pages/ticketv2.dart';
 
 class TicketOverlayHelper {
   void displayActivationDialog(BuildContext context, int txid) {

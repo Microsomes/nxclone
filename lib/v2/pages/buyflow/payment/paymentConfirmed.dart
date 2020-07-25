@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nxclone/pages/ticketwallet.dart';
-import 'package:nxclone/v2/pages/nxfront.dart';
+import 'package:BlackPie/pages/ticketwallet.dart';
+import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PaymentConfirmed extends StatelessWidget {
