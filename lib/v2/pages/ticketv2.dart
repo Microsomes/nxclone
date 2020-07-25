@@ -110,8 +110,9 @@ class ActualTicketState extends State<ActualTicket> {
                         alignment: Alignment.center,
                         height: 180,
                         child: QrImage(
+                           gapless: true,
                           data:
-                              "1234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm890",
+                              "1234567lkl[plp[lmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm8901234567lkmklklmklmklmklm890",
                           version: QrVersions.auto,
                           size: 180,
                         ),
@@ -121,7 +122,8 @@ class ActualTicketState extends State<ActualTicket> {
                       ),
                       Container(
                         child: Text(
-                          "ANY BUS ACROSS OUR NETWORK",
+                          "ANY BUS ACROSS OUR \nNETWORK",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 16,
                               letterSpacing: 0.3,
@@ -135,7 +137,7 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                       ),
                       Container(
-                        height: 240,
+                        height: 200,
                         child: Stack(
                           children: <Widget>[
                             Positioned(
@@ -161,28 +163,29 @@ class ActualTicketState extends State<ActualTicket> {
                                     Nxsig(
                                       isRounded: false,
                                       state:state,
+                                      isBottomRounded: true,
                                     ),
-                                    Container(
-                                      height: 30,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.785,
-                                      decoration: BoxDecoration(
-                                        color: Color.fromRGBO(156, 19, 26, 1),
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(10),
-                                            bottomRight: Radius.circular(10)),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "Activated 13:32",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 17,
-                                              letterSpacing: 0.8),
-                                        ),
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   height: 30,
+                                    //   width: MediaQuery.of(context).size.width *
+                                    //       0.785,
+                                    //   decoration: BoxDecoration(
+                                    //     color: Color.fromRGBO(156, 19, 26, 1),
+                                    //     borderRadius: BorderRadius.only(
+                                    //         bottomLeft: Radius.circular(10),
+                                    //         bottomRight: Radius.circular(10)),
+                                    //   ),
+                                    //   child: Center(
+                                    //     child: Text(
+                                    //       "Activated 13:32",
+                                    //       style: TextStyle(
+                                    //           color: Colors.white,
+                                    //           fontWeight: FontWeight.bold,
+                                    //           fontSize: 17,
+                                    //           letterSpacing: 0.8),
+                                    //     ),
+                                    //   ),
+                                    // ),
                                   ],
                                 )),
                               ),
@@ -194,6 +197,7 @@ class ActualTicketState extends State<ActualTicket> {
                         padding: const EdgeInsets.only(
                           right: 20,
                           left: 20,
+                          top: 8
                         ),
                         child: Container(
                           color: Color.fromRGBO(26, 108, 151, 1),

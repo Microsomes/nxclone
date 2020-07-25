@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class Nxsig extends StatefulWidget {
   final bool isRounded;
 
+  bool isBottomRounded = false;
+
   final String state;
 
-  Nxsig({@required this.isRounded, @required this.state});
+  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded});
 
   @override
   State<StatefulWidget> createState() {
@@ -22,9 +24,15 @@ class NxsigState extends State<Nxsig> {
     var state = widget.state;
 
     return Container(
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(248, 233, 226, 1),
+          borderRadius: BorderRadius.only(
+              bottomLeft:
+                  Radius.circular(widget.isBottomRounded == true ? 10 : 0),
+              bottomRight:
+                  Radius.circular(widget.isBottomRounded == true ? 10 : 0))),
       height: 140,
       width: MediaQuery.of(context).size.width * 0.785,
-      color: Color.fromRGBO(248, 233, 226, 1),
       child: Column(
         children: <Widget>[
           Container(
@@ -32,10 +40,9 @@ class NxsigState extends State<Nxsig> {
             decoration: BoxDecoration(
                 color: Color.fromRGBO(140, 36, 40, 1),
                 borderRadius: BorderRadius.only(
-                    topRight:
-                        Radius.circular(widget.isRounded == true ? 10 : 0),
-                    topLeft:
-                        Radius.circular(widget.isRounded == true ? 10 : 0))),
+                  topRight: Radius.circular(widget.isRounded == true ? 10 : 0),
+                  topLeft: Radius.circular(widget.isRounded == true ? 10 : 0),
+                )),
             child: Row(
               children: <Widget>[
                 SizedBox(
@@ -88,9 +95,9 @@ class NxsigState extends State<Nxsig> {
                   ],
                 ),
                 Expanded(
-                                  child: Text(
+                  child: Text(
                     "$state",
-                        textAlign: TextAlign.center,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color.fromRGBO(239, 193, 193, 1),
                         fontSize: 27,

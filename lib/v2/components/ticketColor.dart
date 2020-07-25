@@ -37,12 +37,21 @@ class TicketColorState extends State<TicketColor> {
   bool isUp = true;
   double opacity1 = 1;
 
+  String dy;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    final df = new DateFormat('dd-MM-yyyy');
+    var myvalue = DateTime.now();
+    dy = df.format(myvalue);
+
     Timer.periodic(Duration(seconds: 1), (Timer time) {
       setState(() {
+        dy = df.format(myvalue);
+
         now = DateTime.now();
         formattedDate = DateFormat.Hms().format(now);
       });
@@ -59,13 +68,13 @@ class TicketColorState extends State<TicketColor> {
 
       print(elaspedTime);
 
-      if (currentRange != 0.40) {
+      if (currentRange != 0.20) {
         setState(() {
-          currentRange = 0.40;
+          currentRange = 0.20;
         });
       } else {
         setState(() {
-          currentRange = 0.01;
+          currentRange = 0.05;
         });
       }
     });
@@ -119,6 +128,8 @@ class TicketColorState extends State<TicketColor> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     final sizeH = MediaQuery.of(context).size.height;
+
+    var df= dy;
 
     // TODO: implement build
     return Container(
@@ -190,11 +201,11 @@ class TicketColorState extends State<TicketColor> {
               child: IgnorePointer(
                 ignoring: true,
                 child: Text(
-                  formattedDate,
+                  "$formattedDate $df",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 33,
+                      fontSize: 20,
                       shadows: [
                         Shadow(
                           blurRadius: 10.0,
