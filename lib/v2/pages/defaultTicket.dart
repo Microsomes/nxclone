@@ -19,7 +19,7 @@ class DefaultTicket extends StatefulWidget{
 class DefaultTicketState extends State<DefaultTicket>{
 
      List ticketOptions=List();
-     bool isShowing=true;
+     bool isShowing=false;
 
      String currentTicketTitle="";
 
@@ -75,7 +75,7 @@ class DefaultTicketState extends State<DefaultTicket>{
             });
       await new Future.delayed(const Duration(milliseconds : 100));
             setState(() {
-              isShowing=true;
+              isShowing=false;
             });
     }
 
