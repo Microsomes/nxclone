@@ -86,7 +86,7 @@ class TicketColorState extends State<TicketColor> {
       }
     });
 
-    final df = new DateFormat('dd-MM-yyyy');
+    final df = new DateFormat('dd/MM/yyyy');
     var myvalue = DateTime.now();
     dy = df.format(myvalue);
 

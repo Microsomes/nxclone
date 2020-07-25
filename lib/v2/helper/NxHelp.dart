@@ -378,6 +378,10 @@ class NXHelp {
     ];
   }
 
+Future deleteAllTickets()async {
+    var db= await openDatabase("main.db");
+     await db.rawDelete("DELETE FROM ticketwallet"); 
+  }
   void init() async {
     var db = await openDatabase("main.db");
     await db.execute(
@@ -414,6 +418,8 @@ class NXHelp {
     //todo
   }
 
+
+  
 
   //if not null will buy and return an ticket id
   Future buyAndActivateDefaultTicket() async {
