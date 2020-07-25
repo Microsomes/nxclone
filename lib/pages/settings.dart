@@ -92,7 +92,9 @@ class SettingsState extends State<Settings> {
                         helpNx.saveConfig("defaulthomepage", "home");
                       }
 
-                      setHomePage(a).then((onValue) {});
+                      setHomePage(a).then((onValue) {
+                        Phoenix.rebirth(context);
+                      });
 
                       setState(() {
                         defaultHomePage = a;
@@ -107,7 +109,6 @@ class SettingsState extends State<Settings> {
                   onPressed: () {
                     NXHelp().deleteAllTickets();
                     Phoenix.rebirth(context);
-
                   },
                 )
               ],
