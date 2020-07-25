@@ -418,8 +418,8 @@ class NXHelp {
     //ticket expires in that many hours
     if (ttype == Ttype.singlejourney || ttype == Ttype.singlejourney_cov) {
       return {
-        "expires": 168,
-        "activationExpiry": 0.5,
+        "expires": 10080,
+        "activationExpiry": 30,
         "ticketType": ttype,
         "shouldbe": "single"
       };
@@ -430,15 +430,15 @@ class NXHelp {
         ttype == Ttype.daysaver_wallsall ||
         ttype == Ttype.daysaverafter930monfri) {
       return {
-        "expires": 2400,
-        "activationExpiry": 24,
+        "expires": 144000,
+        "activationExpiry": 1440,
         "ticketType": ttype,
         "shouldbe": "daysaver"
       };
     } else {
       return {
-        "expires": 2400,
-        "activationExpiry": 24,
+        "expires": 144000,
+        "activationExpiry": 1440,
         "ticketType": ttype,
         "shouldbe": "default"
       };
@@ -478,7 +478,7 @@ class NXHelp {
         expiriesIn = expiriesIn.toInt();
         var date = new DateTime.fromMicrosecondsSinceEpoch(
             int.parse(ticketPurchased) * 1000);
-        var dateOfExpiry = date.add(Duration(days: expiriesIn));
+        var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
         print(date);
         var newFormat = DateFormat("dd/MM/yyyy HH:MM");
         String updatedDt = newFormat.format(dateOfExpiry);
@@ -488,11 +488,11 @@ class NXHelp {
       }else if(curTicket['isActive']==1){
         var ticketPurchased = curTicket['expires'];
         var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
-        var expiriesIn = ticketMeta['activationExpiry'] / 24;
+        var expiriesIn = ticketMeta['activationExpiry'];
          expiriesIn = expiriesIn.toInt();
         var date = new DateTime.fromMicrosecondsSinceEpoch(
             int.parse(ticketPurchased) * 1000);
-        var dateOfExpiry = date.add(Duration(days: expiriesIn));
+        var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
         print(date);
         var newFormat = DateFormat("dd/MM/yyyy HH:MM");
         String updatedDt = newFormat.format(dateOfExpiry);
