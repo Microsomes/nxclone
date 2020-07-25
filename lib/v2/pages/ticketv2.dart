@@ -159,18 +159,18 @@ class ActualTicketState extends State<ActualTicket> {
                           ),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 2,
                         ),
                         Container(
-                            alignment: Alignment.center,
-                            height: 180,
+                             alignment: Alignment.center,
+                            height: 170,
                             child: Image.asset(currentQR)),
                         SizedBox(
-                          height: 10,
+                          height: 3,
                         ),
                         Container(
                           child: Text(
-                            "ANY BUS ACROSS OUR \nNETWORK",
+                            "ANY BUSES ACROSS OUR \nNETWORK",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 16,
@@ -245,7 +245,7 @@ class ActualTicketState extends State<ActualTicket> {
                           padding: const EdgeInsets.only(
                               right: 20, left: 20, top: 10),
                           child: Container(
-                            color: Color.fromRGBO(26, 108, 151, 1),
+                            color: Color.fromRGBO(5, 126, 176, 1),
                             height: 60,
                             child: Center(
                                 child: Row(
