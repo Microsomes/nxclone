@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:nxclone/pages/components/singleInactive.dart';
 import 'package:nxclone/v2/components/fancyOptions.dart';
 import 'package:nxclone/v2/helper/NxHelp.dart';
 import '../../components/daysaveractive.dart';
@@ -68,19 +69,14 @@ class DefaultTicketState extends State<DefaultTicket>{
     });
 
 
-    _timer= Timer.periodic(Duration(seconds: 2), (timer) {
+    _timer= Timer.periodic(Duration(milliseconds: 100), (timer) {
 
         NXHelp().loadConfig("deficketv2", 1).then((deftik){
       setState(() {
         currentTicket=deftik[0];
       });
     });
-    
-
      });
-
-     
-
   }
   
 
@@ -123,7 +119,22 @@ class DefaultTicketState extends State<DefaultTicket>{
               padding: EdgeInsets.all(20),
             color: Color.fromRGBO(123, 26, 17, 1),
           height: 160,
-          child: currentTicket!=null? ticketTwo(title: currentTicket['val'],id: 1,):CircularProgressIndicator(),
+          child: currentTicket!=null? 
+
+
+          SingleInactiveTicket(
+                              sizeW: MediaQuery.of(context).size.width,
+                              ticketType: currentTicket['val'].split(":")[1],
+                              state: currentTicket['val'].split(":")[0],
+                              txdbid: 1,
+                              ticketExpiryDate: "Saved to default",
+                            )
+          
+          
+          // ticketTwo(title: currentTicket['val'],id: 1,)
+          
+          
+          :CircularProgressIndicator(),
         ),
         SizedBox(height: 20,),
         Text("Customise Ticket",style: TextStyle(
