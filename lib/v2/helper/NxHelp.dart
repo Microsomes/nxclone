@@ -466,36 +466,38 @@ class NXHelp {
       curTicket.forEach((key, value) {
         toCur[key] = value;
       });
-      toCur['activationExpiry'] = "26/07/2020 12:27";
       //when ticket is activated this is the expiry date
-
       if (curTicket['isActive'] == -1) {
         //calculate the preactivation expiiry
-
         var ticketPurchased = curTicket['expires'];
         //the date the ticket was purchased
         print("purchased $ticketPurchased");
-
         var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
         print(ticketMeta);
         var expiriesIn = ticketMeta['expires'] / 24;
         expiriesIn = expiriesIn.toInt();
-
         var date = new DateTime.fromMicrosecondsSinceEpoch(
             int.parse(ticketPurchased) * 1000);
         var dateOfExpiry = date.add(Duration(days: expiriesIn));
         print(date);
-
-        var newFormat = DateFormat("yy/MM/dd HH:MM");
+        var newFormat = DateFormat("dd/MM/yyyy HH:MM");
         String updatedDt = newFormat.format(dateOfExpiry);
-
         print(dateOfExpiry);
-
         toCur['ticketExpiry'] = updatedDt;
         //time before ticket expires when unactivated
-
+      }else if(curTicket['isActive']==1){
+        var ticketPurchased = curTicket['expires'];
+        var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
+        var expiriesIn = ticketMeta['activationExpiry'] / 24;
+         expiriesIn = expiriesIn.toInt();
+        var date = new DateTime.fromMicrosecondsSinceEpoch(
+            int.parse(ticketPurchased) * 1000);
+        var dateOfExpiry = date.add(Duration(days: expiriesIn));
+        print(date);
+        var newFormat = DateFormat("dd/MM/yyyy HH:MM");
+        String updatedDt = newFormat.format(dateOfExpiry);
+        toCur['activationExpiry'] = updatedDt;
       }
-
       modifiedList.add(toCur);
     });
 
