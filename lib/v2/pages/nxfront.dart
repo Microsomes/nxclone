@@ -22,7 +22,7 @@ class Nxfront extends StatefulWidget {
 class NxfrontState extends State<Nxfront> {
   var lins = 1;
   double heightOf = 60;
-  double spaceApart = 20;
+  double spaceApart = 23;
 
   int defaultTicketid = null;
 
@@ -244,7 +244,7 @@ class NxfrontState extends State<Nxfront> {
                     width: sizeW * 0.96,
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(123, 26, 17, 1),
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       children: <Widget>[
                         SizedBox(
