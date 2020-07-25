@@ -198,7 +198,7 @@ class NxfrontState extends State<Nxfront> {
                       );
                     },
                     child: Container(
-                      width: 380,
+                      width: 370,
                       height: heightOf,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -240,7 +240,7 @@ class NxfrontState extends State<Nxfront> {
                     height: 3,
                   ),
                   Container(
-                    height: 190,
+                    height: 182,
                     width: sizeW * 0.96,
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(123, 26, 17, 1),
@@ -248,7 +248,7 @@ class NxfrontState extends State<Nxfront> {
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 20,
+                          height: 14,
                         ),
                         InkWell(
                             onTap: () {
@@ -269,25 +269,23 @@ class NxfrontState extends State<Nxfront> {
                               },
                               child: Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 12, right: 12, top: 12),
+                                    left: 12, right: 12, top: 3),
                                 child: Container(
-                                  height: 110,
+                                  height: 123,
                                   width:
                                       MediaQuery.of(context).size.width * 0.92,
                                   child: ticketTwo(
-                                    state: state ,
+                                    state: state,
                                     tickettype: tickettype,
                                     id: defaultTicketid,
-                                    whenActivated: "E",
+                                    whenActivated:
+                                        "Expires in 12 hours, 54 minutes",
                                   ),
                                 ),
                               ),
                             )),
-                        Expanded(
-                          child: Text(""),
-                        ),
                         Padding(
-                          padding: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.only(top: 15),
                           child: InkWell(
                             onTap: () {
                               print("ticket page");

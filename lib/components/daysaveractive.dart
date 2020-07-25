@@ -68,6 +68,7 @@ class ticketTwo extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.83,
           color: Color.fromRGBO(157, 194, 133, 1),
         ),
+        SizedBox(height: 3,),
         Expanded(
           child: Text(""),
         ),
@@ -76,22 +77,28 @@ class ticketTwo extends StatelessWidget {
           padding: const EdgeInsets.only(left: 15.0, bottom: 5),
           child: Row(
             children: <Widget>[
-              Image.asset(
-                "images/emg.png",
-                width: 20,
+              Padding(
+                padding: const EdgeInsets.only(bottom:7.0),
+                child: Image.asset(
+                  "images/emg.png",
+                  width: 20,
+                ),
               ),
               SizedBox(width: 6,),
-              Container(
-                 height: 20,
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 2
-                  ),
-                  child: Text("$whenActivated", style: TextStyle(
-                    fontWeight: FontWeight.w700
-                  ),),
-                ))
+              Padding(
+                padding: const EdgeInsets.only(bottom:7.0),
+                child: Container(
+                   height: 18,
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 2
+                    ),
+                    child: Text("$whenActivated", style: TextStyle(
+                      fontWeight: FontWeight.w700
+                    ),),
+                  )),
+              )
             ],
           ),
         ))
