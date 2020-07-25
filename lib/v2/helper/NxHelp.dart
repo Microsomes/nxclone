@@ -1,6 +1,7 @@
 //helper class for helping with logic
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 //all ticket types
 class Ttype {
@@ -416,16 +417,31 @@ class NXHelp {
   Map returnTicketExpiryInfo(String ttype) {
     //ticket expires in that many hours
     if (ttype == Ttype.singlejourney || ttype == Ttype.singlejourney_cov) {
-      return {"expires": 168, "activationExpiry": 0.5};
+      return {
+        "expires": 168,
+        "activationExpiry": 0.5,
+        "ticketType": ttype,
+        "shouldbe": "single"
+      };
     } else if (ttype == Ttype.daySaver ||
         ttype == Ttype.daySaver_cov ||
         ttype == Ttype.daySaversatsun ||
         ttype == Ttype.daysaver_sandwellanddudley ||
         ttype == Ttype.daysaver_wallsall ||
         ttype == Ttype.daysaverafter930monfri) {
-      return {"expires": 2400, "activationExpiry": 24};
+      return {
+        "expires": 2400,
+        "activationExpiry": 24,
+        "ticketType": ttype,
+        "shouldbe": "daysaver"
+      };
     } else {
-      return {"expires": 2400, "activationExpiry": 24};
+      return {
+        "expires": 2400,
+        "activationExpiry": 24,
+        "ticketType": ttype,
+        "shouldbe": "default"
+      };
     }
   }
 
@@ -453,9 +469,33 @@ class NXHelp {
       toCur['activationExpiry'] = "26/07/2020 12:27";
       //when ticket is activated this is the expiry date
 
-      toCur['ticketExpiry'] = "26/07/2020 12:27";
-      //time before ticket expires when unactivated
-      
+      if (curTicket['isActive'] == -1) {
+        //calculate the preactivation expiiry
+
+        var ticketPurchased = curTicket['expires'];
+        //the date the ticket was purchased
+        print("purchased $ticketPurchased");
+
+        var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
+        print(ticketMeta);
+        var expiriesIn = ticketMeta['expires'] / 24;
+        expiriesIn = expiriesIn.toInt();
+
+        var date = new DateTime.fromMicrosecondsSinceEpoch(
+            int.parse(ticketPurchased) * 1000);
+        var dateOfExpiry = date.add(Duration(days: expiriesIn));
+        print(date);
+
+        var newFormat = DateFormat("yy/MM/dd HH:MM");
+        String updatedDt = newFormat.format(dateOfExpiry);
+
+        print(dateOfExpiry);
+
+        toCur['ticketExpiry'] = updatedDt;
+        //time before ticket expires when unactivated
+
+      }
+
       modifiedList.add(toCur);
     });
 
@@ -486,9 +526,11 @@ class NXHelp {
   Future buyTicket(
       {@required tickettype, @required state, @required price}) async {
     var db = await openDatabase("main.db");
+    var currentTime = new DateTime.now().millisecondsSinceEpoch;
+
     var id = await db.rawInsert(
         "INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid) VALUES (?,?,?,?,?,?)",
-        [state, tickettype, "not used", "1 hr", -1, 3235346459]);
+        [state, tickettype, "not used", currentTime, -1, 3235346459]);
     //TODO
     return id;
   }
