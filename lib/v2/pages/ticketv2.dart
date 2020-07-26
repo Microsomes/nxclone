@@ -157,12 +157,12 @@ class ActualTicketState extends State<ActualTicket> {
                           ),
                         ),
                         SizedBox(
-                          height: 2,
+                          height: 4,
                         ),
                         Container(
                              alignment: Alignment.center,
-                            height: 170,
-                            child: Image.asset(currentQR)),
+                            height: 190,
+                            child: Image.asset(currentQR,width: 160,height: 190,)),
                         SizedBox(
                           height: 3,
                         ),
