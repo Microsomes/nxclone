@@ -152,6 +152,7 @@ class ActualTicketState extends State<ActualTicket> {
                                   left: 10,
                                   child: MovingText(
                                     textContent: "$state $ticketTitle",
+                                    isUpper: true,
                                   ))
                             ],
                           ),
@@ -167,8 +168,9 @@ class ActualTicketState extends State<ActualTicket> {
                           height: 3,
                         ),
                         Container(
+                          width: MediaQuery.of(context).size.width*0.6,
                           child: Text(
-                            "ANY BUSES ACROSS OUR \nNETWORK",
+                            "ANY BUSES ACROSS OUR NETWORK",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 16,
