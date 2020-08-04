@@ -6,6 +6,10 @@ import 'package:BlackPie/v2/main/quickOptions.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+
+
+import 'appcomponent/main_launcher/landing.dart';
+
 class HomePagePre extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -145,7 +149,8 @@ void main() {
   return runApp(Phoenix(
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePagePre(),
+      home: MainLauncher()
+      //HomePagePre(),
       //home:PaymentConfirmed()
     ),
   ));
