@@ -60,7 +60,7 @@ class MainLauncherState extends State<MainLauncher> {
                       CircleAvatar(
                         radius: 15,
                         child: Center(
-                          child: Text("T"),
+                          child: Text("C"),
                         ),
                       ),
                       SizedBox(
@@ -129,8 +129,8 @@ class MainLauncherState extends State<MainLauncher> {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            height: 130,
-                            width: 110,
+                            height: 120,
+                            width: 100,
                             child: Column(
                               children: <Widget>[
                                 Expanded(
@@ -153,6 +153,13 @@ class MainLauncherState extends State<MainLauncher> {
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600),
                                     )
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 8,),
+                                    Text("4.9",style: TextStyle(color: Colors.grey),),
+                                    Icon(Icons.star,size: 10,color: Colors.grey,)
                                   ],
                                 )
                               ],
