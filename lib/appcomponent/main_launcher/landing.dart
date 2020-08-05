@@ -81,7 +81,7 @@ class MainLauncherState extends State<MainLauncher> {
                   children: <Widget>[
                     Container(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 30, top: 20),
+                        padding: const EdgeInsets.only(left: 16, top: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
