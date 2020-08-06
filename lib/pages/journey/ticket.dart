@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
- import 'dart:async';
- import 'package:intl/intl.dart';
-  import 'package:qr_flutter/qr_flutter.dart';
+import 'dart:async';
+import 'package:intl/intl.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
- import './ticketInfo.dart';
+import './ticketInfo.dart';
 import 'package:screen/screen.dart';
 
- 
 class Ticket extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -56,9 +55,6 @@ class Stpagestate extends State<Stpage> {
     now1 = DateTime.now();
   }
 
-
-
-
   Color col1 = Color.fromRGBO(112, 53, 195, 1);
   Color col2 = Color.fromRGBO(156, 52, 199, 1);
   Color col3 = Color.fromRGBO(242, 241, 65, 1);
@@ -81,8 +77,7 @@ class Stpagestate extends State<Stpage> {
   Color op14 = Color.fromRGBO(62, 39, 35, 1);
   Color op15 = Color.fromRGBO(33, 33, 33, 1);
 
-
-  double opacity1=1;
+  double opacity1 = 1;
 
   void _showDialog(int index) {
     // flutter defined function
@@ -625,22 +620,16 @@ class Stpagestate extends State<Stpage> {
     });
   }
 
-
-  double nextOpacity=2;
+  double nextOpacity = 2;
   //determines when next opacity shold appen
-  double nextOp1Interval=2;
+  double nextOp1Interval = 2;
   //determines the frequency of the change
 
-  bool justStartedOpacity=true;
+  bool justStartedOpacity = true;
 
+  double opacityBlock1 = 1;
 
-  double opacityBlock1=1;
-
-
-  bool isUp=true;
-
-
-  
+  bool isUp = true;
 
   @override
   void initState() {
@@ -653,27 +642,21 @@ class Stpagestate extends State<Stpage> {
       print(onValue);
     });
 
-    _timer_for_opacity= Timer.periodic(Duration(milliseconds: 500), (Timer time){
-
-      isUp= !isUp;
+    _timer_for_opacity =
+        Timer.periodic(Duration(milliseconds: 500), (Timer time) {
+      isUp = !isUp;
       print(isUp);
 
-      if(isUp){
+      if (isUp) {
         setState(() {
-          opacity1=1;
+          opacity1 = 1;
         });
-      }else{
+      } else {
         setState(() {
-          opacity1=0.4;
+          opacity1 = 0.4;
         });
       }
-
-   
-
     });
-
-  
-
 
     _timer = Timer.periodic(Duration(seconds: 2), (Timer time) {
       //   now1 = DateTime.now();
@@ -689,23 +672,20 @@ class Stpagestate extends State<Stpage> {
       if (currentRange != 0.58) {
         setState(() {
           currentRange = 0.58;
-       
         });
       } else {
         setState(() {
           currentRange = 0.05;
-          
         });
       }
     });
   }
 
+  double heightBlock = 0.125;
 
-  double heightBlock=0.125;
-
-    Future setHomePage(String homePage) async {
-    final SharedPreferences prefs= await SharedPreferences.getInstance();
-    return prefs.setString("defaultPage",homePage);
+  Future setHomePage(String homePage) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setString("defaultPage", homePage);
   }
 
   @override
@@ -716,216 +696,53 @@ class Stpagestate extends State<Stpage> {
     TimeOfDay timeOfDay = TimeOfDay.fromDateTime(DateTime.now());
 
     // TODO: implement build
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: InkWell(
-              onTap: () {
-                Navigator.pop(context, true);
-              },
-              child: PreferredSize(
-                  preferredSize: Size.fromHeight(500),
-                  child: Image.asset("images/leftarrow.png", width: 4))),
-          title: Text(
-            "West Midlands Daysaver",
-            style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
+    return WillPopScope(
+      onWillPop: () async {
+        await Screen.setBrightness(0.1);
+        Navigator.pop(context);
+      },
+      child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            leading: InkWell(
+                onTap: () {
+                  Navigator.pop(context, true);
+                },
+                child: PreferredSize(
+                    preferredSize: Size.fromHeight(500),
+                    child: Image.asset("images/leftarrow.png", width: 4))),
+            title: Text(
+              "West Midlands Daysaver",
+              style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
+            ),
           ),
-        ),
-        body: Container(
-          height: double.infinity,
-          width: sizeW,
-          color: Color.fromRGBO(240, 240, 240, 1),
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 2,
-                ),
-                isQROpen == false
-                    ? Container(
-                        height: MediaQuery.of(context).size.height*0.26,
-                         width: double.infinity,
-                        child: Stack(
-                          alignment: Alignment.topCenter,
-                          children: <Widget>[
-                            Positioned(
-                              bottom:14,
-                              child: InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    isQROpen = true;
-                                  });
-                                },
-                                child: Container(
-                                  width: 84,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      color: Color.fromRGBO(167, 27, 26, 1),
-                                      borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(40),
-                                          bottomRight: Radius.circular(40)),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color.fromRGBO(
-                                                215, 216, 218, 1),
-                                            offset: new Offset(0, 3))
-                                      ]),
-                                  child: ClipRRect(
-                                      child: Center(
-                                          child: Image.asset(
-                                              "images/whitedown.png",
-                                              width: 30))),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.height*0.18,
-
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Column(
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          InkWell(
-                                            onTap: () {
-                                              print("change first color");
-                                              _showDialog(1);
-                                            },
-                                            child: AnimatedOpacity(
-                                              opacity: opacity1,
-                                              duration: Duration(milliseconds: 800),
-                                                                                          child: Container(
-                                                height: MediaQuery.of(context).size.height*heightBlock,
-                                                width: MediaQuery.of(context).size.width/3*0.9,
-                                                decoration: BoxDecoration(
-                                                    color: col1,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    5),
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    5))),
-                                              ),
-                                            ),
-                                          ),
-                                          InkWell(
-                                            onTap: () {
-                                              _showDialog(2);
-                                            },
-                                            child: AnimatedOpacity(
-                                              opacity: opacity1,
-                                              duration: Duration(milliseconds: 700),
-                                                                                          child: Container(
-                                                height: MediaQuery.of(context).size.height*heightBlock,
-                                                width: MediaQuery.of(context).size.width/3*0.9,
-                                                decoration: BoxDecoration(
-                                                    color: col2,
-                                                    borderRadius:
-                                                        BorderRadius.only()),
-                                              ),
-                                            ),
-                                          ),
-                                          InkWell(
-                                            onTap: () {
-                                              print("change third color");
-                                              _showDialog(3);
-                                            },
-                                            child: AnimatedOpacity(
-                                              opacity: opacity1,
-                                              duration: const Duration(milliseconds:500),
-                                              child: Container(
-                                                height: MediaQuery.of(context).size.height*heightBlock,
-                                                width: MediaQuery.of(context).size.width/3*0.9,
-                                                child: Center(child: Text(""),),
-                                                decoration: BoxDecoration(
-                                                    color: col3,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    5),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    5))),
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      AnimatedPositioned(
-                                        duration: Duration(milliseconds: 2000),
-                                        left: sizeW * currentRange,
-                                        child: Text(
-                                          formattedDate,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 33,
-                                              shadows: [
-                                                Shadow(
-                                                  blurRadius: 10.0,
-                                                  color: Color.fromRGBO(
-                                                      19, 8, 23, 1),
-                                                  offset: Offset(2, 5),
-                                                ),
-                                                Shadow(
-                                                  blurRadius: 10.0,
-                                                  color: Colors.black,
-                                                  offset: Offset(-2, 0),
-                                                ),
-                                              ]),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(
-                                    "Tap to reveal barcode",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w900,
-                                        fontSize: 12),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    : Container(
-                        height: 285,
-                        width: double.infinity,
-                        child: Stack(
-                          alignment: Alignment.topCenter,
-                          children: <Widget>[
-                            Positioned(
-                              bottom: 12,
-                              child: InkWell(
-                                onTap: () {
-                                  print("open the other one");
-                                  setState(() {
-                                    isQROpen = false;
-                                  });
-                                },
-                                child: Container(
-                                    width: 83,
+          body: Container(
+            height: double.infinity,
+            width: sizeW,
+            color: Color.fromRGBO(240, 240, 240, 1),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 2,
+                  ),
+                  isQROpen == false
+                      ? Container(
+                          height: MediaQuery.of(context).size.height * 0.26,
+                          width: double.infinity,
+                          child: Stack(
+                            alignment: Alignment.topCenter,
+                            children: <Widget>[
+                              Positioned(
+                                bottom: 14,
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isQROpen = true;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 84,
                                     height: 50,
                                     decoration: BoxDecoration(
                                         color: Color.fromRGBO(167, 27, 26, 1),
@@ -939,168 +756,335 @@ class Stpagestate extends State<Stpage> {
                                               offset: new Offset(0, 3))
                                         ]),
                                     child: ClipRRect(
-                                      child: Center(
-                                          child: Transform.rotate(
-                                              angle: -3.16,
-                                              child: Image.asset(
-                                                  "images/whitedown.png",
-                                                  width: 30))),
-                                    )),
-                              ),
-                            ),
-                            Container(
-                              height: 226,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Column(
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 0,
+                                        child: Center(
+                                            child: Image.asset(
+                                                "images/whitedown.png",
+                                                width: 30))),
                                   ),
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Container(
-                                            height: 200,
-                                            width: 200,
-                                            child: QrImage(
-                                              data: "lmklmklmlmklmklmklmklmklmklmklmklmklmklmklmkls",
-                                              version:3,
-                                              size: 100,
-                                              gapless: true,
+                                ),
+                              ),
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.18,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color:
+                                              Color.fromRGBO(215, 216, 218, 1),
+                                          offset: new Offset(0, 3))
+                                    ]),
+                                child: Column(
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            InkWell(
+                                              onTap: () {
+                                                print("change first color");
+                                                _showDialog(1);
+                                              },
+                                              child: AnimatedOpacity(
+                                                opacity: opacity1,
+                                                duration:
+                                                    Duration(milliseconds: 800),
+                                                child: Container(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      heightBlock,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width /
+                                                      3 *
+                                                      0.9,
+                                                  decoration: BoxDecoration(
+                                                      color: col1,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                              topLeft: Radius
+                                                                  .circular(5),
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      5))),
+                                                ),
+                                              ),
                                             ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(
-                                    "Tap to view color bar",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w900, fontSize: 13),
-                                  )
-                                ],
+                                            InkWell(
+                                              onTap: () {
+                                                _showDialog(2);
+                                              },
+                                              child: AnimatedOpacity(
+                                                opacity: opacity1,
+                                                duration:
+                                                    Duration(milliseconds: 700),
+                                                child: Container(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      heightBlock,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width /
+                                                      3 *
+                                                      0.9,
+                                                  decoration: BoxDecoration(
+                                                      color: col2,
+                                                      borderRadius:
+                                                          BorderRadius.only()),
+                                                ),
+                                              ),
+                                            ),
+                                            InkWell(
+                                              onTap: () {
+                                                print("change third color");
+                                                _showDialog(3);
+                                              },
+                                              child: AnimatedOpacity(
+                                                opacity: opacity1,
+                                                duration: const Duration(
+                                                    milliseconds: 500),
+                                                child: Container(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      heightBlock,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width /
+                                                      3 *
+                                                      0.9,
+                                                  child: Center(
+                                                    child: Text(""),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: col3,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                              topRight: Radius
+                                                                  .circular(5),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          5))),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        AnimatedPositioned(
+                                          duration:
+                                              Duration(milliseconds: 2000),
+                                          left: sizeW * currentRange,
+                                          child: Text(
+                                            formattedDate,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 33,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 10.0,
+                                                    color: Color.fromRGBO(
+                                                        19, 8, 23, 1),
+                                                    offset: Offset(2, 5),
+                                                  ),
+                                                  Shadow(
+                                                    blurRadius: 10.0,
+                                                    color: Colors.black,
+                                                    offset: Offset(-2, 0),
+                                                  ),
+                                                ]),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      "Tap to reveal barcode",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w900,
+                                          fontSize: 12),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                // Container(
-                //   height: 44,
-                //   width: sizeW * 0.90,
-                //   decoration: BoxDecoration(
-                //     boxShadow: [
-                //       BoxShadow(
-                //           color: Color.fromRGBO(204, 51, 51, 1),
-                //           offset: new Offset(0, 3))
-                //     ],
-                //     color: Color.fromRGBO(237, 32, 62, 1),
-                //     borderRadius: BorderRadius.circular(5),
-                //   ),
-                //   child: Center(
-                //     child: Text(
-                //       "Ticket activated at " + DateFormat.Hm().format(now1),
-                //       style: TextStyle(
-                //           color: Colors.white, fontWeight: FontWeight.w500),
-                //     ),
-                //   ),
-                // ),
-                SizedBox(
-                  height: 2,
-                ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "West Midlands Daysaver",
-                        style: TextStyle(fontWeight: FontWeight.w800),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset("images/info.png", width: 27),
-                          SizedBox(
-                            width: 5,
+                            ],
                           ),
-                          Text(
-                            "Any bus across our network",
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  height: 70,
-                  width: sizeW * 0.9,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(215, 216, 218, 1),
-                            offset: new Offset(0, 3))
-                      ]),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child: Image.asset("images/nxsig.png", width: sizeW * 0.9),
-                ),
-                Container(
-                  height: 80,
-                  width: sizeW * 0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(215, 216, 218, 1),
-                          offset: new Offset(0, 3))
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(64, 104, 50, 1),
-                          borderRadius: BorderRadius.circular(5),
-                          boxShadow: []),
-                      child: Center(
-                        child: Text(
-                          "NX Rewards Cashback",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        )
+                      : Container(
+                          height: 285,
+                          width: double.infinity,
+                          child: Stack(
+                            alignment: Alignment.topCenter,
+                            children: <Widget>[
+                              Positioned(
+                                bottom: 12,
+                                child: InkWell(
+                                  onTap: () {
+                                    print("open the other one");
+                                    setState(() {
+                                      isQROpen = false;
+                                    });
+                                  },
+                                  child: Container(
+                                      width: 83,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          color: Color.fromRGBO(167, 27, 26, 1),
+                                          borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(40),
+                                              bottomRight: Radius.circular(40)),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Color.fromRGBO(
+                                                    215, 216, 218, 1),
+                                                offset: new Offset(0, 3))
+                                          ]),
+                                      child: ClipRRect(
+                                        child: Center(
+                                            child: Transform.rotate(
+                                                angle: -3.16,
+                                                child: Image.asset(
+                                                    "images/whitedown.png",
+                                                    width: 30))),
+                                      )),
+                                ),
+                              ),
+                              Container(
+                                height: 226,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color:
+                                              Color.fromRGBO(215, 216, 218, 1),
+                                          offset: new Offset(0, 3))
+                                    ]),
+                                child: Column(
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: 0,
+                                    ),
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Container(
+                                              height: 200,
+                                              width: 200,
+                                              child: QrImage(
+                                                data:
+                                                    "lmklmklmlmklmklmklmklmklmklmklmklmklmklmklmkls",
+                                                version: 3,
+                                                size: 100,
+                                                gapless: true,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      "Tap to view color bar",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w900,
+                                          fontSize: 13),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ),
+                  // Container(
+                  //   height: 44,
+                  //   width: sizeW * 0.90,
+                  //   decoration: BoxDecoration(
+                  //     boxShadow: [
+                  //       BoxShadow(
+                  //           color: Color.fromRGBO(204, 51, 51, 1),
+                  //           offset: new Offset(0, 3))
+                  //     ],
+                  //     color: Color.fromRGBO(237, 32, 62, 1),
+                  //     borderRadius: BorderRadius.circular(5),
+                  //   ),
+                  //   child: Center(
+                  //     child: Text(
+                  //       "Ticket activated at " + DateFormat.Hm().format(now1),
+                  //       style: TextStyle(
+                  //           color: Colors.white, fontWeight: FontWeight.w500),
+                  //     ),
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: 2,
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "West Midlands Daysaver",
+                          style: TextStyle(fontWeight: FontWeight.w800),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset("images/info.png", width: 27),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Any bus across our network",
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    height: 70,
+                    width: sizeW * 0.9,
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(215, 216, 218, 1),
+                              offset: new Offset(0, 3))
+                        ]),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    child: Image.asset("images/nxsig.png", width: sizeW * 0.9),
+                  ),
+                  Container(
                     height: 80,
                     width: sizeW * 0.9,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(10),
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
@@ -1109,99 +1093,124 @@ class Stpagestate extends State<Stpage> {
                       ],
                     ),
                     child: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              width: sizeW / 2 * 0.8,
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(169, 27, 26, 1),
-                                  borderRadius: BorderRadius.circular(5),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(123, 19, 21, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      currentRange = 0.60;
+                      padding: const EdgeInsets.all(12),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromRGBO(64, 104, 50, 1),
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: []),
+                        child: Center(
+                          child: Text(
+                            "NX Rewards Cashback",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      height: 80,
+                      width: sizeW * 0.9,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(215, 216, 218, 1),
+                              offset: new Offset(0, 3))
+                        ],
+                      ),
+                      child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                width: sizeW / 2 * 0.8,
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(169, 27, 26, 1),
+                                    borderRadius: BorderRadius.circular(5),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(123, 19, 21, 1),
+                                          offset: new Offset(0, 3))
+                                    ]),
+                                child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        currentRange = 0.60;
 
-                                      
-                                      opacity1=opacity1-=0.3;
+                                        opacity1 = opacity1 -= 0.3;
 
-                                          setHomePage("home page").then((oni){
+                                        setHomePage("home page").then((oni) {
+                                          //restart app
 
-                                            //restart app
+                                          //                               Fluttertoast.showToast(
+                                          // msg: "Restart app to load to home page",
+                                          // toastLength: Toast.LENGTH_SHORT,
+                                          // gravity: ToastGravity.CENTER,
+                                          // timeInSecForIos: 1,
+                                          // backgroundColor: Colors.lightBlue,
+                                          // textColor: Colors.white,
+                                          // fontSize: 16.0);
+                                        });
+                                      });
+                                    },
+                                    child: Center(
+                                      child: Text(
+                                        "Actions",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 16),
+                                      ),
+                                    )),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                width: sizeW / 2 * 0.8,
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(169, 27, 26, 1),
+                                    borderRadius: BorderRadius.circular(5),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(123, 19, 21, 1),
+                                          offset: new Offset(0, 3))
+                                    ]),
+                                child: InkWell(
+                                    onTap: () {
+                                      print("ticket info");
 
-                      //                               Fluttertoast.showToast(
-                      // msg: "Restart app to load to home page",
-                      // toastLength: Toast.LENGTH_SHORT,
-                      // gravity: ToastGravity.CENTER,
-                      // timeInSecForIos: 1,
-                      // backgroundColor: Colors.lightBlue,
-                      // textColor: Colors.white,
-                      // fontSize: 16.0);
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TicketInfoPage()));
 
-                                           });
-                                      
-
-
-                                      
-                                    });
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      "Actions",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 16),
-                                    ),
-                                  )),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: sizeW / 2 * 0.8,
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(169, 27, 26, 1),
-                                  borderRadius: BorderRadius.circular(5),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(123, 19, 21, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: InkWell(
-                                  onTap: () {
-                                    print("ticket info");
-
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                TicketInfoPage()));
-
-                                    setState(() {
-                                      currentRange = 0.1;
-                                    });
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      "Ticket Info",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 16),
-                                    ),
-                                  )),
-                            ),
-                          ],
-                        ))),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
+                                      setState(() {
+                                        currentRange = 0.1;
+                                      });
+                                    },
+                                    child: Center(
+                                      child: Text(
+                                        "Ticket Info",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 16),
+                                      ),
+                                    )),
+                              ),
+                            ],
+                          ))),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

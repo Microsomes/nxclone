@@ -1,3 +1,5 @@
+import 'package:BlackPie/components/daysaveractive.dart';
+import 'package:BlackPie/pages/journey/ticket.dart';
 import 'package:flutter/material.dart';
 
 class MainLauncher extends StatefulWidget {
@@ -127,6 +129,10 @@ class MainLauncherState extends State<MainLauncher> {
                   InkWell(
                     onTap: () {
                       print("load the nx home");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Ticket()),
+                      );
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -156,7 +162,7 @@ class MainLauncherState extends State<MainLauncher> {
                                   width: 8,
                                 ),
                                 Text(
-                                  "NXbus-Clone",
+                                  "NX-V1",
                                   style: TextStyle(fontWeight: FontWeight.w600),
                                 )
                               ],
