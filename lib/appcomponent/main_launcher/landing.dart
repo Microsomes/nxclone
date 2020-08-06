@@ -119,57 +119,72 @@ class MainLauncherState extends State<MainLauncher> {
           Container(
             height: 140,
             width: MediaQuery.of(context).size.width,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 120,
-                            width: 100,
-                            child: Column(
+            child: Row(children: <Widget>[
+              Expanded(
+                  child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      print("load the nx home");
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 120,
+                        width: 100,
+                        child: Column(
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                height: 110,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.red,
+                                ),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset("images/v3/nx.png")),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Row(
                               children: <Widget>[
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                ),
                                 SizedBox(
-                                  height: 6,
+                                  width: 8,
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    SizedBox(width: 8,),
-                                    Text(
-                                      "himknk",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    SizedBox(width: 8,),
-                                    Text("4.9",style: TextStyle(color: Colors.grey),),
-                                    Icon(Icons.star,size: 10,color: Colors.grey,)
-                                  ],
+                                Text(
+                                  "NXbus-Clone",
+                                  style: TextStyle(fontWeight: FontWeight.w600),
                                 )
                               ],
                             ),
-                          ),
-                        );
-                      }),
-                )
-              ],
-            ),
+                            Row(
+                              children: <Widget>[
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "4.9",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ))
+            ]),
           )
         ],
       ),
