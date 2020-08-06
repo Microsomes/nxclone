@@ -3,6 +3,8 @@ import 'package:BlackPie/pages/journey/ticket.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class MainLauncher extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -233,6 +235,74 @@ class MainLauncherState extends State<MainLauncher> {
                                   ),
                                   Text(
                                     "NX-V2",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    "4.9",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                     InkWell(
+                      onTap: () {
+                        print("load the nx home");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePagePre()),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 120,
+                          width: 100,
+                          child: Column(
+                            children: <Widget>[
+                              Expanded(
+                                child: Container(
+                                  height: 110,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.red,
+                                  ),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child:Container(color: Colors.black,
+                                      child: Center(child: Text("NX-CONFIG",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
+                                      )
+                                      
+                                      ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    "NX-pie",
                                     style:
                                         TextStyle(fontWeight: FontWeight.w600),
                                   )
