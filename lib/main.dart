@@ -8,6 +8,7 @@ import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 
+import 'appcomponent/HalifaxClone/accountDetails.dart';
 import 'appcomponent/HalifaxClone/main.dart';
 import 'appcomponent/main_launcher/landing.dart';
 
@@ -150,7 +151,9 @@ void main() {
   return runApp(Phoenix(
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Halifax()
+      home: AccountDetails()
+      
+      //Halifax()
       
       //MainLauncher()
       //HomePagePre(),
