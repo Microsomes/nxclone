@@ -9,6 +9,9 @@ class PayandTransfer extends StatefulWidget {
 }
 
 class PayandTrasnferState extends State<PayandTransfer> {
+
+  void onchange(isk){}
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -243,6 +246,40 @@ class PayandTrasnferState extends State<PayandTransfer> {
             width: MediaQuery.of(context).size.width,
             color: Colors.grey.withOpacity(0.2),
           ),
+
+          Row(
+            children: <Widget>[
+              SizedBox(width: 10,),
+              Text("Make a standing order",
+              style: TextStyle(
+                fontWeight: FontWeight.w500
+              ),),
+              Expanded(child: Container(),),
+              Switch(
+                value: false,
+                onChanged: onchange,
+                inactiveThumbColor: Color.fromRGBO(199, 204, 214, 1)
+              )
+            ],
+          ),
+          Expanded(child: Container(),),
+          
+          Padding(
+            padding: const EdgeInsets.only(left:10.0,right:10,bottom: 14),
+            child: MaterialButton(
+              height: 50,
+              
+              disabledColor: Color.fromRGBO(174, 147, 166, 1),
+              child: Center(
+                child: Text("Continue",
+                style: TextStyle(
+                  color: Colors.white
+                ),
+                ),
+              ),
+              onPressed: null
+            ),
+          )
           
         ],
       ),
