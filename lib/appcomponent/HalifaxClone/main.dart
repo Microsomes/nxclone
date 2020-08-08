@@ -8,6 +8,8 @@ class Halifax extends StatefulWidget {
 }
 
 class HalifaxState extends State<Halifax> {
+  void _onItemTapped(index) {}
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -154,17 +156,24 @@ class HalifaxState extends State<Halifax> {
                         height: 1,
                       ),
                       Text("your device."),
-                      Expanded(child: Container(),),
+                      Expanded(
+                        child: Container(),
+                      ),
                       Row(
                         children: <Widget>[
-                          Text("Learn more",
-                          style: TextStyle(
-                            color: Color.fromRGBO(93, 127, 163, 1),
-                            fontWeight: FontWeight.bold
-                          ),),
-                          SizedBox(width: 4,),
-                          Icon(Icons.chevron_right,
-                          color: Color.fromRGBO(100, 142, 181, 1),)
+                          Text(
+                            "Learn more",
+                            style: TextStyle(
+                                color: Color.fromRGBO(93, 127, 163, 1),
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Icon(
+                            Icons.chevron_right,
+                            color: Color.fromRGBO(100, 142, 181, 1),
+                          )
                         ],
                       )
                     ],
@@ -179,8 +188,234 @@ class HalifaxState extends State<Halifax> {
                 )
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            padding: EdgeInsets.all(0),
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Image.asset(
+                            "images/v3/halifax.png",
+                            width: 35,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "RAINY DAY",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(137, 40, 113, 1),
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 17),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Text(
+                                    "11-64-14",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "23528763",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12),
+                                  )
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: 30,
+                        child: Row(
+                          children: <Widget>[
+                            SizedBox(
+                              width: 58,
+                            ),
+                            Text(
+                              "£3,534.61",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+                Container(
+                    alignment: Alignment.topCenter,
+                    height: 110,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.more_vert,
+                          color: Color.fromRGBO(38, 73, 157, 1),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ))
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            padding: EdgeInsets.all(0),
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Image.asset(
+                            "images/v3/halifax.png",
+                            width: 35,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "AMAZON JOB NOV 2018",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(137, 40, 113, 1),
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 17),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Text(
+                                    "11-10-72",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "10702367",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12),
+                                  )
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: 30,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Text(
+                              "NIL",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Expanded(
+            child: Container(),
+          ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.monetization_on),
+            title: Text(
+              'Apply',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.directions_walk),
+            title: Text('Pay & transfer'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help),
+            title: Text('Support'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu),
+            title: Text('More'),
+          ),
+        ],
+        currentIndex: 0,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }
