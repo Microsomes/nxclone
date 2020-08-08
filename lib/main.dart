@@ -151,7 +151,7 @@ void main() {
   return runApp(Phoenix(
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Halifax()
+      home: MainLauncher()
       
       //Halifax()
       

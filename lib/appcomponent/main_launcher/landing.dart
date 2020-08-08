@@ -1,3 +1,4 @@
+import 'package:BlackPie/appcomponent/HalifaxClone/main.dart';
 import 'package:BlackPie/components/daysaveractive.dart';
 import 'package:BlackPie/pages/journey/ticket.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
@@ -332,7 +333,135 @@ class MainLauncherState extends State<MainLauncher> {
                   ],
                 ))
               ]),
+            ),
+
+
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 16, top: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Banking Clones",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.lightBlue),
+                              ),
+                              Expanded(
+                                child: Container(),
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  Icons.keyboard_arrow_right,
+                                  size: 30,
+                                  color: Colors.lightBlue,
+                                ),
+                                onPressed: () {},
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Container(
+              height: 140,
+              width: MediaQuery.of(context).size.width,
+              child: Row(children: <Widget>[
+                Expanded(
+                    child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        print("load the nx home");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Halifax()),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 120,
+                          width: 100,
+                          child: Column(
+                            children: <Widget>[
+                              Expanded(
+                                child: Container(
+                                  height: 110,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.red,
+                                  ),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.asset("images/v3/halifax.png")),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    "NX-V1",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    "4.9",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    
+
+                     
+                   
+                  ],
+                ))
+              ]),
             )
+
+
+
           ],
         ),
       ),
