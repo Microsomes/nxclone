@@ -31,6 +31,7 @@ dependencies:
   marquee_widget: ^0.8.0
   flutter_colorpicker: ^0.3.4
   flutter_phoenix: ^0.1.0
+  provider: ^4.3.2
 
 
 
@@ -121,6 +122,11 @@ flutter:
 
    - images/v3/nx.png
    - images/v3/nx2.png
+
+   - images/v3/halifax.png
+
+   - images/v3/staysafe.png
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
