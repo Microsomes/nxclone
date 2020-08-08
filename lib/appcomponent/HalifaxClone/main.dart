@@ -122,8 +122,64 @@ class HalifaxState extends State<Halifax> {
               ],
             ),
           ),
-
-          
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            height: 150,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Not sure? Don't click.",
+                        style: TextStyle(
+                            color: Color.fromRGBO(82, 135, 184, 1),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text("Never click on links you don't trust."),
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text("It could give someone access to"),
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text("your device."),
+                      Expanded(child: Container(),),
+                      Row(
+                        children: <Widget>[
+                          Text("Learn more",
+                          style: TextStyle(
+                            color: Color.fromRGBO(93, 127, 163, 1),
+                            fontWeight: FontWeight.bold
+                          ),),
+                          SizedBox(width: 4,),
+                          Icon(Icons.chevron_right,
+                          color: Color.fromRGBO(100, 142, 181, 1),)
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(child: Container()),
+                Container(
+                  height: 150,
+                  width: 100,
+                  color: Colors.white,
+                  child: Image.asset("images/v3/staysafe.png"),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
