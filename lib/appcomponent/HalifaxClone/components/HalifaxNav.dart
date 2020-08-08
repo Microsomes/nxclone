@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../payandtransfer.dart';
+
 class HalifaxNav extends StatelessWidget{
+
+    final BuildContext context;
+
+    HalifaxNav({@required this.context});
+
   void _onItemTapped(index){
-    
+
+    if(index==2){
+      //open the pay and transfer page
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>PayandTransfer()));
+    }
+
   }
   @override
   Widget build(BuildContext context) {

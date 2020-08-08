@@ -356,7 +356,7 @@ class AccountDetailsState extends State {
           )
         ],
       ),
-      bottomNavigationBar: HalifaxNav(),
+      bottomNavigationBar: HalifaxNav(context: context,),
     );
   }
 }

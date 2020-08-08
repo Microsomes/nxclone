@@ -398,7 +398,7 @@ class HalifaxState extends State<Halifax> {
           ),
         ],
       ),
-      bottomNavigationBar: HalifaxNav(),
+      bottomNavigationBar: HalifaxNav(context: context,),
     );
   }
 }
