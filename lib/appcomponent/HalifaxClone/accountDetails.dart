@@ -6,6 +6,8 @@ import 'components/HalifaxNav.dart';
 //will show some details
 
 class AccountDetails extends StatefulWidget {
+
+
   @override
   State<StatefulWidget> createState() {
     return AccountDetailsState();
@@ -39,7 +41,6 @@ class AccountDetailsState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       //Color.fromRGBO(234, 231, 234, 1),
       appBar: AppBar(
         leading: IconButton(
