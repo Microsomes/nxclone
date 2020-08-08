@@ -1,6 +1,8 @@
 import 'package:BlackPie/appcomponent/HalifaxClone/models/AvailableMonth.dart';
 import 'package:flutter/material.dart';
 
+import 'components/HalifaxNav.dart';
+
 //will show some details
 
 class AccountDetails extends StatefulWidget {
@@ -36,7 +38,9 @@ class AccountDetailsState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(234, 231, 234, 1),
+      backgroundColor: Colors.white,
+      
+      //Color.fromRGBO(234, 231, 234, 1),
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
@@ -148,9 +152,87 @@ class AccountDetailsState extends State {
                 ),
               );
             }),
-          )
+          ),
+          SizedBox(height: 15,),
+          Padding(
+            padding: const EdgeInsets.only(left:15,right:15,top:4),
+            child: Container(
+              height: 55,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color.fromRGBO(227, 224, 227, 1)
+                )
+              ),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(width: 7,),
+                  Icon(Icons.search,size: 30,color: Color.fromRGBO(23, 63, 158, 1),),
+                  SizedBox(width: 2,),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration.collapsed(hintText: "Search",hintStyle: TextStyle(
+                        color: Color.fromRGBO(162, 159, 162, 1)
+                      )),
+                      
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(13),
+            child: Center(
+              child: Row(
+                children: <Widget>[
+                  Text("YOU HAVE PENDING TRANSACTIONS",
+                  style: TextStyle(
+                    color: Color.fromRGBO(28, 74, 117, 1),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16
+                  ),
+                  ),
+                  Expanded(child: Container(),),
+                  Container(
+                    alignment: Alignment.center,
+                    child: Center(
+                      child: IconButton(icon: Icon(Icons.arrow_drop_down,
+                      color: Color.fromRGBO(85, 162, 32, 1),
+                      ),onPressed: (){},),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: 1,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.grey.withOpacity(0.2),
+          ),
+          SizedBox(height: 20,),
+          Row(
+            children: <Widget>[
+              Expanded(child: Container(),),
+              Text("Account balance:"),
+              SizedBox(width: 3,),
+              Text("£21.11",
+              style: TextStyle(
+                fontWeight: FontWeight.bold
+              ),),
+              SizedBox(width: 20,)
+            ],
+          ),
+          SizedBox(height: 15,),
+          Container(
+            height: 1,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.grey.withOpacity(0.2),
+          ),
         ],
       ),
+      bottomNavigationBar: HalifaxNav(),
     );
   }
 }
