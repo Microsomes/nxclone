@@ -25,8 +25,6 @@ class HomePagePrestate extends State<HomePagePre> {
 
     NXHelp aconfig = NXHelp();
 
-
-
     aconfig.loadConfig("defaulthomepage", 1).then((value) {
       if (value.length == 0) {
         return;
@@ -36,8 +34,7 @@ class HomePagePrestate extends State<HomePagePre> {
         if (currentval == "home") {
           //home page
 
-           //launch the new onboarding process grade a under a
-
+          //launch the new onboarding process grade a under a
 
         } else if (currentval == "nxhome") {
           Navigator.pushAndRemoveUntil(
@@ -48,7 +45,7 @@ class HomePagePrestate extends State<HomePagePre> {
         } else if (currentval == "ticket") {
           //goes directly to the default ticket page
           NXHelp().buyAndActivateDefaultTicket().then((id) {
-             Navigator.push(
+            Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => ActualTicket(txid: id['ticketid'])));
@@ -64,8 +61,6 @@ class HomePagePrestate extends State<HomePagePre> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: PreferredSize(
@@ -81,15 +76,6 @@ class HomePagePrestate extends State<HomePagePre> {
                     children: <Widget>[
                       SizedBox(
                         height: 10,
-                      ),
-                      Center(
-                        child: Text(
-                          "Pie=mx+c",
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
                       ),
                       InkWell(
                         onTap: () {
@@ -128,8 +114,23 @@ class HomePagePrestate extends State<HomePagePre> {
                   height: 30,
                 ),
                 Expanded(
+                    child: Container(
+                  padding: EdgeInsets.all(19),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(40),
+                          topLeft: Radius.circular(40)),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.90),
+                          spreadRadius: 10,
+                          blurRadius: 10,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ]),
                   child: QuickOptions(),
-                )
+                ))
               ]),
             ),
             isShowing == true
@@ -150,15 +151,13 @@ void main() {
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
   return runApp(Phoenix(
-      child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePagePre()
-      
-      //Halifax()
-      
-      //MainLauncher()
-      //HomePagePre(),
-      //home:PaymentConfirmed()
-    ),
+    child: MaterialApp(debugShowCheckedModeBanner: false, home: HomePagePre()
+
+        //Halifax()
+
+        //MainLauncher()
+        //HomePagePre(),
+        //home:PaymentConfirmed()
+        ),
   ));
 }
