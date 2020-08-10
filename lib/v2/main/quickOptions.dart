@@ -36,6 +36,14 @@ class _QuickOptionState extends State<QuickOptions> {
       "icon": Icons.settings_input_antenna,
       "asset": "images/knowledge1.png"
     });
+
+    quickOptions.add({
+      "title": "NX-Animations",
+      "icon": Icons.lightbulb_outline,
+      "asset": "images/knowledge1.png",
+      "useIcon":true
+    });
+    quickOptions= quickOptions.reversed.toList();
   }
 
   @override
@@ -88,7 +96,11 @@ class _QuickOptionState extends State<QuickOptions> {
                         Expanded(
                           child: Container(
                             child: Center(
-                              child: Image.asset(
+                              child: quickOptions[index]['useIcon']==true ? Container(
+                                child: Center(
+                                  child: Icon(quickOptions[index]['icon'],size: 60,),
+                                ),
+                              ) : Image.asset(
                                 quickOptions[index]['asset'],
                                 width: MediaQuery.of(context).size.width * 0.15,
                               ),
