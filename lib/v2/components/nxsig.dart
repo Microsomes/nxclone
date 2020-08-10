@@ -6,8 +6,10 @@ class Nxsig extends StatefulWidget {
   final bool isBottomRounded;
 
   final String state;
+  
+  final String company;
 
-  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded=false});
+  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded=false,this.company="national express"});
 
   @override
   State<StatefulWidget> createState() {
@@ -73,17 +75,18 @@ class NxsigState extends State<Nxsig> {
                   width: 30,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "national",
+                      widget.company.split(" ")[0],
                       style: TextStyle(
                           color: Color.fromRGBO(205, 192, 201, 1),
                           letterSpacing: 0.1,
                           fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      "express",
+                      widget.company.split(" ")[1],
                       style: TextStyle(
                           color: Color.fromRGBO(205, 192, 201, 1),
                           height: 0.55,
