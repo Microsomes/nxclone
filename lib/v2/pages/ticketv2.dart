@@ -83,7 +83,7 @@ class ActualTicketState extends State<ActualTicket> {
       onWillPop: () async {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Nxfront()));
-            return;
+        return;
       },
       child: Scaffold(
         body: SafeArea(
@@ -158,14 +158,18 @@ class ActualTicketState extends State<ActualTicket> {
                           height: 4,
                         ),
                         Container(
-                             alignment: Alignment.center,
+                            alignment: Alignment.center,
                             height: 190,
-                            child: Image.asset(currentQR,width: 160,height: 190,)),
+                            child: Image.asset(
+                              currentQR,
+                              width: 160,
+                              height: 190,
+                            )),
                         SizedBox(
                           height: 3,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width*0.6,
+                          width: MediaQuery.of(context).size.width * 0.6,
                           child: Text(
                             "ANY BUSES ACROSS OUR NETWORK",
                             textAlign: TextAlign.center,
@@ -210,27 +214,6 @@ class ActualTicketState extends State<ActualTicket> {
                                         state: state,
                                         isBottomRounded: true,
                                       ),
-                                      // Container(
-                                      //   height: 30,
-                                      //   width: MediaQuery.of(context).size.width *
-                                      //       0.785,
-                                      //   decoration: BoxDecoration(
-                                      //     color: Color.fromRGBO(156, 19, 26, 1),
-                                      //     borderRadius: BorderRadius.only(
-                                      //         bottomLeft: Radius.circular(10),
-                                      //         bottomRight: Radius.circular(10)),
-                                      //   ),
-                                      //   child: Center(
-                                      //     child: Text(
-                                      //       "Activated 13:32",
-                                      //       style: TextStyle(
-                                      //           color: Colors.white,
-                                      //           fontWeight: FontWeight.bold,
-                                      //           fontSize: 17,
-                                      //           letterSpacing: 0.8),
-                                      //     ),
-                                      //   ),
-                                      // ),
                                     ],
                                   )),
                                 ),

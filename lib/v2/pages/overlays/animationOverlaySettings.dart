@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:BlackPie/v2/components/movingText.dart';
+import 'package:BlackPie/v2/components/nxsig.dart';
+import 'package:BlackPie/v2/components/ticketColor.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -61,25 +63,63 @@ class AnimationOverlay {
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
-                Expanded(
-                    child: ListView(children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Align(
-                        alignment: Alignment(-1.5, 0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Adjust the slider"),
-                            Slider(
-                              onChanged: onChangeSliderSpeed,
-                              value: 0,
-                            )
-                          ],
-                        )),
-                  ),
-                ]))
+                SizedBox(
+                  height: 10,
+                ),
+
+                 Container(
+                              height: 200,
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    top: 0,
+                                    left: 0,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, right: 20, top: 3),
+                                      child: TicketColor(
+                                        ctx: context,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 60,
+                                    left: 2,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 18, right: 0),
+                                      child: Container(
+                                          child: Column(
+                                        children: <Widget>[
+                                          Nxsig(
+                                            isRounded: false,
+                                            state: "WEST MIDLANDS",
+                                            isBottomRounded: true,
+                                          ),
+                                        ],
+                                      )),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                // ListView(children: <Widget>[
+                //   ListTile(
+                // leading: Icon(Icons.settings),
+                // title: Align(
+                //     alignment: Alignment(-1.5, 0),
+                //     child: Column(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: <Widget>[
+                //         Text("Adjust the slider"),
+                //         Slider(
+                //           onChanged: onChangeSliderSpeed,
+                //           value: 0,
+                //         ),
+                //       ],
+                //     )),
+                //   ),
+                // ])
               ],
             )),
           );
