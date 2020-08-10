@@ -120,7 +120,7 @@ class HomePagePrestate extends State<HomePagePre> {
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(40),
                           topLeft: Radius.circular(40)),
-                      color: Colors.white,
+                      color: Colors.white.withOpacity(0.8),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.90),

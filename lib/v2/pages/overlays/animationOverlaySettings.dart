@@ -1,15 +1,11 @@
 import 'dart:ui';
 
+import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class AnimationOverlay {
-
-
-    void onChangeSliderSpeed(a){
-
-    }
-
+  void onChangeSliderSpeed(a) {}
 
   void display(BuildContext context) {
     showModalBottomSheet(
@@ -42,7 +38,30 @@ class AnimationOverlay {
                         fontSize: 30),
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  height: 35,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(117, 28, 21, 1),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          topLeft: Radius.circular(10))),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                          left: 10,
+                          child: MovingText(
+                            textContent: "MOVING TEST",
+                            isUpper: true,
+                          ))
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10,),
                 Expanded(
                     child: ListView(children: <Widget>[
                   ListTile(
@@ -54,13 +73,12 @@ class AnimationOverlay {
                           children: <Widget>[
                             Text("Adjust the slider"),
                             Slider(
-                              onChanged:onChangeSliderSpeed,
+                              onChanged: onChangeSliderSpeed,
                               value: 0,
                             )
                           ],
                         )),
                   ),
-                  
                 ]))
               ],
             )),
