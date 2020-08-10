@@ -4,7 +4,6 @@ import 'package:BlackPie/v2/helper/NxHelp.dart';
 class TermsConditions extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return TermsConditionsState();
   }
 }
@@ -14,7 +13,6 @@ class TermsConditionsState extends State<TermsConditions> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Scaffold(
         body: SafeArea(

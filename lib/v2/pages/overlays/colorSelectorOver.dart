@@ -21,7 +21,7 @@ class ColorSelectOver {
     this.toSend(col,this.index);
   }
 
-  void ColorOverlay(BuildContext context) {
+  void colorOverlay(BuildContext context) {
     showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,

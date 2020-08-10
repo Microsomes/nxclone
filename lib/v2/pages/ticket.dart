@@ -13,18 +13,16 @@ class Ticket2 extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return Ticket2State();
   }
 }
 
 class Ticket2State extends State<Ticket2> {
-  var currentTicket = null;
+  var currentTicket;
   //will load the current ticket
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     NXHelp().getTicketById(id: widget.txdbid).then((ticket) {
@@ -43,7 +41,6 @@ class Ticket2State extends State<Ticket2> {
   Widget build(BuildContext context) {
     var state = currentTicket['state'];
     var tickettype = currentTicket['tickettype'];
-    // TODO: implement build
     return Scaffold(
       body: SafeArea(
         child: currentTicket != null

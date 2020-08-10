@@ -19,7 +19,6 @@ class ActualTicket extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return ActualTicketState();
   }
 }
@@ -34,7 +33,6 @@ class ActualTicketState extends State<ActualTicket> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     listOfQrCollections = List();
@@ -75,18 +73,17 @@ class ActualTicketState extends State<ActualTicket> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _qrTimer.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return WillPopScope(
       onWillPop: () async {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Nxfront()));
+            return;
       },
       child: Scaffold(
         body: SafeArea(

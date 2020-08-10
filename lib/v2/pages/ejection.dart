@@ -20,7 +20,6 @@ class EjectionState extends State<Ejection>{
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
       ejectionOptions.add({"title":"Crash App","icon":Icons.settings,"asset":"images/crash.png","id":"crash","selected":false,});
       ejectionOptions.add({"title":"Launch Real App","icon":Icons.settings,"asset":"images/launch.png","id":"launchapp","selected":false});
@@ -68,7 +67,6 @@ resetState() async {
     }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(45),

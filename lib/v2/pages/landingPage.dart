@@ -8,7 +8,6 @@ import 'package:sqflite/sqflite.dart';
 class LandingPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return LandingPageState();
   }
 }
@@ -49,7 +48,6 @@ class LandingPageState extends State<LandingPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     NXHelp();
@@ -129,7 +127,6 @@ class LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(45),
