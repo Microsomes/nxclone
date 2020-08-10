@@ -113,6 +113,29 @@ class AnimationOverlay {
                     onChanged: onChangeSliderSpeed,
                     value: 0,
                     activeColor: Color.fromRGBO(117, 28, 21, 1)),
+                Expanded(
+                  child: Container(),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(110),
+                      border: Border.all(color: Color.fromRGBO(117, 28, 21, 1), width: 5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ]),
+                  child: IconButton(
+                    color: Color.fromRGBO(117, 28, 21, 1),
+                    icon: Icon(Icons.close),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                )
               ],
             )),
           );
