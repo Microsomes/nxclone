@@ -1,3 +1,4 @@
+import 'package:BlackPie/v2/pages/overlays/animationOverlaySettings.dart';
 import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/pages/defaultTicket.dart';
 import 'package:BlackPie/v2/pages/ejection.dart';
@@ -43,7 +44,7 @@ class _QuickOptionState extends State<QuickOptions> {
       "asset": "images/knowledge1.png",
       "useIcon":true
     });
-    quickOptions= quickOptions.reversed.toList();
+    //quickOptions= quickOptions.reversed.toList();
   }
 
   @override
@@ -71,6 +72,10 @@ class _QuickOptionState extends State<QuickOptions> {
                       context,
                       MaterialPageRoute(builder: (context) => Ejection()),
                     );
+                  }
+
+                  if(index==4){
+                    AnimationOverlay().display(context);
                   }
                 },
                 child: Container(
