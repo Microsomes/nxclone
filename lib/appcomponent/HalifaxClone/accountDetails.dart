@@ -19,7 +19,6 @@ class AccountDetailsState extends State {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     availableMonths = List<AvailableMonth>();
 

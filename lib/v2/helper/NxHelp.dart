@@ -6,11 +6,11 @@ import 'package:intl/intl.dart';
 //all ticket types
 class Ttype {
   static String singlejourney = "Single Journey";
-  static String singlejourney_cov = "Coventry Single Journey";
+  static String singlejourneycov = "Coventry Single Journey";
   static String daySaver = "Daysaver";
-  static String daySaver_cov = "Coventry Daysaver";
-  static String daysaver_sandwellanddudley = "Sandwell & Dudley Daysaver";
-  static String daysaver_wallsall = "Walsall Daysaver";
+  static String daySavercov = "Coventry Daysaver";
+  static String daysaversandwellanddudley = "Sandwell & Dudley Daysaver";
+  static String daysaverwallsall = "Walsall Daysaver";
   static String daysaverafter930monfri = "Daysaver after 9.30am (Mon-Fri)";
   static String daySaversatsun = "Daysaver (Sat-Sun)";
   static String eveningSaverafter6 = "Evening Saver after 6pm";
@@ -104,7 +104,7 @@ class NXHelp {
     ////////conventry
 
     ticketTypes.add({
-      "title": Ttype.singlejourney_cov,
+      "title": Ttype.singlejourneycov,
       "subtitle": "Any bus acorss our network",
       "price": "2.20",
       "state": States.conventry,
@@ -119,7 +119,7 @@ class NXHelp {
     });
 
     ticketTypes.add({
-      "title": Ttype.daySaver_cov,
+      "title": Ttype.daySavercov,
       "subtitle": "All busses in the Conventry area",
       "price": "4.00",
       "state": States.conventry,
@@ -263,7 +263,7 @@ class NXHelp {
     });
 
     ticketTypes.add({
-      "title": Ttype.daysaver_sandwellanddudley,
+      "title": Ttype.daysaversandwellanddudley,
       "subtitle": "All busses in the Sandwell & Dudley zone",
       "price": "3.00",
       "state": States.sandwelldudleylowfarzone,
@@ -305,7 +305,7 @@ class NXHelp {
     });
 
     ticketTypes.add({
-      "title": Ttype.daysaver_wallsall,
+      "title": Ttype.daysaverwallsall,
       "subtitle": "All busses across our network",
       "price": "3.00",
       "state": States.wallsalllowfarzone,
@@ -406,10 +406,10 @@ class NXHelp {
           await this.checkTicketByState(element['title'], element['state']);
       if (dup.length == 0) {
         print("no dublicates");
-        var id = await this.addTicket(element['title'], element['state'],
-            element['price'], element['subtitle']);
+        // var id = await this.addTicket(element['title'], element['state'],
+        //     element['price'], element['subtitle']);
         //saves to db
-        var title = element['title'];
+        // var title = element['title'];
       } else {
         //print("duplicates");
       }
@@ -417,9 +417,9 @@ class NXHelp {
   }
 
   //todo future run this function to clean up old expired tickets
-  Future cleanUpOldTickets() {
-    //todo
-  }
+  // Future cleanUpOldTickets() {
+  //   //todo
+  // }
 
   //if not null will buy and return an ticket id
   Future buyAndActivateDefaultTicket() async {
@@ -458,7 +458,7 @@ class NXHelp {
 
   Map returnTicketExpiryInfo(String ttype) {
     //ticket expires in that many hours
-    if (ttype == Ttype.singlejourney || ttype == Ttype.singlejourney_cov) {
+    if (ttype == Ttype.singlejourney || ttype == Ttype.singlejourneycov) {
       return {
         "expires": 10080,
         "activationExpiry": 30,
@@ -466,10 +466,10 @@ class NXHelp {
         "shouldbe": "single"
       };
     } else if (ttype == Ttype.daySaver ||
-        ttype == Ttype.daySaver_cov ||
+        ttype == Ttype.daySavercov ||
         ttype == Ttype.daySaversatsun ||
-        ttype == Ttype.daysaver_sandwellanddudley ||
-        ttype == Ttype.daysaver_wallsall ||
+        ttype == Ttype.daysaversandwellanddudley ||
+        ttype == Ttype.daysaverwallsall ||
         ttype == Ttype.daysaverafter930monfri) {
       return {
         "expires": 144000,
@@ -581,7 +581,6 @@ class NXHelp {
     var id = await db.rawInsert(
         "INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid) VALUES (?,?,?,?,?,?)",
         [state, tickettype, "not used", currentTime, -1, 3235346459]);
-    //TODO
     return id;
   }
 

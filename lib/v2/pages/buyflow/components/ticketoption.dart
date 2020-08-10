@@ -17,7 +17,6 @@ class TicketOption extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       height: 110,
       width: MediaQuery.of(context).size.width,

@@ -21,14 +21,13 @@ class NxfrontState extends State<Nxfront> {
   double heightOf = 60;
   double spaceApart = 23;
 
-  int defaultTicketid = null;
+  int defaultTicketid;
 
   String state = "";
   String tickettype = "";
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     //call method to grab a preactivated default ticket useful
@@ -45,10 +44,8 @@ class NxfrontState extends State<Nxfront> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
-    // TODO: implement build
     return WillPopScope(
-      onWillPop: () async {},
+      onWillPop:null,
       child: Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(45),
@@ -271,7 +268,7 @@ class NxfrontState extends State<Nxfront> {
                                   height: 123,
                                   width:
                                       MediaQuery.of(context).size.width * 0.92,
-                                  child: ticketTwo(
+                                  child: TicketTwo(
                                     state: state,
                                     tickettype: tickettype,
                                     id: defaultTicketid,

@@ -7,19 +7,14 @@ import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
-
-import 'appcomponent/HalifaxClone/accountDetails.dart';
-import 'appcomponent/HalifaxClone/main.dart';
-import 'appcomponent/main_launcher/landing.dart';
-
 class HomePagePre extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return HomePagePre_state();
+    return HomePagePrestate();
   }
 }
 
-class HomePagePre_state extends State<HomePagePre> {
+class HomePagePrestate extends State<HomePagePre> {
   bool isShowing = false;
   double maxHeight;
   double containerHeight;
@@ -29,13 +24,21 @@ class HomePagePre_state extends State<HomePagePre> {
     super.initState();
 
     NXHelp aconfig = NXHelp();
+
+
+
     aconfig.loadConfig("defaulthomepage", 1).then((value) {
       if (value.length == 0) {
+        return;
       } else {
         //=1;
         var currentval = value[0]['val'];
         if (currentval == "home") {
           //home page
+
+           //launch the new onboarding process grade a under a
+
+
         } else if (currentval == "nxhome") {
           Navigator.pushAndRemoveUntil(
             context,
@@ -61,9 +64,7 @@ class HomePagePre_state extends State<HomePagePre> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
 
-    double maxHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -151,7 +152,7 @@ void main() {
   return runApp(Phoenix(
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainLauncher()
+      home: HomePagePre()
       
       //Halifax()
       

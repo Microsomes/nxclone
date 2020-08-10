@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class TicketInfoPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(153, 11, 23, 0.7),

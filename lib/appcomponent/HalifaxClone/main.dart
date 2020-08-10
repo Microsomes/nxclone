@@ -11,11 +11,9 @@ class Halifax extends StatefulWidget {
 }
 
 class HalifaxState extends State<Halifax> {
-  void _onItemTapped(index) {}
-
+ 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text(

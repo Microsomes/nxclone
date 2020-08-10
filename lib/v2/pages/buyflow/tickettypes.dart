@@ -11,7 +11,6 @@ class BuyTicketTypes extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return BuyTicketTypesState();
   }
 }
@@ -23,7 +22,6 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     ticketTypes = List();
@@ -40,7 +38,6 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Column(
       children: <Widget>[
         ticketTypes.length >= 1

@@ -10,7 +10,6 @@ import 'package:screen/screen.dart';
 class Ticket extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return TicketState();
   }
 }
@@ -18,7 +17,6 @@ class Ticket extends StatefulWidget {
 class TicketState extends State<Ticket> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Stpage();
   }
 }
@@ -26,7 +24,6 @@ class TicketState extends State<Ticket> {
 class Stpage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new Stpagestate();
   }
 }
@@ -45,9 +42,9 @@ class Stpagestate extends State<Stpage> {
 
   Timer _timer;
 
-  Timer _timer_for_opacity;
+  Timer timerForOpacity;
 
-  Timer _timer_for_opacity_2;
+  Timer timerForOpacity2;
 
   int elaspedTime = 0;
 
@@ -609,11 +606,10 @@ class Stpagestate extends State<Stpage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _timer.cancel();
-    _timer_for_opacity.cancel();
-    _timer_for_opacity_2.cancel();
+    timerForOpacity.cancel();
+    timerForOpacity2.cancel();
 
     Screen.setBrightness(0.1).then((onValue) {
       print(onValue);
@@ -633,7 +629,6 @@ class Stpagestate extends State<Stpage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     //make screen brighter
@@ -642,7 +637,7 @@ class Stpagestate extends State<Stpage> {
       print(onValue);
     });
 
-    _timer_for_opacity =
+    timerForOpacity =
         Timer.periodic(Duration(milliseconds: 500), (Timer time) {
       isUp = !isUp;
       print(isUp);
@@ -691,15 +686,13 @@ class Stpagestate extends State<Stpage> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
 
-    TimeOfDay timeOfDay = TimeOfDay.fromDateTime(DateTime.now());
 
-    // TODO: implement build
     return WillPopScope(
       onWillPop: () async {
         await Screen.setBrightness(0.1);
         Navigator.pop(context);
+        return;
       },
       child: Scaffold(
           appBar: AppBar(

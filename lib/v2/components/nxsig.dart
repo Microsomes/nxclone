@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 class Nxsig extends StatefulWidget {
   final bool isRounded;
 
-  bool isBottomRounded = false;
+  final bool isBottomRounded;
 
   final String state;
 
-  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded});
+  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded=false});
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return NxsigState();
   }
 }
@@ -19,7 +18,6 @@ class Nxsig extends StatefulWidget {
 class NxsigState extends State<Nxsig> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
 
     var state = widget.state;
 

@@ -6,7 +6,6 @@ import 'addNewPaymentOption.dart';
 class AllPaymentOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Column(
       children: <Widget>[
         PaymentOption(

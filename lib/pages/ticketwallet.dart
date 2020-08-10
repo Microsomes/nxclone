@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/pages/journey/ticket.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/pages/ticket.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
 import 'components/singleInactive.dart';
@@ -9,15 +7,14 @@ import 'components/singleInactive.dart';
 class Ticketwallet extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _stpagestate();
+    return Stpagestate();
   }
 }
 
-class _stpagestate extends State<Ticketwallet> {
-  List allUnactivatdTickets = null;
+class Stpagestate extends State<Ticketwallet> {
+  List allUnactivatdTickets;
 
-  _stpagestate() {
+  Stpagestate() {
     //grabbs all unused tickets
     allUnactivatdTickets = List();
 
@@ -33,15 +30,11 @@ class _stpagestate extends State<Ticketwallet> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
 
-    List<String> ticketTypes = [
-      "West Midlands",
-    ];
+  
 
     bool isTickets = true;
 
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -182,7 +175,7 @@ class _stpagestate extends State<Ticketwallet> {
                                   height: 110,
                                   width:
                                       MediaQuery.of(context).size.width * 0.92,
-                                  child: ticketTwo(
+                                  child: TicketTwo(
                                     state: allUnactivatdTickets[index]['state'],
                                     tickettype: allUnactivatdTickets[index]
                                         ['tickettype'],

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/pages/buyflow/components/addNewPaymentOption.dart';
 import 'package:BlackPie/v2/pages/buyflow/components/allPaymentOptions.dart';
-import 'package:BlackPie/v2/pages/buyflow/components/paymentOption.dart';
 import 'package:BlackPie/v2/pages/buyflow/payment/paymentFinal.dart';
 
 class PickPaymentMethodAndConfirmItem extends StatelessWidget {
@@ -24,7 +22,6 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 241, 241, 1),
       appBar: AppBar(

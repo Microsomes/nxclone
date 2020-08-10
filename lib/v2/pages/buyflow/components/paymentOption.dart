@@ -18,7 +18,6 @@ class PaymentOption extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return PaymentOptionState();
   }
 
@@ -30,7 +29,6 @@ class PaymentOptionState extends State<PaymentOption>{
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
      this.pc= widget.paymentCard;
   }
@@ -38,7 +36,6 @@ class PaymentOptionState extends State<PaymentOption>{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Padding(
       padding: const EdgeInsets.only(top:0.0),
       child: Container(

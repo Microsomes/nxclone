@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class BarV2 extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppBar(
             elevation: 0.0,
             title: Text(

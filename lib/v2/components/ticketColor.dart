@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/pages/journey/ticket.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
@@ -12,7 +11,6 @@ class TicketColor extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return TicketColorState();
   }
 }
@@ -31,9 +29,8 @@ class TicketColorState extends State<TicketColor> {
   Color opt2 = Colors.red;
   Color opt3 = Colors.green;
 
-  Timer _timer_for_opacity;
-
-  Timer _timer_for_opacity_2;
+  Timer timerForOpacity;
+  Timer timerForOpacity2;
 
   bool isUp = true;
   double opacity1 = 1;
@@ -42,7 +39,6 @@ class TicketColorState extends State<TicketColor> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
 
@@ -121,7 +117,7 @@ class TicketColorState extends State<TicketColor> {
       }
     });
 
-    _timer_for_opacity =
+    timerForOpacity =
         Timer.periodic(Duration(milliseconds: 500), (Timer time) {
       isUp = !isUp;
       print(isUp);
@@ -139,11 +135,10 @@ class TicketColorState extends State<TicketColor> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _timer.cancel();
-    _timer_for_opacity.cancel();
-    _timer_for_opacity_2.cancel();
+    timerForOpacity.cancel();
+    timerForOpacity2.cancel();
   }
 
   void changeCol(Color col, index) async {
@@ -176,11 +171,9 @@ class TicketColorState extends State<TicketColor> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
 
     var df = dy;
 
-    // TODO: implement build
     return Container(
         alignment: Alignment.center,
         height: 70,

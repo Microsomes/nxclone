@@ -7,7 +7,6 @@ import 'package:sqflite/sqflite.dart';
 class Ejection extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return EjectionState();
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class AddNewPaymentOption extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
         height: 120,
         width: MediaQuery.of(context).size.width,

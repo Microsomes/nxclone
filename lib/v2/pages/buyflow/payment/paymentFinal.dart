@@ -12,7 +12,6 @@ class PaymentFinal extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return PaymentFinalState();
   }
 }
@@ -23,7 +22,6 @@ class PaymentFinalState extends State<PaymentFinal> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     priceOfTicket = widget.selectedTicket['price'];
     tickettitle = widget.selectedTicket['state'] +
@@ -34,7 +32,6 @@ class PaymentFinalState extends State<PaymentFinal> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

@@ -18,7 +18,6 @@ class HalifaxNav extends StatelessWidget{
   }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[

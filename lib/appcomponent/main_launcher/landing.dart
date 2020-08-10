@@ -1,5 +1,4 @@
 import 'package:BlackPie/appcomponent/HalifaxClone/main.dart';
-import 'package:BlackPie/components/daysaveractive.dart';
 import 'package:BlackPie/pages/journey/ticket.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import '../../main.dart';
 class MainLauncher extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return MainLauncherState();
   }
 }
@@ -19,7 +17,6 @@ class MainLauncherState extends State<MainLauncher> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       key: _keymenu,
       body: SafeArea(

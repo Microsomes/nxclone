@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-class ticketTwo extends StatelessWidget {
+class TicketTwo extends StatelessWidget {
 
     final String state;
     final String tickettype;
     final int id;
 
-    String  whenActivated="Expires in 12 hours, 59 minutes";
-    ticketTwo({
+   final String  whenActivated;
+    TicketTwo({
      @required this.state,
      @required this.tickettype,
       @required this.id,
-      this.whenActivated
+      this.whenActivated="Expires in 12 hours, 59 minutes"
     });
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(  
       child: Column(children: [
         Container(

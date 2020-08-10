@@ -4,20 +4,18 @@ import 'package:BlackPie/v2/pages/buyflow/tickettypes.dart';
 class SelectTicket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return stpage();
+    return Stpage();
   }
 }
 
-class stpage extends StatefulWidget {
+class Stpage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return new _stpagestate();
+    return new Stpagestate();
   }
 }
 
-class _stpagestate extends State<stpage> {
+class Stpagestate extends State<Stpage> {
   void displayBuyticketDialog(BuildContext context,String selectedState) {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -62,7 +60,6 @@ class _stpagestate extends State<stpage> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
 
     List<String> ticketTypes = [
       "West Midlands",
@@ -75,7 +72,6 @@ class _stpagestate extends State<stpage> {
       "Warwick University"
     ];
 
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,

@@ -11,30 +11,24 @@ import 'package:BlackPie/pages/settings.dart';
 class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return stpage();
+    return Stpage();
   }
 }
 
-class stpage extends StatefulWidget {
+class Stpage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return new _stpagestate();
+    return new Stpagestate();
   }
 }
 
-class _stpagestate extends State<stpage> {
+class Stpagestate extends State<Stpage> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-    final sizeH = MediaQuery.of(context).size.height;
 
-    List<String> ticketTypes = [
-      "West Midlands",
-    ];
 
-    // TODO: implement build
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -123,7 +117,7 @@ class _stpagestate extends State<stpage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (Context) => CustomerServicePage()));
+                            builder: (context) => CustomerServicePage()));
                   },
                   child: Container(
                     width: 380,

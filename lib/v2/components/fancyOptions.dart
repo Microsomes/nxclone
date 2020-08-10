@@ -18,7 +18,6 @@ class FancyOptions extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return FancyOptionsState();
   }
 }
@@ -26,7 +25,6 @@ class FancyOptions extends StatefulWidget{
 class FancyOptionsState extends State<FancyOptions>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return InkWell(
       onTap: (){
         widget.clicked();

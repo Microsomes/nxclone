@@ -7,7 +7,6 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 class Settings extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return SettingsState();
   }
 }
@@ -29,7 +28,6 @@ class SettingsState extends State<Settings> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     helpNx = NXHelp();
@@ -37,13 +35,13 @@ class SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return WillPopScope(
       onWillPop: () async {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => Nxfront()),
         );
+        return;
       },
       child: Scaffold(
           appBar: AppBar(

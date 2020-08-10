@@ -6,13 +6,14 @@ import 'package:url_launcher/url_launcher.dart';
 class PaymentConfirmed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return WillPopScope(
       onWillPop: () async {
          Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Nxfront()),
                     );
+
+                    return;
       },
           child: Scaffold(
         appBar: AppBar(

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class PayandTransfer extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return PayandTrasnferState();
   }
 }
@@ -14,7 +13,6 @@ class PayandTrasnferState extends State<PayandTransfer> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

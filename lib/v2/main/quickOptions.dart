@@ -6,7 +6,6 @@ import 'package:BlackPie/v2/pages/landingPage.dart';
 class QuickOptions extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _QuickOptionState();
   }
 }
@@ -15,11 +14,8 @@ class QuickOptions extends StatefulWidget{
    List quickOptions;
    @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
      quickOptions= new List();
-
     quickOptions.add({"title":"Landing Page","icon":Icons.settings,"asset":"images/landing1.png"});
     quickOptions.add({"title":"Default Ticket Page","icon":Icons.settings_applications,"asset":"images/ticket1.png"});
     quickOptions.add({"title":"Ejection Settings","icon":Icons.settings_bluetooth,"asset":"images/ejection1.png"});
@@ -29,7 +25,6 @@ class QuickOptions extends StatefulWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
