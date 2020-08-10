@@ -74,7 +74,7 @@ class HalifaxState extends State<Halifax> {
                                 Row(
                                   children: <Widget>[
                                     Text(
-                                      "11-10-72",
+                                      "11-92-92",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12),
@@ -83,7 +83,7 @@ class HalifaxState extends State<Halifax> {
                                       width: 5,
                                     ),
                                     Text(
-                                      "10702367",
+                                      "10702377",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12),
@@ -240,7 +240,7 @@ class HalifaxState extends State<Halifax> {
                               Row(
                                 children: <Widget>[
                                   Text(
-                                    "11-64-14",
+                                    "13-20-25",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12),
@@ -249,7 +249,7 @@ class HalifaxState extends State<Halifax> {
                                     width: 5,
                                   ),
                                   Text(
-                                    "23528763",
+                                    "22538763",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12),
@@ -340,7 +340,7 @@ class HalifaxState extends State<Halifax> {
                               Row(
                                 children: <Widget>[
                                   Text(
-                                    "11-10-72",
+                                    "11-10-99",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12),
@@ -349,7 +349,7 @@ class HalifaxState extends State<Halifax> {
                                     width: 5,
                                   ),
                                   Text(
-                                    "10702367",
+                                    "10704290",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12),
