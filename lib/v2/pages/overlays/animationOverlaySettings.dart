@@ -4,6 +4,7 @@ import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:BlackPie/v2/components/nxsig.dart';
 import 'package:BlackPie/v2/components/ticketColor.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 
 class AnimationOverlayContent extends StatefulWidget {
   @override
@@ -16,6 +17,22 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   double _velocity = 50.00;
 
   double _currentColorSpeed = 500.00;
+
+  Future saveOption(String key, String val) async {
+    var db = await openDatabase("main.db");
+    db.execute(
+        "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
+    var iid = await db
+        .rawInsert("INSERT INTO config(key, val) VALUES(?, ?)", [key, val]);
+    return iid;
+  }
+
+  Future restoreOption(String key) async {
+    var db = await openDatabase("main.db");
+    List<Map> list = await db.rawQuery(
+        'SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1', [key]);
+    return list;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +64,10 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
         ),
         Slider(
             value: _velocity,
-            onChanged: (curV) {
-              print(curV);
+            onChanged: (curV) async  {
+ 
+              await saveOption("movingtext",curV.toString());
+              
               setState(() {
                 _velocity = curV;
               });
@@ -101,8 +120,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
             onChanged: (newv) {
               setState(() {
                 _currentColorSpeed = newv;
-                print(_currentColorSpeed);
-              });
+               });
             },
             min: 500,
             max: 2000,

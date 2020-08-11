@@ -52,8 +52,7 @@ class MainLauncherState extends State<MainLauncher> {
                           icon: Icon(Icons.menu),
                           onPressed: () {
                             _keymenu.currentState.openDrawer();
-                            print("open");
-                          },
+                           },
                         ),
                         Expanded(
                           child: TextField(
@@ -135,8 +134,7 @@ class MainLauncherState extends State<MainLauncher> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        print("load the nx home");
-                        Navigator.push(
+                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Ticket()),
                         );
@@ -198,8 +196,7 @@ class MainLauncherState extends State<MainLauncher> {
                     ),
                     InkWell(
                       onTap: () {
-                        print("load the nx home");
-                        Navigator.push(
+                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Nxfront()),
                         );
@@ -262,8 +259,7 @@ class MainLauncherState extends State<MainLauncher> {
 
                      InkWell(
                       onTap: () {
-                        print("load the nx home");
-                        Navigator.push(
+                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => HomePagePre()),
                         );
@@ -387,8 +383,7 @@ class MainLauncherState extends State<MainLauncher> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        print("load the nx home");
-                        Navigator.push(
+                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Halifax()),
                         );

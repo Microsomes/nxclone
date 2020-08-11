@@ -65,11 +65,9 @@ class TicketOverlayHelper {
                   child: InkWell(
                     onTap: () {
                       //displayActivationDialog(context);
-                      print("show ticket and activate");
-
+ 
                       NXHelp().activateTicket(id: txid).then((activateStatus) {
-                        print(activateStatus);
-                        Navigator.push(
+                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => ActualTicket(

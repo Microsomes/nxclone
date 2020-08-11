@@ -240,7 +240,6 @@ class Ticket2State extends State<Ticket2> {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    print("go to details page");
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(

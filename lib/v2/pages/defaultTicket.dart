@@ -116,7 +116,6 @@ class DefaultTicketState extends State<DefaultTicket> {
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
         .rawInsert("INSERT INTO config(key, val) VALUES(?, ?)", [key, val]);
-    print(iid);
     return iid;
   }
 
@@ -177,7 +176,6 @@ class DefaultTicketState extends State<DefaultTicket> {
             ),
             InkWell(
               onTap: () {
-                print("select state");
                 DefaultTicketOverlay().showDefaultOverlay(context);
               },
               child: Container(

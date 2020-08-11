@@ -19,9 +19,7 @@ class Stpagestate extends State<Ticketwallet> {
     allUnactivatdTickets = List();
 
     NXHelp().getAllUseableTickets().then((value) {
-      print(value);
       var totalT = value.length;
-      print("total tickets: $totalT");
       allUnactivatdTickets = value;
       setState(() {});
     });
@@ -78,7 +76,6 @@ class Stpagestate extends State<Ticketwallet> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            print("hi");
                             setState(() {
                               isTickets = true;
                             });
@@ -106,8 +103,7 @@ class Stpagestate extends State<Ticketwallet> {
                           onTap: () {
                             setState(() {
                               isTickets = false;
-                              print("ticket is false");
-                            });
+                             });
                           },
                           child: Container(
                             child: Center(

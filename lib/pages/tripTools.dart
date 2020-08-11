@@ -81,7 +81,6 @@ class Stpagestate extends State<Stpage>{
                               child: InkWell(
 
                                 onTap: (){
-                                  print("open timetables");
                                   launch("https://nxbus.co.uk/west-midlands/plan-your-journey#");
                                 },
                                                               child: Container(
@@ -129,7 +128,6 @@ class Stpagestate extends State<Stpage>{
               ),
                InkWell(
                  onTap: (){
-                   print("open service changes");
                  },
                                 child: Container(
                   child: Column(
@@ -147,13 +145,11 @@ class Stpagestate extends State<Stpage>{
                       InkWell(
                   onTap: (){
 
-                    print("ooop");
 
                   
                   },
                                 child: InkWell(
                                   onTap: (){
-                                    print("hi");
                                     launch("https://nxbus.co.uk/west-midlands/information/service-changes");
                                   },
                                                                   child: Container(

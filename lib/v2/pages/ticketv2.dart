@@ -14,8 +14,7 @@ class ActualTicket extends StatefulWidget {
   final int txid;
 
   ActualTicket({@required this.txid}) {
-    print("ticketv2 $txid");
-  }
+   }
 
   @override
   State<StatefulWidget> createState() {
@@ -62,7 +61,6 @@ class ActualTicketState extends State<ActualTicket> {
     });
 
     NXHelp().getTicketById(id: widget.txid).then((ticket) {
-      print(ticket);
 
       setState(() {
         state = ticket[0]['state'];

@@ -32,8 +32,7 @@ class NxfrontState extends State<Nxfront> {
 
     //call method to grab a preactivated default ticket useful
     NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
-      print("$preactivatedid");
-      setState(() {
+       setState(() {
         defaultTicketid = preactivatedid['ticketid'];
         state = preactivatedid['state'];
         tickettype = preactivatedid['tickettype'];
@@ -282,8 +281,7 @@ class NxfrontState extends State<Nxfront> {
                           padding: const EdgeInsets.only(top: 15),
                           child: InkWell(
                             onTap: () {
-                              print("ticket page");
-                              Navigator.push(
+                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Ticketwallet()));

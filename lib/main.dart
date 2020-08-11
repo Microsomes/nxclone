@@ -104,7 +104,6 @@ class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStat
                           children: <Widget>[
                             InkWell(
                               onTap: () {
-                                print("open ticket page");
     
                                 Navigator.push(
                                   context,

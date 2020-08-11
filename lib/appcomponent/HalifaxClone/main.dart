@@ -30,7 +30,6 @@ class HalifaxState extends State<Halifax> {
           ),
           InkWell(
             onTap: (){
-              print("open t.javed");
               //AccountDetails
               Navigator.push(context, MaterialPageRoute(
                 builder: (context)=> AccountDetails()

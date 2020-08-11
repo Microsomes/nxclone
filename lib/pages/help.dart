@@ -59,7 +59,6 @@ class Stpagestate extends State<Stpage> {
                 onTap: () {},
                 child: InkWell(
                   onTap: () {
-                    print("open app info");
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -112,7 +111,6 @@ class Stpagestate extends State<Stpage> {
                 onTap: () {},
                 child: InkWell(
                   onTap: () {
-                    print("customer service page");
 
                     Navigator.push(
                         context,
@@ -164,7 +162,6 @@ class Stpagestate extends State<Stpage> {
               ),
               InkWell(
                 onTap: () {
-                  print("open faq page");
 
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => FaqPage()));
@@ -213,7 +210,6 @@ class Stpagestate extends State<Stpage> {
               ),
               InkWell(
                 onTap: () {
-                  print("tos");
 
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Settings()));

@@ -72,8 +72,7 @@ class PaymentConfirmed extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      print("go to ticket page");
-                      // Navigator.pushAndRemoveUntil(
+                       // Navigator.pushAndRemoveUntil(
                       //       context,
                       //       MaterialPageRoute(
                       //           builder: (context) => Ticketwallet()),

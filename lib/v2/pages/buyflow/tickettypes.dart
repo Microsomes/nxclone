@@ -29,7 +29,6 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
     nxhelp = NXHelp();
 
     nxhelp.getAllTickets(widget.selectedState).then((value) {
-      print(value);
 
       ticketTypes = value;
       setState(() {});
@@ -47,7 +46,6 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          print("open confirm");
                           Navigator.push(
                               context,
                               MaterialPageRoute(

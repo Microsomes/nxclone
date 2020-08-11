@@ -51,7 +51,6 @@ class TicketColorState extends State<TicketColor> {
     NXHelp().loadConfig("opt1col", 1).then((opt1colconfig) {
       if(opt1colconfig.length==0){
       }else{
-        print(opt1colconfig);
         var curVal=opt1colconfig[0]['val'];
         String valueString = curVal.split('(0x')[1].split(')')[0]; // kind of hacky..
         int value = int.parse(valueString, radix: 16);
@@ -64,7 +63,6 @@ class TicketColorState extends State<TicketColor> {
      NXHelp().loadConfig("opt2col", 1).then((opt1colconfig) {
       if(opt1colconfig.length==0){
       }else{
-        print(opt1colconfig);
         var curVal=opt1colconfig[0]['val'];
         String valueString = curVal.split('(0x')[1].split(')')[0]; // kind of hacky..
         int value = int.parse(valueString, radix: 16);
@@ -77,7 +75,6 @@ class TicketColorState extends State<TicketColor> {
      NXHelp().loadConfig("opt3col", 1).then((opt1colconfig) {
       if(opt1colconfig.length==0){
       }else{
-        print(opt1colconfig);
         var curVal=opt1colconfig[0]['val'];
         String valueString = curVal.split('(0x')[1].split(')')[0]; // kind of hacky..
         int value = int.parse(valueString, radix: 16);
@@ -110,7 +107,6 @@ class TicketColorState extends State<TicketColor> {
       });
       elaspedTime++;
 
-      print(elaspedTime);
 
       if (currentRange != 0.20) {
         setState(() {
@@ -126,7 +122,6 @@ class TicketColorState extends State<TicketColor> {
     timerForOpacity =
         Timer.periodic(Duration(milliseconds: 300), (Timer time) {
       isUp = !isUp;
-      print(isUp);
       if (isUp) {
         setState(() {
           opacity1 = 1;
@@ -154,7 +149,6 @@ class TicketColorState extends State<TicketColor> {
           opt1 = col;
         });
         var cid = await NXHelp().saveConfig("opt1col", col.toString());
-        print("color saved $cid");
 
         break;
       case 2:
@@ -162,14 +156,12 @@ class TicketColorState extends State<TicketColor> {
           opt2 = col;
         });
         var cid = await NXHelp().saveConfig("opt2col", col.toString());
-        print("color saved $cid");
         break;
       case 3:
         setState(() {
           opt3 = col;
         });
         var cid = await NXHelp().saveConfig("opt3col", col.toString());
-        print("color saved $cid");
         break;
     }
   }

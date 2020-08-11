@@ -28,7 +28,6 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
         .rawInsert("INSERT INTO config(key, val) VALUES(?, ?)", [key, val]);
-    print(iid);
     return iid;
   }
 
@@ -97,8 +96,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
       if (value.length == 0) {
       } else {
         if (value[0]['val'] == "blackpie") {
-          print("home page");
-          option2.isSelected = false;
+           option2.isSelected = false;
           option1.isSelected = true;
         } else {
           option1.isSelected = false;

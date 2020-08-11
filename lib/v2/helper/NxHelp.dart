@@ -394,25 +394,20 @@ class NXHelp {
 
     //load default values
 
-    print("run pre-runup setup");
-    this.getAllTickets("West Midlands").then((value) {
-      print(value.length);
-    });
-    print(ticketTypes.length);
-
+     this.getAllTickets("West Midlands").then((value) {
+     });
+ 
     for (var element in ticketTypes) {
       //check duplicate first
       var dup =
           await this.checkTicketByState(element['title'], element['state']);
       if (dup.length == 0) {
-        print("no dublicates");
-        // var id = await this.addTicket(element['title'], element['state'],
+         // var id = await this.addTicket(element['title'], element['state'],
         //     element['price'], element['subtitle']);
         //saves to db
         // var title = element['title'];
       } else {
-        //print("duplicates");
-      }
+       }
     }
   }
 
@@ -519,19 +514,15 @@ class NXHelp {
         //calculate the preactivation expiiry
         var ticketPurchased = curTicket['expires'];
         //the date the ticket was purchased
-        print("purchased $ticketPurchased");
-        var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
-        print(ticketMeta);
-        var expiriesIn = ticketMeta['expires'] / 24;
+         var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
+         var expiriesIn = ticketMeta['expires'] / 24;
         expiriesIn = expiriesIn.toInt();
         var date = new DateTime.fromMicrosecondsSinceEpoch(
             int.parse(ticketPurchased) * 1000);
         var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
-        print(date);
-        var newFormat = DateFormat("dd/MM/yyyy HH:MM");
+         var newFormat = DateFormat("dd/MM/yyyy HH:MM");
         String updatedDt = newFormat.format(dateOfExpiry);
-        print(dateOfExpiry);
-        toCur['ticketExpiry'] = updatedDt;
+         toCur['ticketExpiry'] = updatedDt;
         //time before ticket expires when unactivated
       } else if (curTicket['isActive'] == 1) {
         var ticketPurchased = curTicket['expires'];
@@ -541,8 +532,7 @@ class NXHelp {
         var date = new DateTime.fromMicrosecondsSinceEpoch(
             int.parse(ticketPurchased) * 1000);
         var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
-        print(date);
-        var newFormat = DateFormat("dd/MM/yyyy HH:MM");
+         var newFormat = DateFormat("dd/MM/yyyy HH:MM");
         String updatedDt = newFormat.format(dateOfExpiry);
         toCur['activationExpiry'] = updatedDt;
       }

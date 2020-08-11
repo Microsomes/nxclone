@@ -35,9 +35,7 @@ class DefaultTicketOverlay {
                             itemBuilder: (context, index) {
                               return ListTile(
                                   onTap: () {
-                                    print("save ticket");
-                                    print(snapshot.data[index]['state']);
-                                    print(snapshot.data[index]['tickettitle']);
+                                     
 
                                     NXHelp()
                                         .saveConfig(
@@ -47,8 +45,7 @@ class DefaultTicketOverlay {
                                                 snapshot.data[index]
                                                     ['tickettitle'])
                                         .then((value) {
-                                      print("inserted $value");
-                                    });
+                                     });
                                   },
                                   title: Text(snapshot.data[index]['state']),
                                   subtitle: Text(

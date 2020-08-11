@@ -11,10 +11,8 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
 
   PickPaymentMethodAndConfirmItem(
       {@required this.selectedState, @required this.selectedTicket}) {
-    print("opened payment page");
-
-    print(this.selectedTicket);
-
+ 
+ 
     priceOfTicket = this.selectedTicket['price'];
     tickettitle =
         this.selectedTicket['state'] + " " + this.selectedTicket['tickettitle'];
@@ -140,8 +138,7 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
           ),
           InkWell(
               onTap: () {
-                print("final confirm");
-                Navigator.push(
+                 Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => PaymentFinal(

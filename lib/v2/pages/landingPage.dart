@@ -29,7 +29,6 @@ class LandingPageState extends State<LandingPage> {
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
         .rawInsert("INSERT INTO config(key, val) VALUES(?, ?)", [key, val]);
-    print(iid);
     return iid;
   }
 
@@ -122,7 +121,6 @@ class LandingPageState extends State<LandingPage> {
       if (value.length == 0) {
       } else {
         if (value[0]['val'] == "home") {
-          print("home page");
           option2.isSelected = false;
           option1.isSelected = true;
         } else {

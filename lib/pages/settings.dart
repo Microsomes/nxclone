@@ -59,11 +59,8 @@ class SettingsState extends State<Settings> {
                 FutureBuilder(
                     future: getDefaultPage(),
                     builder: (context, snapshot) {
-                      print(snapshot.connectionState);
 
                       if (snapshot.connectionState == ConnectionState.done) {
-                        print("done loading prefs");
-                        print(snapshot.data);
                       }
                       return Text("Current " + snapshot.data.toString());
                     }),
@@ -79,7 +76,6 @@ class SettingsState extends State<Settings> {
                       );
                     }).toList(),
                     onChanged: (a) {
-                      print(a);
 
                       //map to v2
                       if (a == "precaution") {

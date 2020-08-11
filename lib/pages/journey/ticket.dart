@@ -612,7 +612,6 @@ class Stpagestate extends State<Stpage> {
     timerForOpacity2.cancel();
 
     Screen.setBrightness(0.1).then((onValue) {
-      print(onValue);
     });
   }
 
@@ -634,13 +633,11 @@ class Stpagestate extends State<Stpage> {
     //make screen brighter
 
     Screen.setBrightness(1).then((onValue) {
-      print(onValue);
     });
 
     timerForOpacity =
         Timer.periodic(Duration(milliseconds: 500), (Timer time) {
       isUp = !isUp;
-      print(isUp);
 
       if (isUp) {
         setState(() {
@@ -662,7 +659,6 @@ class Stpagestate extends State<Stpage> {
       });
       elaspedTime++;
 
-      print(elaspedTime);
 
       if (currentRange != 0.58) {
         setState(() {
@@ -781,7 +777,6 @@ class Stpagestate extends State<Stpage> {
                                           children: <Widget>[
                                             InkWell(
                                               onTap: () {
-                                                print("change first color");
                                                 _showDialog(1);
                                               },
                                               child: AnimatedOpacity(
@@ -837,7 +832,6 @@ class Stpagestate extends State<Stpage> {
                                             ),
                                             InkWell(
                                               onTap: () {
-                                                print("change third color");
                                                 _showDialog(3);
                                               },
                                               child: AnimatedOpacity(
@@ -924,7 +918,6 @@ class Stpagestate extends State<Stpage> {
                                 bottom: 12,
                                 child: InkWell(
                                   onTap: () {
-                                    print("open the other one");
                                     setState(() {
                                       isQROpen = false;
                                     });
@@ -1175,7 +1168,6 @@ class Stpagestate extends State<Stpage> {
                                     ]),
                                 child: InkWell(
                                     onTap: () {
-                                      print("ticket info");
 
                                       Navigator.push(
                                           context,

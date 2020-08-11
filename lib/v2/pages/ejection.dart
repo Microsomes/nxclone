@@ -46,7 +46,6 @@ class EjectionState extends State<Ejection>{
       var db= await openDatabase("main.db");
       db.execute("CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
      var iid= await db.rawInsert("INSERT INTO config(key, val) VALUES(?, ?)",[key,val]);
-     print(iid);
      return iid;
     }
 

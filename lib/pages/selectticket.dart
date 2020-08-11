@@ -107,12 +107,10 @@ class Stpagestate extends State<Stpage> {
                     child: InkWell(
                       focusColor: Colors.red,
                       onTap: () {
-                        print("click");
-                        print(index.toString());
+                     
 
                         var ticketN= ticketTypes[index];
 
-                        print("seleced: $ticketN ");
 
                         displayBuyticketDialog(context,ticketN);
 
