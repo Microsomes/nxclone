@@ -7,6 +7,7 @@ import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 
 class HomePagePre extends StatefulWidget {
   @override
@@ -29,8 +30,7 @@ class HomePagePrestate extends State<HomePagePre>
 
   Timer mainTimer;
 
-   var nxhometop2 = 200;
-
+  var nxhometop2 = 200;
 
   @override
   void dispose() {
@@ -47,7 +47,7 @@ class HomePagePrestate extends State<HomePagePre>
       setState(() {
         skeletonOpacity = 1;
         sizeOfBottomBar = 0.36;
-        nxhometop2=5;
+        nxhometop2 = 5;
       });
     });
 
@@ -98,117 +98,148 @@ class HomePagePrestate extends State<HomePagePre>
 
   @override
   Widget build(BuildContext context) {
-        return Scaffold(
-            backgroundColor: Colors.black,
-            body: SafeArea(
-                child: Column(
-              children: <Widget>[
-                Expanded(
-                  child: Column(children: [
-                    AnimatedOpacity(
-                      opacity: skeletonOpacity,
-                      duration: Duration(seconds: 1),
-                      child: Container(
-                        height: 250,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Nxfront()),
-                                );
-                              },
-                              child: Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  height: 120,
-                                  width: 120,
-                                  child: Image.asset(
-                                    "images/mrskeleton.png",
-                                    width: 200,
-                                  )),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          boxShadow: [
-                            new BoxShadow(
-                              color: Colors.lightGreen,
-                              offset: new Offset(2.0, 2.0),
-                            )
-                          ],
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(200),
-                              bottomRight: Radius.circular(200)),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Expanded(
-                        child: Container(
-                            child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+        backgroundColor: Colors.black,
+        body: SafeArea(
+            child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Column(children: [
+                AnimatedOpacity(
+                  opacity: skeletonOpacity,
+                  duration: Duration(seconds: 1),
+                  child: Container(
+                    height: 250,
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Expanded(
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: <Widget>[
-                              InkWell(
-                                onTap: () {
-                                  //open up setup
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SetupFlow()),
-                                  );
-                                },
-                                child: AnimatedOpacity(
-                                  opacity: skeletonOpacity,
-                                  duration: Duration(seconds: 2),
-                                  child: Container(
-                                    width: MediaQuery.of(context).size.width * 0.33,
-                                    child: Center(
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        child: Text(
-                                          "Setup",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        backgroundColor: Colors.red,
-                                      ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Nxfront()),
+                            );
+                          },
+                          child: Container(
+                              margin: EdgeInsets.only(top: 10),
+                              height: 120,
+                              width: 120,
+                              child: Image.asset(
+                                "images/mrskeleton.png",
+                                width: 200,
+                              )),
+                        )
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      boxShadow: [
+                        new BoxShadow(
+                          color: Colors.lightGreen,
+                          offset: new Offset(2.0, 2.0),
+                        )
+                      ],
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(200),
+                          bottomRight: Radius.circular(200)),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Expanded(
+                    child: Container(
+                        child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: <Widget>[
+                          InkWell(
+                            onTap: () {
+                              //open up setup
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SetupFlow()),
+                              );
+                            },
+                            child: AnimatedOpacity(
+                              opacity: skeletonOpacity,
+                              duration: Duration(seconds: 2),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.33,
+                                child: Center(
+                                  child: CircleAvatar(
+                                    radius: 30,
+                                    child: Text(
+                                      "Setup",
+                                      style: TextStyle(color: Colors.white),
                                     ),
+                                    backgroundColor: Colors.red,
                                   ),
                                 ),
                               ),
-                              InkWell(
-                                onTap: () {
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              NXHelp()
+                                  .checkIfDisclaimerHasBeenAccepted()
+                                  .then((disclaimer) {
+                                if (disclaimer) {
+                                  //since disclaimer is certified lets proceed
                                   Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => Nxfront()),
                                     (Route<dynamic> route) => false,
                                   );
-                                },
-                                child: AnimatedOpacity(
-                                  opacity: skeletonOpacity,
-                                  duration: Duration(seconds: 3),
-                                  child: Container(
-                                      decoration: BoxDecoration(
-                                          boxShadow: [], color: Colors.transparent),
-                                      width:
-                                          MediaQuery.of(context).size.width * 0.33,
-                                      child: Stack(
-                                        children: <Widget>[
-                                          AnimatedPositioned(
-                                            duration: Duration(seconds: 1),
-                                            top:nxhometop2.toDouble(),
+                                } else {
+                                  //bring popup
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => NetworkGiffyDialog(
+                                            image: Image.network(
+                                                "https://raw.githubusercontent.com/Shashank02051997/FancyGifDialog-Android/master/GIF's/gif14.gif"),
+                                            title: Text(
+                                                'HOLD UP',
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    fontSize: 22.0,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            description: Text(
+                                              'Please go through the setup process and legal disclaimer screen first',
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            entryAnimation:
+                                                EntryAnimation.BOTTOM,
+                                            onOkButtonPressed: () {
+                                              Navigator.push(context, MaterialPageRoute( builder: (context)=>SetupFlow()));
+                                            },
+                                          ));
+                                }
+                              });
+                            },
+                            child: AnimatedOpacity(
+                              opacity: skeletonOpacity,
+                              duration: Duration(seconds: 3),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      boxShadow: [], color: Colors.transparent),
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.33,
+                                  child: Stack(
+                                    children: <Widget>[
+                                      AnimatedPositioned(
+                                        duration: Duration(seconds: 1),
+                                        top: nxhometop2.toDouble(),
                                         left: 18,
                                         child: Center(
                                           child: Container(

@@ -337,6 +337,15 @@ class NXHelp {
     this.init();
   }
 
+  Future checkIfDisclaimerHasBeenAccepted() async {
+    var hasAccepted= await this.loadConfig("disclaimer_accepted", 1);
+    if(hasAccepted.length<=0){
+      //no logs so it has not been accepted
+      return false;
+    }
+    return true;
+  }
+
   Future loadSpeedConfigs() async {
     var top = await this.loadConfig("movingtext_top", 1);
     var bottom = await this.loadConfig("movingtext_bottom", 1);
