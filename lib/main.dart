@@ -112,8 +112,51 @@ class HomePagePrestate extends State<HomePagePre> {
                   height: 30,
                 ),
                 Expanded(
-                  child: Container(),
-                ),
+                    child: Container(
+                        
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                        Expanded(
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.33,
+                                child: Center(
+                                  child: CircleAvatar(
+                                    radius: 30,
+                                    child: Text("Setup"),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.33,
+                                child: Center(
+                                  child: CircleAvatar(
+                                    radius: 40,
+                                    child: Text("NXHOME"),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.33,
+                                child: Center(
+                                  child: CircleAvatar(
+                                    radius: 30,
+                                    child: Text("Ticket"),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                          ],
+                        ))),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.4,
                   padding: EdgeInsets.only(left: 19, right: 19, top: 19),
