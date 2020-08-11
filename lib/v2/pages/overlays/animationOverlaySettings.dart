@@ -20,6 +20,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
     // TODO: implement build
     return Column(
       children: <Widget>[
+        SizedBox(height: 10,),
         Container(
           height: 35,
           width: MediaQuery.of(context).size.width,
@@ -52,7 +53,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
             max: 100.00,
             activeColor: Color.fromRGBO(117, 28, 21, 1)),
         Text(
-            "When changing the slider it takes a few moments to reflect because of how the animation works"),
+            "When changing the slider it takes a few moments to reflect because of how the animation works. Your preferences are automatically saved"),
       ],
     );
   }
@@ -94,6 +95,7 @@ class AnimationOverlay {
                         fontSize: 30),
                   ),
                 ),
+              SizedBox(height: 10,),
                 Expanded(child: AnimationOverlayContent()),
                 SizedBox(
                   height: 10,
@@ -141,9 +143,7 @@ class AnimationOverlay {
                     onChanged: onChangeSliderSpeed,
                     value: 0,
                     activeColor: Color.fromRGBO(117, 28, 21, 1)),
-                Expanded(
-                  child: Container(),
-                ),
+               
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(110),
