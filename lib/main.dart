@@ -166,7 +166,7 @@ class HomePagePrestate extends State<HomePagePre> {
                                     new BoxShadow(
                                       color: Colors.lightGreenAccent,
                                       blurRadius: 300,
-                                      offset: new Offset(1.0, 1.0),
+                                      offset: new Offset(1.0, 0.2),
                                     )
                                   ]),
                                   child: CircleAvatar(
