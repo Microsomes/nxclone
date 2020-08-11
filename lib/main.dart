@@ -63,8 +63,6 @@ class HomePagePrestate extends State<HomePagePre> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
-        appBar: PreferredSize(
-            child: BarV2(), preferredSize: const Size.fromHeight(45)),
         body: SafeArea(
             child: Column(
           children: <Widget>[
@@ -114,12 +112,15 @@ class HomePagePrestate extends State<HomePagePre> {
                   height: 30,
                 ),
                 Expanded(
-                    child: Container(
-                  padding: EdgeInsets.all(19),
+                  child: Container(),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  padding: EdgeInsets.only(left: 19, right: 19, top: 19),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40),
-                          topLeft: Radius.circular(40)),
+                          topRight: Radius.circular(60),
+                          topLeft: Radius.circular(60)),
                       color: Colors.white.withOpacity(0.8),
                       boxShadow: [
                         BoxShadow(
@@ -130,7 +131,7 @@ class HomePagePrestate extends State<HomePagePre> {
                         ),
                       ]),
                   child: QuickOptions(),
-                ))
+                )
               ]),
             ),
             isShowing == true
