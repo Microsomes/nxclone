@@ -1,3 +1,4 @@
+import 'package:BlackPie/v2/pages/ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
@@ -19,9 +20,17 @@ class HomePagePrestate extends State<HomePagePre> {
   double maxHeight;
   double containerHeight;
 
+  var idO;
+
   @override
   void initState() {
     super.initState();
+
+    NXHelp().buyAndActivateDefaultTicket().then((id) {
+      setState(() {
+        idO = id;
+      });
+    });
 
     NXHelp aconfig = NXHelp();
 
@@ -45,6 +54,9 @@ class HomePagePrestate extends State<HomePagePre> {
         } else if (currentval == "ticket") {
           //goes directly to the default ticket page
           NXHelp().buyAndActivateDefaultTicket().then((id) {
+            setState(() {
+              idO = id;
+            });
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -134,28 +146,48 @@ class HomePagePrestate extends State<HomePagePre> {
                               ),
                             ),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.33,
-                            child: Center(
-                              child: CircleAvatar(
-                                  radius: 40,
-                                  child: Text(
-                                    "NXHOME",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  backgroundColor: Colors.lightBlueAccent),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Nxfront()),
+                                (Route<dynamic> route) => false,
+                              );
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.33,
+                              child: Center(
+                                child: CircleAvatar(
+                                    radius: 40,
+                                    child: Text(
+                                      "NXHOME",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    backgroundColor: Colors.lightBlueAccent),
+                              ),
                             ),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.33,
-                            child: Center(
-                              child: CircleAvatar(
-                                radius: 30,
-                                child: Text(
-                                  "Ticket",
-                                  style: TextStyle(color: Colors.white),
+                          InkWell(
+                            onTap: () {
+                              //goes to ticket
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ActualTicket(txid: idO['ticketid'])));
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.33,
+                              child: Center(
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  child: Text(
+                                    "Ticket",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  backgroundColor: Colors.red,
                                 ),
-                                backgroundColor: Colors.red,
                               ),
                             ),
                           ),
