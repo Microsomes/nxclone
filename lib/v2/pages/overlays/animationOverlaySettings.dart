@@ -15,12 +15,16 @@ class AnimationOverlayContent extends StatefulWidget {
 class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   double _velocity = 50.00;
 
+  double _currentColorSpeed = 500.00;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
       children: <Widget>[
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Container(
           height: 35,
           width: MediaQuery.of(context).size.width,
@@ -54,6 +58,58 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
             activeColor: Color.fromRGBO(117, 28, 21, 1)),
         Text(
             "When changing the slider it takes a few moments to reflect because of how the animation works. Your preferences are automatically saved"),
+        Container(
+          height: 200,
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 0,
+                left: 0,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 3),
+                  child: TicketColor(
+                    ctx: context,
+                    speed: _currentColorSpeed,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 60,
+                left: 2,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 18, right: 0),
+                  child: Container(
+                      child: Column(
+                    children: <Widget>[
+                      Nxsig(
+                        isRounded: false,
+                        state: "test oc",
+                        company: "pie company",
+                        isBottomRounded: true,
+                      ),
+                    ],
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Slider(
+            onChanged: (newv) {
+              setState(() {
+                _currentColorSpeed = newv;
+                print(_currentColorSpeed);
+              });
+            },
+            min: 500,
+            max: 2000,
+            value: _currentColorSpeed,
+            activeColor: Color.fromRGBO(117, 28, 21, 1)),
+        Text(
+            "Changes are reflected instanty, as its custom coded by me (:- ps your changes are saved slide right for slow slide left for fast"),
       ],
     );
   }
@@ -95,55 +151,13 @@ class AnimationOverlay {
                         fontSize: 30),
                   ),
                 ),
-              SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Expanded(child: AnimationOverlayContent()),
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: 200,
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 20, right: 20, top: 3),
-                          child: TicketColor(
-                            ctx: context,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 60,
-                        left: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18, right: 0),
-                          child: Container(
-                              child: Column(
-                            children: <Widget>[
-                              Nxsig(
-                                isRounded: false,
-                                state: "test oc",
-                                company: "pie company",
-                                isBottomRounded: true,
-                              ),
-                            ],
-                          )),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Slider(
-                    onChanged: onChangeSliderSpeed,
-                    value: 0,
-                    activeColor: Color.fromRGBO(117, 28, 21, 1)),
-               
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(110),

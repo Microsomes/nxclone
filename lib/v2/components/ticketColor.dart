@@ -7,7 +7,11 @@ import 'package:BlackPie/v2/pages/overlays/colorSelectorOver.dart';
 class TicketColor extends StatefulWidget {
   final BuildContext ctx;
 
-  TicketColor({@required this.ctx});
+  final double speed;
+
+
+
+  TicketColor({@required this.ctx,this.speed=500});
 
   @override
   State<StatefulWidget> createState() {
@@ -36,6 +40,8 @@ class TicketColorState extends State<TicketColor> {
   double opacity1 = 1;
 
   String dy;
+
+  
 
   @override
   void initState() {
@@ -95,7 +101,7 @@ class TicketColorState extends State<TicketColor> {
       });
     });
 
-    _timer = Timer.periodic(Duration(seconds: 2), (Timer time) {
+    _timer = Timer.periodic(Duration(milliseconds: 1000), (Timer time) {
       //   now1 = DateTime.now();
 
       setState(() {
@@ -118,7 +124,7 @@ class TicketColorState extends State<TicketColor> {
     });
 
     timerForOpacity =
-        Timer.periodic(Duration(milliseconds: 500), (Timer time) {
+        Timer.periodic(Duration(milliseconds: 300), (Timer time) {
       isUp = !isUp;
       print(isUp);
       if (isUp) {
@@ -238,7 +244,7 @@ class TicketColorState extends State<TicketColor> {
               ],
             ),
             AnimatedPositioned(
-              duration: Duration(milliseconds: 2000),
+              duration: Duration(milliseconds: widget.speed.toInt()),
               left: sizeW * currentRange,
               child: IgnorePointer(
                 ignoring: true,
