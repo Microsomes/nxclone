@@ -13,8 +13,7 @@ import 'package:BlackPie/v2/helper/NxHelp.dart';
 class ActualTicket extends StatefulWidget {
   final int txid;
 
-  ActualTicket({@required this.txid}) {
-   }
+  ActualTicket({@required this.txid}) {}
 
   @override
   State<StatefulWidget> createState() {
@@ -61,7 +60,6 @@ class ActualTicketState extends State<ActualTicket> {
     });
 
     NXHelp().getTicketById(id: widget.txid).then((ticket) {
-
       setState(() {
         state = ticket[0]['state'];
         ticketTitle = ticket[0]['tickettype'];
@@ -132,26 +130,30 @@ class ActualTicketState extends State<ActualTicket> {
                         ]),
                     child: Column(
                       children: <Widget>[
-                        Container(
-                          height: 35,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(117, 28, 21, 1),
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(10),
-                                  topLeft: Radius.circular(10))),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Positioned(
-                                  left: 10,
-                                  child: MovingText(
-                                    textContent: "$state $ticketTitle",
-                                    isUpper: true,
-                                  ))
-                            ],
-                          ),
-                        ),
+                        FutureBuilder(
+                          future: NXHelp().loadSpeedConfigs(),
+                          builder: (snapshot, ct) {
+                          return Container(
+                            height: 35,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(117, 28, 21, 1),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    topLeft: Radius.circular(10))),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[
+                                Positioned(
+                                    left: 10,
+                                    child: MovingText(
+                                      textContent: "$state $ticketTitle",
+                                      isUpper: true,
+                                    ))
+                              ],
+                            ),
+                          );
+                        }),
                         SizedBox(
                           height: 4,
                         ),
