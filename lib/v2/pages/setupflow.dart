@@ -69,7 +69,6 @@ class SetupFlowState extends State<SetupFlow> {
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: <Widget>[
                       Text("Welcome from blackpie, hope you enjoy our app"),
                       SizedBox(height: 10,),
