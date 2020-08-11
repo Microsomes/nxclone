@@ -81,12 +81,12 @@ class HomePagePrestate extends State<HomePagePre> {
             Expanded(
               child: Column(children: [
                 Container(
-                  height: 200,
+                  height: 250,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(
-                        height: 10,
-                      ),
+                      
                       InkWell(
                         onTap: () {
                           print("open ticket page");
@@ -209,7 +209,7 @@ class HomePagePrestate extends State<HomePagePre> {
                   ],
                 ))),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.36,
                   padding: EdgeInsets.only(left: 19, right: 19, top: 19),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
