@@ -31,24 +31,7 @@ class MovingTextState extends State<MovingText> {
   Widget _buildMarquee() {
     
 
-    // return Container(
-    //   child: Stack(
-    //     children: <Widget>[
-    //       Positioned(
-    //         left: current,
-    //         top:13,
-    //         child: Text(
-    //           widget.textContent,
-    //           style: TextStyle(
-    //               letterSpacing: 0.3,
-    //               color: Colors.white,
-    //               fontWeight: FontWeight.bold,
-    //               fontSize: 19),
-    //         ),
-    //       )
-    //     ],
-    //   ),
-    // );
+    
 
     return Marquee(
       velocity: widget.velocity,

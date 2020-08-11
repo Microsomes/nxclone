@@ -15,7 +15,8 @@ class HomePagePre extends StatefulWidget {
   }
 }
 
-class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStateMixin{
+class HomePagePrestate extends State<HomePagePre>
+    with SingleTickerProviderStateMixin {
   bool isShowing = false;
   double maxHeight;
   double containerHeight;
@@ -28,6 +29,9 @@ class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStat
 
   Timer mainTimer;
 
+   var nxhometop2 = 200;
+
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -39,11 +43,11 @@ class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStat
   void initState() {
     super.initState();
 
-    mainTimer=Timer.periodic(Duration(seconds: 1), (timer) {
+    mainTimer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         skeletonOpacity = 1;
-        sizeOfBottomBar=0.36;
-        
+        sizeOfBottomBar = 0.36;
+        nxhometop2=5;
       });
     });
 
@@ -112,7 +116,6 @@ class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStat
                           children: <Widget>[
                             InkWell(
                               onTap: () {
-    
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -197,70 +200,84 @@ class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStat
                                   opacity: skeletonOpacity,
                                   duration: Duration(seconds: 3),
                                   child: Container(
-                                    decoration: BoxDecoration(boxShadow: []),
-                                    width: MediaQuery.of(context).size.width * 0.33,
-                                    child: Center(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100),
-                                            boxShadow: [
-                                              new BoxShadow(
-                                                color: Colors.lightGreenAccent,
-                                                blurRadius: 300,
-                                                offset: new Offset(1.0, 0.2),
-                                              )
-                                            ]),
-                                        child: CircleAvatar(
-                                            radius: 40,
-                                            child: Text(
-                                              "NXHOME",
-                                              style: TextStyle(color: Colors.white),
-                                            ),
-                                            backgroundColor:
-                                                Colors.lightBlueAccent),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  //goes to ticket
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              ActualTicket(txid: idO['ticketid'])));
-                                },
-                                child: AnimatedOpacity(
-                                  opacity: skeletonOpacity,
-                                  duration: Duration(seconds: 2),
-                                  child: Container(
-                                    width: MediaQuery.of(context).size.width * 0.33,
-                                    child: Center(
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        child: Text(
-                                          "Ticket",
-                                          style: TextStyle(color: Colors.white),
+                                      decoration: BoxDecoration(
+                                          boxShadow: [], color: Colors.transparent),
+                                      width:
+                                          MediaQuery.of(context).size.width * 0.33,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          AnimatedPositioned(
+                                            duration: Duration(seconds: 1),
+                                            top:nxhometop2.toDouble(),
+                                        left: 18,
+                                        child: Center(
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(100),
+                                                boxShadow: [
+                                                  new BoxShadow(
+                                                    color:
+                                                        Colors.lightGreenAccent,
+                                                    blurRadius: 300,
+                                                    offset:
+                                                        new Offset(1.0, 0.2),
+                                                  )
+                                                ]),
+                                            child: CircleAvatar(
+                                                radius: 40,
+                                                child: Text(
+                                                  "NXHOME",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                backgroundColor:
+                                                    Colors.lightBlueAccent),
+                                          ),
                                         ),
-                                        backgroundColor: Colors.red,
-                                      ),
+                                      )
+                                    ],
+                                  )),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              //goes to ticket
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ActualTicket(txid: idO['ticketid'])));
+                            },
+                            child: AnimatedOpacity(
+                              opacity: skeletonOpacity,
+                              duration: Duration(seconds: 2),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.33,
+                                child: Center(
+                                  child: CircleAvatar(
+                                    radius: 30,
+                                    child: Text(
+                                      "Ticket",
+                                      style: TextStyle(color: Colors.white),
                                     ),
+                                    backgroundColor: Colors.red,
                                   ),
                                 ),
                               ),
-                            ],
+                            ),
                           ),
-                        )
-                      ],
-                    ))),
-                    AnimatedSize(
-                      vsync: this,
-                      duration: Duration(seconds: 1),
-                                      child: Container(
-                        height: MediaQuery.of(context).size.height * sizeOfBottomBar,
+                        ],
+                      ),
+                    )
+                  ],
+                ))),
+                AnimatedSize(
+                  vsync: this,
+                  duration: Duration(seconds: 1),
+                  child: Container(
+                    height:
+                        MediaQuery.of(context).size.height * sizeOfBottomBar,
                     padding: EdgeInsets.only(left: 19, right: 19, top: 19),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
