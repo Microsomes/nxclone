@@ -34,7 +34,6 @@ class HomePagePrestate extends State<HomePagePre>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     mainTimer.cancel();
   }
@@ -49,6 +48,7 @@ class HomePagePrestate extends State<HomePagePre>
         sizeOfBottomBar = 0.36;
         nxhometop2 = 5;
       });
+      mainTimer.cancel();
     });
 
     NXHelp().buyAndActivateDefaultTicket().then((id) {
@@ -205,10 +205,9 @@ class HomePagePrestate extends State<HomePagePre>
                                   showDialog(
                                       context: context,
                                       builder: (_) => NetworkGiffyDialog(
-                                            image: Image.network(
-                                                "https://raw.githubusercontent.com/Shashank02051997/FancyGifDialog-Android/master/GIF's/gif14.gif"),
-                                            title: Text(
-                                                'HOLD UP',
+                                            image: Image.asset(
+                                                "images/v3/tenor.gif"),
+                                            title: Text('HOLD UP',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     fontSize: 22.0,
@@ -221,7 +220,11 @@ class HomePagePrestate extends State<HomePagePre>
                                             entryAnimation:
                                                 EntryAnimation.BOTTOM,
                                             onOkButtonPressed: () {
-                                              Navigator.push(context, MaterialPageRoute( builder: (context)=>SetupFlow()));
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SetupFlow()));
                                             },
                                           ));
                                 }
@@ -274,11 +277,45 @@ class HomePagePrestate extends State<HomePagePre>
                           InkWell(
                             onTap: () {
                               //goes to ticket
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ActualTicket(txid: idO['ticketid'])));
+
+                              NXHelp()
+                                  .checkIfDisclaimerHasBeenAccepted()
+                                  .then((disclaimer) {
+                                if (disclaimer) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ActualTicket(
+                                              txid: idO['ticketid'])));
+                                } else {
+                                  //open up dialog
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => NetworkGiffyDialog(
+                                            image: Image.asset(
+                                                "images/v3/tenor.gif"),
+                                            title: Text('HOLD UP',
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    fontSize: 22.0,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            description: Text(
+                                              'Please go through the setup process and legal disclaimer screen first',
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            entryAnimation:
+                                                EntryAnimation.BOTTOM,
+                                            onOkButtonPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SetupFlow()));
+                                            },
+                                          ));
+                                }
+                              });
                             },
                             child: AnimatedOpacity(
                               opacity: skeletonOpacity,
@@ -323,7 +360,48 @@ class HomePagePrestate extends State<HomePagePre>
                             offset: Offset(0, 3), // changes position of shadow
                           ),
                         ]),
-                    child: QuickOptions(),
+                    child: FutureBuilder(
+                      future: NXHelp().checkIfDisclaimerHasBeenAccepted(),
+                      builder: (context, snapshot) {
+                        Future.delayed(Duration(seconds: 1), () {
+                          if (snapshot.data == true) {
+                            //great
+                          } else {
+                            setState(() {});
+                          }
+                        });
+
+                        return InkWell(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (_) => NetworkGiffyDialog(
+                                      image: Image.asset("images/v3/tenor.gif"),
+                                      title: Text('HOLD UP',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 22.0,
+                                              fontWeight: FontWeight.w600)),
+                                      description: Text(
+                                        'Please go through the setup process and legal disclaimer screen first',
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      entryAnimation: EntryAnimation.BOTTOM,
+                                      onOkButtonPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SetupFlow()));
+                                      },
+                                    ));
+                          },
+                          child: IgnorePointer(
+                              ignoring: snapshot.data == false ? true : false,
+                              child: QuickOptions()),
+                        );
+                      },
+                    ),
                   ),
                 )
               ]),

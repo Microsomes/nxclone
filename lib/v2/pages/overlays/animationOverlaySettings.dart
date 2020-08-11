@@ -40,7 +40,6 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
     super.initState();
     restoreOption("movingtext_top").then((value) {
         if(value.length >=1){
-          print(value[0]['val']);
           setState(() {
             _velocity= double.parse(value[0]['val']);
           });
@@ -49,7 +48,6 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
 
       restoreOption("movingtext_bottom").then((value) {
         if(value.length >=1){
-          print(value[0]['val']);
           setState(() {
             _currentColorSpeed= double.parse(value[0]['val']);
           });

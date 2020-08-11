@@ -1,3 +1,4 @@
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:BlackPie/v2/pages/defaultTicket.dart';
 import 'package:BlackPie/v2/pages/ejection.dart';
 import 'package:BlackPie/v2/pages/landingPage.dart';
@@ -24,6 +25,12 @@ class SetupFlowState extends State<SetupFlow> {
     super.initState();
     pageController = new PageController();
     pageController.addListener(() {});
+
+    if (currentPageIndex == 0) {
+      setState(() {
+        currentNextButtonLabel = "I ACCEPT AND AGREE";
+      });
+    }
   }
 
   void pageChanged(int currentPage) {
@@ -59,7 +66,9 @@ class SetupFlowState extends State<SetupFlow> {
                   textAlign: TextAlign.center,
                 )),
               ),
-              SlashScreenOptions(shallRestart: false,),
+              SlashScreenOptions(
+                shallRestart: false,
+              ),
               LandingPage(
                 shallRestart: false,
               ),
@@ -67,15 +76,20 @@ class SetupFlowState extends State<SetupFlow> {
               Ejection(),
               Container(
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text("Welcome from blackpie, hope you enjoy our app"),
-                      SizedBox(height: 10,),
-                      Icon(Icons.thumb_up,size: 50,color: Colors.lightBlue,)
-                    ],
-                  )
-                ),
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Welcome from blackpie, hope you enjoy our app"),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Icon(
+                      Icons.thumb_up,
+                      size: 50,
+                      color: Colors.lightBlue,
+                    )
+                  ],
+                )),
               )
             ],
           ),
@@ -94,6 +108,23 @@ class SetupFlowState extends State<SetupFlow> {
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     color: Colors.lightBlue,
                     onPressed: () {
+                      if (currentPageIndex == 0) {
+                        //since its accepted lets register that
+                        Map details = Map();
+                        details['value'] = "accepted";
+                        details['dateaccepted'] =
+                            DateTime.now().millisecondsSinceEpoch;
+
+                        NXHelp()
+                            .saveConfig(
+                                "disclaimer_accepted", details.toString())
+                            .then((value) {
+                          //since its accepted lets move to the next panel
+                          pageController.nextPage(
+                              duration: Duration(seconds: 1),
+                              curve: Curves.ease);
+                        });
+                      }
                       if (currentNextButtonLabel == "FINISH") {
                         Phoenix.rebirth(context);
                       } else {
