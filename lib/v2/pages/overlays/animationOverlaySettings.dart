@@ -35,6 +35,29 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    restoreOption("movingtext_top").then((value) {
+        if(value.length >=1){
+          print(value[0]['val']);
+          setState(() {
+            _velocity= double.parse(value[0]['val']);
+          });
+        }
+    });
+
+      restoreOption("movingtext_bottom").then((value) {
+        if(value.length >=1){
+          print(value[0]['val']);
+          setState(() {
+            _currentColorSpeed= double.parse(value[0]['val']);
+          });
+        }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
@@ -66,7 +89,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
             value: _velocity,
             onChanged: (curV) async  {
  
-              await saveOption("movingtext",curV.toString());
+              await saveOption("movingtext_top",curV.toString());
               
               setState(() {
                 _velocity = curV;
@@ -117,7 +140,8 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
           height: 10,
         ),
         Slider(
-            onChanged: (newv) {
+            onChanged: (newv) async  {
+              await saveOption("movingtext_bottom",newv.toString());
               setState(() {
                 _currentColorSpeed = newv;
                });
