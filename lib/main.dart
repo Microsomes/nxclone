@@ -113,50 +113,57 @@ class HomePagePrestate extends State<HomePagePre> {
                 ),
                 Expanded(
                     child: Container(
-                        
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                        Expanded(
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: <Widget>[
-                              Container(
-                                width: MediaQuery.of(context).size.width *
-                                    0.33,
-                                child: Center(
-                                  child: CircleAvatar(
-                                    radius: 30,
-                                    child: Text("Setup"),
-                                  ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: <Widget>[
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            child: Center(
+                              child: CircleAvatar(
+                                radius: 30,
+                                child: Text(
+                                  "Setup",
+                                  style: TextStyle(color: Colors.white),
                                 ),
+                                backgroundColor: Colors.red,
                               ),
-                              Container(
-                                width: MediaQuery.of(context).size.width *
-                                    0.33,
-                                child: Center(
-                                  child: CircleAvatar(
-                                    radius: 40,
-                                    child: Text("NXHOME"),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width *
-                                    0.33,
-                                child: Center(
-                                  child: CircleAvatar(
-                                    radius: 30,
-                                    child: Text("Ticket"),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        )
-                          ],
-                        ))),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            child: Center(
+                              child: CircleAvatar(
+                                  radius: 40,
+                                  child: Text(
+                                    "NXHOME",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  backgroundColor: Colors.lightBlueAccent),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            child: Center(
+                              child: CircleAvatar(
+                                radius: 30,
+                                child: Text(
+                                  "Ticket",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                backgroundColor: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ))),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.4,
                   padding: EdgeInsets.only(left: 19, right: 19, top: 19),
