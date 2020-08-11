@@ -5,7 +5,9 @@ class MovingText extends StatefulWidget {
   final String textContent;
   final bool isUpper;
 
-  MovingText({@required this.textContent, this.isUpper = false});
+  final double velocity;
+
+  MovingText({@required this.textContent, this.isUpper = false,this.velocity=50});
 
   @override
   State<StatefulWidget> createState() {
@@ -20,34 +22,36 @@ class MovingTextState extends State<MovingText> {
 
   void init() {}
 
+  int endStart = 306;
 
-  int endStart=306;
+  int endLeft = 130;
 
-  int endLeft=130;
-
-  double current=300.00;
+  double current = 300.00;
 
   Widget _buildMarquee() {
-    return Container(
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            left: current,
-            top:13,
-            child: Text(
-              widget.textContent,
-              style: TextStyle(
-                  letterSpacing: 0.3,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 19),
-            ),
-          )
-        ],
-      ),
-    );
+    
 
-    Marquee(
+    // return Container(
+    //   child: Stack(
+    //     children: <Widget>[
+    //       Positioned(
+    //         left: current,
+    //         top:13,
+    //         child: Text(
+    //           widget.textContent,
+    //           style: TextStyle(
+    //               letterSpacing: 0.3,
+    //               color: Colors.white,
+    //               fontWeight: FontWeight.bold,
+    //               fontSize: 19),
+    //         ),
+    //       )
+    //     ],
+    //   ),
+    // );
+
+    return Marquee(
+      velocity: widget.velocity,
       text: widget.isUpper == true
           ? widget.textContent.toUpperCase()
           : widget.textContent,
@@ -74,11 +78,65 @@ class MovingTextState extends State<MovingText> {
         alignment: Alignment.centerLeft,
         width: MediaQuery.of(context).size.width,
         height: 50,
-        child: Stack(
-          alignment: Alignment.centerLeft,
-          children: <Widget>[
-            _buildMarquee(),
-          ],
-        ));
+        child: _buildMarquee()
+    );
+  }
+}
+
+class MarqueeWidget extends StatefulWidget {
+  final Widget child;
+  final Axis direction;
+  final Duration animationDuration, backDuration, pauseDuration;
+
+  MarqueeWidget({
+    @required this.child,
+    this.direction: Axis.horizontal,
+    this.animationDuration: const Duration(milliseconds: 3000),
+    this.backDuration: const Duration(milliseconds: 800),
+    this.pauseDuration: const Duration(milliseconds: 800),
+  });
+
+  @override
+  _MarqueeWidgetState createState() => _MarqueeWidgetState();
+}
+
+class _MarqueeWidgetState extends State<MarqueeWidget> {
+  ScrollController scrollController;
+
+  @override
+  void initState() {
+    scrollController = ScrollController(initialScrollOffset: 50.0);
+    WidgetsBinding.instance.addPostFrameCallback(scroll);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: widget.child,
+      scrollDirection: widget.direction,
+      controller: scrollController,
+    );
+  }
+
+  void scroll(_) async {
+    while (scrollController.hasClients) {
+      await Future.delayed(widget.pauseDuration);
+      if (scrollController.hasClients)
+        await scrollController.animateTo(
+            scrollController.position.maxScrollExtent,
+            duration: widget.animationDuration,
+            curve: Curves.ease);
+      await Future.delayed(widget.pauseDuration);
+      if (scrollController.hasClients)
+        await scrollController.animateTo(0.0,
+            duration: widget.backDuration, curve: Curves.easeOut);
+    }
   }
 }

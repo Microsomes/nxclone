@@ -4,9 +4,63 @@ import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:BlackPie/v2/components/nxsig.dart';
 import 'package:BlackPie/v2/components/ticketColor.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+
+class AnimationOverlayContent extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return AnimationOverlayContentState();
+  }
+}
+
+class AnimationOverlayContentState extends State<AnimationOverlayContent> {
+  double _velocity = 50.00;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 35,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              color: Color.fromRGBO(117, 28, 21, 1),
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10), topLeft: Radius.circular(10))),
+          child: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Positioned(
+                  left: 10,
+                  child: MovingText(
+                    textContent: "MOVING TEST",
+                    isUpper: true,
+                    velocity: _velocity,
+                  ))
+            ],
+          ),
+        ),
+        Slider(
+            value: _velocity,
+            onChanged: (curV) {
+              print(curV);
+              setState(() {
+                _velocity = curV;
+              });
+            },
+            min: 0.0,
+            max: 100.00,
+            activeColor: Color.fromRGBO(117, 28, 21, 1)),
+        Text(
+            "When changing the slider it takes a few moments to reflect because of how the animation works"),
+      ],
+    );
+  }
+}
 
 class AnimationOverlay {
+  double _velocity = 50.00;
+
   void onChangeSliderSpeed(a) {}
 
   void display(BuildContext context) {
@@ -40,33 +94,7 @@ class AnimationOverlay {
                         fontSize: 30),
                   ),
                 ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  height: 35,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(117, 28, 21, 1),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10),
-                          topLeft: Radius.circular(10))),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: <Widget>[
-                      Positioned(
-                          left: 10,
-                          child: MovingText(
-                            textContent: "MOVING TEST",
-                            isUpper: true,
-                          ))
-                    ],
-                  ),
-                ),
-                Slider(
-                    onChanged: onChangeSliderSpeed,
-                    value: 0,
-                    activeColor: Color.fromRGBO(117, 28, 21, 1)),
+                Expanded(child: AnimationOverlayContent()),
                 SizedBox(
                   height: 10,
                 ),
@@ -119,7 +147,8 @@ class AnimationOverlay {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(110),
-                      border: Border.all(color: Color.fromRGBO(117, 28, 21, 1), width: 5),
+                      border: Border.all(
+                          color: Color.fromRGBO(117, 28, 21, 1), width: 5),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.2),
