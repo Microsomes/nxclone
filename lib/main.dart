@@ -26,12 +26,20 @@ class HomePagePrestate extends State<HomePagePre>  with SingleTickerProviderStat
 
   double sizeOfBottomBar = 0;
 
+  Timer mainTimer;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mainTimer.cancel();
+  }
 
   @override
   void initState() {
     super.initState();
 
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    mainTimer=Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         skeletonOpacity = 1;
         sizeOfBottomBar=0.36;
