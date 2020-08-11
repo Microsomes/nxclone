@@ -45,6 +45,7 @@ class SettingsState extends State<Settings> {
       },
       child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.lightBlue,
             title: Text("Settings"),
           ),
           body: Padding(

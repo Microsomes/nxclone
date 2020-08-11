@@ -5,7 +5,7 @@ class MovingText extends StatefulWidget {
   final String textContent;
   final bool isUpper;
 
-  MovingText({@required this.textContent,this.isUpper=false});
+  MovingText({@required this.textContent, this.isUpper = false});
 
   @override
   State<StatefulWidget> createState() {
@@ -18,20 +18,46 @@ class MovingTextState extends State<MovingText> {
 
   void startAnimation() {}
 
-  void init() {
+  void init() {}
 
-  }
+
+  int endStart=306;
+
+  int endLeft=130;
+
+  double current=300.00;
 
   Widget _buildMarquee() {
-    return Marquee(
-      text: widget.isUpper==true ? widget.textContent.toUpperCase(): widget.textContent,
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            left: current,
+            top:13,
+            child: Text(
+              widget.textContent,
+              style: TextStyle(
+                  letterSpacing: 0.3,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19),
+            ),
+          )
+        ],
+      ),
+    );
+
+    Marquee(
+      text: widget.isUpper == true
+          ? widget.textContent.toUpperCase()
+          : widget.textContent,
       style: TextStyle(
           letterSpacing: 0.3,
           color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 19),
       pauseAfterRound: Duration(milliseconds: 200),
-      blankSpace: widget.textContent.length.toDouble()*10,
+      blankSpace: widget.textContent.length.toDouble() * 10,
       showFadingOnlyWhenScrolling: true,
     );
   }
