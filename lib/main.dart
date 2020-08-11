@@ -1,9 +1,8 @@
-import 'package:BlackPie/v2/pages/ticket.dart';
-import 'package:flutter/material.dart';
+import 'package:BlackPie/v2/pages/setupflow.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/main/bar.dart';
-import 'package:BlackPie/v2/main/quickOptions.dart';
+ import 'package:BlackPie/v2/main/quickOptions.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -86,7 +85,6 @@ class HomePagePrestate extends State<HomePagePre> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      
                       InkWell(
                         onTap: () {
                           print("open ticket page");
@@ -133,16 +131,26 @@ class HomePagePrestate extends State<HomePagePre> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.33,
-                            child: Center(
-                              child: CircleAvatar(
-                                radius: 30,
-                                child: Text(
-                                  "Setup",
-                                  style: TextStyle(color: Colors.white),
+                          InkWell(
+                            onTap: () {
+                              //open up setup
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SetupFlow()),
+                              );
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.33,
+                              child: Center(
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  child: Text(
+                                    "Setup",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  backgroundColor: Colors.red,
                                 ),
-                                backgroundColor: Colors.red,
                               ),
                             ),
                           ),
@@ -161,14 +169,14 @@ class HomePagePrestate extends State<HomePagePre> {
                               child: Center(
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100),
-                                    boxShadow: [
-                                    new BoxShadow(
-                                      color: Colors.lightGreenAccent,
-                                      blurRadius: 300,
-                                      offset: new Offset(1.0, 0.2),
-                                    )
-                                  ]),
+                                      borderRadius: BorderRadius.circular(100),
+                                      boxShadow: [
+                                        new BoxShadow(
+                                          color: Colors.lightGreenAccent,
+                                          blurRadius: 300,
+                                          offset: new Offset(1.0, 0.2),
+                                        )
+                                      ]),
                                   child: CircleAvatar(
                                       radius: 40,
                                       child: Text(

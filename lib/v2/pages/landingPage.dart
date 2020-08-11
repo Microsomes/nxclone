@@ -6,6 +6,10 @@ import 'package:BlackPie/v2/main/bar.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LandingPage extends StatefulWidget {
+  final bool shallRestart;
+
+  LandingPage({this.shallRestart = true});
+
   @override
   State<StatefulWidget> createState() {
     return LandingPageState();
@@ -58,14 +62,16 @@ class LandingPageState extends State<LandingPage> {
       assetRoute: "images/home1.png",
       clicked: () async {
         await this.saveOption("defaulthomepage", "home");
-        Phoenix.rebirth(context);
-
-        // setState(() {
-        //   option2.isSelected = false;
-        //   option1.isSelected = true;
-        //   isShowing = false;
-        // });
-        // resetState();
+        if (widget.shallRestart) {
+          Phoenix.rebirth(context);
+        } else {
+          setState(() {
+            option2.isSelected = false;
+            option1.isSelected = true;
+            isShowing = false;
+          });
+          resetState();
+        }
       },
       boxFitt: BoxFit.cover,
     );
@@ -76,15 +82,17 @@ class LandingPageState extends State<LandingPage> {
       assetRoute: "images/home2.png",
       clicked: () async {
         await this.saveOption("defaulthomepage", "nxhome");
-        Phoenix.rebirth(context);
-
-        // setState(() {
-        //   option1.isSelected = false;
-        //   option3.isSelected = false;
-        //   option2.isSelected = true;
-        //   isShowing = false;
-        // });
-        // resetState();
+        if (widget.shallRestart) {
+          Phoenix.rebirth(context);
+        } else {
+          setState(() {
+            option1.isSelected = false;
+            option3.isSelected = false;
+            option2.isSelected = true;
+            isShowing = false;
+          });
+          resetState();
+        }
       },
       boxFitt: BoxFit.cover,
     );
@@ -95,15 +103,17 @@ class LandingPageState extends State<LandingPage> {
       assetRoute: "images/home2.png",
       clicked: () async {
         await this.saveOption("defaulthomepage", "ticket");
-        Phoenix.rebirth(context);
-
-        // setState(() {
-        //   option1.isSelected = false;
-        //   option3.isSelected = true;
-        //   option2.isSelected = false;
-        //   isShowing = false;
-        // });
-        // resetState();
+        if (widget.shallRestart) {
+          Phoenix.rebirth(context);
+        } else {
+          setState(() {
+            option1.isSelected = false;
+            option3.isSelected = true;
+            option2.isSelected = false;
+            isShowing = false;
+          });
+          resetState();
+        }
       },
       boxFitt: BoxFit.cover,
     );
