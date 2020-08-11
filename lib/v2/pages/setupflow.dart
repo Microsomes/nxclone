@@ -16,6 +16,8 @@ class SetupFlowState extends State<SetupFlow> {
 
   String currentNextButtonLabel = "NEXT";
 
+  int currentPageIndex = 0;
+
   @override
   void initState() {
     super.initState();
@@ -24,7 +26,10 @@ class SetupFlowState extends State<SetupFlow> {
   }
 
   void pageChanged(int currentPage) {
-    if (currentPage == 2) {
+    setState(() {
+      currentPageIndex = currentPage;
+    });
+    if (currentPage == 3) {
       setState(() {
         currentNextButtonLabel = "FINISH";
       });
@@ -42,9 +47,17 @@ class SetupFlowState extends State<SetupFlow> {
       children: <Widget>[
         Expanded(
           child: PageView(
+            physics: new NeverScrollableScrollPhysics(),
             onPageChanged: pageChanged,
             controller: pageController,
             children: <Widget>[
+              Container(
+                child: Center(
+                    child: Text(
+                  "This app is intended soley for educational purposes, i am not resposible for its uses, by clicking next you agree to these terms",
+                  textAlign: TextAlign.center,
+                )),
+              ),
               LandingPage(
                 shallRestart: false,
               ),
