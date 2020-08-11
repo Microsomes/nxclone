@@ -133,7 +133,8 @@ class ActualTicketState extends State<ActualTicket> {
                         FutureBuilder(
                           future: NXHelp().loadSpeedConfigs(),
                           builder: (snapshot, ct) {
-                          return Container(
+                            if(ct.connectionState==ConnectionState.done){
+                              return Container(
                             height: 35,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
@@ -153,6 +154,10 @@ class ActualTicketState extends State<ActualTicket> {
                               ],
                             ),
                           );
+                            }else{
+                              return Container();
+                            }
+                          
                         }),
                         SizedBox(
                           height: 4,
