@@ -13,7 +13,8 @@ import 'package:BlackPie/v2/helper/NxHelp.dart';
 class ActualTicket extends StatefulWidget {
   final int txid;
 
-  ActualTicket({@required this.txid}) {}
+  ActualTicket({@required this.txid}) {
+   }
 
   @override
   State<StatefulWidget> createState() {
@@ -29,9 +30,18 @@ class ActualTicketState extends State<ActualTicket> {
 
   Timer _qrTimer;
 
+  Map speedConfig;
+
   @override
   void initState() {
     super.initState();
+
+    NXHelp().loadSpeedConfigs().then((speed){
+      setState(() {
+        speedConfig=speed;
+        print(speedConfig);
+      });
+    });
 
     listOfQrCollections = List();
     listOfQrCollections.add("images/v2/v2assets/bar1.PNG");
@@ -60,6 +70,7 @@ class ActualTicketState extends State<ActualTicket> {
     });
 
     NXHelp().getTicketById(id: widget.txid).then((ticket) {
+
       setState(() {
         state = ticket[0]['state'];
         ticketTitle = ticket[0]['tickettype'];
@@ -81,7 +92,7 @@ class ActualTicketState extends State<ActualTicket> {
             context, MaterialPageRoute(builder: (context) => Nxfront()));
         return;
       },
-      child: Scaffold(
+      child: speedConfig==null? Container() : Scaffold(
         body: SafeArea(
           child: Column(
             children: <Widget>[
@@ -130,35 +141,27 @@ class ActualTicketState extends State<ActualTicket> {
                         ]),
                     child: Column(
                       children: <Widget>[
-                        FutureBuilder(
-                          future: NXHelp().loadSpeedConfigs(),
-                          builder: (snapshot, ct) {
-                            if(ct.connectionState==ConnectionState.done){
-                              return Container(
-                            height: 35,
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                                color: Color.fromRGBO(117, 28, 21, 1),
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(10),
-                                    topLeft: Radius.circular(10))),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Positioned(
-                                    left: 10,
-                                    child: MovingText(
-                                      textContent: "$state $ticketTitle",
-                                      isUpper: true,
-                                    ))
-                              ],
-                            ),
-                          );
-                            }else{
-                              return Container();
-                            }
-                          
-                        }),
+                        Container(
+                          height: 35,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(117, 28, 21, 1),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  topLeft: Radius.circular(10))),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Positioned(
+                                  left: 10,
+                                  child: MovingText(
+                                    velocity: double.parse(speedConfig['top'][0]['val']),
+                                    textContent: "$state $ticketTitle",
+                                    isUpper: true,
+                                  ))
+                            ],
+                          ),
+                        ),
                         SizedBox(
                           height: 4,
                         ),
@@ -201,6 +204,7 @@ class ActualTicketState extends State<ActualTicket> {
                                   padding: const EdgeInsets.only(
                                       left: 20, right: 20, top: 3),
                                   child: TicketColor(
+                                    speed: double.parse(speedConfig['bottom'][0]['val']),
                                     ctx: context,
                                   ),
                                 ),
