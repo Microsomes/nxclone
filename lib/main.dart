@@ -156,15 +156,27 @@ class HomePagePrestate extends State<HomePagePre> {
                               );
                             },
                             child: Container(
+                              decoration: BoxDecoration(boxShadow: []),
                               width: MediaQuery.of(context).size.width * 0.33,
                               child: Center(
-                                child: CircleAvatar(
-                                    radius: 40,
-                                    child: Text(
-                                      "NXHOME",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    backgroundColor: Colors.lightBlueAccent),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    boxShadow: [
+                                    new BoxShadow(
+                                      color: Colors.lightGreenAccent,
+                                      blurRadius: 300,
+                                      offset: new Offset(1.0, 1.0),
+                                    )
+                                  ]),
+                                  child: CircleAvatar(
+                                      radius: 40,
+                                      child: Text(
+                                        "NXHOME",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      backgroundColor: Colors.lightBlueAccent),
+                                ),
                               ),
                             ),
                           ),
