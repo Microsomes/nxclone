@@ -1,6 +1,7 @@
 import 'package:BlackPie/v2/pages/defaultTicket.dart';
 import 'package:BlackPie/v2/pages/ejection.dart';
 import 'package:BlackPie/v2/pages/landingPage.dart';
+import 'package:BlackPie/v2/pages/slashScreenOption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
@@ -29,7 +30,7 @@ class SetupFlowState extends State<SetupFlow> {
     setState(() {
       currentPageIndex = currentPage;
     });
-    if (currentPage == 3) {
+    if (currentPage == 5) {
       setState(() {
         currentNextButtonLabel = "FINISH";
       });
@@ -58,11 +59,25 @@ class SetupFlowState extends State<SetupFlow> {
                   textAlign: TextAlign.center,
                 )),
               ),
+              SlashScreenOptions(shallRestart: false,),
               LandingPage(
                 shallRestart: false,
               ),
               DefaultTicket(),
-              Ejection()
+              Ejection(),
+              Container(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+
+                    children: <Widget>[
+                      Text("Welcome from blackpie, hope you enjoy our app"),
+                      SizedBox(height: 10,),
+                      Icon(Icons.thumb_up,size: 50,color: Colors.lightBlue,)
+                    ],
+                  )
+                ),
+              )
             ],
           ),
         ),
