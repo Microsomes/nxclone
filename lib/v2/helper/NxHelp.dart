@@ -334,12 +334,16 @@ class NXHelp {
       ]
     });
 
+    //this.init();
+  }
+
+  void runInit(){
     this.init();
   }
 
   Future checkIfDisclaimerHasBeenAccepted() async {
-    var hasAccepted= await this.loadConfig("disclaimer_accepted", 1);
-    if(hasAccepted.length<=0){
+    var hasAccepted = await this.loadConfig("disclaimer_accepted", 1);
+    if (hasAccepted.length <= 0) {
       //no logs so it has not been accepted
       return false;
     }
@@ -412,18 +416,25 @@ class NXHelp {
 
     //load default values
 
-    this.getAllTickets("West Midlands").then((value) {});
+    print("run pre-runup setup");
+    this.getAllTickets("West Midlands").then((value) {
+      print(value.length);
+    });
+    print(ticketTypes.length);
 
     for (var element in ticketTypes) {
       //check duplicate first
       var dup =
           await this.checkTicketByState(element['title'], element['state']);
       if (dup.length == 0) {
-        // var id = await this.addTicket(element['title'], element['state'],
-        //     element['price'], element['subtitle']);
+        print("no dublicates");
+        var id = await this.addTicket(element['title'], element['state'],
+            element['price'], element['subtitle']);
         //saves to db
-        // var title = element['title'];
-      } else {}
+        var title = element['title'];
+      } else {
+        //print("duplicates");
+      }
     }
   }
 

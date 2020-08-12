@@ -42,6 +42,9 @@ class HomePagePrestate extends State<HomePagePre>
   void initState() {
     super.initState();
 
+    NXHelp().runInit();
+    //run the init process
+
     mainTimer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         skeletonOpacity = 1;
@@ -282,6 +285,7 @@ class HomePagePrestate extends State<HomePagePre>
                                   .checkIfDisclaimerHasBeenAccepted()
                                   .then((disclaimer) {
                                 if (disclaimer) {
+                                  print(idO['ticketid']);
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(

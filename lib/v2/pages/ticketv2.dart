@@ -69,10 +69,14 @@ class ActualTicketState extends State<ActualTicket> {
     });
 
     NXHelp().getTicketById(id: widget.txid).then((ticket) {
+      print(ticket);
+      print(widget.txid);
 
       setState(() {
         state = ticket[0]['state'];
         ticketTitle = ticket[0]['tickettype'];
+        print(state);
+        print(ticketTitle);
       });
     });
   }
