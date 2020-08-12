@@ -58,102 +58,104 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 10,
-        ),
-        Container(
-          height: 35,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(117, 28, 21, 1),
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10), topLeft: Radius.circular(10))),
-          child: Stack(
-            alignment: Alignment.center,
-            children: <Widget>[
-              Positioned(
-                  left: 10,
-                  child: MovingText(
-                    textContent: "MOVING TEST",
-                    isUpper: true,
-                    velocity: _velocity,
-                  ))
-            ],
+    return SingleChildScrollView(
+          child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 10,
           ),
-        ),
-        SizedBox(height: 5,),
-        Text("val: $_velocity"),
-        Slider(
-            value: _velocity,
-            onChanged: (curV) async  {
+          Container(
+            height: 35,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(117, 28, 21, 1),
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(10), topLeft: Radius.circular(10))),
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Positioned(
+                    left: 10,
+                    child: MovingText(
+                      textContent: "MOVING TEST",
+                      isUpper: true,
+                      velocity: _velocity,
+                    ))
+              ],
+            ),
+          ),
+          SizedBox(height: 5,),
+          Text("val: $_velocity"),
+          Slider(
+              value: _velocity,
+              onChanged: (curV) async  {
  
-              await saveOption("movingtext_top",curV.toString());
-              
-              setState(() {
-                _velocity = curV;
-              });
-            },
-            min: 0.0,
-            max: 100.00,
-            activeColor: Color.fromRGBO(117, 28, 21, 1)),
-        Text(
-            "When changing the slider it takes a few moments to reflect because of how the animation works. Your preferences are automatically saved"),
-        Container(
-          height: 200,
-          child: Stack(
-            children: <Widget>[
-              Positioned(
-                top: 0,
-                left: 0,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 3),
-                  child: TicketColor(
-                    ctx: context,
-                    speed: _currentColorSpeed,
+                await saveOption("movingtext_top",curV.toString());
+                
+                setState(() {
+                  _velocity = curV;
+                });
+              },
+              min: 0.0,
+              max: 100.00,
+              activeColor: Color.fromRGBO(117, 28, 21, 1)),
+          Text(
+              "When changing the slider it takes a few moments to reflect because of how the animation works. Your preferences are automatically saved"),
+          Container(
+            height: 200,
+            child: Stack(
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20, top: 3),
+                    child: TicketColor(
+                      ctx: context,
+                      speed: _currentColorSpeed,
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: 60,
-                left: 2,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 18, right: 0),
-                  child: Container(
-                      child: Column(
-                    children: <Widget>[
-                      Nxsig(
-                        isRounded: false,
-                        state: "test oc",
-                        company: "pie company",
-                        isBottomRounded: true,
-                      ),
-                    ],
-                  )),
+                Positioned(
+                  top: 60,
+                  left: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 18, right: 0),
+                    child: Container(
+                        child: Column(
+                      children: <Widget>[
+                        Nxsig(
+                          isRounded: false,
+                          state: "test oc",
+                          company: "pie company",
+                          isBottomRounded: true,
+                        ),
+                      ],
+                    )),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height: 4,
-        ),
-        Text("val: $_currentColorSpeed"),
-        Slider(
-            onChanged: (newv) async  {
-              await saveOption("movingtext_bottom",newv.toString());
-              setState(() {
-                _currentColorSpeed = newv;
-               });
-            },
-            min: 500,
-            max: 2000,
-            value: _currentColorSpeed,
-            activeColor: Color.fromRGBO(117, 28, 21, 1)),
-        Text(
-            "Changes are reflected instanty, as its custom coded by me (:- ps your changes are saved slide right for slow slide left for fast"),
-      ],
+          SizedBox(
+            height: 4,
+          ),
+          Text("val: $_currentColorSpeed"),
+          Slider(
+              onChanged: (newv) async  {
+                await saveOption("movingtext_bottom",newv.toString());
+                setState(() {
+                  _currentColorSpeed = newv;
+                 });
+              },
+              min: 500,
+              max: 2000,
+              value: _currentColorSpeed,
+              activeColor: Color.fromRGBO(117, 28, 21, 1)),
+          Text(
+              "Changes are reflected instanty, as its custom coded by me (:- ps your changes are saved slide right for slow slide left for fast"),
+        ],
+      ),
     );
   }
 }
