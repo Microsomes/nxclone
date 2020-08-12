@@ -137,7 +137,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
           ),
         ),
         SizedBox(
-          height: 3,
+          height: 4,
         ),
         Text("val: $_currentColorSpeed"),
         Slider(
@@ -169,61 +169,63 @@ class AnimationOverlay {
         backgroundColor: Colors.transparent,
         context: context,
         builder: (ctx) {
-          return Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    topRight: Radius.circular(12))),
-            height: MediaQuery.of(context).size.height * 0.9,
-            child: Center(
-                child: Column(
-              children: <Widget>[
-                BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 5,
-                    sigmaY: 5,
+          return SingleChildScrollView(
+                      child: Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12))),
+              height: MediaQuery.of(context).size.height * 0.9,
+              child: Center(
+                  child: Column(
+                children: <Widget>[
+                  BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 5,
+                      sigmaY: 5,
+                    ),
+                    child: Text(
+                      "Tweak NXBUS Animation settings",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    ),
                   ),
-                  child: Text(
-                    "Tweak NXBUS Animation settings",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30),
+                  SizedBox(
+                    height: 10,
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Expanded(child: AnimationOverlayContent()),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(110),
-                      border: Border.all(
-                          color: Color.fromRGBO(117, 28, 21, 1), width: 5),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ]),
-                  child: IconButton(
-                    color: Color.fromRGBO(117, 28, 21, 1),
-                    icon: Icon(Icons.close),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                  Expanded(child: AnimationOverlayContent()),
+                  SizedBox(
+                    height: 10,
                   ),
-                )
-              ],
-            )),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(110),
+                        border: Border.all(
+                            color: Color.fromRGBO(117, 28, 21, 1), width: 5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: IconButton(
+                      color: Color.fromRGBO(117, 28, 21, 1),
+                      icon: Icon(Icons.close),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  )
+                ],
+              )),
+            ),
           );
         });
   }
