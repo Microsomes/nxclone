@@ -6,6 +6,8 @@ import 'package:BlackPie/v2/pages/slashScreenOption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
+import 'overlays/animationOverlaySettings.dart';
+
 class SetupFlow extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -37,7 +39,7 @@ class SetupFlowState extends State<SetupFlow> {
     setState(() {
       currentPageIndex = currentPage;
     });
-    if (currentPage == 5) {
+    if (currentPage == 6) {
       setState(() {
         currentNextButtonLabel = "FINISH";
       });
@@ -74,6 +76,12 @@ class SetupFlowState extends State<SetupFlow> {
               ),
               DefaultTicket(),
               Ejection(),
+               Container(child: SafeArea(child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width*0.5,
+                  child: AnimationOverlayContent()),
+              ))),
               Container(
                 child: Center(
                     child: Column(
