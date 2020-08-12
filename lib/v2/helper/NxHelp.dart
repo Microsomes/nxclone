@@ -352,10 +352,18 @@ class NXHelp {
 
   Future loadSpeedConfigs() async {
     var top = await this.loadConfig("movingtext_top", 1);
+    if(top.length<=0){
+      top= [{"val":"50"}];
+    }
     var bottom = await this.loadConfig("movingtext_bottom", 1);
     Map toReturn = Map();
     toReturn['top'] = top;
     toReturn['bottom'] = bottom;
+
+    if(bottom.length<=0){
+      bottom= [{"val":"928"}];
+    }
+
     return toReturn;
   }
 

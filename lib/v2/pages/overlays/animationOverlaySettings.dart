@@ -83,6 +83,8 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
             ],
           ),
         ),
+        SizedBox(height: 5,),
+        Text("val: $_velocity"),
         Slider(
             value: _velocity,
             onChanged: (curV) async  {
@@ -135,8 +137,9 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 3,
         ),
+        Text("val: $_currentColorSpeed"),
         Slider(
             onChanged: (newv) async  {
               await saveOption("movingtext_bottom",newv.toString());
