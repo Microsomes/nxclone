@@ -37,6 +37,7 @@ class ActualTicketState extends State<ActualTicket> {
     super.initState();
 
     NXHelp().loadSpeedConfigs().then((speed){
+      print(speed);
       setState(() {
         speedConfig=speed;
       });
