@@ -5,7 +5,9 @@ import 'package:BlackPie/v2/pages/landingPage.dart';
 import 'package:BlackPie/v2/pages/slashScreenOption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import 'components/termsOfUseNotice.dart';
 import 'overlays/animationOverlaySettings.dart';
 
 class SetupFlow extends StatefulWidget {
@@ -22,6 +24,9 @@ class SetupFlowState extends State<SetupFlow> {
 
   int currentPageIndex = 0;
 
+  bool showNextButton=true;
+  //flag to decide if the next button should show
+
   @override
   void initState() {
     super.initState();
@@ -31,6 +36,9 @@ class SetupFlowState extends State<SetupFlow> {
     if (currentPageIndex == 0) {
       setState(() {
         currentNextButtonLabel = "I ACCEPT AND AGREE";
+        showNextButton=false;
+        //hide the next button since we will let the flow
+        //get handled by the widgets own button
       });
     }
   }
@@ -62,11 +70,14 @@ class SetupFlowState extends State<SetupFlow> {
             controller: pageController,
             children: <Widget>[
               Container(
-                child: Center(
-                    child: Text(
-                  "This app is intended soley for educational purposes, i am not resposible for its uses, by clicking next you agree to these terms",
-                  textAlign: TextAlign.center,
-                )),
+                child: TermesOfUseP(
+                  onaccept: (){
+                    print("Accepted");
+                  },
+                  ondisconnect: (){
+                    print("on disconnected");
+                  },
+                )
               ),
               SlashScreenOptions(
                 shallRestart: false,
@@ -103,56 +114,63 @@ class SetupFlowState extends State<SetupFlow> {
           ),
         ),
         Container(
-          height: 40,
+          height: 50,
           child: Row(
             children: <Widget>[
               Expanded(
                 child: Container(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0, bottom: 5),
-                child: MaterialButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                    color: Colors.lightBlue,
-                    onPressed: () {
-                      if (currentPageIndex == 0) {
-                        //since its accepted lets register that
-                        Map details = Map();
-                        details['value'] = "accepted";
-                        details['dateaccepted'] =
-                            DateTime.now().millisecondsSinceEpoch;
+            showNextButton== true ?  Container(
+                margin: EdgeInsets.only(
+                  bottom: 10
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0, bottom: 5),
+                  child: MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                      color: Colors.lightBlue,
+                      onPressed: () {
+                        if (currentPageIndex == 0) {
+                          //since its accepted lets register that
+                          Map details = Map();
+                          details['value'] = "accepted";
+                          details['dateaccepted'] =
+                              DateTime.now().millisecondsSinceEpoch;
 
-                        NXHelp()
-                            .saveConfig(
-                                "disclaimer_accepted", details.toString())
-                            .then((value) {
-                          //since its accepted lets move to the next panel
+                          NXHelp()
+                              .saveConfig(
+                                  "disclaimer_accepted", details.toString())
+                              .then((value) {
+                            //since its accepted lets move to the next panel
+                            pageController.nextPage(
+                                duration: Duration(seconds: 1),
+                                curve: Curves.ease);
+                          });
+                        }
+                        if (currentNextButtonLabel == "FINISH") {
+                          Phoenix.rebirth(context);
+                        } else {
                           pageController.nextPage(
-                              duration: Duration(seconds: 1),
-                              curve: Curves.ease);
-                        });
-                      }
-                      if (currentNextButtonLabel == "FINISH") {
-                        Phoenix.rebirth(context);
-                      } else {
-                        pageController.nextPage(
-                            duration: Duration(seconds: 1), curve: Curves.ease);
-                      }
-                    },
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          "$currentNextButtonLabel",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Icon(
-                          Icons.chevron_right,
-                          color: Colors.white,
-                        )
-                      ],
-                    )),
-              )
+                              duration: Duration(seconds: 1), curve: Curves.ease);
+                        }
+                      },
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            "$currentNextButtonLabel",
+                            style: GoogleFonts.acme(
+                              color:Colors.white
+                            ),
+                          ),
+                          Icon(
+                            Icons.chevron_right,
+                            color: Colors.white,
+                          )
+                        ],
+                      )),
+                ),
+              ): Container()
             ],
           ),
         )

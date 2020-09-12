@@ -450,7 +450,14 @@ void main() {
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
   return runApp(Phoenix(
-    child: MaterialApp(debugShowCheckedModeBanner: false, home: HomePagePre()
+    child: MaterialApp(debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      brightness: Brightness.dark,
+
+      textTheme: GoogleFonts.robotoTextTheme(),
+
+    ),
+     home: HomePagePre()
 
         //Halifax()
 
