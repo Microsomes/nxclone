@@ -120,6 +120,7 @@ class ActualTicketState extends State<ActualTicket> {
         return;
       },
       child: speedConfig==null? Container() : Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Container(
             height: MediaQuery.of(context).size.height,

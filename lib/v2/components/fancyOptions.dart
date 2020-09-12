@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+//ignore: must_be_immutable
 class FancyOptions extends StatefulWidget{
 
    String title;
@@ -30,19 +31,16 @@ class FancyOptionsState extends State<FancyOptions>{
         widget.clicked();
       },
           child: Container(
-        height: 150,
+        height: 70,
         width: MediaQuery.of(context).size.width/1.2,
         decoration: BoxDecoration(
-            color: Colors.black,
+            color: Colors.greenAccent.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(widget.assetRoute),
-              fit:widget.boxFitt
-            ),
+         
             boxShadow: [
              widget.isSelected== true ? BoxShadow(
                 color: Colors.black,
-                offset: new Offset(3.0, 3.0),
+                offset: new Offset(0.0, 0.0),
             ): BoxShadow(),
             ]
         ),
@@ -56,7 +54,7 @@ class FancyOptionsState extends State<FancyOptions>{
                      height: 20,
                      width: 20,
                     decoration: new BoxDecoration(
-                    color: widget.isSelected== true ? Colors.black : Colors.transparent,
+                    color: widget.isSelected== true ? Colors.white : Colors.transparent,
                     shape: BoxShape.circle,
                     
                 ),
@@ -64,11 +62,15 @@ class FancyOptionsState extends State<FancyOptions>{
                  ),
                 widget.title.length!=0? Container(
                    decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.transparent,
                         borderRadius: BorderRadius.circular(10)
                    ),
                    padding: EdgeInsets.all(4),
-                   child: Text(widget.title,textAlign: TextAlign.center,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                   child: Text(widget.title,textAlign: TextAlign.center,style:GoogleFonts.acme(
+                     color: Colors.white,
+                     fontWeight: FontWeight.bold,
+                     fontSize: 20
+                   ),),
                  ):Container()
                 ],
               )

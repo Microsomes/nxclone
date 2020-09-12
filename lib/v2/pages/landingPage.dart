@@ -57,7 +57,7 @@ class LandingPageState extends State<LandingPage> {
     NXHelp();
 
     option1 = FancyOptions(
-      title: "Home Page",
+      title: "BlackPie Home",
       isSelected: true,
       assetRoute: "images/home1.png",
       clicked: () async {
@@ -119,14 +119,23 @@ class LandingPageState extends State<LandingPage> {
     );
 
     restoreOption("defaulthomepage").then((value) {
+      print(value);
       if (value.length == 0) {
       } else {
         if (value[0]['val'] == "home") {
           option2.isSelected = false;
           option1.isSelected = true;
-        } else {
+          option3.isSelected = false;
+        } else if(value[0]['val']=="ticket") {
           option1.isSelected = false;
-          option2.isSelected = true;
+          option2.isSelected = false;
+          option3.isSelected=true;
+        }else{
+
+           option2.isSelected = true;
+          option1.isSelected = false;
+          option3.isSelected = false;
+
         }
 
         resetState();
