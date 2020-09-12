@@ -126,16 +126,14 @@ class LandingPageState extends State<LandingPage> {
           option2.isSelected = false;
           option1.isSelected = true;
           option3.isSelected = false;
-        } else if(value[0]['val']=="ticket") {
+        } else if (value[0]['val'] == "ticket") {
           option1.isSelected = false;
           option2.isSelected = false;
-          option3.isSelected=true;
-        }else{
-
-           option2.isSelected = true;
+          option3.isSelected = true;
+        } else {
+          option2.isSelected = true;
           option1.isSelected = false;
           option3.isSelected = false;
-
         }
 
         resetState();
@@ -153,7 +151,7 @@ class LandingPageState extends State<LandingPage> {
         body: Container(
           height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(
-                      child: Column(
+            child: Column(
               children: <Widget>[
                 SizedBox(
                   height: 30,
@@ -163,20 +161,21 @@ class LandingPageState extends State<LandingPage> {
                   child: Text(
                     "Set default page",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.acme(
-                      fontSize: 30,
-                      color: Colors.white
-                    ),
+                    style: GoogleFonts.acme(fontSize: 30, color: Colors.white),
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                isShowing == true ? option1.createElement().widget : Container(),
+                isShowing == true
+                    ? option1.createElement().widget
+                    : Container(),
                 SizedBox(
                   height: 20,
                 ),
-                isShowing == true ? option2.createElement().widget : Container(),
+                isShowing == true
+                    ? option2.createElement().widget
+                    : Container(),
                 SizedBox(
                   height: 20,
                 ),

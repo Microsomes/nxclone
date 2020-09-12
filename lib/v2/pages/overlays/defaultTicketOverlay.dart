@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DefaultTicketOverlay {
   void showDefaultOverlay(BuildContext btx) {
@@ -20,7 +21,10 @@ class DefaultTicketOverlay {
                 children: <Widget>[
                   Text(
                     "Select a Default Ticket",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    style: GoogleFonts.acme(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30
+                    ),
                   ),
                   SizedBox(
                     height: 30,
@@ -47,9 +51,12 @@ class DefaultTicketOverlay {
                                         .then((value) {
                                      });
                                   },
-                                  title: Text(snapshot.data[index]['state']),
+                                  title: Text(snapshot.data[index]['state'],
+                                  style: GoogleFonts.acme(),
+                                  ),
                                   subtitle: Text(
                                     snapshot.data[index]['tickettitle'],
+                                    style: GoogleFonts.acme(),
                                   ));
                             });
                       } else {

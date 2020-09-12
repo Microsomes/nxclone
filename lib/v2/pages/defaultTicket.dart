@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:BlackPie/pages/components/singleInactive.dart';
 import 'package:BlackPie/v2/components/fancyOptions.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../main/bar.dart';
 import 'package:BlackPie/v2/pages/overlays/defaultTicketOverlay.dart';
 
@@ -131,7 +132,6 @@ class DefaultTicketState extends State<DefaultTicket> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(45),
@@ -141,7 +141,6 @@ class DefaultTicketState extends State<DefaultTicket> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(20),
-              color: Color.fromRGBO(123, 26, 17, 1),
               height: 160,
               child: currentTicket != null
                   ? SingleInactiveTicket(
@@ -161,7 +160,10 @@ class DefaultTicketState extends State<DefaultTicket> {
             ),
             Text(
               "Customise Ticket",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: GoogleFonts.acme(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -178,16 +180,25 @@ class DefaultTicketState extends State<DefaultTicket> {
               onTap: () {
                 DefaultTicketOverlay().showDefaultOverlay(context);
               },
-              child: Container(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width,
-                  child: Center(
-                    child: Text(
-                      "Select state",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+              child: Padding(
+                padding: const EdgeInsets.all(40),
+                child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
                     ),
-                  )),
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    child: Center(
+                      child: Text(
+                        "Select state",
+                        style: GoogleFonts.acme(
+                          fontSize: 20,
+                           fontWeight: FontWeight.w800
+                        )
+                      ),
+                    )),
+              ),
             ),
             isShowing == true
                 ? Expanded(

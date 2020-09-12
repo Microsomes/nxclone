@@ -85,6 +85,9 @@ class SetupFlowState extends State<SetupFlow> {
                     //since its accepted lets move to the next panel
                     pageController.nextPage(
                         duration: Duration(seconds: 1), curve: Curves.ease);
+                        setState(() {
+                          showNextButton=true;
+                        });
                   });
                 },
                 ondisconnect: () {
