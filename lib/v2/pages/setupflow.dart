@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:BlackPie/v2/pages/defaultTicket.dart';
 import 'package:BlackPie/v2/pages/ejection.dart';
@@ -24,7 +26,7 @@ class SetupFlowState extends State<SetupFlow> {
 
   int currentPageIndex = 0;
 
-  bool showNextButton=true;
+  bool showNextButton = true;
   //flag to decide if the next button should show
 
   @override
@@ -36,7 +38,7 @@ class SetupFlowState extends State<SetupFlow> {
     if (currentPageIndex == 0) {
       setState(() {
         currentNextButtonLabel = "I ACCEPT AND AGREE";
-        showNextButton=false;
+        showNextButton = false;
         //hide the next button since we will let the flow
         //get handled by the widgets own button
       });
@@ -70,28 +72,37 @@ class SetupFlowState extends State<SetupFlow> {
             controller: pageController,
             children: <Widget>[
               Container(
-                child: TermesOfUseP(
-                  onaccept: (){
-                    print("Accepted");
-                  },
-                  ondisconnect: (){
-                    print("on disconnected");
-                  },
-                )
-              ),
-              SlashScreenOptions(
-                shallRestart: false,
-              ),
+                  child: TermesOfUseP(
+                onaccept: () {
+                  //since its accepted lets register that
+                  Map details = Map();
+                  details['value'] = "accepted";
+                  details['dateaccepted'] =
+                      DateTime.now().millisecondsSinceEpoch;
+                  NXHelp()
+                      .saveConfig("disclaimer_accepted", details.toString())
+                      .then((value) {
+                    //since its accepted lets move to the next panel
+                    pageController.nextPage(
+                        duration: Duration(seconds: 1), curve: Curves.ease);
+                  });
+                },
+                ondisconnect: () {
+                  exit(0);
+                },
+              )),
               LandingPage(
                 shallRestart: false,
               ),
               DefaultTicket(),
               Ejection(),
-               Container(child: SafeArea(child: Padding(
+              Container(
+                  child: SafeArea(
+                      child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width*0.5,
-                  child: AnimationOverlayContent()),
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: AnimationOverlayContent()),
               ))),
               Container(
                 child: Center(
@@ -120,57 +131,57 @@ class SetupFlowState extends State<SetupFlow> {
               Expanded(
                 child: Container(),
               ),
-            showNextButton== true ?  Container(
-                margin: EdgeInsets.only(
-                  bottom: 10
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0, bottom: 5),
-                  child: MaterialButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                      color: Colors.lightBlue,
-                      onPressed: () {
-                        if (currentPageIndex == 0) {
-                          //since its accepted lets register that
-                          Map details = Map();
-                          details['value'] = "accepted";
-                          details['dateaccepted'] =
-                              DateTime.now().millisecondsSinceEpoch;
+              showNextButton == true
+                  ? Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8.0, bottom: 5),
+                        child: MaterialButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0))),
+                            color: Colors.lightBlue,
+                            onPressed: () {
+                              if (currentPageIndex == 0) {
+                                //since its accepted lets register that
+                                Map details = Map();
+                                details['value'] = "accepted";
+                                details['dateaccepted'] =
+                                    DateTime.now().millisecondsSinceEpoch;
 
-                          NXHelp()
-                              .saveConfig(
-                                  "disclaimer_accepted", details.toString())
-                              .then((value) {
-                            //since its accepted lets move to the next panel
-                            pageController.nextPage(
-                                duration: Duration(seconds: 1),
-                                curve: Curves.ease);
-                          });
-                        }
-                        if (currentNextButtonLabel == "FINISH") {
-                          Phoenix.rebirth(context);
-                        } else {
-                          pageController.nextPage(
-                              duration: Duration(seconds: 1), curve: Curves.ease);
-                        }
-                      },
-                      child: Row(
-                        children: <Widget>[
-                          Text(
-                            "$currentNextButtonLabel",
-                            style: GoogleFonts.acme(
-                              color:Colors.white
-                            ),
-                          ),
-                          Icon(
-                            Icons.chevron_right,
-                            color: Colors.white,
-                          )
-                        ],
-                      )),
-                ),
-              ): Container()
+                                NXHelp()
+                                    .saveConfig("disclaimer_accepted",
+                                        details.toString())
+                                    .then((value) {
+                                  //since its accepted lets move to the next panel
+                                  pageController.nextPage(
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.ease);
+                                });
+                              }
+                              if (currentNextButtonLabel == "FINISH") {
+                                Phoenix.rebirth(context);
+                              } else {
+                                pageController.nextPage(
+                                    duration: Duration(seconds: 1),
+                                    curve: Curves.ease);
+                              }
+                            },
+                            child: Row(
+                              children: <Widget>[
+                                Text(
+                                  "$currentNextButtonLabel",
+                                  style: GoogleFonts.acme(color: Colors.white),
+                                ),
+                                Icon(
+                                  Icons.chevron_right,
+                                  color: Colors.white,
+                                )
+                              ],
+                            )),
+                      ),
+                    )
+                  : Container()
             ],
           ),
         )

@@ -13,8 +13,7 @@ import 'package:BlackPie/v2/helper/NxHelp.dart';
 class ActualTicket extends StatefulWidget {
   final int txid;
 
-  ActualTicket({@required this.txid}) {
-   }
+  ActualTicket({@required this.txid});
 
   @override
   State<StatefulWidget> createState() {

@@ -3,6 +3,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:BlackPie/v2/components/fancyOptions.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:BlackPie/v2/main/bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LandingPage extends StatefulWidget {
@@ -140,36 +141,40 @@ class LandingPageState extends State<LandingPage> {
           preferredSize: const Size.fromHeight(45),
           child: BarV2(),
         ),
-        body: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 30,
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          child: SingleChildScrollView(
+                      child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    "Set default page",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.acme(
+                      fontSize: 30,
+                      color: Colors.white
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                isShowing == true ? option1.createElement().widget : Container(),
+                SizedBox(
+                  height: 20,
+                ),
+                isShowing == true ? option2.createElement().widget : Container(),
+                SizedBox(
+                  height: 20,
+                ),
+                isShowing == true ? option3.createElement().widget : Container()
+              ],
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              child: Text(
-                "Set default page",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text("Changes only reflect after reboot of app"),
-            SizedBox(
-              height: 20,
-            ),
-            isShowing == true ? option1.createElement().widget : Container(),
-            SizedBox(
-              height: 20,
-            ),
-            isShowing == true ? option2.createElement().widget : Container(),
-            SizedBox(
-              height: 20,
-            ),
-            isShowing == true ? option3.createElement().widget : Container()
-          ],
+          ),
         ));
   }
 }

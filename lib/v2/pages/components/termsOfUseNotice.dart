@@ -29,7 +29,7 @@ class TermesOfUseP extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             MaterialButton(
               shape: RoundedRectangleBorder(
@@ -43,7 +43,7 @@ class TermesOfUseP extends StatelessWidget {
                 onaccept();
               },
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
             MaterialButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),

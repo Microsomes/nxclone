@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class FancyOptions extends StatefulWidget{
 
-  String title;
-  bool isSelected;
-  String assetRoute;
-  Function clicked;
-  BoxFit boxFitt;
+   String title;
+   bool isSelected;
+   String assetRoute;
+   Function clicked;
+   BoxFit boxFitt;
 
     FancyOptions({
       @required this.title,
