@@ -33,6 +33,7 @@ dependencies:
   flutter_phoenix: ^0.1.0
   provider: ^4.3.2
   giffy_dialog: ^1.8.0
+  google_fonts: ^1.1.0
 
 
 

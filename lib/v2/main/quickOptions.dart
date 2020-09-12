@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/pages/defaultTicket.dart';
 import 'package:BlackPie/v2/pages/ejection.dart';
 import 'package:BlackPie/v2/pages/landingPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuickOptions extends StatefulWidget {
   @override
@@ -74,19 +75,33 @@ class _QuickOptionState extends State<QuickOptions> {
                     AnimationOverlay().display(context);
                   }
                 },
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Text(
-                      quickOptions[index]['title'][0],
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                    backgroundColor: Colors.transparent,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: 10
                   ),
-                  title: Text(quickOptions[index]['title']
-                      .substring(1, quickOptions[index]['title'].length)),
+                  decoration: BoxDecoration(
+                    color: Colors.red.withOpacity(0),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 20,
+                      backgroundColor:Colors.blue,
+                      child: Text(
+                        quickOptions[index]['title'][0],
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                     ),
+                    title: Text(quickOptions[index]['title'],
+                    style: GoogleFonts.acme(
+                      fontSize: 20,
+                      color: Colors.white
+                    )
+                    ),
+                  ),
                 ),
               );
             }),

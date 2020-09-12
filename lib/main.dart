@@ -8,6 +8,7 @@ import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePagePre extends StatefulWidget {
   @override
@@ -32,15 +33,35 @@ class HomePagePrestate extends State<HomePagePre>
 
   var nxhometop2 = 200;
 
+
+  AnimationController _skeletonController;
+  Animation _skeletonAnimation;
+
+
   @override
   void dispose() {
     super.dispose();
     mainTimer.cancel();
+    _skeletonController.dispose();
   }
 
   @override
   void initState() {
     super.initState();
+
+
+    // _skeletonController= AnimationController(
+    //   vsync: this,
+    //   duration: Duration(seconds: 2)
+    // );
+    // _skeletonController.repeat(
+    //   reverse: true
+    // );
+    // _skeletonAnimation= Tween(begin: 2.0,end: 15.0).animate(_skeletonController)..addListener(() { 
+    //  print(_skeletonAnimation.value);
+     
+    // });
+
 
     NXHelp().runInit();
     //run the init process
@@ -108,11 +129,12 @@ class HomePagePrestate extends State<HomePagePre>
           children: <Widget>[
             Expanded(
               child: Column(children: [
+               
                 AnimatedOpacity(
                   opacity: skeletonOpacity,
                   duration: Duration(seconds: 1),
                   child: Container(
-                    height: 250,
+                    height: 150,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -151,7 +173,27 @@ class HomePagePrestate extends State<HomePagePre>
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
+                ),
+                AnimatedOpacity(
+                  duration: Duration(seconds: 5),
+                  opacity: skeletonOpacity,
+                                  child: Container(
+                    alignment: Alignment.center,
+                    height: 80,
+                    color: Colors.transparent,
+                    child: Text(
+                      "NX-Black Pie",
+                      style: GoogleFonts.acme(
+                        color:Colors.white,
+                        fontSize: 30
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Expanded(
                     child: Container(
@@ -184,7 +226,7 @@ class HomePagePrestate extends State<HomePagePre>
                                       "Setup",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                    backgroundColor: Colors.red,
+                                    backgroundColor: Colors.lightGreen,
                                   ),
                                 ),
                               ),
@@ -265,11 +307,13 @@ class HomePagePrestate extends State<HomePagePre>
                                                 radius: 40,
                                                 child: Text(
                                                   "NXHOME",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
+                                                  style: GoogleFonts.acme(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold
+                                                  )
                                                 ),
                                                 backgroundColor:
-                                                    Colors.lightBlueAccent),
+                                                    Colors.black),
                                           ),
                                         ),
                                       )
@@ -333,7 +377,7 @@ class HomePagePrestate extends State<HomePagePre>
                                       "Ticket",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                    backgroundColor: Colors.red,
+                                    backgroundColor: Colors.lightGreen,
                                   ),
                                 ),
                               ),
@@ -355,10 +399,10 @@ class HomePagePrestate extends State<HomePagePre>
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(60),
                             topLeft: Radius.circular(60)),
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.blueGrey.withOpacity(0.9),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.90),
+                            color: Colors.blue.withOpacity(0.90),
                             spreadRadius: 10,
                             blurRadius: 10,
                             offset: Offset(0, 3), // changes position of shadow
@@ -374,6 +418,8 @@ class HomePagePrestate extends State<HomePagePre>
                             setState(() {});
                           }
                         });
+
+                    
 
                         return InkWell(
                           onTap: () {
