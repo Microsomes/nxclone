@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class BarV2 extends StatelessWidget{
@@ -17,17 +18,18 @@ class BarV2 extends StatelessWidget{
                 padding: const EdgeInsets.all(14.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.lightGreen,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.circular(29)),
                   width: 120,
                   height: 10,
                   child: Center(
                     child: Text(
-                      "By Chris",
-                      style: TextStyle(
-                          letterSpacing: 1,
+                      "Made with Love",
+                      style: GoogleFonts.acme(
+                         letterSpacing: 1,
                           fontWeight: FontWeight.w800,
-                          color: Color.fromRGBO(0, 0, 0, 1)),
+                          color: Colors.white
+                      )
                     ),
                   ),
                 ),
