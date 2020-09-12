@@ -156,7 +156,7 @@ class DefaultTicketState extends State<DefaultTicket> {
                   : CircularProgressIndicator(),
             ),
             SizedBox(
-              height: 20,
+              height: 49,
             ),
             Text(
               "Customise Ticket",
@@ -165,6 +165,7 @@ class DefaultTicketState extends State<DefaultTicket> {
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
+            SizedBox(height: 30,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
