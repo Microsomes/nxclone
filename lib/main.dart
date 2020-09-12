@@ -33,35 +33,15 @@ class HomePagePrestate extends State<HomePagePre>
 
   var nxhometop2 = 200;
 
-
-  AnimationController _skeletonController;
-  Animation _skeletonAnimation;
-
-
   @override
   void dispose() {
     super.dispose();
     mainTimer.cancel();
-    _skeletonController.dispose();
   }
 
   @override
   void initState() {
     super.initState();
-
-
-    // _skeletonController= AnimationController(
-    //   vsync: this,
-    //   duration: Duration(seconds: 2)
-    // );
-    // _skeletonController.repeat(
-    //   reverse: true
-    // );
-    // _skeletonAnimation= Tween(begin: 2.0,end: 15.0).animate(_skeletonController)..addListener(() { 
-    //  print(_skeletonAnimation.value);
-     
-    // });
-
 
     NXHelp().runInit();
     //run the init process
@@ -129,12 +109,11 @@ class HomePagePrestate extends State<HomePagePre>
           children: <Widget>[
             Expanded(
               child: Column(children: [
-               
                 AnimatedOpacity(
                   opacity: skeletonOpacity,
-                  duration: Duration(seconds: 1),
+                  duration: Duration(seconds: 10),
                   child: Container(
-                    height: 150,
+                    height: 160,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -149,8 +128,8 @@ class HomePagePrestate extends State<HomePagePre>
                           },
                           child: Container(
                               margin: EdgeInsets.only(top: 10),
-                              height: 120,
-                              width: 120,
+                              height: 150,
+                              width: 150,
                               child: Image.asset(
                                 "images/mrskeleton.png",
                                 width: 200,
@@ -162,13 +141,13 @@ class HomePagePrestate extends State<HomePagePre>
                       color: Colors.black,
                       boxShadow: [
                         new BoxShadow(
-                          color: Colors.lightGreen,
+                          color: Colors.transparent,
                           offset: new Offset(2.0, 2.0),
                         )
                       ],
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(200),
-                          bottomRight: Radius.circular(200)),
+                          bottomLeft: Radius.circular(100),
+                          bottomRight: Radius.circular(100)),
                     ),
                   ),
                 ),
@@ -178,16 +157,14 @@ class HomePagePrestate extends State<HomePagePre>
                 AnimatedOpacity(
                   duration: Duration(seconds: 5),
                   opacity: skeletonOpacity,
-                                  child: Container(
+                  child: Container(
                     alignment: Alignment.center,
                     height: 80,
                     color: Colors.transparent,
                     child: Text(
                       "NX-Black Pie",
-                      style: GoogleFonts.acme(
-                        color:Colors.white,
-                        fontSize: 30
-                      ),
+                      style:
+                          GoogleFonts.acme(color: Colors.white, fontSize: 30),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -305,15 +282,12 @@ class HomePagePrestate extends State<HomePagePre>
                                                 ]),
                                             child: CircleAvatar(
                                                 radius: 40,
-                                                child: Text(
-                                                  "NXHOME",
-                                                  style: GoogleFonts.acme(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold
-                                                  )
-                                                ),
-                                                backgroundColor:
-                                                    Colors.black),
+                                                child: Text("NXHOME",
+                                                    style: GoogleFonts.acme(
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                                backgroundColor: Colors.black),
                                           ),
                                         ),
                                       )
@@ -418,8 +392,6 @@ class HomePagePrestate extends State<HomePagePre>
                             setState(() {});
                           }
                         });
-
-                    
 
                         return InkWell(
                           onTap: () {

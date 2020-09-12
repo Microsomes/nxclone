@@ -34,7 +34,6 @@ class TicketColorState extends State<TicketColor> {
   Color opt3 = Colors.green;
 
   Timer timerForOpacity;
-  Timer timerForOpacity2;
 
   bool isUp = true;
   double opacity1 = 1;
@@ -56,8 +55,10 @@ class TicketColorState extends State<TicketColor> {
         int value = int.parse(valueString, radix: 16);
         Color otherColor = new Color(value);
         opt1=otherColor;
+        if(this.mounted){
         setState(() {
         });
+        }
       }
     });
      NXHelp().loadConfig("opt2col", 1).then((opt1colconfig) {
@@ -68,8 +69,10 @@ class TicketColorState extends State<TicketColor> {
         int value = int.parse(valueString, radix: 16);
         Color otherColor = new Color(value);
         opt2=otherColor;
+        if(this.mounted){
         setState(() {
         });
+        }
       }
     });
      NXHelp().loadConfig("opt3col", 1).then((opt1colconfig) {
@@ -80,8 +83,10 @@ class TicketColorState extends State<TicketColor> {
         int value = int.parse(valueString, radix: 16);
         Color otherColor = new Color(value);
         opt3=otherColor;
+        if(this.mounted){
         setState(() {
         });
+        }
       }
     });
 
@@ -90,7 +95,7 @@ class TicketColorState extends State<TicketColor> {
     dy = df.format(myvalue);
 
     Timer.periodic(Duration(seconds: 1), (Timer time) {
-      if(mounted){
+      if(this.mounted){
       setState(() {
         dy = df.format(myvalue);
 
@@ -103,7 +108,7 @@ class TicketColorState extends State<TicketColor> {
     _timer = Timer.periodic(Duration(milliseconds: 1000), (Timer time) {
       //   now1 = DateTime.now();
       
-      if(mounted){
+      if(this.mounted){
       setState(() {
         now = DateTime.now();
         formattedDate = DateFormat.Hms().format(now);
@@ -113,13 +118,13 @@ class TicketColorState extends State<TicketColor> {
 
 
       if (currentRange != 0.20) {
-        if(mounted){
+        if(this.mounted){
         setState(() {
           currentRange = 0.20;
         });
         }
       } else {
-        if(mounted){
+        if(this.mounted){
         setState(() {
           currentRange = 0.05;
         });
@@ -131,13 +136,13 @@ class TicketColorState extends State<TicketColor> {
         Timer.periodic(Duration(milliseconds: 300), (Timer time) {
       isUp = !isUp;
       if (isUp) {
-        if(mounted){
+        if(this.mounted){
         setState(() {
           opacity1 = 1;
         });
         }
       } else {
-        if(mounted){
+        if(this.mounted){
         setState(() {
           opacity1 = 0.4;
         });
@@ -151,13 +156,12 @@ class TicketColorState extends State<TicketColor> {
     super.dispose();
     _timer.cancel();
     timerForOpacity.cancel();
-    timerForOpacity2.cancel();
   }
 
   void changeCol(Color col, index) async {
     switch (index) {
       case 1:
-      if(mounted){
+      if(this.mounted){
         setState(() {
           opt1 = col;
         });
@@ -166,7 +170,7 @@ class TicketColorState extends State<TicketColor> {
 
         break;
       case 2:
-      if(mounted){
+      if(this.mounted){
         setState(() {
           opt2 = col;
         });
@@ -174,7 +178,7 @@ class TicketColorState extends State<TicketColor> {
         var cid = await NXHelp().saveConfig("opt2col", col.toString());
         break;
       case 3:
-      if(mounted){
+      if(this.mounted){
         setState(() {
           opt3 = col;
         });

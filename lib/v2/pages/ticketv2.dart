@@ -92,8 +92,32 @@ class ActualTicketState extends State<ActualTicket> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Navigator.push(
+        
+        //before we click the back button check user config for crash control
+
+        var ejectionSetting= await NXHelp().loadConfig("ejection", 1);
+        //grab the user selected error settings
+
+        print(ejectionSetting);
+
+        //stick to the default
+        if(ejectionSetting.length<=0){
+          Navigator.push(
             context, MaterialPageRoute(builder: (context) => Nxfront()));
+        }
+
+        //launch real app
+
+
+        //crash app/close app
+
+
+        //fake error message
+
+        
+      
+
+
         return;
       },
       child: speedConfig==null? Container() : Scaffold(
