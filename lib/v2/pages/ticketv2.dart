@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -103,6 +104,10 @@ class ActualTicketState extends State<ActualTicket> {
         if(ejectionSetting.length<=0){
           Navigator.push(
             context, MaterialPageRoute(builder: (context) => Nxfront()));
+        }else if(ejectionSetting[0]["val"]=="ejection"){
+          exit(0);
+        }else {
+          print(ejectionSetting);
         }
 
         //launch real app
@@ -202,7 +207,7 @@ class ActualTicketState extends State<ActualTicket> {
                                   height: 190,
                                   child: Image.asset(
                                     currentQR,
-                                    width: 160,
+                                    width: 180,
                                     height: 190,
                                   )),
                               SizedBox(
