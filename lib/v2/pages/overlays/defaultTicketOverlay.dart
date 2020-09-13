@@ -3,7 +3,7 @@ import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefaultTicketOverlay {
-  void showDefaultOverlay(BuildContext btx) {
+  void showDefaultOverlay(BuildContext btx,Function onChange) {
     showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -39,8 +39,6 @@ class DefaultTicketOverlay {
                             itemBuilder: (context, index) {
                               return ListTile(
                                   onTap: () {
-                                     
-
                                     NXHelp()
                                         .saveConfig(
                                             "deficketv2",
@@ -49,6 +47,7 @@ class DefaultTicketOverlay {
                                                 snapshot.data[index]
                                                     ['tickettitle'])
                                         .then((value) {
+                                          onChange();
                                      });
                                   },
                                   title: Text(snapshot.data[index]['state'],

@@ -143,7 +143,7 @@ class SetupFlowState extends State<SetupFlow> {
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0))),
-                            color: Colors.lightBlue,
+                            color: Colors.white,
                             onPressed: () {
                               if (currentPageIndex == 0) {
                                 //since its accepted lets register that
@@ -174,11 +174,11 @@ class SetupFlowState extends State<SetupFlow> {
                               children: <Widget>[
                                 Text(
                                   "$currentNextButtonLabel",
-                                  style: GoogleFonts.acme(color: Colors.white),
+                                  style: GoogleFonts.acme(color: Colors.black),
                                 ),
                                 Icon(
                                   Icons.chevron_right,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 )
                               ],
                             )),

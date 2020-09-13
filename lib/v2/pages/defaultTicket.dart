@@ -26,11 +26,7 @@ class DefaultTicketState extends State<DefaultTicket> {
 
   Timer _timer;
 
-  @override
-  void dispose() {
-    super.dispose();
-    _timer.cancel();
-  }
+  
 
   @override
   void initState() {
@@ -142,6 +138,7 @@ class DefaultTicketState extends State<DefaultTicket> {
             Container(
               padding: EdgeInsets.all(20),
               height: 160,
+              width: MediaQuery.of(context).size.width,
               child: currentTicket != null
                   ? SingleInactiveTicket(
                       sizeW: MediaQuery.of(context).size.width,
@@ -150,10 +147,12 @@ class DefaultTicketState extends State<DefaultTicket> {
                       txdbid: 1,
                       ticketExpiryDate: "Saved to default",
                     )
-
                   // ticketTwo(title: currentTicket['val'],id: 1,)
-
-                  : CircularProgressIndicator(),
+                  : Container(
+                    color: Colors.transparent,
+                    height: 100,
+                    width: 30,
+                    child: Center(child: CircularProgressIndicator())),
             ),
             SizedBox(
               height: 49,
@@ -179,7 +178,9 @@ class DefaultTicketState extends State<DefaultTicket> {
             ),
             InkWell(
               onTap: () {
-                DefaultTicketOverlay().showDefaultOverlay(context);
+                DefaultTicketOverlay().showDefaultOverlay(context,(){
+                  print("something was selected");
+                });
               },
               child: Padding(
                 padding: const EdgeInsets.all(40),
@@ -246,4 +247,11 @@ class DefaultTicketState extends State<DefaultTicket> {
           ],
         ));
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _timer.cancel();
+  }
+
 }
