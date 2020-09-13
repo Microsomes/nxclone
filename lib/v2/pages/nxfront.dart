@@ -223,7 +223,7 @@ class NxfrontState extends State<Nxfront> {
                       height: 3,
                     ),
                     Container(
-                      height: 182,
+                      height: 189,
                       width: sizeW * 0.96,
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(123, 26, 17, 1),
@@ -268,7 +268,7 @@ class NxfrontState extends State<Nxfront> {
                                 ),
                               )),
                           Padding(
-                            padding: const EdgeInsets.only(top: 15),
+                            padding: const EdgeInsets.only(top: 17),
                             child: InkWell(
                               onTap: () {
                                  Navigator.push(
@@ -280,7 +280,7 @@ class NxfrontState extends State<Nxfront> {
                               child: Container(
                                   alignment: Alignment.bottomRight,
                                   width: sizeW,
-                                  height: 16,
+                                  height: 17,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: <Widget>[
@@ -288,6 +288,7 @@ class NxfrontState extends State<Nxfront> {
                                         "MORE TICKETS",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500,
+                                            fontSize: 17,
                                             color: Colors.white),
                                       ),
                                       SizedBox(
