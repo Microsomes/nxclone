@@ -24,10 +24,6 @@ class DefaultTicketState extends State<DefaultTicket> {
 
   Map currentTicket;
 
-  Timer _timer;
-
-  
-
   @override
   void initState() {
     super.initState();
@@ -90,14 +86,6 @@ class DefaultTicketState extends State<DefaultTicket> {
         resetState();
       }
     });
-
-    _timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
-      NXHelp().loadConfig("deficketv2", 1).then((deftik) {
-        setState(() {
-          currentTicket = deftik[0];
-        });
-      });
-    });
   }
 
   Future restoreOption(String key) async {
@@ -149,10 +137,10 @@ class DefaultTicketState extends State<DefaultTicket> {
                     )
                   // ticketTwo(title: currentTicket['val'],id: 1,)
                   : Container(
-                    color: Colors.transparent,
-                    height: 100,
-                    width: 30,
-                    child: Center(child: CircularProgressIndicator())),
+                      color: Colors.transparent,
+                      height: 100,
+                      width: 30,
+                      child: Center(child: CircularProgressIndicator())),
             ),
             SizedBox(
               height: 49,
@@ -164,7 +152,9 @@ class DefaultTicketState extends State<DefaultTicket> {
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -178,8 +168,13 @@ class DefaultTicketState extends State<DefaultTicket> {
             ),
             InkWell(
               onTap: () {
-                DefaultTicketOverlay().showDefaultOverlay(context,(){
-                  print("something was selected");
+                DefaultTicketOverlay().showDefaultOverlay(context, () {
+                  //a default ticket is chosen lets change
+                  NXHelp().loadConfig("deficketv2", 1).then((deftik) {
+                    setState(() {
+                      currentTicket = deftik[0];
+                    });
+                  });
                 });
               },
               child: Padding(
@@ -192,13 +187,9 @@ class DefaultTicketState extends State<DefaultTicket> {
                     height: 50,
                     width: MediaQuery.of(context).size.width,
                     child: Center(
-                      child: Text(
-                        "Select state",
-                        style: GoogleFonts.acme(
-                          fontSize: 20,
-                           fontWeight: FontWeight.w800
-                        )
-                      ),
+                      child: Text("Select state",
+                          style: GoogleFonts.acme(
+                              fontSize: 20, fontWeight: FontWeight.w800)),
                     )),
               ),
             ),
@@ -251,7 +242,5 @@ class DefaultTicketState extends State<DefaultTicket> {
   @override
   void dispose() {
     super.dispose();
-    _timer.cancel();
   }
-
 }

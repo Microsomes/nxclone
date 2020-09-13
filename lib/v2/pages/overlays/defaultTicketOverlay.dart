@@ -48,6 +48,7 @@ class DefaultTicketOverlay {
                                                     ['tickettitle'])
                                         .then((value) {
                                           onChange();
+                                          Navigator.pop(context);
                                      });
                                   },
                                   title: Text(snapshot.data[index]['state'],
