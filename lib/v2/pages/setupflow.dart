@@ -49,7 +49,7 @@ class SetupFlowState extends State<SetupFlow> {
     setState(() {
       currentPageIndex = currentPage;
     });
-    if (currentPage == 6) {
+    if (currentPage == 5) {
       setState(() {
         currentNextButtonLabel = "FINISH";
       });
@@ -112,14 +112,21 @@ class SetupFlowState extends State<SetupFlow> {
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Welcome from blackpie, hope you enjoy our app"),
+                    Text("Welcome from blackpie, hope you enjoy our app",
+                    
+                    style: GoogleFonts.acme(
+                      color:Colors.white,
+                      fontSize: 30
+                    ),
+                    textAlign: TextAlign.center,
+                    ),
                     SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Icon(
                       Icons.thumb_up,
                       size: 50,
-                      color: Colors.lightBlue,
+                      color: Colors.white,
                     )
                   ],
                 )),

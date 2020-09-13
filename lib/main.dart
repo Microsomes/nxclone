@@ -438,9 +438,7 @@ class HomePagePrestate extends State<HomePagePre>
         )));
   }
 
-  @override
-  // TODO: implement parent
-  Animation get parent => throw UnimplementedError();
+ 
 }
 
 void main() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/components/fancyOptions.dart';
 import 'package:BlackPie/v2/main/bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sqflite/sqflite.dart';
 
 
@@ -78,14 +79,19 @@ resetState() async {
             width: MediaQuery.of(context).size.width,
              child: Text("Ejection Settings",
           textAlign: TextAlign.center,
-          style:TextStyle(
+          style:GoogleFonts.acme(
             fontWeight: FontWeight.bold,
-            fontSize: 30
-          ) ,
+            fontSize: 30,
+            color: Colors.white
+          )
           ),
           ),
           SizedBox(height: 10,),
-          Text("Act Accordingly"),
+          Text("Act Accordingly",
+          style: GoogleFonts.acme(
+            color: Colors.white
+          ),
+          ),
          isShowing==true ? Expanded(
             child: ListView.builder(
               itemCount: ejectionOptions.length,
