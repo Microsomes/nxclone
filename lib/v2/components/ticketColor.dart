@@ -187,6 +187,8 @@ class TicketColorState extends State<TicketColor> {
 
     var df = dy;
 
+    var sizemik=3.62;
+
     return Container(
         alignment: Alignment.center,
         height: 70,
@@ -205,7 +207,7 @@ class TicketColorState extends State<TicketColor> {
                     opacity: opacity1,
                     duration: Duration(milliseconds: 800),
                     child: Container(
-                      width: MediaQuery.of(context).size.width / 3.82,
+                      width: MediaQuery.of(context).size.width / sizemik,
                       height: 55,
                       decoration: BoxDecoration(
                           color: opt1,
@@ -223,7 +225,7 @@ class TicketColorState extends State<TicketColor> {
                     opacity: opacity1,
                     duration: Duration(milliseconds: 800),
                     child: Container(
-                      width: MediaQuery.of(context).size.width / 3.82,
+                      width: MediaQuery.of(context).size.width / sizemik,
                       height: 55,
                       decoration: BoxDecoration(
                           color: opt2, borderRadius: BorderRadius.only()),
@@ -239,7 +241,7 @@ class TicketColorState extends State<TicketColor> {
                     opacity: opacity1,
                     duration: Duration(milliseconds: 800),
                     child: Container(
-                      width: MediaQuery.of(context).size.width / 3.82,
+                      width: MediaQuery.of(context).size.width / sizemik,
                       height: 55,
                       decoration: BoxDecoration(
                           color: opt3,
