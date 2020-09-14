@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MovingText extends StatefulWidget {
   final String textContent;
@@ -38,11 +39,12 @@ class MovingTextState extends State<MovingText> {
       text: widget.isUpper == true
           ? widget.textContent.toUpperCase()
           : widget.textContent,
-      style: TextStyle(
-          letterSpacing: 0.3,
+      style: GoogleFonts.roboto(
+         letterSpacing: 0.3,
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 19),
+          fontSize: 17
+      ),
       pauseAfterRound: Duration(milliseconds: 500),
       blankSpace: widget.textContent.length.toDouble() * 10,
       showFadingOnlyWhenScrolling: true,

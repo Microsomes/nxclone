@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'package:google_fonts/google_fonts.dart';
 
 class ActionOverlay {
   void display(BuildContext context) {
@@ -25,7 +26,11 @@ class ActionOverlay {
                     leading: Icon(Icons.launch),
                     title: Align(
                         alignment: Alignment(-1.5, 0),
-                        child: Text("NX Rewards Cashback")),
+                        child: Text("NX Rewards Cashback",
+                        style: GoogleFonts.roboto(
+                          color: Colors.red
+                        ),
+                        )),
                   ),
                   ListTile(
                     leading: Transform.rotate(

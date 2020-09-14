@@ -8,6 +8,7 @@ import 'package:BlackPie/pages/tripTools.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:BlackPie/v2/pages/ticket.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Nxfront extends StatefulWidget {
   @override
@@ -110,11 +111,12 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               Text(
                                 "Buy tickets",
-                                style: TextStyle(
+                                style: GoogleFonts.roboto(
                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 18),
+                                    fontSize: 18
+                                )
                               ),
                               Expanded(
                                 child: Text(""),
@@ -160,11 +162,12 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               Text(
                                 "Offers",
-                                style: TextStyle(
+                                style: GoogleFonts.roboto(
                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 18),
+                                    fontSize: 18
+                                ),
                               ),
                               Expanded(
                                 child: Text(""),
@@ -211,11 +214,12 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               Text(
                                 "Ticket wallet",
-                                style: TextStyle(
-                                  letterSpacing: _letterSpaceing,
+                                style: GoogleFonts.roboto(
+                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 18),
+                                    fontSize: 18
+                                ),
                               ),
                               Expanded(
                                 child: Text(""),
@@ -352,11 +356,12 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               Text(
                                 "Trip tools",
-                                style: TextStyle(
+                                style: GoogleFonts.roboto(
                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 18),
+                                    fontSize: 18
+                                ),
                               ),
                               Expanded(
                                 child: Text(""),
@@ -402,11 +407,12 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               Text(
                                 "Help",
-                                style: TextStyle(
-                                  letterSpacing: _letterSpaceing,
+                                style: GoogleFonts.roboto(
+                                    letterSpacing: _letterSpaceing,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 18),
+                                    fontSize: 18
+                                ),
                               ),
                               Expanded(
                                 child: Text(""),

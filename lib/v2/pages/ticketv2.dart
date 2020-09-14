@@ -11,6 +11,7 @@ import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:BlackPie/v2/pages/overlays/ticketDetail.dart';
 import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ActualTicket extends StatefulWidget {
   final int txid;

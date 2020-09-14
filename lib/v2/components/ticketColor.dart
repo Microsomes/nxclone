@@ -266,7 +266,7 @@ class TicketColorState extends State<TicketColor> {
                         Shadow(
                           blurRadius: 10.0,
                           color: Color.fromRGBO(19, 8, 23, 1),
-                          offset: Offset(2, 5),
+                          offset: Offset(0, 4),
                         ),
                         Shadow(
                           blurRadius: 10.0,

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class TicketTwo extends StatelessWidget {
+  final String state;
+  final String tickettype;
+  final int id;
 
-    final String state;
-    final String tickettype;
-    final int id;
-
-   final String  whenActivated;
-    TicketTwo({
-     @required this.state,
-     @required this.tickettype,
+  final String whenActivated;
+  TicketTwo(
+      {@required this.state,
+      @required this.tickettype,
       @required this.id,
-      this.whenActivated="Expires in 12 hours, 59 minutes"
-    });
+      this.whenActivated = "Expires in 12 hours, 59 minutes"});
 
   @override
   Widget build(BuildContext context) {
-    return Container(  
+    return Container(
       child: Column(children: [
         Container(
           height: 30,
@@ -26,7 +26,10 @@ class TicketTwo extends StatelessWidget {
               ),
               Text(
                 "$state",
-                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
+                style: GoogleFonts.roboto(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
               ),
               Expanded(
                 child: Text(""),
@@ -56,7 +59,8 @@ class TicketTwo extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10.0, top: 5),
               child: Text(
                 "$tickettype",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w700, fontSize: 18),
               ),
             )),
         SizedBox(
@@ -67,7 +71,9 @@ class TicketTwo extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.83,
           color: Color.fromRGBO(157, 194, 133, 1),
         ),
-        SizedBox(height: 3,),
+        SizedBox(
+          height: 3,
+        ),
         Expanded(
           child: Text(""),
         ),
@@ -77,26 +83,29 @@ class TicketTwo extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(bottom:7.0),
+                padding: const EdgeInsets.only(bottom: 7.0),
                 child: Image.asset(
                   "images/emg.png",
                   width: 20,
                 ),
               ),
-              SizedBox(width: 6,),
+              SizedBox(
+                width: 6,
+              ),
               Padding(
-                padding: const EdgeInsets.only(bottom:7.0),
+                padding: const EdgeInsets.only(bottom: 7.0),
                 child: Container(
-                   height: 18,
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 2
-                    ),
-                    child: Text("$whenActivated", style: TextStyle(
-                      fontWeight: FontWeight.w700
-                    ),),
-                  )),
+                    height: 18,
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 2),
+                      child: Text(
+                        "$whenActivated",
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w700
+                        ),
+                      ),
+                    )),
               )
             ],
           ),
