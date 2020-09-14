@@ -183,7 +183,6 @@ class TicketColorState extends State<TicketColor> {
 
     return Container(
         alignment: Alignment.center,
-        height: 70,
         child: Stack(
           alignment: Alignment.center,
           

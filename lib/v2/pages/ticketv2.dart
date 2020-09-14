@@ -187,8 +187,7 @@ class ActualTicketState extends State<ActualTicket> {
                                             left: 10,
                                             child: MovingText(
                                               velocity: double.parse(
-                                                  speedConfig['top'][0]
-                                                      ['val']),
+                                                  speedConfig['top'][0]['val']),
                                               textContent:
                                                   "$state $ticketTitle",
                                               isUpper: true,
@@ -211,8 +210,8 @@ class ActualTicketState extends State<ActualTicket> {
                                     height: 15,
                                   ),
                                   Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.8,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
                                     child: Text(
                                       "ANY BUSES ACROSS OUR NETWORK",
                                       textAlign: TextAlign.center,
@@ -229,36 +228,24 @@ class ActualTicketState extends State<ActualTicket> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 15,
                                   ),
                                   Container(
+                                    padding:
+                                        EdgeInsets.only(left: 20, right: 20,bottom: 0),
                                     child: TicketColor(
-                                            speed: double.parse(
-                                                speedConfig['bottom'][0]
-                                                    ['val']),
-                                            ctx: context,
-                                          ),
+                                      speed: double.parse(
+                                          speedConfig['bottom'][0]['val']),
+                                      ctx: context,
+                                    ),
                                   ),
                                   Container(
-                                    height: 200,
-                                    child: Stack(
-                                      children: <Widget>[
-                                        Positioned(
-                                          top: 0,
-                                          left: 16,
-                                          child: Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.81,
-                                            child: Nxsig(
-                                              isRounded: false,
-                                              state: state,
-                                              isBottomRounded: true,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                    padding:
+                                        EdgeInsets.only(left: 20, right: 20,top: 0),
+                                    child: Nxsig(
+                                      isRounded: false,
+                                      state: state,
+                                      isBottomRounded: true,
                                     ),
                                   ),
                                   Padding(
@@ -294,6 +281,7 @@ class ActualTicketState extends State<ActualTicket> {
                                       )),
                                     ),
                                   ),
+                                  Expanded(child: Container(),),
                                   SizedBox(
                                     height: 30,
                                   ),
@@ -316,7 +304,7 @@ class ActualTicketState extends State<ActualTicket> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 5,
+                                    height: 15,
                                   ),
                                   Row(
                                     children: <Widget>[
@@ -337,8 +325,7 @@ class ActualTicketState extends State<ActualTicket> {
                                               style: TextStyle(
                                                   color: Color.fromRGBO(
                                                       103, 119, 138, 1),
-                                                  fontWeight:
-                                                      FontWeight.w800),
+                                                  fontWeight: FontWeight.w800),
                                             )
                                           ],
                                         ),
@@ -381,7 +368,8 @@ class ActualTicketState extends State<ActualTicket> {
                                         ),
                                       )
                                     ],
-                                  )
+                                  ),
+                                  SizedBox(height: 10,)
                                 ],
                               ),
                             ),
