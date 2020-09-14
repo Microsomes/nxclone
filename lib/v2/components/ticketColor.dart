@@ -6,9 +6,7 @@ import 'package:BlackPie/v2/pages/overlays/colorSelectorOver.dart';
 
 class TicketColor extends StatefulWidget {
   final BuildContext ctx;
-
   final double speed;
-
   TicketColor({@required this.ctx, this.speed = 500});
 
   @override
@@ -19,25 +17,17 @@ class TicketColor extends StatefulWidget {
 
 class TicketColorState extends State<TicketColor> {
   double currentRange = 0.1;
-
   String formattedDate = "contacting server for time";
   static DateTime now;
-
   int elaspedTime = 0;
-
   Timer _timer;
-
   Color opt1 = Colors.pink;
   Color opt2 = Colors.red;
   Color opt3 = Colors.green;
-
   Timer timerForOpacity;
-
   bool isUp = true;
   double opacity1 = 1;
-
   String dy;
-
   @override
   void initState() {
     super.initState();
@@ -189,66 +179,74 @@ class TicketColorState extends State<TicketColor> {
 
     //var sizemik=3.62;
 
-      var sizemik=(MediaQuery.of(context).size.width*0.01) +0.1;
+    var sizemik = (MediaQuery.of(context).size.width * 0.01) + 0.1;
 
     return Container(
         alignment: Alignment.center,
         height: 70,
-        width: MediaQuery.of(context).size.width,
         child: Stack(
           alignment: Alignment.center,
+          
           children: <Widget>[
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                InkWell(
-                  onTap: () {
-                    ColorSelectOver(toSend: changeCol, index: 1)
-                        .colorOverlay(context);
-                  },
-                  child: AnimatedOpacity(
-                    opacity: opacity1,
-                    duration: Duration(milliseconds: 800),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / sizemik,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          color: opt1,
-                          borderRadius:
-                              BorderRadius.only(topLeft: Radius.circular(10))),
+                Expanded(
+                  flex: 1,
+                                  child: InkWell(
+                    onTap: () {
+                      ColorSelectOver(toSend: changeCol, index: 1)
+                          .colorOverlay(context);
+                    },
+                    child: AnimatedOpacity(
+                      opacity: opacity1,
+                      duration: Duration(milliseconds: 800),
+                      child: Container(
+                        height: 55,
+                        decoration: BoxDecoration(
+                            color: opt1,
+                            borderRadius:
+                                BorderRadius.only(topLeft: Radius.circular(10))),
+                      ),
                     ),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    ColorSelectOver(toSend: changeCol, index: 2)
-                        .colorOverlay(context);
-                  },
-                  child: AnimatedOpacity(
-                    opacity: opacity1,
-                    duration: Duration(milliseconds: 800),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / sizemik,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          color: opt2, borderRadius: BorderRadius.only()),
+                Expanded(
+                  flex: 1,
+                                  child: InkWell(
+                    onTap: () {
+                      ColorSelectOver(toSend: changeCol, index: 2)
+                          .colorOverlay(context);
+                    },
+                    child: AnimatedOpacity(
+                      opacity: opacity1,
+                      duration: Duration(milliseconds: 800),
+                      child: Container(
+                        height: 55,
+                        decoration: BoxDecoration(
+                            color: opt2, borderRadius: BorderRadius.only()),
+                      ),
                     ),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    ColorSelectOver(toSend: changeCol, index: 3)
-                        .colorOverlay(context);
-                  },
-                  child: AnimatedOpacity(
-                    opacity: opacity1,
-                    duration: Duration(milliseconds: 800),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / sizemik,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          color: opt3,
-                          borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(10))),
+                Expanded(
+                  flex: 1,
+                                  child: InkWell(
+                    onTap: () {
+                      ColorSelectOver(toSend: changeCol, index: 3)
+                          .colorOverlay(context);
+                    },
+                    child: AnimatedOpacity(
+                      opacity: opacity1,
+                      duration: Duration(milliseconds: 800),
+                      child: Container(
+                        height: 55,
+                        decoration: BoxDecoration(
+                            color: opt3,
+                            borderRadius:
+                                BorderRadius.only(topRight: Radius.circular(10))),
+                      ),
                     ),
                   ),
                 ),
