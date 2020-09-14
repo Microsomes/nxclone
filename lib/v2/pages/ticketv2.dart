@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/components/nxsig.dart';
 import 'package:BlackPie/v2/components/ticketColor.dart';
@@ -36,10 +37,10 @@ class ActualTicketState extends State<ActualTicket> {
   void initState() {
     super.initState();
 
-    NXHelp().loadSpeedConfigs().then((speed){
+    NXHelp().loadSpeedConfigs().then((speed) {
       print(speed);
       setState(() {
-        speedConfig=speed;
+        speedConfig = speed;
       });
     });
 
@@ -92,275 +93,312 @@ class ActualTicketState extends State<ActualTicket> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        
         //before we click the back button check user config for crash control
 
-        var ejectionSetting= await NXHelp().loadConfig("ejection", 1);
+        var ejectionSetting = await NXHelp().loadConfig("ejection", 1);
         //grab the user selected error settings
 
         print(ejectionSetting);
 
         //stick to the default
-        if(ejectionSetting.length<=0){
+        if (ejectionSetting.length <= 0) {
           Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Nxfront()));
-        }else if(ejectionSetting[0]["val"]=="ejection"){
+              context, MaterialPageRoute(builder: (context) => Nxfront()));
+        } else if (ejectionSetting[0]["val"] == "ejection") {
           exit(0);
-        }else if(ejectionSetting[0]["val"]=="fakeerror") {
-          
-        }
+        } else if (ejectionSetting[0]["val"] == "fakeerror") {}
 
         //launch real app
 
-
         //crash app/close app
-
 
         //fake error message
 
-        
-      
-
-
         return;
       },
-      child: speedConfig==null? Container() : Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Nxfront()),
-                    );
-                  },
-                  child: Row(
+      child: speedConfig == null
+          ? Container()
+          : Scaffold(
+              backgroundColor: Colors.white,
+              body: SafeArea(
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
                     children: <Widget>[
-                      Expanded(
-                        child: Container(),
+                      SizedBox(
+                        height: 10,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20, top: 10),
-                        child: Text(
-                          "Close",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Nxfront()),
+                          );
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 20, top: 10),
+                              child: Text(
+                                "Close",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.all(18),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: MediaQuery.of(context).size.height,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 5,
+                                        blurRadius: 7,
+                                        offset: Offset(0, 3),
+                                      )
+                                    ]),
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      height: 35,
+                                      width: MediaQuery.of(context).size.width,
+                                      decoration: BoxDecoration(
+                                          color: Color.fromRGBO(165, 28, 26, 1),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(10),
+                                              topLeft: Radius.circular(10))),
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: <Widget>[
+                                          Positioned(
+                                              left: 10,
+                                              child: MovingText(
+                                                velocity: double.parse(
+                                                    speedConfig['top'][0]
+                                                        ['val']),
+                                                textContent:
+                                                    "$state $ticketTitle",
+                                                isUpper: true,
+                                              ))
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Container(
+                                        alignment: Alignment.center,
+                                        height: 190,
+                                        child: Image.asset(
+                                          currentQR,
+                                          width: 180,
+                                          height: 190,
+                                        )),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.6,
+                                      child: Text(
+                                        "ANY BUSES ACROSS OUR NETWORK",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            letterSpacing: 0.3,
+                                            fontWeight: FontWeight.bold,
+                                            color: Color.fromRGBO(
+                                              110,
+                                              107,
+                                              110,
+                                              1,
+                                            )),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Container(
+                                      height: 200,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 15.5, right: 0, top: 3),
+                                              child: TicketColor(
+                                                speed: double.parse(
+                                                    speedConfig['bottom'][0]
+                                                        ['val']),
+                                                ctx: context,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 60,
+                                            left: 16,
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.81,
+                                              child: Nxsig(
+                                                isRounded: false,
+                                                state: state,
+                                                isBottomRounded: true,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 20, left: 20, top: 10),
+                                      child: Container(
+                                        color: Color.fromRGBO(5, 126, 176, 1),
+                                        height: 60,
+                                        child: Center(
+                                            child: Row(
+                                          children: <Widget>[
+                                            SizedBox(
+                                              width: 15,
+                                            ),
+                                            Icon(
+                                              Icons.launch,
+                                              color: Colors.white.withOpacity(0.7),
+                                              size: 16,
+                                            ),
+                                            SizedBox(
+                                              width: 15,
+                                            ),
+                                            Text(
+                                              "NX Rewards Cashback",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  letterSpacing: 0.3),
+                                            ),
+                                          ],
+                                        )),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                   Container(
+                                     child: Row(
+                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                       children: [
+                                        for(var i=0;i<100;i++)
+                                         Container(
+                                           height: 1,
+                                           width: 1,
+                                           decoration: BoxDecoration(
+                                             borderRadius: BorderRadius.circular(50),
+                                             color: Color.fromRGBO(
+                                                        103, 119, 138, 1)
+                                           ),
+                                         )
+                                       ],
+                                     ),
+                                   ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        InkWell(
+                                          onTap: () {
+                                            ActionOverlay().display(context);
+                                          },
+                                          child: Row(
+                                            children: <Widget>[
+                                              IconButton(
+                                                icon: Icon(Icons.more_horiz,
+                                                    color: Color.fromRGBO(
+                                                        103, 119, 138, 1)),
+                                                onPressed: () {},
+                                              ),
+                                              Text(
+                                                "Actions",
+                                                style: TextStyle(
+                                                    color: Color.fromRGBO(
+                                                        103, 119, 138, 1),
+                                                    fontWeight:
+                                                        FontWeight.w800),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Container(),
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TicketDetail()),
+                                            );
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 17.0),
+                                            child: Row(
+                                              children: <Widget>[
+                                                IconButton(
+                                                  icon: Icon(
+                                                    Icons.format_list_bulleted,
+                                                    color: Color.fromRGBO(
+                                                        103, 119, 138, 1),
+                                                  ),
+                                                  onPressed: () {},
+                                                ),
+                                                Text(
+                                                  "Details",
+                                                  style: TextStyle(
+                                                      color: Color.fromRGBO(
+                                                          103, 119, 138, 1),
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       )
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    child: SingleChildScrollView(
-                                          child: Padding(
-                        padding: const EdgeInsets.all(18),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.3),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 3),
-                                )
-                              ]),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                height: 35,
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(165,28,26,1),
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(10),
-                                        topLeft: Radius.circular(10))),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: <Widget>[
-                                    Positioned(
-                                        left: 10,
-                                        child: MovingText(
-                                          velocity: double.parse(speedConfig['top'][0]['val']),
-                                          textContent: "$state $ticketTitle",
-                                          isUpper: true,
-                                        ))
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Container(
-                                  alignment: Alignment.center,
-                                  height: 190,
-                                  child: Image.asset(
-                                    currentQR,
-                                    width: 180,
-                                    height: 190,
-                                  )),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.6,
-                                child: Text(
-                                  "ANY BUSES ACROSS OUR NETWORK",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      letterSpacing: 0.3,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(
-                                        110,
-                                        107,
-                                        110,
-                                        1,
-                                      )),
-                                ),
-                              ),
-                              SizedBox(height: 2,),
-                              Container(
-                                height: 200,
-                                child: Stack(
-                                  children: <Widget>[
-                                    Positioned(
-                                      top: 0,
-                                      left: 0,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 15.5, right: 0, top: 3),
-                                        child: TicketColor(
-                                          speed: double.parse(speedConfig['bottom'][0]['val']),
-                                          ctx: context,
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 60,
-                                      left: 16,
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width*0.81,
-                                           child:  Nxsig(
-                                            isRounded: false,
-                                            state: state,
-                                            isBottomRounded: true,
-                                          ),
-                                          
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20, left: 20, top: 10),
-                                child: Container(
-                                  color: Color.fromRGBO(5, 126, 176, 1),
-                                  height: 60,
-                                  child: Center(
-                                      child: Row(
-                                    children: <Widget>[
-                                      SizedBox(
-                                        width: 15,
-                                      ),
-                                      Icon(
-                                        Icons.launch,
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                      SizedBox(
-                                        width: 15,
-                                      ),
-                                      Text(
-                                        "NX Rewards Cashback",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                            letterSpacing: 0.3),
-                                      ),
-                                    ],
-                                  )),
-                                ),
-                              ),
-                              Expanded(child: Text("")),
-                              Row(
-                                children: <Widget>[
-                                  InkWell(
-                                    onTap: () {
-                                      ActionOverlay().display(context);
-                                    },
-                                    child: Row(
-                                      children: <Widget>[
-                                        IconButton(
-                                          icon: Icon(Icons.more_horiz),
-                                          onPressed: () {},
-                                        ),
-                                        Text(
-                                          "Actions",
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(103, 119, 138, 1),
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => TicketDetail()),
-                                      );
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 17.0),
-                                      child: Row(
-                                        children: <Widget>[
-                                          IconButton(
-                                            icon: Icon(Icons.format_list_bulleted),
-                                            onPressed: () {},
-                                          ),
-                                          Text(
-                                            "Details",
-                                            style: TextStyle(
-                                                color:
-                                                    Color.fromRGBO(103, 119, 138, 1),
-                                                fontWeight: FontWeight.w500),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
     );
   }
 }
