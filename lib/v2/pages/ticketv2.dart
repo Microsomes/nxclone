@@ -106,8 +106,8 @@ class ActualTicketState extends State<ActualTicket> {
             context, MaterialPageRoute(builder: (context) => Nxfront()));
         }else if(ejectionSetting[0]["val"]=="ejection"){
           exit(0);
-        }else {
-          print(ejectionSetting);
+        }else if(ejectionSetting[0]["val"]=="fakeerror") {
+          
         }
 
         //launch real app
@@ -151,7 +151,7 @@ class ActualTicketState extends State<ActualTicket> {
                         child: Text(
                           "Close",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                       )
                     ],
@@ -182,7 +182,7 @@ class ActualTicketState extends State<ActualTicket> {
                                 height: 35,
                                 width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
-                                    color: Color.fromRGBO(117, 28, 21, 1),
+                                    color: Color.fromRGBO(165,28,26,1),
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         topLeft: Radius.circular(10))),

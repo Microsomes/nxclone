@@ -38,7 +38,7 @@ class NxsigState extends State<Nxsig> {
           Container(
             height: 18,
             decoration: BoxDecoration(
-                color: Color.fromRGBO(140, 36, 40, 1),
+                color: Color.fromRGBO(162,31,41,1),
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(widget.isRounded == true ? 10 : 0),
                   topLeft: Radius.circular(widget.isRounded == true ? 10 : 0),
