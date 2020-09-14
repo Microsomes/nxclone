@@ -32,8 +32,7 @@ class NxsigState extends State<Nxsig> {
               bottomRight:
                   Radius.circular(widget.isBottomRounded == true ? 10 : 0))),
       height: 140,
-      width: MediaQuery.of(context).size.width * 0.785,
-      child: Column(
+       child: Column(
         children: <Widget>[
           Container(
             height: 18,

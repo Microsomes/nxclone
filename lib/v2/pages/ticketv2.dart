@@ -200,7 +200,7 @@ class ActualTicketState extends State<ActualTicket> {
                                 ),
                               ),
                               SizedBox(
-                                height: 4,
+                                height: 15,
                               ),
                               Container(
                                   alignment: Alignment.center,
@@ -211,7 +211,7 @@ class ActualTicketState extends State<ActualTicket> {
                                     height: 190,
                                   )),
                               SizedBox(
-                                height: 3,
+                                height: 15,
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.6,
@@ -223,13 +223,14 @@ class ActualTicketState extends State<ActualTicket> {
                                       letterSpacing: 0.3,
                                       fontWeight: FontWeight.bold,
                                       color: Color.fromRGBO(
-                                        124,
-                                        126,
-                                        136,
+                                        110,
+                                        107,
+                                        110,
                                         1,
                                       )),
                                 ),
                               ),
+                              SizedBox(height: 2,),
                               Container(
                                 height: 200,
                                 child: Stack(
@@ -239,7 +240,7 @@ class ActualTicketState extends State<ActualTicket> {
                                       left: 0,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 20, right: 20, top: 3),
+                                            left: 15.5, right: 0, top: 3),
                                         child: TicketColor(
                                           speed: double.parse(speedConfig['bottom'][0]['val']),
                                           ctx: context,
@@ -248,21 +249,16 @@ class ActualTicketState extends State<ActualTicket> {
                                     ),
                                     Positioned(
                                       top: 60,
-                                      left: 2,
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 18, right: 0),
-                                        child: Container(
-                                            child: Column(
-                                          children: <Widget>[
-                                            Nxsig(
-                                              isRounded: false,
-                                              state: state,
-                                              isBottomRounded: true,
-                                            ),
-                                          ],
-                                        )),
-                                      ),
+                                      left: 16,
+                                      child: Container(
+                                        width: 340,
+                                           child:  Nxsig(
+                                            isRounded: false,
+                                            state: state,
+                                            isBottomRounded: true,
+                                          ),
+                                          
+                                          ),
                                     ),
                                   ],
                                 ),
