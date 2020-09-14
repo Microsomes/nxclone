@@ -187,7 +187,9 @@ class TicketColorState extends State<TicketColor> {
 
     var df = dy;
 
-    var sizemik=3.62;
+    //var sizemik=3.62;
+
+      var sizemik=(MediaQuery.of(context).size.width*0.01) +0.1;
 
     return Container(
         alignment: Alignment.center,

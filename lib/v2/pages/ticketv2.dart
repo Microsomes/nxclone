@@ -251,7 +251,7 @@ class ActualTicketState extends State<ActualTicket> {
                                       top: 60,
                                       left: 16,
                                       child: Container(
-                                        width: 340,
+                                        width: MediaQuery.of(context).size.width*0.81,
                                            child:  Nxsig(
                                             isRounded: false,
                                             state: state,
