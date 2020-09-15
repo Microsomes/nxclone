@@ -9,7 +9,9 @@ class Nxsig extends StatefulWidget {
   
   final String company;
 
-  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded=false,this.company="national express"});
+  final String ticketType;
+
+  Nxsig({@required this.isRounded, @required this.state, this.isBottomRounded=false,this.company="national express",this.ticketType});
 
   @override
   State<StatefulWidget> createState() {

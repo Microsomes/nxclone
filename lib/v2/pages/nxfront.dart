@@ -114,7 +114,7 @@ class NxfrontState extends State<Nxfront> {
                                 style: GoogleFonts.roboto(
                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     fontSize: 18
                                 )
                               ),
@@ -165,7 +165,7 @@ class NxfrontState extends State<Nxfront> {
                                 style: GoogleFonts.roboto(
                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     fontSize: 18
                                 ),
                               ),
@@ -217,7 +217,7 @@ class NxfrontState extends State<Nxfront> {
                                 style: GoogleFonts.roboto(
                                    letterSpacing: _letterSpaceing,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     fontSize: 18
                                 ),
                               ),
@@ -359,7 +359,7 @@ class NxfrontState extends State<Nxfront> {
                                 style: GoogleFonts.roboto(
                                   letterSpacing: _letterSpaceing,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     fontSize: 18
                                 ),
                               ),
@@ -410,7 +410,7 @@ class NxfrontState extends State<Nxfront> {
                                 style: GoogleFonts.roboto(
                                     letterSpacing: _letterSpaceing,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     fontSize: 18
                                 ),
                               ),

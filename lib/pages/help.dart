@@ -8,6 +8,8 @@ import './help/faq.dart';
 
 import 'package:BlackPie/pages/settings.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
 class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -88,10 +90,11 @@ class Stpagestate extends State<Stpage> {
                       ),
                       Text(
                         "App info",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 17),
+                        style: GoogleFonts.roboto(
+                          color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17
+                        ),
                       ),
                       Expanded(
                         child: Text(""),
@@ -141,10 +144,11 @@ class Stpagestate extends State<Stpage> {
                       ),
                       Text(
                         "Customer Service",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 17),
+                        style:  GoogleFonts.roboto(
+                          color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17
+                        ),
                       ),
                       Expanded(
                         child: Text(""),
@@ -190,10 +194,11 @@ class Stpagestate extends State<Stpage> {
                     ),
                     Text(
                       "FAQ",
-                      style: TextStyle(
+                      style:  GoogleFonts.roboto(
                           color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17
+                        ),
                     ),
                     Expanded(
                       child: Text(""),
@@ -238,10 +243,11 @@ class Stpagestate extends State<Stpage> {
                     ),
                     Text(
                       "Terms and conditions",
-                      style: TextStyle(
+                      style: GoogleFonts.roboto(
                           color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17
+                        ),
                     ),
                     Expanded(
                       child: Text(""),
