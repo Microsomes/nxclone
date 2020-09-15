@@ -23,35 +23,49 @@ class ActionOverlay {
                 Expanded(
                     child: ListView(children: <Widget>[
                   ListTile(
-                    leading: Icon(Icons.launch),
+                    leading: Icon(Icons.launch,color: Color.fromRGBO(40, 128, 105, 1),),
                     title: Align(
                         alignment: Alignment(-1.5, 0),
                         child: Text("NX Rewards Cashback",
                         style: GoogleFonts.roboto(
-                          color: Colors.red
+                          color: Color.fromRGBO(44, 115, 148, 1),
+                          fontWeight: FontWeight.bold
                         ),
                         )),
                   ),
                   ListTile(
                     leading: Transform.rotate(
-                        angle: 45 * math.pi / 180, child: Icon(Icons.replay)),
+                        angle: 45 * math.pi / 180, child: Icon(Icons.replay,color: Color.fromRGBO(40, 128, 105, 1),)),
                     title: Align(
                         alignment: Alignment(-1.5, 0),
-                        child: Text("   Purchase Again")),
+                        child: Text("   Purchase Again",
+                        style: GoogleFonts.roboto(
+                          color: Color.fromRGBO(44, 115, 148, 1),
+                          fontWeight: FontWeight.bold
+                        ),
+                        )),
                   ),
                   ListTile(
-                    leading: Icon(Icons.send),
+                    leading: Icon(Icons.send,color: Color.fromRGBO(40, 128, 105, 1),),
                     title: Align(
                         alignment: Alignment(-1.5, 0),
-                        child: Text(" Request ticket receipt")),
+                        child: Text(" Request ticket receipt",
+                        style: GoogleFonts.roboto(
+                          color: Color.fromRGBO(44, 115, 148, 1),
+                          fontWeight: FontWeight.bold
+                        ),
+                        )),
                   ),
                   ListTile(
                     onTap: (){
                                 Navigator.pop(context);
                     },
-                      leading: Icon(Icons.close),
+                      leading: Icon(Icons.close,color: Color.fromRGBO(40, 128, 105, 1),),
                       title: Align(
-                          alignment: Alignment(-1.5, 0), child: Text("       Close")),
+                          alignment: Alignment(-1.5, 0), child: Text("       Close",style: GoogleFonts.roboto(
+                          color: Color.fromRGBO(44, 115, 148, 1),
+                          fontWeight: FontWeight.bold
+                        ),)),
                     )
                 ]))
               ],

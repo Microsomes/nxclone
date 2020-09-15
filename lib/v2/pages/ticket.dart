@@ -42,6 +42,7 @@ class Ticket2State extends State<Ticket2> {
     var state = currentTicket['state'];
     var tickettype = currentTicket['tickettype'];
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: currentTicket != null
             ? Column(
@@ -222,7 +223,8 @@ class Ticket2State extends State<Ticket2> {
                                   child: Row(
                                     children: <Widget>[
                                       IconButton(
-                                        icon: Icon(Icons.more_horiz),
+                                        icon: Icon(Icons.more_horiz,color: Color.fromRGBO(
+                                                103, 119, 138, 1),),
                                         onPressed: () {},
                                       ),
                                       Text(
@@ -252,7 +254,9 @@ class Ticket2State extends State<Ticket2> {
                                       children: <Widget>[
                                         IconButton(
                                           icon:
-                                              Icon(Icons.format_list_bulleted),
+                                              Icon(Icons.format_list_bulleted,
+                                              color: Color.fromRGBO(
+                                                103, 119, 138, 1),),
                                           onPressed: () {},
                                         ),
                                         Text(

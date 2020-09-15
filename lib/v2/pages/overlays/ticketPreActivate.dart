@@ -9,6 +9,7 @@ class TicketOverlayHelper {
         context: context,
         builder: (ctx) {
           return Container(
+            color: Colors.white,
             height: MediaQuery.of(context).size.height * 0.65,
             child: Center(
                 child: Column(
