@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class Nxsig extends StatefulWidget {
   final bool isRounded;
 
@@ -27,7 +27,7 @@ class NxsigState extends State<Nxsig> {
 
     return Container(
       decoration: BoxDecoration(
-          color: widget.ticketType=="Daysaver" ? Color.fromRGBO(208, 112, 146, 0.4) : Color.fromRGBO(248, 233, 226, 1),
+          color: widget.ticketType=="Group Daysaver" ? Color.fromRGBO(208, 112, 146, 0.4) : Color.fromRGBO(248, 233, 226, 1),
           borderRadius: BorderRadius.only(
               bottomLeft:
                   Radius.circular(widget.isBottomRounded == true ? 10 : 0),
@@ -69,7 +69,40 @@ class NxsigState extends State<Nxsig> {
             ),
           ),
           Expanded(
-            child: Row(
+            child: widget.ticketType=="Group Daysaver"?
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(width: 20,),
+                      Text("GROUP",
+                      style: GoogleFonts.oswald(
+                        fontSize: 40,
+                        color: Color.fromRGBO(204, 114, 149, 1)
+                      ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(width: 20,),
+                      Text("up to 5 people or 2 adults + 4 children",
+                      style: GoogleFonts.oswald(
+                        fontSize: 20,
+                        color: Color.fromRGBO(204, 114, 149, 1)
+                      ),
+                      )
+                    ],
+                  )
+                ],
+              )
+            )
+            : Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 SizedBox(

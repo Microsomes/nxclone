@@ -244,7 +244,7 @@ class ActualTicketState extends State<ActualTicket> {
                                     padding:
                                         EdgeInsets.only(left: 20, right: 20,top: 0),
                                     child: Nxsig(
-                                      isRounded: ticketTitle=="Daysaver" ? true : false,
+                                      isRounded: ticketTitle=="Group Daysaver" ? true : false,
                                       state: state,
                                       isBottomRounded: true,
                                       ticketType: ticketTitle,
