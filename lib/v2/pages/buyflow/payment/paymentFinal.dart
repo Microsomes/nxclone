@@ -6,8 +6,7 @@ class PaymentFinal extends StatefulWidget {
   final String selectedState;
   final selectedTicket;
 
-  PaymentFinal({@required this.selectedState, @required this.selectedTicket}) {
-  }
+  PaymentFinal({@required this.selectedState, @required this.selectedTicket});
 
   @override
   State<StatefulWidget> createState() {

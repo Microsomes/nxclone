@@ -36,7 +36,6 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     restoreOption("movingtext_top").then((value) {
         if(value.length >=1){
@@ -57,7 +56,6 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),
@@ -166,8 +164,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
 }
 
 class AnimationOverlay {
-  double _velocity = 50.00;
-
+ 
   void onChangeSliderSpeed(a) {}
 
   void display(BuildContext context) {

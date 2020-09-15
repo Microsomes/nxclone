@@ -18,10 +18,7 @@ class Stpagestate extends State<Stpage> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-
-    List<String> ticketTypes = [
-      "West Midlands",
-    ];
+ 
 
     return Scaffold(
         backgroundColor: Colors.white,

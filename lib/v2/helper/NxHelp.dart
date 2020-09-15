@@ -338,6 +338,7 @@ class NXHelp {
   }
 
   void runInit(){
+    print("running init");
     this.init();
   }
 
@@ -444,10 +445,11 @@ class NXHelp {
           await this.checkTicketByState(element['title'], element['state']);
       if (dup.length == 0) {
         print("no dublicates");
+        //DO NOT COMMENT THIS CODE OITU ITS VERY IMPORTANT
         var id = await this.addTicket(element['title'], element['state'],
             element['price'], element['subtitle']);
         //saves to db
-        var title = element['title'];
+        //var title = element['title'];
       } else {
         //print("duplicates");
       }

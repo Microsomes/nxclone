@@ -149,7 +149,7 @@ class TicketColorState extends State<TicketColor> {
             opt1 = col;
           });
         }
-        var cid = await NXHelp().saveConfig("opt1col", col.toString());
+       // var cid = await NXHelp().saveConfig("opt1col", col.toString());
 
         break;
       case 2:
@@ -158,7 +158,7 @@ class TicketColorState extends State<TicketColor> {
             opt2 = col;
           });
         }
-        var cid = await NXHelp().saveConfig("opt2col", col.toString());
+       // var cid = await NXHelp().saveConfig("opt2col", col.toString());
         break;
       case 3:
         if (this.mounted) {
@@ -166,7 +166,7 @@ class TicketColorState extends State<TicketColor> {
             opt3 = col;
           });
         }
-        var cid = await NXHelp().saveConfig("opt3col", col.toString());
+       // var cid = await NXHelp().saveConfig("opt3col", col.toString());
         break;
     }
   }
@@ -179,7 +179,7 @@ class TicketColorState extends State<TicketColor> {
 
     //var sizemik=3.62;
 
-    var sizemik = (MediaQuery.of(context).size.width * 0.01) + 0.1;
+    //var sizemik = (MediaQuery.of(context).size.width * 0.01) + 0.1;
 
     return Container(
         alignment: Alignment.center,

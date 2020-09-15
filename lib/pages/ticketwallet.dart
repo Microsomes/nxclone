@@ -27,8 +27,7 @@ class Stpagestate extends State<Ticketwallet> {
     });
 
     NXHelp().getAllUseableTickets().then((value) {
-      var totalT = value.length;
-      allUnactivatdTickets = value;
+       allUnactivatdTickets = value;
       setState(() {});
     });
   }
