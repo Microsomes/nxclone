@@ -14,9 +14,17 @@ class Ticketwallet extends StatefulWidget {
 class Stpagestate extends State<Ticketwallet> {
   List allUnactivatdTickets;
 
+  List allHistoricalTickets;
+
   Stpagestate() {
     //grabbs all unused tickets
     allUnactivatdTickets = List();
+    allHistoricalTickets=List();
+
+    NXHelp().getAllAvailableToPurchaseTickets().then((value){
+       allHistoricalTickets = value;
+      setState(() {});
+    });
 
     NXHelp().getAllUseableTickets().then((value) {
       var totalT = value.length;
@@ -61,7 +69,47 @@ class Stpagestate extends State<Ticketwallet> {
                 color: Color.fromRGBO(127, 26, 25, 1),
                 size: 30,
               ),
-              onPressed: () {},
+              onPressed: () async {
+                NXHelp().runScan().then((value) async {
+                  var total = value.length;
+
+                  Map<String, int> ticketTotals = new Map<String, int>();
+
+                  //run a fuking loop
+                  for (var i = 0; i < total; i++) {
+                    var cur = value[i];
+                    var tid=cur["id"];
+                    var state = cur["state"];
+                    var type = cur["tickettype"];
+                    print(state);
+                    print(type);
+
+                    if (ticketTotals[state + "-" + type] == null) {
+                      ticketTotals[state + "-" + type] = 1;
+                    }else{
+                      ticketTotals[state+"-"+type]++;
+                    }
+
+                    var expires = int.parse(cur['expires']) + (60 * 60 * 24);
+                    var curTime = DateTime.now().millisecondsSinceEpoch;
+                    if (curTime < expires) {
+                      print("ticket has expired");
+                    } else {
+                      print("ticket sill active");
+
+                      //even though its active we need to check of multiples of these exist
+                      if(ticketTotals[state+"-"+type]>=1){
+                        print("to remove");
+                        var a= await NXHelp().expireTicket(tid);
+                        print(a);
+                      }
+
+                    }
+                  }
+
+                  print(ticketTotals);
+                });
+              },
             )
           ],
         ),
@@ -81,7 +129,9 @@ class Stpagestate extends State<Ticketwallet> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            _pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.bounceIn);
+                            _pageController.animateToPage(0,
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeIn);
                             setState(() {
                               isTickets = true;
                             });
@@ -107,9 +157,11 @@ class Stpagestate extends State<Ticketwallet> {
                         ),
                         InkWell(
                           onTap: () {
-                          _pageController.animateToPage(1, duration: Duration(seconds: 1), curve: Curves.bounceIn);
+                            _pageController.animateToPage(1,
+                                duration: Duration(seconds: 1),
+                                curve: Curves.bounceIn);
                             setState(() {
-                            isTickets = false;                              
+                              isTickets = false;
                             });
                           },
                           child: Container(
@@ -159,14 +211,14 @@ class Stpagestate extends State<Ticketwallet> {
                   Expanded(
                     child: PageView(
                       controller: _pageController,
-                      onPageChanged: (i){
-                        if(i==0){
+                      onPageChanged: (i) {
+                        if (i == 0) {
                           setState(() {
-                            isTickets=true;
+                            isTickets = true;
                           });
-                        }else{
+                        } else {
                           setState(() {
-                            isTickets=false;
+                            isTickets = false;
                           });
                         }
                       },
@@ -230,9 +282,9 @@ class Stpagestate extends State<Ticketwallet> {
                         ),
                         Expanded(
                           child: ListView.builder(
-                              itemCount: allUnactivatdTickets.length,
+                              itemCount: allHistoricalTickets.length,
                               itemBuilder: (context, index) {
-                                if (allUnactivatdTickets[index]['isActive'] ==
+                                if (allHistoricalTickets[index]['isActive'] ==
                                     -1) {
                                 } else {
                                   return InkWell(
@@ -242,7 +294,7 @@ class Stpagestate extends State<Ticketwallet> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   ActualTicket(
-                                                    txid: allUnactivatdTickets[
+                                                    txid: allHistoricalTickets[
                                                         index]['id'],
                                                   )));
                                     },
@@ -255,14 +307,14 @@ class Stpagestate extends State<Ticketwallet> {
                                             MediaQuery.of(context).size.width *
                                                 0.92,
                                         child: TicketTwo(
-                                          state: allUnactivatdTickets[index]
+                                          state: allHistoricalTickets[index]
                                               ['state'],
                                           tickettype:
-                                              allUnactivatdTickets[index]
+                                              allHistoricalTickets[index]
                                                   ['tickettype'],
-                                          id: allUnactivatdTickets[index]['id'],
+                                          id: allHistoricalTickets[index]['id'],
                                           whenActivated:
-                                              allUnactivatdTickets[index]
+                                              allHistoricalTickets[index]
                                                   ['activationExpiry'],
                                         ),
                                       ),
@@ -274,12 +326,12 @@ class Stpagestate extends State<Ticketwallet> {
                                       left: 12, right: 12, top: 12),
                                   child: SingleInactiveTicket(
                                     sizeW: sizeW,
-                                    ticketType: allUnactivatdTickets[index]
+                                    ticketType: allHistoricalTickets[index]
                                         ['tickettype'],
-                                    state: allUnactivatdTickets[index]['state'],
-                                    txdbid: allUnactivatdTickets[index]['id'],
+                                    state: allHistoricalTickets[index]['state'],
+                                    txdbid: allHistoricalTickets[index]['id'],
                                     ticketExpiryDate:
-                                        allUnactivatdTickets[index]
+                                        allHistoricalTickets[index]
                                             ['ticketExpiry'],
                                   ),
                                 );

@@ -341,7 +341,9 @@ class ActualTicketState extends State<ActualTicket> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    TicketDetail()),
+                                                    TicketDetail(
+                                                      txid: widget.txid,
+                                                    )),
                                           );
                                         },
                                         child: Padding(

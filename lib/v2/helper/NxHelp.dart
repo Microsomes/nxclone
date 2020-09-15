@@ -341,6 +341,11 @@ class NXHelp {
     this.init();
   }
 
+  Future runScan() async {
+    var allTick= await this.getAllUseableTickets();
+    return allTick;
+  }
+
   Future checkIfDisclaimerHasBeenAccepted() async {
     var hasAccepted = await this.loadConfig("disclaimer_accepted", 1);
     if (hasAccepted.length <= 0) {
@@ -532,6 +537,74 @@ class NXHelp {
     List<Map> list = await db.rawQuery("SELECT * FROM tickets");
     return list;
   }
+
+
+
+  //returns ticket by id
+  Future getInfoOnTicketById(int id) async {
+    var db= await openDatabase("main.db");
+    var details= await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?",[id]);
+    return details;
+  }
+
+  //method will cause expiry to the ticket
+  Future expireTicket(int id) async {
+    print("expires ticket");
+    var db= await openDatabase("main.db");
+    var status= await db.rawUpdate("UPDATE ticketwallet SET isActive=? WHERE id=?",[2,id]);
+    print(status);
+    return status;
+  }
+
+
+
+ //returns all historical tickets
+  Future getAllHistoricalTickets() async {
+    var db = await openDatabase("main.db");
+
+    List<Map> modifiedList = List<Map>();
+
+    List<Map> list = await db.rawQuery(
+        "SELECT * FROM ticketwallet WHERE isActive=2  ORDER BY isActive DESC, expires DESC");
+
+    list.forEach((curTicket) {
+      Map toCur = Map();
+      curTicket.forEach((key, value) {
+        toCur[key] = value;
+      });
+      //when ticket is activated this is the expiry date
+      if (curTicket['isActive'] == -1) {
+        //calculate the preactivation expiiry
+        var ticketPurchased = curTicket['expires'];
+        //the date the ticket was purchased
+        var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
+        var expiriesIn = ticketMeta['expires'] / 24;
+        expiriesIn = expiriesIn.toInt();
+        var date = new DateTime.fromMicrosecondsSinceEpoch(
+            int.parse(ticketPurchased) * 1000);
+        var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
+        var newFormat = DateFormat("dd/MM/yyyy HH:MM");
+        String updatedDt = newFormat.format(dateOfExpiry);
+        toCur['ticketExpiry'] = updatedDt;
+        //time before ticket expires when unactivated
+      } else if (curTicket['isActive'] == 1) {
+        var ticketPurchased = curTicket['expires'];
+        var ticketMeta = returnTicketExpiryInfo(curTicket['tickettype']);
+        var expiriesIn = ticketMeta['activationExpiry'];
+        expiriesIn = expiriesIn.toInt();
+        var date = new DateTime.fromMicrosecondsSinceEpoch(
+            int.parse(ticketPurchased) * 1000);
+        var dateOfExpiry = date.add(Duration(minutes: expiriesIn));
+        var newFormat = DateFormat("dd/MM/yyyy HH:MM");
+        String updatedDt = newFormat.format(dateOfExpiry);
+        toCur['activationExpiry'] = updatedDt;
+      }
+      modifiedList.add(toCur);
+    });
+
+    return modifiedList;
+  }
+
 
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
