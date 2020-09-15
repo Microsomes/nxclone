@@ -27,7 +27,7 @@ class NxsigState extends State<Nxsig> {
 
     return Container(
       decoration: BoxDecoration(
-          color: Color.fromRGBO(248, 233, 226, 1),
+          color: widget.ticketType=="Daysaver" ? Color.fromRGBO(208, 112, 146, 0.4) : Color.fromRGBO(248, 233, 226, 1),
           borderRadius: BorderRadius.only(
               bottomLeft:
                   Radius.circular(widget.isBottomRounded == true ? 10 : 0),
