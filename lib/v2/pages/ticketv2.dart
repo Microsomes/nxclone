@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/components/nxsig.dart';
 import 'package:BlackPie/v2/components/ticketColor.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
@@ -11,8 +10,7 @@ import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:BlackPie/v2/pages/overlays/ticketDetail.dart';
 import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+ 
 class ActualTicket extends StatefulWidget {
   final int txid;
 

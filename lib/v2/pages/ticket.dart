@@ -245,7 +245,9 @@ class Ticket2State extends State<Ticket2> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => TicketDetail()),
+                                          builder: (context) => TicketDetail(
+                                            txid: widget.txdbid,
+                                          )),
                                     );
                                   },
                                   child: Padding(
