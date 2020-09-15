@@ -74,8 +74,8 @@ class ActualTicketState extends State<ActualTicket> {
       print(widget.txid);
 
       setState(() {
-        state = ticket[0]['state'];
-        ticketTitle = ticket[0]['tickettype'];
+        state = ticket["list"][0]['state'];
+        ticketTitle = ticket["list"][0]['tickettype'];
         print(state);
         print(ticketTitle);
       });

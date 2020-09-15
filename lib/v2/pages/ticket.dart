@@ -31,7 +31,7 @@ class Ticket2State extends State<Ticket2> {
         throw ("invalid ticket");
       } else {
         setState(() {
-          currentTicket = ticket[0];
+          currentTicket = ticket["list"][0];
         });
       }
     });
