@@ -8,14 +8,15 @@ class PaymentConfirmed extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-         Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Nxfront()),
-                    );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Nxfront()),
+        );
 
-                    return;
+        return;
       },
-          child: Scaffold(
+      child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: InkWell(
@@ -72,13 +73,14 @@ class PaymentConfirmed extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                       // Navigator.pushAndRemoveUntil(
+                      // Navigator.pushAndRemoveUntil(
                       //       context,
                       //       MaterialPageRoute(
                       //           builder: (context) => Ticketwallet()),
                       //     );
                       Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => Ticketwallet()),
+                          MaterialPageRoute(
+                              builder: (context) => Ticketwallet()),
                           (Route<dynamic> route) => true);
                     },
                     child: Padding(
@@ -121,7 +123,8 @@ class PaymentConfirmed extends StatelessWidget {
                       }
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20, top: 0),
+                      padding:
+                          const EdgeInsets.only(left: 20, right: 20, top: 0),
                       child: Container(
                         alignment: Alignment.center,
                         width: 380,
