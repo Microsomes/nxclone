@@ -73,7 +73,7 @@ class NxfrontState extends State<Nxfront> {
                   Expanded(
                       child: SingleChildScrollView(
                     child: Container(
-                      width: MediaQuery.of(context).size.width*0.95,
+                      width: MediaQuery.of(context).size.width * 0.95,
                       color: Colors.transparent,
                       child: Column(
                         children: [

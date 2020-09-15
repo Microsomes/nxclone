@@ -24,14 +24,19 @@ class Stpagestate extends State<Ticketwallet> {
       setState(() {});
     });
   }
+  bool isTickets = true;
+
+  PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
 
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-
-  
-
-    bool isTickets = true;
 
     return Scaffold(
         appBar: AppBar(
@@ -76,6 +81,7 @@ class Stpagestate extends State<Ticketwallet> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
+                            _pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.bounceIn);
                             setState(() {
                               isTickets = true;
                             });
@@ -101,9 +107,10 @@ class Stpagestate extends State<Ticketwallet> {
                         ),
                         InkWell(
                           onTap: () {
+                          _pageController.animateToPage(1, duration: Duration(seconds: 1), curve: Curves.bounceIn);
                             setState(() {
-                              isTickets = false;
-                             });
+                            isTickets = false;                              
+                            });
                           },
                           child: Container(
                             child: Center(
@@ -148,56 +155,139 @@ class Stpagestate extends State<Ticketwallet> {
                   SizedBox(
                     height: 1,
                   ),
+
                   Expanded(
-                    child: ListView.builder(
-                        itemCount: allUnactivatdTickets.length,
-                        itemBuilder: (context, index) {
-                          if (allUnactivatdTickets[index]['isActive'] == -1) {
-                          } else {
-                            return InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ActualTicket(
-                                              txid: allUnactivatdTickets[index]
-                                                  ['id'],
-                                            )));
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 12, right: 12, top: 12),
-                                child: Container(
-                                  height: 110,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.92,
-                                  child: TicketTwo(
-                                    state: allUnactivatdTickets[index]['state'],
-                                    tickettype: allUnactivatdTickets[index]
+                    child: PageView(
+                      controller: _pageController,
+                      onPageChanged: (i){
+                        if(i==0){
+                          setState(() {
+                            isTickets=true;
+                          });
+                        }else{
+                          setState(() {
+                            isTickets=false;
+                          });
+                        }
+                      },
+                      children: [
+                        Expanded(
+                          child: ListView.builder(
+                              itemCount: allUnactivatdTickets.length,
+                              itemBuilder: (context, index) {
+                                if (allUnactivatdTickets[index]['isActive'] ==
+                                    -1) {
+                                } else {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ActualTicket(
+                                                    txid: allUnactivatdTickets[
+                                                        index]['id'],
+                                                  )));
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 12, right: 12, top: 12),
+                                      child: Container(
+                                        height: 110,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.92,
+                                        child: TicketTwo(
+                                          state: allUnactivatdTickets[index]
+                                              ['state'],
+                                          tickettype:
+                                              allUnactivatdTickets[index]
+                                                  ['tickettype'],
+                                          id: allUnactivatdTickets[index]['id'],
+                                          whenActivated:
+                                              allUnactivatdTickets[index]
+                                                  ['activationExpiry'],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                return Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12, right: 12, top: 12),
+                                  child: SingleInactiveTicket(
+                                    sizeW: sizeW,
+                                    ticketType: allUnactivatdTickets[index]
                                         ['tickettype'],
-                                    id: allUnactivatdTickets[index]['id'],
-                                    whenActivated: allUnactivatdTickets[index]
-                                        ['activationExpiry'],
+                                    state: allUnactivatdTickets[index]['state'],
+                                    txdbid: allUnactivatdTickets[index]['id'],
+                                    ticketExpiryDate:
+                                        allUnactivatdTickets[index]
+                                            ['ticketExpiry'],
                                   ),
-                                ),
-                              ),
-                            );
-                          }
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 12, right: 12, top: 12),
-                            child: SingleInactiveTicket(
-                              sizeW: sizeW,
-                              ticketType: allUnactivatdTickets[index]
-                                  ['tickettype'],
-                              state: allUnactivatdTickets[index]['state'],
-                              txdbid: allUnactivatdTickets[index]['id'],
-                              ticketExpiryDate: allUnactivatdTickets[index]
-                                  ['ticketExpiry'],
-                            ),
-                          );
-                        }),
-                  ),
+                                );
+                              }),
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                              itemCount: allUnactivatdTickets.length,
+                              itemBuilder: (context, index) {
+                                if (allUnactivatdTickets[index]['isActive'] ==
+                                    -1) {
+                                } else {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ActualTicket(
+                                                    txid: allUnactivatdTickets[
+                                                        index]['id'],
+                                                  )));
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 12, right: 12, top: 12),
+                                      child: Container(
+                                        height: 110,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.92,
+                                        child: TicketTwo(
+                                          state: allUnactivatdTickets[index]
+                                              ['state'],
+                                          tickettype:
+                                              allUnactivatdTickets[index]
+                                                  ['tickettype'],
+                                          id: allUnactivatdTickets[index]['id'],
+                                          whenActivated:
+                                              allUnactivatdTickets[index]
+                                                  ['activationExpiry'],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                return Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12, right: 12, top: 12),
+                                  child: SingleInactiveTicket(
+                                    sizeW: sizeW,
+                                    ticketType: allUnactivatdTickets[index]
+                                        ['tickettype'],
+                                    state: allUnactivatdTickets[index]['state'],
+                                    txdbid: allUnactivatdTickets[index]['id'],
+                                    ticketExpiryDate:
+                                        allUnactivatdTickets[index]
+                                            ['ticketExpiry'],
+                                  ),
+                                );
+                              }),
+                        ),
+                      ],
+                    ),
+                  )
                 ]),
               )
             : CircularProgressIndicator());
