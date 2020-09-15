@@ -31,7 +31,9 @@ class TicketDetailState extends State<TicketDetail> {
                   }
 
                   if (snapshot.hasData) {
-                    var data = snapshot.data[0];
+                    var data = snapshot.data["list"][0];
+
+                    var price=snapshot.data["price"];
 
                     var purchaseDate = data["purchaseddate"];
 
@@ -235,7 +237,7 @@ class TicketDetailState extends State<TicketDetail> {
                                                   children: <Widget>[
                                                     Expanded(
                                                       child: Text(
-                                                        "£4.00",
+                                                        "£$price",
                                                         style: TextStyle(
                                                             color:
                                                                 Color.fromRGBO(

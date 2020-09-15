@@ -658,7 +658,20 @@ class NXHelp {
     var db = await openDatabase("main.db");
     List<Map> list =
         await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?", [id]);
-    return list;
+    if(list.length>=1){
+      //lets try and grab the price too;
+      var state= list[0]["state"];
+      var tickettype= list[0]["tickettype"];
+      print(state);
+      print(tickettype);
+      var allTickets= await db.rawQuery("SELECT * FROM tickets WHERE tickettitle=?",[tickettype]);
+      Map<String,dynamic> toreturn= new Map<String,dynamic>();
+      toreturn["list"]=list;
+      if(allTickets.length>=1){
+        toreturn["price"]=allTickets[0]["price"];
+      }
+      return toreturn;
+    }
   }
 
   //activates ticket by id
