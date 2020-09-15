@@ -27,7 +27,7 @@ class NxfrontState extends State<Nxfront> {
   String state = "";
   String tickettype = "";
 
-  final double _letterSpaceing=0.8;
+  final double _letterSpaceing = 0.8;
 
   @override
   void initState() {
@@ -72,362 +72,367 @@ class NxfrontState extends State<Nxfront> {
                       )),
                   Expanded(
                       child: SingleChildScrollView(
-                                              child: Column(
-                    children: [
-                        SizedBox(
-                          height: 15,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SelectTicket()),
-                            );
-                          },
-                          focusColor: Colors.red,
-                          highlightColor: Colors.pink,
-                          child: Container(
-                            width: 380,
-                            height: heightOf,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(215, 216, 218, 1),
-                                      offset: new Offset(0, 3))
-                                ]),
-                            child: Row(children: <Widget>[
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image.asset(
-                                "images/busicon.png",
-                                width: 50,
-                              ),
-                              SizedBox(
-                                width: 6,
-                              ),
-                              Text(
-                                "Buy tickets",
-                                style: GoogleFonts.roboto(
-                                  letterSpacing: _letterSpaceing,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18
+                    child: Container(
+                      width: MediaQuery.of(context).size.width*0.95,
+                      color: Colors.transparent,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 15,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SelectTicket()),
+                              );
+                            },
+                            focusColor: Colors.red,
+                            highlightColor: Colors.pink,
+                            child: Container(
+                              width: 380,
+                              height: heightOf,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromRGBO(215, 216, 218, 1),
+                                        offset: new Offset(0, 3))
+                                  ]),
+                              child: Row(children: <Widget>[
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Image.asset(
+                                  "images/busicon.png",
+                                  width: 50,
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Text("Buy tickets",
+                                    style: GoogleFonts.roboto(
+                                        letterSpacing: _letterSpaceing,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18)),
+                                Expanded(
+                                  child: Text(""),
+                                ),
+                                Image.asset("images/rightarrow.png", width: 35),
+                                SizedBox(
+                                  width: 4,
                                 )
-                              ),
-                              Expanded(
-                                child: Text(""),
-                              ),
-                              Image.asset("images/rightarrow.png", width: 35),
-                              SizedBox(
-                                width: 4,
-                              )
-                            ]),
+                              ]),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: spaceApart,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Offers()),
-                            );
-                          },
-                          child: Container(
-                            width: 380,
-                            height: heightOf,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(215, 216, 218, 1),
-                                      offset: new Offset(0, 3))
-                                ]),
-                            child: Row(children: <Widget>[
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image.asset(
-                                "images/offers.png",
-                                width: 50,
-                              ),
-                              SizedBox(
-                                width: 6,
-                              ),
-                              Text(
-                                "Offers",
-                                style: GoogleFonts.roboto(
-                                  letterSpacing: _letterSpaceing,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18
+                          SizedBox(
+                            height: spaceApart,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Offers()),
+                              );
+                            },
+                            child: Container(
+                              width: 380,
+                              height: heightOf,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromRGBO(215, 216, 218, 1),
+                                        offset: new Offset(0, 3))
+                                  ]),
+                              child: Row(children: <Widget>[
+                                SizedBox(
+                                  width: 10,
                                 ),
-                              ),
-                              Expanded(
-                                child: Text(""),
-                              ),
-                              Image.asset("images/rightarrow.png", width: 35),
-                              SizedBox(
-                                width: 4,
-                              )
-                            ]),
-                          ),
-                        ),
-                        SizedBox(
-                          height: spaceApart,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Ticketwallet()),
-                            );
-                          },
-                          child: Container(
-                            width: 370,
-                            height: heightOf,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(215, 216, 218, 1),
-                                      offset: new Offset(0, 3))
-                                ]),
-                            child: Row(children: <Widget>[
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image.asset(
-                                "images/wallet.png",
-                                width: 50,
-                              ),
-                              SizedBox(
-                                width: 1,
-                              ),
-                              Text(
-                                "Ticket wallet",
-                                style: GoogleFonts.roboto(
-                                   letterSpacing: _letterSpaceing,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18
+                                Image.asset(
+                                  "images/offers.png",
+                                  width: 50,
                                 ),
-                              ),
-                              Expanded(
-                                child: Text(""),
-                              ),
-                              Image.asset("images/rightarrow.png", width: 35),
-                              SizedBox(
-                                width: 4,
-                              )
-                            ]),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Text(
+                                  "Offers",
+                                  style: GoogleFonts.roboto(
+                                      letterSpacing: _letterSpaceing,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                Expanded(
+                                  child: Text(""),
+                                ),
+                                Image.asset("images/rightarrow.png", width: 35),
+                                SizedBox(
+                                  width: 4,
+                                )
+                              ]),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Container(
-                          height: 189,
-                          width: sizeW * 0.96,
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(123, 26, 17, 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            children: <Widget>[
-                              SizedBox(
-                                height: 14,
-                              ),
-                              InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Ticket2(
-                                                  txdbid: 0,
-                                                )));
-                                  },
+                          SizedBox(
+                            height: spaceApart,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Ticketwallet()),
+                              );
+                            },
+                            child: Container(
+                              width: 370,
+                              height: heightOf,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromRGBO(215, 216, 218, 1),
+                                        offset: new Offset(0, 3))
+                                  ]),
+                              child: Row(children: <Widget>[
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Image.asset(
+                                  "images/wallet.png",
+                                  width: 50,
+                                ),
+                                SizedBox(
+                                  width: 1,
+                                ),
+                                Text(
+                                  "Ticket wallet",
+                                  style: GoogleFonts.roboto(
+                                      letterSpacing: _letterSpaceing,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                Expanded(
+                                  child: Text(""),
+                                ),
+                                Image.asset("images/rightarrow.png", width: 35),
+                                SizedBox(
+                                  width: 4,
+                                )
+                              ]),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Container(
+                            height: 189,
+                            width: sizeW * 0.96,
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(123, 26, 17, 1),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Column(
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 14,
+                                ),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Ticket2(
+                                                    txdbid: 0,
+                                                  )));
+                                    },
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ActualTicket(
+                                                        txid:
+                                                            defaultTicketid)));
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 12, right: 12, top: 3),
+                                        child: Container(
+                                          height: 123,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.92,
+                                          child: TicketTwo(
+                                            state: state,
+                                            tickettype: tickettype,
+                                            id: defaultTicketid,
+                                            whenActivated:
+                                                "Expires in 12 hours, 54 minutes",
+                                          ),
+                                        ),
+                                      ),
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 17),
                                   child: InkWell(
                                     onTap: () {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => ActualTicket(
-                                                  txid: defaultTicketid)));
+                                              builder: (context) =>
+                                                  Ticketwallet()));
+                                      //Ticketwallet
                                     },
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 12, right: 12, top: 3),
-                                      child: Container(
-                                        height: 123,
-                                        width: MediaQuery.of(context).size.width *
-                                            0.92,
-                                        child: TicketTwo(
-                                          state: state,
-                                          tickettype: tickettype,
-                                          id: defaultTicketid,
-                                          whenActivated:
-                                              "Expires in 12 hours, 54 minutes",
-                                        ),
-                                      ),
-                                    ),
-                                  )),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 17),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                Ticketwallet()));
-                                    //Ticketwallet
-                                  },
-                                  child: Container(
-                                      alignment: Alignment.bottomRight,
-                                      width: sizeW,
-                                      height: 17,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: <Widget>[
-                                          Text(
-                                            "MORE TICKETS",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 17,
-                                                color: Colors.white),
-                                          ),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Image.asset(
-                                            "images/rightwhite.png",
-                                            width: 15,
-                                          ),
-                                          SizedBox(
-                                            width: 12,
-                                          )
-                                        ],
-                                      )),
+                                    child: Container(
+                                        alignment: Alignment.bottomRight,
+                                        width: sizeW,
+                                        height: 17,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: <Widget>[
+                                            Text(
+                                              "MORE TICKETS",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 17,
+                                                  color: Colors.white),
+                                            ),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Image.asset(
+                                              "images/rightwhite.png",
+                                              width: 15,
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            )
+                                          ],
+                                        )),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: spaceApart,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Triptools()),
-                            );
-                          },
-                          child: Container(
-                            width: 380,
-                            height: heightOf,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(215, 216, 218, 1),
-                                      offset: new Offset(0, 3))
-                                ]),
-                            child: Row(children: <Widget>[
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image.asset(
-                                "images/triptool.png",
-                                width: 50,
-                              ),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text(
-                                "Trip tools",
-                                style: GoogleFonts.roboto(
-                                  letterSpacing: _letterSpaceing,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18
+                          SizedBox(
+                            height: spaceApart,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Triptools()),
+                              );
+                            },
+                            child: Container(
+                              width: 380,
+                              height: heightOf,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromRGBO(215, 216, 218, 1),
+                                        offset: new Offset(0, 3))
+                                  ]),
+                              child: Row(children: <Widget>[
+                                SizedBox(
+                                  width: 10,
                                 ),
-                              ),
-                              Expanded(
-                                child: Text(""),
-                              ),
-                              Image.asset("images/rightarrow.png", width: 35),
-                              SizedBox(
-                                width: 4,
-                              )
-                            ]),
-                          ),
-                        ),
-                        SizedBox(
-                          height: spaceApart,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Help()),
-                            );
-                          },
-                          child: Container(
-                            width: 380,
-                            height: heightOf,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(215, 216, 218, 1),
-                                      offset: new Offset(0, 3))
-                                ]),
-                            child: Row(children: <Widget>[
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image.asset(
-                                "images/ottom.png",
-                                width: 50,
-                              ),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text(
-                                "Help",
-                                style: GoogleFonts.roboto(
-                                    letterSpacing: _letterSpaceing,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18
+                                Image.asset(
+                                  "images/triptool.png",
+                                  width: 50,
                                 ),
-                              ),
-                              Expanded(
-                                child: Text(""),
-                              ),
-                              Image.asset("images/rightarrow.png", width: 35),
-                              SizedBox(
-                                width: 4,
-                              )
-                            ]),
+                                SizedBox(
+                                  width: 2,
+                                ),
+                                Text(
+                                  "Trip tools",
+                                  style: GoogleFonts.roboto(
+                                      letterSpacing: _letterSpaceing,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                Expanded(
+                                  child: Text(""),
+                                ),
+                                Image.asset("images/rightarrow.png", width: 35),
+                                SizedBox(
+                                  width: 4,
+                                )
+                              ]),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 300,)
-                    ],
-                  ),
-                      )),
+                          SizedBox(
+                            height: spaceApart,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Help()),
+                              );
+                            },
+                            child: Container(
+                              width: 380,
+                              height: heightOf,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromRGBO(215, 216, 218, 1),
+                                        offset: new Offset(0, 3))
+                                  ]),
+                              child: Row(children: <Widget>[
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Image.asset(
+                                  "images/ottom.png",
+                                  width: 50,
+                                ),
+                                SizedBox(
+                                  width: 2,
+                                ),
+                                Text(
+                                  "Help",
+                                  style: GoogleFonts.roboto(
+                                      letterSpacing: _letterSpaceing,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
+                                ),
+                                Expanded(
+                                  child: Text(""),
+                                ),
+                                Image.asset("images/rightarrow.png", width: 35),
+                                SizedBox(
+                                  width: 4,
+                                )
+                              ]),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 300,
+                          )
+                        ],
+                      ),
+                    ),
+                  )),
                 ],
               ))),
     );

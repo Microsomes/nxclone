@@ -306,7 +306,7 @@ class ActualTicketState extends State<ActualTicket> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 15,
+                                    height: 3,
                                   ),
                                   Row(
                                     children: <Widget>[
@@ -371,7 +371,6 @@ class ActualTicketState extends State<ActualTicket> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: 10,)
                                 ],
                               ),
                             ),
