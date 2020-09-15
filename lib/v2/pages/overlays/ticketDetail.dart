@@ -37,8 +37,13 @@ class TicketDetailState extends State<TicketDetail> {
 
                     var purdate = DateTime.parse(purchaseDate);
 
+                    var expirydate = purdate.add(Duration(days: 1));
+
                     var purchasedDateFormat = DateFormat("dd MMM yyyy HH:MM")
                         .format(purdate); // Apr 8, 2020
+
+                    var expiredDate =
+                        DateFormat("dd MMM yyyy HH:MM").format(expirydate);
 
                     var tickettpe = data["state"] + " " + data["tickettype"];
 
@@ -124,7 +129,7 @@ class TicketDetailState extends State<TicketDetail> {
                                                       CrossAxisAlignment.start,
                                                   children: <Widget>[
                                                     Text(
-                                                      "16 Oct 2020 23:59 ",
+                                                      "$expiredDate",
                                                       style: TextStyle(
                                                           color: Color.fromRGBO(
                                                               61, 61, 61, 1),
