@@ -32,6 +32,7 @@ class PaymentFinalState extends State<PaymentFinal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: InkWell(
