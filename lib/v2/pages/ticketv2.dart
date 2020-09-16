@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/components/nxsig.dart';
 import 'package:BlackPie/v2/components/ticketColor.dart';
 import 'package:BlackPie/v2/pages/nxfront.dart';
@@ -10,7 +10,8 @@ import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:BlackPie/v2/pages/overlays/ticketDetail.dart';
 import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
- 
+import 'package:launch_review/launch_review.dart';
+
 class ActualTicket extends StatefulWidget {
   final int txid;
 
@@ -103,9 +104,15 @@ class ActualTicketState extends State<ActualTicket> {
         if (ejectionSetting.length <= 0) {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Nxfront()));
-        } else if (ejectionSetting[0]["val"] == "ejection") {
+        } else if (ejectionSetting[0]["val"] == "crash") {
+          print("crash");
           exit(0);
-        } else if (ejectionSetting[0]["val"] == "fakeerror") {}
+        } else if (ejectionSetting[0]["val"] == "fakeerror") {
+          print("fake error");
+          exit(0);
+        } else if (ejectionSetting[0]["val"] == "launchapp") {
+          LaunchReview.launch(androidAppId: "com.justride.nxwm");
+        }
 
         //launch real app
 
@@ -230,8 +237,8 @@ class ActualTicketState extends State<ActualTicket> {
                                     height: 15,
                                   ),
                                   Container(
-                                    padding:
-                                        EdgeInsets.only(left: 20, right: 20,bottom: 0),
+                                    padding: EdgeInsets.only(
+                                        left: 20, right: 20, bottom: 0),
                                     child: TicketColor(
                                       speed: double.parse(
                                           speedConfig['bottom'][0]['val']),
@@ -239,10 +246,12 @@ class ActualTicketState extends State<ActualTicket> {
                                     ),
                                   ),
                                   Container(
-                                    padding:
-                                        EdgeInsets.only(left: 20, right: 20,top: 0),
+                                    padding: EdgeInsets.only(
+                                        left: 20, right: 20, top: 0),
                                     child: Nxsig(
-                                      isRounded: ticketTitle=="Group Daysaver" ? true : false,
+                                      isRounded: ticketTitle == "Group Daysaver"
+                                          ? true
+                                          : false,
                                       state: state,
                                       isBottomRounded: true,
                                       ticketType: ticketTitle,
@@ -281,7 +290,9 @@ class ActualTicketState extends State<ActualTicket> {
                                       )),
                                     ),
                                   ),
-                                  Expanded(child: Container(),),
+                                  Expanded(
+                                    child: Container(),
+                                  ),
                                   SizedBox(
                                     height: 30,
                                   ),

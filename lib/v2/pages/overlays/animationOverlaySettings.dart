@@ -39,31 +39,31 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   void initState() {
     super.initState();
     restoreOption("movingtext_top").then((value) {
-        if(value.length >=1){
-          setState(() {
-            _velocity= double.parse(value[0]['val']);
-          });
-        }
+      if (value.length >= 1) {
+        setState(() {
+          _velocity = double.parse(value[0]['val']);
+        });
+      }
     });
 
-      restoreOption("movingtext_bottom").then((value) {
-        if(value.length >=1){
-          setState(() {
-            _currentColorSpeed= double.parse(value[0]['val']);
-          });
-        }
+    restoreOption("movingtext_bottom").then((value) {
+      if (value.length >= 1) {
+        setState(() {
+          _currentColorSpeed = double.parse(value[0]['val']);
+        });
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.all(10),
-            height: MediaQuery.of(context).size.height,
-            color: Colors.white,
-            child: Column(
-        children: <Widget>[
+      child: Container(
+        padding: EdgeInsets.all(10),
+        height: MediaQuery.of(context).size.height,
+        color: Colors.white,
+        child: Column(
+          children: <Widget>[
             SizedBox(
               height: 10,
             ),
@@ -73,7 +73,8 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
               decoration: BoxDecoration(
                   color: Color.fromRGBO(117, 28, 21, 1),
                   borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10), topLeft: Radius.circular(10))),
+                      topRight: Radius.circular(10),
+                      topLeft: Radius.circular(10))),
               child: Stack(
                 alignment: Alignment.center,
                 children: <Widget>[
@@ -87,14 +88,15 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
                 ],
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Text("val: $_velocity"),
             Slider(
                 value: _velocity,
-                onChanged: (curV) async  {
- 
-                  await saveOption("movingtext_top",curV.toString());
-                  
+                onChanged: (curV) async {
+                  await saveOption("movingtext_top", curV.toString());
+
                   setState(() {
                     _velocity = curV;
                   });
@@ -108,17 +110,11 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
               height: 200,
               child: Stack(
                 children: <Widget>[
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20, top: 3),
-                      child: TicketColor(
+                   
+                  TicketColor(
                         ctx: context,
                         speed: _currentColorSpeed,
                       ),
-                    ),
-                  ),
                   Positioned(
                     top: 60,
                     left: 2,
@@ -132,6 +128,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
                             state: "test oc",
                             company: "pie company",
                             isBottomRounded: true,
+                            ticketType: "we",
                           ),
                         ],
                       )),
@@ -145,11 +142,11 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
             ),
             Text("val: $_currentColorSpeed"),
             Slider(
-                onChanged: (newv) async  {
-                  await saveOption("movingtext_bottom",newv.toString());
+                onChanged: (newv) async {
+                  await saveOption("movingtext_bottom", newv.toString());
                   setState(() {
                     _currentColorSpeed = newv;
-                   });
+                  });
                 },
                 min: 500,
                 max: 2000,
@@ -157,15 +154,14 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
                 activeColor: Color.fromRGBO(117, 28, 21, 1)),
             Text(
                 "Changes are reflected instanty, as its custom coded by me (:- ps your changes are saved slide right for slow slide left for fast"),
-        ],
+          ],
+        ),
       ),
-          ),
     );
   }
 }
 
 class AnimationOverlay {
- 
   void onChangeSliderSpeed(a) {}
 
   void display(BuildContext context) {
@@ -174,63 +170,61 @@ class AnimationOverlay {
         backgroundColor: Colors.transparent,
         context: context,
         builder: (ctx) {
-          return SingleChildScrollView(
-                      child: Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12))),
-              height: MediaQuery.of(context).size.height * 0.9,
-              child: Center(
-                  child: Column(
-                children: <Widget>[
-                  BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 5,
-                      sigmaY: 5,
-                    ),
-                    child: Text(
-                      "Tweak NXBUS Animation settings",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                    ),
+          return Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12))),
+            height: MediaQuery.of(context).size.height * 0.9,
+            child: Center(
+                child: Column(
+              children: <Widget>[
+                BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 5,
+                    sigmaY: 5,
                   ),
-                  SizedBox(
-                    height: 10,
+                  child: Text(
+                    "Tweak NXBUS Animation settings",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
                   ),
-                  Expanded(child: AnimationOverlayContent()),
-                  SizedBox(
-                    height: 10,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(child: AnimationOverlayContent()),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(110),
+                      border: Border.all(
+                          color: Color.fromRGBO(117, 28, 21, 1), width: 5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ]),
+                  child: IconButton(
+                    color: Color.fromRGBO(117, 28, 21, 1),
+                    icon: Icon(Icons.close),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(110),
-                        border: Border.all(
-                            color: Color.fromRGBO(117, 28, 21, 1), width: 5),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ]),
-                    child: IconButton(
-                      color: Color.fromRGBO(117, 28, 21, 1),
-                      icon: Icon(Icons.close),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  )
-                ],
-              )),
-            ),
+                )
+              ],
+            )),
           );
         });
   }
