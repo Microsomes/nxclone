@@ -45,7 +45,7 @@ class HomePagePrestate extends State<HomePagePre>
 
     NXHelp().runInit();
     //run the init process
-    NXHelp().runScan();
+    //NXHelp().runScan();
 
     mainTimer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {

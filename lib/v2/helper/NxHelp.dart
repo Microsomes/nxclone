@@ -36,7 +36,7 @@ class States {
 class NXHelp {
   List ticketTypes;
 
-    static String DB_NAME = "main3.db" ;
+    static String DB_NAME = "main5.db" ;
 
   NXHelp() {
     //load and create table

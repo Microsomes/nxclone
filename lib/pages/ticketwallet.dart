@@ -222,120 +222,116 @@ class Stpagestate extends State<Ticketwallet> {
                         }
                       },
                       children: [
-                        Expanded(
-                          child: ListView.builder(
-                              itemCount: allUnactivatdTickets.length,
-                              itemBuilder: (context, index) {
-                                if (allUnactivatdTickets[index]['isActive'] ==
-                                    -1) {
-                                } else {
-                                  return InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ActualTicket(
-                                                    txid: allUnactivatdTickets[
-                                                        index]['id'],
-                                                  )));
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 12, right: 12, top: 12),
-                                      child: Container(
-                                        height: 110,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.92,
-                                        child: TicketTwo(
-                                          state: allUnactivatdTickets[index]
-                                              ['state'],
-                                          tickettype:
-                                              allUnactivatdTickets[index]
-                                                  ['tickettype'],
-                                          id: allUnactivatdTickets[index]['id'],
-                                          whenActivated:
-                                              allUnactivatdTickets[index]
-                                                  ['activationExpiry'],
-                                        ),
+                        ListView.builder(
+                            itemCount: allUnactivatdTickets.length,
+                            itemBuilder: (context, index) {
+                              if (allUnactivatdTickets[index]['isActive'] ==
+                                  -1) {
+                              } else {
+                                return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ActualTicket(
+                                                  txid: allUnactivatdTickets[
+                                                      index]['id'],
+                                                )));
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 12, right: 12, top: 12),
+                                    child: Container(
+                                      height: 110,
+                                      width:
+                                          MediaQuery.of(context).size.width *
+                                              0.92,
+                                      child: TicketTwo(
+                                        state: allUnactivatdTickets[index]
+                                            ['state'],
+                                        tickettype:
+                                            allUnactivatdTickets[index]
+                                                ['tickettype'],
+                                        id: allUnactivatdTickets[index]['id'],
+                                        whenActivated:
+                                            allUnactivatdTickets[index]
+                                                ['activationExpiry'],
                                       ),
                                     ),
-                                  );
-                                }
-                                return Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 12, right: 12, top: 12),
-                                  child: SingleInactiveTicket(
-                                    sizeW: sizeW,
-                                    ticketType: allUnactivatdTickets[index]
-                                        ['tickettype'],
-                                    state: allUnactivatdTickets[index]['state'],
-                                    txdbid: allUnactivatdTickets[index]['id'],
-                                    ticketExpiryDate:
-                                        allUnactivatdTickets[index]
-                                            ['ticketExpiry'],
                                   ),
                                 );
-                              }),
-                        ),
-                        Expanded(
-                          child: ListView.builder(
-                              itemCount: allHistoricalTickets.length,
-                              itemBuilder: (context, index) {
-                                if (allHistoricalTickets[index]['isActive'] ==
-                                    -1) {
-                                } else {
-                                  return InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ActualTicket(
-                                                    txid: allHistoricalTickets[
-                                                        index]['id'],
-                                                  )));
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 12, right: 12, top: 12),
-                                      child: Container(
-                                        height: 110,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.92,
-                                        child: TicketTwo(
-                                          state: allHistoricalTickets[index]
-                                              ['state'],
-                                          tickettype:
-                                              allHistoricalTickets[index]
-                                                  ['tickettype'],
-                                          id: allHistoricalTickets[index]['id'],
-                                          whenActivated:
-                                              allHistoricalTickets[index]
-                                                  ['activationExpiry'],
-                                        ),
+                              }
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 12),
+                                child: SingleInactiveTicket(
+                                  sizeW: sizeW,
+                                  ticketType: allUnactivatdTickets[index]
+                                      ['tickettype'],
+                                  state: allUnactivatdTickets[index]['state'],
+                                  txdbid: allUnactivatdTickets[index]['id'],
+                                  ticketExpiryDate:
+                                      allUnactivatdTickets[index]
+                                          ['ticketExpiry'],
+                                ),
+                              );
+                            }),
+                        ListView.builder(
+                            itemCount: allHistoricalTickets.length,
+                            itemBuilder: (context, index) {
+                              if (allHistoricalTickets[index]['isActive'] ==
+                                  -1) {
+                              } else {
+                                return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ActualTicket(
+                                                  txid: allHistoricalTickets[
+                                                      index]['id'],
+                                                )));
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 12, right: 12, top: 12),
+                                    child: Container(
+                                      height: 110,
+                                      width:
+                                          MediaQuery.of(context).size.width *
+                                              0.92,
+                                      child: TicketTwo(
+                                        state: allHistoricalTickets[index]
+                                            ['state'],
+                                        tickettype:
+                                            allHistoricalTickets[index]
+                                                ['tickettype'],
+                                        id: allHistoricalTickets[index]['id'],
+                                        whenActivated:
+                                            allHistoricalTickets[index]
+                                                ['activationExpiry'],
                                       ),
                                     ),
-                                  );
-                                }
-                                return Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 12, right: 12, top: 12),
-                                  child: SingleInactiveTicket(
-                                    sizeW: sizeW,
-                                    ticketType: allHistoricalTickets[index]
-                                        ['tickettype'],
-                                    state: allHistoricalTickets[index]['state'],
-                                    txdbid: allHistoricalTickets[index]['id'],
-                                    ticketExpiryDate:
-                                        allHistoricalTickets[index]
-                                            ['ticketExpiry'],
                                   ),
                                 );
-                              }),
-                        ),
+                              }
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 12),
+                                child: SingleInactiveTicket(
+                                  sizeW: sizeW,
+                                  ticketType: allHistoricalTickets[index]
+                                      ['tickettype'],
+                                  state: allHistoricalTickets[index]['state'],
+                                  txdbid: allHistoricalTickets[index]['id'],
+                                  ticketExpiryDate:
+                                      allHistoricalTickets[index]
+                                          ['ticketExpiry'],
+                                ),
+                              );
+                            }),
                       ],
                     ),
                   )
