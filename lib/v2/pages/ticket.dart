@@ -247,6 +247,7 @@ class Ticket2State extends State<Ticket2> {
                                       MaterialPageRoute(
                                           builder: (context) => TicketDetail(
                                             txid: widget.txdbid,
+                                            isDaysLeft: true,
                                           )),
                                     );
                                   },

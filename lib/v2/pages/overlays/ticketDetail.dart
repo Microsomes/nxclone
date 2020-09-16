@@ -6,7 +6,9 @@ import 'package:intl/intl.dart';
 class TicketDetail extends StatefulWidget {
   final int txid;
 
-  TicketDetail({@required this.txid});
+  bool isDaysLeft;
+
+  TicketDetail({@required this.txid,this.isDaysLeft=false});
 
   @override
   State<StatefulWidget> createState() {
@@ -146,14 +148,14 @@ class TicketDetailState extends State<TicketDetail> {
                                                       height: 20,
                                                       width: 90,
                                                       decoration: BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              90, 90, 90, 1),
+                                                          color: widget.isDaysLeft== true ?Color.fromRGBO(
+                                                              90, 90, 90, 1):Colors.transparent,
                                                           borderRadius:
                                                               BorderRadius.all(
                                                                   Radius
                                                                       .circular(
                                                                           1))),
-                                                      child: Center(
+                                                      child: widget.isDaysLeft== true ? Center(
                                                         child: Text(
                                                           "99 DAYS LEFT",
                                                           textAlign:
@@ -166,7 +168,7 @@ class TicketDetailState extends State<TicketDetail> {
                                                                   FontWeight
                                                                       .bold),
                                                         ),
-                                                      ),
+                                                      ):Container(),
                                                     ),
                                                   ],
                                                 ),
