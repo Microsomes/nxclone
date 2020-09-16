@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:BlackPie/v2/components/movingText.dart';
 import 'package:BlackPie/v2/components/nxsig.dart';
 import 'package:BlackPie/v2/components/ticketColor.dart';
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -19,7 +20,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   double _currentColorSpeed = 500.00;
 
   Future saveOption(String key, String val) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
@@ -28,7 +29,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   }
 
   Future restoreOption(String key) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1', [key]);
     return list;

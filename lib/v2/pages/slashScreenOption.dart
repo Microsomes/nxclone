@@ -23,7 +23,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
   bool isShowing = true;
 
   Future saveOption(String key, String val) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
@@ -32,7 +32,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
   }
 
   Future restoreOption(String key) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1', [key]);
     return list;

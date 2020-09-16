@@ -1,3 +1,4 @@
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:flutter/material.dart';
 import 'package:BlackPie/v2/components/fancyOptions.dart';
 import 'package:BlackPie/v2/main/bar.dart';
@@ -44,14 +45,14 @@ class EjectionState extends State<Ejection>{
   }
 
   saveOption(String key,String val) async {
-      var db= await openDatabase("main.db");
+      var db= await openDatabase(NXHelp.DB_NAME);
       db.execute("CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
      var iid= await db.rawInsert("INSERT INTO config(key, val) VALUES(?, ?)",[key,val]);
      return iid;
     }
 
     Future restoreOption(String key) async {
-        var db= await openDatabase("main.db");
+        var db= await openDatabase(NXHelp.DB_NAME);
         List<Map> list = await db.rawQuery('SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1',[key]);
         return list;
     }

@@ -3,6 +3,9 @@ import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+
+
+
 //all ticket types
 class Ttype {
   static String singlejourney = "Single Journey";
@@ -32,6 +35,8 @@ class States {
 
 class NXHelp {
   List ticketTypes;
+
+    static String DB_NAME = "main2.db" ;
 
   NXHelp() {
     //load and create table
@@ -418,12 +423,12 @@ class NXHelp {
   }
 
   Future deleteAllTickets() async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     await db.rawDelete("DELETE FROM ticketwallet");
   }
 
   void init() async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     await db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     await db.execute(
@@ -528,14 +533,14 @@ class NXHelp {
   }
 
   Future getAllActiveTickets() async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive=? ORDER BY id DESC", [1]);
     return list;
   }
 
   Future getAllAvailableToPurchaseTickets() async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery("SELECT * FROM tickets");
     return list;
   }
@@ -544,7 +549,7 @@ class NXHelp {
 
   //returns ticket by id
   Future getInfoOnTicketById(int id) async {
-    var db= await openDatabase("main.db");
+    var db= await openDatabase(NXHelp.DB_NAME);
     var details= await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?",[id]);
     return details;
   }
@@ -552,7 +557,7 @@ class NXHelp {
   //method will cause expiry to the ticket
   Future expireTicket(int id) async {
     print("expires ticket");
-    var db= await openDatabase("main.db");
+    var db= await openDatabase(NXHelp.DB_NAME);
     var status= await db.rawUpdate("UPDATE ticketwallet SET isActive=? WHERE id=?",[2,id]);
     print(status);
     return status;
@@ -562,7 +567,7 @@ class NXHelp {
 
  //returns all historical tickets
   Future getAllHistoricalTickets() async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
 
     List<Map> modifiedList = List<Map>();
 
@@ -610,7 +615,7 @@ class NXHelp {
 
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
 
     List<Map> modifiedList = List<Map>();
 
@@ -657,7 +662,7 @@ class NXHelp {
 
   //get ticket by id
   Future getTicketById({@required id}) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list =
         await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?", [id]);
     if(list.length>=1){
@@ -679,7 +684,7 @@ class NXHelp {
   //activates ticket by id
   //current time placed in expires to safe time
   Future activateTicket({@required id}) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     //lets grab the timestamp as well
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
     var updateid = await db.rawQuery(
@@ -691,7 +696,7 @@ class NXHelp {
   //stores ticket in to db and generates a unique ID
   Future buyTicket(
       {@required tickettype, @required state, @required price}) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
 
     var id = await db.rawInsert(
@@ -701,7 +706,7 @@ class NXHelp {
   }
 
   Future loadConfig(String key, int limit) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM config WHERE key=? ORDER BY id DESC limit ?',
         [key, limit]);
@@ -710,21 +715,21 @@ class NXHelp {
   }
 
   Future saveConfig(String key, String val) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db
         .rawInsert("INSERT INTO config(key, val) VALUES(?, ?)", [key, val]);
     return iid;
   }
 
   Future getAllTickets(String state) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list =
         await db.rawQuery('SELECT * FROM tickets WHERE state=?', [state]);
     return list;
   }
 
   Future checkTicketByState(String type, String state) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
 
     List<Map> list = await db.rawQuery(
         'SELECT * FROM tickets WHERE  state=? AND tickettitle=?',
@@ -734,7 +739,7 @@ class NXHelp {
 
   Future addTicket(
       String type, String state, String price, String subtitle) async {
-    var db = await openDatabase("main.db");
+    var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db.rawInsert(
         "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle) VALUES (?,?,?,?)",
         [type, state, price, subtitle]);

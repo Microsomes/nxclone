@@ -4,6 +4,7 @@ import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:BlackPie/v2/pages/defaultTicket.dart';
 import 'package:BlackPie/v2/pages/ejection.dart';
 import 'package:BlackPie/v2/pages/landingPage.dart';
+import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,7 +49,7 @@ class SetupFlowState extends State<SetupFlow> {
     setState(() {
       currentPageIndex = currentPage;
     });
-    if (currentPage == 5) {
+    if (currentPage == 4) {
       setState(() {
         currentNextButtonLabel = "FINISH";
       });
@@ -98,14 +99,6 @@ class SetupFlowState extends State<SetupFlow> {
               ),
               DefaultTicket(),
               Ejection(),
-              Container(
-                  child: SafeArea(
-                      child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: AnimationOverlayContent()),
-              ))),
               Container(
                 child: Center(
                     child: Column(
@@ -169,7 +162,11 @@ class SetupFlowState extends State<SetupFlow> {
                                 });
                               }
                               if (currentNextButtonLabel == "FINISH") {
-                                Phoenix.rebirth(context);
+                                //Phoenix.rebirth(context);
+                                //lets just simulate going to nxfront first
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Nxfront()));
+
+
                               } else {
                                 pageController.nextPage(
                                     duration: Duration(seconds: 1),
