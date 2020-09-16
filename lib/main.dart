@@ -11,8 +11,6 @@ import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePagePre extends StatefulWidget {
-  
-
   @override
   State<StatefulWidget> createState() {
     return HomePagePrestate();
@@ -227,6 +225,13 @@ class HomePagePrestate extends State<HomePagePre>
                                   );
                                 } else {
                                   //bring popup
+
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SetupFlow()));
+
+                                  return;
                                   showDialog(
                                       context: context,
                                       builder: (_) => NetworkGiffyDialog(
@@ -314,6 +319,13 @@ class HomePagePrestate extends State<HomePagePre>
                                               txid: idO['ticketid'])));
                                 } else {
                                   //open up dialog
+
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SetupFlow()));
+                                  return;
+
                                   showDialog(
                                       context: context,
                                       builder: (_) => NetworkGiffyDialog(
@@ -398,6 +410,11 @@ class HomePagePrestate extends State<HomePagePre>
 
                         return InkWell(
                           onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SetupFlow()));
+                            return;
                             showDialog(
                                 context: context,
                                 builder: (_) => NetworkGiffyDialog(
@@ -440,8 +457,6 @@ class HomePagePrestate extends State<HomePagePre>
           ],
         )));
   }
-
- 
 }
 
 void main() {
@@ -451,14 +466,13 @@ void main() {
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
   return runApp(Phoenix(
-    child: MaterialApp(debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      brightness: Brightness.dark,
-
-      textTheme: GoogleFonts.robotoTextTheme(),
-
-    ),
-     home: HomePagePre()
+    child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          textTheme: GoogleFonts.robotoTextTheme(),
+        ),
+        home: HomePagePre()
 
         //Halifax()
 
