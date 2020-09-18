@@ -13,23 +13,25 @@ class Ticketwallet extends StatefulWidget {
 
 class Stpagestate extends State<Ticketwallet> {
   List allUnactivatdTickets;
-
+  //will contain a list of all unactivated tickets
   List allHistoricalTickets;
+  //will contain a list of historical tickets
 
   Stpagestate() {
     //grabbs all unused tickets
     allUnactivatdTickets = List();
-    allHistoricalTickets=List();
+    allHistoricalTickets = List();
 
-    NXHelp().getAllAvailableToPurchaseTickets().then((value){
-       allHistoricalTickets = value;
-      setState(() {});
+    NXHelp().getAllHistoricalTickets().then((value) {
+      allHistoricalTickets = value;
+
+      NXHelp().getAllUseableTickets().then((value) {
+      allUnactivatdTickets = value;
+            setState(() {});
+    });
     });
 
-    NXHelp().getAllUseableTickets().then((value) {
-       allUnactivatdTickets = value;
-      setState(() {});
-    });
+    
   }
   bool isTickets = true;
 
@@ -77,7 +79,7 @@ class Stpagestate extends State<Ticketwallet> {
                   //run a fuking loop
                   for (var i = 0; i < total; i++) {
                     var cur = value[i];
-                    var tid=cur["id"];
+                    var tid = cur["id"];
                     var state = cur["state"];
                     var type = cur["tickettype"];
                     print(state);
@@ -85,8 +87,8 @@ class Stpagestate extends State<Ticketwallet> {
 
                     if (ticketTotals[state + "-" + type] == null) {
                       ticketTotals[state + "-" + type] = 1;
-                    }else{
-                      ticketTotals[state+"-"+type]++;
+                    } else {
+                      ticketTotals[state + "-" + type]++;
                     }
 
                     var expires = int.parse(cur['expires']) + (60 * 60 * 24);
@@ -97,12 +99,11 @@ class Stpagestate extends State<Ticketwallet> {
                       print("ticket sill active");
 
                       //even though its active we need to check of multiples of these exist
-                      if(ticketTotals[state+"-"+type]>=1){
+                      if (ticketTotals[state + "-" + type] >= 1) {
                         print("to remove");
-                        var a= await NXHelp().expireTicket(tid);
+                        var a = await NXHelp().expireTicket(tid);
                         print(a);
                       }
-
                     }
                   }
 
@@ -188,21 +189,6 @@ class Stpagestate extends State<Ticketwallet> {
                   SizedBox(
                     height: 10,
                   ),
-                  // InkWell(
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(builder: (context) => Ticket()),
-                  //     );
-                  //   },
-                  //   child: Container(
-                  //     height: 110,
-                  //     width: MediaQuery.of(context).size.width * 0.92,
-                  //     child: ticketTwo(
-                  //       title: "K",
-                  //     ),
-                  //   ),
-                  // ),
                   SizedBox(
                     height: 1,
                   ),
@@ -227,14 +213,14 @@ class Stpagestate extends State<Ticketwallet> {
                             itemBuilder: (context, index) {
                               if (allUnactivatdTickets[index]['isActive'] ==
                                   -1) {
+
                               } else {
                                 return InkWell(
                                   onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                ActualTicket(
+                                            builder: (context) => ActualTicket(
                                                   txid: allUnactivatdTickets[
                                                       index]['id'],
                                                 )));
@@ -244,15 +230,13 @@ class Stpagestate extends State<Ticketwallet> {
                                         left: 12, right: 12, top: 12),
                                     child: Container(
                                       height: 110,
-                                      width:
-                                          MediaQuery.of(context).size.width *
-                                              0.92,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.92,
                                       child: TicketTwo(
                                         state: allUnactivatdTickets[index]
                                             ['state'],
-                                        tickettype:
-                                            allUnactivatdTickets[index]
-                                                ['tickettype'],
+                                        tickettype: allUnactivatdTickets[index]
+                                            ['tickettype'],
                                         id: allUnactivatdTickets[index]['id'],
                                         whenActivated:
                                             allUnactivatdTickets[index]
@@ -271,9 +255,8 @@ class Stpagestate extends State<Ticketwallet> {
                                       ['tickettype'],
                                   state: allUnactivatdTickets[index]['state'],
                                   txdbid: allUnactivatdTickets[index]['id'],
-                                  ticketExpiryDate:
-                                      allUnactivatdTickets[index]
-                                          ['ticketExpiry'],
+                                  ticketExpiryDate: allUnactivatdTickets[index]
+                                      ['ticketExpiry'],
                                 ),
                               );
                             }),
@@ -283,13 +266,26 @@ class Stpagestate extends State<Ticketwallet> {
                               if (allHistoricalTickets[index]['isActive'] ==
                                   -1) {
                               } else {
+
+                                return  Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12, right: 12, top: 12),
+                                child: SingleInactiveTicket(
+                                  sizeW: sizeW,
+                                  ticketType: allHistoricalTickets[index]
+                                      ['tickettype'],
+                                  state: allHistoricalTickets[index]['state'],
+                                  txdbid: allHistoricalTickets[index]['id'],
+                                  ticketExpiryDate: allHistoricalTickets[index]
+                                      ['ticketExpiry'],
+                                ),
+                              );
                                 return InkWell(
                                   onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                ActualTicket(
+                                            builder: (context) => ActualTicket(
                                                   txid: allHistoricalTickets[
                                                       index]['id'],
                                                 )));
@@ -299,15 +295,13 @@ class Stpagestate extends State<Ticketwallet> {
                                         left: 12, right: 12, top: 12),
                                     child: Container(
                                       height: 110,
-                                      width:
-                                          MediaQuery.of(context).size.width *
-                                              0.92,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.92,
                                       child: TicketTwo(
                                         state: allHistoricalTickets[index]
                                             ['state'],
-                                        tickettype:
-                                            allHistoricalTickets[index]
-                                                ['tickettype'],
+                                        tickettype: allHistoricalTickets[index]
+                                            ['tickettype'],
                                         id: allHistoricalTickets[index]['id'],
                                         whenActivated:
                                             allHistoricalTickets[index]
@@ -326,9 +320,8 @@ class Stpagestate extends State<Ticketwallet> {
                                       ['tickettype'],
                                   state: allHistoricalTickets[index]['state'],
                                   txdbid: allHistoricalTickets[index]['id'],
-                                  ticketExpiryDate:
-                                      allHistoricalTickets[index]
-                                          ['ticketExpiry'],
+                                  ticketExpiryDate: allHistoricalTickets[index]
+                                      ['ticketExpiry'],
                                 ),
                               );
                             }),

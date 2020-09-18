@@ -135,6 +135,38 @@ flutter:
 
    - images/v3/tenor.gif
    - images/v3/bar.png
+   #new images- nxsig
+   - images/v4/nxsig/finalsig/conventrysig.png
+   - images/v4/nxsig/finalsig/metro.png
+   - images/v4/nxsig/finalsig/reg-metro.png
+   - images/v4/nxsig/finalsig/midlandschild.png
+   - images/v4/nxsig/finalsig/sandwell-dudley.png
+   - images/v4/nxsig/finalsig/1618.png
+   - images/v4/nxsig/finalsig/groupdaysaver.png
+   - images/v4/nxsig/finalsig/walsall.png
+   - images/v4/nxsig/finalsig/university.png
+   - images/v4/nxsig/finalsig/westmidlands.png
+   #new images- icons
+   - images/v4/icons/cross.png
+   - images/v4/ic_link.png
+   - images/v4/ic_refund.png
+   - images/v4/ic_resend.png
+   - images/v4/info.png
+   - images/v4/left.png
+   - images/v4/leftbig.png
+   - images/v4/menu.png
+   - images/v4/refresh.png
+   - images/v4/reload.png
+   - images/v4/right.png
+   - images/v4/rightbig.png
+   - images/v4/threedots.png
+   - images/v4/ticket_icon.png
+   - images/v4/visa.png
+   - images/v4/warning.png
+   
+
+   
+
 
   #  - images/a_dot_ham.jpeg
 
