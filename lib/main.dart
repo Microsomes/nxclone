@@ -49,6 +49,7 @@ class HomePagePrestate extends State<HomePagePre>
     //NXHelp().runScan();
 
     
+    
 
     NXHelp().buyAndActivateDefaultTicket().then((id) {
       setState(() {
