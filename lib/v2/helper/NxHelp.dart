@@ -610,6 +610,8 @@ class NXHelp {
   }
 
 
+  
+
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);

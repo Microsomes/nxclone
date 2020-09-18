@@ -1,3 +1,4 @@
+import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class Nxsig extends StatefulWidget {
@@ -24,13 +25,31 @@ class NxsigState extends State<Nxsig> {
 
     var state = widget.state;
 
-    if(widget.ticketType=="Daysaver"){
+    if(widget.ticketType=="Group Daysaver after 6pm"){
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/groupdaysaver.png"),
+      ); 
+    }else
+    if(widget.ticketType=="Daysaver"){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/westmidlands.png"),
       );
     }else if(widget.ticketType=="Single Journey"){
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/westmidlands.png"),
+      );
+    }else if(widget.ticketType=="Group Daysaver"){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/groupdaysaver.png"),
+      );
+    }else if(widget.ticketType=="Group Daysaver after 6pm"){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/westmidlands.png"),
+      );
+    }
+    else if(widget.state=="Coventry"){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/conventrysig.png"),
       );
     }
 

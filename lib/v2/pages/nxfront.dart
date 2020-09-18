@@ -439,17 +439,21 @@ class NXFront_TopBar extends StatelessWidget {
           height: 90,
           width: MediaQuery.of(context).size.width,
           color: Colors.white,
-          child: Stack(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Positioned(
-                top: 20,
-                right: 10,
-                child: Image.asset(
-                  "images/v3/bar.png",
-                ),
-              ),
+              Column(
+                children: [
+                  SizedBox(height: 30,),
+                  Expanded(child: Image.asset(
+                  "images/v4/header.png",
+                  width: 300,
+                ),)
+                ],
+              )
             ],
-          )),
-    );
+          )
+    ));
   }
 }

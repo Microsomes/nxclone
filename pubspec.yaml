@@ -135,6 +135,8 @@ flutter:
 
    - images/v3/tenor.gif
    - images/v3/bar.png
+
+   - images/v4/header.png
    #new images- nxsig
    - images/v4/nxsig/finalsig/conventrysig.png
    - images/v4/nxsig/finalsig/metro.png
@@ -146,6 +148,7 @@ flutter:
    - images/v4/nxsig/finalsig/walsall.png
    - images/v4/nxsig/finalsig/university.png
    - images/v4/nxsig/finalsig/westmidlands.png
+   - images/v4/nxsig/finalsig/black_country.png   
    #new images- icons
    - images/v4/icons/cross.png
    - images/v4/ic_link.png

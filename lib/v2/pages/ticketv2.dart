@@ -94,12 +94,9 @@ class ActualTicketState extends State<ActualTicket> {
     return WillPopScope(
       onWillPop: () async {
         //before we click the back button check user config for crash control
-
         var ejectionSetting = await NXHelp().loadConfig("ejection", 1);
         //grab the user selected error settings
-
         print(ejectionSetting);
-
         //stick to the default
         if (ejectionSetting.length <= 0) {
           Navigator.push(
