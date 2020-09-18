@@ -10,6 +10,8 @@ import 'package:BlackPie/v2/pages/ticket.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'menupage/topMenuPage.dart';
+
 class Nxfront extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -21,12 +23,9 @@ class NxfrontState extends State<Nxfront> {
   var lins = 1;
   double heightOf = 60;
   double spaceApart = 23;
-
   int defaultTicketid;
-
   String state = "";
   String tickettype = "";
-
   final double _letterSpaceing = 0.8;
 
   @override
@@ -55,21 +54,7 @@ class NxfrontState extends State<Nxfront> {
               color: Color.fromRGBO(169, 27, 26, 1),
               child: Column(
                 children: <Widget>[
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.white,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 16,
-                            right: 5,
-                            child: Image.asset(
-                              "images/v3/bar.png",
-                            ),
-                          ),
-                        ],
-                      )),
+                  NXFront_TopBar(),
                   Expanded(
                       child: SingleChildScrollView(
                     child: Container(
@@ -435,6 +420,36 @@ class NxfrontState extends State<Nxfront> {
                   )),
                 ],
               ))),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class NXFront_TopBar extends StatelessWidget {
+  const NXFront_TopBar({
+    Key key,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>UtilitiesMenu()));
+      },
+          child: Container(
+          height: 90,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.white,
+          child: Stack(
+            children: [
+              Positioned(
+                top: 20,
+                right: 10,
+                child: Image.asset(
+                  "images/v3/bar.png",
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
