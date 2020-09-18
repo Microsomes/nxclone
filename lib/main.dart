@@ -8,8 +8,8 @@ import 'package:BlackPie/v2/pages/nxfront.dart';
 import 'package:BlackPie/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class HomePagePre extends StatefulWidget {
   @override
@@ -47,6 +47,9 @@ class HomePagePrestate extends State<HomePagePre>
     NXHelp().deleteAllTickets();
     //run the init process
     //NXHelp().runScan();
+
+
+         AppAvailability.checkAvailability("com.microsomes.nxbus")
 
     
     

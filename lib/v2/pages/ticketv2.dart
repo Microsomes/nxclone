@@ -12,6 +12,7 @@ import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BlackPie/v2/helper/NxHelp.dart';
 import 'package:launch_review/launch_review.dart';
 
+
 class ActualTicket extends StatefulWidget {
   final int txid;
 

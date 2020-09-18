@@ -1,4 +1,4 @@
-name: BlackPie
+name: BubbleGum
 description: A BLM movement app
 
 # The following defines the version and build number for your application.
@@ -37,6 +37,8 @@ dependencies:
   dotted_border: ^1.0.6
   launch_review: ^2.0.0
   change_app_package_name: ^0.1.2
+  app_launcher: ^0.2.1
+
 
 
 
