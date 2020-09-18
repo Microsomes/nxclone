@@ -1,5 +1,6 @@
 import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v2/pages/setupflow.dart';
+import 'package:app_launcher/app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
@@ -104,7 +105,7 @@ class HomePagePrestate extends State<HomePagePre>
   }
 }
 
-void main() {
+void main() async  {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
         Color.fromRGBO(0, 0, 0, 1), // navigation bar color
@@ -118,12 +119,6 @@ void main() {
           textTheme: GoogleFonts.robotoTextTheme(),
         ),
         home: HomePagePre()
-
-        //Halifax()
-
-        //MainLauncher()
-        //HomePagePre(),
-        //home:PaymentConfirmed()
         ),
   ));
 }
