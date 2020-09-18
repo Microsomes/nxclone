@@ -259,7 +259,7 @@ class ActualTicketState extends State<ActualTicket> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        right: 20, left: 20, top: 10),
+                                        right: 20, left: 20, top: 8),
                                     child: Container(
                                       color: Color.fromRGBO(5, 126, 176, 1),
                                       height: 60,

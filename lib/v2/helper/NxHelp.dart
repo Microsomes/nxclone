@@ -3,9 +3,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
-
-
 //all ticket types
 class Ttype {
   static String singlejourney = "Single Journey";
@@ -35,8 +32,8 @@ class States {
 
 class NXHelp {
   List ticketTypes;
-
-    static String DB_NAME = "main5.db" ;
+  
+  static String DB_NAME = "main5.db" ;
 
   NXHelp() {
     //load and create table

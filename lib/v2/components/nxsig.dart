@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class Nxsig extends StatefulWidget {
   final bool isRounded;
-
   final bool isBottomRounded;
 
   final String state;
@@ -25,7 +24,19 @@ class NxsigState extends State<Nxsig> {
 
     var state = widget.state;
 
-    return Container(
+    if(widget.ticketType=="Daysaver"){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/groupdaysaver.png"),
+      );
+    }else if(widget.ticketType=="Single Journey"){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/westmidlands.png"),
+      );
+    }
+
+
+
+    return  Container(
       decoration: BoxDecoration(
           color: widget.ticketType=="Group Daysaver" ? Color.fromRGBO(208, 112, 146, 0.4) : Color.fromRGBO(248, 233, 226, 1),
           borderRadius: BorderRadius.only(
