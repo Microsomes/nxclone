@@ -1,4 +1,4 @@
-import 'package:BlackPie/appcomponent/HalifaxClone/accountDetails.dart';
+import 'package:BubbleGum/appcomponent/HalifaxClone/accountDetails.dart';
 import 'package:flutter/material.dart';
 
 import 'components/HalifaxNav.dart';

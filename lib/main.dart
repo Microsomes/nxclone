@@ -1,11 +1,11 @@
-import 'package:BlackPie/piHome.dart';
-import 'package:BlackPie/v2/pages/setupflow.dart';
+import 'package:BubbleGum/piHome.dart';
+import 'package:BubbleGum/v2/pages/setupflow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/main/quickOptions.dart';
-import 'package:BlackPie/v2/pages/nxfront.dart';
-import 'package:BlackPie/v2/pages/ticketv2.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/main/quickOptions.dart';
+import 'package:BubbleGum/v2/pages/nxfront.dart';
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -49,8 +49,7 @@ class HomePagePrestate extends State<HomePagePre>
     //NXHelp().runScan();
 
 
-         AppAvailability.checkAvailability("com.microsomes.nxbus")
-
+ 
     
     
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/pages/buyflow/components/paymentOption.dart';
+import 'package:BubbleGum/v2/pages/buyflow/components/paymentOption.dart';
 
 import 'addNewPaymentOption.dart';
 

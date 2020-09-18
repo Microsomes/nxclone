@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/pages/ticketv2.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
 import 'components/singleInactive.dart';
 

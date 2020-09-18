@@ -1,6 +1,6 @@
-import 'package:BlackPie/appcomponent/HalifaxClone/main.dart';
-import 'package:BlackPie/pages/journey/ticket.dart';
-import 'package:BlackPie/v2/pages/nxfront.dart';
+import 'package:BubbleGum/appcomponent/HalifaxClone/main.dart';
+import 'package:BubbleGum/pages/journey/ticket.dart';
+import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';

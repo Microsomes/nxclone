@@ -1,8 +1,8 @@
-import 'package:BlackPie/v2/pages/overlays/animationOverlaySettings.dart';
+import 'package:BubbleGum/v2/pages/overlays/animationOverlaySettings.dart';
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/pages/defaultTicket.dart';
-import 'package:BlackPie/v2/pages/ejection.dart';
-import 'package:BlackPie/v2/pages/landingPage.dart';
+import 'package:BubbleGum/v2/pages/defaultTicket.dart';
+import 'package:BubbleGum/v2/pages/ejection.dart';
+import 'package:BubbleGum/v2/pages/landingPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuickOptions extends StatefulWidget {

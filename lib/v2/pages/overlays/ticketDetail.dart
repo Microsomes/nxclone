@@ -1,6 +1,6 @@
-import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/pages/overlays/termsandconditions.dart';
+import 'package:BubbleGum/v2/pages/overlays/termsandconditions.dart';
 import 'package:intl/intl.dart';
 
 class TicketDetail extends StatefulWidget {

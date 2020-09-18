@@ -1,4 +1,4 @@
-import 'package:BlackPie/appcomponent/HalifaxClone/selectAccounts.dart';
+import 'package:BubbleGum/appcomponent/HalifaxClone/selectAccounts.dart';
 import 'package:flutter/material.dart';
 
 class PayandTransfer extends StatefulWidget {

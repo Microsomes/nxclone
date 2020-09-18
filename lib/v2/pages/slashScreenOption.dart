@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/components/fancyOptions.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/main/bar.dart';
+import 'package:BubbleGum/v2/components/fancyOptions.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/main/bar.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SlashScreenOptions extends StatefulWidget {

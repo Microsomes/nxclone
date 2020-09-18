@@ -1,4 +1,4 @@
-import 'package:BlackPie/appcomponent/HalifaxClone/models/AvailableMonth.dart';
+import 'package:BubbleGum/appcomponent/HalifaxClone/models/AvailableMonth.dart';
 import 'package:flutter/material.dart';
 
 import 'components/HalifaxNav.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/pages/buyflow/tickettypes.dart';
+import 'package:BubbleGum/v2/pages/buyflow/tickettypes.dart';
 
 class SelectTicket extends StatelessWidget {
   @override

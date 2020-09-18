@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefaultTicketOverlay {

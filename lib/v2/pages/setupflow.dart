@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/pages/defaultTicket.dart';
-import 'package:BlackPie/v2/pages/ejection.dart';
-import 'package:BlackPie/v2/pages/landingPage.dart';
-import 'package:BlackPie/v2/pages/nxfront.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/defaultTicket.dart';
+import 'package:BubbleGum/v2/pages/ejection.dart';
+import 'package:BubbleGum/v2/pages/landingPage.dart';
+import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';

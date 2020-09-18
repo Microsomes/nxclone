@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:BlackPie/pages/components/singleInactive.dart';
-import 'package:BlackPie/v2/components/fancyOptions.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/pages/components/singleInactive.dart';
+import 'package:BubbleGum/v2/components/fancyOptions.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../main/bar.dart';
-import 'package:BlackPie/v2/pages/overlays/defaultTicketOverlay.dart';
+import 'package:BubbleGum/v2/pages/overlays/defaultTicketOverlay.dart';
 
 import 'package:sqflite/sqflite.dart';
 

@@ -3,15 +3,15 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/components/nxsig.dart';
-import 'package:BlackPie/v2/components/ticketColor.dart';
-import 'package:BlackPie/v2/pages/nxfront.dart';
-import 'package:BlackPie/v2/components/movingText.dart';
-import 'package:BlackPie/v2/pages/overlays/ticketDetail.dart';
-import 'package:BlackPie/v2/pages/overlays/actionsOverlay.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/components/nxsig.dart';
+import 'package:BubbleGum/v2/components/ticketColor.dart';
+import 'package:BubbleGum/v2/pages/nxfront.dart';
+import 'package:BubbleGum/v2/components/movingText.dart';
+import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
+import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:launch_review/launch_review.dart';
-
+import 'package:app_launcher/app_launcher.dart';
 
 class ActualTicket extends StatefulWidget {
   final int txid;
@@ -110,6 +110,9 @@ class ActualTicketState extends State<ActualTicket> {
           exit(0);
         } else if (ejectionSetting[0]["val"] == "launchapp") {
           LaunchReview.launch(androidAppId: "com.justride.nxwm");
+          await AppLauncher.openApp(
+            androidApplicationId: "com.justride.nxwm",
+          );
         }
 
         //launch real app

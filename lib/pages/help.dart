@@ -1,4 +1,4 @@
-import 'package:BlackPie/pages/terms.dart';
+import 'package:BubbleGum/pages/terms.dart';
 import 'package:flutter/material.dart';
 
 import './help/applicationinfo.dart';
@@ -7,7 +7,7 @@ import './help/customerService.dart';
 
 import './help/faq.dart';
 
-import 'package:BlackPie/pages/settings.dart';
+import 'package:BubbleGum/pages/settings.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:BlackPie/v2/pages/nxfront.dart';
+import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 class Settings extends StatefulWidget {

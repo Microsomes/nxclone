@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
-import 'package:BlackPie/v2/helper/NxHelp.dart';
-import 'package:BlackPie/v2/pages/overlays/colorSelectorOver.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/overlays/colorSelectorOver.dart';
 
 class TicketColor extends StatefulWidget {
   final BuildContext ctx;
