@@ -1,3 +1,4 @@
+import 'package:BlackPie/pages/terms.dart';
 import 'package:flutter/material.dart';
 
 import './help/applicationinfo.dart';
@@ -28,8 +29,6 @@ class Stpagestate extends State<Stpage> {
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
-
-
 
     return Scaffold(
         appBar: AppBar(
@@ -91,10 +90,9 @@ class Stpagestate extends State<Stpage> {
                       Text(
                         "App info",
                         style: GoogleFonts.roboto(
-                          color: Colors.black,
+                            color: Colors.black,
                             fontWeight: FontWeight.w600,
-                            fontSize: 17
-                        ),
+                            fontSize: 17),
                       ),
                       Expanded(
                         child: Text(""),
@@ -114,7 +112,6 @@ class Stpagestate extends State<Stpage> {
                 onTap: () {},
                 child: InkWell(
                   onTap: () {
-
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -144,11 +141,10 @@ class Stpagestate extends State<Stpage> {
                       ),
                       Text(
                         "Customer Service",
-                        style:  GoogleFonts.roboto(
-                          color: Colors.black,
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
                             fontWeight: FontWeight.w600,
-                            fontSize: 17
-                        ),
+                            fontSize: 17),
                       ),
                       Expanded(
                         child: Text(""),
@@ -166,7 +162,6 @@ class Stpagestate extends State<Stpage> {
               ),
               InkWell(
                 onTap: () {
-
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => FaqPage()));
                 },
@@ -194,11 +189,10 @@ class Stpagestate extends State<Stpage> {
                     ),
                     Text(
                       "FAQ",
-                      style:  GoogleFonts.roboto(
+                      style: GoogleFonts.roboto(
                           color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 17
-                        ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17),
                     ),
                     Expanded(
                       child: Text(""),
@@ -213,11 +207,13 @@ class Stpagestate extends State<Stpage> {
               SizedBox(
                 height: 10,
               ),
-              InkWell(
-                onTap: () {
-
+              GestureDetector(
+                onDoubleTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Settings()));
+                },
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsAndConditions()));
                 },
                 child: Container(
                   width: 380,
@@ -245,9 +241,8 @@ class Stpagestate extends State<Stpage> {
                       "Terms and conditions",
                       style: GoogleFonts.roboto(
                           color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 17
-                        ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17),
                     ),
                     Expanded(
                       child: Text(""),
