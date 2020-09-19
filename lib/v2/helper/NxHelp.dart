@@ -33,7 +33,7 @@ class States {
 class NXHelp {
   List ticketTypes;
   
-  static String DB_NAME = "main10.db" ;
+  static String DB_NAME = "main11.db" ;
 
   NXHelp() {
     //load and create table
