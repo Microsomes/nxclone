@@ -43,7 +43,7 @@ class PiHomeState extends State<PiHome> {
                     height: 80,
                     color: Colors.transparent,
                     child: Text(
-                      "NX-Black Pie (Educational only-Demo)",
+                      "BubbleGum",
                       style:
                           GoogleFonts.acme(color: Colors.white, fontSize: 30),
                       textAlign: TextAlign.center,
@@ -137,7 +137,7 @@ class PiHomeState extends State<PiHome> {
                                               ]),
                                           child: CircleAvatar(
                                               radius: 40,
-                                              child: Text("NXHOME",
+                                              child: Text("Enter",
                                                   style: GoogleFonts.acme(
                                                       color: Colors.white,
                                                       fontWeight:
@@ -186,8 +186,9 @@ class PiHomeState extends State<PiHome> {
                                   child: CircleAvatar(
                                     radius: 30,
                                     child: Text(
-                                      "Ticket",
+                                      "Def Ticket",
                                       style: TextStyle(color: Colors.white),
+                                      textAlign: TextAlign.center,
                                     ),
                                     backgroundColor: Colors.lightGreen,
                                   ),

@@ -34,6 +34,8 @@ class ActualTicketState extends State<ActualTicket> {
 
   Map speedConfig;
 
+  String subtitle="ANY BUSES ACROSS OUR NETWORK";
+
   @override
   void initState() {
     super.initState();
@@ -78,6 +80,7 @@ class ActualTicketState extends State<ActualTicket> {
       setState(() {
         state = ticket["list"][0]['state'];
         ticketTitle = ticket["list"][0]['tickettype'];
+        subtitle= ticket["subtitle"];
         print(state);
         print(ticketTitle);
       });
@@ -220,7 +223,7 @@ class ActualTicketState extends State<ActualTicket> {
                                     width:
                                         MediaQuery.of(context).size.width * 0.8,
                                     child: Text(
-                                      "ANY BUSES ACROSS OUR NETWORK",
+                                      subtitle.toUpperCase(),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 16,

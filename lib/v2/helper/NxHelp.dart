@@ -675,6 +675,8 @@ class NXHelp {
       toreturn["list"]=list;
       if(allTickets.length>=1){
         toreturn["price"]=allTickets[0]["price"];
+        toreturn["subtitle"]=allTickets[0]["ticketsubtitle"];
+
       }
       return toreturn;
     }
