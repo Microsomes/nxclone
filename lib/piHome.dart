@@ -30,10 +30,15 @@ class PiHomeState extends State<PiHome> {
         body: SafeArea(
             child: Column(
           children: <Widget>[
+            SizedBox(height: 40,),
+            Text("(Version 5.0-Gorilla Edition)",style: GoogleFonts.aBeeZee(
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+            ),),
             Expanded(
               child: Column(children: [
                 SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 AnimatedOpacity(
                   duration: Duration(seconds: 5),
@@ -42,12 +47,7 @@ class PiHomeState extends State<PiHome> {
                     alignment: Alignment.center,
                     height: 80,
                     color: Colors.transparent,
-                    child: Text(
-                      "BubbleGum",
-                      style:
-                          GoogleFonts.acme(color: Colors.white, fontSize: 30),
-                      textAlign: TextAlign.center,
-                    ),
+                    child: Image.asset("images/v4/bubblegum.jpg")
                   ),
                 ),
                 Expanded(
@@ -73,17 +73,33 @@ class PiHomeState extends State<PiHome> {
                               opacity: 1,
                               duration: Duration(seconds: 2),
                               child: Container(
+                                margin: EdgeInsets.all(30),
+                                decoration: BoxDecoration(
+                                color: Color.fromRGBO(38, 38, 38, 1),
+                                borderRadius: BorderRadius.circular(20)
+                                ),
                                 width: MediaQuery.of(context).size.width * 0.33,
-                                child: Center(
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: Center(
                                   child: CircleAvatar(
-                                    radius: 30,
+                                    radius: 50,
                                     child: Text(
-                                      "Setup",
+                                      "",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                    backgroundColor: Colors.lightGreen,
+                                    backgroundColor: Color.fromRGBO(249, 140, 85, 1),
                                   ),
                                 ),
+                                    ),
+                                    Text("(Setup)",style: GoogleFonts.roboto(
+                                      color:Colors.white,
+                                      fontWeight: FontWeight.bold
+                                    ),),
+                                    SizedBox(height:8)
+                                  ],
+                                )
                               ),
                             ),
                           ),

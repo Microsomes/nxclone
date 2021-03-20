@@ -1,10 +1,7 @@
 import 'package:BubbleGum/piHome.dart';
-import 'package:BubbleGum/v2/pages/setupflow.dart';
-import 'package:app_launcher/app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/main/quickOptions.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'dart:async';
@@ -43,25 +40,35 @@ class HomePagePrestate extends State<HomePagePre>
   @override
   void initState() {
     super.initState();
-
+    /**
+     * This init code runs everytime the app opens
+     * it creates the database of tickets and inits everything
+     */
     NXHelp().runInit();
+    /**
+     * Since we had a bug with the ticket wallet, on boot
+     * i also delete all pending tickets, if i didnt add this then 
+     * we would run in the memory leak
+     */
     NXHelp().deleteAllTickets();
     //run the init process
     //NXHelp().runScan();
 
-
- 
-    
-    
-
+    /**
+     * This code buys the default ticket, its more of a convenience 
+     * so the user doesnt have to buy the real app themselves everytime
+     * they open up the app
+     */
     NXHelp().buyAndActivateDefaultTicket().then((id) {
       setState(() {
         idO = id;
       });
     });
-
+    /**
+     * this grabs the config settings so we can determine 
+     * which page to boot too
+     */
     NXHelp aconfig = NXHelp();
-
     aconfig.loadConfig("defaulthomepage", 1).then((value) {
       if (value.length == 0) {
         return;
@@ -70,9 +77,7 @@ class HomePagePrestate extends State<HomePagePre>
         var currentval = value[0]['val'];
         if (currentval == "home") {
           //home page
-
-          
-
+          //do nothing it should open up
         } else if (currentval == "nxhome") {
           Navigator.pushAndRemoveUntil(
             context,
@@ -93,7 +98,6 @@ class HomePagePrestate extends State<HomePagePre>
         }
       }
     });
-
     //maxHeight= MediaQuery.of(context).size.height;
     containerHeight = 10;
     setState(() {});
