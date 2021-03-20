@@ -30,11 +30,14 @@ class PiHomeState extends State<PiHome> {
         body: SafeArea(
             child: Column(
           children: <Widget>[
-            SizedBox(height: 40,),
-            Text("(Version 5.0-Gorilla Edition)",style: GoogleFonts.aBeeZee(
-              color: Colors.white,
-              fontWeight: FontWeight.bold
-            ),),
+            SizedBox(
+              height: 40,
+            ),
+            Text(
+              "(Version 5.0-Gorilla Edition)",
+              style: GoogleFonts.aBeeZee(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+            ),
             Expanded(
               child: Column(children: [
                 SizedBox(
@@ -44,11 +47,11 @@ class PiHomeState extends State<PiHome> {
                   duration: Duration(seconds: 5),
                   opacity: 1,
                   child: Container(
-                    alignment: Alignment.center,
-                    height: 80,
-                    color: Colors.transparent,
-                    child: Image.asset("images/v4/bubblegum.jpg")
-                  ),
+                      alignment: Alignment.center,
+                      height: 80,
+                      color: Colors.transparent,
+                      child: Image.asset("images/v4/bubblegum.jpg",
+                        )),
                 ),
                 Expanded(
                     child: Container(
@@ -73,34 +76,36 @@ class PiHomeState extends State<PiHome> {
                               opacity: 1,
                               duration: Duration(seconds: 2),
                               child: Container(
-                                margin: EdgeInsets.all(30),
-                                decoration: BoxDecoration(
-                                color: Color.fromRGBO(38, 38, 38, 1),
-                                borderRadius: BorderRadius.circular(20)
-                                ),
-                                width: MediaQuery.of(context).size.width * 0.33,
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: Center(
-                                  child: CircleAvatar(
-                                    radius: 50,
-                                    child: Text(
-                                      "",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    backgroundColor: Color.fromRGBO(249, 140, 85, 1),
-                                  ),
-                                ),
-                                    ),
-                                    Text("(Setup)",style: GoogleFonts.roboto(
-                                      color:Colors.white,
-                                      fontWeight: FontWeight.bold
-                                    ),),
-                                    SizedBox(height:8)
-                                  ],
-                                )
-                              ),
+                                  margin: EdgeInsets.all(30),
+                                  decoration: BoxDecoration(
+                                      color: Color.fromRGBO(38, 38, 38, 1),
+                                      borderRadius: BorderRadius.circular(10)),
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.33,
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        child: Center(
+                                          child: CircleAvatar(
+                                            radius: 50,
+                                            child:  Image.asset("images/v5/settings.png",
+                                            color: Colors.white,
+                                            width: 60,
+                                            ),
+                                            backgroundColor:
+                                                Color.fromRGBO(249, 140, 85, 1),
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        "(Setup)",
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(height: 8)
+                                    ],
+                                  )),
                             ),
                           ),
                           InkWell(
@@ -132,34 +137,44 @@ class PiHomeState extends State<PiHome> {
                               opacity: 1,
                               duration: Duration(seconds: 3),
                               child: Container(
+                                  margin: EdgeInsets.all(30),
                                   decoration: BoxDecoration(
-                                      boxShadow: [], color: Colors.transparent),
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [],
+                                    color: Color.fromRGBO(38, 38, 38, 1),
+                                  ),
                                   width:
                                       MediaQuery.of(context).size.width * 0.33,
-                                  child: Stack(
+                                  child: Column(
                                     children: <Widget>[
-                                      Center(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(100),
-                                              boxShadow: [
-                                                new BoxShadow(
-                                                  color:
-                                                      Colors.lightGreenAccent,
-                                                  blurRadius: 300,
-                                                  offset: new Offset(1.0, 0.2),
-                                                )
-                                              ]),
-                                          child: CircleAvatar(
-                                              radius: 40,
-                                              child: Text("Enter",
-                                                  style: GoogleFonts.acme(
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              backgroundColor: Colors.black),
+                                      Expanded(
+                                        child: Center(
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(100),
+                                                boxShadow: []),
+                                            child: CircleAvatar(
+                                              radius: 50,
+                                              child:Image.asset("images/v5/home.png",
+                                              width: 60,
+                                              color: Colors.white,
+                                              ),
+                                              backgroundColor: Color.fromRGBO(
+                                                  249, 140, 85, 1),
+                                            ),
+                                          ),
                                         ),
+                                      ),
+                                      Text(
+                                        "(Home)",
+                                        style: GoogleFonts.roboto(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 8,
                                       )
                                     ],
                                   )),
@@ -168,7 +183,6 @@ class PiHomeState extends State<PiHome> {
                           InkWell(
                             onTap: () {
                               //goes to ticket
-
                               NXHelp()
                                   .checkIfDisclaimerHasBeenAccepted()
                                   .then((disclaimer) {
@@ -197,18 +211,38 @@ class PiHomeState extends State<PiHome> {
                               opacity: 1,
                               duration: Duration(seconds: 2),
                               child: Container(
+                                margin: EdgeInsets.all(30),
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(38, 38, 38, 1),
+                                    borderRadius: BorderRadius.circular(8)),
                                 width: MediaQuery.of(context).size.width * 0.33,
-                                child: Center(
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: Center(
                                   child: CircleAvatar(
-                                    radius: 30,
-                                    child: Text(
-                                      "Def Ticket",
-                                      style: TextStyle(color: Colors.white),
-                                      textAlign: TextAlign.center,
+                                    radius: 50,
+                                    child: Image.asset("images/v5/tickets.png",
+                                    width: 60,
+                                    color: Colors.white,
                                     ),
-                                    backgroundColor: Colors.lightGreen,
+                                    backgroundColor: Color.fromRGBO(
+                                                  249, 140, 85, 1),
                                   ),
                                 ),
+                                    ),
+                                    Text(
+                                        "(Ticket Only)",
+                                        style: GoogleFonts.roboto(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 8,
+                                      )
+                                  ],
+                                )
                               ),
                             ),
                           ),
