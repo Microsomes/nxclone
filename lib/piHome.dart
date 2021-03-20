@@ -6,6 +6,7 @@ import 'v2/main/quickOptions.dart';
 import 'v2/pages/nxfront.dart';
 import 'v2/pages/setupflow.dart';
 import 'v2/pages/ticketv2.dart';
+import 'v3/newSetup.dart';
 
 class PiHome extends StatefulWidget {
   @override
@@ -50,7 +51,9 @@ class PiHomeState extends State<PiHome> {
                       alignment: Alignment.center,
                       height: 80,
                       color: Colors.transparent,
-                      child: Image.asset("images/v4/bubblegum.jpg",
+                      child: Image.asset("images/v4/Orange_Bubblegum.png",
+                      width: 100,
+                      height: 100,
                         )),
                 ),
                 Expanded(
@@ -69,7 +72,7 @@ class PiHomeState extends State<PiHome> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SetupFlow()),
+                                    builder: (context) => NewSetupv3()),
                               );
                             },
                             child: AnimatedOpacity(
@@ -232,7 +235,7 @@ class PiHomeState extends State<PiHome> {
                                 ),
                                     ),
                                     Text(
-                                        "(Ticket Only)",
+                                        "(Default Ticket)",
                                         style: GoogleFonts.roboto(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -251,40 +254,43 @@ class PiHomeState extends State<PiHome> {
                     )
                   ],
                 ))),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.50,
-                  padding: EdgeInsets.only(left: 19, right: 19, top: 20),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(60),
-                          topLeft: Radius.circular(60)),
-                      color: Colors.transparent,
-                      boxShadow: []),
-                  child: FutureBuilder(
-                    future: NXHelp().checkIfDisclaimerHasBeenAccepted(),
-                    builder: (context, snapshot) {
-                      Future.delayed(Duration(seconds: 1), () {
-                        if (snapshot.data == true) {
-                          //great
-                        } else {
-                          setState(() {});
-                        }
-                      });
+                Expanded(
+                  flex: 2,
+                  child:Container())
+                // Container(
+                //   height: MediaQuery.of(context).size.height * 0.50,
+                //   padding: EdgeInsets.only(left: 19, right: 19, top: 20),
+                //   decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.only(
+                //           topRight: Radius.circular(60),
+                //           topLeft: Radius.circular(60)),
+                //       color: Colors.transparent,
+                //       boxShadow: []),
+                //   child: FutureBuilder(
+                //     future: NXHelp().checkIfDisclaimerHasBeenAccepted(),
+                //     builder: (context, snapshot) {
+                //       Future.delayed(Duration(seconds: 1), () {
+                //         if (snapshot.data == true) {
+                //           //great
+                //         } else {
+                //           setState(() {});
+                //         }
+                //       });
 
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SetupFlow()));
-                        },
-                        child: IgnorePointer(
-                            ignoring: snapshot.data == false ? true : false,
-                            child: QuickOptions()),
-                      );
-                    },
-                  ),
-                )
+                //       return InkWell(
+                //         onTap: () {
+                //           Navigator.push(
+                //               context,
+                //               MaterialPageRoute(
+                //                   builder: (context) => SetupFlow()));
+                //         },
+                //         child: IgnorePointer(
+                //             ignoring: snapshot.data == false ? true : false,
+                //             child: QuickOptions()),
+                //       );
+                //     },
+                //   ),
+                // )
               ]),
             ),
             isShowing == true
