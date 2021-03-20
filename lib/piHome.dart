@@ -51,10 +51,11 @@ class PiHomeState extends State<PiHome> {
                       alignment: Alignment.center,
                       height: 80,
                       color: Colors.transparent,
-                      child: Image.asset("images/v4/Orange_Bubblegum.png",
-                      width: 100,
-                      height: 100,
-                        )),
+                      child: Image.asset(
+                        "images/v4/Orange_Bubblegum.png",
+                        width: 100,
+                        height: 100,
+                      )),
                 ),
                 Expanded(
                     child: Container(
@@ -91,9 +92,10 @@ class PiHomeState extends State<PiHome> {
                                         child: Center(
                                           child: CircleAvatar(
                                             radius: 50,
-                                            child:  Image.asset("images/v5/settings.png",
-                                            color: Colors.white,
-                                            width: 60,
+                                            child: Image.asset(
+                                              "images/v5/settings.png",
+                                              color: Colors.white,
+                                              width: 60,
                                             ),
                                             backgroundColor:
                                                 Color.fromRGBO(249, 140, 85, 1),
@@ -159,9 +161,10 @@ class PiHomeState extends State<PiHome> {
                                                 boxShadow: []),
                                             child: CircleAvatar(
                                               radius: 50,
-                                              child:Image.asset("images/v5/home.png",
-                                              width: 60,
-                                              color: Colors.white,
+                                              child: Image.asset(
+                                                "images/v5/home.png",
+                                                width: 60,
+                                                color: Colors.white,
                                               ),
                                               backgroundColor: Color.fromRGBO(
                                                   249, 140, 85, 1),
@@ -214,27 +217,29 @@ class PiHomeState extends State<PiHome> {
                               opacity: 1,
                               duration: Duration(seconds: 2),
                               child: Container(
-                                margin: EdgeInsets.all(30),
-                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(38, 38, 38, 1),
-                                    borderRadius: BorderRadius.circular(8)),
-                                width: MediaQuery.of(context).size.width * 0.33,
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: Center(
-                                  child: CircleAvatar(
-                                    radius: 50,
-                                    child: Image.asset("images/v5/tickets.png",
-                                    width: 60,
-                                    color: Colors.white,
-                                    ),
-                                    backgroundColor: Color.fromRGBO(
-                                                  249, 140, 85, 1),
-                                  ),
-                                ),
-                                    ),
-                                    Text(
+                                  margin: EdgeInsets.all(30),
+                                  decoration: BoxDecoration(
+                                      color: Color.fromRGBO(38, 38, 38, 1),
+                                      borderRadius: BorderRadius.circular(8)),
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.33,
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        child: Center(
+                                          child: CircleAvatar(
+                                            radius: 50,
+                                            child: Image.asset(
+                                              "images/v5/tickets.png",
+                                              width: 60,
+                                              color: Colors.white,
+                                            ),
+                                            backgroundColor:
+                                                Color.fromRGBO(249, 140, 85, 1),
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
                                         "(Default Ticket)",
                                         style: GoogleFonts.roboto(
                                           color: Colors.white,
@@ -244,9 +249,8 @@ class PiHomeState extends State<PiHome> {
                                       SizedBox(
                                         height: 8,
                                       )
-                                  ],
-                                )
-                              ),
+                                    ],
+                                  )),
                             ),
                           ),
                         ],
@@ -255,42 +259,14 @@ class PiHomeState extends State<PiHome> {
                   ],
                 ))),
                 Expanded(
-                  flex: 2,
-                  child:Container())
-                // Container(
-                //   height: MediaQuery.of(context).size.height * 0.50,
-                //   padding: EdgeInsets.only(left: 19, right: 19, top: 20),
-                //   decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.only(
-                //           topRight: Radius.circular(60),
-                //           topLeft: Radius.circular(60)),
-                //       color: Colors.transparent,
-                //       boxShadow: []),
-                //   child: FutureBuilder(
-                //     future: NXHelp().checkIfDisclaimerHasBeenAccepted(),
-                //     builder: (context, snapshot) {
-                //       Future.delayed(Duration(seconds: 1), () {
-                //         if (snapshot.data == true) {
-                //           //great
-                //         } else {
-                //           setState(() {});
-                //         }
-                //       });
-
-                //       return InkWell(
-                //         onTap: () {
-                //           Navigator.push(
-                //               context,
-                //               MaterialPageRoute(
-                //                   builder: (context) => SetupFlow()));
-                //         },
-                //         child: IgnorePointer(
-                //             ignoring: snapshot.data == false ? true : false,
-                //             child: QuickOptions()),
-                //       );
-                //     },
-                //   ),
-                // )
+                    flex: 2,
+                    child: Container(
+                      child: Text(
+                        "By pass simulation (Simpler and Faster)",
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,),
+                      ),
+                    )),
               ]),
             ),
             isShowing == true
