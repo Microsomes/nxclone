@@ -57,7 +57,7 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
                         },
                         child: TicketOption(
                           title: ticketTypes[index]['tickettitle'],
-                          subtitle: "Any bus across our network",
+                          subtitle: ticketTypes[index]['ticketsubtitle'],
                           price: "£" + ticketTypes[index]['price'].toString(),
                         ),
                       );
