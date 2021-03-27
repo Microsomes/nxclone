@@ -30,6 +30,9 @@ class NxsigState extends State<Nxsig> {
   Widget build(BuildContext context) {
     var state = widget.state;
 
+
+  
+
     if (widget.state == "Sandwell & Dudley Low Fare Zone") {
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/sandwell-dudley.png"),
@@ -61,6 +64,22 @@ class NxsigState extends State<Nxsig> {
     } else if (widget.state == "Coventry") {
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/conventrysig.png"),
+      );
+    }else if(widget.ticketType==Ttype.adult1weekMetro){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/metro.png"),
+      );
+    }else if(widget.ticketType==Ttype.adult4weekMetro){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/metro.png"),
+      );
+    }else if(widget.ticketType==Ttype.adult1weekMetroBus){
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/reg-metro.png")
+      );
+    }else if(widget.ticketType==Ttype.adulst4weekMetroBus{
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/reg-metro.png")
       );
     }
 
