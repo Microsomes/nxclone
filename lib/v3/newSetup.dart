@@ -8,6 +8,9 @@ class NewSetupv3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("(Setup)"),
+      ),
       backgroundColor: Color.fromRGBO(38, 38, 38, 1),
       body: Column(
         children: [

@@ -267,6 +267,13 @@ class PiHomeState extends State<PiHome> {
                             color: Colors.white,),
                       ),
                     )),
+
+                    Text("Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",style: GoogleFonts.roboto(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold
+                    ),
+                    textAlign: TextAlign.center
+                    ,)
               ]),
             ),
             isShowing == true

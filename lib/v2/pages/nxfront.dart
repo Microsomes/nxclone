@@ -432,28 +432,46 @@ class NXFront_TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>UtilitiesMenu()));
-      },
-          child: Container(
-          height: 90,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  SizedBox(height: 30,),
-                  Expanded(child: Image.asset(
-                  "images/v4/header.png",
-                  width: 300,
-                ),)
-                ],
-              )
-            ],
-          )
-    ));
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => UtilitiesMenu()));
+        },
+        child: Container(
+            height: 80,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Expanded(
+                      child: Image.asset(
+                        "images/v4/header.png",
+                        width: 300,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Expanded(
+                      child: Image.asset(
+                        "images/v4/icons/newmenu.png",
+                        width: 50,
+                      ),
+                    ),
+                  ],
+                ),
+                
+              ],
+            )));
   }
 }
