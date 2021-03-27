@@ -354,15 +354,60 @@ class NXHelp {
       ]
     });
 
+    /**
+     * Importing all the metro tickets
+     */
+
     ticketTypes.add({
-     "title": Ttype.groupdaysaverafter6,
+     "title": Ttype.adult1weekMetro,
       "subtitle": "On Metro tram",
-      "price": "4.00",
-      "state": States.wallsalllowfarzone,
+      "price": "23.00",
+      "state": States.midlandmetra,
       "info": [
-        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+        "Includes travel on all the Midland Metro Trapm route."
       ]
     });
+
+     ticketTypes.add({
+     "title": Ttype.adult4weekMetro,
+      "subtitle": "On Metro tram",
+      "price": "81.00",
+      "state": States.midlandmetra,
+      "info": [
+        "Includes travel on all the Midland Metro Trapm route."
+      ]
+    });
+
+    ticketTypes.add({
+     "title": Ttype.adult1weekMetroBus,
+      "subtitle": "On Metro & all buses across our network",
+      "price": "25.90",
+      "state": States.midlandmetra,
+      "info": [
+        "Includes travel on all the Midland Metro Trapm route and all our busses across the West Midlands, Black Country & Conventry."
+      ]
+    });
+
+    ticketTypes.add({
+     "title": Ttype.adulst4weekMetroBus,
+      "subtitle": "On Metro & all buses across our network",
+      "price": "90.85",
+      "state": States.midlandmetra,
+      "info": [
+        "Includes travel on all the Midland Metro Trapm route and all our busses across the West Midlands, Black Country & Conventry."
+      ]
+    });
+
+    ticketTypes.add({
+     "title": Ttype.student4WeekMetro,
+      "subtitle": "On Metro & all buses across our network",
+      "price": "63.00",
+      "state": States.midlandmetra,
+      "info": [
+        "Include travel on all the Midland Metro Tram route."
+      ]
+    });
+
 
     //this.init();
   }
