@@ -22,6 +22,7 @@ class Stpagestate extends State<Stpage> {
         context: context,
         builder: (ctx) {
           return Container(
+            color: Colors.white,
               height: MediaQuery.of(context).size.height * 0.96,
               child: Column(
                 children: <Widget>[
@@ -37,7 +38,7 @@ class Stpagestate extends State<Stpage> {
                                 Image.asset("images/leftarrow.png", width: 4))),
                     title: Center(
                       child: Text(
-                        "Select ticket type",
+                        "Select ticket",
                         style:
                             TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
                       ),
