@@ -6,35 +6,36 @@ import 'dart:async';
 
 //all ticket types
 class Ttype {
-
   //All the standard bus tickets
   static String singlejourney = "Single Journey";
+
+  static String singleJourney10 = "Single Journey (10 Pack)";
+
   static String singlejourneycov = "Coventry Single Journey";
   static String daySaver = "Daysaver";
   static String daySavercov = "Coventry Daysaver";
   static String daysaversandwellanddudley = "Sandwell & Dudley Daysaver";
   static String daysaverwallsall = "Walsall Daysaver";
   static String daysaverafter930monfri = "Daysaver after 9.30am (Mon-Fri)";
+  static String daysaverafter930monfri10 =
+      "Daysaver after 9.30am (10 Pack) (Mon-Fri)";
   static String daySaversatsun = "Daysaver (Sat-Sun)";
   static String eveningSaverafter6 = "Evening Saver after 6pm";
   static String groupdaysaver = "Group Daysaver";
   static String groupdaysaverafter6 = "Group Daysaver after 6pm";
 
   //all the metro tickets
-  static String adult1weekMetro= "Adult 1 Week Metro Only";
-  static String adult4weekMetro= "Adult 4 Week Metro Only";
-  static String adult1weekMetroBus="Adult 1 Week Metro & Bus";
-  static String adulst4weekMetroBus="Adult 4 Week Metro & Bus";
-  static String student4WeekMetro= "Student 4 Week";
+  static String adult1weekMetro = "Adult 1 Week Metro Only";
+  static String adult4weekMetro = "Adult 4 Week Metro Only";
+  static String adult1weekMetroBus = "Adult 1 Week Metro & Bus";
+  static String adulst4weekMetroBus = "Adult 4 Week Metro & Bus";
+  static String student4WeekMetro = "Student 4 Week";
 
   //warwick university
-  static String universitySingleHop= "University Single Hop";
-  static String universitySingleHop10="University Single Hop (10 Pack)";
-  static String lemingtonSpaHop="Leamington Spa Hop";
-  static String lemintonSpaHop10="Leamington Spa Hop (10 Pack)";
-
-
-
+  static String universitySingleHop = "University Single Hop";
+  static String universitySingleHop10 = "University Single Hop (10 Pack)";
+  static String lemingtonSpaHop = "Leamington Spa Hop";
+  static String lemintonSpaHop10 = "Leamington Spa Hop (10 Pack)";
 }
 
 //all areas
@@ -51,12 +52,98 @@ class States {
 
 class NXHelp {
   List ticketTypes;
-  
-  static String DB_NAME = "main11.db" ;
+
+  static String DB_NAME = "main11.db";
 
   NXHelp() {
     //load and create table
     ticketTypes = List();
+
+    /**
+     * All outer Birmingham Tickets
+     */
+    ticketTypes.add({
+      "title": Ttype.singlejourney,
+      "subtitle": "Any bus acorss our network",
+      "price": "2.40",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.daysaverafter930monfri,
+      "subtitle": "All busses in the Outer Birmingham zone",
+      "price": "3.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the Local Daysaver low fare zone"
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.daySaversatsun,
+      "subtitle": "All busses in the Outer Birmingham zone",
+      "price": "3.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the Local Daysaver low fare zone"
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.eveningSaverafter6,
+      "subtitle": "All busses across our network",
+      "price": "3.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.groupdaysaver,
+      "subtitle": "All busses across our network",
+      "price": "6.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.groupdaysaverafter6,
+      "subtitle": "All busses across our network",
+      "price": "4.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.singleJourney10,
+      "subtitle": "Any busses across our network",
+      "price": "23.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.daysaverafter930monfri10,
+      "subtitle": "Any busses in the Outer Birmingham zone",
+      "price": "30.00",
+      "state": States.outerbirmingham,
+      "info": [
+        "Includes travel on all our buses within the Local Daysaver low fare zone"
+      ]
+    });
+
+
+
     ticketTypes.add({
       "title": Ttype.singlejourney,
       "subtitle": "Any bus acorss our network",
@@ -360,27 +447,23 @@ class NXHelp {
      */
 
     ticketTypes.add({
-     "title": Ttype.adult1weekMetro,
+      "title": Ttype.adult1weekMetro,
       "subtitle": "On Metro tram",
       "price": "23.00",
       "state": States.midlandmetra,
-      "info": [
-        "Includes travel on all the Midland Metro Trapm route."
-      ]
-    });
-
-     ticketTypes.add({
-     "title": Ttype.adult4weekMetro,
-      "subtitle": "On Metro tram",
-      "price": "81.00",
-      "state": States.midlandmetra,
-      "info": [
-        "Includes travel on all the Midland Metro Trapm route."
-      ]
+      "info": ["Includes travel on all the Midland Metro Trapm route."]
     });
 
     ticketTypes.add({
-     "title": Ttype.adult1weekMetroBus,
+      "title": Ttype.adult4weekMetro,
+      "subtitle": "On Metro tram",
+      "price": "81.00",
+      "state": States.midlandmetra,
+      "info": ["Includes travel on all the Midland Metro Trapm route."]
+    });
+
+    ticketTypes.add({
+      "title": Ttype.adult1weekMetroBus,
       "subtitle": "On Metro & all buses across our network",
       "price": "25.90",
       "state": States.midlandmetra,
@@ -390,7 +473,7 @@ class NXHelp {
     });
 
     ticketTypes.add({
-     "title": Ttype.adulst4weekMetroBus,
+      "title": Ttype.adulst4weekMetroBus,
       "subtitle": "On Metro & all buses across our network",
       "price": "90.85",
       "state": States.midlandmetra,
@@ -400,18 +483,16 @@ class NXHelp {
     });
 
     ticketTypes.add({
-     "title": Ttype.student4WeekMetro,
+      "title": Ttype.student4WeekMetro,
       "subtitle": "On Metro & all buses across our network",
       "price": "63.00",
       "state": States.midlandmetra,
-      "info": [
-        "Include travel on all the Midland Metro Tram route."
-      ]
+      "info": ["Include travel on all the Midland Metro Tram route."]
     });
 
     //warwickUni
     ticketTypes.add({
-     "title": Ttype.universitySingleHop,
+      "title": Ttype.universitySingleHop,
       "subtitle": "Any bus in the Warwick University Zone",
       "price": "1.00",
       "state": States.warwickUni,
@@ -421,7 +502,7 @@ class NXHelp {
       ]
     });
     ticketTypes.add({
-     "title": Ttype.universitySingleHop10,
+      "title": Ttype.universitySingleHop10,
       "subtitle": "Any bus in the Warwick University Zone",
       "price": "10.00",
       "state": States.warwickUni,
@@ -431,7 +512,7 @@ class NXHelp {
       ]
     });
     ticketTypes.add({
-     "title": Ttype.lemingtonSpaHop,
+      "title": Ttype.lemingtonSpaHop,
       "subtitle": "Any bus in the Warwick University Zone",
       "price": "1.00",
       "state": States.warwickUni,
@@ -441,7 +522,7 @@ class NXHelp {
       ]
     });
     ticketTypes.add({
-     "title": Ttype.lemintonSpaHop10,
+      "title": Ttype.lemintonSpaHop10,
       "subtitle": "Any bus in the Warwick University Zone",
       "price": "10.00",
       "state": States.warwickUni,
@@ -450,22 +531,19 @@ class NXHelp {
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
       ]
     });
-
-
-
 
     //this.init();
   }
 
   Future runInit() async {
-    await  Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 10));
     this.init().then((value) {
       print("import completed");
     });
   }
 
   Future runScan() async {
-    var allTick= await this.getAllUseableTickets();
+    var allTick = await this.getAllUseableTickets();
     return allTick;
   }
 
@@ -482,18 +560,18 @@ class NXHelp {
     var top = await this.loadConfig("movingtext_top", 1);
     var bottom = await this.loadConfig("movingtext_bottom", 1);
 
-    if(top.length<=0){
-      top= [{"val":"50"}];
-      bottom= [{"val":"928"}];
-    }else{
-
-    }
+    if (top.length <= 0) {
+      top = [
+        {"val": "50"}
+      ];
+      bottom = [
+        {"val": "928"}
+      ];
+    } else {}
 
     Map toReturn = Map();
     toReturn['top'] = top;
     toReturn['bottom'] = bottom;
-
-    
 
     return toReturn;
   }
@@ -544,7 +622,7 @@ class NXHelp {
     await db.rawDelete("DELETE FROM ticketwallet");
   }
 
-  Future  init() async {
+  Future init() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     await db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
@@ -569,9 +647,9 @@ class NXHelp {
         print("no dublicates");
         //DO NOT COMMENT THIS CODE OITU ITS VERY IMPORTANT
         var id = await this.addTicket(element['title'], element['state'],
-            element['price'], element['subtitle'],element["info"][0]);
+            element['price'], element['subtitle'], element["info"][0]);
 
-            Future.delayed(Duration(seconds: 1));
+        Future.delayed(Duration(seconds: 1));
         //saves to db
         //var title = element['title'];
       } else {
@@ -665,27 +743,25 @@ class NXHelp {
     return list;
   }
 
-
-
   //returns ticket by id
   Future getInfoOnTicketById(int id) async {
-    var db= await openDatabase(NXHelp.DB_NAME);
-    var details= await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?",[id]);
+    var db = await openDatabase(NXHelp.DB_NAME);
+    var details =
+        await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?", [id]);
     return details;
   }
 
   //method will cause expiry to the ticket
   Future expireTicket(int id) async {
     print("expires ticket");
-    var db= await openDatabase(NXHelp.DB_NAME);
-    var status= await db.rawUpdate("UPDATE ticketwallet SET isActive=? WHERE id=?",[2,id]);
+    var db = await openDatabase(NXHelp.DB_NAME);
+    var status = await db
+        .rawUpdate("UPDATE ticketwallet SET isActive=? WHERE id=?", [2, id]);
     print(status);
     return status;
   }
 
-
-
- //returns all historical tickets
+  //returns all historical tickets
   Future getAllHistoricalTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
 
@@ -731,9 +807,6 @@ class NXHelp {
 
     return modifiedList;
   }
-
-
-  
 
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
@@ -787,19 +860,19 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list =
         await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?", [id]);
-    if(list.length>=1){
+    if (list.length >= 1) {
       //lets try and grab the price too;
-      var state= list[0]["state"];
-      var tickettype= list[0]["tickettype"];
+      var state = list[0]["state"];
+      var tickettype = list[0]["tickettype"];
       print(state);
       print(tickettype);
-      var allTickets= await db.rawQuery("SELECT * FROM tickets WHERE tickettitle=?",[tickettype]);
-      Map<String,dynamic> toreturn= new Map<String,dynamic>();
-      toreturn["list"]=list;
-      if(allTickets.length>=1){
-        toreturn["price"]=allTickets[0]["price"];
-        toreturn["subtitle"]=allTickets[0]["ticketsubtitle"];
-
+      var allTickets = await db
+          .rawQuery("SELECT * FROM tickets WHERE tickettitle=?", [tickettype]);
+      Map<String, dynamic> toreturn = new Map<String, dynamic>();
+      toreturn["list"] = list;
+      if (allTickets.length >= 1) {
+        toreturn["price"] = allTickets[0]["price"];
+        toreturn["subtitle"] = allTickets[0]["ticketsubtitle"];
       }
       return toreturn;
     }
@@ -860,18 +933,12 @@ class NXHelp {
     return list;
   }
 
-  Future addTicket(
-      String type, 
-      String state, 
-      String price, 
-      String subtitle,
+  Future addTicket(String type, String state, String price, String subtitle,
       String info) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db.rawInsert(
         "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info) VALUES (?,?,?,?,?)",
-        [type, state, price, subtitle,info]);
+        [type, state, price, subtitle, info]);
     return iid;
   }
 }
-
- 

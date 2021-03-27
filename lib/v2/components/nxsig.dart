@@ -77,7 +77,7 @@ class NxsigState extends State<Nxsig> {
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/reg-metro.png")
       );
-    }else if(widget.ticketType==Ttype.adulst4weekMetroBus{
+    }else if(widget.ticketType==Ttype.adulst4weekMetroBus){
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/reg-metro.png")
       );
