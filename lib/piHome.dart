@@ -19,6 +19,10 @@ class PiHomeState extends State<PiHome> {
   var idO;
   bool isShowing = true;
 
+  var ticketType = ["Singles", "Day", "Group", "Test"];
+
+  var selectedTicket = "Singles";
+
   @override
   void initState() {
     super.initState();
@@ -261,19 +265,77 @@ class PiHomeState extends State<PiHome> {
                 Expanded(
                     flex: 2,
                     child: Container(
-                      child: Text(
-                        "By pass simulation (Simpler and Faster)",
-                        style: GoogleFonts.roboto(
-                            color: Colors.white,),
-                      ),
-                    )),
-
-                    Text("Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold
-                    ),
-                    textAlign: TextAlign.center
-                    ,)
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          children: [
+                            Center(
+                              child: Text(
+                                "By pass simulation (Simpler and Faster) 🚀",
+                                style: GoogleFonts.roboto(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              height: 50,
+                              color: Colors.white.withOpacity(0.1),
+                              child: Center(
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: ticketType.length,
+                                  shrinkWrap: true,
+                                  itemBuilder: (ctx, index) {
+                                    return InkWell(
+                                      onTap: () {
+                                        print("$index");
+                                        setState(() {
+                                          selectedTicket= ticketType[index];
+                                        });
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.5),
+                                                spreadRadius: 5,
+                                                blurRadius: 7,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                            color: selectedTicket==ticketType[index] ? Colors.orangeAccent: Colors.black,
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        margin: EdgeInsets.all(10),
+                                        width: selectedTicket==ticketType[index] ? 100: 50,
+                                        height: 50,
+                                        child: Center(
+                                            child: Text(
+                                          ticketType[index],
+                                          style: GoogleFonts.roboto(
+                                            color: selectedTicket==ticketType[index] ? Colors.black : Colors.white,
+                                               fontSize: selectedTicket==ticketType[index] ? 12:8),
+                                          textAlign: TextAlign.center,
+                                        )),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            )
+                          ],
+                        ))),
+                Text(
+                  "Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",
+                  style: GoogleFonts.roboto(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                )
               ]),
             ),
             isShowing == true
