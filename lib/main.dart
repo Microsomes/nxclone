@@ -44,7 +44,9 @@ class HomePagePrestate extends State<HomePagePre>
      * This init code runs everytime the app opens
      * it creates the database of tickets and inits everything
      */
-    NXHelp().runInit();
+    NXHelp().runInit().then((value) {
+      print("imported");
+    });
     /**
      * Since we had a bug with the ticket wallet, on boot
      * i also delete all pending tickets, if i didnt add this then 

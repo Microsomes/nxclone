@@ -2,6 +2,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'dart:async';
 
 //all ticket types
 class Ttype {
@@ -408,13 +409,59 @@ class NXHelp {
       ]
     });
 
+    //warwickUni
+    ticketTypes.add({
+     "title": Ttype.universitySingleHop,
+      "subtitle": "Any bus in the Warwick University Zone",
+      "price": "1.00",
+      "state": States.warwickUni,
+      "info": [
+        "Includes travel on all our busses within the Uni Hop short hop zone.",
+        "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
+      ]
+    });
+    ticketTypes.add({
+     "title": Ttype.universitySingleHop10,
+      "subtitle": "Any bus in the Warwick University Zone",
+      "price": "10.00",
+      "state": States.warwickUni,
+      "info": [
+        "Includes travel on all our busses within the Uni Hop short hop zone.",
+        "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
+      ]
+    });
+    ticketTypes.add({
+     "title": Ttype.lemingtonSpaHop,
+      "subtitle": "Any bus in the Warwick University Zone",
+      "price": "1.00",
+      "state": States.warwickUni,
+      "info": [
+        "Includes travel on all our busses within the Lemington Spa short hop zone.",
+        "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
+      ]
+    });
+    ticketTypes.add({
+     "title": Ttype.lemintonSpaHop10,
+      "subtitle": "Any bus in the Warwick University Zone",
+      "price": "10.00",
+      "state": States.warwickUni,
+      "info": [
+        "Includes travel on all our busses within the Lemington Spa short hop zone.",
+        "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
+      ]
+    });
+
+
+
 
     //this.init();
   }
 
-  void runInit(){
-    print("running init");
-    this.init();
+  Future runInit() async {
+    await  Future.delayed(Duration(seconds: 10));
+    this.init().then((value) {
+      print("import completed");
+    });
   }
 
   Future runScan() async {
@@ -497,14 +544,14 @@ class NXHelp {
     await db.rawDelete("DELETE FROM ticketwallet");
   }
 
-  void init() async {
+  Future  init() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     await db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     await db.execute(
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
     await db.execute(
-        "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL)");
+        "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL)");
 
     //load default values
 
@@ -522,13 +569,16 @@ class NXHelp {
         print("no dublicates");
         //DO NOT COMMENT THIS CODE OITU ITS VERY IMPORTANT
         var id = await this.addTicket(element['title'], element['state'],
-            element['price'], element['subtitle']);
+            element['price'], element['subtitle'],element["info"][0]);
+
+            Future.delayed(Duration(seconds: 1));
         //saves to db
         //var title = element['title'];
       } else {
-        //print("duplicates");
+        print("duplicates");
       }
     }
+    return "imported";
   }
 
   //todo future run this function to clean up old expired tickets
@@ -804,7 +854,6 @@ class NXHelp {
 
   Future checkTicketByState(String type, String state) async {
     var db = await openDatabase(NXHelp.DB_NAME);
-
     List<Map> list = await db.rawQuery(
         'SELECT * FROM tickets WHERE  state=? AND tickettitle=?',
         [state, type]);
@@ -812,11 +861,17 @@ class NXHelp {
   }
 
   Future addTicket(
-      String type, String state, String price, String subtitle) async {
+      String type, 
+      String state, 
+      String price, 
+      String subtitle,
+      String info) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db.rawInsert(
-        "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle) VALUES (?,?,?,?)",
-        [type, state, price, subtitle]);
+        "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info) VALUES (?,?,?,?,?)",
+        [type, state, price, subtitle,info]);
     return iid;
   }
 }
+
+ 
