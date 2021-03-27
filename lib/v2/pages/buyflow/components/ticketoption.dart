@@ -6,11 +6,16 @@ class TicketOption extends StatelessWidget {
   final String price;
   final Function ticketBuyProcess;
 
+  final dynamic selectedState;
+  final dynamic selectedTicket;
+
   TicketOption(
       {@required this.title,
       @required this.subtitle,
       @required this.price,
-      @required this.ticketBuyProcess});
+      @required this.ticketBuyProcess,
+      @required this.selectedState,
+      @required this.selectedTicket});
 
   @override
   Widget build(BuildContext context) {
@@ -39,29 +44,34 @@ class TicketOption extends StatelessWidget {
                         width: 20,
                       ),
                       Expanded(
-                        child: Container(
-                          
-                            height: 98,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "$title",
-                                  style: TextStyle(fontWeight: FontWeight.w500),
-                                ),
-                                SizedBox(
-                                  height: 6,
-                                ),
-                                Text(
-                                  "$subtitle",
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(166, 166, 166, 1),
-                                      fontWeight: FontWeight.w400
-                                      ),
-                                )
-                              ],
-                            )),
+                        child: InkWell(
+                          onTap: () {
+                            this.ticketBuyProcess(
+                                this.selectedState, this.selectedTicket);
+                          },
+                          child: Container(
+                              height: 98,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "$title",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w500),
+                                  ),
+                                  SizedBox(
+                                    height: 6,
+                                  ),
+                                  Text(
+                                    "$subtitle",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(166, 166, 166, 1),
+                                        fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              )),
+                        ),
                       ),
                       Row(
                         children: <Widget>[

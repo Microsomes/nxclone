@@ -29,7 +29,6 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
     nxhelp = NXHelp();
 
     nxhelp.getAllTickets(widget.selectedState).then((value) {
-
       ticketTypes = value;
       setState(() {});
     });
@@ -45,17 +44,20 @@ class BuyTicketTypesState extends State<BuyTicketTypes> {
                     itemCount: ticketTypes.length,
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      PickPaymentMethodAndConfirmItem(
-                                        selectedState: widget.selectedState,
-                                        selectedTicket: ticketTypes[index],
-                                      )));
-                        },
+                        onTap: () {},
                         child: TicketOption(
+                          selectedState: widget.selectedState,
+                          selectedTicket: ticketTypes[index],
+                          ticketBuyProcess: (selectedState, selectedTicket) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        PickPaymentMethodAndConfirmItem(
+                                          selectedState: selectedState,
+                                          selectedTicket: selectedTicket,
+                                        )));
+                          },
                           title: ticketTypes[index]['tickettitle'],
                           subtitle: ticketTypes[index]['ticketsubtitle'],
                           price: "£" + ticketTypes[index]['price'].toString(),
