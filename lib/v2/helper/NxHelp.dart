@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 
 //all ticket types
 class Ttype {
+
+  //All the standard bus tickets
   static String singlejourney = "Single Journey";
   static String singlejourneycov = "Coventry Single Journey";
   static String daySaver = "Daysaver";
@@ -16,6 +18,22 @@ class Ttype {
   static String eveningSaverafter6 = "Evening Saver after 6pm";
   static String groupdaysaver = "Group Daysaver";
   static String groupdaysaverafter6 = "Group Daysaver after 6pm";
+
+  //all the metro tickets
+  static String adult1weekMetro= "Adult 1 Week Metro Only";
+  static String adult4weekMetro= "Adult 4 Week Metro Only";
+  static String adult1weekMetroBus="Adult 1 Week Metro & Bus";
+  static String adulst4weekMetroBus="Adult 4 Week Metro & Bus";
+  static String student4WeekMetro= "Student 4 Week";
+
+  //warwick university
+  static String universitySingleHop= "University Single Hop";
+  static String universitySingleHop10="University Single Hop (10 Pack)";
+  static String lemingtonSpaHop="Leamington Spa Hop";
+  static String lemintonSpaHop10="Leamington Spa Hop (10 Pack)";
+
+
+
 }
 
 //all areas
@@ -329,6 +347,16 @@ class NXHelp {
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
       "subtitle": "All busses across our network",
+      "price": "4.00",
+      "state": States.wallsalllowfarzone,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ]
+    });
+
+    ticketTypes.add({
+     "title": Ttype.groupdaysaverafter6,
+      "subtitle": "On Metro tram",
       "price": "4.00",
       "state": States.wallsalllowfarzone,
       "info": [

@@ -463,10 +463,7 @@ class NXFront_TopBar extends StatelessWidget {
                       height: 30,
                     ),
                     Expanded(
-                      child: Image.asset(
-                        "images/v4/icons/newmenu.png",
-                        width: 50,
-                      ),
+                      child: Container()
                     ),
                   ],
                 ),
