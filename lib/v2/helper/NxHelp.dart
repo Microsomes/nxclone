@@ -202,7 +202,7 @@ class NXHelp {
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
       "subtitle": "All busses across our network",
-      "price": "7.00",
+      "price": "4.00",
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."

@@ -16,12 +16,22 @@ class Stpage extends StatefulWidget {
 }
 
 class Stpagestate extends State<Stpage> {
+
+
+  bool isTickets=true;
+  PageController _pageController;
+
+
   void displayBuyticketDialog(BuildContext context,String selectedState) {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
         builder: (ctx) {
-          return Container(
+              final sizeW = MediaQuery.of(context).size.width;
+
+          return StatefulBuilder(
+            builder: ( context, setState){
+              return Container(
             color: Colors.white,
               height: MediaQuery.of(context).size.height * 0.96,
               child: Column(
@@ -44,7 +54,91 @@ class Stpagestate extends State<Stpage> {
                       ),
                     ),
                   ),
-
+                   Container(
+            child: Row(
+              children: <Widget>[
+                Container(
+                  height: 9,
+                  width: MediaQuery.of(context).size.width / 3.6,
+                  color: Color.fromRGBO(187, 157, 107, 1),
+                ),
+                Expanded(
+                                  child: Container(
+                    height: 9,
+                     color: Color.fromRGBO(169, 27, 26, 1),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            height: 1,
+            color: Color.fromRGBO(123, 26, 17, 1),
+          ),
+ 
+                  Container(
+                    height: 50,
+                    width: sizeW,
+                    color: Color.fromRGBO(169, 27, 26, 1),
+                    child: Row(
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            // _pageController.animateToPage(0,
+                            //     duration: Duration(seconds: 1),
+                            //     curve: Curves.easeIn);
+                            setState(() {
+                              isTickets = true;
+                            });
+                          },
+                          child: Container(
+                            child: Center(
+                              child: Text(
+                                "Single",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 18),
+                              ),
+                            ),
+                            width: sizeW / 2,
+                            decoration: BoxDecoration(
+                                color: isTickets == true
+                                    ? Color.fromRGBO(123, 26, 17, 1)
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(10))),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                             print("grade a");
+                             setState(() {
+                               isTickets=false;
+                             });
+                          },
+                          child: Container(
+                            child: Center(
+                              child: Text(
+                                "Multiple",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 18),
+                              ),
+                            ),
+                            width: sizeW / 2,
+                            decoration: BoxDecoration(
+                                color: isTickets == false
+                                    ? Color.fromRGBO(123, 26, 17, 1)
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10))),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                  Expanded(
                    child:  Container(
                     height: MediaQuery.of(context).size.height,
@@ -55,6 +149,8 @@ class Stpagestate extends State<Stpage> {
 
                 ],
               ));
+            },
+          );
         });
   }
 

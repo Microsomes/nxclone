@@ -266,7 +266,6 @@ class Stpagestate extends State<Ticketwallet> {
                               if (allHistoricalTickets[index]['isActive'] ==
                                   -1) {
                               } else {
-
                                 return  Padding(
                                 padding: const EdgeInsets.only(
                                     left: 12, right: 12, top: 12),
