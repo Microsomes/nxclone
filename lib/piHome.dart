@@ -20,7 +20,7 @@ class PiHomeState extends State<PiHome> {
   var idO;
   bool isShowing = true;
 
-  var ticketType = ["Singles", "Day", "Group", "Metro", "Test"];
+  var ticketType = ["Singles", "Day", "Group", "Metro", "Experimental"];
 
   var selectedTicket = "Singles";
 
