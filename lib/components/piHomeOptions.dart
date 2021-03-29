@@ -51,7 +51,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+       height: 100,
         child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -129,7 +129,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                 opacity: 1,
                 duration: Duration(seconds: 2),
                 child: Container(
-                     margin: EdgeInsets.only(left:40,bottom: 40,top: 30),
+                     margin: EdgeInsets.only(left:40,bottom: 20,top: 20),
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(38, 38, 38, 1),
                         borderRadius: BorderRadius.circular(10)),

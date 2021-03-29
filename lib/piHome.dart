@@ -19,13 +19,9 @@ class PiHome extends StatefulWidget {
 class PiHomeState extends State<PiHome> {
   var idO;
   bool isShowing = true;
-
   var ticketType = ["Singles", "Day", "Group", "Metro", "Experimental"];
-
   var selectedTicket = "Singles";
-
   List<Map> filteredTickets;
-
   @override
   void initState() {
     super.initState();
@@ -51,22 +47,22 @@ class PiHomeState extends State<PiHome> {
             ),
             Expanded(
               child: Column(children: [
-                SizedBox(
-                  height: 20,
-                ),
-                AnimatedOpacity(
-                  duration: Duration(seconds: 5),
-                  opacity: 1,
-                  child: Container(
-                      alignment: Alignment.center,
-                      height: 80,
-                      color: Colors.transparent,
-                      child: Image.asset(
-                        "images/v4/Orange_Bubblegum.png",
-                        width: 100,
-                        height: 100,
-                      )),
-                ),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // AnimatedOpacity(
+                //   duration: Duration(seconds: 5),
+                //   opacity: 1,
+                //   child: Container(
+                //       alignment: Alignment.center,
+                //       height: 80,
+                //       color: Colors.transparent,
+                //       child: Image.asset(
+                //         "images/v4/Orange_Bubblegum.png",
+                //         width: 100,
+                //         height: 100,
+                //       )),
+                // ),
                 PiHomeOptions(),
                 Expanded(
                     flex: 2,
@@ -100,7 +96,6 @@ class PiHomeState extends State<PiHome> {
                                         print("$index");
                                         setState(() {
                                           selectedTicket = ticketType[index];
-
                                           NXHelp()
                                               .getTicketsByTag(selectedTicket)
                                               .then((ticker) {

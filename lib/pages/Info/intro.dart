@@ -6,6 +6,7 @@ class LearnIntro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
           title: Text("Learn.Intro"),
         ),
         body: Column(
@@ -79,6 +80,17 @@ class LearnIntro extends StatelessWidget {
                     "Do not use the app on a real Bus Driver, You could get in trouble. Even if it would probably work on a real driver, we do not accept liability if you get in trouble when using this clone. ",
                     style: GoogleFonts.roboto(
                         color: Colors.white, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "A_D_D_I_T_I_O_N_A_L",
+                    style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
                 ],
