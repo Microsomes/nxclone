@@ -139,11 +139,11 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                         Expanded(
                           child: Center(
                             child: CircleAvatar(
-                              radius: 20,
+                              radius: 10,
                               child: Image.asset(
                                 allOptions[i]["image"],
                                 color: Colors.white,
-                                width: 20,
+                                width: 10,
                               ),
                               backgroundColor:
                                   Color.fromRGBO(249, 140, 85, 1),
