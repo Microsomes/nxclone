@@ -50,6 +50,16 @@ class States {
   static String warwickUni = "Warwick University";
 }
 
+class SimType {
+  static String single = "Singles";
+  static String day = "Day";
+  static String evening = "Evening";
+  static String group = "Group";
+  static String test = "Test";
+  static String metro = "Metro";
+  static String uni = "UNI";
+}
+
 class NXHelp {
   List ticketTypes;
 
@@ -69,7 +79,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -79,7 +90,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the Local Daysaver low fare zone"
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -89,7 +101,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the Local Daysaver low fare zone"
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -99,7 +112,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -109,7 +123,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     ticketTypes.add({
@@ -119,7 +134,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     ticketTypes.add({
@@ -129,7 +145,8 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -139,10 +156,9 @@ class NXHelp {
       "state": States.outerbirmingham,
       "info": [
         "Includes travel on all our buses within the Local Daysaver low fare zone"
-      ]
+      ],
+      "type": SimType.day
     });
-
-
 
     ticketTypes.add({
       "title": Ttype.singlejourney,
@@ -151,7 +167,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -161,7 +178,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.daysaverafter930monfri,
@@ -170,7 +188,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -179,7 +198,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -188,7 +208,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -197,7 +218,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
@@ -206,7 +228,8 @@ class NXHelp {
       "state": States.westMidlands,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     ////////conventry
@@ -223,7 +246,8 @@ class NXHelp {
         "Earlsdon, Canley, Longford, Bedworth,",
         "Meriden, Tile Hill, Hearsall Common,",
         "Leamington Spa & Kenilworth"
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -238,7 +262,8 @@ class NXHelp {
         "Earlsdon, Canley, Longford, Bedworth,",
         "Meriden, Tile Hill, Hearsall Common,",
         "Leamington Spa & Kenilworth"
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -248,7 +273,8 @@ class NXHelp {
       "state": States.conventry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -257,7 +283,8 @@ class NXHelp {
       "state": States.conventry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -267,7 +294,8 @@ class NXHelp {
       "state": States.conventry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -277,7 +305,8 @@ class NXHelp {
       "state": States.conventry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     ticketTypes.add({
@@ -287,7 +316,8 @@ class NXHelp {
       "state": States.conventry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     //black country
@@ -299,7 +329,8 @@ class NXHelp {
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -309,7 +340,8 @@ class NXHelp {
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.daysaverafter930monfri,
@@ -318,7 +350,8 @@ class NXHelp {
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -328,7 +361,8 @@ class NXHelp {
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -337,7 +371,8 @@ class NXHelp {
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.day
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -346,16 +381,18 @@ class NXHelp {
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
       "subtitle": "All busses across our network",
-      "price": "7.00",
+      "price": "4.00",
       "state": States.blackCountry,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     //Sandwell & Dudley low fare zone
@@ -367,7 +404,8 @@ class NXHelp {
       "state": States.sandwelldudleylowfarzone,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -377,7 +415,8 @@ class NXHelp {
       "state": States.sandwelldudleylowfarzone,
       "info": [
         "Includes travel on all our buses within the Sandwell & Dudley low fare zone."
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -387,7 +426,8 @@ class NXHelp {
       "state": States.sandwelldudleylowfarzone,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     ticketTypes.add({
@@ -397,7 +437,8 @@ class NXHelp {
       "state": States.sandwelldudleylowfarzone,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     //wallsall low fare zone
@@ -409,7 +450,8 @@ class NXHelp {
       "state": States.wallsalllowfarzone,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.single
     });
 
     ticketTypes.add({
@@ -419,7 +461,8 @@ class NXHelp {
       "state": States.wallsalllowfarzone,
       "info": [
         "Includes travel on all our busses within the Wallsall low fare zone"
-      ]
+      ],
+      "type": SimType.day
     });
 
     ticketTypes.add({
@@ -429,7 +472,8 @@ class NXHelp {
       "state": States.wallsalllowfarzone,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     ticketTypes.add({
@@ -439,7 +483,8 @@ class NXHelp {
       "state": States.wallsalllowfarzone,
       "info": [
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
-      ]
+      ],
+      "type": SimType.group
     });
 
     /**
@@ -451,7 +496,8 @@ class NXHelp {
       "subtitle": "On Metro tram",
       "price": "23.00",
       "state": States.midlandmetra,
-      "info": ["Includes travel on all the Midland Metro Trapm route."]
+      "info": ["Includes travel on all the Midland Metro Trapm route."],
+      "type": SimType.metro
     });
 
     ticketTypes.add({
@@ -459,7 +505,8 @@ class NXHelp {
       "subtitle": "On Metro tram",
       "price": "81.00",
       "state": States.midlandmetra,
-      "info": ["Includes travel on all the Midland Metro Trapm route."]
+      "info": ["Includes travel on all the Midland Metro Trapm route."],
+      "type": SimType.metro
     });
 
     ticketTypes.add({
@@ -469,7 +516,8 @@ class NXHelp {
       "state": States.midlandmetra,
       "info": [
         "Includes travel on all the Midland Metro Trapm route and all our busses across the West Midlands, Black Country & Conventry."
-      ]
+      ],
+      "type": SimType.metro
     });
 
     ticketTypes.add({
@@ -479,7 +527,8 @@ class NXHelp {
       "state": States.midlandmetra,
       "info": [
         "Includes travel on all the Midland Metro Trapm route and all our busses across the West Midlands, Black Country & Conventry."
-      ]
+      ],
+      "type": SimType.metro
     });
 
     ticketTypes.add({
@@ -487,7 +536,8 @@ class NXHelp {
       "subtitle": "On Metro & all buses across our network",
       "price": "63.00",
       "state": States.midlandmetra,
-      "info": ["Include travel on all the Midland Metro Tram route."]
+      "info": ["Include travel on all the Midland Metro Tram route."],
+      "type": SimType.metro
     });
 
     //warwickUni
@@ -499,7 +549,8 @@ class NXHelp {
       "info": [
         "Includes travel on all our busses within the Uni Hop short hop zone.",
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
-      ]
+      ],
+      "type": SimType.uni
     });
     ticketTypes.add({
       "title": Ttype.universitySingleHop10,
@@ -509,7 +560,8 @@ class NXHelp {
       "info": [
         "Includes travel on all our busses within the Uni Hop short hop zone.",
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
-      ]
+      ],
+      "type": SimType.uni
     });
     ticketTypes.add({
       "title": Ttype.lemingtonSpaHop,
@@ -519,7 +571,8 @@ class NXHelp {
       "info": [
         "Includes travel on all our busses within the Lemington Spa short hop zone.",
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
-      ]
+      ],
+      "type": SimType.uni
     });
     ticketTypes.add({
       "title": Ttype.lemintonSpaHop10,
@@ -529,7 +582,8 @@ class NXHelp {
       "info": [
         "Includes travel on all our busses within the Lemington Spa short hop zone.",
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
-      ]
+      ],
+      "type": SimType.uni
     });
 
     //this.init();
@@ -629,7 +683,7 @@ class NXHelp {
     await db.execute(
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
     await db.execute(
-        "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL)");
+        "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL, tag text NOT NULL)");
 
     //load default values
 
@@ -647,7 +701,7 @@ class NXHelp {
         print("no dublicates");
         //DO NOT COMMENT THIS CODE OITU ITS VERY IMPORTANT
         var id = await this.addTicket(element['title'], element['state'],
-            element['price'], element['subtitle'], element["info"][0]);
+            element['price'], element['subtitle'], element["info"][0],element["type"]);
 
         Future.delayed(Duration(seconds: 1));
         //saves to db
@@ -925,6 +979,13 @@ class NXHelp {
     return list;
   }
 
+
+  Future getTicketsByTag(String type) async {
+      var db= await openDatabase(NXHelp.DB_NAME);
+      List<Map> list= await db.rawQuery("SELECT * FROM tickets WHERE tag=?",[type]);
+      return list;
+  }
+
   Future checkTicketByState(String type, String state) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery(
@@ -934,11 +995,11 @@ class NXHelp {
   }
 
   Future addTicket(String type, String state, String price, String subtitle,
-      String info) async {
+      String info, String tag) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db.rawInsert(
-        "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info) VALUES (?,?,?,?,?)",
-        [type, state, price, subtitle, info]);
+        "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info,tag) VALUES (?,?,?,?,?,?)",
+        [type, state, price, subtitle, info,tag]);
     return iid;
   }
 }

@@ -23,9 +23,15 @@ class PiHomeState extends State<PiHome> {
 
   var selectedTicket = "Singles";
 
+  List<Map> filteredTickets;
+
   @override
   void initState() {
     super.initState();
+    NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
+      filteredTickets=ticker;
+
+    });
   }
 
   @override
@@ -327,7 +333,36 @@ class PiHomeState extends State<PiHome> {
                                   },
                                 ),
                               ),
-                            )
+                            ),
+                           filteredTickets!=null? Expanded(
+                              child: ListView.builder(
+                                itemCount: filteredTickets.length,
+                                itemBuilder: (ctx,index){
+                                  return Container(
+                                    margin: EdgeInsets.only(top:10),
+                                    child: ListTile(
+                                      leading: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Center(
+                                          child: Text(filteredTickets[index]["state"][0]),
+                                        ),
+                                      ),
+                                      title: Text(filteredTickets[index]["tickettitle"],
+                                      style: GoogleFonts.roboto(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold
+                                      ),),
+                                      subtitle: Text(filteredTickets[index]["state"],
+                                      style: GoogleFonts.roboto(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300
+                                      ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ):Container()
                           ],
                         ))),
                 Text(

@@ -238,7 +238,7 @@ class ActualTicketState extends State<ActualTicket> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 15,
+                                    height: state==States.warwickUni?5:10,
                                   ),
                                   Container(
                                     padding: EdgeInsets.only(
