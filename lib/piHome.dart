@@ -29,8 +29,7 @@ class PiHomeState extends State<PiHome> {
   void initState() {
     super.initState();
     NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
-      filteredTickets=ticker;
-
+      filteredTickets = ticker;
     });
   }
 
@@ -52,7 +51,7 @@ class PiHomeState extends State<PiHome> {
             Expanded(
               child: Column(children: [
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 AnimatedOpacity(
                   duration: Duration(seconds: 5),
@@ -101,7 +100,7 @@ class PiHomeState extends State<PiHome> {
                                       Expanded(
                                         child: Center(
                                           child: CircleAvatar(
-                                            radius: 50,
+                                            radius: 40,
                                             child: Image.asset(
                                               "images/v5/settings.png",
                                               color: Colors.white,
@@ -170,7 +169,7 @@ class PiHomeState extends State<PiHome> {
                                                     BorderRadius.circular(100),
                                                 boxShadow: []),
                                             child: CircleAvatar(
-                                              radius: 50,
+                                              radius: 40,
                                               child: Image.asset(
                                                 "images/v5/home.png",
                                                 width: 60,
@@ -299,7 +298,15 @@ class PiHomeState extends State<PiHome> {
                                       onTap: () {
                                         print("$index");
                                         setState(() {
-                                          selectedTicket= ticketType[index];
+                                          selectedTicket = ticketType[index];
+
+                                          NXHelp()
+                                              .getTicketsByTag(selectedTicket)
+                                              .then((ticker) {
+                                            setState(() {
+                                              filteredTickets = ticker;
+                                            });
+                                          });
                                         });
                                       },
                                       child: Container(
@@ -314,18 +321,30 @@ class PiHomeState extends State<PiHome> {
                                                     3), // changes position of shadow
                                               ),
                                             ],
-                                            color: selectedTicket==ticketType[index] ? Colors.orangeAccent: Colors.black,
+                                            color: selectedTicket ==
+                                                    ticketType[index]
+                                                ? Colors.orangeAccent
+                                                : Colors.black,
                                             borderRadius:
                                                 BorderRadius.circular(5)),
                                         margin: EdgeInsets.all(10),
-                                        width: selectedTicket==ticketType[index] ? 100: 50,
+                                        width:
+                                            selectedTicket == ticketType[index]
+                                                ? 100
+                                                : 50,
                                         height: 50,
                                         child: Center(
                                             child: Text(
                                           ticketType[index],
                                           style: GoogleFonts.roboto(
-                                            color: selectedTicket==ticketType[index] ? Colors.black : Colors.white,
-                                               fontSize: selectedTicket==ticketType[index] ? 12:8),
+                                              color: selectedTicket ==
+                                                      ticketType[index]
+                                                  ? Colors.black
+                                                  : Colors.white,
+                                              fontSize: selectedTicket ==
+                                                      ticketType[index]
+                                                  ? 12
+                                                  : 8),
                                           textAlign: TextAlign.center,
                                         )),
                                       ),
@@ -334,35 +353,41 @@ class PiHomeState extends State<PiHome> {
                                 ),
                               ),
                             ),
-                           filteredTickets!=null? Expanded(
-                              child: ListView.builder(
-                                itemCount: filteredTickets.length,
-                                itemBuilder: (ctx,index){
-                                  return Container(
-                                    margin: EdgeInsets.only(top:10),
-                                    child: ListTile(
-                                      leading: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        child: Center(
-                                          child: Text(filteredTickets[index]["state"][0]),
-                                        ),
-                                      ),
-                                      title: Text(filteredTickets[index]["tickettitle"],
-                                      style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold
-                                      ),),
-                                      subtitle: Text(filteredTickets[index]["state"],
-                                      style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300
-                                      ),
-                                      ),
+                            filteredTickets != null
+                                ? Expanded(
+                                    child: ListView.builder(
+                                      itemCount: filteredTickets.length,
+                                      itemBuilder: (ctx, index) {
+                                        return Container(
+                                          margin: EdgeInsets.only(top: 10),
+                                          child: ListTile(
+                                            leading: CircleAvatar(
+                                              backgroundColor: Colors.white,
+                                              child: Center(
+                                                child: Text(
+                                                    filteredTickets[index]
+                                                        ["state"][0]),
+                                              ),
+                                            ),
+                                            title: Text(
+                                              filteredTickets[index]
+                                                  ["tickettitle"],
+                                              style: GoogleFonts.roboto(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            subtitle: Text(
+                                              filteredTickets[index]["state"],
+                                              style: GoogleFonts.roboto(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w300),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
-                                  );
-                                },
-                              ),
-                            ):Container()
+                                  )
+                                : Container()
                           ],
                         ))),
                 Text(
