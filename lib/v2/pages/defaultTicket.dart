@@ -129,6 +129,8 @@ class DefaultTicketState extends State<DefaultTicket> {
               width: MediaQuery.of(context).size.width,
               child: currentTicket != null
                   ? SingleInactiveTicket(
+                      isUsed: false,
+
                       sizeW: MediaQuery.of(context).size.width,
                       ticketType: currentTicket['val'].split(":")[1],
                       state: currentTicket['val'].split(":")[0],

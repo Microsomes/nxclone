@@ -1,4 +1,5 @@
 import 'package:BubbleGum/pages/Info/intro.dart';
+import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/setupflow.dart';
@@ -25,6 +26,12 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
       "name": "Home",
       "id": "home",
       "image": "images/v5/home.png",
+    });
+
+    allOptions.add({
+      "name": "Wallet",
+      "id": "wallet",
+      "image": "images/v5/wallet.png",
     });
 
      allOptions.add({
@@ -122,6 +129,9 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                     break;
                     case "info":
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>LearnIntro()));
+                    break;
+                    case "wallet":
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Ticketwallet()));
                     break;
                 }
               },

@@ -590,7 +590,7 @@ class NXHelp {
   }
 
   Future runInit() async {
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 1));
     this.init().then((value) {
       print("import completed");
     });
@@ -681,7 +681,7 @@ class NXHelp {
     await db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     await db.execute(
-        "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text)");
+        "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text,tag text)");
     await db.execute(
         "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL, tag text NOT NULL)");
 
@@ -718,8 +718,26 @@ class NXHelp {
   //   //todo
   // }
 
+
+
+
   //if not null will buy and return an ticket id
   Future buyAndActivateDefaultTicket() async {
+    /**
+     * Get all tickets that were Auto-Purchaed by the system
+     * these are to quickly get in to the ticket page without
+     * buying tickets all the fuking time
+     * for testing lol
+     */
+    List<Map> allAutoBuyTiks=await getAutoBuyTickets();
+    
+    allAutoBuyTiks.forEach((element) async  { 
+      var id= element["id"];
+      await deactivateTicket(id: id).then((value) {
+        print("deactivated all tickets");
+      });
+    });
+    
     var defaultTicket = await this.loadConfig("deficketv2", 1);
     if (defaultTicket.length == 0) {
       //no default selected we must use west-midlands as default and a daysaver
@@ -739,7 +757,7 @@ class NXHelp {
       var curDefault = defaultTicket[0]['val'].split(":");
 
       var ticketid = await this.buyTicket(
-          tickettype: curDefault[1], state: curDefault[0], price: "0.00");
+          tickettype: curDefault[1], state: curDefault[0], price: "0.00",tag: "AUTO_BUY");
       //provisions a ticket
 
       await this.activateTicket(id: ticketid);
@@ -961,15 +979,24 @@ class NXHelp {
     return updateid;
   }
 
+
+  Future getAutoBuyTickets() async {
+        var db = await openDatabase(NXHelp.DB_NAME);
+        List<Map> allTiksAutoBUy= await db.rawQuery("SELECT * FROM ticketwallet WHERE tag=?",[
+          "AUTO_BUY"
+        ]);
+        return allTiksAutoBUy;
+  }
+
   //stores ticket in to db and generates a unique ID
   Future buyTicket(
-      {@required tickettype, @required state, @required price}) async {
+      {@required tickettype, @required state, @required price,tag}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
 
     var id = await db.rawInsert(
-        "INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid) VALUES (?,?,?,?,?,?)",
-        [state, tickettype, "not used", currentTime, -1, 3235346459]);
+        "INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid,tag) VALUES (?,?,?,?,?,?,?)",
+        [state, tickettype, "not used", currentTime, -1, 3235346459,tag]);
     return id;
   }
 

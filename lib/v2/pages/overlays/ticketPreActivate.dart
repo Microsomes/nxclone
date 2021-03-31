@@ -71,8 +71,21 @@ class TicketOverlayHelper {
                          * Before activating ticket lets deactivate the other tickets
                          * 
                          */
- 
-                      NXHelp().activateTicket(id: txid).then((activateStatus) {
+
+                        NXHelp().getAllActiveTickets().then((tiks) {
+                          List<Map> alltiks= tiks;
+                          alltiks.forEach((element) { 
+                            var tikID= element['id'];
+                            NXHelp().deactivateTicket(id: tikID).then((value) {
+                              print(value);
+                            });
+                          });
+
+                          Future.delayed(Duration(seconds: 1));
+                          
+
+
+                            NXHelp().activateTicket(id: txid).then((activateStatus) {
                          Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -81,6 +94,15 @@ class TicketOverlayHelper {
                                   )),
                         );
                       });
+
+
+                        });
+
+                        
+
+
+ 
+                     
                     },
                     child: Container(
                       color: Color.fromRGBO(46, 150, 32, 1),

@@ -9,13 +9,16 @@ class SingleInactiveTicket extends StatelessWidget {
   //pre activation expiry date
   //ticket id is required
 
+  final bool isUsed;
+
   const SingleInactiveTicket(
       {Key key,
       @required this.sizeW,
       @required this.ticketType,
       @required this.state,
       @required this.txdbid,
-      @required this.ticketExpiryDate
+      @required this.ticketExpiryDate,
+      @required this.isUsed
       })
       : super(key: key);
 
@@ -66,7 +69,7 @@ class SingleInactiveTicket extends StatelessWidget {
                   Container(
                     height: 40,
                     child: Text(
-                      "INACTIVE",
+                      this.isUsed?"INACTIVE":"USED",
                       style: TextStyle(
                           color: Color.fromRGBO(211, 211, 211, 1),
                           fontSize: 17,

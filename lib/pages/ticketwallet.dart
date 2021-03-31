@@ -48,71 +48,7 @@ class Stpagestate extends State<Ticketwallet> {
     final sizeW = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: InkWell(
-              onTap: () {
-                Navigator.pop(context, true);
-              },
-              child: PreferredSize(
-                  preferredSize: Size.fromHeight(500),
-                  child: Image.asset("images/leftarrow.png", width: 4))),
-          title: Center(
-            child: Text(
-              "Ticket wallet",
-              style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
-            ),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.refresh,
-                color: Color.fromRGBO(127, 26, 25, 1),
-                size: 30,
-              ),
-              onPressed: () async {
-                NXHelp().runScan().then((value) async {
-                  var total = value.length;
-
-                  Map<String, int> ticketTotals = new Map<String, int>();
-
-                  //run a fuking loop
-                  for (var i = 0; i < total; i++) {
-                    var cur = value[i];
-                    var tid = cur["id"];
-                    var state = cur["state"];
-                    var type = cur["tickettype"];
-                    print(state);
-                    print(type);
-
-                    if (ticketTotals[state + "-" + type] == null) {
-                      ticketTotals[state + "-" + type] = 1;
-                    } else {
-                      ticketTotals[state + "-" + type]++;
-                    }
-
-                    var expires = int.parse(cur['expires']) + (60 * 60 * 24);
-                    var curTime = DateTime.now().millisecondsSinceEpoch;
-                    if (curTime < expires) {
-                      print("ticket has expired");
-                    } else {
-                      print("ticket sill active");
-
-                      //even though its active we need to check of multiples of these exist
-                      if (ticketTotals[state + "-" + type] >= 1) {
-                        print("to remove");
-                        var a = await NXHelp().expireTicket(tid);
-                        print(a);
-                      }
-                    }
-                  }
-
-                  print(ticketTotals);
-                });
-              },
-            )
-          ],
-        ),
+        appBar: TicketWalletAppBar().build(context),
         body: allUnactivatdTickets != null
             ? Container(
                 height: double.infinity,
@@ -130,7 +66,7 @@ class Stpagestate extends State<Ticketwallet> {
                         InkWell(
                           onTap: () {
                             _pageController.animateToPage(0,
-                                duration: Duration(seconds: 1),
+                                duration: Duration(milliseconds: 1),
                                 curve: Curves.easeIn);
                             setState(() {
                               isTickets = true;
@@ -158,7 +94,7 @@ class Stpagestate extends State<Ticketwallet> {
                         InkWell(
                           onTap: () {
                             _pageController.animateToPage(1,
-                                duration: Duration(seconds: 1),
+                                duration: Duration(milliseconds: 1),
                                 curve: Curves.bounceIn);
                             setState(() {
                               isTickets = false;
@@ -250,6 +186,7 @@ class Stpagestate extends State<Ticketwallet> {
                                 padding: const EdgeInsets.only(
                                     left: 12, right: 12, top: 12),
                                 child: SingleInactiveTicket(
+                                  isUsed: isTickets,
                                   sizeW: sizeW,
                                   ticketType: allUnactivatdTickets[index]
                                       ['tickettype'],
@@ -260,75 +197,183 @@ class Stpagestate extends State<Ticketwallet> {
                                 ),
                               );
                             }),
-                        ListView.builder(
-                            itemCount: allHistoricalTickets.length,
-                            itemBuilder: (context, index) {
-                              if (allHistoricalTickets[index]['isActive'] ==
-                                  -1) {
-                              } else {
-                                return  Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 12, right: 12, top: 12),
-                                child: SingleInactiveTicket(
-                                  sizeW: sizeW,
-                                  ticketType: allHistoricalTickets[index]
-                                      ['tickettype'],
-                                  state: allHistoricalTickets[index]['state'],
-                                  txdbid: allHistoricalTickets[index]['id'],
-                                  ticketExpiryDate: allHistoricalTickets[index]
-                                      ['ticketExpiry'],
-                                ),
-                              );
-                                return InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => ActualTicket(
-                                                  txid: allHistoricalTickets[
-                                                      index]['id'],
-                                                )));
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 12, right: 12, top: 12),
-                                    child: Container(
-                                      height: 110,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.92,
-                                      child: TicketTwo(
-                                        state: allHistoricalTickets[index]
-                                            ['state'],
-                                        tickettype: allHistoricalTickets[index]
-                                            ['tickettype'],
-                                        id: allHistoricalTickets[index]['id'],
-                                        whenActivated:
-                                            allHistoricalTickets[index]
-                                                ['activationExpiry'],
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }
-                              return Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 12, right: 12, top: 12),
-                                child: SingleInactiveTicket(
-                                  sizeW: sizeW,
-                                  ticketType: allHistoricalTickets[index]
-                                      ['tickettype'],
-                                  state: allHistoricalTickets[index]['state'],
-                                  txdbid: allHistoricalTickets[index]['id'],
-                                  ticketExpiryDate: allHistoricalTickets[index]
-                                      ['ticketExpiry'],
-                                ),
-                              );
-                            }),
+                        HistoryWallet(allHistoricalTickets: allHistoricalTickets, isTickets: isTickets, sizeW: sizeW),
                       ],
                     ),
                   )
                 ]),
               )
             : CircularProgressIndicator());
+  }
+}
+
+class HistoryWallet extends StatefulWidget {
+  const HistoryWallet({
+    Key key,
+    @required this.allHistoricalTickets,
+    @required this.isTickets,
+    @required this.sizeW,
+  }) : super(key: key);
+
+  final List allHistoricalTickets;
+  final bool isTickets;
+  final double sizeW;
+
+  @override
+  _HistoryWalletState createState() => _HistoryWalletState();
+}
+
+class _HistoryWalletState extends State<HistoryWallet> {
+
+
+  @override
+  void initState() {
+    super.initState();
+    print(widget.allHistoricalTickets);
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: widget.allHistoricalTickets.length,
+        itemBuilder: (context, index) {
+          if (widget.allHistoricalTickets[index]['isActive'] ==
+              -1) {
+          } else {
+            return  Padding(
+            padding: const EdgeInsets.only(
+                left: 12, right: 12, top: 12),
+            child: SingleInactiveTicket(
+              isUsed: widget.isTickets,
+              sizeW: widget.sizeW,
+              ticketType: widget.allHistoricalTickets[index]
+                  ['tickettype'],
+              state: widget.allHistoricalTickets[index]['state'],
+              txdbid: widget.allHistoricalTickets[index]['id'],
+              ticketExpiryDate: widget.allHistoricalTickets[index]
+                  ['ticketExpiry'],
+            ),
+          );
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ActualTicket(
+                              txid: widget.allHistoricalTickets[
+                                  index]['id'],
+                            )));
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 12, right: 12, top: 12),
+                child: Container(
+                  height: 110,
+                  width: MediaQuery.of(context).size.width *
+                      0.92,
+                  child: TicketTwo(
+                    state: widget.allHistoricalTickets[index]
+                        ['state'],
+                    tickettype: widget.allHistoricalTickets[index]
+                        ['tickettype'],
+                    id: widget.allHistoricalTickets[index]['id'],
+                    whenActivated:
+                        widget.allHistoricalTickets[index]
+                            ['activationExpiry'],
+                  ),
+                ),
+              ),
+            );
+          }
+          return Padding(
+            padding: const EdgeInsets.only(
+                left: 12, right: 12, top: 12),
+            child: SingleInactiveTicket(
+              isUsed: widget.isTickets,
+              sizeW: widget.sizeW,
+              ticketType: widget.allHistoricalTickets[index]
+                  ['tickettype'],
+              state: widget.allHistoricalTickets[index]['state'],
+              txdbid: widget.allHistoricalTickets[index]['id'],
+              ticketExpiryDate: widget.allHistoricalTickets[index]
+                  ['ticketExpiry'],
+            ),
+          );
+        });
+  }
+}
+
+class TicketWalletAppBar extends StatelessWidget {
+  const TicketWalletAppBar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      leading: InkWell(
+          onTap: () {
+            Navigator.pop(context, true);
+          },
+          child: PreferredSize(
+              preferredSize: Size.fromHeight(500),
+              child: Image.asset("images/leftarrow.png", width: 4))),
+      title: Center(
+        child: Text(
+          "Ticket wallet",
+          style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
+        ),
+      ),
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(
+            Icons.refresh,
+            color: Color.fromRGBO(127, 26, 25, 1),
+            size: 30,
+          ),
+          onPressed: () async {
+            NXHelp().runScan().then((value) async {
+              var total = value.length;
+
+              Map<String, int> ticketTotals = new Map<String, int>();
+
+              //run a fuking loop
+              for (var i = 0; i < total; i++) {
+                var cur = value[i];
+                var tid = cur["id"];
+                var state = cur["state"];
+                var type = cur["tickettype"];
+                print(state);
+                print(type);
+
+                if (ticketTotals[state + "-" + type] == null) {
+                  ticketTotals[state + "-" + type] = 1;
+                } else {
+                  ticketTotals[state + "-" + type]++;
+                }
+
+                var expires = int.parse(cur['expires']) + (60 * 60 * 24);
+                var curTime = DateTime.now().millisecondsSinceEpoch;
+                if (curTime < expires) {
+                  print("ticket has expired");
+                } else {
+                  print("ticket sill active");
+
+                  //even though its active we need to check of multiples of these exist
+                  if (ticketTotals[state + "-" + type] >= 1) {
+                    print("to remove");
+                    var a = await NXHelp().expireTicket(tid);
+                    print(a);
+                  }
+                }
+              }
+
+              print(ticketTotals);
+            });
+          },
+        )
+      ],
+    );
   }
 }
