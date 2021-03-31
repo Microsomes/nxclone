@@ -194,9 +194,13 @@ class TicketColorState extends State<TicketColor> {
                 Expanded(
                   flex: 1,
                                   child: InkWell(
-                    onTap: () {
-                      ColorSelectOver(toSend: changeCol, index: 1)
+                                    onDoubleTap: (){
+                                       ColorSelectOver(toSend: changeCol, index: 1)
                           .colorOverlay(context);
+                                    },
+                    onTap: () {
+                      // ColorSelectOver(toSend: changeCol, index: 1)
+                      //     .colorOverlay(context);
                     },
                     child: AnimatedOpacity(
                       opacity: opacity1,
@@ -214,7 +218,7 @@ class TicketColorState extends State<TicketColor> {
                 Expanded(
                   flex: 1,
                                   child: InkWell(
-                    onTap: () {
+                    onDoubleTap: () {
                       ColorSelectOver(toSend: changeCol, index: 2)
                           .colorOverlay(context);
                     },
@@ -232,7 +236,7 @@ class TicketColorState extends State<TicketColor> {
                 Expanded(
                   flex: 1,
                                   child: InkWell(
-                    onTap: () {
+                    onDoubleTap: () {
                       ColorSelectOver(toSend: changeCol, index: 3)
                           .colorOverlay(context);
                     },
