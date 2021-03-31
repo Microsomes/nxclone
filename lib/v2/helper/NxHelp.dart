@@ -815,6 +815,9 @@ class NXHelp {
     return status;
   }
 
+
+  
+
   //returns all historical tickets
   Future getAllHistoricalTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
@@ -941,6 +944,20 @@ class NXHelp {
     var updateid = await db.rawQuery(
         "UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",
         [1, currentTime, id]);
+    return updateid;
+  }
+
+
+    /*
+   * Function to deactivate the ticket, normally used when the ticket expires but
+   * we need to use it to deactivate all other tickets not currently the main one
+   */
+  Future deactivateTicket({@required id}) async {
+    var db= await openDatabase(NXHelp.DB_NAME);
+    var currentTime= new DateTime.now().microsecondsSinceEpoch;
+   var updateid = await db.rawQuery(
+        "UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",
+        [2, currentTime, id]);
     return updateid;
   }
 

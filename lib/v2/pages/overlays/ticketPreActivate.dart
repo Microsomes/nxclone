@@ -66,6 +66,11 @@ class TicketOverlayHelper {
                   child: InkWell(
                     onTap: () {
                       //displayActivationDialog(context);
+
+                        /**
+                         * Before activating ticket lets deactivate the other tickets
+                         * 
+                         */
  
                       NXHelp().activateTicket(id: txid).then((activateStatus) {
                          Navigator.push(

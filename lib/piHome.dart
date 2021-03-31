@@ -159,6 +159,15 @@ class PiHomeState extends State<PiHome> {
                                           child: ListTile(
                                             onTap: (){
                                               print("Go to the ticket page");
+                                              var ticketType=filteredTickets[index]['tickettitle'];
+                                              var ticketState=filteredTickets[index]['state'];
+                                              
+                                              print(ticketType);
+                                              print(ticketState);
+
+                                              NXHelp().buyTicket(tickettype: ticketType, state: ticketState, price: "0.00").then((value) {
+                                                print(value);
+                                              });
                                             },
                                              leading: CircleAvatar(
                                               backgroundColor: Colors.white,

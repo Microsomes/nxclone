@@ -132,7 +132,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                      margin: EdgeInsets.only(left:40,bottom: 20,top: 20),
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(38, 38, 38, 1),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(5)),
                     width: MediaQuery.of(context).size.width * 0.33,
                     child: Column(
                       children: [

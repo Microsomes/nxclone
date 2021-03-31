@@ -52,7 +52,7 @@ class HomePagePrestate extends State<HomePagePre>
      * i also delete all pending tickets, if i didnt add this then 
      * we would run in the memory leak
      */
-    NXHelp().deleteAllTickets();
+    //NXHelp().deleteAllTickets();
     //run the init process
     //NXHelp().runScan();
 
@@ -61,11 +61,11 @@ class HomePagePrestate extends State<HomePagePre>
      * so the user doesnt have to buy the real app themselves everytime
      * they open up the app
      */
-    NXHelp().buyAndActivateDefaultTicket().then((id) {
-      setState(() {
-        idO = id;
-      });
-    });
+    // NXHelp().buyAndActivateDefaultTicket().then((id) {
+    //   setState(() {
+    //     idO = id;
+    //   });
+    // });
     /**
      * this grabs the config settings so we can determine 
      * which page to boot too
