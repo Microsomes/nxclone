@@ -1,3 +1,4 @@
+import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v2/components/staticTicketColor.dart';
  import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -15,6 +16,48 @@ class ColorSelectOver {
   void colChange(Color col) {
     print(col);
     this.toSend(col, this.index);
+  }
+
+
+  void changeTicketOverlay(BuildContext context) {
+                bool isCustomColor=false;
+
+    showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        context: context,
+        builder: (ctx) {
+          return StatefulBuilder(builder: (BuildContext ctx, StateSetter setState){
+
+ 
+            return Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12))),
+              height: MediaQuery.of(context).size.height * 0.9,
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Quick Ticket Switch",
+                    style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.bold, fontSize: 30),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                    child: PiHome(),
+                  ),
+                  
+
+                 
+                ],
+              ));
+          },);
+        });
   }
 
   void colorOverlay(BuildContext context) {
@@ -57,9 +100,7 @@ class ColorSelectOver {
                       ),
                     ),
                     onPressed: () {
-                      setState((){
-                        isCustomColor=true;
-                      });
+                      changeTicketOverlay(context);
                     },
                   ),
                  RaisedButton(
