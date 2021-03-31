@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
+import 'components/singleHistory.dart';
 import 'components/singleInactive.dart';
 import 'ticketwallet/models/ticketType.dart';
 
@@ -287,7 +288,7 @@ class _HistoryWalletState extends State<HistoryWallet> {
              return  Padding(
             padding:  EdgeInsets.only(
                 left: 12, right: 12, top:paddingTop,bottom: 12),
-            child: SingleInactiveTicket(
+            child: SingleHistoryInactive(
               ticketModel: historicalTickets[index],
               isUsed: widget.isTickets,
               sizeW: widget.sizeW,

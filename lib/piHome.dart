@@ -6,6 +6,7 @@ import 'v2/helper/NxHelp.dart';
 import 'v2/main/quickOptions.dart';
 import 'v2/pages/nxfront.dart';
 import 'v2/pages/setupflow.dart';
+import 'v2/pages/ticket.dart';
 import 'v2/pages/ticketv2.dart';
 import 'v3/newSetup.dart';
 
@@ -27,7 +28,7 @@ class PiHomeState extends State<PiHome> {
     super.initState();
     NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
       setState(() {
-        filteredTickets = ticker;        
+        filteredTickets = ticker;
       });
     });
   }
@@ -159,19 +160,34 @@ class PiHomeState extends State<PiHome> {
                                         return Container(
                                           margin: EdgeInsets.only(top: 10),
                                           child: ListTile(
-                                            onTap: (){
+                                            onTap: () {
                                               print("Go to the ticket page");
-                                              var ticketType=filteredTickets[index]['tickettitle'];
-                                              var ticketState=filteredTickets[index]['state'];
-                                              
+                                              var ticketType =
+                                                  filteredTickets[index]
+                                                      ['tickettitle'];
+                                              var ticketState =
+                                                  filteredTickets[index]
+                                                      ['state'];
+
                                               print(ticketType);
                                               print(ticketState);
 
-                                              NXHelp().buyTicket(tickettype: ticketType, state: ticketState, price: "0.00").then((value) {
-                                                print(value);
+                                              NXHelp()
+                                                  .buyTicket(
+                                                      tickettype: ticketType,
+                                                      state: ticketState,
+                                                      price: "0.00")
+                                                  .then((value) {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            Ticket2(
+                                                              txdbid: value,
+                                                            )));
                                               });
                                             },
-                                             leading: CircleAvatar(
+                                            leading: CircleAvatar(
                                               backgroundColor: Colors.white,
                                               child: Center(
                                                 child: Text(
