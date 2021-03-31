@@ -288,6 +288,7 @@ class _HistoryWalletState extends State<HistoryWallet> {
             padding:  EdgeInsets.only(
                 left: 12, right: 12, top:paddingTop,bottom: 12),
             child: SingleInactiveTicket(
+              ticketModel: historicalTickets[index],
               isUsed: widget.isTickets,
               sizeW: widget.sizeW,
               ticketType: widget.allHistoricalTickets[index]

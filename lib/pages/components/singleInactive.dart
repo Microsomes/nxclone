@@ -1,3 +1,4 @@
+import 'package:BubbleGum/pages/ticketwallet/models/ticketType.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
 
@@ -9,6 +10,8 @@ class SingleInactiveTicket extends StatelessWidget {
   //pre activation expiry date
   //ticket id is required
 
+  final TicketModel ticketModel;
+
   final bool isUsed;
 
   const SingleInactiveTicket(
@@ -18,7 +21,8 @@ class SingleInactiveTicket extends StatelessWidget {
       @required this.state,
       @required this.txdbid,
       @required this.ticketExpiryDate,
-      @required this.isUsed
+      @required this.isUsed,
+      this.ticketModel
       })
       : super(key: key);
 
@@ -35,12 +39,12 @@ class SingleInactiveTicket extends StatelessWidget {
       },
       child: Container(
           width: sizeW * 0.9,
-          height: 110,
+          height: this.ticketModel!=null ? 95: 110,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(15)),
           child: Column(
             children: <Widget>[
-              Row(
+               Row(
                 children: <Widget>[
                   SizedBox(
                     width: 10,
@@ -53,7 +57,9 @@ class SingleInactiveTicket extends StatelessWidget {
                         Text(
                           "$state",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.bold, fontSize: 15,
+                              color: Colors.black.withOpacity(0.2)
+                              ),
                         ),
                         Text(
                           "$ticketType",
