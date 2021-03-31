@@ -27,12 +27,58 @@ class PiHomeState extends State<PiHome> {
     "Group",
     "Metro",
     "Experimental"
-  ];
+  ]; 
+
+  List<Map> ticketTypes;
+  
+
+
+
   var selectedTicket = "Singles";
+  
+  var selectedTicketIndex=0;
+
+
   List<Map> filteredTickets;
   @override
   void initState() {
     super.initState();
+    
+    ticketTypes= List<Map>();
+
+    ticketTypes.add({
+      "Name":"Singles",
+      "Icon":Icons.track_changes
+    });
+
+    ticketTypes.add({
+      "Name":"Day",
+      "Icon":Icons.dynamic_feed
+    });
+
+    ticketTypes.add({
+      "Name":"Last Used",
+      "Icon":Icons.history
+    });
+
+    ticketTypes.add({
+      "Name":"Group",
+      "Icon":Icons.group
+    });
+
+     ticketTypes.add({
+      "Name":"Metro",
+      "Icon":Icons.train
+    });
+
+    ticketTypes.add({
+      "Name":"Test",
+      "Icon":Icons.track_changes
+    });
+
+
+
+
     NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
       setState(() {
         filteredTickets = ticker;
@@ -105,6 +151,9 @@ class PiHomeState extends State<PiHome> {
                                       onTap: () {
                                         print("$index");
                                         setState(() {
+                                          selectedTicketIndex=index;
+                                        });
+                                        setState(() {
                                           selectedTicket = ticketType[index];
                                           NXHelp()
                                               .getTicketsByTag(selectedTicket)
@@ -141,7 +190,7 @@ class PiHomeState extends State<PiHome> {
                                         height: 50,
                                         child: Center(
                                             child: Text(
-                                          ticketType[index],
+                                          ticketTypes[index]["Name"],
                                           style: GoogleFonts.roboto(
                                               color: selectedTicket ==
                                                       ticketType[index]
@@ -230,7 +279,7 @@ class PiHomeState extends State<PiHome> {
                                               ),
                                               child: Center(
                                                 child: Icon(
-                                                  Icons.track_changes,
+                                                  this.ticketTypes[this.selectedTicketIndex]["Icon"],
                                                   color: Colors.white,
                                                   size: 40,
                                                 ),
