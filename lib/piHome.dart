@@ -20,7 +20,14 @@ class PiHome extends StatefulWidget {
 class PiHomeState extends State<PiHome> {
   var idO;
   bool isShowing = true;
-  var ticketType = ["Singles", "Day", "Group", "Metro", "Experimental"];
+  var ticketType = [
+    "Singles",
+    "Day",
+    "Last Used",
+    "Group",
+    "Metro",
+    "Experimental"
+  ];
   var selectedTicket = "Singles";
   List<Map> filteredTickets;
   @override
@@ -152,6 +159,23 @@ class PiHomeState extends State<PiHome> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  this.selectedTicket,
+                                  style:
+                                      GoogleFonts.roboto(color: Colors.white,
+                                      fontSize: 20
+                                      ),
+                                ),
+                              ],
+                            ),
                             filteredTickets != null
                                 ? Expanded(
                                     child: ListView.builder(
@@ -187,12 +211,29 @@ class PiHomeState extends State<PiHome> {
                                                             )));
                                               });
                                             },
-                                            leading: CircleAvatar(
-                                              backgroundColor: Colors.white,
+                                            leading: Container(
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.grey
+                                                        .withOpacity(0.5),
+                                                    spreadRadius: 5,
+                                                    blurRadius: 7,
+                                                    offset: Offset(0,
+                                                        3), // changes position of shadow
+                                                  ),
+                                                ],
+                                                color: Colors.orangeAccent,
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
                                               child: Center(
-                                                child: Text(
-                                                    filteredTickets[index]
-                                                        ["state"][0]),
+                                                child: Icon(
+                                                  Icons.track_changes,
+                                                  color: Colors.white,
+                                                  size: 40,
+                                                ),
                                               ),
                                             ),
                                             title: Text(
