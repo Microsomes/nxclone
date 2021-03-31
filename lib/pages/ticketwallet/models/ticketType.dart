@@ -14,6 +14,9 @@ class TicketModel{
     final String ticketid;
     final String tag;
 
+
+    
+
     TicketModel({
       @required this.id,
       @required this.state,

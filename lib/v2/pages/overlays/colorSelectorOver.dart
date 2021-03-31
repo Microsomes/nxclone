@@ -1,24 +1,20 @@
+import 'package:BubbleGum/v2/components/staticTicketColor.dart';
+import 'package:BubbleGum/v2/components/ticketColor.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class ColorSelectOver {
-  Color pickerColor= Colors.red;
-
+  Color pickerColor = Colors.red;
 
   Function toSend;
 
   int index;
 
-  ColorSelectOver({
-    @required this.toSend,
-    @required this.index
-  });
- 
-
+  ColorSelectOver({@required this.toSend, @required this.index});
 
   void colChange(Color col) {
-    this.toSend(col,this.index);
+    this.toSend(col, this.index);
   }
 
   void colorOverlay(BuildContext context) {
@@ -41,15 +37,29 @@ class ColorSelectOver {
                     "Select a color",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Expanded(
-                    child: ColorPicker(
-                      pickerColor: pickerColor,
-                      onColorChanged: colChange,
-                      showLabel: true,
-                      pickerAreaHeightPercent: 0.8,
+                    child: ListView.builder(                      
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(top:10),
+                          child: StaticTicketColor(
+                            
+                          ),
+                        );
+                      },
                     ),
                   )
+                  // Expanded(
+                  //   child: ColorPicker(
+                  //     pickerColor: pickerColor,
+                  //     onColorChanged: colChange,
+                  //     showLabel: true,
+                  //     pickerAreaHeightPercent: 0.8,
+                  //   ),
+                  // )
                 ],
               ));
         });

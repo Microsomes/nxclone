@@ -192,10 +192,10 @@ class NxfrontState extends State<Nxfront> {
                                 ),
                                 Image.asset(
                                   "images/wallet.png",
-                                  width: 50,
+                                  width: 30,
                                 ),
                                 SizedBox(
-                                  width: 1,
+                                  width: 10,
                                 ),
                                 Text(
                                   "Ticket wallet",
