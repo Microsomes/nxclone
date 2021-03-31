@@ -13,6 +13,7 @@ class ColorSelectOver {
   ColorSelectOver({@required this.toSend, @required this.index});
 
   void colChange(Color col) {
+    print(col);
     this.toSend(col, this.index);
   }
 
@@ -73,6 +74,10 @@ class ColorSelectOver {
                               print(color1);
                               print(color2);
                               print(color3);
+                              this.toSend(color1,1);
+                              this.toSend(color2,2);
+                              this.toSend(color3,3);
+                              Navigator.pop(context);
                             },
                           ),
                         );
