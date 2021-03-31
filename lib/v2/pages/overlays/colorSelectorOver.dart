@@ -35,7 +35,7 @@ class ColorSelectOver {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(12),
                       topRight: Radius.circular(12))),
-              height: MediaQuery.of(context).size.height * 0.7,
+              height: MediaQuery.of(context).size.height * 0.9,
               child: Column(
                 children: <Widget>[
                   Text(
@@ -46,13 +46,13 @@ class ColorSelectOver {
                   SizedBox(
                     height: 10,
                   ),
-                 isCustomColor==false ? RaisedButton(
+                 RaisedButton(
                     color: Colors.pink,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Center(
                       child: Text(
-                        "Pick your own Color- Like Before",
+                        "Change Ticket (Fast)",
                         style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -61,7 +61,23 @@ class ColorSelectOver {
                         isCustomColor=true;
                       });
                     },
-                  ):Container(),
+                  ),
+                 RaisedButton(
+                    color: Colors.pink,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        isCustomColor==false ?"Pick your own Color- Like Before":"Pick Random Colors",
+                        style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    onPressed: () {
+                      setState((){
+                        isCustomColor=!isCustomColor;
+                      });
+                    },
+                  ),
 
                 isCustomColor==false ?  Expanded(
                     child: ListView.builder(
