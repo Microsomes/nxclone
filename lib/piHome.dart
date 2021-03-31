@@ -26,7 +26,9 @@ class PiHomeState extends State<PiHome> {
   void initState() {
     super.initState();
     NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
-      filteredTickets = ticker;
+      setState(() {
+        filteredTickets = ticker;        
+      });
     });
   }
 

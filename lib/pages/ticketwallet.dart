@@ -3,6 +3,7 @@ import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
 import 'components/singleInactive.dart';
+import 'ticketwallet/models/ticketType.dart';
 
 class Ticketwallet extends StatefulWidget {
   @override
@@ -207,6 +208,9 @@ class Stpagestate extends State<Ticketwallet> {
   }
 }
 
+
+
+
 class HistoryWallet extends StatefulWidget {
   const HistoryWallet({
     Key key,
@@ -225,11 +229,42 @@ class HistoryWallet extends StatefulWidget {
 
 class _HistoryWalletState extends State<HistoryWallet> {
 
+  /*
+   * All historical tickets will stay here
+   */
+  List<TicketModel> historicalTickets;
+  
+
 
   @override
   void initState() {
     super.initState();
-    print(widget.allHistoricalTickets);
+
+    historicalTickets= List<TicketModel>();
+
+    //populate all historical tickets in the model
+    widget.allHistoricalTickets.forEach((element) {
+      var id= element["id"];
+      var state= element["state"];
+      var ticketType= element["tickettype"];
+      var expires = element["expires"];
+      var isActive = element["isActive"];
+      var purchaseDate = element["purchaseddate"];
+      var ticketID= element["ticketid"];
+      var tag= element["tag"];
+    historicalTickets.add(
+      TicketModel(
+        id: id,
+        state: state,
+        tickettype: ticketType,
+        expires: expires,
+        isActive: isActive,
+        purchaseDate: purchaseDate,
+        ticketid: ticketID,
+        tag: tag
+      )
+    );
+     });
   }
   
   @override
@@ -240,9 +275,18 @@ class _HistoryWalletState extends State<HistoryWallet> {
           if (widget.allHistoricalTickets[index]['isActive'] ==
               -1) {
           } else {
-            return  Padding(
-            padding: const EdgeInsets.only(
-                left: 12, right: 12, top: 12),
+
+            double paddingTop=12;
+
+            if(index==0){
+              paddingTop=12;
+            }else{
+              paddingTop=6;
+            }
+
+             return  Padding(
+            padding:  EdgeInsets.only(
+                left: 12, right: 12, top:paddingTop,bottom: 12),
             child: SingleInactiveTicket(
               isUsed: widget.isTickets,
               sizeW: widget.sizeW,
@@ -254,51 +298,9 @@ class _HistoryWalletState extends State<HistoryWallet> {
                   ['ticketExpiry'],
             ),
           );
-            return InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ActualTicket(
-                              txid: widget.allHistoricalTickets[
-                                  index]['id'],
-                            )));
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 12, right: 12, top: 12),
-                child: Container(
-                  height: 110,
-                  width: MediaQuery.of(context).size.width *
-                      0.92,
-                  child: TicketTwo(
-                    state: widget.allHistoricalTickets[index]
-                        ['state'],
-                    tickettype: widget.allHistoricalTickets[index]
-                        ['tickettype'],
-                    id: widget.allHistoricalTickets[index]['id'],
-                    whenActivated:
-                        widget.allHistoricalTickets[index]
-                            ['activationExpiry'],
-                  ),
-                ),
-              ),
-            );
+             
           }
-          return Padding(
-            padding: const EdgeInsets.only(
-                left: 12, right: 12, top: 12),
-            child: SingleInactiveTicket(
-              isUsed: widget.isTickets,
-              sizeW: widget.sizeW,
-              ticketType: widget.allHistoricalTickets[index]
-                  ['tickettype'],
-              state: widget.allHistoricalTickets[index]['state'],
-              txdbid: widget.allHistoricalTickets[index]['id'],
-              ticketExpiryDate: widget.allHistoricalTickets[index]
-                  ['ticketExpiry'],
-            ),
-          );
+           
         });
   }
 }
