@@ -49,7 +49,7 @@ class ColorSelectOver {
                     height: 10,
                   ),
                   Expanded(
-                    child: PiHome(),
+                    child: PiHome(isHide: true,),
                   ),
                   
 

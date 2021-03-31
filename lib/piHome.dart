@@ -11,6 +11,10 @@ import 'v2/pages/ticketv2.dart';
 import 'v3/newSetup.dart';
 
 class PiHome extends StatefulWidget {
+  final bool isHide;
+
+  PiHome({this.isHide});
+
   @override
   State<StatefulWidget> createState() {
     return PiHomeState();
@@ -103,23 +107,8 @@ class PiHomeState extends State<PiHome> {
             ),
             Expanded(
               child: Column(children: [
-                // SizedBox(
-                //   height: 20,
-                // ),
-                // AnimatedOpacity(
-                //   duration: Duration(seconds: 5),
-                //   opacity: 1,
-                //   child: Container(
-                //       alignment: Alignment.center,
-                //       height: 80,
-                //       color: Colors.transparent,
-                //       child: Image.asset(
-                //         "images/v4/Orange_Bubblegum.png",
-                //         width: 100,
-                //         height: 100,
-                //       )),
-                // ),
-                PiHomeOptions(),
+    
+                widget.isHide==true ?Container(): PiHomeOptions(),
                 Expanded(
                     flex: 2,
                     child: Container(
