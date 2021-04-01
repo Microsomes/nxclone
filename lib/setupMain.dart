@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:animated_text/animated_text.dart';
 import 'package:cube_transition/cube_transition.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'v2/helper/NxHelp.dart';
 import 'v2/pages/nxfront.dart';
@@ -40,52 +41,56 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
           textStyle: TextStyle(
               color: Colors.white, fontSize: 55, fontWeight: FontWeight.w700),
           onAnimate: (index) {
+            print("$index");
             if (index == 2) {
               setState(() {
                 _controller = AnimatedTextController.stop;
               });
 
-              Future.delayed(Duration(seconds: 1), () {
+              Future.delayed(Duration(milliseconds: 1), () {
                 //lets load up the logic
 
-                NXHelp aconfig = NXHelp();
-                aconfig.loadConfig("defaulthomepage", 1).then((value) {
-                  if (value.length == 0) {
-                    return;
-                  } else {
-                    //=1;
-                    var currentval = value[0]['val'];
-                    if (currentval == "home") {
-                      //home page
-                      //do nothing it should open up
-                    } else if (currentval == "nxhome") {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => Nxfront()),
-                        (Route<dynamic> route) => false,
-                      );
-                    } else if (currentval == "ticket") {
-                      //goes directly to the default ticket page
-                      NXHelp().buyAndActivateDefaultTicket().then((id) {
-                        setState(() {
-                          idO = id;
-                        });
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    ActualTicket(txid: id['ticketid'])));
-                      });
-                    }
-                  }
-                });
+                // NXHelp aconfig = NXHelp();
+                // aconfig.loadConfig("defaulthomepage", 1).then((value) {
+                //   if (value.length == 0) {
+                //     return;
+                //   } else {
+                //     //=1;
+                //     var currentval = value[0]['val'];
+                //     if (currentval == "home") {
+                //       //home page
+                //       //do nothing it should open up
+                //     } else if (currentval == "nxhome") {
+                //       Navigator.pushAndRemoveUntil(
+                //         context,
+                //         MaterialPageRoute(builder: (context) => Nxfront()),
+                //         (Route<dynamic> route) => false,
+                //       );
+                //     } else if (currentval == "ticket") {
+                //       //goes directly to the default ticket page
+                //       NXHelp().buyAndActivateDefaultTicket().then((id) {
+                //         setState(() {
+                //           idO = id;
+                //         });
+                //         Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //                 builder: (context) =>
+                //                     ActualTicket(txid: id['ticketid'])));
+                //       });
+                //     }
+                //   }
+                // });
 
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (context) => PiHome()));
+                Widget h=PiHome();
+
+                Navigator.push(
+                    context, PageTransition(child: h,duration: Duration(seconds: 1),type:PageTransitionType.leftToRightWithFade,alignment: Alignment.topCenter));
               });
             }
           },
           onFinished: () {
+            print("finished");
             //  Navigator.pop(context);
 
             //  Navigator.push(context, MaterialPageRoute(builder: (context)=>PiHome()));

@@ -83,6 +83,7 @@ class HomePagePrestate extends State<HomePagePre>
 }
 
 void main() async  {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
         Color.fromRGBO(0, 0, 0, 1), // navigation bar color

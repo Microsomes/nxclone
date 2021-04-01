@@ -261,37 +261,42 @@ class ActualTicketState extends State<ActualTicket> {
                                       ticketType: ticketTitle,
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 20, left: 20, top: 8),
-                                    child: Container(
-                                      color: Color.fromRGBO(5, 126, 176, 1),
-                                      height: 60,
-                                      child: Center(
-                                          child: Row(
-                                        children: <Widget>[
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-                                          Icon(
-                                            Icons.launch,
-                                            color:
-                                                Colors.white.withOpacity(0.7),
-                                            size: 16,
-                                          ),
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-                                          Text(
-                                            "NX Rewards Cashback",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                letterSpacing: 0.3),
-                                          ),
-                                        ],
-                                      )),
+                                  InkWell(
+                                    onTap: (){
+                                      print("Show rewards");
+                                    },
+                                                                      child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 20, left: 20, top: 8),
+                                      child: Container(
+                                        color: Color.fromRGBO(5, 126, 176, 1),
+                                        height: 60,
+                                        child: Center(
+                                            child: Row(
+                                          children: <Widget>[
+                                            SizedBox(
+                                              width: 15,
+                                            ),
+                                            Icon(
+                                              Icons.launch,
+                                              color:
+                                                  Colors.white.withOpacity(0.7),
+                                              size: 16,
+                                            ),
+                                            SizedBox(
+                                              width: 15,
+                                            ),
+                                            Text(
+                                              "NX Rewards Cashback",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  letterSpacing: 0.3),
+                                            ),
+                                          ],
+                                        )),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
