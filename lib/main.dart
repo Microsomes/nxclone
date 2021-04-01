@@ -1,4 +1,5 @@
 import 'package:BubbleGum/piHome.dart';
+import 'package:BubbleGum/setupMain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
@@ -44,9 +45,6 @@ class HomePagePrestate extends State<HomePagePre>
      * This init code runs everytime the app opens
      * it creates the database of tickets and inits everything
      */
-    NXHelp().runInit().then((value) {
-      print("imported");
-    });
     /**
      * Since we had a bug with the ticket wallet, on boot
      * i also delete all pending tickets, if i didnt add this then 
@@ -107,6 +105,8 @@ class HomePagePrestate extends State<HomePagePre>
 
   @override
   Widget build(BuildContext context) {
+    
+    return StartScreenSetup();
     return PiHome();
   }
 }
