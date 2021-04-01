@@ -29,16 +29,16 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Center(
         child: AnimatedText(
           alignment: Alignment.center,
           speed: Duration(milliseconds: 1000),
           controller: _controller,
-          displayTime: Duration(milliseconds: 400),
+          displayTime: Duration(milliseconds: 100),
           wordList: ['BubbleGUM.', 'V5.', '.'],
           textStyle: TextStyle(
-              color: Colors.black, fontSize: 55, fontWeight: FontWeight.w700),
+              color: Colors.white, fontSize: 55, fontWeight: FontWeight.w700),
           onAnimate: (index) {
             if (index == 2) {
               setState(() {
