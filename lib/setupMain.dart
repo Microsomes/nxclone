@@ -5,6 +5,8 @@ import 'package:animated_text/animated_text.dart';
 import 'package:cube_transition/cube_transition.dart';
 
 import 'v2/helper/NxHelp.dart';
+import 'v2/pages/nxfront.dart';
+import 'v2/pages/ticketv2.dart';
 
 class StartScreenSetup extends StatefulWidget {
   @override
@@ -12,6 +14,8 @@ class StartScreenSetup extends StatefulWidget {
 }
 
 class _StartScreenSetupState extends State<StartScreenSetup> {
+  var idO;
+
   AnimatedTextController _controller;
   @override
   void initState() {
@@ -42,9 +46,42 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
               });
 
               Future.delayed(Duration(seconds: 1), () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context)=>PiHome()));
+                //lets load up the logic
+
+                NXHelp aconfig = NXHelp();
+                aconfig.loadConfig("defaulthomepage", 1).then((value) {
+                  if (value.length == 0) {
+                    return;
+                  } else {
+                    //=1;
+                    var currentval = value[0]['val'];
+                    if (currentval == "home") {
+                      //home page
+                      //do nothing it should open up
+                    } else if (currentval == "nxhome") {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => Nxfront()),
+                        (Route<dynamic> route) => false,
+                      );
+                    } else if (currentval == "ticket") {
+                      //goes directly to the default ticket page
+                      NXHelp().buyAndActivateDefaultTicket().then((id) {
+                        setState(() {
+                          idO = id;
+                        });
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ActualTicket(txid: id['ticketid'])));
+                      });
+                    }
+                  }
+                });
+
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (context) => PiHome()));
               });
             }
           },

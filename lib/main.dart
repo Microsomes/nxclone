@@ -68,36 +68,7 @@ class HomePagePrestate extends State<HomePagePre>
      * this grabs the config settings so we can determine 
      * which page to boot too
      */
-    NXHelp aconfig = NXHelp();
-    aconfig.loadConfig("defaulthomepage", 1).then((value) {
-      if (value.length == 0) {
-        return;
-      } else {
-        //=1;
-        var currentval = value[0]['val'];
-        if (currentval == "home") {
-          //home page
-          //do nothing it should open up
-        } else if (currentval == "nxhome") {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => Nxfront()),
-            (Route<dynamic> route) => false,
-          );
-        } else if (currentval == "ticket") {
-          //goes directly to the default ticket page
-          NXHelp().buyAndActivateDefaultTicket().then((id) {
-            setState(() {
-              idO = id;
-            });
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ActualTicket(txid: id['ticketid'])));
-          });
-        }
-      }
-    });
+    
     //maxHeight= MediaQuery.of(context).size.height;
     containerHeight = 10;
     setState(() {});
