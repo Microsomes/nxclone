@@ -29,6 +29,12 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
     });
 
     allOptions.add({
+      "name": "GO Ticket",
+      "id": "ticket",
+      "image": "images/v5/tickets.png",
+    });
+
+    allOptions.add({
       "name": "Wallet",
       "id": "wallet",
       "image": "images/v5/wallet.png",
@@ -39,11 +45,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
       "id": "info",
       "image": "images/v5/edu.png",
     });
-     allOptions.add({
-      "name": "GO Ticket",
-      "id": "ticket",
-      "image": "images/v5/tickets.png",
-    });
+      
 
     allOptions.add({
       "name": "Setup",
@@ -139,7 +141,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                 opacity: 1,
                 duration: Duration(seconds: 2),
                 child: Container(
-                     margin: EdgeInsets.only(left:40,bottom: 20,top: 20),
+                     margin: EdgeInsets.only(left:10,bottom: 20,top: 20),
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(38, 38, 38, 1),
                         borderRadius: BorderRadius.circular(5)),

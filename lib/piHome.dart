@@ -25,69 +25,53 @@ class PiHomeState extends State<PiHome> {
   var idO;
   bool isShowing = true;
   var ticketType = [
+    "West Midlands",
     "Singles",
     "Day",
     "Last Used",
     "Group",
     "Metro",
     "Experimental"
-  ]; 
+  ];
 
   List<Map> ticketTypes;
-  
 
+  var selectedTicket = "West Midlands";
 
-
-  var selectedTicket = "Singles";
-  
-  var selectedTicketIndex=0;
-
+  var selectedTicketIndex = 0;
 
   List<Map> filteredTickets;
   @override
   void initState() {
     super.initState();
-    
-    ticketTypes= List<Map>();
 
-    ticketTypes.add({
-      "Name":"Singles",
-      "Icon":Icons.track_changes
-    });
+    ticketTypes = List<Map>();
 
-    ticketTypes.add({
-      "Name":"Day",
-      "Icon":Icons.dynamic_feed
-    });
+    ticketTypes.add({"Name": "West Midlands", "Icon": Icons.track_changes});
 
-    ticketTypes.add({
-      "Name":"Last Used",
-      "Icon":Icons.history
-    });
+    ticketTypes.add({"Name": "Singles", "Icon": Icons.track_changes});
 
-    ticketTypes.add({
-      "Name":"Group",
-      "Icon":Icons.group
-    });
+    ticketTypes.add({"Name": "Day", "Icon": Icons.dynamic_feed});
 
-     ticketTypes.add({
-      "Name":"Metro",
-      "Icon":Icons.train
-    });
+    ticketTypes.add({"Name": "Last Used", "Icon": Icons.history});
 
-    ticketTypes.add({
-      "Name":"Test",
-      "Icon":Icons.track_changes
-    });
+    ticketTypes.add({"Name": "Group", "Icon": Icons.group});
 
+    ticketTypes.add({"Name": "Metro", "Icon": Icons.train});
 
+    ticketTypes.add({"Name": "Test", "Icon": Icons.track_changes});
 
-
-    NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
+    NXHelp().getTicketByState("West Midlands").then((westMidlands) {
       setState(() {
-        filteredTickets = ticker;
+        filteredTickets = westMidlands;
       });
     });
+
+    // NXHelp().getTicketsByTag(selectedTicket).then((ticker) {
+    //   setState(() {
+    //     filteredTickets = ticker;
+    //   });
+    // });
   }
 
   @override
@@ -107,8 +91,7 @@ class PiHomeState extends State<PiHome> {
             ),
             Expanded(
               child: Column(children: [
-    
-                widget.isHide==true ?Container(): PiHomeOptions(),
+                widget.isHide == true ? Container() : PiHomeOptions(),
                 Expanded(
                     flex: 2,
                     child: Container(
@@ -140,17 +123,30 @@ class PiHomeState extends State<PiHome> {
                                       onTap: () {
                                         print("$index");
                                         setState(() {
-                                          selectedTicketIndex=index;
+                                          selectedTicketIndex = index;
                                         });
                                         setState(() {
                                           selectedTicket = ticketType[index];
-                                          NXHelp()
-                                              .getTicketsByTag(selectedTicket)
-                                              .then((ticker) {
-                                            setState(() {
-                                              filteredTickets = ticker;
+
+                                          if (selectedTicket ==
+                                              "West Midlands") {
+                                            NXHelp()
+                                                .getTicketByState(
+                                                    "West Midlands")
+                                                .then((westMidlands) {
+                                              setState(() {
+                                                filteredTickets = westMidlands;
+                                              });
                                             });
-                                          });
+                                          } else {
+                                            NXHelp()
+                                                .getTicketsByTag(selectedTicket)
+                                                .then((ticker) {
+                                              setState(() {
+                                                filteredTickets = ticker;
+                                              });
+                                            });
+                                          }
                                         });
                                       },
                                       child: Container(
@@ -207,10 +203,8 @@ class PiHomeState extends State<PiHome> {
                                 ),
                                 Text(
                                   this.selectedTicket,
-                                  style:
-                                      GoogleFonts.roboto(color: Colors.white,
-                                      fontSize: 20
-                                      ),
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.white, fontSize: 20),
                                 ),
                               ],
                             ),
@@ -244,9 +238,15 @@ class PiHomeState extends State<PiHome> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            Ticket2(
-                                                              txdbid: value,
-                                                            )));
+                                                            ActualTicket(
+                                                                txid: value)));
+                                                // Navigator.push(
+                                                //     context,
+                                                //     MaterialPageRoute(
+                                                //         builder: (context) =>
+                                                //             Ticket2(
+                                                //               txdbid: value,
+                                                //             )));
                                               });
                                             },
                                             leading: Container(
@@ -268,7 +268,9 @@ class PiHomeState extends State<PiHome> {
                                               ),
                                               child: Center(
                                                 child: Icon(
-                                                  this.ticketTypes[this.selectedTicketIndex]["Icon"],
+                                                  this.ticketTypes[this
+                                                          .selectedTicketIndex]
+                                                      ["Icon"],
                                                   color: Colors.white,
                                                   size: 40,
                                                 ),

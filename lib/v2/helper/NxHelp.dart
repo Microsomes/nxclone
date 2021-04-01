@@ -1023,7 +1023,11 @@ class NXHelp {
     return list;
   }
 
-
+  Future getTicketByState(String state) async {
+      var db= await openDatabase(NXHelp.DB_NAME);
+      List<Map> list= await db.rawQuery("SELECT * FROM tickets WHERE state=?",[state]);
+      return list;
+  }
   Future getTicketsByTag(String type) async {
       var db= await openDatabase(NXHelp.DB_NAME);
       List<Map> list= await db.rawQuery("SELECT * FROM tickets WHERE tag=?",[type]);
