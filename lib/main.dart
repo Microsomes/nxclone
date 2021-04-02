@@ -84,7 +84,9 @@ class HomePagePrestate extends State<HomePagePre>
       builder: (context,data){
 
         if(data.connectionState==ConnectionState.waiting){
-          return Text("Waiting...");
+          return Scaffold(
+            body: Center(child: CircularProgressIndicator(backgroundColor: Colors.white,),)
+          );
         }
 
         SharedPreferences sh= data.data;
