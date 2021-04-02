@@ -170,7 +170,6 @@ class SetupFlowState extends State<SetupFlow> {
 
                                 SharedPreferences.getInstance().then((prefInstance) {
                                   prefInstance.setInt(SharedPrefKeys.setupKey, 1);
-                                  
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>StartScreenSetup()));
 
                                 });

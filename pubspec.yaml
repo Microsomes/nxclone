@@ -45,6 +45,7 @@ dependencies:
   cube_transition: ^1.0.2
   animated_text_kit: ^3.1.2
   fluttertoast: ^7.1.8
+  flutter_windowmanager: ^0.0.2
 
 
 

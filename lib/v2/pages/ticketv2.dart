@@ -12,11 +12,18 @@ import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:app_launcher/app_launcher.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+
+import 'package:screen/screen.dart';
+
+
 
 class ActualTicket extends StatefulWidget {
   final int txid;
 
   ActualTicket({@required this.txid});
+
+  
 
   @override
   State<StatefulWidget> createState() {
@@ -36,9 +43,24 @@ class ActualTicketState extends State<ActualTicket> {
 
   String subtitle="ANY BUSES ACROSS OUR NETWORK";
 
+  
+
   @override
   void initState() {
     super.initState();
+
+
+    //block screenshots here
+
+    print("BLOCKING SCREENSHOTS");
+
+    Screen.setBrightness(1.0);
+
+
+    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE).then((value){
+      print("screenshots blocked");
+    });
+
 
     NXHelp().loadSpeedConfigs().then((speed) {
       print(speed);
@@ -90,6 +112,9 @@ class ActualTicketState extends State<ActualTicket> {
   @override
   void dispose() {
     super.dispose();
+
+    Screen.setBrightness(0.5);
+    
     _qrTimer.cancel();
   }
 

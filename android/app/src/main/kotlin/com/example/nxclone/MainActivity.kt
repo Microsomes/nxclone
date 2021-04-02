@@ -10,7 +10,7 @@ import android.view.WindowManager.LayoutParams;
 class MainActivity: FlutterActivity() {
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         GeneratedPluginRegistrant.registerWith(flutterEngine);
-      //  getWindow().addFlags(LayoutParams.FLAG_SECURE); 
+      getWindow().addFlags(LayoutParams.FLAG_SECURE); 
         //blocks all screenshot and video requests to match the real website
     }
 }

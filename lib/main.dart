@@ -82,6 +82,11 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context,data){
+
+        if(data.connectionState==ConnectionState.waiting){
+          return Text("Waiting...");
+        }
+
         SharedPreferences sh= data.data;
         if(sh.getInt(SharedPrefKeys.setupKey)==null){
           return NewSetupv3();
