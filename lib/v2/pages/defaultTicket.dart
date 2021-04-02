@@ -189,7 +189,7 @@ class DefaultTicketState extends State<DefaultTicket> {
                     height: 50,
                     width: MediaQuery.of(context).size.width,
                     child: Center(
-                      child: Text("Select state",
+                      child: Text("Select Default Ticket",
                           style: GoogleFonts.acme(
                               fontSize: 20, fontWeight: FontWeight.w800)),
                     )),

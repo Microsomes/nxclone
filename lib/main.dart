@@ -56,6 +56,8 @@ class HomePagePrestate extends State<HomePagePre>
     //run the init process
     //NXHelp().runScan();
 
+    NXHelp().runInit();
+
     /**
      * This code buys the default ticket, its more of a convenience 
      * so the user doesnt have to buy the real app themselves everytime
