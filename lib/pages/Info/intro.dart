@@ -30,7 +30,7 @@ class LearnIntro extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: Text(
-                      "Welcome to Black Pie.",
+                      "Welcome to BubbleGum.",
                       style: GoogleFonts.aBeeZee(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

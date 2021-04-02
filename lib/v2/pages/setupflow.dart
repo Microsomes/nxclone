@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:BubbleGum/setupMain.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/defaultTicket.dart';
 import 'package:BubbleGum/v2/pages/ejection.dart';
@@ -8,6 +9,7 @@ import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'components/termsOfUseNotice.dart';
 import 'overlays/animationOverlaySettings.dart';
@@ -104,7 +106,7 @@ class SetupFlowState extends State<SetupFlow> {
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Welcome from blackpie, hope you enjoy our app",
+                    Text("Welcome from BubbleGum, hope you enjoy our app",
                     
                     style: GoogleFonts.acme(
                       color:Colors.white,
@@ -164,7 +166,17 @@ class SetupFlowState extends State<SetupFlow> {
                               if (currentNextButtonLabel == "FINISH") {
                                 //Phoenix.rebirth(context);
                                 //lets just simulate going to nxfront first
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Nxfront()));
+                                print("finished");
+
+                                SharedPreferences.getInstance().then((prefInstance) {
+                                  prefInstance.setInt(SharedPrefKeys.setupKey, 1);
+                                  
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>StartScreenSetup()));
+
+                                });
+
+
+
 
 
                               } else {

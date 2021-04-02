@@ -1,5 +1,6 @@
 import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/setupMain.dart';
+import 'package:BubbleGum/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
@@ -8,6 +9,7 @@ import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class HomePagePre extends StatefulWidget {
@@ -77,8 +79,17 @@ class HomePagePrestate extends State<HomePagePre>
   @override
   Widget build(BuildContext context) {
     
-    return StartScreenSetup();
-    return PiHome();
+    return FutureBuilder(
+      future: SharedPreferences.getInstance(),
+      builder: (context,data){
+        SharedPreferences sh= data.data;
+        if(sh.getInt(SharedPrefKeys.setupKey)==null){
+          return NewSetupv3();
+        }else{
+         return StartScreenSetup();
+        }
+      },
+    );
   }
 }
 

@@ -60,6 +60,12 @@ class SimType {
   static String uni = "UNI";
 }
 
+
+class SharedPrefKeys{
+  static String setupKey="is_new_setup";
+}
+
+
 class NXHelp {
   List ticketTypes;
 
