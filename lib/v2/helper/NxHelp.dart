@@ -62,14 +62,14 @@ class SimType {
 
 
 class SharedPrefKeys{
-  static String setupKey="is_new_setup";
+  static String setupKey="is_new_setup1";
 }
 
 
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main11.db";
+  static String DB_NAME = "main13.db";
 
   NXHelp() {
     //load and create table
