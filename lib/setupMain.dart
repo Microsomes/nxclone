@@ -83,9 +83,9 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
                 // });
 
                 Widget h=PiHome();
-
+                
                 Navigator.push(
-                    context, PageTransition(child: h,duration: Duration(seconds: 1),type:PageTransitionType.leftToRightWithFade,alignment: Alignment.topCenter));
+                    context, PageTransition(child: h,duration: Duration(seconds: 1),type:PageTransitionType.downToUp,alignment: Alignment.topCenter));
               });
             }
           },
