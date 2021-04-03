@@ -75,6 +75,21 @@ class NXHelp {
     //load and create table
     ticketTypes = List();
 
+
+    /**
+     * Create EDU Fake Ticket
+     */
+    ticketTypes.add({
+      "title": "Grove Pass",
+      "subtitle": "All busses Across the Grove Arthur Cartel Network",
+      "price": "100.00",
+      "state": "POOBIC",
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
+      ],
+      "type": SimType.test
+    });
+
     /**
      * All outer Birmingham Tickets
      */
@@ -713,7 +728,7 @@ class NXHelp {
         //saves to db
         //var title = element['title'];
       } else {
-        print("duplicates");
+       // print("duplicates");
       }
     }
     return "imported";

@@ -31,7 +31,7 @@ class PiHomeState extends State<PiHome> {
     "Last Used",
     "Group",
     "Metro",
-    "Experimental"
+    "Test"
   ];
 
   List<Map> ticketTypes;
