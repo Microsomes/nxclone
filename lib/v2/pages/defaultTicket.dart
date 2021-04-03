@@ -121,123 +121,125 @@ class DefaultTicketState extends State<DefaultTicket> {
           preferredSize: const Size.fromHeight(45),
           child: BarV2(),
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(20),
-              height: 160,
-              width: MediaQuery.of(context).size.width,
-              child: currentTicket != null
-                  ? SingleInactiveTicket(
-                      isUsed: false,
+        body: SingleChildScrollView(
+                  child: Column(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(20),
+                height: 160,
+                width: MediaQuery.of(context).size.width,
+                child: currentTicket != null
+                    ? SingleInactiveTicket(
+                        isUsed: false,
 
-                      sizeW: MediaQuery.of(context).size.width,
-                      ticketType: currentTicket['val'].split(":")[1],
-                      state: currentTicket['val'].split(":")[0],
-                      txdbid: 1,
-                      ticketExpiryDate: "Saved to default",
-                    )
-                  // ticketTwo(title: currentTicket['val'],id: 1,)
-                  : Container(
-                      color: Colors.transparent,
-                      height: 100,
-                      width: 30,
-                      child: Center(child: CircularProgressIndicator())),
-            ),
-            SizedBox(
-              height: 49,
-            ),
-            Text(
-              "Customise Ticket",
-              style: GoogleFonts.acme(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Determines the default ticket, that is automatically \npre-activated and purchased for you",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.lightGreen),
+                        sizeW: MediaQuery.of(context).size.width,
+                        ticketType: currentTicket['val'].split(":")[1],
+                        state: currentTicket['val'].split(":")[0],
+                        txdbid: 1,
+                        ticketExpiryDate: "Saved to default",
+                      )
+                    // ticketTwo(title: currentTicket['val'],id: 1,)
+                    : Container(
+                        color: Colors.transparent,
+                        height: 100,
+                        width: 30,
+                        child: Center(child: CircularProgressIndicator())),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                DefaultTicketOverlay().showDefaultOverlay(context, () {
-                  //a default ticket is chosen lets change
-                  NXHelp().loadConfig("deficketv2", 1).then((deftik) {
-                    setState(() {
-                      currentTicket = deftik[0];
+              SizedBox(
+                height: 49,
+              ),
+              Text(
+                "Customise Ticket",
+                style: GoogleFonts.acme(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Determines the default ticket, that is automatically \npre-activated and purchased for you",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: Colors.lightGreen),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  DefaultTicketOverlay().showDefaultOverlay(context, () {
+                    //a default ticket is chosen lets change
+                    NXHelp().loadConfig("deficketv2", 1).then((deftik) {
+                      setState(() {
+                        currentTicket = deftik[0];
+                      });
                     });
                   });
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(40),
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                    ),
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    child: Center(
-                      child: Text("Select Default Ticket",
-                          style: GoogleFonts.acme(
-                              fontSize: 20, fontWeight: FontWeight.w800)),
-                    )),
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                      height: 50,
+                      width: MediaQuery.of(context).size.width,
+                      child: Center(
+                        child: Text("Select Default Ticket",
+                            style: GoogleFonts.acme(
+                                fontSize: 20, fontWeight: FontWeight.w800)),
+                      )),
+                ),
               ),
-            ),
-            isShowing == true
-                ? Expanded(
-                    child: Center(
-                        child: ListView.builder(
-                            itemCount: ticketOptions.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: FancyOptions(
-                                  title: "",
-                                  isSelected: ticketOptions[index]['selected'],
-                                  assetRoute: ticketOptions[index]['asset'],
-                                  clicked: () {
-                                    saveOption("defaultticket",
-                                        ticketOptions[index]['id']);
-                                    restoreOption("defaultticket")
-                                        .then((value) {
-                                      if (value.length == 0) {
-                                        //do nothing
-                                      } else {
-                                        var current = value[0]['val'];
-                                        ticketOptions.forEach((element) {
-                                          if (element['id'] == current) {
-                                            element['selected'] = true;
-                                            setState(() {
-                                              currentTicketTitle =
-                                                  element['title'];
-                                            });
-                                          } else {
-                                            element['selected'] = false;
-                                          }
-                                        });
-                                        resetState();
-                                      }
-                                    });
-                                  },
-                                  boxFitt: BoxFit.contain,
-                                ),
-                              );
-                            })),
-                  )
-                : Container()
-          ],
+              isShowing == true
+                  ? Expanded(
+                      child: Center(
+                          child: ListView.builder(
+                              itemCount: ticketOptions.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: FancyOptions(
+                                    title: "",
+                                    isSelected: ticketOptions[index]['selected'],
+                                    assetRoute: ticketOptions[index]['asset'],
+                                    clicked: () {
+                                      saveOption("defaultticket",
+                                          ticketOptions[index]['id']);
+                                      restoreOption("defaultticket")
+                                          .then((value) {
+                                        if (value.length == 0) {
+                                          //do nothing
+                                        } else {
+                                          var current = value[0]['val'];
+                                          ticketOptions.forEach((element) {
+                                            if (element['id'] == current) {
+                                              element['selected'] = true;
+                                              setState(() {
+                                                currentTicketTitle =
+                                                    element['title'];
+                                              });
+                                            } else {
+                                              element['selected'] = false;
+                                            }
+                                          });
+                                          resetState();
+                                        }
+                                      });
+                                    },
+                                    boxFitt: BoxFit.contain,
+                                  ),
+                                );
+                              })),
+                    )
+                  : Container()
+            ],
+          ),
         ));
   }
 
