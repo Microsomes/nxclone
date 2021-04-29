@@ -107,7 +107,8 @@ class PiHomeState extends State<PiHome> {
             elevation: 0,
             title: Text(
               "Bubble Gum Clone App",
-              style: GoogleFonts.roboto(color: textCol,fontWeight: FontWeight.bold),
+              style: GoogleFonts.roboto(
+                  color: textCol, fontWeight: FontWeight.bold),
             ),
             backgroundColor: scaffCol,
             leading: Container(),
@@ -126,6 +127,9 @@ class PiHomeState extends State<PiHome> {
                               });
                               setState(() {
                                 scaffCol = col;
+                                textCol = scaffCol.computeLuminance() >= 0.5
+                                    ? Colors.black
+                                    : Colors.white;
                               });
                               print(col);
                             },
@@ -270,7 +274,9 @@ class PiHomeState extends State<PiHome> {
                                   Text(
                                     this.selectedTicket,
                                     style: GoogleFonts.roboto(
-                                        color: textCol, fontSize: 20,fontWeight: FontWeight.bold),
+                                        color: textCol,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -338,7 +344,7 @@ class PiHomeState extends State<PiHome> {
                                                     this.ticketTypes[this
                                                             .selectedTicketIndex]
                                                         ["Icon"],
-                                                    color: Colors.white,
+                                                    color: textCol,
                                                     size: 40,
                                                   ),
                                                 ),
@@ -347,14 +353,14 @@ class PiHomeState extends State<PiHome> {
                                                 filteredTickets[index]
                                                     ["tickettitle"],
                                                 style: GoogleFonts.roboto(
-                                                    color: Colors.white,
+                                                    color: textCol,
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
                                               subtitle: Text(
                                                 filteredTickets[index]["state"],
                                                 style: GoogleFonts.roboto(
-                                                    color: Colors.white,
+                                                    color: textCol,
                                                     fontWeight:
                                                         FontWeight.w300),
                                               ),
@@ -369,7 +375,7 @@ class PiHomeState extends State<PiHome> {
                   Text(
                     "Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",
                     style: GoogleFonts.roboto(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                        color: textCol, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   )
                 ]),
