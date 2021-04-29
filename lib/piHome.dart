@@ -159,7 +159,9 @@ class PiHomeState extends State<PiHome> {
               // ),
               Expanded(
                 child: Column(children: [
-                  widget.isHide == true ? Container() : PiHomeOptions(),
+                  widget.isHide == true ? Container() : PiHomeOptions(
+                    textColor: textCol,
+                  ),
                   Expanded(
                       flex: 2,
                       child: Container(

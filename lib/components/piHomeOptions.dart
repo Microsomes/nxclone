@@ -9,6 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PiHomeOptions extends StatefulWidget {
+
+  final Color textColor;
+
+  PiHomeOptions({
+    @required this.textColor
+  });
+
   @override
   _PiHomeOptionsState createState() => _PiHomeOptionsState();
 }
@@ -143,31 +150,35 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                 child: Container(
                      margin: EdgeInsets.only(left:10,bottom: 20,top: 20),
                     decoration: BoxDecoration(
-                        color: Color.fromRGBO(38, 38, 38, 1),
+                        color: Color.fromRGBO(38, 38, 38, 1).withOpacity(0.3),
                         borderRadius: BorderRadius.circular(5)),
                     width: MediaQuery.of(context).size.width * 0.33,
                     child: Column(
                       children: [
+                        // Expanded(
+                        //   child: Center(
+                        //     child: CircleAvatar(
+                        //       radius: 10,
+                        //       child: Image.asset(
+                        //         allOptions[i]["image"],
+                        //         color: Colors.green,
+                        //         width: 10,
+                        //       ),
+                        //       backgroundColor:
+                        //           Color.fromRGBO(249, 140, 85, 1),
+                        //     ),
+                        //   ),
+                        // ),
                         Expanded(
-                          child: Center(
-                            child: CircleAvatar(
-                              radius: 10,
-                              child: Image.asset(
-                                allOptions[i]["image"],
-                                color: Colors.white,
-                                width: 10,
-                              ),
-                              backgroundColor:
-                                  Color.fromRGBO(249, 140, 85, 1),
-                            ),
+                                                  child: Center(
+                                                    child: Text(
+                            allOptions[i]["name"],
+                            style: GoogleFonts.roboto(
+                                fontSize: 18,
+                                color: widget.textColor,
+                                fontWeight: FontWeight.w500),
                           ),
-                        ),
-                        Text(
-                          allOptions[i]["name"],
-                          style: GoogleFonts.roboto(
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500),
+                                                  ),
                         ),
                         SizedBox(height: 8)
                       ],

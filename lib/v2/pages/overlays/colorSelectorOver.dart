@@ -82,17 +82,37 @@ class ColorSelectOver {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "Select a color",
+                    "Quick Options",
                     style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold, fontSize: 30),
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                 RaisedButton(
+                RaisedButton(
                     color: Colors.pink,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                      child: Text(
+                        "Go Back to (Main) Home 🏠",
+                        style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
+                      PiHome()));
+                    },
+                  ),
+
+               Row(
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                 children: [
+                     RaisedButton(
+                    color: Colors.pink,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
                     child: Center(
                       child: Text(
                         "Change Ticket (Fast)",
@@ -106,10 +126,10 @@ class ColorSelectOver {
                  RaisedButton(
                     color: Colors.pink,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Center(
                       child: Text(
-                        isCustomColor==false ?"Pick your own Color- Like Before":"Pick Random Colors",
+                        isCustomColor==false ?"Pick your own Color":"Pick Random Colors",
                         style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -119,6 +139,8 @@ class ColorSelectOver {
                       });
                     },
                   ),
+                 ],
+               ),
 
                 isCustomColor==false ?  Expanded(
                     child: ListView.builder(
