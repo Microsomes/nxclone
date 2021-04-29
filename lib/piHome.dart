@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'components/piHomeOptions.dart';
 import 'v2/helper/NxHelp.dart';
@@ -9,6 +12,7 @@ import 'v2/pages/setupflow.dart';
 import 'v2/pages/ticket.dart';
 import 'v2/pages/ticketv2.dart';
 import 'v3/newSetup.dart';
+import 'package:random_color/random_color.dart';
 
 class PiHome extends StatefulWidget {
   final bool isHide;
@@ -40,9 +44,27 @@ class PiHomeState extends State<PiHome> {
 
   var selectedTicketIndex = 0;
 
+  Color scaffCol = Colors.black;
+  Color textCol = Colors.white;
+
   List<Map> filteredTickets;
   @override
   void initState() {
+    //load the prefs
+
+    SharedPreferences.getInstance().then((value) {
+      String homeCol = value.getString("home_col");
+      print(homeCol);
+      Color newColor = Color(int.parse(homeCol));
+      setState(() {
+        setState(() {
+          scaffCol = newColor;
+          textCol =
+              scaffCol.computeLuminance() >= 0.5 ? Colors.black : Colors.white;
+        });
+      });
+    });
+
     super.initState();
 
     ticketTypes = List<Map>();
@@ -77,22 +99,60 @@ class PiHomeState extends State<PiHome> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async{
+      onWillPop: () async {
         //well were not going back so block that request
       },
-          child: Scaffold(
-          backgroundColor: Colors.black,
+      child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            title: Text(
+              "Bubble Gum Clone App",
+              style: GoogleFonts.roboto(color: textCol,fontWeight: FontWeight.bold),
+            ),
+            backgroundColor: scaffCol,
+            leading: Container(),
+            actions: [
+              GestureDetector(
+                onTap: () {
+                  print("Show color selector");
+
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => ColorSelectorDIalog(
+                            picColor: (Color col) {
+                              SharedPreferences.getInstance().then((value) {
+                                value.setString(
+                                    "home_col", col.value.toString());
+                              });
+                              setState(() {
+                                scaffCol = col;
+                              });
+                              print(col);
+                            },
+                          ));
+                },
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 20.0, top: 10),
+                    child: CircleAvatar(
+                        radius: 13, backgroundColor: scaffCol.withGreen(20)),
+                  ),
+                ),
+              )
+            ],
+          ),
+          backgroundColor: scaffCol,
           body: SafeArea(
               child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 40,
-              ),
-              Text(
-                "(Version 5.0-Gorilla Edition)",
-                style: GoogleFonts.aBeeZee(
-                    color: Colors.white, fontWeight: FontWeight.bold),
-              ),
+              // SizedBox(
+              //   height: 40,
+              // ),
+              // Text(
+              //   "(Version 5.0-Gorilla Edition)",
+              //   style: GoogleFonts.aBeeZee(
+              //       color: Colors.white, fontWeight: FontWeight.bold),
+              // ),
               Expanded(
                 child: Column(children: [
                   widget.isHide == true ? Container() : PiHomeOptions(),
@@ -106,7 +166,7 @@ class PiHomeState extends State<PiHome> {
                                 child: Text(
                                   "By pass simulation (Simpler and Faster) 🚀",
                                   style: GoogleFonts.roboto(
-                                      color: Colors.white,
+                                      color: textCol,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14),
                                 ),
@@ -139,12 +199,14 @@ class PiHomeState extends State<PiHome> {
                                                       "West Midlands")
                                                   .then((westMidlands) {
                                                 setState(() {
-                                                  filteredTickets = westMidlands;
+                                                  filteredTickets =
+                                                      westMidlands;
                                                 });
                                               });
                                             } else {
                                               NXHelp()
-                                                  .getTicketsByTag(selectedTicket)
+                                                  .getTicketsByTag(
+                                                      selectedTicket)
                                                   .then((ticker) {
                                                 setState(() {
                                                   filteredTickets = ticker;
@@ -172,10 +234,10 @@ class PiHomeState extends State<PiHome> {
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                           margin: EdgeInsets.all(10),
-                                          width:
-                                              selectedTicket == ticketType[index]
-                                                  ? 100
-                                                  : 50,
+                                          width: selectedTicket ==
+                                                  ticketType[index]
+                                              ? 100
+                                              : 50,
                                           height: 50,
                                           child: Center(
                                               child: Text(
@@ -208,7 +270,7 @@ class PiHomeState extends State<PiHome> {
                                   Text(
                                     this.selectedTicket,
                                     style: GoogleFonts.roboto(
-                                        color: Colors.white, fontSize: 20),
+                                        color: textCol, fontSize: 20,fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -243,7 +305,8 @@ class PiHomeState extends State<PiHome> {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               ActualTicket(
-                                                                  txid: value)));
+                                                                  txid:
+                                                                      value)));
                                                   // Navigator.push(
                                                   //     context,
                                                   //     MaterialPageRoute(
@@ -285,13 +348,15 @@ class PiHomeState extends State<PiHome> {
                                                     ["tickettitle"],
                                                 style: GoogleFonts.roboto(
                                                     color: Colors.white,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               subtitle: Text(
                                                 filteredTickets[index]["state"],
                                                 style: GoogleFonts.roboto(
                                                     color: Colors.white,
-                                                    fontWeight: FontWeight.w300),
+                                                    fontWeight:
+                                                        FontWeight.w300),
                                               ),
                                             ),
                                           );
@@ -317,6 +382,85 @@ class PiHomeState extends State<PiHome> {
                   : Container(),
             ],
           ))),
+    );
+  }
+}
+
+class ColorSelectorDIalog extends StatefulWidget {
+  final Function picColor;
+
+  const ColorSelectorDIalog({
+    @required this.picColor,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _ColorSelectorDIalogState createState() => _ColorSelectorDIalogState();
+}
+
+class _ColorSelectorDIalogState extends State<ColorSelectorDIalog> {
+  RandomColor _randomColor = RandomColor();
+
+  List<Color> randomCols;
+
+  @override
+  void initState() {
+    randomCols = new List();
+
+    for (var i = 0; i < 100; i++) {
+      Color _color = _randomColor.randomColor();
+      randomCols.add(_color);
+    }
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      backgroundColor: Colors.black,
+      title: Center(
+        child: Text(
+          "Select Color",
+          style: GoogleFonts.roboto(
+              color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ),
+      content: Container(
+        height: 300,
+        color: Colors.transparent,
+        child: SingleChildScrollView(
+          child: Wrap(
+            children: [
+              for (var i = 0; i < 100; i++)
+                GestureDetector(
+                  onTap: () {
+                    print("Select color");
+
+                    widget.picColor(randomCols[i]);
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: randomCols[i],
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                  ),
+                )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
