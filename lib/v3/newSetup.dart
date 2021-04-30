@@ -3,8 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'advancedSetup.dart';
+import 'advancedSetupC/advancedSetupPage.dart';
 
-class NewSetupv3 extends StatelessWidget {
+class NewSetupv3 extends StatefulWidget {
+  @override
+  _NewSetupv3State createState() => _NewSetupv3State();
+}
+
+class _NewSetupv3State extends State<NewSetupv3> {
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,34 +87,7 @@ class NewSetupv3 extends StatelessWidget {
           Expanded(
             child: Container(
               width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Text(
-                        "Advanced Setup",
-                        style: GoogleFonts.roboto(fontSize: 30),
-                      )
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left:30),
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                        "Setup with a brand new intuitive layout, set the default ticket, ejection mode and much more.",
-                        style: GoogleFonts.roboto(fontSize: 12,
-                        color: Colors.black
-                        ),
-                      ),
-                  )
-                ],
-              ),
+              child: AdvancedSetupPage(),
               decoration: BoxDecoration(
                   color: Colors.greenAccent,
                   borderRadius: BorderRadius.only(
