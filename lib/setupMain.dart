@@ -37,7 +37,7 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
           speed: Duration(milliseconds: 1000),
           controller: _controller,
           displayTime: Duration(milliseconds: 100),
-          wordList: ['BubbleGUM.', 'V5.', '.'],
+          wordList: ['BubbleGUM.', 'V6.',"..."],
           textStyle: TextStyle(
               color: Colors.white, fontSize: 55, fontWeight: FontWeight.w700),
           onAnimate: (index) {

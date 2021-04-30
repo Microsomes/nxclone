@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 
 import 'components/piHomeOptions.dart';
 import 'v2/helper/NxHelp.dart';
@@ -47,6 +49,8 @@ class PiHomeState extends State<PiHome> {
   Color scaffCol = Colors.black;
   Color textCol = Colors.white;
 
+  bool showDisclaimer = true;
+
   List<Map> filteredTickets;
   @override
   void initState() {
@@ -54,15 +58,33 @@ class PiHomeState extends State<PiHome> {
 
     SharedPreferences.getInstance().then((value) {
       String homeCol = value.getString("home_col");
-      print(homeCol);
-      Color newColor = Color(int.parse(homeCol));
-      setState(() {
+
+      bool hideDisclaimer = value.getBool("hide_disclaimer");
+
+      if (hideDisclaimer != null) {
+        if (hideDisclaimer) {
+          setState(() {
+            showDisclaimer = false;
+          });
+        } else {
+          setState(() {
+            showDisclaimer = true;
+          });
+        }
+      }
+
+      if (homeCol != null) {
+        print(homeCol);
+        Color newColor = Color(int.parse(homeCol));
         setState(() {
-          scaffCol = newColor;
-          textCol =
-              scaffCol.computeLuminance() >= 0.5 ? Colors.black : Colors.white;
+          setState(() {
+            scaffCol = newColor;
+            textCol = scaffCol.computeLuminance() >= 0.5
+                ? Colors.black
+                : Colors.white;
+          });
         });
-      });
+      }
     });
 
     super.initState();
@@ -70,7 +92,7 @@ class PiHomeState extends State<PiHome> {
     ticketTypes = List<Map>();
 
     ticketTypes.add({"Name": "West Midlands", "Icon": Icons.track_changes});
-
+ 
     ticketTypes.add({"Name": "Singles", "Icon": Icons.track_changes});
 
     ticketTypes.add({"Name": "Day", "Icon": Icons.dynamic_feed});
@@ -96,6 +118,35 @@ class PiHomeState extends State<PiHome> {
     // });
   }
 
+  void showHideDisclaimerDialog() {
+    showDialog(
+        context: context,
+        builder: (ctx) => HideDisclaimerDialog(
+              onval: (val) {
+                if (val) {
+                      Fluttertoast.showToast(
+            msg: "Click the title to change the value",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: scaffCol,
+            textColor: textCol,
+            fontSize: 16.0
+        );
+
+        Navigator.pop(context);
+                  setState(() {
+                    showDisclaimer = false;
+                  });
+                } else {
+                  setState(() {
+                    showDisclaimer = true;
+                  });
+                }
+              },
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -105,10 +156,16 @@ class PiHomeState extends State<PiHome> {
       child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            title: Text(
-              "Bubble Gum Clone App",
-              style: GoogleFonts.roboto(
-                  color: textCol, fontWeight: FontWeight.bold),
+            title: GestureDetector(
+              onTap: () {
+                print("Show Disclaimer");
+                showHideDisclaimerDialog();
+              },
+              child: Text(
+                "Bubble Gum Clone App",
+                style: GoogleFonts.roboto(
+                    color: textCol, fontWeight: FontWeight.bold),
+              ),
             ),
             backgroundColor: scaffCol,
             leading: Container(),
@@ -159,9 +216,11 @@ class PiHomeState extends State<PiHome> {
               // ),
               Expanded(
                 child: Column(children: [
-                  widget.isHide == true ? Container() : PiHomeOptions(
-                    textColor: textCol,
-                  ),
+                  widget.isHide == true
+                      ? Container()
+                      : PiHomeOptions(
+                          textColor: textCol,
+                        ),
                   Expanded(
                       flex: 2,
                       child: Container(
@@ -374,12 +433,20 @@ class PiHomeState extends State<PiHome> {
                                   : Container()
                             ],
                           ))),
-                  Text(
-                    "Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",
-                    style: GoogleFonts.roboto(
-                        color: textCol, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  )
+                  showDisclaimer == true
+                      ? GestureDetector(
+                          onTap: () {
+                            print("remove disclaimer");
+                           showHideDisclaimerDialog();
+                          },
+                          child: Text(
+                            "Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",
+                            style: GoogleFonts.roboto(
+                                color: textCol, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      : Container()
                 ]),
               ),
               isShowing == true
@@ -390,6 +457,72 @@ class PiHomeState extends State<PiHome> {
                   : Container(),
             ],
           ))),
+    );
+  }
+}
+
+class HideDisclaimerDialog extends StatefulWidget {
+  final Function onval;
+
+  const HideDisclaimerDialog({
+    @required this.onval,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _HideDisclaimerDialogState createState() => _HideDisclaimerDialogState();
+}
+
+class _HideDisclaimerDialogState extends State<HideDisclaimerDialog> {
+  bool isHideDialog = false;
+
+
+  @override
+  void initState() {
+   
+    SharedPreferences.getInstance().then((value) {
+      if(value.getBool("hide_disclaimer")!=null){
+        setState(() {
+          isHideDialog=value.getBool("hide_disclaimer");
+        });
+      }
+    });
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(
+        "Hide Disclaimer",
+        style: GoogleFonts.roboto(
+            color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+      content: Container(
+        height: 300,
+        child: Column(
+          children: [
+            Text(
+              "You are about to hide the educational disclaimer",
+              style: GoogleFonts.roboto(color: Colors.white),
+            ),
+            Switch(
+              onChanged: (val) {
+                widget.onval(val);
+                SharedPreferences.getInstance().then((value) {
+                  value.setBool("hide_disclaimer", val);
+                });
+
+                setState(() {
+                  isHideDialog = val;
+                });
+              },
+              value: isHideDialog,
+            )
+          ],
+        ),
+      ),
     );
   }
 }
