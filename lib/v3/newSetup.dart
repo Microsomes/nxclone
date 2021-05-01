@@ -21,12 +21,14 @@ class _NewSetupv3State extends State<NewSetupv3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
+        elevation: 0,
         title: Text(
           "BubbleGum Clone App",
           style: GoogleFonts.roboto(),
         ),
       ),
-      backgroundColor: Color.fromRGBO(38, 38, 38, 1),
+      backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +37,7 @@ class _NewSetupv3State extends State<NewSetupv3> {
               padding: EdgeInsets.all(5),
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: Colors.redAccent,
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: [
                     BoxShadow(
@@ -51,7 +53,7 @@ class _NewSetupv3State extends State<NewSetupv3> {
                     margin: EdgeInsets.all(20),
                     child: Center(
                       child: RaisedButton(
-                        color: Color.fromRGBO(38, 38, 38, 1).withOpacity(0.3),
+                        color: Colors.yellowAccent,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         onPressed: () {
@@ -64,7 +66,9 @@ class _NewSetupv3State extends State<NewSetupv3> {
                         },
                         child: Text(
                           "Enter Basic Setup",
-                          style: GoogleFonts.roboto(),
+                          style: GoogleFonts.roboto(
+                            color: Colors.black
+                          ),
                         ),
                       ),
                     ),
@@ -89,10 +93,10 @@ class _NewSetupv3State extends State<NewSetupv3> {
               width: MediaQuery.of(context).size.width,
               child: AdvancedSetupPage(),
               decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  color: Colors.black,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    topLeft: Radius.circular(20),
+                    // topRight: Radius.circular(20),
+                    // topLeft: Radius.circular(20),
                   ),
                   boxShadow: [
                     BoxShadow(
