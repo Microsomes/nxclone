@@ -21,11 +21,26 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   int defaultHomeIndex = 0;
 
+  int defaultTicketID;
+
+  String ticketDefNameSelected;
+
   @override
   void initState() {
     //load default home pref
 
     SharedPreferences.getInstance().then((value) {
+      int tikDef = value.getInt("def_ticket_adv_id");
+
+      if (tikDef != null) {
+        String tikDefName = value.getString("def_ticket_adv_name");
+        String tikDefState = value.getString("def_ticket_adv_state");
+
+        setState(() {
+          ticketDefNameSelected = tikDefName + "/" + tikDefState;
+        });
+      }
+
       int def = value.getInt("default_home");
       if (def != null) {
         setState(() {
@@ -119,7 +134,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                 ),
               ],
             )),
-        GestureDetector(
+       isDisclaimer==null  || isDisclaimer==false ? Container(): GestureDetector(
           onTap: () {},
           child: Container(
             padding: EdgeInsets.all(4),
@@ -192,7 +207,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
         SizedBox(
           height: 10,
         ),
-        GestureDetector(
+      isDisclaimer==null  || isDisclaimer==false ? Container():  GestureDetector(
           onTap: () {
             print("set default ticket");
 
@@ -200,14 +215,29 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
               print(value.length);
 
               showDialog(
-                  context: context, builder: (ctx) => PIckDefTicketDialog(
-                    onDefSelected: (val){
-                      SharedPreferences.getInstance().then((value) {
-                        value.setInt("def_ticket_adv", val);
-                      });
-                      
-                    },
-                  ));
+                  context: context,
+                  builder: (ctx) => PIckDefTicketDialog(
+                        onDefSelected: (val) {
+                          NXHelp().getTicketByID(val).then((tikInfo) {
+                            print(tikInfo);
+
+                            SharedPreferences.getInstance().then((value) {
+                              value.setInt("def_ticket_adv_id", val);
+                              value.setString("def_ticket_adv_name",
+                                  tikInfo[0]['tickettitle']);
+                              value.setString(
+                                  "def_ticket_adv_state", tikInfo[0]['state']);
+
+                              setState(() {
+                                ticketDefNameSelected = tikInfo[0]
+                                        ['tickettitle'] +
+                                    "/" +
+                                    tikInfo[0]['state'];
+                              });
+                            });
+                          });
+                        },
+                      ));
             });
           },
           child: Container(
@@ -226,17 +256,81 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                         fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Text(
-                    "(" + allPageOptions[defaultHomeIndex].pageName + ")",
-                    style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold, color: Colors.white),
+                ticketDefNameSelected != null
+                    ? Container(
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Text(
+                          "(" + ticketDefNameSelected + ")",
+                          style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
+                      )
+                    : Container()
+              ],
+            ),
+            height: 80,
+            margin: EdgeInsets.only(left: 20, right: 20, top: 0),
+            decoration: BoxDecoration(
+                color: Colors.yellowAccent,
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.yellow,
+                    blurRadius: 4,
+                    offset: Offset(2, 2), // Shadow position
                   ),
-                )
+                ]),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+
+         isDisclaimer==null  || isDisclaimer==false ? Container():  GestureDetector(
+          onTap: () {
+            print("set default ticket");
+
+            NXHelp().getAllAvailableToPurchaseTickets().then((value) {
+              print(value.length);
+
+              showDialog(
+                  context: context,
+                 builder: (ctx)=>SetEjectionSettings()
+                      );
+            });
+          },
+          child: Container(
+            padding: EdgeInsets.all(4),
+            width: MediaQuery.of(context).size.width,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  height: 100,
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    "Ejection Settings",
+                    style: GoogleFonts.roboto(
+                        fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                ticketDefNameSelected != null
+                    ? Container(
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Text(
+                          "(" + ticketDefNameSelected + ")",
+                          style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
+                      )
+                    : Container()
               ],
             ),
             height: 80,
@@ -258,10 +352,113 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
   }
 }
 
+
+class EjectionSettingModel{
+  String name;
+  String id;
+  String info;
+  EjectionSettingModel({
+    @required this.name,
+    @required this.id,
+    @required this.info
+  });
+}
+
+class SetEjectionSettings extends StatefulWidget {
+  const SetEjectionSettings({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _SetEjectionSettingsState createState() => _SetEjectionSettingsState();
+}
+
+class _SetEjectionSettingsState extends State<SetEjectionSettings> {
+
+
+  List<EjectionSettingModel> ejectionSettings;
+
+  @override
+  void initState() {
+    ejectionSettings= List<EjectionSettingModel>();
+    ejectionSettings.add(EjectionSettingModel(
+      id: "nothing",
+      name: "Do Nothing",
+      info: "Selecting this will ensure nothing happens when using the back button on the ticket page. Back button = null"
+    ));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(40),
+      color: Colors.redAccent,
+      child: Column(
+        children: [
+            Text(
+              "Ejection Selection",
+              style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+            ),
+            SizedBox(height: 5),
+            Text(
+              "When pushing the back button on the actual ticket page, what should happen?",
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.only(top:30),
+                child: ListView.builder(
+                  itemCount: ejectionSettings.length,
+                  itemBuilder: (ctx,index){
+                    return Material(
+                      color: Colors.transparent,
+                                          child: ListTile(
+                        title: Text(ejectionSettings[index].name,
+                        style: GoogleFonts.roboto(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                        ),
+                        ),
+                        subtitle: Text(ejectionSettings[index].info,
+                        style: GoogleFonts.roboto(
+                          fontSize: 15
+                        ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+             Container(
+              height: 50,
+              child: Center(
+                  child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Close",
+                  style: GoogleFonts.roboto(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+              )),
+            )
+        ],
+      ),
+    );
+  }
+}
+
 class PIckDefTicketDialog extends StatefulWidget {
-
   final Function onDefSelected;
-
 
   const PIckDefTicketDialog({
     @required this.onDefSelected,
@@ -306,28 +503,50 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
                         );
                       }
 
-                      List<Map> allTickets= snapshot.data;
+                      List<Map> allTickets = snapshot.data;
 
                       print(allTickets[0]);
 
                       return ListView.builder(
                         itemCount: allTickets.length,
                         itemBuilder: (ctx, index) {
-
                           return Container(
-                            height: 50,
-                            child: Material(
-                              color: Colors.transparent,
-                              child: ListTile(
-                                onTap: (){
-                                  widget.onDefSelected(allTickets[index]['id']);
-                                  Navigator.pop(context);
-                                },
-                                title: Text(allTickets[index]['tickettitle']),
-                                subtitle: Text(allTickets[index]['state']),
-                              ))
-                            
-                          );
+                              height: 50,
+                              child: Material(
+                                  color: Colors.transparent,
+                                  child: ListTile(
+                                    onTap: () {
+                                      widget.onDefSelected(
+                                          allTickets[index]['id']);
+                                      Navigator.pop(context);
+                                    },
+                                    title:
+                                        Text(allTickets[index]['tickettitle'],
+                                        style: GoogleFonts.roboto(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold
+                                        ),
+                                        ),
+                                    subtitle: Text(allTickets[index]['state'],
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 15
+                                    ),
+                                    ),
+                                    trailing: Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.arrow_right,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  )));
                         },
                       );
                     },

@@ -836,6 +836,20 @@ class NXHelp {
     return list;
   }
 
+  //get tickets by id
+  /**
+   * will grab a ticket by id
+   * i dont know why the fuck i forgot to add this
+   */
+
+  Future getTicketByID(int id) async {
+    var db= await openDatabase(NXHelp.DB_NAME);
+    List<Map> one= await db.rawQuery("SELECT * FROM tickets WHERE id=?",[id]);
+    return one;
+  }
+
+
+
   //returns ticket by id
   Future getInfoOnTicketById(int id) async {
     var db = await openDatabase(NXHelp.DB_NAME);
