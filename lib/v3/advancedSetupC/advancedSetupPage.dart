@@ -639,6 +639,26 @@ class PIckDefTicketDialog extends StatefulWidget {
 }
 
 class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
+
+
+  int defVal;
+
+
+  @override
+  void initState() {
+    SharedPreferences.getInstance().then((pref) {
+      if(pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY)!=null){
+        setState(() {
+          defVal=pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+        });
+      }else{
+        print("null");
+      }
+    });
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -699,20 +719,7 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
                                       allTickets[index]['state'],
                                       style: GoogleFonts.roboto(fontSize: 15),
                                     ),
-                                    trailing: Container(
-                                      height: 30,
-                                      width: 30,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
-                                      child: Center(
-                                        child: Icon(
-                                          Icons.arrow_right,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
+                                    trailing: allTickets[index]['id']==defVal? Icon(Icons.check):Icon(Icons.info_outline,color: Colors.redAccent,)
                                   )));
                         },
                       );
