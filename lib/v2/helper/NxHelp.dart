@@ -1,4 +1,5 @@
 //helper class for helping with logic
+import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -60,11 +61,9 @@ class SimType {
   static String uni = "UNI";
 }
 
-
-class SharedPrefKeys{
-  static String setupKey="is_new_setup1";
+class SharedPrefKeys {
+  static String setupKey = "is_new_setup1";
 }
-
 
 class NXHelp {
   List ticketTypes;
@@ -74,7 +73,6 @@ class NXHelp {
   NXHelp() {
     //load and create table
     ticketTypes = List();
-
 
     /**
      * Create EDU Fake Ticket
@@ -721,14 +719,19 @@ class NXHelp {
       if (dup.length == 0) {
         print("no dublicates");
         //DO NOT COMMENT THIS CODE OITU ITS VERY IMPORTANT
-        var id = await this.addTicket(element['title'], element['state'],
-            element['price'], element['subtitle'], element["info"][0],element["type"]);
+        var id = await this.addTicket(
+            element['title'],
+            element['state'],
+            element['price'],
+            element['subtitle'],
+            element["info"][0],
+            element["type"]);
 
         Future.delayed(Duration(seconds: 1));
         //saves to db
         //var title = element['title'];
       } else {
-       // print("duplicates");
+        // print("duplicates");
       }
     }
     return "imported";
@@ -739,9 +742,6 @@ class NXHelp {
   //   //todo
   // }
 
-
-
-
   //if not null will buy and return an ticket id
   Future buyAndActivateDefaultTicket() async {
     /**
@@ -750,15 +750,15 @@ class NXHelp {
      * buying tickets all the fuking time
      * for testing lol
      */
-    List<Map> allAutoBuyTiks=await getAutoBuyTickets();
-    
-    allAutoBuyTiks.forEach((element) async  { 
-      var id= element["id"];
+    List<Map> allAutoBuyTiks = await getAutoBuyTickets();
+
+    allAutoBuyTiks.forEach((element) async {
+      var id = element["id"];
       await deactivateTicket(id: id).then((value) {
         print("deactivated all tickets");
       });
     });
-    
+
     var defaultTicket = await this.loadConfig("deficketv2", 1);
     if (defaultTicket.length == 0) {
       //no default selected we must use west-midlands as default and a daysaver
@@ -778,7 +778,10 @@ class NXHelp {
       var curDefault = defaultTicket[0]['val'].split(":");
 
       var ticketid = await this.buyTicket(
-          tickettype: curDefault[1], state: curDefault[0], price: "0.00",tag: "AUTO_BUY");
+          tickettype: curDefault[1],
+          state: curDefault[0],
+          price: "0.00",
+          tag: "AUTO_BUY");
       //provisions a ticket
 
       await this.activateTicket(id: ticketid);
@@ -832,7 +835,7 @@ class NXHelp {
 
   Future getAllAvailableToPurchaseTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
-    List<Map> list = await db.rawQuery("SELECT * FROM tickets");
+    List<Map> list = await db.rawQuery("SELECT * FROM tickets ORDER BY state desc");
     return list;
   }
 
@@ -843,12 +846,49 @@ class NXHelp {
    */
 
   Future getTicketByID(int id) async {
-    var db= await openDatabase(NXHelp.DB_NAME);
-    List<Map> one= await db.rawQuery("SELECT * FROM tickets WHERE id=?",[id]);
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> one = await db.rawQuery("SELECT * FROM tickets WHERE id=?", [id]);
     return one;
   }
 
+  EjectionSettingModel getEjectionSettingByID(String id){
+    List<EjectionSettingModel> allSettings= this.getAllEjectionSettings();
+    EjectionSettingModel toReturn;
 
+    allSettings.forEach((element) {
+      if(element.id==id){
+        toReturn=element;
+      }
+     });
+     return toReturn;
+  }
+
+  List<EjectionSettingModel> getAllEjectionSettings() {
+    List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
+    ejectionSettings.add(EjectionSettingModel(
+        id: "nothing",
+        name: "Do Nothing",
+        info:
+            "Selecting this will ensure nothing happens when using the back button on the ticket page. Back button = null"));
+    ejectionSettings.add(EjectionSettingModel(
+        id: "simulated_real",
+        name: "Simulated Real",
+        info:
+            "When clicking back, on the ticket page would take you to the simulated clone home page. Its the clone of the home page as well, where you can buy tickets and act like the real app. "));
+
+    ejectionSettings.add(EjectionSettingModel(
+        id: "launch_real",
+        name: "Launch Real App",
+        info:
+            "Launch the real NX App when clicking back on the ticket page. This is for the most paranoid and risk averse people. True ninjas don't use this."));
+
+    ejectionSettings.add(EjectionSettingModel(
+        id: "fake_error",
+        name: "Fake Error Message",
+        info:
+            "Shows a fake error message, can be used to bluff your way. Shows when clicking back from the ticket page."));
+  return ejectionSettings;
+  }
 
   //returns ticket by id
   Future getInfoOnTicketById(int id) async {
@@ -867,9 +907,6 @@ class NXHelp {
     print(status);
     return status;
   }
-
-
-  
 
   //returns all historical tickets
   Future getAllHistoricalTickets() async {
@@ -1000,38 +1037,35 @@ class NXHelp {
     return updateid;
   }
 
-
-    /*
+  /*
    * Function to deactivate the ticket, normally used when the ticket expires but
    * we need to use it to deactivate all other tickets not currently the main one
    */
   Future deactivateTicket({@required id}) async {
-    var db= await openDatabase(NXHelp.DB_NAME);
-    var currentTime= new DateTime.now().microsecondsSinceEpoch;
-   var updateid = await db.rawQuery(
+    var db = await openDatabase(NXHelp.DB_NAME);
+    var currentTime = new DateTime.now().microsecondsSinceEpoch;
+    var updateid = await db.rawQuery(
         "UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",
         [2, currentTime, id]);
     return updateid;
   }
 
-
   Future getAutoBuyTickets() async {
-        var db = await openDatabase(NXHelp.DB_NAME);
-        List<Map> allTiksAutoBUy= await db.rawQuery("SELECT * FROM ticketwallet WHERE tag=?",[
-          "AUTO_BUY"
-        ]);
-        return allTiksAutoBUy;
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> allTiksAutoBUy = await db
+        .rawQuery("SELECT * FROM ticketwallet WHERE tag=?", ["AUTO_BUY"]);
+    return allTiksAutoBUy;
   }
 
   //stores ticket in to db and generates a unique ID
   Future buyTicket(
-      {@required tickettype, @required state, @required price,tag}) async {
+      {@required tickettype, @required state, @required price, tag}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
 
     var id = await db.rawInsert(
         "INSERT INTO ticketwallet (state,tickettype,tickettypeid,expires,isActive,ticketid,tag) VALUES (?,?,?,?,?,?,?)",
-        [state, tickettype, "not used", currentTime, -1, 3235346459,tag]);
+        [state, tickettype, "not used", currentTime, -1, 3235346459, tag]);
     return id;
   }
 
@@ -1059,14 +1093,17 @@ class NXHelp {
   }
 
   Future getTicketByState(String state) async {
-      var db= await openDatabase(NXHelp.DB_NAME);
-      List<Map> list= await db.rawQuery("SELECT * FROM tickets WHERE state=?",[state]);
-      return list;
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> list =
+        await db.rawQuery("SELECT * FROM tickets WHERE state=?", [state]);
+    return list;
   }
+
   Future getTicketsByTag(String type) async {
-      var db= await openDatabase(NXHelp.DB_NAME);
-      List<Map> list= await db.rawQuery("SELECT * FROM tickets WHERE tag=?",[type]);
-      return list;
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> list =
+        await db.rawQuery("SELECT * FROM tickets WHERE tag=?", [type]);
+    return list;
   }
 
   Future checkTicketByState(String type, String state) async {
@@ -1082,7 +1119,7 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db.rawInsert(
         "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info,tag) VALUES (?,?,?,?,?,?)",
-        [type, state, price, subtitle, info,tag]);
+        [type, state, price, subtitle, info, tag]);
     return iid;
   }
 }

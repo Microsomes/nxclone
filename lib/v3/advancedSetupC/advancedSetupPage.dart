@@ -1,4 +1,5 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,11 +26,24 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   String ticketDefNameSelected;
 
+
+  String defaultEjectionID;
+
+
   @override
   void initState() {
     //load default home pref
 
     SharedPreferences.getInstance().then((value) {
+
+    if(value.getString("ejected_setting_adv")!=null){
+      setState(() {
+        defaultEjectionID= value.getString("ejected_setting_adv");
+      });
+    }
+
+
+
       int tikDef = value.getInt("def_ticket_adv_id");
 
       if (tikDef != null) {
@@ -134,238 +148,251 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                 ),
               ],
             )),
-       isDisclaimer==null  || isDisclaimer==false ? Container(): GestureDetector(
-          onTap: () {},
-          child: Container(
-            padding: EdgeInsets.all(4),
-            width: MediaQuery.of(context).size.width,
-            child: PopupMenuButton(
-              color: Colors.yellowAccent,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    height: 100,
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      "Set Default Home Page",
-                      style: GoogleFonts.roboto(
-                          fontSize: 25, fontWeight: FontWeight.bold),
+        isDisclaimer == null || isDisclaimer == false
+            ? Container()
+            : GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: EdgeInsets.all(4),
+                  width: MediaQuery.of(context).size.width,
+                  child: PopupMenuButton(
+                    color: Colors.yellowAccent,
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          height: 100,
+                          width: MediaQuery.of(context).size.width,
+                          child: Text(
+                            "Set Default Home Page",
+                            style: GoogleFonts.roboto(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Text(
+                            "(" +
+                                allPageOptions[defaultHomeIndex].pageName +
+                                ")",
+                            style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        )
+                      ],
                     ),
+                    initialValue: defaultHomeIndex,
+                    onSelected: (selected) {
+                      setState(() {
+                        defaultHomeIndex = selected;
+                      });
+                      SharedPreferences.getInstance().then((value) {
+                        value.setInt("default_home", selected);
+                      });
+                    },
+                    onCanceled: () {
+                      print("9");
+                    },
+                    itemBuilder: (context) {
+                      return List.generate(allPageOptions.length, (index) {
+                        return PopupMenuItem(
+                            value: allPageOptions[index].pageid,
+                            child: Text(
+                              allPageOptions[index].pageName,
+                              style: GoogleFonts.roboto(),
+                            ));
+                      });
+                    },
                   ),
-                  Container(
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Text(
-                      "(" + allPageOptions[defaultHomeIndex].pageName + ")",
-                      style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.bold, color: Colors.white),
-                    ),
-                  )
-                ],
+                  height: 80,
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 0),
+                  decoration: BoxDecoration(
+                      color: Colors.yellowAccent,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.yellow,
+                          blurRadius: 4,
+                          offset: Offset(2, 2), // Shadow position
+                        ),
+                      ]),
+                ),
               ),
-              initialValue: defaultHomeIndex,
-              onSelected: (selected) {
-                setState(() {
-                  defaultHomeIndex = selected;
-                });
-                SharedPreferences.getInstance().then((value) {
-                  value.setInt("default_home", selected);
-                });
-              },
-              onCanceled: () {
-                print("9");
-              },
-              itemBuilder: (context) {
-                return List.generate(allPageOptions.length, (index) {
-                  return PopupMenuItem(
-                      value: allPageOptions[index].pageid,
-                      child: Text(
-                        allPageOptions[index].pageName,
-                        style: GoogleFonts.roboto(),
-                      ));
-                });
-              },
-            ),
-            height: 80,
-            margin: EdgeInsets.only(left: 20, right: 20, top: 0),
-            decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.yellow,
-                    blurRadius: 4,
-                    offset: Offset(2, 2), // Shadow position
-                  ),
-                ]),
-          ),
-        ),
         SizedBox(
           height: 10,
         ),
-      isDisclaimer==null  || isDisclaimer==false ? Container():  GestureDetector(
-          onTap: () {
-            print("set default ticket");
+        isDisclaimer == null || isDisclaimer == false
+            ? Container()
+            : GestureDetector(
+                onTap: () {
+                  print("set default ticket");
 
-            NXHelp().getAllAvailableToPurchaseTickets().then((value) {
-              print(value.length);
+                  NXHelp().getAllAvailableToPurchaseTickets().then((value) {
+                    print(value.length);
 
-              showDialog(
-                  context: context,
-                  builder: (ctx) => PIckDefTicketDialog(
-                        onDefSelected: (val) {
-                          NXHelp().getTicketByID(val).then((tikInfo) {
-                            print(tikInfo);
+                    showDialog(
+                        context: context,
+                        builder: (ctx) => PIckDefTicketDialog(
+                              onDefSelected: (val) {
+                                NXHelp().getTicketByID(val).then((tikInfo) {
+                                  print(tikInfo);
 
-                            SharedPreferences.getInstance().then((value) {
-                              value.setInt("def_ticket_adv_id", val);
-                              value.setString("def_ticket_adv_name",
-                                  tikInfo[0]['tickettitle']);
-                              value.setString(
-                                  "def_ticket_adv_state", tikInfo[0]['state']);
+                                  SharedPreferences.getInstance().then((value) {
+                                    value.setInt("def_ticket_adv_id", val);
+                                    value.setString("def_ticket_adv_name",
+                                        tikInfo[0]['tickettitle']);
+                                    value.setString("def_ticket_adv_state",
+                                        tikInfo[0]['state']);
 
-                              setState(() {
-                                ticketDefNameSelected = tikInfo[0]
-                                        ['tickettitle'] +
-                                    "/" +
-                                    tikInfo[0]['state'];
-                              });
-                            });
-                          });
-                        },
-                      ));
-            });
-          },
-          child: Container(
-            padding: EdgeInsets.all(4),
-            width: MediaQuery.of(context).size.width,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 100,
+                                    setState(() {
+                                      ticketDefNameSelected = tikInfo[0]
+                                              ['tickettitle'] +
+                                          "/" +
+                                          tikInfo[0]['state'];
+                                    });
+                                  });
+                                });
+                              },
+                            ));
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.all(4),
                   width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    "Set Default Ticket",
-                    style: GoogleFonts.roboto(
-                        fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                ticketDefNameSelected != null
-                    ? Container(
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(5)),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 100,
+                        width: MediaQuery.of(context).size.width,
                         child: Text(
-                          "(" + ticketDefNameSelected + ")",
+                          "Set Default Ticket",
                           style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold, color: Colors.white),
+                              fontSize: 25, fontWeight: FontWeight.bold),
                         ),
-                      )
-                    : Container()
-              ],
-            ),
-            height: 80,
-            margin: EdgeInsets.only(left: 20, right: 20, top: 0),
-            decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.yellow,
-                    blurRadius: 4,
-                    offset: Offset(2, 2), // Shadow position
+                      ),
+                      ticketDefNameSelected != null
+                          ? Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                "(" + ticketDefNameSelected + ")",
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            )
+                          : Container()
+                    ],
                   ),
-                ]),
-          ),
-        ),
+                  height: 80,
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 0),
+                  decoration: BoxDecoration(
+                      color: Colors.yellowAccent,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.yellow,
+                          blurRadius: 4,
+                          offset: Offset(2, 2), // Shadow position
+                        ),
+                      ]),
+                ),
+              ),
         SizedBox(
           height: 10,
         ),
+        isDisclaimer == null || isDisclaimer == false
+            ? Container()
+            : GestureDetector(
+                onTap: () {
+                  print("set default ticket");
 
-         isDisclaimer==null  || isDisclaimer==false ? Container():  GestureDetector(
-          onTap: () {
-            print("set default ticket");
+                  NXHelp().getAllAvailableToPurchaseTickets().then((value) {
+                    print(value.length);
 
-            NXHelp().getAllAvailableToPurchaseTickets().then((value) {
-              print(value.length);
-
-              showDialog(
-                  context: context,
-                 builder: (ctx)=>SetEjectionSettings()
-                      );
-            });
-          },
-          child: Container(
-            padding: EdgeInsets.all(4),
-            width: MediaQuery.of(context).size.width,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 100,
+                    showDialog(
+                        context: context,
+                        builder: (ctx) => SetEjectionSettings(
+                              onSelectEjection: (eectionid) {
+                              EjectionSettingModel ej=  NXHelp().getEjectionSettingByID(eectionid);
+                                SharedPreferences.getInstance().then((sharePref) {
+                                  sharePref.setString("ejected_setting_adv", ej.id);
+                                  setState(() {
+                                    defaultEjectionID=ej.id;
+                                  });
+                                  Navigator.pop(context);
+                                });
+                              },
+                            ));
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.all(4),
                   width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    "Ejection Settings",
-                    style: GoogleFonts.roboto(
-                        fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                ticketDefNameSelected != null
-                    ? Container(
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(5)),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 100,
+                        width: MediaQuery.of(context).size.width,
                         child: Text(
-                          "(" + ticketDefNameSelected + ")",
+                          "Ejection Settings",
                           style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold, color: Colors.white),
+                              fontSize: 25, fontWeight: FontWeight.bold),
                         ),
-                      )
-                    : Container()
-              ],
-            ),
-            height: 80,
-            margin: EdgeInsets.only(left: 20, right: 20, top: 0),
-            decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.yellow,
-                    blurRadius: 4,
-                    offset: Offset(2, 2), // Shadow position
+                      ),
+                      ticketDefNameSelected != null
+                          ? Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                "(" + defaultEjectionID + ")",
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            )
+                          : Container()
+                    ],
                   ),
-                ]),
-          ),
-        )
+                  height: 80,
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 0),
+                  decoration: BoxDecoration(
+                      color: Colors.yellowAccent,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.yellow,
+                          blurRadius: 4,
+                          offset: Offset(2, 2), // Shadow position
+                        ),
+                      ]),
+                ),
+              )
       ],
     );
   }
 }
 
 
-class EjectionSettingModel{
-  String name;
-  String id;
-  String info;
-  EjectionSettingModel({
-    @required this.name,
-    @required this.id,
-    @required this.info
-  });
-}
 
 class SetEjectionSettings extends StatefulWidget {
+  final Function onSelectEjection;
+
   const SetEjectionSettings({
+    @required this.onSelectEjection,
     Key key,
   }) : super(key: key);
 
@@ -374,18 +401,14 @@ class SetEjectionSettings extends StatefulWidget {
 }
 
 class _SetEjectionSettingsState extends State<SetEjectionSettings> {
-
-
   List<EjectionSettingModel> ejectionSettings;
 
   @override
   void initState() {
-    ejectionSettings= List<EjectionSettingModel>();
-    ejectionSettings.add(EjectionSettingModel(
-      id: "nothing",
-      name: "Do Nothing",
-      info: "Selecting this will ensure nothing happens when using the back button on the ticket page. Back button = null"
-    ));
+    ejectionSettings = NXHelp().getAllEjectionSettings();
+   
+
+    
     super.initState();
   }
 
@@ -396,61 +419,62 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
       color: Colors.redAccent,
       child: Column(
         children: [
-            Text(
-              "Ejection Selection",
-              style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+          Text(
+            "Ejection Selection",
+            style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+          ),
+          SizedBox(height: 5),
+          Text(
+            "When pushing the back button on the actual ticket page, what should happen?",
+            style: GoogleFonts.roboto(
+              color: Colors.white,
             ),
-            SizedBox(height: 5),
-            Text(
-              "When pushing the back button on the actual ticket page, what should happen?",
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.only(top:30),
-                child: ListView.builder(
-                  itemCount: ejectionSettings.length,
-                  itemBuilder: (ctx,index){
-                    return Material(
-                      color: Colors.transparent,
-                                          child: ListTile(
-                        title: Text(ejectionSettings[index].name,
+            textAlign: TextAlign.center,
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.only(top: 30),
+              child: ListView.builder(
+                itemCount: ejectionSettings.length,
+                itemBuilder: (ctx, index) {
+                  return Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                      onTap: () {
+                        widget.onSelectEjection(ejectionSettings[index].id);
+                      },
+                      title: Text(
+                        ejectionSettings[index].name,
                         style: GoogleFonts.roboto(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                        ),
-                        ),
-                        subtitle: Text(ejectionSettings[index].info,
-                        style: GoogleFonts.roboto(
-                          fontSize: 15
-                        ),
-                        ),
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                    );
-                  },
-                ),
+                      subtitle: Text(
+                        ejectionSettings[index].info,
+                        style: GoogleFonts.roboto(fontSize: 15),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
-             Container(
-              height: 50,
-              child: Center(
-                  child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "Close",
-                  style: GoogleFonts.roboto(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-              )),
-            )
+          ),
+          Container(
+            height: 50,
+            child: Center(
+                child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Close",
+                style: GoogleFonts.roboto(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            )),
+          )
         ],
       ),
     );
@@ -520,17 +544,15 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
                                           allTickets[index]['id']);
                                       Navigator.pop(context);
                                     },
-                                    title:
-                                        Text(allTickets[index]['tickettitle'],
-                                        style: GoogleFonts.roboto(
+                                    title: Text(
+                                      allTickets[index]['tickettitle'],
+                                      style: GoogleFonts.roboto(
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold
-                                        ),
-                                        ),
-                                    subtitle: Text(allTickets[index]['state'],
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 15
+                                          fontWeight: FontWeight.bold),
                                     ),
+                                    subtitle: Text(
+                                      allTickets[index]['state'],
+                                      style: GoogleFonts.roboto(fontSize: 15),
                                     ),
                                     trailing: Container(
                                       height: 30,
