@@ -1,4 +1,5 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -151,63 +152,45 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
         isDisclaimer == null || isDisclaimer == false
             ? Container()
             : GestureDetector(
-                onTap: () {},
+                onTap: () {
+
+                  showDialog(
+                    context: context,
+                    builder: (ctx)=>DefHomePageDialog()
+                  );
+
+                },
                 child: Container(
                   padding: EdgeInsets.all(4),
                   width: MediaQuery.of(context).size.width,
-                  child: PopupMenuButton(
-                    color: Colors.yellowAccent,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            "Set Default Home Page",
-                            style: GoogleFonts.roboto(
-                                fontSize: 25, fontWeight: FontWeight.bold),
-                          ),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 100,
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "Set Default Home Page",
+                          style: GoogleFonts.roboto(
+                              fontSize: 25, fontWeight: FontWeight.bold),
                         ),
-                        Container(
-                          padding: EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Text(
-                            "(" +
-                                allPageOptions[defaultHomeIndex].pageName +
-                                ")",
-                            style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                    initialValue: defaultHomeIndex,
-                    onSelected: (selected) {
-                      setState(() {
-                        defaultHomeIndex = selected;
-                      });
-                      SharedPreferences.getInstance().then((value) {
-                        value.setInt("default_home", selected);
-                      });
-                    },
-                    onCanceled: () {
-                      print("9");
-                    },
-                    itemBuilder: (context) {
-                      return List.generate(allPageOptions.length, (index) {
-                        return PopupMenuItem(
-                            value: allPageOptions[index].pageid,
-                            child: Text(
-                              allPageOptions[index].pageName,
-                              style: GoogleFonts.roboto(),
-                            ));
-                      });
-                    },
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Text(
+                          "(" +
+                              allPageOptions[defaultHomeIndex].pageName +
+                              ")",
+                          style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      )
+                    ],
                   ),
                   height: 80,
                   margin: EdgeInsets.only(left: 20, right: 20, top: 0),
@@ -382,6 +365,125 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                 ),
               )
       ],
+    );
+  }
+}
+
+class DefHomePageDialog extends StatefulWidget {
+  const DefHomePageDialog({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _DefHomePageDialogState createState() => _DefHomePageDialogState();
+}
+
+class _DefHomePageDialogState extends State<DefHomePageDialog> {
+
+  List<DefHomePageModel> allHomePageSettings;
+
+  @override
+  void initState() {
+  
+    allHomePageSettings= new List();
+
+    allHomePageSettings.add(DefHomePageModel(
+      name: "Non Simulated (Home)",
+      id: "non_sim_home",
+      info: "In this view, you will see all the ticket types sectioned off and you can click on the ticket you want to activate. You also have extra butotns, its basically the quickest most efficent method of using the app but its not emersive."
+    ));
+
+
+     allHomePageSettings.add(DefHomePageModel(
+      name: "Simulated (Home)",
+      id: "sim_home",
+      info: "In this view, You will see the simulated home, aka the Clone real App."
+    ));
+
+    allHomePageSettings.add(DefHomePageModel(
+      name: "Ticket View",
+      id: "sim_ticket_view",
+      info: "In this view, The app will launch in ticket view. So as soon as you open the app it will go to the ticket view. Going back will follow the ejection rules."
+    ));
+
+    allHomePageSettings.add(DefHomePageModel(
+      name: "Demo Mode",
+      id: "demo_mode",
+      info: "In this view, You will access demo mode, here you can create your own tickets and have fun with the app."
+    ));
+
+    super.initState();
+  }
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(40),
+      color: Colors.redAccent,
+      child: Column(
+        children: [
+           Text(
+            "Set Default Home",
+            style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+          ),
+          SizedBox(height: 5),
+          Text(
+            "Pick a default home setting. When you first launch the app what would you like to see.",
+            style: GoogleFonts.roboto(
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: Container(
+              child: ListView.builder(
+                itemCount: allHomePageSettings.length,
+                itemBuilder: (ctx,index){
+                  return Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                      title: Text(allHomePageSettings[index].name,
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                      ),
+                      ),
+                      subtitle: Text(allHomePageSettings[index].info,
+                      style: GoogleFonts.roboto(
+                        fontSize: 15
+                      ),
+                      ),
+                      
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          Container(
+            height: 50,
+            child: Center(
+                child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Close",
+                style: GoogleFonts.roboto(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            )),
+          )
+        ],
+      ),
     );
   }
 }
