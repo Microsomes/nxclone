@@ -17,18 +17,28 @@ class DefHome {
 }
 
 class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
-  bool isDisclaimer = false;
 
   List<DefHome> allPageOptions;
-
   int defaultHomeIndex = 0;
-
   int defaultTicketID;
 
+  //controls the disclaimer options
+  bool isDisclaimer = false;
+
+
+  //controls the default home option
+  String defHomeID;
+  String defHomeName;
+
+
+  //controls the ticket default name
   String ticketDefNameSelected;
-
-
+  
+  //controls the set ejection settings
   String defaultEjectionID;
+  
+
+  
 
 
   @override
@@ -36,6 +46,16 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     //load default home pref
 
     SharedPreferences.getInstance().then((value) {
+
+
+      if(value.getString("def_home_adv")!=null){
+        setState(() {
+          defHomeID=value.getString("def_home_adv");
+
+         defHomeName= NXHelp().getDefHomeOptionById(defHomeID).name;
+
+        });
+      }
 
     if(value.getString("ejected_setting_adv")!=null){
       setState(() {
@@ -156,7 +176,27 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
                   showDialog(
                     context: context,
-                    builder: (ctx)=>DefHomePageDialog()
+                    builder: (ctx)=>DefHomePageDialog(
+                      onSelectDefHome: (val){
+                        print("Selected home page $val");
+
+
+                        SharedPreferences.getInstance().then((sharedpref) {
+                          sharedpref.setString("def_home_adv", val);
+
+
+                          setState(() {
+                            defHomeID=val;
+                           defHomeName= NXHelp().getDefHomeOptionById(val).name;
+                          });
+                          Navigator.pop(context);
+
+                        });
+
+                       DefHomePageModel p= NXHelp().getDefHomeOptionById(val);
+                        print(p.name);
+                      },
+                    )
                   );
 
                 },
@@ -183,7 +223,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                             borderRadius: BorderRadius.circular(5)),
                         child: Text(
                           "(" +
-                              allPageOptions[defaultHomeIndex].pageName +
+                             defHomeName.toString() +
                               ")",
                           style: GoogleFonts.roboto(
                               fontWeight: FontWeight.bold,
@@ -370,7 +410,11 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 }
 
 class DefHomePageDialog extends StatefulWidget {
+
+  final Function onSelectDefHome;
+
   const DefHomePageDialog({
+    @required this.onSelectDefHome,
     Key key,
   }) : super(key: key);
 
@@ -385,32 +429,9 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
   @override
   void initState() {
   
-    allHomePageSettings= new List();
+    allHomePageSettings= NXHelp().getAllDefHomeOptions();
 
-    allHomePageSettings.add(DefHomePageModel(
-      name: "Non Simulated (Home)",
-      id: "non_sim_home",
-      info: "In this view, you will see all the ticket types sectioned off and you can click on the ticket you want to activate. You also have extra butotns, its basically the quickest most efficent method of using the app but its not emersive."
-    ));
-
-
-     allHomePageSettings.add(DefHomePageModel(
-      name: "Simulated (Home)",
-      id: "sim_home",
-      info: "In this view, You will see the simulated home, aka the Clone real App."
-    ));
-
-    allHomePageSettings.add(DefHomePageModel(
-      name: "Ticket View",
-      id: "sim_ticket_view",
-      info: "In this view, The app will launch in ticket view. So as soon as you open the app it will go to the ticket view. Going back will follow the ejection rules."
-    ));
-
-    allHomePageSettings.add(DefHomePageModel(
-      name: "Demo Mode",
-      id: "demo_mode",
-      info: "In this view, You will access demo mode, here you can create your own tickets and have fun with the app."
-    ));
+    
 
     super.initState();
   }
@@ -447,6 +468,9 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
                   return Material(
                     color: Colors.transparent,
                     child: ListTile(
+                      onTap: (){
+                        widget.onSelectDefHome(allHomePageSettings[index].id);
+                      },
                       title: Text(allHomePageSettings[index].name,
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold,

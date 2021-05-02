@@ -1,4 +1,5 @@
 //helper class for helping with logic
+import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
@@ -835,7 +836,8 @@ class NXHelp {
 
   Future getAllAvailableToPurchaseTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
-    List<Map> list = await db.rawQuery("SELECT * FROM tickets ORDER BY state desc");
+    List<Map> list =
+        await db.rawQuery("SELECT * FROM tickets ORDER BY state desc");
     return list;
   }
 
@@ -851,16 +853,55 @@ class NXHelp {
     return one;
   }
 
-  EjectionSettingModel getEjectionSettingByID(String id){
-    List<EjectionSettingModel> allSettings= this.getAllEjectionSettings();
+  EjectionSettingModel getEjectionSettingByID(String id) {
+    List<EjectionSettingModel> allSettings = this.getAllEjectionSettings();
     EjectionSettingModel toReturn;
 
     allSettings.forEach((element) {
-      if(element.id==id){
-        toReturn=element;
+      if (element.id == id) {
+        toReturn = element;
       }
-     });
-     return toReturn;
+    });
+    return toReturn;
+  }
+
+  DefHomePageModel getDefHomeOptionById(String id) {
+    List<DefHomePageModel> allSettings = this.getAllDefHomeOptions();
+    DefHomePageModel toReturn;
+    allSettings.forEach((element) {
+      if (element.id == id) {
+        toReturn = element;
+      }
+    });
+    return toReturn;
+  }
+
+  List<DefHomePageModel> getAllDefHomeOptions() {
+    List<DefHomePageModel> allHomePageSettings = new List();
+    allHomePageSettings.add(DefHomePageModel(
+        name: "Non Simulated (Home)",
+        id: "non_sim_home",
+        info:
+            "In this view, you will see all the ticket types sectioned off and you can click on the ticket you want to activate. You also have extra butotns, its basically the quickest most efficent method of using the app but its not emersive."));
+
+    allHomePageSettings.add(DefHomePageModel(
+        name: "Simulated (Home)",
+        id: "sim_home",
+        info:
+            "In this view, You will see the simulated home, aka the Clone real App."));
+
+    allHomePageSettings.add(DefHomePageModel(
+        name: "Ticket View",
+        id: "sim_ticket_view",
+        info:
+            "In this view, The app will launch in ticket view. So as soon as you open the app it will go to the ticket view. Going back will follow the ejection rules."));
+
+    allHomePageSettings.add(DefHomePageModel(
+        name: "Demo Mode",
+        id: "demo_mode",
+        info:
+            "In this view, You will access demo mode, here you can create your own tickets and have fun with the app."));
+    return allHomePageSettings;
   }
 
   List<EjectionSettingModel> getAllEjectionSettings() {
@@ -887,7 +928,7 @@ class NXHelp {
         name: "Fake Error Message",
         info:
             "Shows a fake error message, can be used to bluff your way. Shows when clicking back from the ticket page."));
-  return ejectionSettings;
+    return ejectionSettings;
   }
 
   //returns ticket by id
