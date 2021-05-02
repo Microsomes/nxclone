@@ -18,7 +18,6 @@ class DefHome {
 }
 
 class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
-
   List<DefHome> allPageOptions;
   int defaultHomeIndex = 0;
   int defaultTicketID;
@@ -26,51 +25,43 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
   //controls the disclaimer options
   bool isDisclaimer = false;
 
-
   //controls the default home option
   String defHomeID;
   String defHomeName;
 
-
   //controls the ticket default name
   String ticketDefNameSelected;
-  
+
   //controls the set ejection settings
   String defaultEjectionID;
-  
-
-  
-
 
   @override
   void initState() {
     //load default home pref
 
     SharedPreferences.getInstance().then((value) {
-
-
-      if(value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY)!=null){
+      if (value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY) != null) {
         setState(() {
-          defHomeID=value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
+          defHomeID = value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
 
-         defHomeName= NXHelp().getDefHomeOptionById(defHomeID).name;
-
+          defHomeName = NXHelp().getDefHomeOptionById(defHomeID).name;
         });
       }
 
-    if(value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY)!=null){
-      setState(() {
-        defaultEjectionID= value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
-      });
-    }
-
-
+      if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+        setState(() {
+          defaultEjectionID =
+              value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+        });
+      }
 
       int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
 
       if (tikDef != null) {
-        String tikDefName = value.getString(SettingsPrefKeys.DEFAULT_TICKET_NAME_KEY);
-        String tikDefState = value.getString(SettingsPrefKeys.DEFAULT_TICKET_STATE_KEY);
+        String tikDefName =
+            value.getString(SettingsPrefKeys.DEFAULT_TICKET_NAME_KEY);
+        String tikDefState =
+            value.getString(SettingsPrefKeys.DEFAULT_TICKET_STATE_KEY);
 
         setState(() {
           ticketDefNameSelected = tikDefName + "/" + tikDefState;
@@ -174,32 +165,29 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             ? Container()
             : GestureDetector(
                 onTap: () {
-
                   showDialog(
-                    context: context,
-                    builder: (ctx)=>DefHomePageDialog(
-                      onSelectDefHome: (val){
-                        print("Selected home page $val");
+                      context: context,
+                      builder: (ctx) => DefHomePageDialog(
+                            onSelectDefHome: (val) {
+                              print("Selected home page $val");
 
+                              SharedPreferences.getInstance()
+                                  .then((sharedpref) {
+                                sharedpref.setString("def_home_adv", val);
 
-                        SharedPreferences.getInstance().then((sharedpref) {
-                          sharedpref.setString("def_home_adv", val);
+                                setState(() {
+                                  defHomeID = val;
+                                  defHomeName =
+                                      NXHelp().getDefHomeOptionById(val).name;
+                                });
+                                Navigator.pop(context);
+                              });
 
-
-                          setState(() {
-                            defHomeID=val;
-                           defHomeName= NXHelp().getDefHomeOptionById(val).name;
-                          });
-                          Navigator.pop(context);
-
-                        });
-
-                       DefHomePageModel p= NXHelp().getDefHomeOptionById(val);
-                        print(p.name);
-                      },
-                    )
-                  );
-
+                              DefHomePageModel p =
+                                  NXHelp().getDefHomeOptionById(val);
+                              print(p.name);
+                            },
+                          ));
                 },
                 child: Container(
                   padding: EdgeInsets.all(4),
@@ -223,12 +211,9 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(5)),
                         child: Text(
-                          "(" +
-                             defHomeName.toString() +
-                              ")",
+                          "(" + defHomeName.toString() + ")",
                           style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                              fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       )
                     ],
@@ -347,12 +332,16 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                         context: context,
                         builder: (ctx) => SetEjectionSettings(
                               onSelectEjection: (eectionid) {
-                              EjectionSettingModel ej=  NXHelp().getEjectionSettingByID(eectionid);
-                                SharedPreferences.getInstance().then((sharePref) {
-                                  sharePref.setString("ejected_setting_adv", ej.id);
+                                EjectionSettingModel ej =
+                                    NXHelp().getEjectionSettingByID(eectionid);
+                                SharedPreferences.getInstance()
+                                    .then((sharePref) {
+                                  sharePref.setString(
+                                      "ejected_setting_adv", ej.id);
                                   setState(() {
-                                    defaultEjectionID=ej.id;
+                                    defaultEjectionID = ej.id;
                                   });
+
                                   Navigator.pop(context);
                                 });
                               },
@@ -411,7 +400,6 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 }
 
 class DefHomePageDialog extends StatefulWidget {
-
   final Function onSelectDefHome;
 
   const DefHomePageDialog({
@@ -424,32 +412,24 @@ class DefHomePageDialog extends StatefulWidget {
 }
 
 class _DefHomePageDialogState extends State<DefHomePageDialog> {
-
   List<DefHomePageModel> allHomePageSettings;
-
 
   String curKey;
 
   @override
   void initState() {
-  
-
     SharedPreferences.getInstance().then((pref) {
-      if(pref.getString("def_home_adv")!=null){
+      if (pref.getString("def_home_adv") != null) {
         setState(() {
-          curKey= pref.getString("def_home_adv");
+          curKey = pref.getString("def_home_adv");
         });
       }
     });
 
-    allHomePageSettings= NXHelp().getAllDefHomeOptions();
-
-    
+    allHomePageSettings = NXHelp().getAllDefHomeOptions();
 
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -458,7 +438,7 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
       color: Colors.redAccent,
       child: Column(
         children: [
-           Text(
+          Text(
             "Set Default Home",
             style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
           ),
@@ -477,31 +457,30 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
             child: Container(
               child: ListView.builder(
                 itemCount: allHomePageSettings.length,
-                itemBuilder: (ctx,index){
+                itemBuilder: (ctx, index) {
                   return Material(
                     color: Colors.transparent,
                     child: ListTile(
-                      trailing: allHomePageSettings[index].id==curKey? Icon(Icons.check):Icon(Icons.info,color: Colors.redAccent),
-                      onTap: (){
+                      trailing: allHomePageSettings[index].id == curKey
+                          ? Icon(Icons.check)
+                          : Icon(Icons.info, color: Colors.redAccent),
+                      onTap: () {
                         setState(() {
-                          curKey= allHomePageSettings[index].id;
+                          curKey = allHomePageSettings[index].id;
                         });
-                        Future.delayed(Duration(milliseconds: 300),(){
-                        widget.onSelectDefHome(allHomePageSettings[index].id);
+                        Future.delayed(Duration(milliseconds: 300), () {
+                          widget.onSelectDefHome(allHomePageSettings[index].id);
                         });
                       },
-                      title: Text(allHomePageSettings[index].name,
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
+                      title: Text(
+                        allHomePageSettings[index].name,
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
+                      subtitle: Text(
+                        allHomePageSettings[index].info,
+                        style: GoogleFonts.roboto(fontSize: 15),
                       ),
-                      subtitle: Text(allHomePageSettings[index].info,
-                      style: GoogleFonts.roboto(
-                        fontSize: 15
-                      ),
-                      ),
-                      
                     ),
                   );
                 },
@@ -531,8 +510,6 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
   }
 }
 
-
-
 class SetEjectionSettings extends StatefulWidget {
   final Function onSelectEjection;
 
@@ -551,9 +528,7 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
   @override
   void initState() {
     ejectionSettings = NXHelp().getAllEjectionSettings();
-   
 
-    
     super.initState();
   }
 
@@ -639,25 +614,21 @@ class PIckDefTicketDialog extends StatefulWidget {
 }
 
 class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
-
-
   int defVal;
-
 
   @override
   void initState() {
     SharedPreferences.getInstance().then((pref) {
-      if(pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY)!=null){
+      if (pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY) != null) {
         setState(() {
-          defVal=pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+          defVal = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
         });
-      }else{
+      } else {
         print("null");
       }
     });
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -704,23 +675,37 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
                               child: Material(
                                   color: Colors.transparent,
                                   child: ListTile(
-                                    onTap: () {
-                                      widget.onDefSelected(
-                                          allTickets[index]['id']);
-                                      Navigator.pop(context);
-                                    },
-                                    title: Text(
-                                      allTickets[index]['tickettitle'],
-                                      style: GoogleFonts.roboto(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    subtitle: Text(
-                                      allTickets[index]['state'],
-                                      style: GoogleFonts.roboto(fontSize: 15),
-                                    ),
-                                    trailing: allTickets[index]['id']==defVal? Icon(Icons.check):Icon(Icons.info_outline,color: Colors.redAccent,)
-                                  )));
+                                      onTap: () {
+                                                 setState(() {
+                                                defVal= allTickets[index]['id'];
+                                              });
+
+                                        Future.delayed(Duration(seconds: 1),
+                                            () {
+                                     
+
+                                          widget.onDefSelected(
+                                              allTickets[index]['id']);
+                                          Navigator.pop(context);
+                                        });
+                                      },
+                                      title: Text(
+                                        allTickets[index]['tickettitle'],
+                                        style: GoogleFonts.roboto(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      subtitle: Text(
+                                        allTickets[index]['state'],
+                                        style: GoogleFonts.roboto(fontSize: 15),
+                                      ),
+                                      trailing:
+                                          allTickets[index]['id'] == defVal
+                                              ? Icon(Icons.check)
+                                              : Icon(
+                                                  Icons.info_outline,
+                                                  color: Colors.redAccent,
+                                                ))));
                         },
                       );
                     },
