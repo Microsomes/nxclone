@@ -1,6 +1,7 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
+import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,28 +49,28 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     SharedPreferences.getInstance().then((value) {
 
 
-      if(value.getString("def_home_adv")!=null){
+      if(value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY)!=null){
         setState(() {
-          defHomeID=value.getString("def_home_adv");
+          defHomeID=value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
 
          defHomeName= NXHelp().getDefHomeOptionById(defHomeID).name;
 
         });
       }
 
-    if(value.getString("ejected_setting_adv")!=null){
+    if(value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY)!=null){
       setState(() {
-        defaultEjectionID= value.getString("ejected_setting_adv");
+        defaultEjectionID= value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
       });
     }
 
 
 
-      int tikDef = value.getInt("def_ticket_adv_id");
+      int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
 
       if (tikDef != null) {
-        String tikDefName = value.getString("def_ticket_adv_name");
-        String tikDefState = value.getString("def_ticket_adv_state");
+        String tikDefName = value.getString(SettingsPrefKeys.DEFAULT_TICKET_NAME_KEY);
+        String tikDefState = value.getString(SettingsPrefKeys.DEFAULT_TICKET_STATE_KEY);
 
         setState(() {
           ticketDefNameSelected = tikDefName + "/" + tikDefState;
@@ -83,7 +84,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
         });
       }
 
-      bool isDis = value.getBool("setup_disclaimer");
+      bool isDis = value.getBool(SettingsPrefKeys.DISCLAIMER_KEY);
 
       if (isDis != null) {
         setState(() {
