@@ -426,9 +426,21 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
 
   List<DefHomePageModel> allHomePageSettings;
 
+
+  String curKey;
+
   @override
   void initState() {
   
+
+    SharedPreferences.getInstance().then((pref) {
+      if(pref.getString("def_home_adv")!=null){
+        setState(() {
+          curKey= pref.getString("def_home_adv");
+        });
+      }
+    });
+
     allHomePageSettings= NXHelp().getAllDefHomeOptions();
 
     
@@ -468,8 +480,14 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
                   return Material(
                     color: Colors.transparent,
                     child: ListTile(
+                      trailing: allHomePageSettings[index].id==curKey? Icon(Icons.check):Icon(Icons.info,color: Colors.redAccent),
                       onTap: (){
+                        setState(() {
+                          curKey= allHomePageSettings[index].id;
+                        });
+                        Future.delayed(Duration(milliseconds: 300),(){
                         widget.onSelectDefHome(allHomePageSettings[index].id);
+                        });
                       },
                       title: Text(allHomePageSettings[index].name,
                       style: GoogleFonts.roboto(
