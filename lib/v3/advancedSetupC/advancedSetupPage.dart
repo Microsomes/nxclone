@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'options/defaultTicketOption.dart';
+
 class AdvancedSetupPage extends StatefulWidget {
   @override
   _AdvancedSetupPageState createState() => _AdvancedSetupPageState();
@@ -31,8 +33,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   
 
-  //controls the ticket default name
-  String ticketDefNameSelected;
+ 
 
   //controls the set ejection settings
   String defaultEjectionID;
@@ -50,18 +51,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
         });
       }
 
-      int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
-
-      if (tikDef != null) {
-        String tikDefName =
-            value.getString(SettingsPrefKeys.DEFAULT_TICKET_NAME_KEY);
-        String tikDefState =
-            value.getString(SettingsPrefKeys.DEFAULT_TICKET_STATE_KEY);
-
-        setState(() {
-          ticketDefNameSelected = tikDefName + "/" + tikDefState;
-        });
-      }
+       
 
       int def = value.getInt("default_home");
       if (def != null) {
@@ -160,93 +150,13 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
         DefaultHomePageOption(
           isDisclaimer: isDisclaimer,
         ),
-          
-
-       
         SizedBox(
           height: 10,
         ),
-        // isDisclaimer == null || isDisclaimer == false
-        //     ? Container()
-        //     : GestureDetector(
-        //         onTap: () {
-        //           print("set default ticket");
-
-        //           NXHelp().getAllAvailableToPurchaseTickets().then((value) {
-        //             print(value.length);
-
-        //             showDialog(
-        //                 context: context,
-        //                 builder: (ctx) => PIckDefTicketDialog(
-        //                       onDefSelected: (val) {
-        //                         NXHelp().getTicketByID(val).then((tikInfo) {
-        //                           print(tikInfo);
-
-        //                           SharedPreferences.getInstance().then((value) {
-        //                             value.setInt("def_ticket_adv_id", val);
-        //                             value.setString("def_ticket_adv_name",
-        //                                 tikInfo[0]['tickettitle']);
-        //                             value.setString("def_ticket_adv_state",
-        //                                 tikInfo[0]['state']);
-
-        //                             setState(() {
-        //                               ticketDefNameSelected = tikInfo[0]
-        //                                       ['tickettitle'] +
-        //                                   "/" +
-        //                                   tikInfo[0]['state'];
-        //                             });
-        //                           });
-        //                         });
-        //                       },
-        //                     ));
-        //           });
-        //         },
-        //         child: Container(
-        //           padding: EdgeInsets.all(4),
-        //           width: MediaQuery.of(context).size.width,
-        //           child: Stack(
-        //             alignment: Alignment.bottomCenter,
-        //             children: [
-        //               Container(
-        //                 alignment: Alignment.center,
-        //                 height: 100,
-        //                 width: MediaQuery.of(context).size.width,
-        //                 child: Text(
-        //                   "Set Default Ticket",
-        //                   style: GoogleFonts.roboto(
-        //                       fontSize: 25, fontWeight: FontWeight.bold),
-        //                 ),
-        //               ),
-        //               ticketDefNameSelected != null
-        //                   ? Container(
-        //                       padding: EdgeInsets.all(3),
-        //                       decoration: BoxDecoration(
-        //                           color: Colors.black,
-        //                           borderRadius: BorderRadius.circular(5)),
-        //                       child: Text(
-        //                         "(" + ticketDefNameSelected + ")",
-        //                         style: GoogleFonts.roboto(
-        //                             fontWeight: FontWeight.bold,
-        //                             color: Colors.white),
-        //                       ),
-        //                     )
-        //                   : Container()
-        //             ],
-        //           ),
-        //           height: 80,
-        //           margin: EdgeInsets.only(left: 20, right: 20, top: 0),
-        //           decoration: BoxDecoration(
-        //               color: Colors.yellowAccent,
-        //               borderRadius: BorderRadius.circular(5),
-        //               boxShadow: [
-        //                 BoxShadow(
-        //                   color: Colors.yellow,
-        //                   blurRadius: 4,
-        //                   offset: Offset(2, 2), // Shadow position
-        //                 ),
-        //               ]),
-        //         ),
-        //       ),
+        defaultTicketOption(
+          isDisclaimer: isDisclaimer,
+        ),
+       
         // SizedBox(
         //   height: 10,
         // ),
