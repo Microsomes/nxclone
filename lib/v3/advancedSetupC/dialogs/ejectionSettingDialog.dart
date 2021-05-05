@@ -1,7 +1,9 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
+import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class SetEjectionSettings extends StatefulWidget {
   final Function onSelectEjection;
 
@@ -17,9 +19,29 @@ class SetEjectionSettings extends StatefulWidget {
 class _SetEjectionSettingsState extends State<SetEjectionSettings> {
   List<EjectionSettingModel> ejectionSettings;
 
+  //controls the set ejection settings
+  String defaultEjectionID;
+
   @override
   void initState() {
+
+     SharedPreferences.getInstance().then((value) {
+      if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+        setState(() {
+          defaultEjectionID =
+              value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+        });
+      }else{
+        setState(() {
+          defaultEjectionID="nothing";
+        });
+      }
+    });
+
+
     ejectionSettings = NXHelp().getAllEjectionSettings();
+
+
 
     super.initState();
   }
@@ -30,6 +52,7 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
       padding: EdgeInsets.all(40),
       color: Colors.redAccent,
       child: Column(
+     
         children: [
           Text(
             "Ejection Selection",
@@ -52,8 +75,14 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
                   return Material(
                     color: Colors.transparent,
                     child: ListTile(
+                      trailing:defaultEjectionID== ejectionSettings[index].id? Icon( Icons.check):Icon(Icons.check,color: Colors.redAccent,),
                       onTap: () {
-                        widget.onSelectEjection(ejectionSettings[index].id);
+                        setState(() {
+                          defaultEjectionID=ejectionSettings[index].id;
+                        });
+                        Future.delayed(Duration(milliseconds: 300),(){
+                          widget.onSelectEjection(ejectionSettings[index].id);
+                        });
                       },
                       title: Text(
                         ejectionSettings[index].name,

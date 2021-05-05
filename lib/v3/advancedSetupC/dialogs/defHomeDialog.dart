@@ -27,6 +27,10 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
         setState(() {
           curKey = pref.getString("def_home_adv");
         });
+      }else{
+        setState(() {
+          curKey="non_sim_home";
+        });
       }
     });
 

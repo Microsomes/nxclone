@@ -6,6 +6,7 @@ import 'package:BubbleGum/v3/advancedSetupC/dialogs/defHomeDialog.dart';
 import 'package:BubbleGum/v3/advancedSetupC/dialogs/ejectionSettingDialog.dart';
 import 'package:BubbleGum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
 import 'package:BubbleGum/v3/advancedSetupC/options/defaultHomePageOption.dart';
+import 'package:BubbleGum/v3/advancedSetupC/options/ejectionSettingOption.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -80,162 +81,104 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          children: [
-            SizedBox(
-              width: 30,
-            ),
-            Text(
-              "Advanced Setup",
-              style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
-            )
-          ],
-        ),
-        Container(
-          padding: EdgeInsets.only(left: 30),
-          alignment: Alignment.topLeft,
-          child: Text(
-            "Setup with a brand new intuitive layout, set the default ticket, ejection mode and much more.",
-            style: GoogleFonts.roboto(fontSize: 12, color: Colors.white),
+    return SingleChildScrollView(
+          child: Column(
+        children: [
+          SizedBox(
+            height: 10,
           ),
-        ),
-        Container(
-            margin: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.yellowAccent,
+          Row(
+            children: [
+              SizedBox(
+                width: 30,
+              ),
+              Text(
+                "Advanced Setup",
+                style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+              )
+            ],
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 30),
+            alignment: Alignment.topLeft,
+            child: Text(
+              "Setup with a brand new intuitive layout, set the default ticket, ejection mode and much more.",
+              style: GoogleFonts.roboto(fontSize: 12, color: Colors.white),
             ),
-            height: 80,
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: Container(
-                              child: Text(
-                        "Please understand this clone app is for educational purposes only!",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ))),
-                      Switch(
-                        inactiveTrackColor: Colors.redAccent,
-                        value: isDisclaimer,
-                        onChanged: (val) {
-                          SharedPreferences.getInstance().then((value) {
-                            value.setBool("setup_disclaimer", val);
-                            //set the value
-                          });
+          ),
+          Container(
+              margin: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.yellowAccent,
+              ),
+              height: 150,
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 3,
+                            child: Container(
+                              alignment: Alignment.center,
+                                child: Text(
+                          "Please understand this clone app is for educational purposes only!",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ))),
+                        Container(
+                          child: Column(
+                            children: [
+                              Switch(
+                            inactiveTrackColor: Colors.redAccent,
+                            value: isDisclaimer,
+                            onChanged: (val) {
+                              SharedPreferences.getInstance().then((value) {
+                                value.setBool("setup_disclaimer", val);
+                                //set the value
+                              });
 
-                          setState(() {
-                            isDisclaimer = val;
-                          });
-                        },
-                        inactiveThumbColor: Colors.white,
-                        activeColor: Colors.redAccent,
-                      )
-                    ],
+                              setState(() {
+                                isDisclaimer = val;
+                              });
+                            },
+                            inactiveThumbColor: Colors.white,
+                            activeColor: Colors.redAccent,
+                          ),
+                            ],
+                          )
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            )),
-        
-        DefaultHomePageOption(
-          isDisclaimer: isDisclaimer,
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        defaultTicketOption(
-          isDisclaimer: isDisclaimer,
-        ),
-       
-        // SizedBox(
-        //   height: 10,
-        // ),
-        // isDisclaimer == null || isDisclaimer == false
-        //     ? Container()
-        //     : GestureDetector(
-        //         onTap: () {
-        //           print("set default ticket");
+                ],
+              )),
+          
+          DefaultHomePageOption(
+            isDisclaimer: isDisclaimer,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          defaultTicketOption(
+            isDisclaimer: isDisclaimer,
+          ),
+         
+          SizedBox(
+            height: 10,
+          ),
 
-        //           NXHelp().getAllAvailableToPurchaseTickets().then((value) {
-        //             print(value.length);
-
-        //             showDialog(
-        //                 context: context,
-        //                 builder: (ctx) => SetEjectionSettings(
-        //                       onSelectEjection: (eectionid) {
-        //                         EjectionSettingModel ej =
-        //                             NXHelp().getEjectionSettingByID(eectionid);
-        //                         SharedPreferences.getInstance()
-        //                             .then((sharePref) {
-        //                           sharePref.setString(
-        //                               "ejected_setting_adv", ej.id);
-        //                           setState(() {
-        //                             defaultEjectionID = ej.id;
-        //                           });
-
-        //                           Navigator.pop(context);
-        //                         });
-        //                       },
-        //                     ));
-        //           });
-        //         },
-        //         child: Container(
-        //           padding: EdgeInsets.all(4),
-        //           width: MediaQuery.of(context).size.width,
-        //           child: Stack(
-        //             alignment: Alignment.bottomCenter,
-        //             children: [
-        //               Container(
-        //                 alignment: Alignment.center,
-        //                 height: 100,
-        //                 width: MediaQuery.of(context).size.width,
-        //                 child: Text(
-        //                   "Ejection Settings",
-        //                   style: GoogleFonts.roboto(
-        //                       fontSize: 25, fontWeight: FontWeight.bold),
-        //                 ),
-        //               ),
-        //               ticketDefNameSelected != null
-        //                   ? Container(
-        //                       padding: EdgeInsets.all(3),
-        //                       decoration: BoxDecoration( 
-        //                           color: Colors.black,
-        //                           borderRadius: BorderRadius.circular(5)),
-        //                       child: Text(
-        //                         "(" + defaultEjectionID + ")",
-        //                         style: GoogleFonts.roboto(
-        //                             fontWeight: FontWeight.bold,
-        //                             color: Colors.white),
-        //                       ),
-        //                     )
-        //                   : Container()
-        //             ],
-        //           ),
-        //           height: 80,
-        //           margin: EdgeInsets.only(left: 20, right: 20, top: 0),
-        //           decoration: BoxDecoration(
-        //               color: Colors.yellowAccent,
-        //               borderRadius: BorderRadius.circular(5),
-        //               boxShadow: [
-        //                 BoxShadow(
-        //                   color: Colors.yellow,
-        //                   blurRadius: 4,
-        //                   offset: Offset(2, 2), // Shadow position
-        //                 ),
-        //               ]),
-        //         ),
-        //       )
-      ],
+          EjectionSetOption(
+            isDisclaimer: isDisclaimer,
+          )
+         
+        ],
+      ),
     );
   }
 }

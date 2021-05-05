@@ -82,7 +82,7 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Container(
+                      defHomeName!=null ?Container(
                         padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
                             color: Colors.black,
@@ -92,14 +92,14 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
                           style: GoogleFonts.roboto(
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
-                      )
+                      ):Container()
                     ],
                   ),
                   height: 80,
                   margin: EdgeInsets.only(left: 20, right: 20, top: 0),
                   decoration: BoxDecoration(
                       color: Colors.yellowAccent,
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.yellow,

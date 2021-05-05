@@ -1,59 +1,48 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
-import "package:flutter/material.dart";
-
-
-
-
+import 'package:BubbleGum/v3/advancedSetupC/dialogs/ejectionSettingDialog.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class defaultTicketOption extends StatefulWidget{
+class EjectionSetOption extends StatefulWidget {
   final bool isDisclaimer;
-  defaultTicketOption({
-    @required this.isDisclaimer
-  });
+
+  EjectionSetOption({@required this.isDisclaimer});
+
   @override
-  _defaultTicketOptionState createState() => _defaultTicketOptionState();
+  _EjectionSetOptionState createState() => _EjectionSetOptionState();
 }
 
-class _defaultTicketOptionState extends State<defaultTicketOption> {
-  
-
-   //controls the ticket default name
-  String ticketDefNameSelected;
-
+class _EjectionSetOptionState extends State<EjectionSetOption> {
+  //controls the set ejection settings
+  String defaultEjectionID;
+  String ejectionName;
 
   @override
   void initState() {
-
-
     SharedPreferences.getInstance().then((value) {
-int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
-
-      if (tikDef != null) {
-        String tikDefName =
-            value.getString(SettingsPrefKeys.DEFAULT_TICKET_NAME_KEY);
-        String tikDefState =
-            value.getString(SettingsPrefKeys.DEFAULT_TICKET_STATE_KEY);
-
+      if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
         setState(() {
-          ticketDefNameSelected = tikDefName + "/" + tikDefState;
+          defaultEjectionID =
+              value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+
+         ejectionName= NXHelp().getEjectionSettingByID(defaultEjectionID).name;
+       
+       
         });
       }
     });
 
-
     super.initState();
   }
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-         widget.isDisclaimer == null || widget.isDisclaimer == false
+        widget.isDisclaimer == null || widget.isDisclaimer == false
             ? Container()
             : GestureDetector(
                 onTap: () {
@@ -64,25 +53,19 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
 
                     showDialog(
                         context: context,
-                        builder: (ctx) => PIckDefTicketDialog(
-                              onDefSelected: (val) {
-                                NXHelp().getTicketByID(val).then((tikInfo) {
-                                  print(tikInfo);
-
-                                  SharedPreferences.getInstance().then((value) {
-                                    value.setInt("def_ticket_adv_id", val);
-                                    value.setString("def_ticket_adv_name",
-                                        tikInfo[0]['tickettitle']);
-                                    value.setString("def_ticket_adv_state",
-                                        tikInfo[0]['state']);
-
-                                    setState(() {
-                                      ticketDefNameSelected = tikInfo[0]
-                                              ['tickettitle'] +
-                                          "/" +
-                                          tikInfo[0]['state'];
-                                    });
+                        builder: (ctx) => SetEjectionSettings(
+                              onSelectEjection: (eectionid) {
+                                EjectionSettingModel ej =
+                                    NXHelp().getEjectionSettingByID(eectionid);
+                                SharedPreferences.getInstance()
+                                    .then((sharePref) {
+                                  sharePref.setString(
+                                      "ejected_setting_adv", ej.id);
+                                  setState(() {
+                                    defaultEjectionID = ej.id;
                                   });
+
+                                  Navigator.pop(context);
                                 });
                               },
                             ));
@@ -94,24 +77,25 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
+                      Text("$defaultEjectionID"),
                       Container(
                         alignment: Alignment.center,
                         height: 100,
                         width: MediaQuery.of(context).size.width,
                         child: Text(
-                          "Set Default Ticket",
+                          "Ejection Settings",
                           style: GoogleFonts.roboto(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      ticketDefNameSelected != null
+                      defaultEjectionID != null
                           ? Container(
                               padding: EdgeInsets.all(3),
                               decoration: BoxDecoration(
                                   color: Colors.black,
                                   borderRadius: BorderRadius.circular(5)),
                               child: Text(
-                                "(" + ticketDefNameSelected + ")",
+                                "(" + ejectionName + ")",
                                 style: GoogleFonts.roboto(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
@@ -133,8 +117,7 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
                         ),
                       ]),
                 ),
-              ),
-        
+              )
       ],
     );
   }
