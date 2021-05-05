@@ -64,6 +64,28 @@ class _SignUpSectionState extends State<SignUpSection> {
                     bottom: BorderSide(
                         color: Color.fromRGBO(215, 216, 218, 1), width: 2))),
           ),
+
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              Text(
+                "Confirm password",
+                style: GoogleFonts.roboto(fontSize: 16),
+              ),
+            ],
+          ),
+          SizedBox(height:10),
+          Container(
+            height: 40,
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(240, 240, 240, 1),
+                border: Border(
+                    bottom: BorderSide(
+                        color: Color.fromRGBO(215, 216, 218, 1), width: 2))),
+          ),
+
           SizedBox(
             height: 50,
           ),
