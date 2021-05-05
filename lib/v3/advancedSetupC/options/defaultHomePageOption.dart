@@ -9,7 +9,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class DefaultHomePageOption extends StatefulWidget {
   final bool isDisclaimer;
 
-  DefaultHomePageOption({@required this.isDisclaimer});
+  final Function onDone;
+
+  DefaultHomePageOption({@required this.isDisclaimer,
+  @required this.onDone
+  });
 
   @override
   _DefaultHomePageOptionState createState() => _DefaultHomePageOptionState();
@@ -29,6 +33,9 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
 
           defHomeName = NXHelp().getDefHomeOptionById(defHomeID).name;
         });
+        widget.onDone();
+      }else{
+        
       }
     });
     super.initState();

@@ -11,8 +11,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class defaultTicketOption extends StatefulWidget{
   final bool isDisclaimer;
+  final Function onDone;
   defaultTicketOption({
-    @required this.isDisclaimer
+    @required this.isDisclaimer,
+    @required this.onDone
   });
   @override
   _defaultTicketOptionState createState() => _defaultTicketOptionState();
@@ -41,6 +43,8 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
         setState(() {
           ticketDefNameSelected = tikDefName + "/" + tikDefState;
         });
+        widget.onDone();
+        //send message to parent im done
       }
     });
 

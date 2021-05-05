@@ -8,8 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class EjectionSetOption extends StatefulWidget {
   final bool isDisclaimer;
+  final Function onDone;
 
-  EjectionSetOption({@required this.isDisclaimer});
+  EjectionSetOption({@required this.isDisclaimer,
+  @required this.onDone
+  });
 
   @override
   _EjectionSetOptionState createState() => _EjectionSetOptionState();
@@ -28,10 +31,12 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
           defaultEjectionID =
               value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
 
-         ejectionName= NXHelp().getEjectionSettingByID(defaultEjectionID).name;
-       
-       
+          ejectionName =
+              NXHelp().getEjectionSettingByID(defaultEjectionID).name;
         });
+
+        widget.onDone();
+        //sets message to parent say its done
       }
     });
 
@@ -48,28 +53,26 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                 onTap: () {
                   print("set default ticket");
 
-                  NXHelp().getAllAvailableToPurchaseTickets().then((value) {
-                    print(value.length);
-
-                    showDialog(
-                        context: context,
-                        builder: (ctx) => SetEjectionSettings(
-                              onSelectEjection: (eectionid) {
-                                EjectionSettingModel ej =
-                                    NXHelp().getEjectionSettingByID(eectionid);
-                                SharedPreferences.getInstance()
-                                    .then((sharePref) {
-                                  sharePref.setString(
-                                      "ejected_setting_adv", ej.id);
-                                  setState(() {
-                                    defaultEjectionID = ej.id;
-                                  });
-
-                                  Navigator.pop(context);
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => SetEjectionSettings(
+                            onSelectEjection: (eectionid) {
+                              EjectionSettingModel ej =
+                                  NXHelp().getEjectionSettingByID(eectionid);
+                              SharedPreferences.getInstance().then((sharePref) {
+                                sharePref.setString(
+                                    "ejected_setting_adv", ej.id);
+                                setState(() {
+                                  defaultEjectionID = ej.id;
+                                  ejectionName = NXHelp()
+                                      .getEjectionSettingByID(defaultEjectionID)
+                                      .name;
                                 });
-                              },
-                            ));
-                  });
+
+                                Navigator.pop(context);
+                              });
+                            },
+                          ));
                 },
                 child: Container(
                   padding: EdgeInsets.all(4),

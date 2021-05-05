@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
@@ -8,6 +10,7 @@ import 'package:BubbleGum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
 import 'package:BubbleGum/v3/advancedSetupC/options/defaultHomePageOption.dart';
 import 'package:BubbleGum/v3/advancedSetupC/options/ejectionSettingOption.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,9 +38,46 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
   //controls the set ejection settings
   String defaultEjectionID;
 
+
+  bool isReadySetup=false;
+
+
+  /**
+   * the boolean checksums to confirm whats been done
+   */
+  bool defHome=false;
+  bool defTicket=false;
+  bool defEjection=false;
+
+
+  Timer mainTimer;
+  
+  
+
+
   @override
   void initState() {
     //load default home pref
+
+
+    mainTimer= Timer.periodic(Duration(seconds: 1), (timer) {
+
+      //check 
+
+      print(defHome);
+      print(defTicket);
+      print(defEjection);
+
+      if(defHome && defTicket && defEjection){
+        if(isDisclaimer){
+        setState(() {
+          isReadySetup=true;
+          mainTimer.cancel();
+        });
+        }
+      }
+
+     });
 
     SharedPreferences.getInstance().then((value) {
       if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
@@ -95,11 +135,11 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             padding: EdgeInsets.only(left: 30),
             alignment: Alignment.topLeft,
             child: Text(
-              "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any ilegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
+              "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any illegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
               style: GoogleFonts.roboto(fontSize: 12, color: Colors.white),
             ),
           ),
-          Column(
+        isDisclaimer!=true ?  Column(
             children: [
               Container(
               margin: EdgeInsets.only(left: 50, right: 50, top: 20),
@@ -140,10 +180,14 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                       ),
                       color: Colors.greenAccent,
                       child: Text("I Accept",style: GoogleFonts.roboto(
-                        color:Colors.black
+                        color:Colors.black,
+                        fontWeight: FontWeight.bold
                       ),),
                       onPressed: (){
                         print("Accept Disclaimer");
+                        setState(() {
+                          isDisclaimer=true;
+                        });
                       },
                     ),
                   ),
@@ -155,29 +199,65 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                       ),
                       child: Text("I Do Not Accept",
                       style: GoogleFonts.roboto(
-                        color:Colors.black
+                        color:Colors.black,
+                        fontWeight: FontWeight.bold
                       ),
                       
                       ),
                       color: Colors.redAccent,
                       onPressed: (){
                         print("i do not accept");
+                        SystemNavigator.pop();
                       },
                     ),
                   ),
                   SizedBox(width: 30,),
                 ],
               )
+                ,
+                SizedBox(height: 20,),
+              Text("V6 IS HERE. The best clone in the world. Wanna find out more. Then accept the disclaimer.",
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+              )
+            ],
+          ):Column(
+            children: [
+              Text("We"),
+              SizedBox(height: 40,),
 
+              Text("(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 18
+              ),
+              textAlign: TextAlign.center,
+              ),
+            SizedBox(height: 20,),
+
+              
             ],
           ),
           DefaultHomePageOption(
+            onDone: (){
+              print("default home page is done");
+              setState(() {
+                defHome=true;
+              });
+            },
             isDisclaimer: isDisclaimer,
           ),
           SizedBox(
             height: 10,
           ),
           defaultTicketOption(
+            onDone: (){
+              setState(() {
+                defTicket=true;
+              });
+            },
             isDisclaimer: isDisclaimer,
           ),
           SizedBox(
@@ -185,7 +265,41 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           ),
           EjectionSetOption(
             isDisclaimer: isDisclaimer,
+            onDone: (){
+              setState(() {
+                defEjection=true;
+              });
+            },
           )
+        ,
+        SizedBox(
+          height: 20,
+        ),
+       isReadySetup!=true ? Container(): RaisedButton(
+          color: Colors.yellowAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius:BorderRadius.circular(20)
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Continue",
+          style: GoogleFonts.roboto(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 20
+          ),
+          ),
+          SizedBox(width: 20,),
+          Icon(Icons.check,color: Colors.black,
+          size: 20,
+          )
+            ],
+          ),
+          onPressed: (){},
+        )
+        
         ],
       ),
     );
