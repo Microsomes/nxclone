@@ -68,6 +68,8 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                                       .getEjectionSettingByID(defaultEjectionID)
                                       .name;
                                 });
+                                        widget.onDone();
+
 
                                 Navigator.pop(context);
                               });

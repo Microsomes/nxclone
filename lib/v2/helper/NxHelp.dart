@@ -1,6 +1,8 @@
 //helper class for helping with logic
 import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
+import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -759,6 +761,21 @@ class NXHelp {
         print("deactivated all tickets");
       });
     });
+
+    /**
+     * check current default 
+     */
+    SharedPreferences pref= await  SharedPreferences.getInstance();
+
+    int defTicketID= pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+    print(">"+defTicketID.toString());
+
+    List<Map> deftikData= await this.getTicketByID(defTicketID);
+
+    print(deftikData[0]['state']);
+    print(deftikData[0]['tickettype']);
+
+
 
     var defaultTicket = await this.loadConfig("deficketv2", 1);
     if (defaultTicket.length == 0) {

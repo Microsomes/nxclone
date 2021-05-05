@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:BubbleGum/main.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
@@ -303,6 +304,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           ),
           onPressed: (){
             print("continue");
+
+            Navigator.push(context, MaterialPageRoute(
+              builder: (ctx)=>HomePagePre()
+            ));
 
             SharedPreferences.getInstance().then((pref) {
               pref.setBool(SettingsPrefKeys.START_UP_SETUP, true);

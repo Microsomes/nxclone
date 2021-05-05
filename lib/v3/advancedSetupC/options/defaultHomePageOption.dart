@@ -60,6 +60,8 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
                                 sharedpref.setString("def_home_adv", val);
 
                                 setState(() {
+                                          widget.onDone();
+
                                   defHomeID = val;
                                   defHomeName =
                                       NXHelp().getDefHomeOptionById(val).name;

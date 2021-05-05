@@ -85,6 +85,8 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
                                               ['tickettitle'] +
                                           "/" +
                                           tikInfo[0]['state'];
+                                                  widget.onDone();
+
                                     });
                                   });
                                 });
