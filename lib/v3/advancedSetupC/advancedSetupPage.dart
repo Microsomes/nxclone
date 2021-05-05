@@ -32,10 +32,6 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
   //controls the disclaimer options
   bool isDisclaimer = false;
 
-  
-
- 
-
   //controls the set ejection settings
   String defaultEjectionID;
 
@@ -44,15 +40,12 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     //load default home pref
 
     SharedPreferences.getInstance().then((value) {
-    
       if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
         setState(() {
           defaultEjectionID =
               value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
         });
       }
-
-       
 
       int def = value.getInt("default_home");
       if (def != null) {
@@ -82,7 +75,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-          child: Column(
+      child: Column(
         children: [
           SizedBox(
             height: 10,
@@ -93,7 +86,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                 width: 30,
               ),
               Text(
-                "Advanced Setup",
+                "First time Setup",
                 style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
               )
             ],
@@ -102,63 +95,82 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             padding: EdgeInsets.only(left: 30),
             alignment: Alignment.topLeft,
             child: Text(
-              "Setup with a brand new intuitive layout, set the default ticket, ejection mode and much more.",
+              "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any ilegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
               style: GoogleFonts.roboto(fontSize: 12, color: Colors.white),
             ),
           ),
-          Container(
-              margin: EdgeInsets.all(20),
+          Column(
+            children: [
+              Container(
+              margin: EdgeInsets.only(left: 50, right: 50, top: 20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.yellowAccent,
-              ),
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.yellowAccent,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.yellowAccent,
+                      blurRadius: 5.0,
+                      spreadRadius: 2.0,
+                    ),
+                  ]),
               height: 150,
-              child: Column(
+              child: Stack(children: [
+                Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Please understand this clone app is for educational purposes only!",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold, 
+                          fontSize: 15),
+                    ))
+              ])),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(width: 30,),
                   Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 3,
-                            child: Container(
-                              alignment: Alignment.center,
-                                child: Text(
-                          "Please understand this clone app is for educational purposes only!",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ))),
-                        Container(
-                          child: Column(
-                            children: [
-                              Switch(
-                            inactiveTrackColor: Colors.redAccent,
-                            value: isDisclaimer,
-                            onChanged: (val) {
-                              SharedPreferences.getInstance().then((value) {
-                                value.setBool("setup_disclaimer", val);
-                                //set the value
-                              });
-
-                              setState(() {
-                                isDisclaimer = val;
-                              });
-                            },
-                            inactiveThumbColor: Colors.white,
-                            activeColor: Colors.redAccent,
-                          ),
-                            ],
-                          )
-                        )
-                      ],
+                                      child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      color: Colors.greenAccent,
+                      child: Text("I Accept",style: GoogleFonts.roboto(
+                        color:Colors.black
+                      ),),
+                      onPressed: (){
+                        print("Accept Disclaimer");
+                      },
                     ),
                   ),
+                  SizedBox(width: 30,),
+                  Expanded(
+                                      child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Text("I Do Not Accept",
+                      style: GoogleFonts.roboto(
+                        color:Colors.black
+                      ),
+                      
+                      ),
+                      color: Colors.redAccent,
+                      onPressed: (){
+                        print("i do not accept");
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 30,),
                 ],
-              )),
-          
+              )
+
+            ],
+          ),
           DefaultHomePageOption(
             isDisclaimer: isDisclaimer,
           ),
@@ -168,22 +180,14 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           defaultTicketOption(
             isDisclaimer: isDisclaimer,
           ),
-         
           SizedBox(
             height: 10,
           ),
-
           EjectionSetOption(
             isDisclaimer: isDisclaimer,
           )
-         
         ],
       ),
     );
   }
 }
-
-
-
-
-
