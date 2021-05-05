@@ -46,7 +46,7 @@ class NxfrontState extends State<Nxfront> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return WillPopScope(
-      onWillPop: null,
+      onWillPop: (){},
       child: Scaffold(
           body: Container(
               height: 1000,

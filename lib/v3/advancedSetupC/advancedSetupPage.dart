@@ -305,14 +305,15 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           onPressed: (){
             print("continue");
 
-            Navigator.push(context, MaterialPageRoute(
-              builder: (ctx)=>HomePagePre()
-            ));
+            
 
             SharedPreferences.getInstance().then((pref) {
               pref.setBool(SettingsPrefKeys.START_UP_SETUP, true);
               //flag first time setup is completed
             });
+            Navigator.push(context, MaterialPageRoute(
+              builder: (ctx)=>HomePagePre()
+            ));
           },
         )
         
