@@ -11,6 +11,9 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'pages/journey/ticket.dart';
+import 'v2/models/sharedprefkey/main.dart';
+import 'v2/pages/ticket.dart';
 
 class HomePagePre extends StatefulWidget {
   @override
@@ -72,7 +75,7 @@ class HomePagePrestate extends State<HomePagePre>
      * this grabs the config settings so we can determine 
      * which page to boot too
      */
-    
+
     //maxHeight= MediaQuery.of(context).size.height;
     containerHeight = 10;
     setState(() {});
@@ -80,29 +83,57 @@ class HomePagePrestate extends State<HomePagePre>
 
   @override
   Widget build(BuildContext context) {
-    
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
-      builder: (context,data){
-
-        if(data.connectionState==ConnectionState.waiting){
+      builder: (context, data) {
+        if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
-            body: Center(child: CircularProgressIndicator(backgroundColor: Colors.white,),)
-          );
+              body: Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.white,
+            ),
+          ));
         }
 
-        SharedPreferences sh= data.data;
-        if(sh.getInt(SharedPrefKeys.setupKey)==null){
+        SharedPreferences sh = data.data;
+        if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
           return NewSetupv3();
-        }else{
-         return StartScreenSetup();
+        } else {
+          var defaultHomePage =
+              sh.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
+          print(defaultHomePage);
+
+          if (defaultHomePage == "non_sim_home") {
+            return StartScreenSetup();
+          } else if (defaultHomePage == "sim_home") {
+            return Nxfront();
+          } else {
+            
+
+            return FutureBuilder(
+              future: NXHelp().buyAndActivateDefaultTicket(),
+              builder: (ctx,snapshot){
+
+                if(snapshot.data!=null){
+                var ticketid= snapshot.data['ticketid'];
+               
+                return ActualTicket(
+                  txid: ticketid,
+                );
+                }else{
+                  return Scaffold(body: Center(child: CircularProgressIndicator()));
+                }
+
+              },
+            );
+          }
         }
       },
     );
   }
 }
 
-void main() async  {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
@@ -116,7 +147,6 @@ void main() async  {
           brightness: Brightness.dark,
           textTheme: GoogleFonts.robotoTextTheme(),
         ),
-        home: HomePagePre()
-        ),
+        home: HomePagePre()),
   ));
 }

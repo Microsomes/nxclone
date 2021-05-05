@@ -8,4 +8,7 @@ class SettingsPrefKeys{
 
 
   static String EJECTION_SETTING_KEY="ejected_setting_adv";
+
+
+  static String START_UP_SETUP="startup_setup_firsttime";
 }

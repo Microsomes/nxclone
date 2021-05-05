@@ -184,6 +184,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                         fontWeight: FontWeight.bold
                       ),),
                       onPressed: (){
+                        SharedPreferences.getInstance().then((value) {
+                              value.setBool("setup_disclaimer", true);
+                              //set the value
+                            });
                         print("Accept Disclaimer");
                         setState(() {
                           isDisclaimer=true;
@@ -297,7 +301,14 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           )
             ],
           ),
-          onPressed: (){},
+          onPressed: (){
+            print("continue");
+
+            SharedPreferences.getInstance().then((pref) {
+              pref.setBool(SettingsPrefKeys.START_UP_SETUP, true);
+              //flag first time setup is completed
+            });
+          },
         )
         
         ],

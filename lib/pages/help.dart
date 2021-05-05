@@ -1,3 +1,4 @@
+import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/pages/terms.dart';
 import 'package:flutter/material.dart';
 
@@ -57,52 +58,62 @@ class Stpagestate extends State<Stpage> {
                 height: 10,
               ),
               InkWell(
-                onTap: () {},
-                child: InkWell(
-                  onTap: () {
+                onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => ApplicationInfoPage()));
-                  },
-                  child: Container(
-                    width: 380,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color.fromRGBO(215, 216, 218, 1),
-                              offset: new Offset(0, 3))
-                        ]),
-                    child: Row(children: <Widget>[
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Image.asset(
-                        "images/appinfo.png",
-                        width: 50,
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(
+                },
+                child: Container(
+                  width: 380,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromRGBO(215, 216, 218, 1),
+                            offset: new Offset(0, 3))
+                      ]),
+                  child: Row(children: <Widget>[
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      "images/appinfo.png",
+                      width: 50,
+                    ),
+                    SizedBox(
+                      width: 6,
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                          Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ApplicationInfoPage()));
+                      },
+                      onDoubleTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (ctx)=> Ticket()
+                        ));
+                      },
+                                            child: Text(
                         "App info",
                         style: GoogleFonts.roboto(
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                             fontSize: 17),
                       ),
-                      Expanded(
-                        child: Text(""),
-                      ),
-                      Image.asset("images/rightarrow.png", width: 35),
-                      SizedBox(
-                        width: 4,
-                      )
-                    ]),
-                  ),
+                    ),
+                    Expanded(
+                      child: Text(""),
+                    ),
+                    Image.asset("images/rightarrow.png", width: 35),
+                    SizedBox(
+                      width: 4,
+                    )
+                  ]),
                 ),
               ),
               SizedBox(
