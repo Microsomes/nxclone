@@ -446,8 +446,7 @@ class _NXFront_TopBarState extends State<NXFront_TopBar> {
             alignment: Alignment.centerRight,
             children: [
               Container(
-                height: 80,
-                width: MediaQuery.of(context).size.width,
+                 width: MediaQuery.of(context).size.width,
                 child: Center(
                   child: Image.asset(
                     "images/v4/header.png",
