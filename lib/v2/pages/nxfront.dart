@@ -46,7 +46,7 @@ class NxfrontState extends State<Nxfront> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return WillPopScope(
-      onWillPop: (){},
+      onWillPop: () {},
       child: Scaffold(
           body: Container(
               height: 1000,
@@ -425,50 +425,52 @@ class NxfrontState extends State<Nxfront> {
 }
 
 // ignore: camel_case_types
-class NXFront_TopBar extends StatelessWidget {
+class NXFront_TopBar extends StatefulWidget {
   const NXFront_TopBar({
     Key key,
   }) : super(key: key);
+
+  @override
+  _NXFront_TopBarState createState() => _NXFront_TopBarState();
+}
+
+class _NXFront_TopBarState extends State<NXFront_TopBar> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => UtilitiesMenu()));
-        },
-        child: Container(
-            height: 80,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Expanded(
-                      child: Image.asset(
-                        "images/v4/header.png",
-                        width: 300,
-                      ),
-                    ),
-                  ],
+    return SafeArea(
+      child: Container(
+          height: 60,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.white,
+          child: Stack(
+            alignment: Alignment.centerRight,
+            children: [
+              Container(
+                height: 80,
+                width: MediaQuery.of(context).size.width,
+                child: Center(
+                  child: Image.asset(
+                    "images/v4/header.png",
+                    width: 300,
+                  ),
                 ),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Expanded(
-                      child: Container()
-                    ),
-                  ],
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UtilitiesMenu()));
+                },
+                child: Positioned(
+                  top: 20,
+                  child: Image.asset(
+                    "images/v3/menu_icon.png",
+                    width: 50,
+                    height: 25,
+                  ),
                 ),
-                
-              ],
-            )));
+              )
+            ],
+          )),
+    );
   }
 }

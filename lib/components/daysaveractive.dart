@@ -85,7 +85,7 @@ class TicketTwo extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 7.0),
                 child: Image.asset(
-                  "images/emg.png",
+                  "images/v3/com_masabi_justride_sdk_ticket_warning_icon.png",
                   width: 20,
                 ),
               ),
