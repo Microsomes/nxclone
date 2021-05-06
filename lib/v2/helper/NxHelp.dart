@@ -1112,9 +1112,30 @@ class NXHelp {
    */
   Future getAllUseableTicketsv2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
-    List<Map> allTickets= await db.rawQuery("SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",[-1]);
+    List<Map> allTickets = await db.rawQuery(
+        "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
+        [-1]);
     return allTickets;
   }
+
+
+  /**
+   * Return all active tickets
+   */
+
+  Future getAllActiveTicketsV2() async {
+      var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> allTickets = await db.rawQuery(
+        "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
+        [1]);
+    return allTickets;
+  }
+
+  Future deleteAllTicketWalletV2() async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    return await db.rawQuery("DELETE FROM ticketwalletv2");
+  }
+
 
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
@@ -1186,6 +1207,37 @@ class NXHelp {
     }
   }
 
+  Future getTicketWalletInfoByID({@required id}) async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> ticketWalletInfo = await db
+        .rawQuery("SELECT * from ticketwalletv2 WHERE id=? LIMIT 1", [id]);
+    return ticketWalletInfo;
+  }
+
+  /**
+   * This funciton will activate tickets for ticketwalletv2
+   */
+  Future activeTicketv2({@required id}) async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    var currentTime = new DateTime.now().millisecondsSinceEpoch;
+
+    var ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
+
+    if (ticketInfoFromWallet.length >= 1) {
+      if (ticketInfoFromWallet[0]['activeStatus'] == -1) {
+        var updateID = await db.rawQuery(
+            "UPDATE ticketwalletv2 SET activeStatus=?, whenActivated=? WHERE id=?",
+            [1, currentTime, id]);
+
+        return updateID;
+      }else{
+        print("ticket is not available to be activated");
+      }
+    } else {
+      print("cannot find that wallet ticket");
+    }
+  }
+
   //activates ticket by id
   //current time placed in expires to safe time
   Future activateTicket({@required id}) async {
@@ -1231,14 +1283,14 @@ class NXHelp {
   }
 
   //stores ticket in to db and generates a unique ID
-  Future buyTicketv2({@required ticketID,@required tag}) async {
+  Future buyTicketv2({@required ticketID, @required tag}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> getTicket = await this.getTicketByID(ticketID);
     if (getTicket.length >= 1) {
       //the ticket exists lets order it
       var id = await db.rawInsert(
           "INSERT INTO ticketwalletv2 (ticketid,activeStatus,cardLast4,tag) VALUES (?,?,?,?)",
-          [ticketID, -1, "7382",tag]);
+          [ticketID, -1, "7382", tag]);
       return id;
     } else {
       return null;
