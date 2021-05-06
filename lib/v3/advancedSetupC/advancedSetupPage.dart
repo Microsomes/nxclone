@@ -52,6 +52,14 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
 
   Timer mainTimer;
+
+
+
+  @override
+  void dispose() {
+    mainTimer.cancel();
+    super.dispose();
+  }
   
   
 

@@ -36,12 +36,18 @@ class _MyProfileState extends State<MyProfile> {
                 ),
               ),
               
-              Container(
-                height: 60,
-                padding: EdgeInsets.only(
-                  right: 10
-                ),
-                child: Icon(Icons.exit_to_app))
+              GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+
+                              child: Container(
+                  height: 60,
+                  padding: EdgeInsets.only(
+                    right: 10
+                  ),
+                  child: Icon(Icons.close)),
+              )
                 ],
               )
             ),

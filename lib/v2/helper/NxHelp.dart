@@ -765,20 +765,34 @@ class NXHelp {
     /**
      * check current default 
      */
-    SharedPreferences pref= await  SharedPreferences.getInstance();
+    SharedPreferences pref = await SharedPreferences.getInstance();
 
-    int defTicketID= pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
-    print(">"+defTicketID.toString());
+    int defTicketID = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
 
-    List<Map> deftikData= await this.getTicketByID(defTicketID);
+    if (defTicketID != null) {
+      List<Map> deftikData = await this.getTicketByID(defTicketID);
+  
+      var defTikState = deftikData[0]['state'];
+      var defTikTType = deftikData[0]['tickettitle'];
 
-    print(deftikData[0]['state']);
-    print(deftikData[0]['tickettype']);
+       var ticketid = await this.buyTicket(
+          tickettype: defTikTType,
+          state: defTikState,
+          price: "0.00",
+          tag: "AUTO_BUY");
+      //provisions a ticket
 
+      await this.activateTicket(id: ticketid);
+      //activates a ticket
 
+      return {
+        "ticketid": ticketid,
+        "state": defTikState,
+        "tickettype": defTikTType
+      };
 
-    var defaultTicket = await this.loadConfig("deficketv2", 1);
-    if (defaultTicket.length == 0) {
+      
+    } else {
       //no default selected we must use west-midlands as default and a daysaver
 
       var deftttype = Ttype.daySaver;
@@ -792,25 +806,9 @@ class NXHelp {
       //activates a ticket
 
       return {"ticketid": ticketid, "state": defstate, "tickettype": deftttype};
-    } else {
-      var curDefault = defaultTicket[0]['val'].split(":");
-
-      var ticketid = await this.buyTicket(
-          tickettype: curDefault[1],
-          state: curDefault[0],
-          price: "0.00",
-          tag: "AUTO_BUY");
-      //provisions a ticket
-
-      await this.activateTicket(id: ticketid);
-      //activates a ticket
-
-      return {
-        "ticketid": ticketid,
-        "state": curDefault[0],
-        "tickettype": curDefault[1]
-      };
     }
+
+    
   }
 
   Map returnTicketExpiryInfo(String ttype) {

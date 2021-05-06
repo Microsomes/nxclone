@@ -82,8 +82,7 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
-                      Text("$defaultEjectionID"),
-                      Container(
+                       Container(
                         alignment: Alignment.center,
                         height: 100,
                         width: MediaQuery.of(context).size.width,
@@ -108,6 +107,7 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                             )
                           : Container()
                     ],
+               
                   ),
                   height: 80,
                   margin: EdgeInsets.only(left: 20, right: 20, top: 0),
