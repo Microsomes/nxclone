@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/pages/settings.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import './socialMediaPage.dart';
 
 import 'profile/LoginIn.dart';
 
@@ -8,6 +11,13 @@ class UtilitiesMenu extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new UtilitiesMenuState();
+  }
+}
+void launchURL(String url) async {
+   if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
 
@@ -41,53 +51,86 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               SizedBox(
                 height: 10,
               ),
-             Row(
-               children: [
-                 SizedBox(width: 20,),
-                  Text("ACCOUNT",
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-                letterSpacing: 1
-              ),),
-               ],
-             ),
-             SizedBox(height: 3,),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "ACCOUNT",
+                    style: GoogleFonts.roboto(
+                        color: Colors.white, letterSpacing: 1),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 3,
+              ),
               NavItem(
-                onTap: (){
+                image: Image.asset(
+                  "images/v3/people.png",
+                  width: 30,
+                ),
+                onTap: () {
                   print("profile page");
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (ctx)=>MyProfile()
-                  ));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (ctx) => MyProfile()));
                 },
                 name: "My Profile",
               ),
-                            SizedBox(
+              SizedBox(
                 height: 10,
               ),
-             Row(
-               children: [
-                 SizedBox(width: 20,),
-                  Text("TOOLS",
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-                letterSpacing: 1
-              ),),
-               ],
-             ),
-             SizedBox(height: 3,),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "TOOLS",
+                    style: GoogleFonts.roboto(
+                        color: Colors.white, letterSpacing: 1),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 3,
+              ),
               NavItem(
+                onTap: (){
+                  launchURL("https://nxbus.co.uk");
+                },
+                image: Image.asset(
+                  "images/v3/pointer.png",
+                  width: 30,
+                ),
                 name: "nxbus.co.uk",
               ),
-              SizedBox(height: 13,),
+              SizedBox(
+                height: 13,
+              ),
               NavItem(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (ctx)=>SocialMediaPage()
+                  ));
+                },
+                image: Image.asset(
+                  "images/v3/thumb.png",
+                  width: 30,
+                ),
                 name: "Social Media",
               ),
-              SizedBox(height: 13,),
+              SizedBox(
+                height: 13,
+              ),
               NavItem(
+                image: Image.asset(
+                  "images/v3/scan.png",
+                  width: 30,
+                ),
                 name: "Payzone Barcode",
               ),
-               
-
             ],
           ),
         ));
@@ -97,9 +140,11 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
 class NavItem extends StatelessWidget {
   final String name;
   final Function onTap;
+  final Widget image;
 
   const NavItem({
     @required this.name,
+    @required this.image,
     this.onTap,
     Key key,
   }) : super(key: key);
@@ -107,10 +152,10 @@ class NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         this.onTap();
       },
-          child: Container(
+      child: Container(
         margin: EdgeInsets.only(left: 10, right: 10),
         width: 380,
         height: 55,
@@ -126,12 +171,15 @@ class NavItem extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          Icon(
-            Icons.account_circle,
-            color: Colors.black,
-            size: 30,
+          // Icon(
+          //   Icons.account_circle,
+          //   color: Colors.black,
+          //   size: 30,
+          // ),
+          image,
+          SizedBox(
+            width: 10,
           ),
-          SizedBox(width: 10,),
           Expanded(
             child: Text(
               "$name",
