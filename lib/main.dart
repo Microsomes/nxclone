@@ -95,6 +95,19 @@ class HomePagePrestate extends State<HomePagePre>
           ));
         }
 
+        //  NXHelp().buyTicketv2(ticketID: 2,tag: "MAN_BUY").then((value) {
+        //    print(value);
+        //  });
+
+        NXHelp().getAllUseableTicketsv2().then((value) {
+          print(value);
+        });
+ 
+
+
+
+        return Text("....");
+
         SharedPreferences sh = data.data;
         if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
           return NewSetupv3();

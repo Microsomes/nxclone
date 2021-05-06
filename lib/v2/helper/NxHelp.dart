@@ -64,10 +64,9 @@ class SimType {
   static String uni = "UNI";
 }
 
-class NXSIGImg{
-  static String DAY_SAVER="";
+class NXSIGImg {
+  static String DAY_SAVER = "";
 }
-
 
 class SharedPrefKeys {
   static String setupKey = "is_new_setup1";
@@ -76,7 +75,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main13.db";
+  static String DB_NAME = "main15.db";
 
   NXHelp() {
     //load and create table
@@ -803,21 +802,16 @@ class NXHelp {
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     await db.execute(
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text,tag text)");
-    
+
     await db.execute(
-      "CREATE TABLE IF NOT EXISTS ticketwalletv2 (id integer PRIMARY KEY AUTOINCREMENT, ticketid integer, activeStatus int, whenActivated TIMESTAMP DEFAULT NULL, whenExpired TIMESTAMP DEFAULT NULL, created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, cardLast4 VARCHAR(20) DEFAULT NULL)"  
-      );
-    
+        "CREATE TABLE IF NOT EXISTS ticketwalletv2 (id integer PRIMARY KEY AUTOINCREMENT, ticketid integer, activeStatus int, whenActivated TIMESTAMP DEFAULT NULL, whenExpired TIMESTAMP DEFAULT NULL, created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, cardLast4 VARCHAR(20) DEFAULT NULL, tag VARCHAR(20))");
+
     await db.execute(
-        "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL, tag text NOT NULL)");
+        "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL, tag text NOT NULL,notusedexpiry TEXT, activefor TEXT)");
 
     //load default values
 
-    print("run pre-runup setup");
-    this.getAllTickets("West Midlands").then((value) {
-      print(value.length);
-    });
-    print(ticketTypes.length);
+    this.getAllTickets("West Midlands").then((value) {});
 
     for (var element in ticketTypes) {
       //check duplicate first
@@ -832,7 +826,9 @@ class NXHelp {
             element['price'],
             element['subtitle'],
             element["info"][0],
-            element["type"]);
+            element["type"],
+            element["notusedexpiry"],
+            element["activefor"]);
 
         Future.delayed(Duration(seconds: 1));
         //saves to db
@@ -1111,6 +1107,15 @@ class NXHelp {
     return modifiedList;
   }
 
+  /**
+   * Returns all the available tickets in your ticket walletv2
+   */
+  Future getAllUseableTicketsv2() async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> allTickets= await db.rawQuery("SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",[-1]);
+    return allTickets;
+  }
+
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
@@ -1225,6 +1230,21 @@ class NXHelp {
     return id;
   }
 
+  //stores ticket in to db and generates a unique ID
+  Future buyTicketv2({@required ticketID,@required tag}) async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> getTicket = await this.getTicketByID(ticketID);
+    if (getTicket.length >= 1) {
+      //the ticket exists lets order it
+      var id = await db.rawInsert(
+          "INSERT INTO ticketwalletv2 (ticketid,activeStatus,cardLast4,tag) VALUES (?,?,?,?)",
+          [ticketID, -1, "7382",tag]);
+      return id;
+    } else {
+      return null;
+    }
+  }
+
   Future loadConfig(String key, int limit) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list = await db.rawQuery(
@@ -1270,12 +1290,28 @@ class NXHelp {
     return list;
   }
 
-  Future addTicket(String type, String state, String price, String subtitle,
-      String info, String tag) async {
+  Future addTicket(
+      String type,
+      String state,
+      String price,
+      String subtitle,
+      String info,
+      String tag,
+      Duration notusedexpiry,
+      Duration activefor) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var iid = await db.rawInsert(
-        "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info,tag) VALUES (?,?,?,?,?,?)",
-        [type, state, price, subtitle, info, tag]);
+        "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info,tag,notusedexpiry,activefor) VALUES (?,?,?,?,?,?,?,?)",
+        [
+          type,
+          state,
+          price,
+          subtitle,
+          info,
+          tag,
+          notusedexpiry.inSeconds,
+          activefor.inSeconds
+        ]);
     return iid;
   }
 }
