@@ -1,5 +1,6 @@
 import 'package:BubbleGum/v2/pages/menupage/topMenuPage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaPage extends StatefulWidget {
@@ -8,17 +9,13 @@ class SocialMediaPage extends StatefulWidget {
 }
 
 class _SocialMediaPageState extends State<SocialMediaPage> {
-
-
-
-void launchURL(String url) async {
-   if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
+  void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,29 +44,57 @@ void launchURL(String url) async {
             width: sizeW,
             color: Color.fromRGBO(167, 27, 26, 1),
             child: SafeArea(
-                          child: Column(
+              child: Column(
                 children: <Widget>[
                   PhysicalModel(
                     elevation: 2,
                     color: Colors.red,
-                    shadowColor: Colors.pink,
-                                      child: Container(
+                    shadowColor: Color.fromRGBO(215, 216, 218, 1),
+                    child: Stack(
+                      alignment: Alignment.centerLeft,
+                      children: [
+                        Container(
+                      child: Center(
+                        child: Text(
+                          "Social media",
+                          style: GoogleFonts.roboto(
+                            color: Color.fromRGBO(189, 156, 106, 1),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16
+                          )
+                        ),
+                      ),
                       height: 55,
                       color: Colors.white,
                     ),
+                     GestureDetector(
+                       onTap: (){
+                         Navigator.pop(context);
+                       },
+                       child: Image.asset("images/leftarrow.png", width: 35)),
+                      ],
+                    )
                   ),
                   SizedBox(height: 17),
                   NavItem(
-                    onTap: (){
-                      launchURL("https://m.facebook.com/nxwestmidlands/");
-                    },
-                      name: "Facebook", image: Image.asset("images/v3/facebook.png",width: 20,)),
+                      onTap: () {
+                        launchURL("https://m.facebook.com/nxwestmidlands/");
+                      },
+                      name: "Facebook",
+                      image: Image.asset(
+                        "images/v3/facebook.png",
+                        width: 20,
+                      )),
                   SizedBox(height: 8),
                   NavItem(
-                    onTap: (){
-                      launchURL("https://twitter.com/nxwestmidlands");
-                    },
-                      name: "Twitter", image: Image.asset("images/v3/twitter.png",width: 20,))
+                      onTap: () {
+                        launchURL("https://twitter.com/nxwestmidlands");
+                      },
+                      name: "Twitter",
+                      image: Image.asset(
+                        "images/v3/twitter.png",
+                        width: 20,
+                      ))
                 ],
               ),
             )));

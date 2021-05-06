@@ -26,112 +26,143 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: InkWell(
-              onTap: () {
-                Navigator.pop(context, true);
-              },
-              child: PreferredSize(
-                  preferredSize: Size.fromHeight(500),
-                  child: Image.asset("images/leftarrow.png", width: 4))),
-          title: Center(
-            child: Text(
-              "Utilities",
-              style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
-            ),
-          ),
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.white,
+        //   leading: InkWell(
+        //       onTap: () {
+        //         Navigator.pop(context, true);
+        //       },
+        //       child: PreferredSize(
+        //           preferredSize: Size.fromHeight(500),
+        //           child: Image.asset("images/leftarrow.png", width: 4))),
+        //   title: Center(
+        //     child: Text(
+        //       "Utilities",
+        //       style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
+        //     ),
+        //   ),
+        // ),
         body: Container(
           height: double.infinity,
           width: sizeW,
           color: Color.fromRGBO(167, 27, 26, 1),
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    "ACCOUNT",
-                    style: GoogleFonts.roboto(
-                        color: Colors.white, letterSpacing: 1),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              NavItem(
-                image: Image.asset(
-                  "images/v3/people.png",
-                  width: 30,
+          child: SafeArea(
+                      child: Column(
+              children: <Widget>[
+                PhysicalModel(
+                      elevation: 2,
+                      color: Colors.red,
+                      shadowColor: Color.fromRGBO(215, 216, 218, 1),
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        children: [
+                          Container(
+                        child: Center(
+                          child: Text(
+                            "Utilities",
+                            style: GoogleFonts.roboto(
+                              color: Color.fromRGBO(189, 156, 106, 1),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16
+                            )
+                          ),
+                        ),
+                        height: 55,
+                        color: Colors.white,
+                      ),
+                       GestureDetector(
+                         onTap: (){
+                           Navigator.pop(context);
+                         },
+                         child: Image.asset("images/leftarrow.png", width: 35)),
+                        ],
+                      )
+                    ),
+                SizedBox(
+                  height: 10,
                 ),
-                onTap: () {
-                  print("profile page");
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (ctx) => MyProfile()));
-                },
-                name: "My Profile",
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "ACCOUNT",
+                      style: GoogleFonts.roboto(
+                          color: Colors.white, letterSpacing: 1),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                NavItem(
+                  image: Image.asset(
+                    "images/v3/people.png",
+                    width: 30,
                   ),
-                  Text(
-                    "TOOLS",
-                    style: GoogleFonts.roboto(
-                        color: Colors.white, letterSpacing: 1),
+                  onTap: () {
+                    print("profile page");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (ctx) => MyProfile()));
+                  },
+                  name: "My Profile",
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "TOOLS",
+                      style: GoogleFonts.roboto(
+                          color: Colors.white, letterSpacing: 1),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                NavItem(
+                  onTap: (){
+                    launchURL("https://nxbus.co.uk");
+                  },
+                  image: Image.asset(
+                    "images/v3/pointer.png",
+                    width: 30,
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              NavItem(
-                onTap: (){
-                  launchURL("https://nxbus.co.uk");
-                },
-                image: Image.asset(
-                  "images/v3/pointer.png",
-                  width: 30,
+                  name: "nxbus.co.uk",
                 ),
-                name: "nxbus.co.uk",
-              ),
-              SizedBox(
-                height: 13,
-              ),
-              NavItem(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (ctx)=>SocialMediaPage()
-                  ));
-                },
-                image: Image.asset(
-                  "images/v3/thumb.png",
-                  width: 30,
+                SizedBox(
+                  height: 13,
                 ),
-                name: "Social Media",
-              ),
-              SizedBox(
-                height: 13,
-              ),
-              NavItem(
-                image: Image.asset(
-                  "images/v3/scan.png",
-                  width: 30,
+                NavItem(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (ctx)=>SocialMediaPage()
+                    ));
+                  },
+                  image: Image.asset(
+                    "images/v3/thumb.png",
+                    width: 30,
+                  ),
+                  name: "Social Media",
                 ),
-                name: "Payzone Barcode",
-              ),
-            ],
+                SizedBox(
+                  height: 13,
+                ),
+                NavItem(
+                  image: Image.asset(
+                    "images/v3/scan.png",
+                    width: 30,
+                  ),
+                  name: "Payzone Barcode",
+                ),
+              ],
+            ),
           ),
         ));
   }
