@@ -1,5 +1,6 @@
 import 'package:BubbleGum/v2/pages/menupage/topMenuPage.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaPage extends StatefulWidget {
   @override
@@ -7,6 +8,18 @@ class SocialMediaPage extends StatefulWidget {
 }
 
 class _SocialMediaPageState extends State<SocialMediaPage> {
+
+
+
+void launchURL(String url) async {
+   if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
@@ -35,12 +48,18 @@ class _SocialMediaPageState extends State<SocialMediaPage> {
             color: Color.fromRGBO(167, 27, 26, 1),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 15),
+                SizedBox(height: 17),
                 NavItem(
-                    name: "Facebook", image: Image.asset("images/v3/scan.png")),
-                SizedBox(height: 10),
+                  onTap: (){
+                    launchURL("https://m.facebook.com/nxwestmidlands/");
+                  },
+                    name: "Facebook", image: Image.asset("images/v3/facebook.png",width: 20,)),
+                SizedBox(height: 8),
                 NavItem(
-                    name: "Twitter", image: Image.asset("images/v3/scan.png"))
+                  onTap: (){
+                    launchURL("https://twitter.com/nxwestmidlands");
+                  },
+                    name: "Twitter", image: Image.asset("images/v3/twitter.png",width: 20,))
               ],
             )));
   }
