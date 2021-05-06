@@ -64,6 +64,11 @@ class SimType {
   static String uni = "UNI";
 }
 
+class NXSIGImg{
+  static String DAY_SAVER="";
+}
+
+
 class SharedPrefKeys {
   static String setupKey = "is_new_setup1";
 }
@@ -90,7 +95,7 @@ class NXHelp {
       ],
       "type": SimType.test,
       "notusedexpiry": Duration(days: 1),
-      "activefor":Duration(days: 1)
+      "activefor": Duration(days: 1)
     });
 
     /**
@@ -106,7 +111,7 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor":Duration(minutes: 30)
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -119,7 +124,7 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor":Duration(days: 1)
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -132,7 +137,7 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor":Duration(days: 1)
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -145,7 +150,7 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor":Duration(hours: 6)
+      "activefor": Duration(hours: 6)
     });
 
     ticketTypes.add({
@@ -158,7 +163,7 @@ class NXHelp {
       ],
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
-      "activefor":Duration(days: 1)
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -171,7 +176,7 @@ class NXHelp {
       ],
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
-      "activefor":Duration(hours: 6)
+      "activefor": Duration(hours: 6)
     });
 
     ticketTypes.add({
@@ -184,7 +189,7 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor":Duration(minutes: 30)
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -197,7 +202,7 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor":Duration(days: 1)
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -210,7 +215,7 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor":Duration(minutes: 30)
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -222,7 +227,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.daysaverafter930monfri,
@@ -233,7 +239,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -244,7 +251,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -255,7 +263,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -266,7 +275,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
@@ -277,7 +287,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
 
     ////////conventry
@@ -296,7 +307,8 @@ class NXHelp {
         "Leamington Spa & Kenilworth"
       ],
       "type": SimType.single,
-      "notusedexpiry": Duration(days: 7)
+      "notusedexpiry": Duration(days: 7),
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -313,7 +325,8 @@ class NXHelp {
         "Leamington Spa & Kenilworth"
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -325,7 +338,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -336,7 +350,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -348,7 +363,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
 
     ticketTypes.add({
@@ -360,7 +376,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -372,7 +389,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-      "notusedexpiry": Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
 
     //black country
@@ -386,8 +404,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.single,
-                  "notusedexpiry":Duration(days: 7)
-
+      "notusedexpiry": Duration(days: 7),
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -399,8 +417,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.daysaverafter930monfri,
@@ -411,8 +429,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -424,8 +442,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -436,8 +454,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.day,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -448,8 +466,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
@@ -460,8 +478,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     //Sandwell & Dudley low fare zone
@@ -475,8 +493,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.single,
-                  "notusedexpiry":Duration(days: 7)
-
+      "notusedexpiry": Duration(days: 7),
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -488,8 +506,8 @@ class NXHelp {
         "Includes travel on all our buses within the Sandwell & Dudley low fare zone."
       ],
       "type": SimType.day,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -501,8 +519,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -514,8 +532,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
 
     //wallsall low fare zone
@@ -529,8 +547,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.single,
-                  "notusedexpiry":Duration(days: 7)
-
+      "notusedexpiry": Duration(days: 7),
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({
@@ -542,8 +560,8 @@ class NXHelp {
         "Includes travel on all our busses within the Wallsall low fare zone"
       ],
       "type": SimType.day,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -555,8 +573,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
     });
 
     ticketTypes.add({
@@ -568,8 +586,8 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.group,
-                  "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(hours: 6)
     });
 
     /**
@@ -583,8 +601,8 @@ class NXHelp {
       "state": States.midlandmetra,
       "info": ["Includes travel on all the Midland Metro Trapm route."],
       "type": SimType.metro,
-      "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 7)
     });
 
     ticketTypes.add({
@@ -594,7 +612,8 @@ class NXHelp {
       "state": States.midlandmetra,
       "info": ["Includes travel on all the Midland Metro Trapm route."],
       "type": SimType.metro,
-      "notusedexpiry":Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 28)
     });
 
     ticketTypes.add({
@@ -606,7 +625,8 @@ class NXHelp {
         "Includes travel on all the Midland Metro Trapm route and all our busses across the West Midlands, Black Country & Conventry."
       ],
       "type": SimType.metro,
-            "notusedexpiry":Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 7)
     });
 
     ticketTypes.add({
@@ -618,8 +638,8 @@ class NXHelp {
         "Includes travel on all the Midland Metro Trapm route and all our busses across the West Midlands, Black Country & Conventry."
       ],
       "type": SimType.metro,
-            "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 28)
     });
 
     ticketTypes.add({
@@ -629,8 +649,8 @@ class NXHelp {
       "state": States.midlandmetra,
       "info": ["Include travel on all the Midland Metro Tram route."],
       "type": SimType.metro,
-            "notusedexpiry":Duration(days: 99)
-
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 28)
     });
 
     //warwickUni
@@ -644,8 +664,8 @@ class NXHelp {
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
       ],
       "type": SimType.uni,
-            "notusedexpiry":Duration(days: 7)
-
+      "notusedexpiry": Duration(days: 7),
+      "activefor": Duration(minutes: 30)
     });
     ticketTypes.add({
       "title": Ttype.universitySingleHop10,
@@ -657,7 +677,8 @@ class NXHelp {
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
       ],
       "type": SimType.uni,
-      "notusedexpiry":Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(minutes: 30)
     });
     ticketTypes.add({
       "title": Ttype.lemingtonSpaHop,
@@ -669,7 +690,8 @@ class NXHelp {
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
       ],
       "type": SimType.uni,
-        "notusedexpiry":Duration(days: 7)
+      "notusedexpiry": Duration(days: 7),
+      "activefor": Duration(minutes: 30)
     });
     ticketTypes.add({
       "title": Ttype.lemintonSpaHop10,
@@ -681,7 +703,8 @@ class NXHelp {
         "http://nxbus.co.uk/coventry/information/buses-to-from/buses-to-from-university-of-warwick"
       ],
       "type": SimType.uni,
-      "notusedexpiry":Duration(days: 99)
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(minutes: 30)
     });
 
     //this.init();
