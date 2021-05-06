@@ -1,4 +1,5 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import '../v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 
@@ -82,6 +83,8 @@ class _TicketDebugState extends State<TicketDebug> {
                 });
             },
           )): Expanded(child: ShowActiveTickets())
+        
+        
         ],
       )
 
@@ -113,7 +116,7 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                  
                   return CircularProgressIndicator();
                  } else {
-                List<Map> all=snapshot.data;
+                List<TicketWalletModel> all=snapshot.data;
 
                   return Column(
                     children: [
@@ -126,7 +129,7 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                         itemCount: all.length,
                         itemBuilder: (ctx, index) {
                           return FutureBuilder(
-                            future: NXHelp().getTicketByID(all[index]['ticketid']),
+                            future: NXHelp().getTicketByID(all[index].ticketid),
                             builder: (ctx,snapshot){
                               if(snapshot.connectionState==ConnectionState.waiting){
                                 return CircularProgressIndicator();
@@ -136,7 +139,7 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                                 onTap: (){
                                   //activate ticket
 
-                                  NXHelp().activeTicketv2(id: all[index]['id']).then((value) {
+                                  NXHelp().activeTicketv2(id: all[index].id).then((value) {
                                     print(">"+value.toString());
 
                                     widget.onActive();
@@ -146,15 +149,15 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                                 },
                                 leading: CircleAvatar(
 
-                                  child: Text(all[index]['id'].toString()),
+                                  child: Text(all[index].id.toString()),
                                 ),
                             title:  Text(snapshot.data[0]['tickettitle']),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                               Text(snapshot.data[0]['state']),
-                              Text("Purchase Date:\n"+all[index]['created']),
-                              all[index]['activeStatus']== -1 ? Text("Not activated") : Text("Activated")
+                              Text("Purchase Date:\n"+ all[index].getTimeCreatedHuman()),
+                              all[index].activeStatus== -1 ? Text("Not activated") : Text("Activated")
                               
                             ],),
                           );
@@ -189,7 +192,7 @@ class _ShowAvailableTicketsState2 extends State<ShowActiveTickets> {
                  
                   return CircularProgressIndicator();
                  } else {
-                List<Map> all=snapshot.data;
+                List<TicketWalletModel> all=snapshot.data;
 
                   return Column(
                     children: [
@@ -202,7 +205,7 @@ class _ShowAvailableTicketsState2 extends State<ShowActiveTickets> {
                         itemCount: all.length,
                         itemBuilder: (ctx, index) {
                           return FutureBuilder(
-                            future: NXHelp().getTicketByID(all[index]['ticketid']),
+                            future: NXHelp().getTicketByID(all[index].ticketid),
                             builder: (ctx,snapshot){
                               if(snapshot.connectionState==ConnectionState.waiting){
                                 return CircularProgressIndicator();
@@ -212,22 +215,23 @@ class _ShowAvailableTicketsState2 extends State<ShowActiveTickets> {
                                 onTap: (){
                                   //activate ticket
 
-                                  NXHelp().activeTicketv2(id: all[index]['id']).then((value) {
-                                    print(">"+value.toString());
-                                  });
+                                  print("check time reaming");
+
+                                  all[index].getTimeRemaining();
 
                                 },
                                 leading: CircleAvatar(
 
-                                  child: Text(all[index]['id'].toString()),
+                                  child: Text(all[index].id.toString()),
                                 ),
                             title:  Text(snapshot.data[0]['tickettitle']),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                               Text(snapshot.data[0]['state']),
-                              Text("Purchase Date:\n"+all[index]['created']),
-                              all[index]['activeStatus']== -1 ? Text("Not activated") : Text("Activated")
+                              Text("Purchase Date:\n"+all[index].getTimeCreatedHuman()),
+                              Text("Activated Date:\n"+all[index].getWhenActivateddHuman()),
+                              all[index].activeStatus== -1 ? Text("Not activated") : Text("Activated")
                               
                             ],),
                           );

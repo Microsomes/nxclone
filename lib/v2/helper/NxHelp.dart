@@ -3,6 +3,8 @@ import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../v3/models/ticketWalletModel.dart';
+import '../../v3/models/ticketModel.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -75,7 +77,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main16.db";
+  static String DB_NAME = "main18.db";
 
   NXHelp() {
     //load and create table
@@ -964,6 +966,31 @@ class NXHelp {
     return one;
   }
 
+
+  /**
+   * Return ticket by id, but instead of returning a dynamic map
+   * //return a proper model 
+   */
+  Future getTicketByIDV2(int id) async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> one = await db.rawQuery("SELECT * FROM tickets WHERE id=?", [id]);
+    if(one.length>=1){
+      var element=one[0];
+      return TicketModel(
+        state: element['state'],
+        tickettitle: element['tickettitle'],
+        ticketsubtitle: element['ticketsubtitle'],
+        price: element['price'],
+        info: element['info'],
+        tag: element['tag'],
+        notusedexpiry: element['notusedexpiry'],
+        activefor: element['activefor']
+      );
+    }else{
+      return [];
+    }
+  }
+
   EjectionSettingModel getEjectionSettingByID(String id) {
     List<EjectionSettingModel> allSettings = this.getAllEjectionSettings();
     EjectionSettingModel toReturn;
@@ -1115,27 +1142,51 @@ class NXHelp {
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
         [-1]);
-    return allTickets;
+    List<TicketWalletModel> allTicketsA = List();
+    allTickets.forEach((element) {
+      allTicketsA.add(TicketWalletModel(
+          id: element['id'],
+          created: element['created'],
+          ticketid: element['ticketid'],
+          activeStatus: element['activeStatus'],
+          whenActivated: element['whenActivated'],
+          whenExpired: element['whenExpired'],
+          cardLast4: element['cardLast4'],
+          tag: element['tag']));
+    });
+    return allTicketsA;
   }
-
 
   /**
    * Return all active tickets
    */
 
   Future getAllActiveTicketsV2() async {
-      var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
         [1]);
-    return allTickets;
+
+        List<TicketWalletModel> allTicketsA = List();
+
+     allTickets.forEach((element) {
+      allTicketsA.add(TicketWalletModel(
+          id: element['id'],
+          created: element['created'],
+          ticketid: element['ticketid'],
+          activeStatus: element['activeStatus'],
+          whenActivated: element['whenActivated'],
+          whenExpired: element['whenExpired'],
+          cardLast4: element['cardLast4'],
+          tag: element['tag']));
+    });
+    return allTicketsA;
   }
 
   Future deleteAllTicketWalletV2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     return await db.rawQuery("DELETE FROM ticketwalletv2");
   }
-
 
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
@@ -1230,7 +1281,7 @@ class NXHelp {
             [1, currentTime, id]);
 
         return updateID;
-      }else{
+      } else {
         print("ticket is not available to be activated");
       }
     } else {
@@ -1289,8 +1340,8 @@ class NXHelp {
     if (getTicket.length >= 1) {
       //the ticket exists lets order it
       var id = await db.rawInsert(
-          "INSERT INTO ticketwalletv2 (ticketid,activeStatus,cardLast4,tag) VALUES (?,?,?,?)",
-          [ticketID, -1, "7382", tag]);
+          "INSERT INTO ticketwalletv2 (ticketid,activeStatus,cardLast4,tag,created) VALUES (?,?,?,?,?)",
+          [ticketID, -1, "7382", tag, DateTime.now().millisecondsSinceEpoch]);
       return id;
     } else {
       return null;
@@ -1361,8 +1412,8 @@ class NXHelp {
           subtitle,
           info,
           tag,
-          notusedexpiry.inSeconds,
-          activefor.inSeconds
+          notusedexpiry.inMilliseconds,
+          activefor.inMilliseconds
         ]);
     return iid;
   }
