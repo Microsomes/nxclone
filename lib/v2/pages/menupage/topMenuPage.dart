@@ -155,6 +155,10 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
                   height: 13,
                 ),
                 NavItem(
+                  onTap: (){
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (ctx) => MyProfile()));
+                  },
                   image: Image.asset(
                     "images/v3/scan.png",
                     width: 30,
