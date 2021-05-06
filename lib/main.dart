@@ -105,9 +105,9 @@ class HomePagePrestate extends State<HomePagePre>
         //   print(value);
         // });
 
-        NXHelp().activeTicketv2(id: 9).then((value) {
-          print(value);
-        });
+        // NXHelp().activeTicketv2(id: 9).then((value) {
+        //   print(value);
+        // });
 
           return TicketDebug();
 

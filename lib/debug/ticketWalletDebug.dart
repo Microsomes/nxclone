@@ -13,6 +13,12 @@ class _TicketDebugState extends State<TicketDebug> {
   bool isAvailable=true;
 
   @override
+  void initState() {
+    print(DateTime.now().millisecondsSinceEpoch);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,

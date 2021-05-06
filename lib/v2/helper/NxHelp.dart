@@ -75,7 +75,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main15.db";
+  static String DB_NAME = "main16.db";
 
   NXHelp() {
     //load and create table
@@ -804,7 +804,7 @@ class NXHelp {
         "CREATE TABLE IF NOT EXISTS ticketwallet ( id integer  PRIMARY KEY AUTOINCREMENT, state text, tickettype text, tickettypeid text, expires text, isActive int, purchaseddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,ticketid text,tag text)");
 
     await db.execute(
-        "CREATE TABLE IF NOT EXISTS ticketwalletv2 (id integer PRIMARY KEY AUTOINCREMENT, ticketid integer, activeStatus int, whenActivated TIMESTAMP DEFAULT NULL, whenExpired TIMESTAMP DEFAULT NULL, created TIMESTAMP DEFAULT CURRENT_TIMESTAMP, cardLast4 VARCHAR(20) DEFAULT NULL, tag VARCHAR(20))");
+        "CREATE TABLE IF NOT EXISTS ticketwalletv2 (id integer PRIMARY KEY AUTOINCREMENT, ticketid integer, activeStatus int, whenActivated int DEFAULT NULL, whenExpired int DEFAULT NULL, created int NOT NULL, cardLast4 VARCHAR(20) DEFAULT NULL, tag VARCHAR(20))");
 
     await db.execute(
         "CREATE TABLE IF NOT EXISTS tickets ( id integer  PRIMARY KEY AUTOINCREMENT, state text NOT NULL, tickettitle text NOT NULL,ticketsubtitle text NOT NULL, price text NOT NULL, info text NOT NULL, tag text NOT NULL,notusedexpiry TEXT, activefor TEXT)");
