@@ -5,6 +5,7 @@ import 'package:BubbleGum/v2/pages/overlays/ticketPreActivate.dart';
 import 'package:BubbleGum/v2/components/movingText.dart';
 import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UsedTicketPage extends StatefulWidget {
   final int txdbid;
@@ -136,57 +137,31 @@ class Ticket2State extends State<UsedTicketPage> {
                                     state: state,
                                   )),
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
+                            
                             Container(
-                              width: MediaQuery.of(context).size.width / 1.7,
-                              child: Text(
-                                "ACTIVATE JUST BEFORE BOARDING",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    letterSpacing: 0.3,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(
-                                      124,
-                                      126,
-                                      136,
-                                      1,
-                                    )),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 12, left: 12, top: 6),
-                              child: InkWell(
-                                onTap: () {
-                                  //displayActivationDialog(context);
-                                  TicketOverlayHelper()
-                                      .displayActivationDialog(context,widget.txdbid);
-                                },
-                                child: Container(
-                                  color: Color.fromRGBO(46, 150, 32, 1),
-                                  height: 60,
-                                  child: Center(
-                                    child: Text(
-                                      "Activate Ticket",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          letterSpacing: 0.3),
-                                    ),
-                                  ),
+                              child: Center(
+                                child: Text("Used on 28 Mar 2021 04:07",
+                                style: GoogleFonts.roboto(
+                                  color:Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
                                 ),
                               ),
+                              margin: const EdgeInsets.only(
+                                  left: 10, right: 10, top: 00),
+                              height: 30,
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(5),
+                                      bottomLeft: Radius.circular(5))),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                  right: 12, left: 12, top: 10),
+                                  right: 12, left: 12, top: 8),
                               child: Container(
                                 color: Color.fromRGBO(26, 108, 151, 1),
-                                height: 60,
+                                height: 52,
                                 child: Center(
                                     child: Row(
                                   children: <Widget>[
@@ -223,16 +198,19 @@ class Ticket2State extends State<UsedTicketPage> {
                                   child: Row(
                                     children: <Widget>[
                                       IconButton(
-                                        icon: Icon(Icons.more_horiz,color: Color.fromRGBO(
-                                                103, 119, 138, 1),),
+                                        icon: Icon(
+                                          Icons.more_horiz,
+                                          color:Color.fromRGBO(
+                                                5, 121, 160, 1),
+                                        ),
                                         onPressed: () {},
                                       ),
                                       Text(
                                         "Actions",
                                         style: TextStyle(
                                             color: Color.fromRGBO(
-                                                103, 119, 138, 1),
-                                            fontWeight: FontWeight.w500),
+                                                5, 121, 160, 1),
+                                            fontWeight: FontWeight.bold),
                                       )
                                     ],
                                   ),
@@ -246,9 +224,9 @@ class Ticket2State extends State<UsedTicketPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => TicketDetail(
-                                            txid: widget.txdbid,
-                                            isDaysLeft: true,
-                                          )),
+                                                txid: widget.txdbid,
+                                                isDaysLeft: true,
+                                              )),
                                     );
                                   },
                                   child: Padding(
@@ -256,18 +234,19 @@ class Ticket2State extends State<UsedTicketPage> {
                                     child: Row(
                                       children: <Widget>[
                                         IconButton(
-                                          icon:
-                                              Icon(Icons.format_list_bulleted,
-                                              color: Color.fromRGBO(
-                                                103, 119, 138, 1),),
+                                          icon: Icon(
+                                            Icons.format_list_bulleted,
+                                            color: Color.fromRGBO(
+                                                5, 121, 160, 1),
+                                          ),
                                           onPressed: () {},
                                         ),
                                         Text(
                                           "Details",
                                           style: TextStyle(
                                               color: Color.fromRGBO(
-                                                  103, 119, 138, 1),
-                                              fontWeight: FontWeight.w500),
+                                                5, 121, 160, 1),
+                                              fontWeight: FontWeight.bold),
                                         )
                                       ],
                                     ),

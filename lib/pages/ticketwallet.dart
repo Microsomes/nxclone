@@ -1,3 +1,4 @@
+import 'package:BubbleGum/v2/pages/usedTicketPage.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
@@ -277,6 +278,7 @@ class _HistoryWalletState extends State<HistoryWallet> {
               -1) {
           } else {
 
+ 
             double paddingTop=12;
 
             if(index==0){
@@ -289,6 +291,15 @@ class _HistoryWalletState extends State<HistoryWallet> {
             padding:  EdgeInsets.only(
                 left: 12, right: 12, top:paddingTop,bottom: 12),
             child: SingleHistoryInactive(
+              onTap: (){
+                print("single history inactive");
+                 Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => UsedTicketPage(
+                      txdbid:  historicalTickets[index].id,
+                    )));
+              },
               ticketModel: historicalTickets[index],
               isUsed: widget.isTickets,
               sizeW: widget.sizeW,

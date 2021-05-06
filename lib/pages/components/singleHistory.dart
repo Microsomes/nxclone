@@ -5,6 +5,7 @@ import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SingleHistoryInactive extends StatelessWidget {
+  final Function onTap;
   final String ticketType;
   final String state;
   final int txdbid;
@@ -18,6 +19,8 @@ class SingleHistoryInactive extends StatelessWidget {
 
   const SingleHistoryInactive(
       {Key key,
+
+      @required this.onTap,
       @required this.sizeW,
       @required this.ticketType,
       @required this.state,
@@ -33,12 +36,8 @@ class SingleHistoryInactive extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => UsedTicketPage(
-                      txdbid: txdbid,
-                    )));
+        this.onTap();
+        
       },
       child: Container(
           width: sizeW * 0.9,
