@@ -135,7 +135,7 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                             return ListTile(
                               onTap: () {
                                 //activate ticket
-
+                                
                                 NXHelp()
                                     .activeTicketv2(id: all[index].id)
                                     .then((value) {
