@@ -36,6 +36,7 @@ class _ActivatedTileState extends State<ActivatedTile> {
     super.initState();
     this.getTimeRemaining();
     one=Timer.periodic(Duration(minutes: 1), (timer) {
+      widget.all.setInactive();
       this.getTimeRemaining();
     });
   }
@@ -43,8 +44,7 @@ class _ActivatedTileState extends State<ActivatedTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      trailing: CircleAvatar(),
-      onTap: () {
+       onTap: () {
         //activate ticket
         widget.all.setInactive();
       },

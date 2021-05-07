@@ -135,15 +135,23 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                             return ListTile(
                               onTap: () {
                                 //activate ticket
-                                
-                                NXHelp()
-                                    .activeTicketv2(id: all[index].id)
-                                    .then((value) {
-                                  print(">" + value.toString());
 
+                                all[index].setActive().then((value) {
+                                  print(value);
                                   widget.onActive();
                                 });
                               },
+                              trailing: GestureDetector(
+                                onTap: (){
+                                  print("expire the ticket");
+                                  all[index].setExpireTicket();
+                                },
+                                                              child: CircleAvatar(
+                                  child: Center(
+                                    child: Icon(Icons.close),
+                                  ),
+                                ),
+                              ),
                               leading: CircleAvatar(
                                 child: Text(all[index].id.toString()),
                               ),
@@ -156,7 +164,19 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                                       all[index].getTimeCreatedHuman()),
                                   all[index].activeStatus == -1
                                       ? Text("Not activated")
-                                      : Text("Activated")
+                                      : Text("Activated"),
+                                  FutureBuilder(
+                                    future: all[index].getTimeRemainingIdle(),
+                                    builder: (ctx, snapshot) {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return Text("no data");
+                                      }
+
+                                      return Text(
+                                          snapshot.data.toString() + " Days");
+                                    },
+                                  )
                                 ],
                               ),
                             );
@@ -250,16 +270,13 @@ class _ShowAvailableTicketsToPurchaseDebugState
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Hero(
               tag: "oc",
-                          child: Container(
-                height: 400,
-                child: CircularProgressIndicator()
-              ),
+              child: Container(height: 400, child: CircularProgressIndicator()),
             );
           }
 
           return Hero(
             tag: "oc",
-                      child: Container(
+            child: Container(
                 height: 399,
                 child: Container(
                   child: SingleChildScrollView(

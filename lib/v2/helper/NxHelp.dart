@@ -77,7 +77,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main18.db";
+  static String DB_NAME = "main21.db";
 
   NXHelp() {
     //load and create table
@@ -96,7 +96,7 @@ class NXHelp {
       ],
       "type": SimType.test,
       "notusedexpiry": Duration(days: 1),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(minutes: 1)
     });
 
     /**
@@ -1302,6 +1302,14 @@ class NXHelp {
     }
   }
 
+  Future expireTicketv2({@required id}) async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    var updateID = await db.rawQuery(
+            "UPDATE ticketwalletv2 SET activeStatus=? WHERE id=?",
+            [3, id]);
+
+  }
+
   Future deactivateTicketv2({@required id}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
@@ -1327,10 +1335,10 @@ class NXHelp {
             [2, currentTime, id]);
         return updateID;
       } else {
-        print("cant deactivate ticket");
+        return "cant deactivate ticket";
       }
     }else{
-      print("ticket isnt isnt even activated bruh");
+      return "ticket isnt isnt even activated bruh";
     }
 
     // return updateID;
