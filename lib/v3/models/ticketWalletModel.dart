@@ -40,23 +40,33 @@ class TicketWalletModel {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
     var toC = activeForMilli += this.created;
-
     DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
     DateTime cur = DateTime.now();
     return activeForDate.difference(cur).inDays;
+  }
+
+  Future getTimeRemainingIdle_seconds() async {
+    TicketModel timeRemaining = await this.getTicketData();
+    var activeForMilli = int.parse(timeRemaining.notusedexpiry);
+    var toC = activeForMilli += this.created;
+    DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
+    DateTime cur = DateTime.now();
+    return activeForDate.difference(cur).inSeconds;
   }
 
   /**
    * the ticket wasnt used so it expired and was not used
    */
   Future setExpireTicket() {
-    this.getTimeRemainingIdle().then((value) {
-      if (value <= -1) {
+    this.getTimeRemainingIdle_seconds().then((value) {
+       if (value <= -1) {
         NXHelp().expireTicketv2(id: this.id).then((value) {
-          print(value);
+          return value;
         });
       }else{
         print("Cannot expire the ticket since theirs still time");
+
+        return value;
       }
     });
   }
