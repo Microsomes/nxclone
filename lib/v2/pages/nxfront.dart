@@ -259,11 +259,9 @@ class NxfrontState extends State<Nxfront> {
                                                   .width *
                                               0.92,
                                           child: TicketTwo(
-                                            state: state,
-                                            tickettype: tickettype,
+
                                             id: defaultTicketid,
-                                            whenActivated:
-                                                "Expires in 12 hours, 54 minutes",
+
                                           ),
                                         ),
                                       ),

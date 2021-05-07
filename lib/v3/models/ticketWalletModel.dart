@@ -45,6 +45,18 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inDays;
   }
 
+  Future getTimeRemainingIdle_Human() async {
+    TicketModel timeRemaining = await this.getTicketData();
+    var activeForMilli = int.parse(timeRemaining.notusedexpiry);
+    var toC = activeForMilli += this.created;
+    DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
+    DateTime cur = DateTime.now();
+    Duration diff=activeForDate.difference(cur);
+
+    return "Expires in "+diff.inDays.toString()+" days";
+  }
+
+
   Future getTimeRemainingIdle_seconds() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);

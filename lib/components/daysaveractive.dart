@@ -1,17 +1,45 @@
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TicketTwo extends StatelessWidget {
-  final String state;
-  final String tickettype;
+/**
+ * tickettwo represents a single ticket on the ticket wallet
+ */
+class TicketTwo extends StatefulWidget {
   final int id;
-
-  final String whenActivated;
   TicketTwo(
-      {@required this.state,
-      @required this.tickettype,
-      @required this.id,
-      this.whenActivated = "Expires in 12 hours, 59 minutes"});
+      {@required this.id});
+  @override
+  _TicketTwoState createState() => _TicketTwoState();
+}
+
+class _TicketTwoState extends State<TicketTwo> {
+   String state;
+   String tickettype;
+
+   String whenActivated;
+
+   @override
+  void initState() {
+
+  NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
+      List<TicketWalletModel> all= value;
+      all[0].getTicketData().then((value) {
+        TicketModel tikData= value;
+        setState(() {
+          state=tikData.state;
+          tickettype=tikData.tickettitle;
+          all[0].getTimeRemaining().then((value) {
+             print(value);
+          });
+        });
+      });
+  });
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

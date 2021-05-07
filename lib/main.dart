@@ -11,6 +11,8 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import "./pages/ticketwalletv2.dart";
+
 import "./debug/ticketWalletDebug.dart";
 
 import 'pages/journey/ticket.dart';
@@ -111,7 +113,7 @@ class HomePagePrestate extends State<HomePagePre>
 
          // return TicketDebug();
 
-           
+        //return TicketWalletV2();
 
 
         SharedPreferences sh = data.data;

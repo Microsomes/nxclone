@@ -132,11 +132,7 @@ class DefaultTicketState extends State<DefaultTicket> {
                     ? SingleInactiveTicket(
                         isUsed: false,
 
-                        sizeW: MediaQuery.of(context).size.width,
-                        ticketType: currentTicket['val'].split(":")[1],
-                        state: currentTicket['val'].split(":")[0],
-                        txdbid: 1,
-                        ticketExpiryDate: "Saved to default",
+
                       )
                     // ticketTwo(title: currentTicket['val'],id: 1,)
                     : Container(

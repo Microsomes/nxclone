@@ -169,14 +169,7 @@ class Stpagestate extends State<Ticketwallet> {
                                       width: MediaQuery.of(context).size.width *
                                           0.92,
                                       child: TicketTwo(
-                                        state: allUnactivatdTickets[index]
-                                            ['state'],
-                                        tickettype: allUnactivatdTickets[index]
-                                            ['tickettype'],
-                                        id: allUnactivatdTickets[index]['id'],
-                                        whenActivated:
-                                            allUnactivatdTickets[index]
-                                                ['activationExpiry'],
+id: 2
                                       ),
                                     ),
                                   ),
@@ -186,15 +179,9 @@ class Stpagestate extends State<Ticketwallet> {
                                 padding: const EdgeInsets.only(
                                     left: 12, right: 12, top: 12),
                                 child: SingleInactiveTicket(
-                                  isUsed: isTickets,
-                                  sizeW: sizeW,
-                                  ticketType: allUnactivatdTickets[index]
-                                      ['tickettype'],
-                                  state: allUnactivatdTickets[index]['state'],
-                                  txdbid: allUnactivatdTickets[index]['id'],
-                                  ticketExpiryDate: allUnactivatdTickets[index]
-                                      ['ticketExpiry'],
-                                ),
+                                  id: 2,
+                                  isUsed: false,
+                                 ),
                               );
                             }),
                         HistoryWallet(allHistoricalTickets: allHistoricalTickets, isTickets: isTickets, sizeW: sizeW),

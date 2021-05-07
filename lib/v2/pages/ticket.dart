@@ -1,3 +1,5 @@
+import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
@@ -21,27 +23,44 @@ class Ticket2State extends State<Ticket2> {
   var currentTicket;
   //will load the current ticket
 
+  String state="klkjn";
+
+  String tickettype="jknhjb";
+
   @override
   void initState() {
     super.initState();
 
-    NXHelp().getTicketById(id: widget.txdbid).then((ticket) {
-      if (ticket.length == 0) {
-        //ticket invalid
-        throw ("invalid ticket");
-      } else {
+    NXHelp().getTicketWalletInfoByID(id: widget.txdbid).then((value) {
+
+      List<TicketWalletModel> allT= value;
+
+      allT[0].getTicketData().then((value) {
+        TicketModel tikData=value;
         setState(() {
-          currentTicket = ticket["list"][0];
+          state=tikData.state;
+          tickettype= tikData.tickettitle;
+          currentTicket="d";
         });
-      }
+      });
+
     });
+
+    // NXHelp().getTicketById(id: widget.txdbid).then((ticket) {
+    //   if (ticket.length == 0) {
+    //     //ticket invalid
+    //     throw ("invalid ticket");
+    //   } else {
+    //     setState(() {
+    //       currentTicket = ticket["list"][0];
+    //     });
+    //   }
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
-    var state = currentTicket['state'];
-    var tickettype = currentTicket['tickettype'];
-    return Scaffold(
+     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: currentTicket != null

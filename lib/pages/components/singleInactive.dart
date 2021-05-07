@@ -1,45 +1,69 @@
-import 'package:BubbleGum/pages/ticketwallet/models/ticketType.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
 
-class SingleInactiveTicket extends StatelessWidget {
-  final String ticketType;
-  final String state;
-  final int txdbid;
-  final String ticketExpiryDate;
-  //pre activation expiry date
-  //ticket id is required
+class SingleInactiveTicket extends StatefulWidget {
+   final int id;
 
-  final TicketModel ticketModel;
+
 
   final bool isUsed;
 
   const SingleInactiveTicket(
       {Key key,
-      @required this.sizeW,
-      @required this.ticketType,
-      @required this.state,
-      @required this.txdbid,
-      @required this.ticketExpiryDate,
-      @required this.isUsed,
-      this.ticketModel
-      })
+        @required this.id,
+       @required this.isUsed,
+       })
       : super(key: key);
 
-  final double sizeW;
+  @override
+  _SingleInactiveTicketState createState() => _SingleInactiveTicketState();
+}
+
+class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
+
+  String state="nkjnkj";
+  String ticketType="kjbjhb";
+  String ticketExpiryDate="nkj";
+
+  @override
+  void initState() {
+
+    NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
+      List<TicketWalletModel> alT= value;
+      alT[0].getTicketData().then((value) {
+          TicketModel tikData=value;
+          setState(() {
+            state=tikData.state;
+            ticketType=tikData.tickettitle;
+            alT[0].getTimeRemainingIdle_Human().then((value) {
+               setState(() {
+                 ticketExpiryDate=value;
+               });
+            });
+          });
+      });
+    });
+
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    var sizeW= MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Ticket2(
-              txdbid: txdbid,
+              txdbid: widget.id,
             )));
       },
       child: Container(
           width: sizeW * 0.9,
-          height: this.ticketModel!=null ? 95: 110,
+          height:   110,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(15)),
           child: Column(
@@ -74,7 +98,7 @@ class SingleInactiveTicket extends StatelessWidget {
                   Container(
                     height: 40,
                     child: Text(
-                      this.isUsed?"INACTIVE":"USED",
+                      this.widget.isUsed!=true?"INACTIVE":"USED",
                       style: TextStyle(
                           color: Color.fromRGBO(211, 211, 211, 1),
                           fontSize: 17,
