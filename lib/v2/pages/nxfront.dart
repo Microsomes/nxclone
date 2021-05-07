@@ -1,3 +1,4 @@
+import 'package:BubbleGum/pages/ticketwalletv2.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/components/daysaveractive.dart';
 import 'package:BubbleGum/pages/help.dart';
@@ -172,7 +173,7 @@ class NxfrontState extends State<Nxfront> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Ticketwallet()),
+                                    builder: (context) => TicketWalletV2()),
                               );
                             },
                             child: Container(
@@ -275,7 +276,7 @@ class NxfrontState extends State<Nxfront> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  Ticketwallet()));
+                                                  TicketWalletV2()));
                                       //Ticketwallet
                                     },
                                     child: Container(

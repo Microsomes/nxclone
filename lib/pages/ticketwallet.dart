@@ -20,9 +20,14 @@ class Stpagestate extends State<Ticketwallet> {
   List allHistoricalTickets;
   //will contain a list of historical tickets
 
-  Stpagestate() {
-    //grabbs all unused tickets
-    allUnactivatdTickets = List();
+  bool isTickets = true;
+
+  PageController _pageController;
+
+  @override
+  void initState() {
+
+     allUnactivatdTickets = List();
     allHistoricalTickets = List();
 
     NXHelp().getAllHistoricalTickets().then((value) {
@@ -34,14 +39,6 @@ class Stpagestate extends State<Ticketwallet> {
     });
     });
 
-    
-  }
-  bool isTickets = true;
-
-  PageController _pageController;
-
-  @override
-  void initState() {
     super.initState();
     _pageController = PageController();
   }
