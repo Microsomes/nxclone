@@ -77,7 +77,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main21.db";
+  static String DB_NAME = "main22.db";
 
   NXHelp() {
     //load and create table
@@ -95,7 +95,7 @@ class NXHelp {
         "Includes travel on all our buses across the West Midlands, Black Country & Coventry."
       ],
       "type": SimType.test,
-      "notusedexpiry": Duration(days: 1),
+      "notusedexpiry": Duration(minutes: 1),
       "activefor": Duration(minutes: 1)
     });
 
