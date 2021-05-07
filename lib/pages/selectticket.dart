@@ -1,5 +1,6 @@
+import 'package:BubbleGum/v2/pages/buyflow/v2/BuyTicketTileMultiple.dart';
+import 'package:BubbleGum/v2/pages/buyflow/v2/buyTicketTileSingle.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/pages/buyflow/tickettypes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelectTicket extends StatelessWidget {
@@ -37,24 +38,53 @@ class Stpagestate extends State<Stpage> {
               height: MediaQuery.of(context).size.height * 0.96,
               child: Column(
                 children: <Widget>[
-                  AppBar(
-                    backgroundColor: Colors.white,
-                    leading: InkWell(
-                        onTap: () {
-                          Navigator.pop(context, true);
-                        },
-                        child: PreferredSize(
-                            preferredSize: Size.fromHeight(500),
-                            child:
-                                Image.asset("images/leftarrow.png", width: 4))),
-                    title: Center(
-                      child: Text(
-                        "Select ticket",
-                        style:
-                            TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
+                  // AppBar(
+                  //   backgroundColor: Colors.white,
+                  //   leading: InkWell(
+                  //       onTap: () {
+                  //         Navigator.pop(context, true);
+                  //       },
+                  //       child: PreferredSize(
+                  //           preferredSize: Size.fromHeight(500),
+                  //           child:
+                  //               Image.asset("images/leftarrow.png", width: 4))),
+                  //   title: Center(
+                  //     child: Text(
+                  //       "Select ticket",
+                  //       style:
+                  //           TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
+                  //     ),
+                  //   ),
+                  // ),
+                  PhysicalModel(
+                      elevation: 2,
+                      color: Colors.red,
+                      shadowColor: Color.fromRGBO(215, 216, 218, 1),
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        children: [
+                          Container(
+                        child: Center(
+                          child: Text(
+                            "Select ticket",
+                            style: GoogleFonts.roboto(
+                              color: Color.fromRGBO(189, 156, 106, 1),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 17
+                            )
+                          ),
+                        ),
+                        height: 55,
+                        color: Colors.white,
                       ),
+                       GestureDetector(
+                         onTap: (){
+                           Navigator.pop(context);
+                         },
+                         child: Image.asset("images/leftarrow.png", width: 35)),
+                        ],
+                      )
                     ),
-                  ),
                    Container(
             child: Row(
               children: <Widget>[
@@ -140,13 +170,19 @@ class Stpagestate extends State<Stpage> {
                       ],
                     ),
                   ),
-                 Expanded(
+                  isTickets==true ? Expanded(
                    child:  Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                     child: BuyTicketTypes(selectedState: selectedState,)
+                     child: BuyTicketTypesSingle(selectedState: selectedState,)
                   ),
-                 )
+                 ):Expanded(
+                    child: Container(
+                      child: BuyTicketTypesMultiple(
+                        selectedState: selectedState,
+                      ),
+                    ),
+                  )
 
                 ],
               ));

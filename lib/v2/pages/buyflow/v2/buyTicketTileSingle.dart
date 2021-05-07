@@ -1,13 +1,13 @@
+import 'package:BubbleGum/v2/pages/buyflow/components/ticketoption.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/buyflow/payment/pickMethod.dart';
 
-import 'components/ticketoption.dart';
-
-class BuyTicketTypes extends StatefulWidget {
+ 
+class BuyTicketTypesSingle extends StatefulWidget {
   final String selectedState;
 
-  BuyTicketTypes({@required this.selectedState});
+  BuyTicketTypesSingle({@required this.selectedState});
 
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +15,7 @@ class BuyTicketTypes extends StatefulWidget {
   }
 }
 
-class BuyTicketTypesState extends State<BuyTicketTypes> {
+class BuyTicketTypesState extends State<BuyTicketTypesSingle> {
   List ticketTypes;
 
   NXHelp nxhelp;
