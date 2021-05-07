@@ -32,7 +32,9 @@ class _TicketTwoState extends State<TicketTwo> {
           state=tikData.state;
           tickettype=tikData.tickettitle;
           all[0].getTimeRemaining().then((value) {
-             print(value);
+             setState(() {
+               whenActivated=value.toString();
+             });
           });
         });
       });

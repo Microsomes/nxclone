@@ -1,4 +1,5 @@
 import 'package:BubbleGum/pages/ticketwalletv2.dart';
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/components/daysaveractive.dart';
 import 'package:BubbleGum/pages/help.dart';
@@ -219,95 +220,16 @@ class NxfrontState extends State<Nxfront> {
                           SizedBox(
                             height: 3,
                           ),
-                          Container(
-                            height: 189,
-                            width: sizeW * 0.96,
-                            decoration: BoxDecoration(
-                                color: Color.fromRGBO(123, 26, 17, 1),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Column(
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 14,
-                                ),
-                                InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Ticket2(
-                                                    txdbid: 0,
-                                                  )));
-                                    },
-                                    child: InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ActualTicket(
-                                                        txid:
-                                                            defaultTicketid)));
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 12, right: 12, top: 3),
-                                        child: Container(
-                                          height: 123,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.92,
-                                          child: TicketTwo(
-
-                                            id: defaultTicketid,
-
-                                          ),
-                                        ),
-                                      ),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 17),
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  TicketWalletV2()));
-                                      //Ticketwallet
-                                    },
-                                    child: Container(
-                                        alignment: Alignment.bottomRight,
-                                        width: sizeW,
-                                        height: 17,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: <Widget>[
-                                            Text(
-                                              "MORE TICKETS",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 17,
-                                                  color: Colors.white),
-                                            ),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            Image.asset(
-                                              "images/rightwhite.png",
-                                              width: 15,
-                                            ),
-                                            SizedBox(
-                                              width: 12,
-                                            )
-                                          ],
-                                        )),
-                                  ),
-                                ),
-                              ],
-                            ),
+                          FutureBuilder(
+                            future: NXHelp().buyDefaultTicketAndActivatev2(),
+                            builder: (ctx,snapshot){
+                              print(snapshot.data);
+                              if(snapshot.connectionState==ConnectionState.waiting){
+                                return CircularProgressIndicator();
+                              }else{
+                              return ShowTicketOnNx(sizeW: sizeW, defaultTicketid: snapshot.data);
+                              }
+                            },
                           ),
                           SizedBox(
                             height: spaceApart,
@@ -419,6 +341,131 @@ class NxfrontState extends State<Nxfront> {
                   )),
                 ],
               ))),
+    );
+  }
+}
+
+class ShowTicketOnNx extends StatefulWidget {
+  const ShowTicketOnNx({
+    Key key,
+    @required this.sizeW,
+    @required this.defaultTicketid,
+  }) : super(key: key);
+
+  final double sizeW;
+  final int defaultTicketid;
+
+  @override
+  _ShowTicketOnNxState createState() => _ShowTicketOnNxState();
+}
+
+class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
+
+
+
+  @override
+  void initState() {
+
+    NXHelp().getTicketWalletInfoByID(id: widget.defaultTicketid).then((value) {
+      List<TicketWalletModel> tw= value;
+      print(">"+tw[0].activeStatus.toString());
+    });
+
+    super.initState();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 189,
+      width: widget.sizeW * 0.96,
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(123, 26, 17, 1),
+          borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 14,
+          ),
+          InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Ticket2(
+                              txdbid: 0,
+                            )));
+              },
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ActualTicket(
+                                  txid:
+                                      widget.defaultTicketid)));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 12, right: 12, top: 3),
+                  child: Container(
+                    height: 123,
+                    width: MediaQuery.of(context)
+                            .size
+                            .width *
+                        0.92,
+                    child: TicketTwo(
+
+                      id: widget.defaultTicketid,
+
+                    ),
+                  ),
+                ),
+              )),
+          Padding(
+            padding: const EdgeInsets.only(top: 17),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            TicketWalletV2()));
+                //Ticketwallet
+              },
+              child: Container(
+                  alignment: Alignment.bottomRight,
+                  width: widget.sizeW,
+                  height: 17,
+                  child: Row(
+                    mainAxisAlignment:
+                        MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        "MORE TICKETS",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 17,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Image.asset(
+                        "images/rightwhite.png",
+                        width: 15,
+                      ),
+                      SizedBox(
+                        width: 12,
+                      )
+                    ],
+                  )),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

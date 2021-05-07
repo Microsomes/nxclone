@@ -3,6 +3,7 @@ import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class DefHomePageDialog extends StatefulWidget {
   final Function onSelectDefHome;
 
@@ -27,9 +28,9 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
         setState(() {
           curKey = pref.getString("def_home_adv");
         });
-      }else{
+      } else {
         setState(() {
-          curKey="non_sim_home";
+          curKey = "non_sim_home";
         });
       }
     });
@@ -67,11 +68,46 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
                 itemCount: allHomePageSettings.length,
                 itemBuilder: (ctx, index) {
                   return Material(
-                    color: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            allHomePageSettings[index].id == curKey ? 10 : 0)),
+                    color: allHomePageSettings[index].id == curKey
+                        ? Colors.yellow
+                        : Colors.transparent,
                     child: ListTile(
-                      trailing: allHomePageSettings[index].id == curKey
-                          ? Icon(Icons.check)
-                          : Icon(Icons.info, color: Colors.redAccent),
+                      // trailing: allHomePageSettings[index].id == curKey
+                      //     ? Icon(Icons.check)
+                      //     : Icon(Icons.info, color: Colors.redAccent),
+                      leading: IconButton(
+                        icon: Icon(
+                          Icons.info_outline,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              child: AlertDialog(
+                                backgroundColor: Colors.redAccent,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                title: Text(allHomePageSettings[index].name),
+                                content: Container(
+                                  height: 150,
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          allHomePageSettings[index].info,
+                                          style:
+                                              GoogleFonts.roboto(fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ));
+                        },
+                      ),
                       onTap: () {
                         setState(() {
                           curKey = allHomePageSettings[index].id;
@@ -85,10 +121,10 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
                         style: GoogleFonts.roboto(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
-                      subtitle: Text(
-                        allHomePageSettings[index].info,
-                        style: GoogleFonts.roboto(fontSize: 15),
-                      ),
+                      // subtitle: Text(
+                      //   allHomePageSettings[index].info,
+                      //   style: GoogleFonts.roboto(fontSize: 15),
+                      // ),
                     ),
                   );
                 },
