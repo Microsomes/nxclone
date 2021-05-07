@@ -43,8 +43,10 @@ class _ActivatedTileState extends State<ActivatedTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      trailing: CircleAvatar(),
       onTap: () {
         //activate ticket
+        widget.all.setInactive();
       },
       leading: CircleAvatar(
         child: Text(widget.all.id.toString()),

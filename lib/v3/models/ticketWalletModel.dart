@@ -17,7 +17,7 @@ class TicketWalletModel{
 
 
   Future setInactive() async {
-    
+    await NXHelp().deactivateTicketv2(id: this.id); 
   }
 
   Future getTicketData() async {

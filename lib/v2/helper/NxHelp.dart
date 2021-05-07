@@ -1280,7 +1280,7 @@ class NXHelp {
         ));
       });
     
-    return ticketWalletInfo;
+    return allTInfo;
   }
 
   /**
@@ -1289,9 +1289,9 @@ class NXHelp {
   Future activeTicketv2({@required id}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
-    var ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
+    List<TicketWalletModel> ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
     if (ticketInfoFromWallet.length >= 1) {
-      if (ticketInfoFromWallet[0]['activeStatus'] == -1) {
+      if (ticketInfoFromWallet[0].activeStatus == -1) {
         var updateID = await db.rawQuery(
             "UPDATE ticketwalletv2 SET activeStatus=?, whenActivated=? WHERE id=?",
             [1, currentTime, id]);
@@ -1310,12 +1310,30 @@ class NXHelp {
    
 
   Future deactivateTicketv2({@required id}) async {
-      var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
-    var ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
+    List<TicketWalletModel> ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
+    
+    int whenActivated= ticketInfoFromWallet[0].whenActivated;
 
-    print(ticketInfoFromWallet);
+    TicketModel ticketData= await ticketInfoFromWallet[0].getTicketData();
 
+    int expiresIn= int.parse(ticketData.activefor);
+
+    int toA= whenActivated+=expiresIn;
+
+    if(DateTime.now().millisecondsSinceEpoch>toA){
+      print("fff");
+      print("can set off");
+    }else{
+      print("cant deactivate ticket");
+    }
+
+
+    // var updateID = await db.rawQuery(
+    //         "UPDATE ticketwalletv2 SET activeStatus=?, whenExpired=? WHERE id=?",
+    //         [2, currentTime, id]);
+    // return updateID;
   }
 
   //activates ticket by id
