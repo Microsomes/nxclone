@@ -4,6 +4,8 @@ import '../../v2/helper/NxHelp.dart';
 
 import './ticketModel.dart';
 
+import 'dart:math' as math;
+
 class TicketWalletModel {
   final int id;
   final int ticketid;
@@ -36,6 +38,29 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inMinutes;
   }
 
+  Future getTimeRemaining_human() async {
+    TicketModel timeRemaining = await this.getTicketData();
+    var activeForMilli = int.parse(timeRemaining.activefor);
+    var toC = activeForMilli += this.whenActivated;
+    DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
+    DateTime cur = DateTime.now();
+    Duration a = activeForDate.difference(cur);
+
+    int inMinutes= a.inMinutes;
+    
+    double hours= inMinutes/60;
+
+    int totalHours= hours.floor();
+
+    int totalMinutes= inMinutes-totalHours*60;
+
+    if (a.inMinutes >= 30) {
+      return "Expires in " + totalHours.toString()+" hours, "+totalMinutes.toString()+" minutes";
+    } else {
+      return "Expires in " + a.inMinutes.toString()+" minutes";
+    }
+  }
+
   Future getTimeRemainingIdle() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
@@ -51,11 +76,10 @@ class TicketWalletModel {
     var toC = activeForMilli += this.created;
     DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
     DateTime cur = DateTime.now();
-    Duration diff=activeForDate.difference(cur);
+    Duration diff = activeForDate.difference(cur);
 
-    return "Expires in "+diff.inDays.toString()+" days";
+    return "Expires in " + diff.inDays.toString() + " days";
   }
-
 
   Future getTimeRemainingIdle_seconds() async {
     TicketModel timeRemaining = await this.getTicketData();
@@ -71,11 +95,11 @@ class TicketWalletModel {
    */
   Future setExpireTicket() {
     this.getTimeRemainingIdle_seconds().then((value) {
-       if (value <= -1) {
+      if (value <= -1) {
         NXHelp().expireTicketv2(id: this.id).then((value) {
           return value;
         });
-      }else{
+      } else {
         print("Cannot expire the ticket since theirs still time");
 
         return value;

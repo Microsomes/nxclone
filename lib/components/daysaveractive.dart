@@ -3,42 +3,59 @@ import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
 
 /**
  * tickettwo represents a single ticket on the ticket wallet
  */
 class TicketTwo extends StatefulWidget {
   final int id;
-  TicketTwo(
-      {@required this.id});
+  TicketTwo({@required this.id});
   @override
   _TicketTwoState createState() => _TicketTwoState();
 }
 
 class _TicketTwoState extends State<TicketTwo> {
-   String state;
-   String tickettype;
+  String state;
+  String tickettype;
 
-   String whenActivated;
+  String whenActivated;
 
-   @override
+  List<TicketWalletModel> allC;
+
+  @override
   void initState() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      print("....");
+      setState(() {
+        allC[0].getTimeRemaining_human().then((value) {
+          setState(() {
+            whenActivated = value.toString();
 
-  NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
-      List<TicketWalletModel> all= value;
-      all[0].getTicketData().then((value) {
-        TicketModel tikData= value;
-        setState(() {
-          state=tikData.state;
-          tickettype=tikData.tickettitle;
-          all[0].getTimeRemaining().then((value) {
-             setState(() {
-               whenActivated=value.toString();
-             });
+            print(whenActivated);
           });
         });
       });
-  });
+    });
+
+    NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
+      List<TicketWalletModel> all = value;
+      setState(() {
+        allC = all;
+      });
+      all[0].getTicketData().then((value) {
+        TicketModel tikData = value;
+        setState(() {
+          state = tikData.state;
+          tickettype = tikData.tickettitle;
+          all[0].getTimeRemaining_human().then((value) {
+            setState(() {
+              whenActivated = value.toString();
+            });
+          });
+        });
+      });
+    });
 
     super.initState();
   }
@@ -131,9 +148,7 @@ class _TicketTwoState extends State<TicketTwo> {
                       padding: const EdgeInsets.only(bottom: 2),
                       child: Text(
                         "$whenActivated",
-                        style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.w700
-                        ),
+                        style: GoogleFonts.roboto(fontWeight: FontWeight.w700),
                       ),
                     )),
               )
