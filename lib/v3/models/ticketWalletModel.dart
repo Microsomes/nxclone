@@ -15,6 +15,11 @@ class TicketWalletModel{
   final String tag;
 
 
+
+  Future setInactive() async {
+    
+  }
+
   Future getTicketData() async {
     return  await NXHelp().getTicketByIDV2(this.ticketid);
   }

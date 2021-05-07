@@ -28,57 +28,24 @@ class _TicketDebugState extends State<TicketDebug> {
               onPressed: () {
                 showDialog(
                     context: context,
-                    child: AlertDialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      backgroundColor: Colors.white,
-                      title: Text("Debug pick ticket"),
-                      content: FutureBuilder(
-                        future: NXHelp().getAllAvailableToPurchaseTickets(),
-                        builder: (ctx, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return Text("no data");
-                          }
+                    child: ShowAvailableTicketsToPurchaseDebug(
+                      onTicketPicked: (int id) {
+                        NXHelp()
+                            .buyTicketv2(ticketID: id, tag: "active")
+                            .then((value) {
+                          setState(() {
+                            isAvailable = !isAvailable;
+                          });
+                          Future.delayed(Duration(milliseconds: 1), () {
+                            setState(() {
+                              isAvailable = !isAvailable;
+                            });
+                          });
 
-                          return Container(
-                              height: 399,
-                              child: Container(
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      for (var i = 0; i < snapshot.data.length; i++)
-                                        Column(
-                                          children: [
-                                            Text(snapshot.data[i]['id'].toString()+"\n"+snapshot.data[i]['tickettitle'].toString() +"\n"+snapshot.data[i]['state'].toString(),
-                                            textAlign: TextAlign.center,
-                                            ),
-                                            RaisedButton(
-                                              child: Text("Pick"),
-                                              color: Colors.green,
-
-                                              onPressed: (){},
-                                            )
-                                          ],
-                                        )
-                                    ],
-                                  ),
-                                ),
-                              ));
-                        },
-                      ),
+                          Navigator.pop(context);
+                        });
+                      },
                     ));
-
-                // NXHelp().buyTicketv2(ticketID: 2, tag: "active").then((value) {
-                //   setState(() {
-                //     isAvailable = !isAvailable;
-                //   });
-                //   Future.delayed(Duration(milliseconds: 1), () {
-                //     setState(() {
-                //       isAvailable = !isAvailable;
-                //     });
-                //   });
-                // });
               },
             ),
             IconButton(
@@ -255,6 +222,76 @@ class _ShowAvailableTicketsState2 extends State<ShowActiveTickets> {
           );
         }
       },
+    );
+  }
+}
+
+class ShowAvailableTicketsToPurchaseDebug extends StatefulWidget {
+  final Function onTicketPicked;
+
+  ShowAvailableTicketsToPurchaseDebug({@required this.onTicketPicked});
+
+  @override
+  _ShowAvailableTicketsToPurchaseDebugState createState() =>
+      _ShowAvailableTicketsToPurchaseDebugState();
+}
+
+class _ShowAvailableTicketsToPurchaseDebugState
+    extends State<ShowAvailableTicketsToPurchaseDebug> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      backgroundColor: Colors.white,
+      title: Text("Debug pick ticket"),
+      content: FutureBuilder(
+        future: NXHelp().getAllAvailableToPurchaseTickets(),
+        builder: (ctx, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Hero(
+              tag: "oc",
+                          child: Container(
+                height: 400,
+                child: CircularProgressIndicator()
+              ),
+            );
+          }
+
+          return Hero(
+            tag: "oc",
+                      child: Container(
+                height: 399,
+                child: Container(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        for (var i = 0; i < snapshot.data.length; i++)
+                          Column(
+                            children: [
+                              Text(
+                                snapshot.data[i]['id'].toString() +
+                                    "\n" +
+                                    snapshot.data[i]['tickettitle'].toString() +
+                                    "\n" +
+                                    snapshot.data[i]['state'].toString(),
+                                textAlign: TextAlign.center,
+                              ),
+                              RaisedButton(
+                                child: Text("Pick"),
+                                color: Colors.green,
+                                onPressed: () {
+                                  widget.onTicketPicked(snapshot.data[i]['id']);
+                                },
+                              )
+                            ],
+                          )
+                      ],
+                    ),
+                  ),
+                )),
+          );
+        },
+      ),
     );
   }
 }

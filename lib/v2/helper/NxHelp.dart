@@ -951,8 +951,10 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> list =
         await db.rawQuery("SELECT * FROM tickets ORDER BY state desc");
-    return list;
-  }
+        await Future.delayed(Duration(milliseconds: 200),(){
+        });
+         return list;
+   }
 
   //get tickets by id
   /**
@@ -1262,6 +1264,22 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> ticketWalletInfo = await db
         .rawQuery("SELECT * from ticketwalletv2 WHERE id=? LIMIT 1", [id]);
+
+    List<TicketWalletModel> allTInfo= List();
+
+      ticketWalletInfo.forEach((element) { 
+        allTInfo.add(TicketWalletModel(
+          id: element['id'],
+          ticketid: element['ticketid'],
+          activeStatus: element['activeStatus'],
+          whenActivated: element['whenActivated'],
+          whenExpired: element['whenExpired'],
+          created: element['created'],
+          cardLast4: element['cardLast4'],
+          tag: element['tag']
+        ));
+      });
+    
     return ticketWalletInfo;
   }
 
@@ -1271,9 +1289,7 @@ class NXHelp {
   Future activeTicketv2({@required id}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
-
     var ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
-
     if (ticketInfoFromWallet.length >= 1) {
       if (ticketInfoFromWallet[0]['activeStatus'] == -1) {
         var updateID = await db.rawQuery(
@@ -1287,6 +1303,19 @@ class NXHelp {
     } else {
       print("cannot find that wallet ticket");
     }
+  }
+
+
+   
+   
+
+  Future deactivateTicketv2({@required id}) async {
+      var db = await openDatabase(NXHelp.DB_NAME);
+    var currentTime = new DateTime.now().millisecondsSinceEpoch;
+    var ticketInfoFromWallet = await this.getTicketWalletInfoByID(id: id);
+
+    print(ticketInfoFromWallet);
+
   }
 
   //activates ticket by id
