@@ -459,13 +459,10 @@ class _NXFront_TopBarState extends State<NXFront_TopBar> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => UtilitiesMenu()));
                 },
-                child: Positioned(
-                  top: 20,
-                  child: Image.asset(
-                    "images/v3/menu_icon.png",
-                    width: 50,
-                    height: 25,
-                  ),
+                child: Image.asset(
+                  "images/v3/menu_icon.png",
+                  width: 50,
+                  height: 25,
                 ),
               )
             ],

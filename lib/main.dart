@@ -109,137 +109,10 @@ class HomePagePrestate extends State<HomePagePre>
         //   print(value);
         // });
 
-          return TicketDebug();
+         // return TicketDebug();
 
-           return Scaffold(
-            backgroundColor: Colors.white,
-            body: FutureBuilder(
-              future: NXHelp().getAllActiveTicketsV2(),
-              builder: (ctx, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                 
-                  return CircularProgressIndicator();
-                 } else {
-                List<Map> all=snapshot.data;
+           
 
-                  return Column(
-                    children: [
-                      
-                      Expanded(
-                                              child: Container(
-                          height: 400,
-                    padding: EdgeInsets.all(20),
-                    child: ListView.builder(
-                        itemCount: all.length,
-                        itemBuilder: (ctx, index) {
-                          return FutureBuilder(
-                            future: NXHelp().getTicketByID(all[index]['ticketid']),
-                            builder: (ctx,snapshot){
-                              if(snapshot.connectionState==ConnectionState.waiting){
-                                return CircularProgressIndicator();
-                              }else{
-                              
-                              return ListTile(
-                                onTap: (){
-                                  //activate ticket
-
-                                  NXHelp().activeTicketv2(id: all[index]['id']).then((value) {
-                                    print(">"+value.toString());
-                                  });
-
-                                },
-                                leading: CircleAvatar(
-
-                                  child: Text(all[index]['id'].toString()),
-                                ),
-                            title:  Text(snapshot.data[0]['tickettitle']),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                              Text(snapshot.data[0]['state']),
-                              Text("Purchase Date:\n"+all[index]['created']),
-                              all[index]['activeStatus']== -1 ? Text("Not activated") : Text("Activated")
-                              
-                            ],),
-                          );
-                              }
-                            },
-                          );
-                        },
-                    ),
-                  ),
-                      )
-                    ],
-                  );
-                }
-              },
-            ));
-
-        return Scaffold(
-            backgroundColor: Colors.white,
-            body: FutureBuilder(
-              future: NXHelp().getAllUseableTicketsv2(),
-              builder: (ctx, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                 
-                  return CircularProgressIndicator();
-                 } else {
-                List<Map> all=snapshot.data;
-
-                  return Column(
-                    children: [
-
-                      Expanded(
-                                              child: Container(
-                          height: 400,
-                    padding: EdgeInsets.all(20),
-                    child: ListView.builder(
-                        itemCount: all.length,
-                        itemBuilder: (ctx, index) {
-                          return FutureBuilder(
-                            future: NXHelp().getTicketByID(all[index]['ticketid']),
-                            builder: (ctx,snapshot){
-                              if(snapshot.connectionState==ConnectionState.waiting){
-                                return CircularProgressIndicator();
-                              }else{
-                              
-                              return ListTile(
-                                onTap: (){
-                                  //activate ticket
-
-                                  NXHelp().activeTicketv2(id: all[index]['id']).then((value) {
-                                    print(">"+value.toString());
-                                  });
-
-                                },
-                                leading: CircleAvatar(
-
-                                  child: Text(all[index]['id'].toString()),
-                                ),
-                            title:  Text(snapshot.data[0]['tickettitle']),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                              Text(snapshot.data[0]['state']),
-                              Text("Purchase Date:\n"+all[index]['created']),
-                              all[index]['activeStatus']== -1 ? Text("Not activated") : Text("Activated")
-                              
-                            ],),
-                          );
-                              }
-                            },
-                          );
-                        },
-                    ),
-                  ),
-                      )
-                    ],
-                  );
-                }
-              },
-            ));
-
-        return Text("....");
 
         SharedPreferences sh = data.data;
         if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
@@ -255,11 +128,11 @@ class HomePagePrestate extends State<HomePagePre>
             return Nxfront();
           } else {
             return FutureBuilder(
-              future: NXHelp().buyAndActivateDefaultTicket(),
+              future: NXHelp().buyDefaultTicketAndActivatev2(),
               builder: (ctx, snapshot) {
                 if (snapshot.data != null) {
-                  var ticketid = snapshot.data['ticketid'];
-
+                  var ticketid = snapshot.data;
+                
                   return ActualTicket(
                     txid: ticketid,
                   );

@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/components/ticketColor.dart';
@@ -75,18 +77,33 @@ class ActualTicketState extends State<ActualTicket> {
 
     currentQR = listOfQrCollections[0];
 
-    NXHelp().getTicketById(id: widget.txid).then((ticket) {
-      print(ticket);
-      print(widget.txid);
+    NXHelp().getTicketWalletInfoByID(id: widget.txid).then((value) {
+      List<TicketWalletModel> tikdata =value;
 
-      setState(() {
-        state = ticket["list"][0]['state'];
-        ticketTitle = ticket["list"][0]['tickettype'];
-        subtitle = ticket["subtitle"];
-        print(state);
-        print(ticketTitle);
+      tikdata[0].getTicketData().then((value) {
+
+        TicketModel tkData=value;
+        setState(() {
+          state= tkData.state;
+          ticketTitle= tkData.tickettitle;
+          subtitle=tkData.ticketsubtitle;
+        });
       });
+      
     });
+
+    // NXHelp().getTicketById(id: widget.txid).then((ticket) {
+    //   print(ticket);
+    //   print(widget.txid);
+
+    //   setState(() {
+    //     state = ticket["list"][0]['state'];
+    //     ticketTitle = ticket["list"][0]['tickettype'];
+    //     subtitle = ticket["subtitle"];
+    //     print(state);
+    //     print(ticketTitle);
+    //   });
+    // });
   }
 
   @override
@@ -132,7 +149,6 @@ class ActualTicketState extends State<ActualTicket> {
           return;
         },
         child: FutureBuilder(
-          future: NXHelp().getAllActiveTickets(),
           builder: (ctx, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Scaffold(
@@ -144,7 +160,12 @@ class ActualTicketState extends State<ActualTicket> {
               );
             }
 
-            return Scaffold(
+          return state==null ?  Scaffold(
+            backgroundColor: Colors.yellow,
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ):   Scaffold(
               backgroundColor: Colors.white,
               body: SafeArea(
                 child: Container(

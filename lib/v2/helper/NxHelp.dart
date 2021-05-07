@@ -847,6 +847,21 @@ class NXHelp {
   //   //todo
   // }
 
+
+  Future buyDefaultTicket() async {
+     SharedPreferences pref = await SharedPreferences.getInstance();
+    int defTicketID = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+    var id= await this.buyTicketv2(ticketID: defTicketID, tag: "AUTO_BUY");
+   return id;
+  }
+
+  Future buyDefaultTicketAndActivatev2() async {
+    int ticketid= await this.buyDefaultTicket();
+  List<TicketWalletModel> d= await this.getTicketWalletInfoByID(id: ticketid);
+   await d[0].setActive();
+    return ticketid;
+  }
+
   //if not null will buy and return an ticket id
   Future buyAndActivateDefaultTicket() async {
     /**
@@ -908,6 +923,8 @@ class NXHelp {
       return {"ticketid": ticketid, "state": defstate, "tickettype": deftttype};
     }
   }
+
+  
 
   Map returnTicketExpiryInfo(String ttype) {
     //ticket expires in that many hours
@@ -1292,6 +1309,7 @@ class NXHelp {
         var updateID = await db.rawQuery(
             "UPDATE ticketwalletv2 SET activeStatus=?, whenActivated=? WHERE id=?",
             [1, currentTime, id]);
+            print("activated ticket");
 
         return updateID;
       } else {
@@ -1300,6 +1318,7 @@ class NXHelp {
     } else {
       print("cannot find that wallet ticket");
     }
+    return 1;
   }
 
   Future expireTicketv2({@required id}) async {
@@ -1397,6 +1416,7 @@ class NXHelp {
       var id = await db.rawInsert(
           "INSERT INTO ticketwalletv2 (ticketid,activeStatus,cardLast4,tag,created) VALUES (?,?,?,?,?)",
           [ticketID, -1, "7382", tag, DateTime.now().millisecondsSinceEpoch]);
+          print(id);
       return id;
     } else {
       return null;
