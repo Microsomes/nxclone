@@ -21,18 +21,11 @@ class TicketWalletModel{
 
   Future getTimeRemaining() async{
     TicketModel timeRemaining=  await this.getTicketData();
-
-  var activeForMilli= int.parse(timeRemaining.activefor);
-
-  var toC= activeForMilli+=this.whenActivated;
-
-  DateTime activeForDate= DateTime.fromMillisecondsSinceEpoch(toC);
-
-  DateTime cur= DateTime.now();
- 
-    print(activeForDate.difference(cur).inMinutes);
-
-     
+    var activeForMilli= int.parse(timeRemaining.activefor);
+    var toC= activeForMilli+=this.whenActivated;
+    DateTime activeForDate= DateTime.fromMillisecondsSinceEpoch(toC);
+    DateTime cur= DateTime.now();
+    return activeForDate.difference(cur).inMinutes;
   }
 
 

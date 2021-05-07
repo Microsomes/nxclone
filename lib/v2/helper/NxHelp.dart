@@ -1164,7 +1164,7 @@ class NXHelp {
   Future getAllActiveTicketsV2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
-        "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
+        "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY whenActivated DESC",
         [1]);
 
         List<TicketWalletModel> allTicketsA = List();
