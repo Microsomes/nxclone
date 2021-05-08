@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../pages/ticketwallet.dart';
+import 'ticketwalletv2comp/ticketsAlreadyUsed.dart';
 import 'ticketwalletv2comp/ticketsReadyToUse.dart';
 
 class TicketWalletV2 extends StatefulWidget {
@@ -86,10 +87,12 @@ class _TicketWalletV2State extends State<TicketWalletV2> {
               ],
             ),
           ),
-          Expanded(
+         isTickets==true ? Expanded(
             child: Container(
                child: TicketReadyToUse(),
             ),
+          ):Expanded(
+            child: TicketAlreadyUsed(),
           )
         ],
       ),

@@ -1155,7 +1155,7 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=?  OR activeStatus=?  ORDER BY created DESC",
-        [2,3]);
+        [1]);
          List<TicketWalletModel> allTicketsA = List();
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
@@ -1170,6 +1170,44 @@ class NXHelp {
     });
     return allTicketsA;
   }
+
+
+   /**
+   * Returns all the available tickets in your ticket walletv2
+   */
+  Future getActiveAndUsableTicketsv2() async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> allTickets = await db.rawQuery(
+        "SELECT * FROM ticketwalletv2 WHERE activeStatus=? OR activeStatus=? ORDER BY created DESC",
+        [-1,1]);
+    List<TicketWalletModel> allTicketsA = List();
+    allTickets.forEach((element) {
+      allTicketsA.add(TicketWalletModel(
+          id: element['id'],
+          created: element['created'],
+          ticketid: element['ticketid'],
+          activeStatus: element['activeStatus'],
+          whenActivated: element['whenActivated'],
+          whenExpired: element['whenExpired'],
+          cardLast4: element['cardLast4'],
+          tag: element['tag']));
+    });
+
+    List<TicketWalletModel> allTicketsAA = List();
+
+    allTicketsA.forEach((element) { 
+      element.setInactive().then((value) {
+        if(value==0){
+          allTicketsAA.add(element);
+        }
+      });
+    });
+
+
+
+    return allTicketsA;
+  }
+
 
   /**
    * Returns all the available tickets in your ticket walletv2
@@ -1371,14 +1409,14 @@ class NXHelp {
         var updateID = await db.rawQuery(
             "UPDATE ticketwalletv2 SET activeStatus=?, whenExpired=? WHERE id=?",
             [2, currentTime, id]);
-        return updateID;
+        return 1;
       } else {
         print("cant deactive ticket");
-        return "cant deactivate ticket";
+        return 0;
       }
     } else {
       print("ticket isnt isnt even activated bruh");
-      return "ticket isnt isnt even activated bruh";
+      return 0;
     }
 
     // return updateID;

@@ -5,19 +5,11 @@ import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 
-class TicketReadyToUse extends StatefulWidget{
-  @override
-  _TicketReadyToUseState createState() => _TicketReadyToUseState();
-}
-
-class _TicketReadyToUseState extends State<TicketReadyToUse> {
-
-  bool isTik=true;
-
+class TicketAlreadyUsed extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return isTik==false ?Container(): FutureBuilder(
-      future: NXHelp().getActiveAndUsableTicketsv2(),
+    return FutureBuilder(
+      future: NXHelp().getAllUsedTicketsv2(),
        builder: (BuildContext context, AsyncSnapshot snapshot) {
 
 
@@ -44,25 +36,9 @@ class _TicketReadyToUseState extends State<TicketReadyToUse> {
                     height: 110,
                     width: MediaQuery.of(context).size.width *
                         0.92,
-                    child: data[index].activeStatus==-1? SingleInactiveTicket(
+                    child: SingleInactiveTicket(
                       id: data[index].id,
                       isUsed: false
-                    ):Container(
-                      child: TicketTwo(
-                        id: data[index].id,
-                        onExpire: (id){
-                          print("expired");
-                          setState(() {
-                            isTik=false;
-                          });
-                          Future.delayed(Duration(seconds: 1),(){
-                            setState(() {
-                              isTik=true;
-                            });
-                          });
-                        },
-                        
-                      )
                     ),
                   ),
                 ),
@@ -71,4 +47,5 @@ class _TicketReadyToUseState extends State<TicketReadyToUse> {
       },
     );
   }
+
 }

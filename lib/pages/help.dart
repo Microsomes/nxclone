@@ -1,3 +1,4 @@
+import 'package:BubbleGum/debug/ticketWalletDebug.dart';
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/pages/terms.dart';
 import 'package:flutter/material.dart';
@@ -172,6 +173,9 @@ class Stpagestate extends State<Stpage> {
                 height: 10,
               ),
               InkWell(
+                onDoubleTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>TicketDebug()));
+                },
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => FaqPage()));

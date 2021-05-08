@@ -38,8 +38,9 @@ class _TicketTwoState extends State<TicketTwo> {
       print("....");
       setState(() {
         allC[0].getTimeRemaining().then((value) {
+          print(value);
           if(value<=0){
-            allC[0].setInactive();
+            
             if(widget.onExpire!=null){
               
               widget.onExpire(widget.id);
