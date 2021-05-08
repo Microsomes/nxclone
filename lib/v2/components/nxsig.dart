@@ -89,6 +89,10 @@ class NxsigState extends State<Nxsig> {
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/university.png")
       );
+    }else{
+      return Container(
+        child: Image.asset("images/v4/nxsig/finalsig/westmidlands.png"),
+      );
     }
 
     return Container(

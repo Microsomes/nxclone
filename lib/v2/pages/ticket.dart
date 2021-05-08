@@ -7,6 +7,7 @@ import 'package:BubbleGum/v2/pages/overlays/ticketPreActivate.dart';
 import 'package:BubbleGum/v2/components/movingText.dart';
 import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Ticket2 extends StatefulWidget {
   final int txdbid;
@@ -82,8 +83,10 @@ class Ticket2State extends State<Ticket2> {
                           padding: const EdgeInsets.only(right: 20, top: 10),
                           child: Text(
                             "Close",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                            style:GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15
+                            )
                           ),
                         ),
                       )

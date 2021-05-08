@@ -1,6 +1,8 @@
 import 'package:BubbleGum/components/daysaveractive.dart';
 import 'package:BubbleGum/pages/components/singleInactive.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/ticket.dart';
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
@@ -48,20 +50,26 @@ class _TicketReadyToUseState extends State<TicketReadyToUse> {
                       id: data[index].id,
                       isUsed: false
                     ):Container(
-                      child: TicketTwo(
-                        id: data[index].id,
-                        onExpire: (id){
-                          print("expired");
-                          setState(() {
-                            isTik=false;
-                          });
-                          Future.delayed(Duration(seconds: 1),(){
-                            setState(() {
-                              isTik=true;
-                            });
-                          });
+                      child: GestureDetector(
+                        onTap: (){
+                          print("open ticket then");
+                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ActualTicket(txid: data[index].id)));
                         },
-                        
+                                              child: TicketTwo(
+                          id: data[index].id,
+                          onExpire: (id){
+                            print("expired");
+                            setState(() {
+                              isTik=false;
+                            });
+                            Future.delayed(Duration(seconds: 1),(){
+                              setState(() {
+                                isTik=true;
+                              });
+                            });
+                          },
+                          
+                        ),
                       )
                     ),
                   ),
