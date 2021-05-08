@@ -48,7 +48,6 @@ class TicketDetailState extends State<TicketDetail> {
       List<TicketWalletModel> al= value;
       al[0].getTicketData().then((value) async {
         TicketModel md= value;
-        await Future.delayed(Duration(seconds: 1));
         setState(() {
           ticketModel=md;
           ticketWalletModel=al[0];

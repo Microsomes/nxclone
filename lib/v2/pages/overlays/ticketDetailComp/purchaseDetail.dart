@@ -24,11 +24,14 @@ class _PurchaseDetailModelState extends State<PurchaseDetailModel> {
 
   String purchaseDate;
 
+  String last4;
+
 
   @override
   void initState() {
     setState(() {
       purchaseDate=widget.ticketWalletInfo.getPurchaseDateHuman();
+      last4= widget.ticketWalletInfo.cardLast4;
     });
     super.initState();
   }
@@ -86,7 +89,7 @@ class _PurchaseDetailModelState extends State<PurchaseDetailModel> {
                                                           height: 10,
                                                         ),
                                                         Text(
-                                                          "Card ending in ****1904 ",
+                                                          "Card ending in ****$last4",
                                                           style: TextStyle(
                                                               color: Color
                                                                   .fromRGBO(
