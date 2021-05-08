@@ -232,15 +232,20 @@ class NxfrontState extends State<Nxfront> {
                               }else{
                               return ShowTicketOnNx(sizeW: sizeW, defaultTicketid: snapshot.data,
                                 requestRefresh: (id){
+                                  
 
+                                  if(mounted){
                                   setState(() {
                                     isShowTicket=false;
                                   });
+                                  }
 
                                   Future.delayed(Duration(seconds: 1),(){
+                                   if(mounted){
                                     setState(() {
                                       isShowTicket=true;
                                     });
+                                   }
                                   });
 
                                 },

@@ -62,6 +62,7 @@ class _TicketTwoState extends State<TicketTwo> {
     });
 
     NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
+      if(mounted){
       List<TicketWalletModel> all = value;
       setState(() {
         allC = all;
@@ -72,12 +73,15 @@ class _TicketTwoState extends State<TicketTwo> {
           state = tikData.state;
           tickettype = tikData.tickettitle;
           all[0].getTimeRemaining_human().then((value) {
+            if(mounted){
             setState(() {
               whenActivated = value.toString();
             });
+            }
           });
         });
       });
+      }
     });
 
     super.initState();
