@@ -22,7 +22,7 @@ class PaymentConfirmed extends StatelessWidget {
           backgroundColor: Colors.white,
           leading: InkWell(
               onTap: () {
-                Navigator.pop(context, true);
+                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>Nxfront()));
               },
               child: PreferredSize(
                   preferredSize: Size.fromHeight(500),
