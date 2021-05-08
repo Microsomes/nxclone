@@ -23,6 +23,7 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
 
   String validUntil="...";
   String expireON="";
+  int expiredDayLeft=0;
 
   @override
   void initState() {
@@ -39,6 +40,14 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
     }else if(widget.ticketWalletInfo.activeStatus==-1){
       print(widget.ticketWalletInfo.activeStatus);
       setState(() {
+
+      widget.ticketWalletInfo.getTimeRemainingIdle().then((value) {
+        print(value);
+        setState(() {
+          expiredDayLeft=value;
+        });
+      });
+
         validUntil="VALID UNTIL";
         widget.ticketWalletInfo.getTimeRemainingIdle_Human2().then((value) {
           setState(() {
@@ -57,7 +66,7 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
     return Container(
         padding: EdgeInsets.all(12),
         alignment: Alignment.centerLeft,
-        height: 100,
+        height: 130,
         width: MediaQuery.of(context).size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +81,7 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
             SizedBox(
               height: 16,
             ),
-            Row(
+          Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
@@ -82,21 +91,19 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
                       fontWeight: FontWeight.bold,
                       fontSize: 16),
                 ),
-                Expanded(
-                  child: Container(),
-                ),
-                Container(
+                SizedBox(height:10),
+              expiredDayLeft==0?Container():  Container(
                   height: 20,
                   width: 90,
                   decoration: BoxDecoration(
                       color: widget.isDaysLeft == true
-                          ? Color.fromRGBO(90, 90, 90, 1)
+                          ? Colors.blue
                           : Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(1))),
                   child: widget.isDaysLeft == true
                       ? Center(
                           child: Text(
-                            "99 DAYS LEFT",
+                            "$expiredDayLeft DAYS LEFT",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,

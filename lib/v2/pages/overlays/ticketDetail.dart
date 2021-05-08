@@ -121,7 +121,10 @@ class TicketDetailState extends State<TicketDetail> {
                                           ticketDetail: ticketModel,
                                           ticketWalletInfo: ticketWalletModel,
                                         ),
-                                        TripDetailModel(),
+                                        ticketModel==null?Container():TripDetailModel(
+                                          ticketDetail: ticketModel,
+                                          ticketWalletInfo: ticketWalletModel
+                                        ),
                                         PurchaseDetailModel(),
                                         TicketDetailIDModel(),
                                       ],
