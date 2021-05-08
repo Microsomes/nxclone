@@ -34,7 +34,7 @@ class _TicketTwoState extends State<TicketTwo> {
 
   @override
   void initState() {
-    one=Timer.periodic(Duration(seconds: 1), (timer) {
+    one=Timer.periodic(Duration(minutes: 1), (timer) {
       print("....");
       setState(() {
         allC[0].getTimeRemaining().then((value) {
@@ -53,9 +53,6 @@ class _TicketTwoState extends State<TicketTwo> {
         allC[0].getTimeRemaining_human().then((value) {
           setState(() {
             whenActivated = value.toString();
-            allC[0].setInactive();
-
-            print(whenActivated);
           });
         });
       });

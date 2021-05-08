@@ -138,12 +138,13 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
           ),
           InkWell(
               onTap: () {
+                print("purcahse");
+                print(selectedTicket);
                  Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => PaymentFinal(
-                            selectedState: selectedState,
-                            selectedTicket: selectedTicket,
+                            id: selectedTicket['id'],
                           )),
                 );
               },

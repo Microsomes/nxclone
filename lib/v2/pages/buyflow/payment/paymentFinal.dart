@@ -1,12 +1,12 @@
+import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/buyflow/payment/paymentConfirmed.dart';
 
 class PaymentFinal extends StatefulWidget {
-  final String selectedState;
-  final selectedTicket;
+  final int id;
 
-  PaymentFinal({@required this.selectedState, @required this.selectedTicket});
+  PaymentFinal({@required this.id});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,11 +21,15 @@ class PaymentFinalState extends State<PaymentFinal> {
   @override
   void initState() {
     super.initState();
-    priceOfTicket = widget.selectedTicket['price'];
-    tickettitle = widget.selectedTicket['state'] +
-        " " +
-        widget.selectedTicket['tickettitle'];
-    setState(() {});
+
+    NXHelp().getTicketByIDV2(widget.id).then((value) {
+      TicketModel m = value;
+      setState(() {
+        tickettitle=m.state+" "+ m.tickettitle;
+        priceOfTicket= m.price;
+      });
+    });
+
   }
 
   @override
@@ -219,22 +223,28 @@ class PaymentFinalState extends State<PaymentFinal> {
                         //       (Route<dynamic> route) => false,
                         //     );
 
-                        var ttitle = widget.selectedTicket['tickettitle'];
-                        var tstate = widget.selectedTicket['state'];
-                        var tprice = widget.selectedTicket['price'];
+                        // var ttitle = widget.selectedTicket['tickettitle'];
+                        // var tstate = widget.selectedTicket['state'];
+                        // var tprice = widget.selectedTicket['price'];
 
-                        NXHelp()
-                            .buyTicket(
-                                tickettype: ttitle,
-                                state: tstate,
-                                price: tprice)
-                            .then((value) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PaymentConfirmed()),
-                          );
+                        NXHelp().buyTicketv2(ticketID: widget.id, tag: "self_buy").then((value) {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (ctx)=>PaymentConfirmed()
+                          ));
                         });
+
+                        // NXHelp()
+                        //     .buyTicket(
+                        //         tickettype: ttitle,
+                        //         state: tstate,
+                        //         price: tprice)
+                        //     .then((value) {
+                        //   Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => PaymentConfirmed()),
+                        //   );
+                        // });
                         //calls method to buys ticket
                       },
                       child: Container(

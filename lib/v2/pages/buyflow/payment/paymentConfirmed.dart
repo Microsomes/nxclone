@@ -1,3 +1,4 @@
+import 'package:BubbleGum/pages/ticketwalletv2.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
@@ -80,7 +81,7 @@ class PaymentConfirmed extends StatelessWidget {
                       //     );
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) => Ticketwallet()),
+                              builder: (context) => TicketWalletV2()),
                           (Route<dynamic> route) => true);
                     },
                     child: Padding(

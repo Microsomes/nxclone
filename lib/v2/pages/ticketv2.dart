@@ -49,7 +49,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     print("BLOCKING SCREENSHOTS");
 
-    Screen.setBrightness(1.0);
+   // Screen.setBrightness(1.0);
 
     FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
         .then((value) {
