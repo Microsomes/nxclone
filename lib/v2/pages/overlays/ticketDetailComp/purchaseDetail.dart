@@ -1,0 +1,112 @@
+import 'package:flutter/material.dart';
+
+
+class PurchaseDetailModel extends StatefulWidget{
+  @override
+  _PurchaseDetailModelState createState() => _PurchaseDetailModelState();
+}
+
+class _PurchaseDetailModelState extends State<PurchaseDetailModel> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+                                            padding: EdgeInsets.all(12),
+                                            alignment: Alignment.centerLeft,
+                                            height: 140,
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text(
+                                                  "PURCHASE",
+                                                  style: TextStyle(
+                                                      color: Color.fromRGBO(
+                                                          110, 110, 110, 1),
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+                                                SizedBox(
+                                                  height: 16,
+                                                ),
+                                                Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: <Widget>[
+                                                        Text(
+                                                          "purchase date",
+                                                          style: TextStyle(
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      61,
+                                                                      61,
+                                                                      61,
+                                                                      1),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 16),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Text(
+                                                          "Card ending in ****1904 ",
+                                                          style: TextStyle(
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      61,
+                                                                      61,
+                                                                      61,
+                                                                      1),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 16),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(),
+                                                    ),
+                                                    // Container(
+                                                    //   alignment:Alignment.center,
+                                                    //   height: 50,
+                                                    //   width: 90,
+                                                    //   decoration: BoxDecoration(
+
+                                                    //       borderRadius:
+                                                    //           BorderRadius.all(
+                                                    //               Radius.circular(1))),
+                                                    //   child: Padding(
+
+                                                    //     padding: EdgeInsets.only(top:20),
+
+                                                    //   child: Image.asset("images/v2/v2assets/visa.png",width: 90,)),
+                                                    // ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                                Container(
+                                                  height: 1,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.8,
+                                                  color: Color.fromRGBO(
+                                                      231, 231, 231, 1),
+                                                ),
+                                              ],
+                                            ));
+  }
+}

@@ -12,6 +12,7 @@ import 'package:BubbleGum/v2/components/movingText.dart';
 import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:app_launcher/app_launcher.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
@@ -161,7 +162,7 @@ class ActualTicketState extends State<ActualTicket> {
             }
 
           return state==null ?  Scaffold(
-            backgroundColor: Colors.yellow,
+            backgroundColor: Colors.black,
             body: Center(
               child: CircularProgressIndicator(),
             ),
@@ -396,9 +397,11 @@ class Ac extends StatelessWidget {
                           ),
                           Text(
                             "Actions",
-                            style: TextStyle(
-                                color: Color.fromRGBO(103, 119, 138, 1),
-                                fontWeight: FontWeight.w800),
+                            style: GoogleFonts.roboto(
+                              color:Color.fromRGBO(
+                                                5, 121, 160, 1),
+                                fontWeight: FontWeight.w800
+                            )
                           )
                         ],
                       ),
@@ -423,15 +426,18 @@ class Ac extends StatelessWidget {
                             IconButton(
                               icon: Icon(
                                 Icons.format_list_bulleted,
-                                color: Color.fromRGBO(103, 119, 138, 1),
+                                color: Color.fromRGBO(
+                                                5, 121, 160, 1),
                               ),
                               onPressed: () {},
                             ),
                             Text(
                               "Details",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(103, 119, 138, 1),
-                                  fontWeight: FontWeight.w800),
+                              style: GoogleFonts.roboto(
+                              color:Color.fromRGBO(
+                                                5, 121, 160, 1),
+                                fontWeight: FontWeight.w800
+                            )
                             )
                           ],
                         ),

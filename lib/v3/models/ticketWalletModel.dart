@@ -38,6 +38,24 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inMinutes;
   }
 
+
+  Future validUntilHuman() async {
+    TicketModel timeRemaining = await this.getTicketData();
+    var activeForMilli = int.parse(timeRemaining.activefor);
+    var toC = activeForMilli += this.whenActivated;
+    DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
+    DateTime cur = DateTime.now();
+    int amountOfSeconds=activeForDate.difference(cur).inSeconds;
+
+    DateTime futureData= cur.add(Duration(seconds: amountOfSeconds));
+
+ 
+
+    return  futureData.day.toString()+" "+allMonths[futureData.month-1].toString()+" "+futureData.year.toString()+" "+futureData.hour.toString()+":"+futureData.minute.toString();
+  }
+
+    List<String> allMonths=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+
   Future getTimeRemaining_human() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.activefor);
@@ -79,6 +97,20 @@ class TicketWalletModel {
     Duration diff = activeForDate.difference(cur);
 
     return "Expires in " + diff.inDays.toString() + " days";
+  }
+
+  Future getTimeRemainingIdle_Human2() async {
+    TicketModel timeRemaining = await this.getTicketData();
+    var activeForMilli = int.parse(timeRemaining.notusedexpiry);
+    var toC = activeForMilli += this.created;
+    DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
+    DateTime cur = DateTime.now();
+    Duration diff = activeForDate.difference(cur);
+
+    DateTime futureData= cur.add(Duration(seconds: diff.inSeconds));
+
+
+    return  futureData.day.toString()+" "+allMonths[futureData.month-1].toString()+" "+futureData.year.toString()+" "+futureData.hour.toString()+":"+futureData.minute.toString();
   }
 
   Future getTimeRemainingIdle_seconds() async {

@@ -1,12 +1,19 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/buyflow/payment/ticketiddets.dart';
+import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/overlays/termsandconditions.dart';
 import 'package:intl/intl.dart';
 
+import 'ticketDetailComp/purchaseDetail.dart';
+import 'ticketDetailComp/tripDetail.dart';
+import 'ticketDetailComp/validUntil.dart';
+
 class TicketDetail extends StatefulWidget {
   final int txid;
 
-  bool isDaysLeft;
+  final bool isDaysLeft;
 
   TicketDetail({@required this.txid,this.isDaysLeft=false});
 
@@ -19,43 +26,48 @@ class TicketDetail extends StatefulWidget {
 class TicketDetailState extends State<TicketDetail> {
   bool currentTicket = true;
 
+  List<Widget> allInfoPanels;
+
+
+  String ticketStatusIn="";
+
+  TicketModel ticketModel;
+  TicketWalletModel ticketWalletModel;
+
+  @override
+  void initState() {
+
+    allInfoPanels=List();
+
+
+
+   
+
+    //load the ticket information
+    NXHelp().getTicketWalletInfoByID(id: widget.txid).then((value) {
+      List<TicketWalletModel> al= value;
+      al[0].getTicketData().then((value) async {
+        TicketModel md= value;
+        await Future.delayed(Duration(seconds: 1));
+        setState(() {
+          ticketModel=md;
+          ticketWalletModel=al[0];
+        });
+      });
+    });
+
+
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: currentTicket != null
-            ? FutureBuilder(
-                future: NXHelp().getTicketById(id: widget.txid),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState != ConnectionState.done) {
-                    return CircularProgressIndicator();
-                  }
-
-                  if (snapshot.hasData) {
-                    var data = snapshot.data["list"][0];
-
-                    var price=snapshot.data["price"];
-
-                    var purchaseDate = data["purchaseddate"];
-
-                    var purdate = DateTime.parse(purchaseDate);
-
-                    var expirydate = purdate.add(Duration(days: 1));
-
-                    var purchasedDateFormat = DateFormat("dd MMM yyyy HH:MM")
-                        .format(purdate); // Apr 8, 2020
-
-                    var expiredDate =
-                        DateFormat("dd MMM yyyy HH:MM").format(expirydate);
-
-                    var tickettpe = data["state"] + " " + data["tickettype"];
-
-                    int generateID = 5000000;
-
-                    var gid = generateID * data["id"];
-
-                    return Container(
+        child: Container(
                       child: Column(
                         children: <Widget>[
                           SizedBox(
@@ -105,326 +117,13 @@ class TicketDetailState extends State<TicketDetail> {
                                     Expanded(
                                         child: ListView(
                                       children: <Widget>[
-                                        Container(
-                                            padding: EdgeInsets.all(12),
-                                            alignment: Alignment.centerLeft,
-                                            height: 100,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "VALID UNTIL",
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          110, 110, 110, 1),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-                                                SizedBox(
-                                                  height: 16,
-                                                ),
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Text(
-                                                      "$expiredDate",
-                                                      style: TextStyle(
-                                                          color: Color.fromRGBO(
-                                                              61, 61, 61, 1),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 16),
-                                                    ),
-                                                    Expanded(
-                                                      child: Container(),
-                                                    ),
-                                                    Container(
-                                                      height: 20,
-                                                      width: 90,
-                                                      decoration: BoxDecoration(
-                                                          color: widget.isDaysLeft== true ?Color.fromRGBO(
-                                                              90, 90, 90, 1):Colors.transparent,
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                  Radius
-                                                                      .circular(
-                                                                          1))),
-                                                      child: widget.isDaysLeft== true ? Center(
-                                                        child: Text(
-                                                          "99 DAYS LEFT",
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 12,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ):Container(),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Container(
-                                                  height: 1,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.8,
-                                                  color: Color.fromRGBO(
-                                                      231, 231, 231, 1),
-                                                ),
-                                              ],
-                                            )),
-                                        Container(
-                                            padding: EdgeInsets.all(12),
-                                            alignment: Alignment.centerLeft,
-                                            height: 140,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "TRIP",
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          110, 110, 110, 1),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-                                                SizedBox(
-                                                  height: 16,
-                                                ),
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Expanded(
-                                                      child: Text(
-                                                        "$tickettpe",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    61,
-                                                                    61,
-                                                                    61,
-                                                                    1),
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 16),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 15,
-                                                ),
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Expanded(
-                                                      child: Text(
-                                                        "£$price",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    61,
-                                                                    61,
-                                                                    61,
-                                                                    1),
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 16),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 17,
-                                                ),
-                                                Container(
-                                                  height: 1,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.8,
-                                                  color: Color.fromRGBO(
-                                                      231, 231, 231, 1),
-                                                ),
-                                              ],
-                                            )),
-                                        Container(
-                                            padding: EdgeInsets.all(12),
-                                            alignment: Alignment.centerLeft,
-                                            height: 140,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "PURCHASE",
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          110, 110, 110, 1),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-                                                SizedBox(
-                                                  height: 16,
-                                                ),
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: <Widget>[
-                                                        Text(
-                                                          "$purchasedDateFormat",
-                                                          style: TextStyle(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      61,
-                                                                      61,
-                                                                      61,
-                                                                      1),
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 16),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 10,
-                                                        ),
-                                                        Text(
-                                                          "Card ending in ****1904 ",
-                                                          style: TextStyle(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      61,
-                                                                      61,
-                                                                      61,
-                                                                      1),
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 16),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Expanded(
-                                                      child: Container(),
-                                                    ),
-                                                    // Container(
-                                                    //   alignment:Alignment.center,
-                                                    //   height: 50,
-                                                    //   width: 90,
-                                                    //   decoration: BoxDecoration(
-
-                                                    //       borderRadius:
-                                                    //           BorderRadius.all(
-                                                    //               Radius.circular(1))),
-                                                    //   child: Padding(
-
-                                                    //     padding: EdgeInsets.only(top:20),
-
-                                                    //   child: Image.asset("images/v2/v2assets/visa.png",width: 90,)),
-                                                    // ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Container(
-                                                  height: 1,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.8,
-                                                  color: Color.fromRGBO(
-                                                      231, 231, 231, 1),
-                                                ),
-                                              ],
-                                            )),
-                                        Container(
-                                            padding: EdgeInsets.all(12),
-                                            alignment: Alignment.centerLeft,
-                                            height: 100,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "TICKET ID",
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          110, 110, 110, 1),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-                                                SizedBox(
-                                                  height: 16,
-                                                ),
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Expanded(
-                                                      child: Text(
-                                                        "AT$gid",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    61,
-                                                                    61,
-                                                                    61,
-                                                                    1),
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 16),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Container(
-                                                  height: 1,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.8,
-                                                  color: Color.fromRGBO(
-                                                      231, 231, 231, 1),
-                                                ),
-                                              ],
-                                            )),
+                                        ticketModel==null ?Container():ValidUntilComp(
+                                          ticketDetail: ticketModel,
+                                          ticketWalletInfo: ticketWalletModel,
+                                        ),
+                                        TripDetailModel(),
+                                        PurchaseDetailModel(),
+                                        TicketDetailIDModel(),
                                       ],
                                     )),
                                     Row(
@@ -500,15 +199,10 @@ class TicketDetailState extends State<TicketDetail> {
                             ),
                           )
                         ],
-                      ),
-                    );
-                  } else {
-                    return Text("error");
-                  }
-                },
-              )
-            : Container(),
-      ),
-    );
+                      ))));
+                    
+              
+     
+    
   }
 }
