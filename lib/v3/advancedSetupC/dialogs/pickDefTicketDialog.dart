@@ -4,6 +4,7 @@ import 'package:BubbleGum/v3/advancedSetupC/options/defaultHomePageOption.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class PIckDefTicketDialog extends StatefulWidget {
   final Function onDefSelected;
 
@@ -74,41 +75,43 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
                         itemCount: allTickets.length,
                         itemBuilder: (ctx, index) {
                           return Container(
-                              height: 50,
+                              height: 60,
                               child: Material(
-                                  color: Colors.transparent,
+                                  color: allTickets[index]['id'] == defVal
+                                      ? Colors.yellowAccent
+                                      : Colors.transparent,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: ListTile(
-                                      onTap: () {
-                                                 setState(() {
-                                                defVal= allTickets[index]['id'];
-                                              });
+                                    onTap: () {
+                                      setState(() {
+                                        defVal = allTickets[index]['id'];
+                                      });
 
-                                        Future.delayed(Duration(seconds: 1),
-                                            () {
-                                     
-
-                                          widget.onDefSelected(
-                                              allTickets[index]['id']);
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      title: Text(
-                                        allTickets[index]['tickettitle'],
-                                        style: GoogleFonts.roboto(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      subtitle: Text(
-                                        allTickets[index]['state'],
-                                        style: GoogleFonts.roboto(fontSize: 15),
-                                      ),
-                                      trailing:
-                                          allTickets[index]['id'] == defVal
-                                              ? Icon(Icons.check)
-                                              : Icon(
-                                                  Icons.info_outline,
-                                                  color: Colors.redAccent,
-                                                ))));
+                                      Future.delayed(Duration(seconds: 1), () {
+                                        widget.onDefSelected(
+                                            allTickets[index]['id']);
+                                        Navigator.pop(context);
+                                      });
+                                    },
+                                    title: Text(
+                                      allTickets[index]['tickettitle'],
+                                      style: GoogleFonts.roboto(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Text(
+                                      allTickets[index]['state'],
+                                      style: GoogleFonts.roboto(fontSize: 15),
+                                    ),
+                                    // trailing:
+                                    //     allTickets[index]['id'] == defVal
+                                    //         ? Icon(Icons.check)
+                                    //         : Icon(
+                                    //             Icons.info_outline,
+                                    //             color: Colors.redAccent,
+                                    //           ))
+                                  )));
                         },
                       );
                     },
