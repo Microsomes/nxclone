@@ -30,6 +30,9 @@ class NxfrontState extends State<Nxfront> {
   String tickettype = "";
   final double _letterSpaceing = 0.8;
 
+
+  bool isShowTicket=true;
+
   @override
   void initState() {
     super.initState();
@@ -220,17 +223,31 @@ class NxfrontState extends State<Nxfront> {
                           SizedBox(
                             height: 3,
                           ),
-                          FutureBuilder(
+                         isShowTicket==true ? FutureBuilder(
                             future: NXHelp().buyDefaultTicketAndActivatev2(),
                             builder: (ctx,snapshot){
                               print(snapshot.data);
                               if(snapshot.connectionState==ConnectionState.waiting){
                                 return CircularProgressIndicator();
                               }else{
-                              return ShowTicketOnNx(sizeW: sizeW, defaultTicketid: snapshot.data);
+                              return ShowTicketOnNx(sizeW: sizeW, defaultTicketid: snapshot.data,
+                                requestRefresh: (id){
+
+                                  setState(() {
+                                    isShowTicket=false;
+                                  });
+
+                                  Future.delayed(Duration(seconds: 1),(){
+                                    setState(() {
+                                      isShowTicket=true;
+                                    });
+                                  });
+
+                                },
+                              );
                               }
                             },
-                          ),
+                          ):Container(),
                           SizedBox(
                             height: spaceApart,
                           ),
@@ -346,7 +363,9 @@ class NxfrontState extends State<Nxfront> {
 }
 
 class ShowTicketOnNx extends StatefulWidget {
+  final Function requestRefresh;
   const ShowTicketOnNx({
+    @required this.requestRefresh,
     Key key,
     @required this.sizeW,
     @required this.defaultTicketid,
@@ -360,6 +379,10 @@ class ShowTicketOnNx extends StatefulWidget {
 }
 
 class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
+
+
+
+  bool isOn=true;
 
 
 
@@ -417,6 +440,10 @@ class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
                             .width *
                         0.92,
                     child: TicketTwo(
+                      onExpire: (id){
+                        print("THIS TICKET HAS EXPIRED YO");
+                        widget.requestRefresh(id);
+                      },
 
                       id: widget.defaultTicketid,
 

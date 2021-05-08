@@ -77,7 +77,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main25.db";
+  static String DB_NAME = "main27.db";
 
   NXHelp() {
     //load and create table
@@ -1354,9 +1354,11 @@ class NXHelp {
             [2, currentTime, id]);
         return updateID;
       } else {
+        print("cant deactive ticket");
         return "cant deactivate ticket";
       }
     }else{
+      print("ticket isnt isnt even activated bruh");
       return "ticket isnt isnt even activated bruh";
     }
 

@@ -10,7 +10,8 @@ import 'dart:async';
  */
 class TicketTwo extends StatefulWidget {
   final int id;
-  TicketTwo({@required this.id});
+  final Function onExpire;
+  TicketTwo({@required this.id,this.onExpire});
   @override
   _TicketTwoState createState() => _TicketTwoState();
 }
@@ -36,9 +37,23 @@ class _TicketTwoState extends State<TicketTwo> {
     one=Timer.periodic(Duration(seconds: 1), (timer) {
       print("....");
       setState(() {
+        allC[0].getTimeRemaining().then((value) {
+          if(value<=0){
+            allC[0].setInactive();
+            if(widget.onExpire!=null){
+              
+              widget.onExpire(widget.id);
+              one.cancel();
+            }else{
+                            one.cancel();
+
+            }
+           }
+        });
         allC[0].getTimeRemaining_human().then((value) {
           setState(() {
             whenActivated = value.toString();
+            allC[0].setInactive();
 
             print(whenActivated);
           });
