@@ -38,7 +38,7 @@ class TicketAlreadyUsed extends StatelessWidget{
                         0.92,
                     child: SingleInactiveTicket(
                       id: data[index].id,
-                      isUsed: false
+                      isUsed: true
                     ),
                   ),
                 ),

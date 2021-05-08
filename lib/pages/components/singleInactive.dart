@@ -63,7 +63,7 @@ class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
       },
       child: Container(
           width: sizeW * 0.9,
-          height:   110,
+          height:  widget.isUsed? 90: 110,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(15)),
           child: Column(
@@ -118,7 +118,7 @@ class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
               Expanded(
                 child: Text(""),
               ),
-              Container(
+              widget.isUsed==true ?Container(): Container(
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20),

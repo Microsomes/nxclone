@@ -1155,7 +1155,7 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=?  OR activeStatus=?  ORDER BY created DESC",
-        [1]);
+        [2,3]);
          List<TicketWalletModel> allTicketsA = List();
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
