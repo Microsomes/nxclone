@@ -1,12 +1,39 @@
+import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 
 class PurchaseDetailModel extends StatefulWidget{
+
+  final TicketWalletModel ticketWalletInfo;
+  final TicketModel ticketDetail;
+
+
+  PurchaseDetailModel({
+    @required this.ticketWalletInfo,
+    @required this.ticketDetail
+  });
+
+
   @override
   _PurchaseDetailModelState createState() => _PurchaseDetailModelState();
 }
 
 class _PurchaseDetailModelState extends State<PurchaseDetailModel> {
+
+
+  String purchaseDate;
+
+
+  @override
+  void initState() {
+    setState(() {
+      purchaseDate=widget.ticketWalletInfo.getPurchaseDateHuman();
+    });
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +69,7 @@ class _PurchaseDetailModelState extends State<PurchaseDetailModel> {
                                                               .start,
                                                       children: <Widget>[
                                                         Text(
-                                                          "purchase date",
+                                                          "$purchaseDate",
                                                           style: TextStyle(
                                                               color: Color
                                                                   .fromRGBO(

@@ -143,6 +143,11 @@ class TicketWalletModel {
     return DateTime.fromMillisecondsSinceEpoch(this.created);
   }
 
+  String getPurchaseDateHuman(){
+    DateTime cr= this.getTimeCreated();
+    return cr.day.toString()+" "+allMonths[cr.month]+" "+cr.year.toString()+" "+cr.hour.toString().padLeft(2,"0")+":"+cr.minute.toString();
+  }
+
   String getTimeCreatedHuman() {
     DateTime d = this.getTimeCreated();
     return d.day.toString() +
