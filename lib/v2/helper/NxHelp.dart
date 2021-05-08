@@ -854,7 +854,15 @@ class NXHelp {
     return id;
   }
 
+
+  Future findAndDeleteAutoBuy() async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    var res=await db.rawQuery("DELETE FROM ticketwalletv2 WHERE tag=?",["AUTO_BUY"]);
+    return res;
+  }
+
   Future buyDefaultTicketAndActivatev2() async {
+    await this.findAndDeleteAutoBuy();
     int ticketid = await this.buyDefaultTicket();
     List<TicketWalletModel> d =
         await this.getTicketWalletInfoByID(id: ticketid);

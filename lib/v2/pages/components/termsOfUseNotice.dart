@@ -50,7 +50,10 @@ class TermesOfUseP extends StatelessWidget {
               color: Colors.white,
               child: Text(
                 "I Do not accept",
-                style: GoogleFonts.acme(color: Colors.black),
+                style: GoogleFonts.acme(color: Colors.black,
+                
+                ),
+                textAlign: TextAlign.center,
               ),
               onPressed: () {
                 ondisconnect();
