@@ -1,5 +1,5 @@
-import 'package:BubbleGum/v2/pages/buyflow/v2/BuyTicketTileMultiple.dart';
-import 'package:BubbleGum/v2/pages/buyflow/v2/buyTicketTileSingle.dart';
+import 'package:BubbleGum/v2/pages/overlays/ticketDetailComp/v2/BuyTicketTileMultiple.dart';
+import 'package:BubbleGum/v2/pages/overlays/ticketDetailComp/v2/buyTicketTileSingle.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +21,6 @@ class Stpagestate extends State<Stpage> {
 
 
   bool isTickets=true;
-  PageController _pageController;
 
 
   void displayBuyticketDialog(BuildContext context,String selectedState) {

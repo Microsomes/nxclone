@@ -1,12 +1,12 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/buyflow/payment/ticketiddets.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/overlays/termsandconditions.dart';
-import 'package:intl/intl.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'ticketDetailComp/purchaseDetail.dart';
+import 'ticketDetailComp/ticketiddets.dart';
 import 'ticketDetailComp/tripDetail.dart';
 import 'ticketDetailComp/validUntil.dart';
 
@@ -87,9 +87,10 @@ class TicketDetailState extends State<TicketDetail> {
                                       const EdgeInsets.only(right: 20, top: 10),
                                   child: Text(
                                     "Close",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
+                                    style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.bold,
+                                        fontSize: 16
+                                    )
                                   ),
                                 ),
                               )
@@ -129,7 +130,10 @@ class TicketDetailState extends State<TicketDetail> {
                                            ticketDetail: ticketModel,
                                           ticketWalletInfo: ticketWalletModel
                                         ),
-                                        TicketDetailIDModel(),
+                                        ticketModel==null?Container():TicketDetailIDModel(
+                                           ticketDetail: ticketModel,
+                                          ticketWalletInfo: ticketWalletModel
+                                        ),
                                       ],
                                     )),
                                     Row(
