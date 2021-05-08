@@ -77,7 +77,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main22.db";
+  static String DB_NAME = "main25.db";
 
   NXHelp() {
     //load and create table
@@ -216,7 +216,7 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor": Duration(minutes: 30)
+      "activefor": Duration(minutes: 2)
     });
 
     ticketTypes.add({

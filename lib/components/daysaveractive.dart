@@ -23,9 +23,17 @@ class _TicketTwoState extends State<TicketTwo> {
 
   List<TicketWalletModel> allC;
 
+  Timer one;
+
+  @override
+  void dispose() {
+    one.cancel();
+    super.dispose();
+  }
+
   @override
   void initState() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    one=Timer.periodic(Duration(seconds: 1), (timer) {
       print("....");
       setState(() {
         allC[0].getTimeRemaining_human().then((value) {
