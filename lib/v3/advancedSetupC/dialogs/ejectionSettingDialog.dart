@@ -73,9 +73,42 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
                 itemCount: ejectionSettings.length,
                 itemBuilder: (ctx, index) {
                   return Material(
-                    color: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    color: defaultEjectionID== ejectionSettings[index].id ? Colors.yellowAccent: Colors.transparent,
                     child: ListTile(
-                      trailing:defaultEjectionID== ejectionSettings[index].id? Icon( Icons.check):Icon(Icons.check,color: Colors.redAccent,),
+                      leading: IconButton(
+                        icon: Icon(
+                          Icons.info_outline,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              child: AlertDialog(
+                                backgroundColor: Colors.redAccent,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                title: Text(ejectionSettings[index].name),
+                                content: Container(
+                                  height: 150,
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          ejectionSettings[index].info,
+                                          style:
+                                              GoogleFonts.roboto(fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ));
+                        },
+                      ),
+                      // trailing:defaultEjectionID== ejectionSettings[index].id? Icon( Icons.check):Icon(Icons.check,color: Colors.redAccent,),
                       onTap: () {
                         setState(() {
                           defaultEjectionID=ejectionSettings[index].id;
@@ -89,10 +122,10 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
                         style: GoogleFonts.roboto(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        ejectionSettings[index].info,
-                        style: GoogleFonts.roboto(fontSize: 15),
-                      ),
+                      // subtitle: Text(
+                      //   ejectionSettings[index].info,
+                      //   style: GoogleFonts.roboto(fontSize: 15),
+                      // ),
                     ),
                   );
                 },
