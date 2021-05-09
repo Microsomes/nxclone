@@ -57,37 +57,27 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   @override
   void dispose() {
+    if(mainTimer!=null){
     mainTimer.cancel();
+    }
     super.dispose();
   }
   
   
-
+  void checkSettingState(){
+    if(defHome && defTicket && defEjection){
+        if(isDisclaimer){
+        setState(() {
+          isReadySetup=true;
+        });
+        }
+      }
+  }
 
   @override
   void initState() {
     //load default home pref
-
-
-    mainTimer= Timer.periodic(Duration(seconds: 1), (timer) {
-
-      //check 
-
-      print(defHome);
-      print(defTicket);
-      print(defEjection);
-
-      if(defHome && defTicket && defEjection){
-        if(isDisclaimer){
-        setState(() {
-          isReadySetup=true;
-          mainTimer.cancel();
-        });
-        }
-      }
-
-     });
-
+    
     SharedPreferences.getInstance().then((value) {
       if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
         setState(() {
@@ -258,6 +248,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
               print("default home page is done");
               setState(() {
                 defHome=true;
+                this.checkSettingState();
               });
             },
             isDisclaimer: isDisclaimer,
@@ -269,6 +260,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             onDone: (){
               setState(() {
                 defTicket=true;
+                this.checkSettingState();
               });
             },
             isDisclaimer: isDisclaimer,
@@ -281,6 +273,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             onDone: (){
               setState(() {
                 defEjection=true;
+                this.checkSettingState();
               });
             },
           )
