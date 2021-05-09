@@ -15,6 +15,7 @@ import "./pages/ticketwalletv2.dart";
 
 import "./debug/ticketWalletDebug.dart";
 
+import '0mymetro/pages/home.dart';
 import 'pages/journey/ticket.dart';
 import 'v2/models/sharedprefkey/main.dart';
 import 'v2/pages/ticket.dart';
@@ -90,6 +91,7 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
+        return MyMetro();
         if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(

@@ -37,50 +37,18 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
           speed: Duration(milliseconds: 1000),
           controller: _controller,
           displayTime: Duration(milliseconds: 100),
-          wordList: ['BubbleGUM.', 'V6.',"..."],
+          wordList: ["V6","..."],
           textStyle: TextStyle(
               color: Colors.white, fontSize: 55, fontWeight: FontWeight.w700),
           onAnimate: (index) {
             print("$index");
-            if (index == 2) {
+            if (index == 1) {
               setState(() {
                 _controller = AnimatedTextController.stop;
               });
 
               Future.delayed(Duration(milliseconds: 1), () {
                 //lets load up the logic
-
-                // NXHelp aconfig = NXHelp();
-                // aconfig.loadConfig("defaulthomepage", 1).then((value) {
-                //   if (value.length == 0) {
-                //     return;
-                //   } else {
-                //     //=1;
-                //     var currentval = value[0]['val'];
-                //     if (currentval == "home") {
-                //       //home page
-                //       //do nothing it should open up
-                //     } else if (currentval == "nxhome") {
-                //       Navigator.pushAndRemoveUntil(
-                //         context,
-                //         MaterialPageRoute(builder: (context) => Nxfront()),
-                //         (Route<dynamic> route) => false,
-                //       );
-                //     } else if (currentval == "ticket") {
-                //       //goes directly to the default ticket page
-                //       NXHelp().buyAndActivateDefaultTicket().then((id) {
-                //         setState(() {
-                //           idO = id;
-                //         });
-                //         Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //                 builder: (context) =>
-                //                     ActualTicket(txid: id['ticketid'])));
-                //       });
-                //     }
-                //   }
-                // });
 
                 Widget h=PiHome();
                 
