@@ -216,7 +216,7 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor": Duration(minutes: 2)
+      "activefor": Duration(minutes: 30)
     });
 
     ticketTypes.add({

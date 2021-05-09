@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -206,14 +207,6 @@ class PiHomeState extends State<PiHome> {
           body: SafeArea(
               child: Column(
             children: <Widget>[
-              // SizedBox(
-              //   height: 40,
-              // ),
-              // Text(
-              //   "(Version 5.0-Gorilla Edition)",
-              //   style: GoogleFonts.aBeeZee(
-              //       color: Colors.white, fontWeight: FontWeight.bold),
-              // ),
               Expanded(
                 child: Column(children: [
                   widget.isHide == true
@@ -227,18 +220,6 @@ class PiHomeState extends State<PiHome> {
                           width: MediaQuery.of(context).size.width,
                           child: Column(
                             children: [
-                              Center(
-                                child: Text(
-                                  "By pass simulation (Simpler and Faster) 🚀",
-                                  style: GoogleFonts.roboto(
-                                      color: textCol,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
                               Container(
                                 height: 50,
                                 color: Colors.white.withOpacity(0.1),
@@ -350,38 +331,30 @@ class PiHomeState extends State<PiHome> {
                                             margin: EdgeInsets.only(top: 10),
                                             child: ListTile(
                                               onTap: () {
-                                                print("Go to the ticket page");
-                                                var ticketType =
-                                                    filteredTickets[index]
-                                                        ['tickettitle'];
-                                                var ticketState =
-                                                    filteredTickets[index]
-                                                        ['state'];
-
-                                                print(ticketType);
-                                                print(ticketState);
-
-                                                NXHelp()
-                                                    .buyTicket(
-                                                        tickettype: ticketType,
-                                                        state: ticketState,
-                                                        price: "0.00")
-                                                    .then((value) {
-                                                  Navigator.push(
+                                                // print("Go to the ticket page");
+                                                // var ticketType =
+                                                //     filteredTickets[index]
+                                                //         ['tickettitle'];
+                                                // var ticketState =
+                                                //     filteredTickets[index]
+                                                //         ['state'];
+                                                int id= filteredTickets[index]['id'];
+                                                NXHelp().buyTicketv2(ticketID: id, tag: "non_sim").then((valid) {
+                                                  
+                                                  NXHelp().activeTicketv2(id: valid).then((value) {
+                                                       Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               ActualTicket(
                                                                   txid:
-                                                                      value)));
-                                                  // Navigator.push(
-                                                  //     context,
-                                                  //     MaterialPageRoute(
-                                                  //         builder: (context) =>
-                                                  //             Ticket2(
-                                                  //               txdbid: value,
-                                                  //             )));
+                                                                      valid)));
+                                                  });
+                                                  
                                                 });
+
+
+                                              
                                               },
                                               leading: Container(
                                                 width: 50,
