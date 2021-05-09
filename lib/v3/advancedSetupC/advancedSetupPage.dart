@@ -210,9 +210,9 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)
                       ),
-                      child: Text("I Do Not Accept",
+                      child: Text("I don't accept",
                       style: GoogleFonts.roboto(
-                        color:Colors.black,
+                        color:Colors.white,
                         fontWeight: FontWeight.bold
                       ),
                       
