@@ -11,6 +11,9 @@ class MyMetro extends StatefulWidget{
 }
 
 class _MyMetroState extends State<MyMetro> {
+
+  int bottomIndex=0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +37,16 @@ class _MyMetroState extends State<MyMetro> {
         backgroundColor: Color.fromRGBO(52, 52, 62, 1)
       ),
       bottomNavigationBar: BottomNavigationBar(
+
         type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
+        currentIndex: bottomIndex,
         backgroundColor: Colors.black,
+        onTap: (int index){
+            setState(() {
+              bottomIndex=index;
+            });
+        },
+
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.train),

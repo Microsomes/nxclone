@@ -91,8 +91,7 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
-        return MyMetro();
-        if (data.connectionState == ConnectionState.waiting) {
+         if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(
             child: CircularProgressIndicator(
