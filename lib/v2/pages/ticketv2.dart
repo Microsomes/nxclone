@@ -40,17 +40,48 @@ class ActualTicketState extends State<ActualTicket> {
   String ticketTitle;
   List listOfQrCollections;
   String currentQR;
-
   Timer _qrTimer;
-
   Map speedConfig;
-
   String subtitle = "ANY BUSES ACROSS OUR NETWORK";
+
+  int activeTicketID;
+
+
+  bool showT=true;
+  
+
+
+  void changeTicket({@required id}){
+    setState(() {
+      showT=false;
+      activeTicketID=id;
+    });
+       NXHelp().getTicketWalletInfoByID(id: id).then((value) {
+      List<TicketWalletModel> tikdata = value;
+
+      tikdata[0].getTicketData().then((value) {
+        TicketModel tkData = value;
+        setState(() {
+          state = tkData.state;
+          ticketTitle = tkData.tickettitle;
+          subtitle = tkData.ticketsubtitle;
+        });
+      });
+    });
+    Future.delayed(Duration(seconds: 1),(){
+      setState((){
+        showT=true;
+      });
+    });
+  }
+  
 
   @override
   void initState() {
     super.initState();
-
+    setState(() {
+      activeTicketID=widget.txid;
+    });
     //block screenshots here
 
     print("BLOCKING SCREENSHOTS");
@@ -83,7 +114,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     currentQR = listOfQrCollections[0];
 
-    NXHelp().getTicketWalletInfoByID(id: widget.txid).then((value) {
+    NXHelp().getTicketWalletInfoByID(id: activeTicketID).then((value) {
       List<TicketWalletModel> tikdata = value;
 
       tikdata[0].getTicketData().then((value) {
@@ -218,13 +249,17 @@ class ActualTicketState extends State<ActualTicket> {
                             ],
                           ),
                         ),
-                        Ac(
+                      showT==true ?  Ac(
+                            changeTik: (int id) {
+                              changeTicket(id: id);
+                            },
+                            ticketid: activeTicketID,
                             speedConfig: speedConfig,
                             state: state,
                             ticketTitle: ticketTitle,
                             currentQR: currentQR,
                             subtitle: subtitle,
-                            widget: widget)
+                            widget: widget):Container()
                       ],
                     ),
                   ),
@@ -238,14 +273,18 @@ class ActualTicketState extends State<ActualTicket> {
 class Ac extends StatelessWidget {
   const Ac({
     Key key,
+    @required this.changeTik,
     @required this.speedConfig,
     @required this.state,
     @required this.ticketTitle,
     @required this.currentQR,
     @required this.subtitle,
     @required this.widget,
+    @required this.ticketid
   }) : super(key: key);
 
+  final int ticketid;
+  final Function changeTik;
   final Map speedConfig;
   final String state;
   final String ticketTitle;
@@ -432,10 +471,17 @@ class Ac extends StatelessWidget {
                         showDialog(
                             context: context,
                             builder: (ctx) => AlertDialog(
+                              
                                   backgroundColor: Colors.black,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
-                                  content: TicketSwicher(),
+                                  content: TicketSwicher(
+                                    changeTicket: (int id) {
+                                      this.changeTik(id);
+                                      Navigator.of(context, rootNavigator: true).pop('dialog');
+
+                                    },
+                                  ),
                                 ));
                       },
                       onTap: () {
@@ -443,7 +489,7 @@ class Ac extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => TicketDetail(
-                                    txid: widget.txid,
+                                    txid: ticketid,
                                   )),
                         );
                       },
@@ -478,7 +524,9 @@ class Ac extends StatelessWidget {
 }
 
 class TicketSwicher extends StatefulWidget {
+  final Function changeTicket;
   const TicketSwicher({
+    @required this.changeTicket,
     Key key,
   }) : super(key: key);
 
@@ -504,25 +552,28 @@ class _TicketSwicherState extends State<TicketSwicher> {
                   children: [
                     Expanded(
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           print("kjnkj");
-                          var state=States.westMidlands;
-                          var type= Ttype.daySaver;
+                          var state = States.westMidlands;
+                          var type = Ttype.daySaver;
 
-
-                          NXHelp().findTicketWithStateAndTitleID(state: state,title: type).then((value) {
-                            if(value!=null){
-                              TicketModel ticketData=value;
-                              NXHelp().buyTicketv2(ticketID: ticketData.id, tag: "AUTO_BUY1").then((value) {
-                                var id=value;
-                                print(id);
+                          NXHelp()
+                              .findTicketWithStateAndTitleID(
+                                  state: state, title: type)
+                              .then((value) {
+                            if (value != null) {
+                              TicketModel ticketData = value;
+                              NXHelp()
+                                  .buyTicketv2(
+                                      ticketID: ticketData.id, tag: "AUTO_BUY1")
+                                  .then((value) {
+                                var id = value;
+                                widget.changeTicket(id);
                               });
                             }
                           });
-
-
                         },
-                                              child: Container(
+                        child: Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -541,8 +592,8 @@ class _TicketSwicherState extends State<TicketSwicher> {
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 5,
                                   blurRadius: 7,
-                                  offset:
-                                      Offset(0, 3), // changes position of shadow
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
                                 ),
                               ]),
                         ),
@@ -551,10 +602,28 @@ class _TicketSwicherState extends State<TicketSwicher> {
                     SizedBox(width: 20),
                     Expanded(
                       child: GestureDetector(
-                        onTap: (){
-                          print("group daysaver");
+                        onTap: () {
+                           print("kjnkj");
+                          var state = States.westMidlands;
+                          var type = Ttype.groupdaysaver;
+
+                          NXHelp()
+                              .findTicketWithStateAndTitleID(
+                                  state: state, title: type)
+                              .then((value) {
+                            if (value != null) {
+                              TicketModel ticketData = value;
+                              NXHelp()
+                                  .buyTicketv2(
+                                      ticketID: ticketData.id, tag: "AUTO_BUY1")
+                                  .then((value) {
+                                var id = value;
+                                widget.changeTicket(id);
+                              });
+                            }
+                          });
                         },
-                                              child: Container(
+                        child: Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -573,8 +642,8 @@ class _TicketSwicherState extends State<TicketSwicher> {
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 5,
                                   blurRadius: 7,
-                                  offset:
-                                      Offset(0, 3), // changes position of shadow
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
                                 ),
                               ]),
                         ),
