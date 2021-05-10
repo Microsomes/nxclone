@@ -68,7 +68,7 @@ class ActualTicketState extends State<ActualTicket> {
         });
       });
     });
-    Future.delayed(Duration(seconds: 1),(){
+    Future.delayed(Duration(milliseconds: 100),(){
       setState((){
         showT=true;
       });
@@ -565,7 +565,7 @@ class _TicketSwicherState extends State<TicketSwicher> {
                               TicketModel ticketData = value;
                               NXHelp()
                                   .buyTicketv2(
-                                      ticketID: ticketData.id, tag: "AUTO_BUY1")
+                                      ticketID: ticketData.id, tag: "AUTO_BUY")
                                   .then((value) {
                                 var id = value;
                                 widget.changeTicket(id);
@@ -615,7 +615,7 @@ class _TicketSwicherState extends State<TicketSwicher> {
                               TicketModel ticketData = value;
                               NXHelp()
                                   .buyTicketv2(
-                                      ticketID: ticketData.id, tag: "AUTO_BUY1")
+                                      ticketID: ticketData.id, tag: "AUTO_BUY")
                                   .then((value) {
                                 var id = value;
                                 widget.changeTicket(id);

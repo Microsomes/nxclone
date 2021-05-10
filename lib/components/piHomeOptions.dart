@@ -44,23 +44,14 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
       "image": "images/v5/tickets.png",
     });
 
-    allOptions.add({
-      "name": "Wallet",
-      "id": "wallet",
-      "image": "images/v5/wallet.png",
-    });
-
+  
     allOptions.add({
       "name": "Learn",
       "id": "info",
       "image": "images/v5/edu.png",
     });
 
-    allOptions.add({
-      "name": "Setup",
-      "id": "setup",
-      "image": "images/v5/settings.png",
-    });
+ 
   }
 
   @override
@@ -116,12 +107,12 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                             case "ticket":
 
                               //we need to request a ticket id
-                              NXHelp().buyAndActivateDefaultTicket().then((id) {
+                              NXHelp().buyDefaultTicketAndActivatev2().then((id) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ActualTicket(
-                                            txid: id['ticketid'])));
+                                            txid: id)));
                               });
 
                               break;
@@ -131,12 +122,12 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                                   MaterialPageRoute(
                                       builder: (context) => LearnIntro()));
                               break;
-                            case "wallet":
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Ticketwallet()));
-                              break;
+                            // case "wallet":
+                            //   Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (context) => Ticketwallet()));
+                            //   break;
                           }
                         },
                         child: AnimatedOpacity(
@@ -152,20 +143,6 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                               width: MediaQuery.of(context).size.width * 0.33,
                               child: Column(
                                 children: [
-                                  // Expanded(
-                                  //   child: Center(
-                                  //     child: CircleAvatar(
-                                  //       radius: 10,
-                                  //       child: Image.asset(
-                                  //         allOptions[i]["image"],
-                                  //         color: Colors.green,
-                                  //         width: 10,
-                                  //       ),
-                                  //       backgroundColor:
-                                  //           Color.fromRGBO(249, 140, 85, 1),
-                                  //     ),
-                                  //   ),
-                                  // ),
                                   Expanded(
                                     child: Center(
                                       child: Text(
@@ -174,6 +151,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                                             fontSize: 18,
                                             color: widget.textColor,
                                             fontWeight: FontWeight.w500),
+                                            textAlign: TextAlign.center,
                                       ),
                                     ),
                                   ),

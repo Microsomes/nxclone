@@ -18,6 +18,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'options/defaultTicketOption.dart';
 
 class AdvancedSetupPage extends StatefulWidget {
+  final bool hideDetails;
+
+  AdvancedSetupPage({
+    this.hideDetails=false
+  });
+  
   @override
   _AdvancedSetupPageState createState() => _AdvancedSetupPageState();
 }
@@ -116,21 +122,21 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
+        widget.hideDetails? Container():   SizedBox(
             height: 10,
           ),
           Row(
             children: [
-              SizedBox(
+          widget.hideDetails? Container():     SizedBox(
                 width: 30,
               ),
-              Text(
+            widget.hideDetails? Container():   Text(
                 "First time Setup",
                 style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
               )
             ],
           ),
-          Container(
+         widget.hideDetails? Container(): Container(
             padding: EdgeInsets.only(left: 30),
             alignment: Alignment.topLeft,
             child: Text(
@@ -231,7 +237,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
               Text("We"),
               SizedBox(height: 40,),
 
-              Text("(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
+            widget.hideDetails? Container():   Text("(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontSize: 18

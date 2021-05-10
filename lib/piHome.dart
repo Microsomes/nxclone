@@ -195,12 +195,24 @@ class PiHomeState extends State<PiHome> {
                 },
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 20.0, top: 10),
+                    padding: const EdgeInsets.only(right: 20.0, top: 0),
                     child: CircleAvatar(
                         radius: 13, backgroundColor: scaffCol.withGreen(20)),
                   ),
                 ),
               )
+                ,IconButton(
+                icon: Icon(Icons.settings,color:Colors.white),
+                onPressed: (){
+                    Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NewSetupv3(
+                                      hideDetails: true,
+                                    )),
+                              );
+                },
+              ),
             ],
           ),
           backgroundColor: scaffCol,

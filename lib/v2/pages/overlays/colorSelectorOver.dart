@@ -90,7 +90,7 @@ class ColorSelectOver {
                     height: 10,
                   ),
                 RaisedButton(
-                    color: Colors.pink,
+                    color: Color.fromRGBO(165, 28, 26, 1),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: Center(
@@ -110,7 +110,7 @@ class ColorSelectOver {
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                  children: [
                      RaisedButton(
-                    color: Colors.pink,
+                    color: Color.fromRGBO(165, 28, 26, 1),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: Center(
@@ -124,12 +124,12 @@ class ColorSelectOver {
                     },
                   ),
                  RaisedButton(
-                    color: Colors.pink,
+                    color: Color.fromRGBO(165, 28, 26, 1),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: Center(
                       child: Text(
-                        isCustomColor==false ?"Pick your own Color":"Pick Random Colors",
+                        isCustomColor==false ?"Pick your own Color ✏️":"Pick Random Colors",
                         style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                       ),
                     ),

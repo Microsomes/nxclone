@@ -1,4 +1,5 @@
 import 'package:BubbleGum/pages/ticketwalletv2.dart';
+import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/components/daysaveractive.dart';
@@ -533,6 +534,10 @@ class _NXFront_TopBarState extends State<NXFront_TopBar> {
                 ),
               ),
               GestureDetector(
+                onLongPress: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PiHome()));
+                },
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => UtilitiesMenu()));
