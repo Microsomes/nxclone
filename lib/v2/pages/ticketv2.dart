@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,9 @@ import 'package:app_launcher/app_launcher.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 import 'package:screen/screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'overlays/v2/ejectionOverlay.dart';
 
 class ActualTicket extends StatefulWidget {
   final int txid;
@@ -50,7 +54,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     print("BLOCKING SCREENSHOTS");
 
-   // Screen.setBrightness(1.0);
+    // Screen.setBrightness(1.0);
 
     FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
         .then((value) {
@@ -79,18 +83,16 @@ class ActualTicketState extends State<ActualTicket> {
     currentQR = listOfQrCollections[0];
 
     NXHelp().getTicketWalletInfoByID(id: widget.txid).then((value) {
-      List<TicketWalletModel> tikdata =value;
+      List<TicketWalletModel> tikdata = value;
 
       tikdata[0].getTicketData().then((value) {
-
-        TicketModel tkData=value;
+        TicketModel tkData = value;
         setState(() {
-          state= tkData.state;
-          ticketTitle= tkData.tickettitle;
-          subtitle=tkData.ticketsubtitle;
+          state = tkData.state;
+          ticketTitle = tkData.tickettitle;
+          subtitle = tkData.ticketsubtitle;
         });
       });
-      
     });
 
     // NXHelp().getTicketById(id: widget.txid).then((ticket) {
@@ -116,104 +118,122 @@ class ActualTicketState extends State<ActualTicket> {
     _qrTimer.cancel();
   }
 
+  String defaultEjectionID;
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async {
-          //before we click the back button check user config for crash control
-          var ejectionSetting = await NXHelp().loadConfig("ejection", 1);
-          //grab the user selected error settings
-          print(ejectionSetting);
-          //stick to the default
-          if (ejectionSetting.length <= 0) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Nxfront()));
-          } else if (ejectionSetting[0]["val"] == "crash") {
-            print("crash");
-            exit(0);
-          } else if (ejectionSetting[0]["val"] == "fakeerror") {
-            print("fake error");
-            exit(0);
-          } else if (ejectionSetting[0]["val"] == "launchapp") {
-            LaunchReview.launch(androidAppId: "com.justride.nxwm");
-            await AppLauncher.openApp(
-              androidApplicationId: "com.justride.nxwm",
-            );
+    return WillPopScope(onWillPop: () async {
+      SharedPreferences.getInstance().then((value) {
+        if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+          setState(() {
+            defaultEjectionID =
+                value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+          });
+          if(defaultEjectionID=="nothing"){
+
+          }else{
+            print(defaultEjectionID);
           }
+        }
+      });
+      // //before we click the back button check user config for crash control
+      // var ejectionSetting = await NXHelp().loadConfig("ejection", 1);
+      // //grab the user selected error settings
+      // print(ejectionSetting);
+      // //stick to the default
+      // if (ejectionSetting.length <= 0) {
+      //   Navigator.push(
+      //       context, MaterialPageRoute(builder: (context) => Nxfront()));
+      // } else if (ejectionSetting[0]["val"] == "crash") {
+      //   print("crash");
+      //   exit(0);
+      // } else if (ejectionSetting[0]["val"] == "fakeerror") {
+      //   print("fake error");
+      //   exit(0);
+      // } else if (ejectionSetting[0]["val"] == "launchapp") {
+      //   LaunchReview.launch(androidAppId: "com.justride.nxwm");
+      //   await AppLauncher.openApp(
+      //     androidApplicationId: "com.justride.nxwm",
+      //   );
+      // }
 
-          //launch real app
+      // //launch real app
 
-          //crash app/close app
+      // //crash app/close app
 
-          //fake error message
+      // //fake error message
 
-          return;
-        },
-        child: FutureBuilder(
-          builder: (ctx, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Scaffold(
+      // return;
+    }, child: FutureBuilder(
+      builder: (ctx, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.white,
+              ),
+            ),
+          );
+        }
+
+        return state == null
+            ? Scaffold(
+                backgroundColor: Colors.black,
                 body: Center(
-                  child: CircularProgressIndicator(
-                    backgroundColor: Colors.white,
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            : Scaffold(
+                backgroundColor: Colors.white,
+                body: SafeArea(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Nxfront()),
+                            );
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Container(
+                                   
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 20, top: 10),
+                                child: Text(
+                                  "Close",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Ac(
+                            speedConfig: speedConfig,
+                            state: state,
+                            ticketTitle: ticketTitle,
+                            currentQR: currentQR,
+                            subtitle: subtitle,
+                            widget: widget)
+                      ],
+                    ),
                   ),
                 ),
               );
-            }
-
-          return state==null ?  Scaffold(
-            backgroundColor: Colors.black,
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
-          ):   Scaffold(
-              backgroundColor: Colors.white,
-              body: SafeArea(
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Nxfront()),
-                          );
-                        },
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Container(),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 20, top: 10),
-                              child: Text(
-                                "Close",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 18),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Ac(
-                          speedConfig: speedConfig,
-                          state: state,
-                          ticketTitle: ticketTitle,
-                          currentQR: currentQR,
-                          subtitle: subtitle,
-                          widget: widget)
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
-        ));
+      },
+    ));
   }
 }
 
@@ -385,7 +405,12 @@ class Ac extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     InkWell(
+                      onLongPress: (){
+                        print("open ejection overlay");
+                        EjectionOverlay().display(context);
+                      },
                       onTap: () {
+                        
                         ActionOverlay().display(context);
                       },
                       child: Row(
@@ -395,14 +420,10 @@ class Ac extends StatelessWidget {
                                 color: Color.fromRGBO(103, 119, 138, 1)),
                             onPressed: () {},
                           ),
-                          Text(
-                            "Actions",
-                            style: GoogleFonts.roboto(
-                              color:Color.fromRGBO(
-                                                5, 121, 160, 1),
-                                fontWeight: FontWeight.w800
-                            )
-                          )
+                          Text("Actions",
+                              style: GoogleFonts.roboto(
+                                  color: Color.fromRGBO(5, 121, 160, 1),
+                                  fontWeight: FontWeight.w800))
                         ],
                       ),
                     ),
@@ -426,19 +447,14 @@ class Ac extends StatelessWidget {
                             IconButton(
                               icon: Icon(
                                 Icons.format_list_bulleted,
-                                color: Color.fromRGBO(
-                                                5, 121, 160, 1),
+                                color: Color.fromRGBO(5, 121, 160, 1),
                               ),
                               onPressed: () {},
                             ),
-                            Text(
-                              "Details",
-                              style: GoogleFonts.roboto(
-                              color:Color.fromRGBO(
-                                                5, 121, 160, 1),
-                                fontWeight: FontWeight.w800
-                            )
-                            )
+                            Text("Details",
+                                style: GoogleFonts.roboto(
+                                    color: Color.fromRGBO(5, 121, 160, 1),
+                                    fontWeight: FontWeight.w800))
                           ],
                         ),
                       ),

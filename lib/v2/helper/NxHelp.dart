@@ -1064,26 +1064,57 @@ class NXHelp {
     return allHomePageSettings;
   }
 
-  List<EjectionSettingModel> getAllEjectionSettings() {
+
+  List<EjectionSettingModel> getAllEjectionSettings2() {
     List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
-    ejectionSettings.add(EjectionSettingModel(
-        id: "nothing",
-        name: "Do Nothing",
-        info:
-            "Selecting this will ensure nothing happens when using the back button on the ticket page. Back button = null"));
-    ejectionSettings.add(EjectionSettingModel(
-        id: "simulated_real",
-        name: "Simulated Real",
-        info:
-            "When clicking back, on the ticket page would take you to the simulated clone home page. Its the clone of the home page as well, where you can buy tickets and act like the real app. "));
 
     ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Will launch the real NX App",
         id: "launch_real",
         name: "Launch Real App",
         info:
             "Launch the real NX App when clicking back on the ticket page. This is for the most paranoid and risk averse people. True ninjas don't use this."));
 
     ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Will fake an error message",
+        id: "fake_error",
+        name: "Fake Error Message",
+        info:
+            "Shows a fake error message, can be used to bluff your way. Shows when clicking back from the ticket page."));
+    ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Will go back to NX Home Page",
+        id: "simulated_real",
+        name: "Simulated Real",
+        info:
+            "When clicking back, on the ticket page would take you to the simulated clone home page. Its the clone of the home page as well, where you can buy tickets and act like the real app. "));
+    return ejectionSettings; 
+   
+  }
+
+  List<EjectionSettingModel> getAllEjectionSettings() {
+    List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
+    ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Well wont do anything",
+        id: "nothing",
+        name: "Do Nothing",
+        info:
+            "Selecting this will ensure nothing happens when using the back button on the ticket page. Back button = null"));
+    ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Will go back to NX Home Page",
+        id: "simulated_real",
+        name: "Simulated Real",
+        info:
+            "When clicking back, on the ticket page would take you to the simulated clone home page. Its the clone of the home page as well, where you can buy tickets and act like the real app. "));
+
+    ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Will launch the real NX App",
+        id: "launch_real",
+        name: "Launch Real App",
+        info:
+            "Launch the real NX App when clicking back on the ticket page. This is for the most paranoid and risk averse people. True ninjas don't use this."));
+
+    ejectionSettings.add(EjectionSettingModel(
+      infoSmall: "Will fake an error message",
         id: "fake_error",
         name: "Fake Error Message",
         info:
