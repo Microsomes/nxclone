@@ -31,19 +31,10 @@ class _PlannerState extends State<Planner> {
           ),
           Expanded(
             child: Container(
+              color: Colors.red,
               child: Column(
                 children: [
-                  Expanded(
-                    child: TextInputPlanner(
-                      hintText: "Departing from",
-                    ),
-                  ),
-                  Expanded(
-                    child: TextInputPlanner(
-                      hintText: "Arriving at",
-                    ),
-                  ),
-
+                 
                 ],
               ),
             ),
@@ -53,6 +44,16 @@ class _PlannerState extends State<Planner> {
     );
   }
 }
+//  Expanded(
+//                     child: TextInputPlanner(
+//                       hintText: "Departing from",
+//                     ),
+//                   ),
+//                   Expanded(
+//                     child: TextInputPlanner(
+//                       hintText: "Arriving at",
+//                     ),
+//                   ),
 
 class TextInputPlanner extends StatelessWidget {
   final String  hintText;

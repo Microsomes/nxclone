@@ -33,7 +33,7 @@ class MetroTicketModel{
 
 class MetroHelperv1{
 
-  List<MetroTicketModel> getAllTickets(){
+  List<MetroCatModel> getAllTicketsCategories(){
     //all day
     List<MetroTicketModel> toTikDay= List();
     toTikDay.add(MetroTicketModel(type: "Adult", price: 6.30, desc: "All Day unlimited travel"));
@@ -62,11 +62,46 @@ class MetroHelperv1{
     List<MetroTicketModel> toTikDayFlexSave= List();
     toTikDayFlexSave.add(MetroTicketModel(type: "10 Day Tickets", price: 48.00, desc: "10 days unlimited travel to be used at your convenience. Once the first day is activated the remaining days are valid for 6 months"));
 
+    MetroCatModel dayCat=MetroCatModel(
+      allTickets: toTikDay,
+      title: "Day",
+      desc: "Travel all day, as much as you like"
+    );
 
+    MetroCatModel day4Cat=MetroCatModel(
+      allTickets: toTikDay3or4days,
+      title: "3 or 4 Days",
+      desc: "Travel as much as you want for 3 or 4 consecutive days"
+    );
 
+    MetroCatModel day7Cat=MetroCatModel(
+      allTickets: toTikDay7days,
+      title: "7 Days",
+      desc: "Travel as much as you want for 7 consecutive days"
+    );
 
+    MetroCatModel monthlySeasonCat=MetroCatModel(
+      allTickets: toTikDayMonthlySeason,
+      title: "Monthly Season",
+      desc: "Travel as much as you want for the time periods shown"
+    );
 
+     MetroCatModel flexSaveCat=MetroCatModel(
+      allTickets: toTikDayFlexSave,
+      title: "Flex & Save",
+      desc: "10 days unlimited travel to be used at your convenience"
+    );
 
+    List<MetroCatModel> allCategoroes=List();
+
+    allCategoroes.add(dayCat);
+    allCategoroes.add(day4Cat);
+    allCategoroes.add(day7Cat);
+    allCategoroes.add(monthlySeasonCat);
+    allCategoroes.add(flexSaveCat);
+ 
+
+    return allCategoroes;
   }
 
 }

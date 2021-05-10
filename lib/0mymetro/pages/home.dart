@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'components/homecomp/Planner.dart';
 import 'components/homecomp/covidplan.dart';
 
+import './purchase.dart';
+
 
 class MyMetro extends StatefulWidget{
   @override
@@ -49,8 +51,10 @@ class _MyMetroState extends State<MyMetro> {
 
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.train),
-            title: Text("Home")
+            icon: Icon(Icons.train,color: Colors.grey,),
+          title: Text("Home",style: GoogleFonts.roboto(
+                color: Colors.grey
+              ),)
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart,color: Colors.grey,),
@@ -76,15 +80,34 @@ class _MyMetroState extends State<MyMetro> {
       ),
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height:6),
-            CovidPlanner(),
-            SizedBox(height:20),
-            Planner()
-          ],
+        child: Builder(
+          builder: (ctx){
+            if(bottomIndex==0){
+            return Home();
+            }else if(bottomIndex==1){
+              return PurchasePage();
+            }
+          },
         ),
       )
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(height:6),
+        CovidPlanner(),
+        SizedBox(height:20),
+        Planner()
+      ],
     );
   }
 }
