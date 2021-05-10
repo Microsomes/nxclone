@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
@@ -128,9 +129,8 @@ class ActualTicketState extends State<ActualTicket> {
             defaultEjectionID =
                 value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
           });
-          if(defaultEjectionID=="nothing"){
-
-          }else{
+          if (defaultEjectionID == "nothing") {
+          } else {
             print(defaultEjectionID);
           }
         }
@@ -203,9 +203,7 @@ class ActualTicketState extends State<ActualTicket> {
                           child: Row(
                             children: <Widget>[
                               Expanded(
-                                child: Container(
-                                   
-                                ),
+                                child: Container(),
                               ),
                               Padding(
                                 padding:
@@ -405,12 +403,11 @@ class Ac extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     InkWell(
-                      onLongPress: (){
+                      onLongPress: () {
                         print("open ejection overlay");
                         EjectionOverlay().display(context);
                       },
                       onTap: () {
-                        
                         ActionOverlay().display(context);
                       },
                       child: Row(
@@ -431,6 +428,16 @@ class Ac extends StatelessWidget {
                       child: Container(),
                     ),
                     InkWell(
+                      onLongPress: () {
+                        showDialog(
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                                  backgroundColor: Colors.black,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  content: TicketSwicher(),
+                                ));
+                      },
                       onTap: () {
                         Navigator.push(
                           context,
@@ -470,6 +477,132 @@ class Ac extends StatelessWidget {
   }
 }
 
+class TicketSwicher extends StatefulWidget {
+  const TicketSwicher({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _TicketSwicherState createState() => _TicketSwicherState();
+}
+
+class _TicketSwicherState extends State<TicketSwicher> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        alignment: Alignment.center,
+        height: 100,
+        color: Colors.black,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                height: 40,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          print("kjnkj");
+                          var state=States.westMidlands;
+                          var type= Ttype.daySaver;
+
+
+                          NXHelp().findTicketWithStateAndTitleID(state: state,title: type).then((value) {
+                            if(value!=null){
+                              TicketModel ticketData=value;
+                              NXHelp().buyTicketv2(ticketID: ticketData.id, tag: "AUTO_BUY1").then((value) {
+                                var id=value;
+                                print(id);
+                              });
+                            }
+                          });
+
+
+                        },
+                                              child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Day Saver",
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset:
+                                      Offset(0, 3), // changes position of shadow
+                                ),
+                              ]),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          print("group daysaver");
+                        },
+                                              child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Group Saver",
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset:
+                                      Offset(0, 3), // changes position of shadow
+                                ),
+                              ]),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (ctx) => PiHome()));
+                },
+                child: Center(
+                  child: Text("PI-Home"),
+                ),
+              ),
+            )
+          ],
+        ));
+  }
+}
+
 class QR extends StatefulWidget {
   @override
   _QRState createState() => _QRState();
@@ -480,6 +613,12 @@ class _QRState extends State<QR> {
   var listOfQrCollections = List();
 
   Timer mainTimer;
+
+  @override
+  void dispose() {
+    mainTimer.cancel();
+    super.dispose();
+  }
 
   @override
   void initState() {

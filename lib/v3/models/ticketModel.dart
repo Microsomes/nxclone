@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class TicketModel{
+  final int id;
   final String state;
   final String tickettitle;
   final String ticketsubtitle;
@@ -12,6 +13,7 @@ class TicketModel{
   final String notusedexpiry;
   final String activefor;
   TicketModel({
+    this.id,
     @required this.state,
     @required this.tickettitle,
     @required this.ticketsubtitle,

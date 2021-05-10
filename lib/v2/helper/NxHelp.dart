@@ -1394,6 +1394,29 @@ class NXHelp {
     return allTInfo;
   }
 
+
+  Future findTicketWithStateAndTitleID({@required state,@required title}) async {
+    var db = await openDatabase(NXHelp.DB_NAME);
+    List<Map> d= await db.rawQuery("SELECT * FROM tickets WHERE state=? AND tickettitle=?",[state,title]);
+    if(d.length>=1){
+      var element= d[0];
+      TicketModel toReturn= TicketModel(
+        id: element['id'],
+        state: element['state'],
+        tickettitle: element['tickettitle'],
+        ticketsubtitle: element['ticketsubtitle'],
+        price: element['price'],
+        info: element['info'],
+        tag: element['tag'],
+        notusedexpiry: element['notusedexpiry'],
+        activefor: element['activefor']
+      );
+      return toReturn;
+    }else{
+      return null;
+    }
+  }
+
   /**
    * This funciton will activate tickets for ticketwalletv2
    */
