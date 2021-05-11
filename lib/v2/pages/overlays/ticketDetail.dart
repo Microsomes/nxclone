@@ -146,8 +146,7 @@ class TicketDetailState extends State<TicketDetail> {
                                               IconButton(
                                                 icon: Icon(
                                                   Icons.arrow_back_ios,
-                                                  color: Color.fromRGBO(
-                                                      77, 84, 137, 1),
+                                                  color: Color.fromRGBO(5, 121, 160, 1),
                                                   size: 18,
                                                 ),
                                                 onPressed: () {},
@@ -155,8 +154,7 @@ class TicketDetailState extends State<TicketDetail> {
                                               Text(
                                                 "Back",
                                                 style: TextStyle(
-                                                    color: Color.fromRGBO(
-                                                        58, 63, 103, 1),
+                                                    color: Color.fromRGBO(5, 121, 160, 1),
                                                     fontWeight:
                                                         FontWeight.w500),
                                               )
@@ -183,16 +181,14 @@ class TicketDetailState extends State<TicketDetail> {
                                                 IconButton(
                                                   icon: Icon(
                                                     Icons.sort,
-                                                    color: Color.fromRGBO(
-                                                        74, 81, 133, 1),
+                                                    color: Color.fromRGBO(5, 121, 160, 1),
                                                   ),
                                                   onPressed: () {},
                                                 ),
                                                 Text(
                                                   "Terms",
                                                   style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          86, 94, 155, 1),
+                                                      color: Color.fromRGBO(5, 121, 160, 1),
                                                       fontWeight:
                                                           FontWeight.w500),
                                                 )
