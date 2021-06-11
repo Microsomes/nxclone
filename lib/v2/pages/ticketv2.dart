@@ -363,8 +363,26 @@ class Ac extends StatelessWidget {
                                                 Radius.circular(5))),
                                         child: Column(
                                           children: [
-                                            Text("Area of travel"),
-                                            Text("WM"),
+                                            Text(
+                                              "Area of travel",
+                                              style: GoogleFonts.roboto(
+                                                  color: Color.fromRGBO(
+                                                      74, 74, 72, 1),
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 11),
+                                            ),
+                                            Expanded(
+                                              child: Center(
+                                                child: Text(
+                                                  "WM",
+                                                  style: GoogleFonts.roboto(
+                                                      color: Color.fromRGBO(
+                                                          74, 74, 72, 1),
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 80),
+                                                ),
+                                              ),
+                                            ),
                                             Text("West Midlands")
                                           ],
                                         ),
@@ -376,26 +394,32 @@ class Ac extends StatelessWidget {
                                           children: [
                                             Expanded(
                                                 child: Container(
-                                                  width: MediaQuery.of(context).size.width,
-                                                  child: Column(
-                                                    children: [
-                                                      Text("Adult",
-                                                      style: GoogleFonts.roboto(
-                                                        color: Color.fromRGBO(74,74,72,1),
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 11
-                                                      ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Icon(Icons.person,
-                                                          color: Color.fromRGBO(64, 64, 64, 1),
-                                                          size: 60,
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ],
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    "Adult",
+                                                    style: GoogleFonts.roboto(
+                                                        color: Color.fromRGBO(
+                                                            74, 74, 72, 1),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 11),
                                                   ),
+                                                  Expanded(
+                                                    child: Container(
+                                                      child: Icon(
+                                                        Icons.person,
+                                                        color: Color.fromRGBO(
+                                                            64, 64, 64, 1),
+                                                        size: 60,
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
                                               decoration: BoxDecoration(
                                                   color: Color.fromRGBO(
                                                       217, 217, 215, 1),
