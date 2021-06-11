@@ -199,12 +199,16 @@ flutter:
    - images/v4/bubblegum.jpg
 
    - images/v4/Orange_Bubblegum.png
+   - images/v4/nationalexpress.png
    
    - images/v5/settings.png
    - images/v5/home.png
    - images/v5/tickets.png
    - images/v5/edu.png
    - images/v5/wallet.png
+
+   - images/v6/adult.png
+   - images/v6/vm.png
 
    - images/mymetro/logo1.png
 

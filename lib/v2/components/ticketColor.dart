@@ -206,7 +206,7 @@ class TicketColorState extends State<TicketColor> {
                       opacity: opacity1,
                       duration: Duration(milliseconds: 800),
                       child: Container(
-                        height: 100,
+                        height: 110,
                         decoration: BoxDecoration(
                             color: opt1,
                             borderRadius:
@@ -226,7 +226,7 @@ class TicketColorState extends State<TicketColor> {
                       opacity: opacity1,
                       duration: Duration(milliseconds: 800),
                       child: Container(
-                        height: 100,
+                        height: 110,
                         decoration: BoxDecoration(
                             color: opt2, borderRadius: BorderRadius.only()),
                       ),
@@ -244,7 +244,7 @@ class TicketColorState extends State<TicketColor> {
                       opacity: opacity1,
                       duration: Duration(milliseconds: 800),
                       child: Container(
-                        height: 100,
+                        height: 110,
                         decoration: BoxDecoration(
                             color: opt3,
                             borderRadius:

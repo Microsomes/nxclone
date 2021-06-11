@@ -28,7 +28,7 @@ class _TicketDebugState extends State<TicketDebug> {
               onPressed: () {
                 showDialog(
                     context: context,
-                    child: ShowAvailableTicketsToPurchaseDebug(
+                    builder: (_) => ShowAvailableTicketsToPurchaseDebug(
                       onTicketPicked: (int id) {
                         NXHelp()
                             .buyTicketv2(ticketID: id, tag: "active")

@@ -189,7 +189,7 @@ class ActualTicketState extends State<ActualTicket> {
 
       // //fake error message
 
-      // return;
+      return;
     }, child: FutureBuilder(
       builder: (ctx, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -355,46 +355,17 @@ class Ac extends StatelessWidget {
                                     Expanded(
                                       flex: 2,
                                       child: Container(
+                                        padding: EdgeInsets.only(
+                                          top:5,
+                                          bottom: 15
+                                        ),
                                         margin: EdgeInsets.all(4),
                                         decoration: BoxDecoration(
                                             color: Color.fromRGBO(
                                                 217, 217, 215, 1),
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(5))),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              "Area of travel",
-                                              style: GoogleFonts.roboto(
-                                                  color: Color.fromRGBO(
-                                                      64,64,62,1),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 12),
-                                            ),
-                                            Expanded(
-                                              child: Center(
-                                                child: Text(
-                                                  "WM",
-                                                  style: GoogleFonts.roboto(
-                                                      color: Color.fromRGBO(
-                                                          113, 113, 111, 1),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 80),
-                                                ),
-                                              ),
-                                            ),
-                                            Text(
-                                              "West Midlands",
-                                              style: GoogleFonts.roboto(
-                                                  color: Color.fromRGBO(
-                                                      64, 64, 62, 1),
-                                                  fontSize: 23,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
-                                            SizedBox(height: 10)
-                                          ],
-                                        ),
+                                        child: Image.asset("images/v6/vm.png"),
                                       ),
                                     ),
                                     Expanded(
@@ -403,32 +374,11 @@ class Ac extends StatelessWidget {
                                           children: [
                                             Expanded(
                                                 child: Container(
+                                                  padding:EdgeInsets.only(top:5),
                                               width: MediaQuery.of(context)
                                                   .size
                                                   .width,
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    "Adult",
-                                                    style: GoogleFonts.roboto(
-                                                        color: Color.fromRGBO(
-                                                             64,64,62,1),
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 12),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(
-                                                      child: Icon(
-                                                        Icons.person,
-                                                        color: Color.fromRGBO(
-                                                            64, 64, 64, 1),
-                                                        size: 60,
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
+                                              child: Image.asset("images/v6/adult.png"),
                                               decoration: BoxDecoration(
                                                   color: Color.fromRGBO(
                                                       217, 217, 215, 1),
@@ -443,14 +393,11 @@ class Ac extends StatelessWidget {
                                                     children: [
                                                       Expanded(
                                                         child: Container(
-                                                          color: Colors.red,
+                                                          padding: EdgeInsets.all(10),
+                                                           child: Image.asset("images/v4/nationalexpress.png")
                                                         ),
                                                       ),
-                                                      Expanded(
-                                                        child: Container(
-                                                          color: Colors.pink,
-                                                        ),
-                                                      )
+
                                                     ],
                                                   ),
                                               decoration: BoxDecoration(

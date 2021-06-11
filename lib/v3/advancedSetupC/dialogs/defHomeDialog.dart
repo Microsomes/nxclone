@@ -86,7 +86,7 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
                         onPressed: () {
                           showDialog(
                               context: context,
-                              child: AlertDialog(
+                              builder: (_)=> AlertDialog(
                                 backgroundColor: Colors.redAccent,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
