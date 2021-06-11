@@ -367,9 +367,9 @@ class Ac extends StatelessWidget {
                                               "Area of travel",
                                               style: GoogleFonts.roboto(
                                                   color: Color.fromRGBO(
-                                                      74, 74, 72, 1),
+                                                      64,64,62,1),
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 11),
+                                                  fontSize: 12),
                                             ),
                                             Expanded(
                                               child: Center(
@@ -377,13 +377,22 @@ class Ac extends StatelessWidget {
                                                   "WM",
                                                   style: GoogleFonts.roboto(
                                                       color: Color.fromRGBO(
-                                                          74, 74, 72, 1),
-                                                      fontWeight: FontWeight.bold,
+                                                          113, 113, 111, 1),
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       fontSize: 80),
                                                 ),
                                               ),
                                             ),
-                                            Text("West Midlands")
+                                            Text(
+                                              "West Midlands",
+                                              style: GoogleFonts.roboto(
+                                                  color: Color.fromRGBO(
+                                                      64, 64, 62, 1),
+                                                  fontSize: 23,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            SizedBox(height: 10)
                                           ],
                                         ),
                                       ),
@@ -403,10 +412,10 @@ class Ac extends StatelessWidget {
                                                     "Adult",
                                                     style: GoogleFonts.roboto(
                                                         color: Color.fromRGBO(
-                                                            74, 74, 72, 1),
+                                                             64,64,62,1),
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        fontSize: 11),
+                                                        fontSize: 12),
                                                   ),
                                                   Expanded(
                                                     child: Container(
@@ -430,6 +439,20 @@ class Ac extends StatelessWidget {
                                             )),
                                             Expanded(
                                                 child: Container(
+                                                  child: Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: Container(
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Container(
+                                                          color: Colors.pink,
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
                                               decoration: BoxDecoration(
                                                   color: Color.fromRGBO(
                                                       217, 217, 215, 1),
