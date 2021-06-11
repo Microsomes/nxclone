@@ -314,52 +314,14 @@ class Ac extends StatelessWidget {
                 ]),
             child: Column(
               children: <Widget>[
-                Container(
-                  height: 35,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(165, 28, 26, 1),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10),
-                          topLeft: Radius.circular(10))),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: <Widget>[
-                      Positioned(
-                          left: 10,
-                          child: MovingText(
-                            velocity:
-                                double.parse(speedConfig['top'][0]['val']),
-                            textContent: "$state $ticketTitle",
-                            isUpper: true,
-                          ))
-                    ],
-                  ),
-                ),
+                TicketTopPart(speedConfig: speedConfig, state: state, ticketTitle: ticketTitle),
                 SizedBox(
                   height: 15,
                 ),
-                QR(),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: Text(
-                    subtitle.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 16,
-                        letterSpacing: 0.3,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(
-                          110,
-                          107,
-                          110,
-                          1,
-                        )),
-                  ),
-                ),
+                // QR(),
+                // SizedBox(
+                //   height: 15,
+                // ),
                 SizedBox(
                   height: state == States.warwickUni ? 5 : 10,
                 ),
@@ -370,15 +332,17 @@ class Ac extends StatelessWidget {
                     ctx: context,
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 0),
-                  child: Nxsig(
-                    isRounded: ticketTitle == "Group Daysaver" ? true : false,
-                    state: state,
-                    isBottomRounded: true,
-                    ticketType: ticketTitle,
-                  ),
-                ),
+                //new sig
+                Container(),
+                // Container(
+                //   padding: EdgeInsets.only(left: 20, right: 20, top: 0),
+                //   child: Nxsig(
+                //     isRounded: ticketTitle == "Group Daysaver" ? true : false,
+                //     state: state,
+                //     isBottomRounded: true,
+                //     ticketType: ticketTitle,
+                //   ),
+                // ),
                 InkWell(
                   onTap: () {
                     print("Show rewards");
@@ -415,6 +379,19 @@ class Ac extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                            height: 15,
+                          ),
+                          Subtitleticket(subtitle: subtitle),
+
+                          SizedBox(
+                  height: 15,
+                ),
+                QR(),
+                SizedBox(
+                  height: 15,
+                ),
+
                 Expanded(
                   child: Container(),
                 ),
@@ -518,6 +495,75 @@ class Ac extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Subtitleticket extends StatelessWidget {
+  const Subtitleticket({
+    Key key,
+    @required this.subtitle,
+  }) : super(key: key);
+
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: Text(
+        subtitle.toUpperCase(),
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontSize: 16,
+            letterSpacing: 0.3,
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(
+              110,
+              107,
+              110,
+              1,
+            )),
+      ),
+    );
+  }
+}
+
+class TicketTopPart extends StatelessWidget {
+  const TicketTopPart({
+    Key key,
+    @required this.speedConfig,
+    @required this.state,
+    @required this.ticketTitle,
+  }) : super(key: key);
+
+  final Map speedConfig;
+  final String state;
+  final String ticketTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 35,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(165, 28, 26, 1),
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(10),
+              topLeft: Radius.circular(10))),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Positioned(
+              left: 10,
+              child: MovingText(
+                velocity:
+                    double.parse(speedConfig['top'][0]['val']),
+                textContent: "$state $ticketTitle",
+                isUpper: true,
+              ))
+        ],
       ),
     );
   }
