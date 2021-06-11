@@ -46,17 +46,14 @@ class ActualTicketState extends State<ActualTicket> {
 
   int activeTicketID;
 
+  bool showT = true;
 
-  bool showT=true;
-  
-
-
-  void changeTicket({@required id}){
+  void changeTicket({@required id}) {
     setState(() {
-      showT=false;
-      activeTicketID=id;
+      showT = false;
+      activeTicketID = id;
     });
-       NXHelp().getTicketWalletInfoByID(id: id).then((value) {
+    NXHelp().getTicketWalletInfoByID(id: id).then((value) {
       List<TicketWalletModel> tikdata = value;
 
       tikdata[0].getTicketData().then((value) {
@@ -68,19 +65,18 @@ class ActualTicketState extends State<ActualTicket> {
         });
       });
     });
-    Future.delayed(Duration(milliseconds: 100),(){
-      setState((){
-        showT=true;
+    Future.delayed(Duration(milliseconds: 100), () {
+      setState(() {
+        showT = true;
       });
     });
   }
-  
 
   @override
   void initState() {
     super.initState();
     setState(() {
-      activeTicketID=widget.txid;
+      activeTicketID = widget.txid;
     });
     //block screenshots here
 
@@ -249,17 +245,23 @@ class ActualTicketState extends State<ActualTicket> {
                             ],
                           ),
                         ),
-                      showT==true ?  Ac(
-                            changeTik: (int id) {
-                              changeTicket(id: id);
-                            },
-                            ticketid: activeTicketID,
-                            speedConfig: speedConfig,
-                            state: state,
-                            ticketTitle: ticketTitle,
-                            currentQR: currentQR,
-                            subtitle: subtitle,
-                            widget: widget):Container()
+                        Expanded(
+                          child: Container(
+                            child: showT == true
+                                ? Ac(
+                                    changeTik: (int id) {
+                                      changeTicket(id: id);
+                                    },
+                                    ticketid: activeTicketID,
+                                    speedConfig: speedConfig,
+                                    state: state,
+                                    ticketTitle: ticketTitle,
+                                    currentQR: currentQR,
+                                    subtitle: subtitle,
+                                    widget: widget)
+                                : Container(),
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -271,17 +273,17 @@ class ActualTicketState extends State<ActualTicket> {
 }
 
 class Ac extends StatelessWidget {
-  const Ac({
-    Key key,
-    @required this.changeTik,
-    @required this.speedConfig,
-    @required this.state,
-    @required this.ticketTitle,
-    @required this.currentQR,
-    @required this.subtitle,
-    @required this.widget,
-    @required this.ticketid
-  }) : super(key: key);
+  const Ac(
+      {Key key,
+      @required this.changeTik,
+      @required this.speedConfig,
+      @required this.state,
+      @required this.ticketTitle,
+      @required this.currentQR,
+      @required this.subtitle,
+      @required this.widget,
+      @required this.ticketid})
+      : super(key: key);
 
   final int ticketid;
   final Function changeTik;
@@ -314,15 +316,16 @@ class Ac extends StatelessWidget {
                 ]),
             child: Column(
               children: <Widget>[
-                TicketTopPart(speedConfig: speedConfig, state: state, ticketTitle: ticketTitle),
-                SizedBox(
-                  height: 15,
-                ),
-                // QR(),
-                // SizedBox(
-                //   height: 15,
-                // ),
-                SizedBox(
+                TicketTopPart(
+                    speedConfig: speedConfig,
+                    state: state,
+                    ticketTitle: ticketTitle),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+
+                        SizedBox(
                   height: state == States.warwickUni ? 5 : 10,
                 ),
                 Container(
@@ -332,165 +335,216 @@ class Ac extends StatelessWidget {
                     ctx: context,
                   ),
                 ),
-                //new sig
-                Container(),
+                      
+                      ],
+                    )
+                  ),
+                ),
+                // SizedBox(
+                //   height: 15,
+                // ),
+                // // QR(),
+                // // SizedBox(
+                // //   height: 15,
+                // // ),
+                // SizedBox(
+                //   height: state == States.warwickUni ? 5 : 10,
+                // ),
                 // Container(
-                //   padding: EdgeInsets.only(left: 20, right: 20, top: 0),
-                //   child: Nxsig(
-                //     isRounded: ticketTitle == "Group Daysaver" ? true : false,
-                //     state: state,
-                //     isBottomRounded: true,
-                //     ticketType: ticketTitle,
+                //   padding: EdgeInsets.only(left: 20, right: 20, bottom: 0),
+                //   child: TicketColor(
+                //     speed: double.parse(speedConfig['bottom'][0]['val']),
+                //     ctx: context,
                 //   ),
                 // ),
-                InkWell(
-                  onTap: () {
-                    print("Show rewards");
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 20, left: 20, top: 8),
-                    child: Container(
-                      color: Color.fromRGBO(5, 126, 176, 1),
-                      height: 60,
-                      child: Center(
-                          child: Row(
-                        children: <Widget>[
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Icon(
-                            Icons.launch,
-                            color: Colors.white.withOpacity(0.7),
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Text(
-                            "NX Rewards Cashback",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 18,
-                                letterSpacing: 0.3),
-                          ),
-                        ],
-                      )),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                            height: 15,
-                          ),
-                          Subtitleticket(subtitle: subtitle),
+                // //new sig
+                // Container(
+                //   height: 150,
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(left: 20, right: 20),
+                //     child: Row(
+                //       children: [
+                //         Container(
+                //           decoration: BoxDecoration(
+                //             color: Color.fromRGBO(165, 28, 26, 1),
+                //             borderRadius: BorderRadius.only(
+                //               bottomLeft: Radius.circular(5)
+                //             )
+                //           ),
+                //           width: 20,
+                //         ),
+                //         Expanded(
+                //           child: Container(),
+                //         ),
+                //         Container(
+                //           width: 20,
+                //            decoration: BoxDecoration(
+                //             color: Color.fromRGBO(165, 28, 26, 1),
+                //             borderRadius: BorderRadius.only(
+                //               bottomRight: Radius.circular(5)
+                //             )
+                //           ),
+                //         )
+                //       ],
+                //     ),
+                //   ),
+                // ),
+                // // Container(
+                // //   padding: EdgeInsets.only(left: 20, right: 20, top: 0),
+                // //   child: Nxsig(
+                // //     isRounded: ticketTitle == "Group Daysaver" ? true : false,
+                // //     state: )state,
+                // //     isBottomRounded: true,
+                // //     ticketType: ticketTitle,
+                // //   ),
+                // // ),
+                // InkWell(
+                //   onTap: () {
+                //     print("Show rewards");
+                //   },
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(right: 20, left: 20, top: 8),
+                //     child: Container(
+                //       color: Color.fromRGBO(5, 126, 176, 1),
+                //       height: 60,
+                //       child: Center(
+                //           child: Row(
+                //         children: <Widget>[
+                //           SizedBox(
+                //             width: 15,
+                //           ),
+                //           Icon(
+                //             Icons.launch,
+                //             color: Colors.white.withOpacity(0.7),
+                //             size: 16,
+                //           ),
+                //           SizedBox(
+                //             width: 15,
+                //           ),
+                //           Text(
+                //             "NX Rewards Cashback",
+                //             style: TextStyle(
+                //                 fontWeight: FontWeight.bold,
+                //                 color: Colors.white,
+                //                 fontSize: 18,
+                //                 letterSpacing: 0.3),
+                //           ),
+                //         ],
+                //       )),
+                //     ),
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 15,
+                // ),
+                // Subtitleticket(subtitle: subtitle),
 
-                          SizedBox(
-                  height: 15,
-                ),
-                QR(),
-                SizedBox(
-                  height: 15,
-                ),
+                // SizedBox(
+                //   height: 15,
+                // ),
+                // QR(),
+                // SizedBox(
+                //   height: 15,
+                // ),
 
-                Expanded(
-                  child: Container(),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      for (var i = 0; i < 100; i++)
-                        Container(
-                          height: 1,
-                          width: 1,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Color.fromRGBO(103, 119, 138, 1)),
-                        )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Row(
-                  children: <Widget>[
-                    InkWell(
-                      onLongPress: () {
-                        print("open ejection overlay");
-                        EjectionOverlay().display(context);
-                      },
-                      onTap: () {
-                        ActionOverlay().display(context);
-                      },
-                      child: Row(
-                        children: <Widget>[
-                          IconButton(
-                            icon: Icon(Icons.more_horiz,
-                                color: Color.fromRGBO(103, 119, 138, 1)),
-                            onPressed: () {},
-                          ),
-                          Text("Actions",
-                              style: GoogleFonts.roboto(
-                                  color: Color.fromRGBO(5, 121, 160, 1),
-                                  fontWeight: FontWeight.w800))
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(),
-                    ),
-                    InkWell(
-                      onLongPress: () {
-                        showDialog(
-                            context: context,
-                            builder: (ctx) => AlertDialog(
-                              
-                                  backgroundColor: Colors.black,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  content: TicketSwicher(
-                                    changeTicket: (int id) {
-                                      this.changeTik(id);
-                                      Navigator.of(context, rootNavigator: true).pop('dialog');
-
-                                    },
-                                  ),
-                                ));
-                      },
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TicketDetail(
-                                    txid: ticketid,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 17.0),
-                        child: Row(
-                          children: <Widget>[
-                            IconButton(
-                              icon: Icon(
-                                Icons.format_list_bulleted,
-                                color: Color.fromRGBO(5, 121, 160, 1),
-                              ),
-                              onPressed: () {},
-                            ),
-                            Text("Details",
-                                style: GoogleFonts.roboto(
-                                    color: Color.fromRGBO(5, 121, 160, 1),
-                                    fontWeight: FontWeight.w800))
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                // Expanded(
+                //   child: Container(),
+                // ),
+                // SizedBox(
+                //   height: 30,
+                // ),
+                // Container(
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //     children: [
+                //       for (var i = 0; i < 100; i++)
+                //         Container(
+                //           height: 1,
+                //           width: 1,
+                //           decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(50),
+                //               color: Color.fromRGBO(103, 119, 138, 1)),
+                //         )
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 3,
+                // ),
+                // Row(
+                //   children: <Widget>[
+                //     InkWell(
+                //       onLongPress: () {
+                //         print("open ejection overlay");
+                //         EjectionOverlay().display(context);
+                //       },
+                //       onTap: () {
+                //         ActionOverlay().display(context);
+                //       },
+                //       child: Row(
+                //         children: <Widget>[
+                //           IconButton(
+                //             icon: Icon(Icons.more_horiz,
+                //                 color: Color.fromRGBO(103, 119, 138, 1)),
+                //             onPressed: () {},
+                //           ),
+                //           Text("Actions",
+                //               style: GoogleFonts.roboto(
+                //                   color: Color.fromRGBO(5, 121, 160, 1),
+                //                   fontWeight: FontWeight.w800))
+                //         ],
+                //       ),
+                //     ),
+                //     Expanded(
+                //       child: Container(),
+                //     ),
+                //     InkWell(
+                //       onLongPress: () {
+                //         showDialog(
+                //             context: context,
+                //             builder: (ctx) => AlertDialog(
+                //                   backgroundColor: Colors.black,
+                //                   shape: RoundedRectangleBorder(
+                //                       borderRadius: BorderRadius.circular(20)),
+                //                   content: TicketSwicher(
+                //                     changeTicket: (int id) {
+                //                       this.changeTik(id);
+                //                       Navigator.of(context, rootNavigator: true)
+                //                           .pop('dialog');
+                //                     },
+                //                   ),
+                //                 ));
+                //       },
+                //       onTap: () {
+                //         Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //               builder: (context) => TicketDetail(
+                //                     txid: ticketid,
+                //                   )),
+                //         );
+                //       },
+                //       child: Padding(
+                //         padding: const EdgeInsets.only(right: 17.0),
+                //         child: Row(
+                //           children: <Widget>[
+                //             IconButton(
+                //               icon: Icon(
+                //                 Icons.format_list_bulleted,
+                //                 color: Color.fromRGBO(5, 121, 160, 1),
+                //               ),
+                //               onPressed: () {},
+                //             ),
+                //             Text("Details",
+                //                 style: GoogleFonts.roboto(
+                //                     color: Color.fromRGBO(5, 121, 160, 1),
+                //                     fontWeight: FontWeight.w800))
+                //           ],
+                //         ),
+                //       ),
+                //     )
+                //   ],
+                // ),
               ],
             ),
           ),
@@ -550,16 +604,14 @@ class TicketTopPart extends StatelessWidget {
       decoration: BoxDecoration(
           color: Color.fromRGBO(165, 28, 26, 1),
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(10),
-              topLeft: Radius.circular(10))),
+              topRight: Radius.circular(10), topLeft: Radius.circular(10))),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
               left: 10,
               child: MovingText(
-                velocity:
-                    double.parse(speedConfig['top'][0]['val']),
+                velocity: double.parse(speedConfig['top'][0]['val']),
                 textContent: "$state $ticketTitle",
                 isUpper: true,
               ))
@@ -649,7 +701,7 @@ class _TicketSwicherState extends State<TicketSwicher> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                           print("kjnkj");
+                          print("kjnkj");
                           var state = States.westMidlands;
                           var type = Ttype.groupdaysaver;
 
