@@ -322,23 +322,253 @@ class Ac extends StatelessWidget {
                     ticketTitle: ticketTitle),
                 Expanded(
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-
-                        SizedBox(
-                  height: state == States.warwickUni ? 5 : 10,
+                      child: Column(
+                    children: [
+                      SizedBox(
+                        height: state == States.warwickUni ? 5 : 10,
+                      ),
+                      Container(
+                        padding:
+                            EdgeInsets.only(left: 20, right: 20, bottom: 0),
+                        child: TicketColor(
+                          speed: double.parse(speedConfig['bottom'][0]['val']),
+                          ctx: context,
+                        ),
+                      ),
+                      Container(
+                        height: 150,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(165, 28, 26, 1),
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(5))),
+                                width: 18,
+                              ),
+                              Expanded(
+                                child: Container(
+                                    child: Row(
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: Container(
+                                        margin: EdgeInsets.all(4),
+                                        decoration: BoxDecoration(
+                                            color: Color.fromRGBO(
+                                                217, 217, 215, 1),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(5))),
+                                        child: Column(
+                                          children: [
+                                            Text("Area of travel"),
+                                            Text("WM"),
+                                            Text("West Midlands")
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            Expanded(
+                                                child: Container(
+                                                  width: MediaQuery.of(context).size.width,
+                                                  child: Column(
+                                                    children: [
+                                                      Text("Adult",
+                                                      style: GoogleFonts.roboto(
+                                                        color: Color.fromRGBO(74,74,72,1),
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 11
+                                                      ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Container(
+                                                          child: Icon(Icons.person,
+                                                          color: Color.fromRGBO(64, 64, 64, 1),
+                                                          size: 60,
+                                                          ),
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                              decoration: BoxDecoration(
+                                                  color: Color.fromRGBO(
+                                                      217, 217, 215, 1),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(5))),
+                                              margin: EdgeInsets.all(4),
+                                            )),
+                                            Expanded(
+                                                child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Color.fromRGBO(
+                                                      217, 217, 215, 1),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(5))),
+                                              margin: EdgeInsets.all(4),
+                                            )),
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                )),
+                              ),
+                              Container(
+                                width: 18,
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(165, 28, 26, 1),
+                                    borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(5))),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          print("Show rewards");
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              right: 20, left: 20, top: 8),
+                          child: Container(
+                            color: Color.fromRGBO(5, 126, 176, 1),
+                            height: 60,
+                            child: Center(
+                                child: Row(
+                              children: <Widget>[
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Icon(
+                                  Icons.launch,
+                                  color: Colors.white.withOpacity(0.7),
+                                  size: 16,
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  "NX Rewards Cashback",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      letterSpacing: 0.3),
+                                ),
+                              ],
+                            )),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Subtitleticket(subtitle: subtitle),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      QR(),
+                    ],
+                  )),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, bottom: 0),
-                  child: TicketColor(
-                    speed: double.parse(speedConfig['bottom'][0]['val']),
-                    ctx: context,
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      for (var i = 0; i < 100; i++)
+                        Container(
+                          height: 1,
+                          width: 1,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Color.fromRGBO(103, 119, 138, 1)),
+                        )
+                    ],
                   ),
                 ),
-                      
-                      ],
+                Row(
+                  children: <Widget>[
+                    InkWell(
+                      onLongPress: () {
+                        print("open ejection overlay");
+                        EjectionOverlay().display(context);
+                      },
+                      onTap: () {
+                        ActionOverlay().display(context);
+                      },
+                      child: Row(
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(Icons.more_horiz,
+                                color: Color.fromRGBO(103, 119, 138, 1)),
+                            onPressed: () {},
+                          ),
+                          Text("Actions",
+                              style: GoogleFonts.roboto(
+                                  color: Color.fromRGBO(5, 121, 160, 1),
+                                  fontWeight: FontWeight.w800))
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(),
+                    ),
+                    InkWell(
+                      onLongPress: () {
+                        showDialog(
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                                  backgroundColor: Colors.black,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  content: TicketSwicher(
+                                    changeTicket: (int id) {
+                                      this.changeTik(id);
+                                      Navigator.of(context, rootNavigator: true)
+                                          .pop('dialog');
+                                    },
+                                  ),
+                                ));
+                      },
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TicketDetail(
+                                    txid: ticketid,
+                                  )),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 17.0),
+                        child: Row(
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(
+                                Icons.format_list_bulleted,
+                                color: Color.fromRGBO(5, 121, 160, 1),
+                              ),
+                              onPressed: () {},
+                            ),
+                            Text("Details",
+                                style: GoogleFonts.roboto(
+                                    color: Color.fromRGBO(5, 121, 160, 1),
+                                    fontWeight: FontWeight.w800))
+                          ],
+                        ),
+                      ),
                     )
-                  ),
+                  ],
                 ),
                 // SizedBox(
                 //   height: 15,
@@ -358,37 +588,7 @@ class Ac extends StatelessWidget {
                 //   ),
                 // ),
                 // //new sig
-                // Container(
-                //   height: 150,
-                //   child: Padding(
-                //     padding: const EdgeInsets.only(left: 20, right: 20),
-                //     child: Row(
-                //       children: [
-                //         Container(
-                //           decoration: BoxDecoration(
-                //             color: Color.fromRGBO(165, 28, 26, 1),
-                //             borderRadius: BorderRadius.only(
-                //               bottomLeft: Radius.circular(5)
-                //             )
-                //           ),
-                //           width: 20,
-                //         ),
-                //         Expanded(
-                //           child: Container(),
-                //         ),
-                //         Container(
-                //           width: 20,
-                //            decoration: BoxDecoration(
-                //             color: Color.fromRGBO(165, 28, 26, 1),
-                //             borderRadius: BorderRadius.only(
-                //               bottomRight: Radius.circular(5)
-                //             )
-                //           ),
-                //         )
-                //       ],
-                //     ),
-                //   ),
-                // ),
+
                 // // Container(
                 // //   padding: EdgeInsets.only(left: 20, right: 20, top: 0),
                 // //   child: Nxsig(
@@ -471,80 +671,6 @@ class Ac extends StatelessWidget {
                 // SizedBox(
                 //   height: 3,
                 // ),
-                // Row(
-                //   children: <Widget>[
-                //     InkWell(
-                //       onLongPress: () {
-                //         print("open ejection overlay");
-                //         EjectionOverlay().display(context);
-                //       },
-                //       onTap: () {
-                //         ActionOverlay().display(context);
-                //       },
-                //       child: Row(
-                //         children: <Widget>[
-                //           IconButton(
-                //             icon: Icon(Icons.more_horiz,
-                //                 color: Color.fromRGBO(103, 119, 138, 1)),
-                //             onPressed: () {},
-                //           ),
-                //           Text("Actions",
-                //               style: GoogleFonts.roboto(
-                //                   color: Color.fromRGBO(5, 121, 160, 1),
-                //                   fontWeight: FontWeight.w800))
-                //         ],
-                //       ),
-                //     ),
-                //     Expanded(
-                //       child: Container(),
-                //     ),
-                //     InkWell(
-                //       onLongPress: () {
-                //         showDialog(
-                //             context: context,
-                //             builder: (ctx) => AlertDialog(
-                //                   backgroundColor: Colors.black,
-                //                   shape: RoundedRectangleBorder(
-                //                       borderRadius: BorderRadius.circular(20)),
-                //                   content: TicketSwicher(
-                //                     changeTicket: (int id) {
-                //                       this.changeTik(id);
-                //                       Navigator.of(context, rootNavigator: true)
-                //                           .pop('dialog');
-                //                     },
-                //                   ),
-                //                 ));
-                //       },
-                //       onTap: () {
-                //         Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //               builder: (context) => TicketDetail(
-                //                     txid: ticketid,
-                //                   )),
-                //         );
-                //       },
-                //       child: Padding(
-                //         padding: const EdgeInsets.only(right: 17.0),
-                //         child: Row(
-                //           children: <Widget>[
-                //             IconButton(
-                //               icon: Icon(
-                //                 Icons.format_list_bulleted,
-                //                 color: Color.fromRGBO(5, 121, 160, 1),
-                //               ),
-                //               onPressed: () {},
-                //             ),
-                //             Text("Details",
-                //                 style: GoogleFonts.roboto(
-                //                     color: Color.fromRGBO(5, 121, 160, 1),
-                //                     fontWeight: FontWeight.w800))
-                //           ],
-                //         ),
-                //       ),
-                //     )
-                //   ],
-                // ),
               ],
             ),
           ),
@@ -566,20 +692,19 @@ class Subtitleticket extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      child: Text(
-        subtitle.toUpperCase(),
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 16,
-            letterSpacing: 0.3,
-            fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(
-              110,
-              107,
-              110,
-              1,
-            )),
-      ),
+      child: Text(subtitle,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.roboto(
+              fontSize: 15,
+              letterSpacing: 3,
+              height: 1.6,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(
+                110,
+                107,
+                110,
+                1,
+              ))),
     );
   }
 }
