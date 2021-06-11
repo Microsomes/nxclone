@@ -57,6 +57,8 @@ class States {
 }
 
 class SimType {
+  static String sv6 = "V6";
+  //V6 ticket types hot fix
   static String single = "Singles";
   static String day = "Day";
   static String evening = "Evening";
@@ -77,7 +79,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main27.db";
+  static String DB_NAME = "main29.db";
 
   NXHelp() {
     //load and create table
@@ -98,6 +100,29 @@ class NXHelp {
       "notusedexpiry": Duration(minutes: 1),
       "activefor": Duration(minutes: 1)
     });
+
+     ticketTypes.add({
+      "title": "Anytime Daysaver Tickets All Day",
+      "subtitle": "Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+      "price": "4.60",
+      "state": States.westMidlands,
+      "info": [
+        "This ticket allows for travel on any services provided by:",
+        "National Express West Midlands",
+        "National Express Conventry",
+        "---",
+        "For details of our coverage area please visit out website at nxbus.co.uk",
+        "line",
+        "---",
+        "For details of our coverage area please visit out website at nxbus.co.uk",
+        "line",
+        "You may activate this ticket as many times as required during the validity window."
+      ],
+      "type": SimType.sv6,
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
+    });
+
 
     /**
      * All outer Birmingham Tickets
