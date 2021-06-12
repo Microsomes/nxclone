@@ -162,33 +162,6 @@ class ActualTicketState extends State<ActualTicket> {
           }
         }
       });
-      // //before we click the back button check user config for crash control
-      // var ejectionSetting = await NXHelp().loadConfig("ejection", 1);
-      // //grab the user selected error settings
-      // print(ejectionSetting);
-      // //stick to the default
-      // if (ejectionSetting.length <= 0) {
-      //   Navigator.push(
-      //       context, MaterialPageRoute(builder: (context) => Nxfront()));
-      // } else if (ejectionSetting[0]["val"] == "crash") {
-      //   print("crash");
-      //   exit(0);
-      // } else if (ejectionSetting[0]["val"] == "fakeerror") {
-      //   print("fake error");
-      //   exit(0);
-      // } else if (ejectionSetting[0]["val"] == "launchapp") {
-      //   LaunchReview.launch(androidAppId: "com.justride.nxwm");
-      //   await AppLauncher.openApp(
-      //     androidApplicationId: "com.justride.nxwm",
-      //   );
-      // }
-
-      // //launch real app
-
-      // //crash app/close app
-
-      // //fake error message
-
       return;
     }, child: FutureBuilder(
       builder: (ctx, snapshot) {
@@ -336,97 +309,8 @@ class Ac extends StatelessWidget {
                           ctx: context,
                         ),
                       ),
-                      Container(
-                        height: 150,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(165, 28, 26, 1),
-                                    borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(5))),
-                                width: 18,
-                              ),
-                              Expanded(
-                                child: Container(
-                                    child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 2,
-                                      child: Container(
-                                        padding: EdgeInsets.only(
-                                          top:5,
-                                          bottom: 15
-                                        ),
-                                        margin: EdgeInsets.all(4),
-                                        decoration: BoxDecoration(
-                                            color: Color.fromRGBO(
-                                                217, 217, 215, 1),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(5))),
-                                        child: Image.asset("images/v6/vm.png"),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        child: Column(
-                                          children: [
-                                            Expanded(
-                                                child: Container(
-                                                  padding:EdgeInsets.only(top:5),
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              child: Image.asset("images/v6/adult.png"),
-                                              decoration: BoxDecoration(
-                                                  color: Color.fromRGBO(
-                                                      217, 217, 215, 1),
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(5))),
-                                              margin: EdgeInsets.all(4),
-                                            )),
-                                            Expanded(
-                                                child: Container(
-                                                  child: Row(
-                                                    children: [
-                                                      Expanded(
-                                                        child: Container(
-                                                          padding: EdgeInsets.all(10),
-                                                           child: Image.asset("images/v4/nationalexpress.png")
-                                                        ),
-                                                      ),
-
-                                                    ],
-                                                  ),
-                                              decoration: BoxDecoration(
-                                                  color: Color.fromRGBO(
-                                                      217, 217, 215, 1),
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(5))),
-                                              margin: EdgeInsets.all(4),
-                                            )),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                )),
-                              ),
-                              Container(
-                                width: 18,
-                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(165, 28, 26, 1),
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(5))),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
+                      ticketTitle=="Anytime Daysaver Tickets All Day"? NXSigAnytime():Container(),
+                      ticketTitle!= "Anytime Daysaver Tickets All Day"? OtherSig(ticketTitle: ticketTitle, state: state):Container(),
                       InkWell(
                         onTap: () {
                           print("Show rewards");
@@ -569,6 +453,131 @@ class Ac extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class OtherSig extends StatelessWidget {
+  const OtherSig({
+    Key key,
+    @required this.ticketTitle,
+    @required this.state,
+  }) : super(key: key);
+
+  final String ticketTitle;
+  final String state;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+                  padding: EdgeInsets.only(left: 20, right: 20, top: 0),
+                  child: Nxsig(
+                    isRounded: ticketTitle == "Group Daysaver" ? true : false,
+                    state: state,
+                    isBottomRounded: true,
+                    ticketType: ticketTitle,
+                  ),
+                );
+  }
+}
+
+class NXSigAnytime extends StatelessWidget {
+  const NXSigAnytime({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 150,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(165, 28, 26, 1),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(5))),
+              width: 18,
+            ),
+            Expanded(
+              child: Container(
+                  child: Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                        top:5,
+                        bottom: 15
+                      ),
+                      margin: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(
+                              217, 217, 215, 1),
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(5))),
+                      child: Image.asset("images/v6/vm.png"),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Expanded(
+                              child: Container(
+                                padding:EdgeInsets.only(top:5),
+                            width: MediaQuery.of(context)
+                                .size
+                                .width,
+                            child: Image.asset("images/v6/adult.png"),
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(
+                                    217, 217, 215, 1),
+                                borderRadius:
+                                    BorderRadius.all(
+                                        Radius.circular(5))),
+                            margin: EdgeInsets.all(4),
+                          )),
+                          Expanded(
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        padding: EdgeInsets.all(10),
+                                         child: Image.asset("images/v4/nationalexpress.png")
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(
+                                    217, 217, 215, 1),
+                                borderRadius:
+                                    BorderRadius.all(
+                                        Radius.circular(5))),
+                            margin: EdgeInsets.all(4),
+                          )),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              )),
+            ),
+            Container(
+              width: 18,
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(165, 28, 26, 1),
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(5))),
+            )
+          ],
         ),
       ),
     );
