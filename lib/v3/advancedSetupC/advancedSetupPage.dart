@@ -117,7 +117,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     return SingleChildScrollView(
       child: isV6==true ? Container(): Column(
         children: [
-          Text(
+         isDisclaimer==false ? Container(): Text(
             "NOTE. Emergency patch commencing. 12/6/2021 We have updated the app and only the Anytime daysaver is advisable. Click the recommended config button to continue. Or you can yolo it up to you",
             style: GoogleFonts.aBeeZee(
               color: Colors.white,
@@ -125,7 +125,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             ),
             textAlign: TextAlign.center,
           ),
-          RaisedButton(
+         isDisclaimer==false ? Container(): RaisedButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             onPressed: () async {
@@ -173,7 +173,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                     ),
               widget.hideDetails
                   ? Container()
-                  : Text(
+                  : (isDisclaimer==true) ? Container() :Text(
                       "First time Setup",
                       style:
                           GoogleFonts.roboto(fontSize: 30, color: Colors.white),
@@ -182,7 +182,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           ),
           widget.hideDetails
               ? Container()
-              : Container(
+              : (isDisclaimer==true) ? Container() :Container(
                   padding: EdgeInsets.only(left: 30),
                   alignment: Alignment.topLeft,
                   child: Text(
