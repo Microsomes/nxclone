@@ -234,12 +234,13 @@ class ActualTicketState extends State<ActualTicket> {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(right: 20, top: 10),
+                                    const EdgeInsets.only(right: 20, top: 15),
                                 child: Text(
                                   "Close",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                  style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold,
+                                      fontSize: 18
+                                  ),
                                 ),
                               )
                             ],
@@ -564,107 +565,7 @@ class Ac extends StatelessWidget {
                     )
                   ],
                 ),
-                // SizedBox(
-                //   height: 15,
-                // ),
-                // // QR(),
-                // // SizedBox(
-                // //   height: 15,
-                // // ),
-                // SizedBox(
-                //   height: state == States.warwickUni ? 5 : 10,
-                // ),
-                // Container(
-                //   padding: EdgeInsets.only(left: 20, right: 20, bottom: 0),
-                //   child: TicketColor(
-                //     speed: double.parse(speedConfig['bottom'][0]['val']),
-                //     ctx: context,
-                //   ),
-                // ),
-                // //new sig
-
-                // // Container(
-                // //   padding: EdgeInsets.only(left: 20, right: 20, top: 0),
-                // //   child: Nxsig(
-                // //     isRounded: ticketTitle == "Group Daysaver" ? true : false,
-                // //     state: )state,
-                // //     isBottomRounded: true,
-                // //     ticketType: ticketTitle,
-                // //   ),
-                // // ),
-                // InkWell(
-                //   onTap: () {
-                //     print("Show rewards");
-                //   },
-                //   child: Padding(
-                //     padding: const EdgeInsets.only(right: 20, left: 20, top: 8),
-                //     child: Container(
-                //       color: Color.fromRGBO(5, 126, 176, 1),
-                //       height: 60,
-                //       child: Center(
-                //           child: Row(
-                //         children: <Widget>[
-                //           SizedBox(
-                //             width: 15,
-                //           ),
-                //           Icon(
-                //             Icons.launch,
-                //             color: Colors.white.withOpacity(0.7),
-                //             size: 16,
-                //           ),
-                //           SizedBox(
-                //             width: 15,
-                //           ),
-                //           Text(
-                //             "NX Rewards Cashback",
-                //             style: TextStyle(
-                //                 fontWeight: FontWeight.bold,
-                //                 color: Colors.white,
-                //                 fontSize: 18,
-                //                 letterSpacing: 0.3),
-                //           ),
-                //         ],
-                //       )),
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 15,
-                // ),
-                // Subtitleticket(subtitle: subtitle),
-
-                // SizedBox(
-                //   height: 15,
-                // ),
-                // QR(),
-                // SizedBox(
-                //   height: 15,
-                // ),
-
-                // Expanded(
-                //   child: Container(),
-                // ),
-                // SizedBox(
-                //   height: 30,
-                // ),
-                // Container(
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //     children: [
-                //       for (var i = 0; i < 100; i++)
-                //         Container(
-                //           height: 1,
-                //           width: 1,
-                //           decoration: BoxDecoration(
-                //               borderRadius: BorderRadius.circular(50),
-                //               color: Color.fromRGBO(103, 119, 138, 1)),
-                //         )
-                //     ],
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 3,
-                // ),
+               
               ],
             ),
           ),

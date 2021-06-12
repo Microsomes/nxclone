@@ -268,7 +268,7 @@ class TicketColorState extends State<TicketColor> {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 23,
                             shadows: [
                               Shadow(
                                 blurRadius: 10.0,
@@ -282,13 +282,13 @@ class TicketColorState extends State<TicketColor> {
                               ),
                             ]),
                       ),
-                      SizedBox(height:5),
+                      SizedBox(height:3),
                       Text(
                         "$df",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 25,
                             shadows: [
                               Shadow(
                                 blurRadius: 10.0,
