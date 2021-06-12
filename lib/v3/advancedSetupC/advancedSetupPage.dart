@@ -20,10 +20,8 @@ import 'options/defaultTicketOption.dart';
 class AdvancedSetupPage extends StatefulWidget {
   final bool hideDetails;
 
-  AdvancedSetupPage({
-    this.hideDetails=false
-  });
-  
+  AdvancedSetupPage({this.hideDetails = false});
+
   @override
   _AdvancedSetupPageState createState() => _AdvancedSetupPageState();
 }
@@ -45,45 +43,39 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
   //controls the set ejection settings
   String defaultEjectionID;
 
-
-  bool isReadySetup=false;
-
+  bool isReadySetup = false;
 
   /**
    * the boolean checksums to confirm whats been done
    */
-  bool defHome=false;
-  bool defTicket=false;
-  bool defEjection=false;
-
+  bool defHome = false;
+  bool defTicket = false;
+  bool defEjection = false;
 
   Timer mainTimer;
 
-
-
   @override
   void dispose() {
-    if(mainTimer!=null){
-    mainTimer.cancel();
+    if (mainTimer != null) {
+      mainTimer.cancel();
     }
     super.dispose();
   }
-  
-  
-  void checkSettingState(){
-    if(defHome && defTicket && defEjection){
-        if(isDisclaimer){
+
+  void checkSettingState() {
+    if (defHome && defTicket && defEjection) {
+      if (isDisclaimer) {
         setState(() {
-          isReadySetup=true;
+          isReadySetup = true;
         });
-        }
       }
+    }
   }
 
   @override
   void initState() {
     //load default home pref
-    
+
     SharedPreferences.getInstance().then((value) {
       if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
         setState(() {
@@ -117,143 +109,208 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     super.initState();
   }
 
+  var isV6=false;
+  //dirty code
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
+      child: isV6==true ? Container(): Column(
         children: [
-        widget.hideDetails? Container():   SizedBox(
-            height: 10,
+          Text(
+            "NOTE. Emergency patch commencing. 12/6/2021 We have updated the app and only the Anytime daysaver is advisable. Click the recommended config button to continue. Or you can yolo it up to you",
+            style: GoogleFonts.aBeeZee(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
           ),
+          RaisedButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            onPressed: () async {
+              setState(() {
+                isV6=true;
+              });
+              var anytime = await NXHelp().getTicketsByTag("V6");
+              var anytimeid = anytime[0]['id'];
+
+              //set default home on behalf of user
+              SharedPreferences.getInstance().then((pref) {
+                //sets default home page
+                pref.setString("def_home_adv", "sim_ticket_view");
+
+                //sets default ticket
+                pref.setInt("def_ticket_adv_id", anytimeid);
+                pref.setString(
+                    "def_ticket_adv_name", anytime[0]['tickettitle']);
+                pref.setString("def_ticket_adv_state", anytime[0]['state']);
+
+                //set ejection settings
+                pref.setString(
+                                    "ejected_setting_adv", "nothing");
+              });
+
+              Future.delayed(Duration(seconds: 1),(){
+                setState(() {
+                  isV6=false;
+                });
+              });
+            },
+            child: Text("V6 Patch Default<- Highly Recommended"),
+          ),
+          widget.hideDetails
+              ? Container()
+              : SizedBox(
+                  height: 10,
+                ),
           Row(
             children: [
-          widget.hideDetails? Container():     SizedBox(
-                width: 30,
-              ),
-            widget.hideDetails? Container():   Text(
-                "First time Setup",
-                style: GoogleFonts.roboto(fontSize: 30, color: Colors.white),
-              )
+              widget.hideDetails
+                  ? Container()
+                  : SizedBox(
+                      width: 30,
+                    ),
+              widget.hideDetails
+                  ? Container()
+                  : Text(
+                      "First time Setup",
+                      style:
+                          GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+                    )
             ],
           ),
-         widget.hideDetails? Container(): Container(
-            padding: EdgeInsets.only(left: 30),
-            alignment: Alignment.topLeft,
-            child: Text(
-              "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any illegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
-              style: GoogleFonts.roboto(fontSize: 12, color: Colors.white),
-            ),
-          ),
-        isDisclaimer!=true ?  Column(
-            children: [
-              Container(
-              margin: EdgeInsets.only(left: 50, right: 50, top: 20),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.yellowAccent,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.yellowAccent,
-                      blurRadius: 5.0,
-                      spreadRadius: 2.0,
+          widget.hideDetails
+              ? Container()
+              : Container(
+                  padding: EdgeInsets.only(left: 30),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any illegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
+                    style:
+                        GoogleFonts.roboto(fontSize: 12, color: Colors.white),
+                  ),
+                ),
+          isDisclaimer != true
+              ? Column(
+                  children: [
+                    Container(
+                        margin: EdgeInsets.only(left: 50, right: 50, top: 20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.yellowAccent,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.yellowAccent,
+                                blurRadius: 5.0,
+                                spreadRadius: 2.0,
+                              ),
+                            ]),
+                        height: 150,
+                        child: Stack(children: [
+                          Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Please understand this clone app is for educational purposes only!",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ))
+                        ])),
+                    SizedBox(
+                      height: 20,
                     ),
-                  ]),
-              height: 150,
-              child: Stack(children: [
-                Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Please understand this clone app is for educational purposes only!",
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Expanded(
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            color: Colors.greenAccent,
+                            child: Text(
+                              "I Accept",
+                              style: GoogleFonts.roboto(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            onPressed: () {
+                              SharedPreferences.getInstance().then((value) {
+                                value.setBool("setup_disclaimer", true);
+                                //set the value
+                              });
+                              print("Accept Disclaimer");
+                              setState(() {
+                                isDisclaimer = true;
+                              });
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Expanded(
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Text(
+                              "I don't accept",
+                              style: GoogleFonts.roboto(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            color: Colors.redAccent,
+                            onPressed: () {
+                              print("i do not accept");
+                              SystemNavigator.pop();
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "V6 IS HERE. The best clone in the world. Wanna find out more. Then accept the disclaimer.",
+                      style: GoogleFonts.roboto(
+                        color: Colors.white,
+                      ),
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.bold, 
-                          fontSize: 15),
-                    ))
-              ])),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(width: 30,),
-                  Expanded(
-                                      child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      color: Colors.greenAccent,
-                      child: Text("I Accept",style: GoogleFonts.roboto(
-                        color:Colors.black,
-                        fontWeight: FontWeight.bold
-                      ),),
-                      onPressed: (){
-                        SharedPreferences.getInstance().then((value) {
-                              value.setBool("setup_disclaimer", true);
-                              //set the value
-                            });
-                        print("Accept Disclaimer");
-                        setState(() {
-                          isDisclaimer=true;
-                        });
-                      },
+                    )
+                  ],
+                )
+              : Column(
+                  children: [
+                    Text("We"),
+                    SizedBox(
+                      height: 40,
                     ),
-                  ),
-                  SizedBox(width: 30,),
-                  Expanded(
-                                      child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      child: Text("I don't accept",
-                      style: GoogleFonts.roboto(
-                        color:Colors.white,
-                        fontWeight: FontWeight.bold
-                      ),
-                      
-                      ),
-                      color: Colors.redAccent,
-                      onPressed: (){
-                        print("i do not accept");
-                        SystemNavigator.pop();
-                      },
+                    widget.hideDetails
+                        ? Container()
+                        : Text(
+                            "(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
+                            style: GoogleFonts.roboto(
+                                color: Colors.white, fontSize: 18),
+                            textAlign: TextAlign.center,
+                          ),
+                    SizedBox(
+                      height: 20,
                     ),
-                  ),
-                  SizedBox(width: 30,),
-                ],
-              )
-                ,
-                SizedBox(height: 20,),
-              Text("V6 IS HERE. The best clone in the world. Wanna find out more. Then accept the disclaimer.",
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-              )
-            ],
-          ):Column(
-            children: [
-              Text("We"),
-              SizedBox(height: 40,),
-
-            widget.hideDetails? Container():   Text("(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-                fontSize: 18
-              ),
-              textAlign: TextAlign.center,
-              ),
-            SizedBox(height: 20,),
-
-              
-            ],
-          ),
+                  ],
+                ),
           DefaultHomePageOption(
-            onDone: (){
+            onDone: () {
               print("default home page is done");
               setState(() {
-                defHome=true;
+                defHome = true;
                 this.checkSettingState();
               });
             },
@@ -263,9 +320,9 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             height: 10,
           ),
           defaultTicketOption(
-            onDone: (){
+            onDone: () {
               setState(() {
-                defTicket=true;
+                defTicket = true;
                 this.checkSettingState();
               });
             },
@@ -276,54 +333,55 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           ),
           EjectionSetOption(
             isDisclaimer: isDisclaimer,
-            onDone: (){
+            onDone: () {
               setState(() {
-                defEjection=true;
+                defEjection = true;
                 this.checkSettingState();
               });
             },
-          )
-        ,
-        SizedBox(
-          height: 20,
-        ),
-       isReadySetup!=true ? Container(): RaisedButton(
-          color: Colors.yellowAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius:BorderRadius.circular(20)
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Continue",
-          style: GoogleFonts.roboto(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 20
+          SizedBox(
+            height: 20,
           ),
-          ),
-          SizedBox(width: 20,),
-          Icon(Icons.check,color: Colors.black,
-          size: 20,
-          )
-            ],
-          ),
-          onPressed: (){
-            print("continue");
+          isReadySetup != true
+              ? Container()
+              : RaisedButton(
+                  color: Colors.yellowAccent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Continue",
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Icon(
+                        Icons.check,
+                        color: Colors.black,
+                        size: 20,
+                      )
+                    ],
+                  ),
+                  onPressed: () {
+                    print("continue");
 
-            
-
-            SharedPreferences.getInstance().then((pref) {
-              pref.setBool(SettingsPrefKeys.START_UP_SETUP, true);
-              //flag first time setup is completed
-            });
-            Navigator.push(context, MaterialPageRoute(
-              builder: (ctx)=>HomePagePre()
-            ));
-          },
-        )
-        
+                    SharedPreferences.getInstance().then((pref) {
+                      pref.setBool(SettingsPrefKeys.START_UP_SETUP, true);
+                      //flag first time setup is completed
+                    });
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (ctx) => HomePagePre()));
+                  },
+                ),
+          Text("Note: V6")
         ],
       ),
     );

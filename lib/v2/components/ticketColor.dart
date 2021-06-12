@@ -101,10 +101,10 @@ class TicketColorState extends State<TicketColor> {
       }
       elaspedTime++;
 
-      if (currentRange != 0.20) {
+      if (currentRange != 0.50) {
         if (this.mounted) {
           setState(() {
-            currentRange = 0.20;
+            currentRange = 0.50;
           });
         }
       } else {
@@ -256,29 +256,55 @@ class TicketColorState extends State<TicketColor> {
               ],
             ),
             AnimatedPositioned(
-              duration: Duration(milliseconds: widget.speed.toInt()),
+              duration: Duration(milliseconds: widget.speed.toInt()+300),
               left: sizeW * currentRange,
               child: IgnorePointer(
                 ignoring: true,
-                child: Text(
-                  "$formattedDate $df",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      shadows: [
-                        Shadow(
-                          blurRadius: 10.0,
-                          color: Color.fromRGBO(19, 8, 23, 1),
-                          offset: Offset(0, 4),
-                        ),
-                        Shadow(
-                          blurRadius: 10.0,
-                          color: Colors.black,
-                          offset: Offset(-2, 0),
-                        ),
-                      ]),
-                ),
+                child: Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        "$formattedDate",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            shadows: [
+                              Shadow(
+                                blurRadius: 10.0,
+                                color: Color.fromRGBO(19, 8, 23, 1),
+                                offset: Offset(0, 4),
+                              ),
+                              Shadow(
+                                blurRadius: 10.0,
+                                color: Colors.black,
+                                offset: Offset(-2, 0),
+                              ),
+                            ]),
+                      ),
+                      SizedBox(height:5),
+                      Text(
+                        "$df",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            shadows: [
+                              Shadow(
+                                blurRadius: 10.0,
+                                color: Color.fromRGBO(19, 8, 23, 1),
+                                offset: Offset(0, 4),
+                              ),
+                              Shadow(
+                                blurRadius: 10.0,
+                                color: Colors.black,
+                                offset: Offset(-2, 0),
+                              ),
+                            ]),
+                      ),
+                    ],
+                  ),
+                )
               ),
             ),
           ],

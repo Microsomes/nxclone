@@ -91,6 +91,7 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                       ),
+                      
                       defHomeName!=null ?Container(
                         padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
