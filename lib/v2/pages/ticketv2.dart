@@ -731,7 +731,7 @@ class TicketTopPart extends StatelessWidget {
               left: 10,
               child: MovingText(
                 velocity: double.parse(speedConfig['top'][0]['val']),
-                textContent: "$state $ticketTitle",
+                textContent: "$ticketTitle - $state",
                 isUpper: true,
               ))
         ],
