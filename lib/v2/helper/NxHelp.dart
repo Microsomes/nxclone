@@ -79,7 +79,7 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main29.db";
+  static String DB_NAME = "main30.db";
 
   NXHelp() {
     //load and create table
@@ -256,6 +256,20 @@ class NXHelp {
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1)
     });
+
+    ticketTypes.add({
+      "title": "16 to 18 Child Daysaver",
+      "subtitle": "All busses across our network",
+      "price": "4.60",
+      "state": States.westMidlands,
+      "info": [
+        "Includes travel on all our buses across the West Midlands, Black Country & Coventry. For 16 to 18 year olds"
+      ],
+      "type": SimType.day,
+      "notusedexpiry": Duration(days: 99),
+      "activefor": Duration(days: 1)
+    });
+
     ticketTypes.add({
       "title": Ttype.daysaverafter930monfri,
       "subtitle": "All busses across our network",

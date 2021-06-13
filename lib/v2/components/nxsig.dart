@@ -32,8 +32,10 @@ class NxsigState extends State<Nxsig> {
 
 
   
-
-    if (widget.state == "Sandwell & Dudley Low Fare Zone") {
+    if(widget.ticketType=="16 to 18 Child Daysaver"){
+      return Image.asset("images/v4/nxsig/finalsig/1618.png");
+    }
+    else if (widget.state == "Sandwell & Dudley Low Fare Zone") {
       return Container(
         child: Image.asset("images/v4/nxsig/finalsig/sandwell-dudley.png"),
       );

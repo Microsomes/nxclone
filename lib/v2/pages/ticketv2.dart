@@ -309,8 +309,12 @@ class Ac extends StatelessWidget {
                           ctx: context,
                         ),
                       ),
-                      ticketTitle=="Anytime Daysaver Tickets All Day"? NXSigAnytime():Container(),
-                      ticketTitle!= "Anytime Daysaver Tickets All Day"? OtherSig(ticketTitle: ticketTitle, state: state):Container(),
+                      ticketTitle=="Anytime Daysaver Tickets All Day"
+                      || ticketTitle=="Daysaver"
+                      ? NXSigAnytime():Container(),
+                      ticketTitle!= "Anytime Daysaver Tickets All Day"
+                      && ticketTitle!="Daysaver"
+                      ? OtherSig(ticketTitle: ticketTitle, state: state):Container(),
                       InkWell(
                         onTap: () {
                           print("Show rewards");
