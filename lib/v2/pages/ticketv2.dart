@@ -84,10 +84,10 @@ class ActualTicketState extends State<ActualTicket> {
 
     // Screen.setBrightness(1.0);
 
-    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
-        .then((value) {
-      print("screenshots blocked");
-    });
+    // FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
+    //     .then((value) {
+    //   print("screenshots blocked");
+    // });
 
     NXHelp().loadSpeedConfigs().then((speed) {
       print(speed);
