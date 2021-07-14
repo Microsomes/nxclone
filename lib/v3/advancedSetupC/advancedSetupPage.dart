@@ -54,6 +54,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   Timer mainTimer;
 
+
+  int fontSize=12;
+  //global font size
+
   @override
   void dispose() {
     if (mainTimer != null) {
@@ -184,46 +188,81 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           ),
                     Image.asset("images/v7/startup.png"),
           Container(
-            height: 60,
-            margin: EdgeInsets.all(20),
+            height: 50,
+            margin: EdgeInsets.only(left:20,right:20,top:20),
+            padding: EdgeInsets.only(left:3,right:3,top:3),
             decoration: BoxDecoration(
+              border: Border.all(width:2,color:Colors.yellow),
               borderRadius: BorderRadius.circular(5),
               color: Colors.white,
             ),
             child: Row(
               children: [
-                IconButton(
-                  onPressed: (){},
-                  icon: Icon(Icons.add),
-                )
+                SizedBox(width:20),
+                GestureDetector(
+                  onTap: (){
+                    if(fontSize<=5){
+
+                    }else{
+                    setState(() {
+                      fontSize--;
+                    });
+                    }
+                  },
+                                  child: CircleAvatar(
+                    child: Icon(Icons.exposure_minus_1,color:Colors.white),
+                  ),
+                ),
+                Expanded(child: Container(
+                  alignment: Alignment.center,
+                  child: Text("$fontSize",
+                  style: GoogleFonts.roboto(fontSize: 20),
+                  ),
+                ),),
+                GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      fontSize++;
+                    });
+                  },
+                    child: CircleAvatar(
+                      
+                      child: Icon(Icons.exposure_plus_1,color:Colors.white)),
+                  ),
+                
+                SizedBox(width:20),
               ],
             ),
           ),
+                    SizedBox(height:2),
+          Text("(Font Control) ^",style: GoogleFonts.roboto(color:Colors.white,
+          fontSize: 10,
+          fontStyle: FontStyle.italic
+          ),),
+          SizedBox(height:5),
           widget.hideDetails
               ? Container()
               : (isDisclaimer==true) ? Container() :Container(
-                  padding: EdgeInsets.only(left: 30),
-                  alignment: Alignment.topLeft,
+                  alignment: Alignment.center,
                   child: Text(
                     "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any illegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
                     style:
-                        GoogleFonts.roboto(fontSize: 12, color: Colors.white),
+                        GoogleFonts.roboto(fontSize: fontSize.toDouble(), color: Colors.white),
+                        textAlign: TextAlign.center,
                   ),
                 ),
           isDisclaimer != true
               ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                         margin: EdgeInsets.only(left: 50, right: 50, top: 20),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: Colors.yellowAccent,
+                            color: Colors.red,
+                            border: Border.all(width:2,color:Colors.yellow),
                             boxShadow: [
-                              BoxShadow(
-                                color: Colors.yellowAccent,
-                                blurRadius: 5.0,
-                                spreadRadius: 2.0,
-                              ),
+                             
                             ]),
                         height: 150,
                         child: Stack(children: [
@@ -233,62 +272,58 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                 "Please understand this clone app is for educational purposes only!",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ))
+                                    fontWeight: FontWeight.bold, fontSize: fontSize.toDouble(),
+                                    color: Colors.white
+                                    ),
+                              ),)
                         ])),
                     SizedBox(
                       height: 20,
                     ),
-                    Row(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
                           width: 30,
                         ),
-                        Expanded(
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            color: Colors.greenAccent,
-                            child: Text(
-                              "I Accept",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            onPressed: () {
-                              SharedPreferences.getInstance().then((value) {
-                                value.setBool("setup_disclaimer", true);
-                                //set the value
-                              });
-                              print("Accept Disclaimer");
-                              setState(() {
-                                isDisclaimer = true;
-                              });
-                            },
+                        RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          color: Colors.greenAccent,
+                          child: Text(
+                            "I Accept",
+                            style: GoogleFonts.roboto(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
+                          onPressed: () {
+                            SharedPreferences.getInstance().then((value) {
+                              value.setBool("setup_disclaimer", true);
+                              //set the value
+                            });
+                            print("Accept Disclaimer");
+                            setState(() {
+                              isDisclaimer = true;
+                            });
+                          },
                         ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Expanded(
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Text(
-                              "I don't accept",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.center,
-                            ),
-                            color: Colors.redAccent,
-                            onPressed: () {
-                              print("i do not accept");
-                              SystemNavigator.pop();
-                            },
+                       
+                        RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text(
+                            "I don't accept",
+                            style: GoogleFonts.roboto(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                           ),
+                          color: Colors.redAccent,
+                          onPressed: () {
+                            print("i do not accept");
+                            SystemNavigator.pop();
+                          },
                         ),
                         SizedBox(
                           width: 30,
