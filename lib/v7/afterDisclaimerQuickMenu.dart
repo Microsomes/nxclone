@@ -53,7 +53,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         //images/v7/supply-chain.png
       },
       child: Scaffold(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Colors.blue,
         body: SafeArea(
           child: Padding(
               padding: const EdgeInsets.all(20.0),
