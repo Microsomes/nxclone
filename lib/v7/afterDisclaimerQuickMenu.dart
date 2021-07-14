@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'settingSaver.dart';
+
 class AfterDisclaimerModel {
   Image image;
   String title;
   String subtitle;
   bool isSetting;
   AfterDisclaimerModel(
-      {@required this.image, @required this.title, @required this.subtitle,@required this.isSetting});
+      {@required this.image,
+      @required this.title,
+      @required this.subtitle,
+      @required this.isSetting});
 }
 
 class AfterDisclaimer extends StatefulWidget {
@@ -27,8 +32,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         isSetting: true,
         subtitle:
             "A Daysaver would allow you to use any bus (had it been real the app), any time",
-        image: Image.asset("images/v7/v7ticket.png",
-        
+        image: Image.asset(
+          "images/v7/v7ticket.png",
         )));
 
     allOptions.add(new AfterDisclaimerModel(
@@ -91,16 +96,19 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                       itemCount: allOptions.length,
                       itemBuilder: (ctx, index) {
                         return Container(
-                          margin: EdgeInsets.only(top:20),
+                          margin: EdgeInsets.only(top: 20),
                           child: Column(
                             children: [
                               OptionWidget(
+                                isSetting: allOptions[index].isSetting,
+                                onClick: () {
+                                  print(allOptions[index].title);
+                                },
                                 title: allOptions[index].title,
                                 subtitle: allOptions[index].subtitle,
                                 image: allOptions[index].image,
                               ),
-                              SizedBox(width:10),
-
+                              SizedBox(width: 10),
                             ],
                           ),
                         );
@@ -119,13 +127,17 @@ class OptionWidget extends StatelessWidget {
   final String title;
   final Image image;
   final String subtitle;
+  final Function onClick;
+  final bool isSetting;
 
-  const OptionWidget({
-    Key key,
-    @required this.title,
-    @required this.subtitle,
-    @required this.image,
-  }) : super(key: key);
+  const OptionWidget(
+      {Key key,
+      @required this.title,
+      @required this.subtitle,
+      @required this.image,
+      @required this.onClick,
+      @required this.isSetting})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -151,40 +163,57 @@ class OptionWidget extends StatelessWidget {
               child: image,
             ),
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                      alignment: Alignment.center,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "$title",
-                              style: GoogleFonts.roboto(fontSize: 30),
-                              textAlign: TextAlign.center,
+              child: GestureDetector(
+                onTap: () {
+                  this.onClick();
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                        alignment: Alignment.center,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "$title",
+                                style: GoogleFonts.roboto(fontSize: 30),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "$subtitle",
-                              style: GoogleFonts.roboto(fontSize: 12),
-                              textAlign: TextAlign.center,
+                            Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "$subtitle",
+                                style: GoogleFonts.roboto(fontSize: 12),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                          ),
-                        ],
-                      )),
-                ],
+                          ],
+                        )),
+                  ],
+                ),
               ),
             ),
-            Container(
-              alignment: Alignment.topRight,
-              height: 100,
-              child: Icon(Icons.settings,color: Colors.grey,))
+           isSetting==false ?Container(): GestureDetector(
+              onTap: () {
+                print("settings...");
+
+                showDialog(context: context, builder: (ctx) => SettingSaver(
+                  title: title,
+                ));
+              },
+              child: Container(
+                  alignment: Alignment.topRight,
+                  height: 100,
+                  child: Icon(
+                    Icons.settings,
+                    color: Colors.grey,
+                  )),
+            )
           ],
         ));
   }

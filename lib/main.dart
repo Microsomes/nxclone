@@ -1,5 +1,6 @@
 import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/setupMain.dart';
+import 'package:BubbleGum/splash.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,7 +66,6 @@ class HomePagePrestate extends State<HomePagePre>
     //run the init process
     //NXHelp().runScan();
 
-    NXHelp().runInit();
 
     /**
      * This code buys the default ticket, its more of a convenience 
@@ -166,12 +166,23 @@ void main() async {
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
   return runApp(Phoenix(
-    child: MaterialApp(
+    child: FutureBuilder(
+      future: Future.delayed(Duration(seconds: 3)),
+      builder: (ctx,AsyncSnapshot snapshot){
+         if (snapshot.connectionState == ConnectionState.waiting) {
+          return MaterialApp(home: Splash(),debugShowCheckedModeBanner: false,);
+        } else {
+          // Loading is done, return the app:
+          return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           brightness: Brightness.dark,
           textTheme: GoogleFonts.robotoTextTheme(),
         ),
-        home: HomePagePre()),
+        home: HomePagePre());
+        }
+      },
+      
+    )
   ));
 }
