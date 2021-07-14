@@ -33,7 +33,7 @@ class _NewSetupv3State extends State<NewSetupv3> {
         elevation: 0,
         title: Center(
           child: Text(
-            "BubbleGum Clone App (V6)",
+            "(V7)",
             style: GoogleFonts.roboto(),
           ),
         ),

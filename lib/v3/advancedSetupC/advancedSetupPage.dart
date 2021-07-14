@@ -162,9 +162,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
           widget.hideDetails
               ? Container()
               : SizedBox(
-                  height: 10,
+                  height: 0,
                 ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               widget.hideDetails
                   ? Container()
@@ -177,8 +178,26 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                       "First time Setup",
                       style:
                           GoogleFonts.roboto(fontSize: 30, color: Colors.white),
+                          textAlign: TextAlign.center
                     )
             ],
+          ),
+                    Image.asset("images/v7/startup.png"),
+          Container(
+            height: 60,
+            margin: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+            ),
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: (){},
+                  icon: Icon(Icons.add),
+                )
+              ],
+            ),
           ),
           widget.hideDetails
               ? Container()
@@ -262,6 +281,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                               style: GoogleFonts.roboto(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
                             ),
                             color: Colors.redAccent,
                             onPressed: () {
@@ -279,7 +299,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                       height: 20,
                     ),
                     Text(
-                      "V6 IS HERE. The best clone in the world. Wanna find out more. Then accept the disclaimer.",
+                      "V7 IS HERE. The best clone in the world. Wanna find out more. Then accept the disclaimer.",
                       style: GoogleFonts.roboto(
                         color: Colors.white,
                       ),
