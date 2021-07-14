@@ -19,6 +19,7 @@ import '0mymetro/pages/home.dart';
 import 'pages/journey/ticket.dart';
 import 'v2/models/sharedprefkey/main.dart';
 import 'v2/pages/ticket.dart';
+import 'v7/afterDisclaimerQuickMenu.dart';
 
 class HomePagePre extends StatefulWidget {
   @override
@@ -119,7 +120,12 @@ class HomePagePrestate extends State<HomePagePre>
 
         SharedPreferences sh = data.data;
         if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
-          return NewSetupv3();
+          if (sh.getBool("setup_disclaimer")==true){
+            //if disclaimer is true move on to a new quick menu
+              return AfterDisclaimer();
+          }else{
+            return NewSetupv3();
+          }
         } else {
           var defaultHomePage =
               sh.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
