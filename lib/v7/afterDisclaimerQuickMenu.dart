@@ -112,14 +112,26 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                      var anytime = await NXHelp().getTicketsByTag("V6");
                                      var anytimeid = anytime[0]['id'];
                                      //buy ticket
-                                     var txid= await NXHelp().buyTicketv2(ticketID: anytimeid, tag: "non_sim");
-
-                                    print(txid);
-                                   
+                                     var txid= await NXHelp().buyTicketv2(ticketID: anytimeid, tag: "non_sim");                                   
                                     Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
                                     ActualTicket(txid: txid)));
-                                    
                                     print("day saver");
+                                  }else if(allOptions[index].title=="Group Day Saver"){
+                                  //
+                                  var state = States.westMidlands;
+                                  var type = Ttype.groupdaysaver;
+                                  NXHelp()
+                              .findTicketWithStateAndTitleID(
+                                  state: state, title: type)
+                              .then((value) async {
+                                var ticketid= value.id;
+
+                                var txid= await NXHelp().buyTicketv2(ticketID: ticketid, tag: "non_sim");                                   
+                                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
+                                    ActualTicket(txid: txid)));
+                              });
+
+
                                   }
                                 },
                                 title: allOptions[index].title,
