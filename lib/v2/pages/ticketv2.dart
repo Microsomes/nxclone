@@ -123,18 +123,6 @@ class ActualTicketState extends State<ActualTicket> {
       });
     });
 
-    // NXHelp().getTicketById(id: widget.txid).then((ticket) {
-    //   print(ticket);
-    //   print(widget.txid);
-
-    //   setState(() {
-    //     state = ticket["list"][0]['state'];
-    //     ticketTitle = ticket["list"][0]['tickettype'];
-    //     subtitle = ticket["subtitle"];
-    //     print(state);
-    //     print(ticketTitle);
-    //   });
-    // });
   }
 
   @override
@@ -203,11 +191,13 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
+                            Screen.setBrightness(0.1).then((value) {
+                              Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Nxfront()),
                             );
+                            });
                           },
                           child: Row(
                             children: <Widget>[
