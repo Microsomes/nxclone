@@ -687,7 +687,9 @@ class Stpagestate extends State<Stpage> {
     return WillPopScope(
       onWillPop: () async {
         await Screen.setBrightness(0.1);
-        Navigator.pop(context);
+        Future.delayed(Duration(seconds: 1),(){
+          Navigator.pop(context);
+        });
         return;
       },
       child: Scaffold(

@@ -1,3 +1,4 @@
+import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -67,6 +68,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                   GestureDetector(
                     onTap: () {
                       print("legacy");
+                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>Ticket()));
                     },
                     child: Container(
                       alignment: Alignment.centerRight,
