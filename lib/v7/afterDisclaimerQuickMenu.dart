@@ -1,4 +1,7 @@
 import 'package:BubbleGum/pages/journey/ticket.dart';
+import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/ticket.dart';
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -103,8 +106,21 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             children: [
                               OptionWidget(
                                 isSetting: allOptions[index].isSetting,
-                                onClick: () {
+                                onClick: () async {
                                   print(allOptions[index].title);
+                                  if(allOptions[index].title=="Day Saver"){
+                                     var anytime = await NXHelp().getTicketsByTag("V6");
+                                     var anytimeid = anytime[0]['id'];
+                                     //buy ticket
+                                     var txid= await NXHelp().buyTicketv2(ticketID: anytimeid, tag: "non_sim");
+
+                                    print(txid);
+                                   
+                                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
+                                    ActualTicket(txid: txid)));
+                                    
+                                    print("day saver");
+                                  }
                                 },
                                 title: allOptions[index].title,
                                 subtitle: allOptions[index].subtitle,

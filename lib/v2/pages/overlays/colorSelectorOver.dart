@@ -1,5 +1,6 @@
 import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v2/components/staticTicketColor.dart';
+import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
  import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
  import 'package:google_fonts/google_fonts.dart';
@@ -101,11 +102,11 @@ class ColorSelectOver {
                     ),
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
-                      PiHome()));
+                      AfterDisclaimer()));
                     },
                   ),
 
-               Row(
+                Column(
                  crossAxisAlignment: CrossAxisAlignment.center,
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                  children: [
