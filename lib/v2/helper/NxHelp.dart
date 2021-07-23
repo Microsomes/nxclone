@@ -56,6 +56,15 @@ class States {
   static String warwickUni = "Warwick University";
 }
 
+class TicketType{
+  static String TTYPE_BUS_VERIFIED="bus";
+  static String TTYPE_BUS="busOLD";
+  static String TTYPE_TRAM="tram";
+  static String TTYPE_GROUP="group";
+  static String TTYPE_STUDENTs="student";
+  static String TTYPE_TEST="textticket";
+}
+
 class SimType {
   static String sv6 = "V6";
   //V6 ticket types hot fix
@@ -98,7 +107,8 @@ class NXHelp {
       ],
       "type": SimType.test,
       "notusedexpiry": Duration(minutes: 1),
-      "activefor": Duration(minutes: 1)
+      "activefor": Duration(minutes: 1),
+      "typev2":TicketType.TTYPE_TEST
     });
 
      ticketTypes.add({
@@ -120,7 +130,8 @@ class NXHelp {
       ],
       "type": SimType.sv6,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_BUS_VERIFIED
     });
 
 
@@ -137,7 +148,8 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor": Duration(minutes: 30)
+      "activefor": Duration(minutes: 30),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -150,7 +162,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -163,7 +176,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -176,7 +190,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(hours: 6)
+      "activefor": Duration(hours: 6),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -189,7 +204,8 @@ class NXHelp {
       ],
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_GROUP
     });
 
     ticketTypes.add({
@@ -202,7 +218,8 @@ class NXHelp {
       ],
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(hours: 6)
+      "activefor": Duration(hours: 6),
+      "typev2":TicketType.TTYPE_GROUP
     });
 
     ticketTypes.add({
@@ -215,7 +232,8 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor": Duration(minutes: 30)
+      "activefor": Duration(minutes: 30),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -228,7 +246,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -241,7 +260,8 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor": Duration(minutes: 30)
+      "activefor": Duration(minutes: 30),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -254,7 +274,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -267,7 +288,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+       "typev2":TicketType.TTYPE_STUDENTs
     });
 
     ticketTypes.add({
@@ -280,7 +302,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+     "typev2":TicketType.TTYPE_BUS
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -292,7 +315,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_BUS
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -304,7 +328,8 @@ class NXHelp {
       ],
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(hours: 6)
+      "activefor": Duration(hours: 6),
+      "typev2":TicketType.TTYPE_BUS
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -316,7 +341,8 @@ class NXHelp {
       ],
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(days: 1)
+      "activefor": Duration(days: 1),
+      "typev2":TicketType.TTYPE_GROUP
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
@@ -328,7 +354,8 @@ class NXHelp {
       ],
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
-      "activefor": Duration(hours: 6)
+      "activefor": Duration(hours: 6),
+      "typev2":TicketType.TTYPE_GROUP
     });
 
     ////////conventry
@@ -348,7 +375,8 @@ class NXHelp {
       ],
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
-      "activefor": Duration(minutes: 30)
+      "activefor": Duration(minutes: 30),
+      "typev2":TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
