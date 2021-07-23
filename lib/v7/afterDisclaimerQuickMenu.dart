@@ -3,6 +3,7 @@ import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
+import 'package:BubbleGum/v7/newAdvanced.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -72,7 +73,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                   GestureDetector(
                     onTap: () {
                       print("legacy");
-                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>Ticket()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (ctx) => Ticket()));
                     },
                     child: Container(
                       alignment: Alignment.centerRight,
@@ -90,18 +92,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>Nxfront()));
-                    },
-                                      child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Image.asset(
-                        "images/v7/supply-chain.png",
-                        width: 200,
-                      ),
-                    ),
-                  ),
+                  TopImage(),
                   Expanded(
                     child: ListView.builder(
                       itemCount: allOptions.length,
@@ -114,30 +105,40 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 isSetting: allOptions[index].isSetting,
                                 onClick: () async {
                                   print(allOptions[index].title);
-                                  if(allOptions[index].title=="Day Saver"){
-                                     var anytime = await NXHelp().getTicketsByTag("V6");
-                                     var anytimeid = anytime[0]['id'];
-                                     //buy ticket
-                                     var txid= await NXHelp().buyTicketv2(ticketID: anytimeid, tag: "non_sim");                                   
-                                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
-                                    ActualTicket(txid: txid)));
+                                  if (allOptions[index].title == "Day Saver") {
+                                    var anytime =
+                                        await NXHelp().getTicketsByTag("V6");
+                                    var anytimeid = anytime[0]['id'];
+                                    //buy ticket
+                                    var txid = await NXHelp().buyTicketv2(
+                                        ticketID: anytimeid, tag: "non_sim");
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (ctx) =>
+                                                ActualTicket(txid: txid)));
                                     print("day saver");
-                                  }else if(allOptions[index].title=="Group Day Saver"){
-                                  //
-                                  var state = States.westMidlands;
-                                  var type = Ttype.groupdaysaver;
-                                  NXHelp()
-                              .findTicketWithStateAndTitleID(
-                                  state: state, title: type)
-                              .then((value) async {
-                                var ticketid= value.id;
+                                  } else if (allOptions[index].title ==
+                                      "Group Day Saver") {
+                                    //
+                                    var state = States.westMidlands;
+                                    var type = Ttype.groupdaysaver;
+                                    NXHelp()
+                                        .findTicketWithStateAndTitleID(
+                                            state: state, title: type)
+                                        .then((value) async {
+                                      var ticketid = value.id;
 
-                                var txid= await NXHelp().buyTicketv2(ticketID: ticketid, tag: "non_sim");                                   
-                                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
-                                    ActualTicket(txid: txid)));
-                              });
-
-
+                                      var txid = await NXHelp().buyTicketv2(
+                                          ticketID: ticketid, tag: "non_sim");
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (ctx) =>
+                                                  ActualTicket(txid: txid)));
+                                    });
+                                  }else if(allOptions[index].title=="Advanced Option"){
+                                    Navigator.push(context,MaterialPageRoute(builder:(ctx)=>NewAdvanced()));
                                   }
                                 },
                                 title: allOptions[index].title,
@@ -153,6 +154,60 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                   )
                 ],
               )),
+        ),
+      ),
+    );
+  }
+}
+
+class TopImage extends StatefulWidget {
+  const TopImage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _TopImageState createState() => _TopImageState();
+}
+
+class _TopImageState extends State<TopImage> with SingleTickerProviderStateMixin {
+
+  AnimationController _animationController;
+
+  @override
+  void dispose() {
+    super.dispose();
+      _animationController.dispose();
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+   _animationController=  new AnimationController(
+    duration: Duration(seconds: 10),
+    vsync: this
+  );
+
+  _animationController.forward(from: 0.0); // it starts the animation
+  _animationController.repeat();
+
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (ctx) => Nxfront()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: RotationTransition(
+          turns: Tween(begin:0.0,end:1.0).animate(_animationController),
+                  child: Image.asset(
+            "images/v7/supply-chain.png",
+            width: 200,
+          ),
         ),
       ),
     );
@@ -234,22 +289,26 @@ class OptionWidget extends StatelessWidget {
                 ),
               ),
             ),
-           isSetting==false ?Container(): GestureDetector(
-              onTap: () {
-                print("settings...");
+            isSetting == false
+                ? Container()
+                : GestureDetector(
+                    onTap: () {
+                      print("settings...");
 
-                showDialog(context: context, builder: (ctx) => SettingSaver(
-                  title: title,
-                ));
-              },
-              child: Container(
-                  alignment: Alignment.topRight,
-                  height: 100,
-                  child: Icon(
-                    Icons.settings,
-                    color: Colors.grey,
-                  )),
-            )
+                      showDialog(
+                          context: context,
+                          builder: (ctx) => SettingSaver(
+                                title: title,
+                              ));
+                    },
+                    child: Container(
+                        alignment: Alignment.topRight,
+                        height: 100,
+                        child: Icon(
+                          Icons.settings,
+                          color: Colors.grey,
+                        )),
+                  )
           ],
         ));
   }

@@ -49,6 +49,7 @@ dependencies:
   fluttertoast: ^7.1.8
   flutter_windowmanager: ^0.0.2
   clay_containers: ^0.2.3
+  getwidget: 1.2.4
 
 
 
@@ -223,7 +224,9 @@ flutter:
    - images/v7/v7wallet.png
    - images/v7/v7ticketone.png
    - images/v7/v7tickettwo.png
-   
+   - images/v7/bus.png
+   - images/v7/tram.png
+   - images/v7/students.png
   
 
 
