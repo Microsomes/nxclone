@@ -1,0 +1,122 @@
+{
+    "sections":{
+        "Singles & Daysavers":{
+            "icon":"",
+            "name":"Singles & Daysavers",
+            "sections":{
+                "Single Tickets":{
+                    "Single- West Midlands":{
+                        "name":"Single- West Midlands",
+                        "price":2.40,
+                        "subline":"Travel on any National Express West Midlands or National Express Conventry bus within the West Midlands Zone",
+                        "info":[
+                            {
+                                "type":"text",
+                                "val":"This ticket allows for one single journey on one bus to be made on services privided by:"
+                            },
+                            {
+                                "type":"list",
+                                "val":[
+                                    "National Express West Midlands",
+                                    "National Express Conventry"
+                                ]
+                            },
+                            {
+                                "type":"link",
+                                "val":{
+                                    "leading":"For details of our coverage area please visit our website at",
+                                    "link":"https://nxbus.co.uk"
+                                }
+
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"This ticket may only be activated once."
+                            }
+                        ]
+                    },
+                    "Single- Conventry":{
+                        "name":"Single- Conventry",
+                        "price":2.20,
+                        "subline":"Travel on any National Express Conventry bus within the Coventry zone",
+                        "info":[
+                            {
+                                "type":"text",
+                                "val":"This ticket allows for one single journey on one bus to be made on services privided by:"
+                            },
+                            {
+                                "type":"list",
+                                "val":[
+                                    "National Express Conventry"
+                                ]
+                            },
+                            {
+                                "type":"link",
+                                "val":{
+                                    "leading":"For details of our coverage area please visit our website at",
+                                    "link":"https://nxbus.co.uk"
+                                }
+
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"This ticket may only be activated once."
+                            }
+                        ]
+                    }
+                },
+                "Anytime Daysaver Tickets":{
+
+                },
+                "Flexible Ticket Bundles":{
+
+                },
+                "Off-Peak Daysaver Tickets":{
+
+                },
+                "Evening Saver Tickets":{
+
+                },
+                "Group Daysaver Tickets":{
+
+                },
+                "Edgbaston Cricket 501 Shuttle":{
+
+                },
+                "Warwick University Tickets":{
+
+                }
+            }
+        },
+        "NX 1 Week and 4 Week":{
+            "name":"NX 1 Week and 4 Week",
+            "icon":"",
+            "sections":{
+                "West Midlands":{},
+                "Conventry":{},
+                "Sandwell & Dudley Low Fare Zone":{},
+                "Walsall Low Fare Zone":{},
+                "West Midlands Metro":{}
+            }
+        },
+        "Multi Operator 1 Week and 4 Week":{
+            "name":"Multi Operator 1 Week and 4 Week",
+            "icon":"",
+            "sections":{
+                "West Midlands":{},
+                "Conventry":{},
+                "Sandwell & Dudley Low Fare Zone":{},
+                "Walsall Low Fare Zone":{},
+                "West Midlands Metro":{}
+            }
+        }
+    }
+}
