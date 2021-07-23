@@ -76,7 +76,7 @@ class NxfrontState extends State<Nxfront> {
                             letterSpaceing: _letterSpaceing,
                             heightOf: heightOf,
                             title: "Singles & Daysavers",
-                            icon: Image.asset("images/busicon.png",width: 50,),
+                            icon: Image.asset("images/v7/tickets.png",width: 50,),
                             child: SelectTicket(),
                           ),
                           

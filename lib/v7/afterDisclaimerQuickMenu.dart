@@ -1,5 +1,6 @@
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:flutter/material.dart';
@@ -89,11 +90,16 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Image.asset(
-                      "images/v7/supply-chain.png",
-                      width: 200,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>Nxfront()));
+                    },
+                                      child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Image.asset(
+                        "images/v7/supply-chain.png",
+                        width: 200,
+                      ),
                     ),
                   ),
                   Expanded(

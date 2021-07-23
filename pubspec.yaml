@@ -218,9 +218,13 @@ flutter:
    - images/v7/supply-chain.png
    - images/v7/drill.png
    - images/v7/eggs.png
+   - images/v7/tickets.png
    - images/screen4.png
+   - images/v7/v7wallet.png
+   - images/v7/v7ticketone.png
+   - images/v7/v7tickettwo.png
    
-
+  
 
 
   #  - images/a_dot_ham.jpeg
