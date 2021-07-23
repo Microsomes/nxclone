@@ -103,18 +103,134 @@
                             }
                         ]
                     },
-                    "Single- Conventry (10 Pack)":{
-                        "name":"Single- Conventry (10 Pack)",
-                        "price":19.50,
-                        "subline":"Travel on any National Express Conventry bus within the Coventry zone",
+                    "Single- Conventry (10 Pack)": {
+                        "name": "Single- Conventry (10 Pack)",
+                        "price": 19.50,
+                        "subline": "Travel on any National Express Conventry bus within the Coventry zone",
+                        "info": [{
+                                "type": "text",
+                                "val": "This ticket allows for 10 trips on one bus each to be made on any services provided by:"
+                            },
+                            {
+                                "type": "list",
+                                "val": [
+                                    "National Express Conventry"
+                                ]
+                            },
+                            {
+                                "type": "link",
+                                "val": {
+                                    "leading": "For details of our coverage area please visit our website at",
+                                    "link": "https://nxbus.co.uk"
+                                }
+
+                            },
+                            {
+                                "type": "line",
+                                "val": ""
+                            },
+                            {
+                                "type": "text",
+                                "val": "This ticket may only be activated once."
+                            }
+                        ]
+
+                    }
+                },
+                "Anytime Daysaver Tickets": {
+                    "All Day- West Midlands": {
+                        "name": "All Day- West Midlands",
+                        "price": 4.00,
+                        "subline": "Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                        "info": [{
+                                "type": "text",
+                                "val": "This ticket allows for travel on any services provided by:"
+                            },
+                            {
+                                "type": "list",
+                                "val": [
+                                    "National Express West Midlands",
+                                    "National Express Conventry"
+                                ]
+                            },
+                            {
+                                "type": "link",
+                                "val": {
+                                    "leading": "For details of our coverage area please visit our website at",
+                                    "link": "https://nxbus.co.uk"
+                                }
+
+                            },
+                            {
+                                "type": "line",
+                                "val": ""
+                            },
+                            {
+                                "type": "text",
+                                "val": "You may activate this ticket as many times as required during the validity windows."
+                            }
+                        ]
+                    },
+                    "All Day- Sandwell & Dudley": {
+                        "name": "All Day- Sandwell & Dudley",
+                        "price": 3.00,
+                        "subline": "Unlimited travel on all National Express West Midlands busses anywhere within the Sandwell & Dudley zone.",
+                        "info": [{
+                                "type": "text",
+                                "val": "This ticket allows for travel on any services provided by:"
+                            },
+                            {
+                                "type": "list",
+                                "val": [
+                                    "National Express West Midlands"
+                                ]
+                            },
+                            {
+                                "type": "link",
+                                "val": {
+                                    "leading": "For details of our coverage area please visit our website at",
+                                    "link": "https://nxbus.co.uk"
+                                }
+
+                            },
+                            {
+                                "type": "line",
+                                "val": ""
+                            },
+                            {
+                                "type":"text",
+                                "val":"This ticket is only valid within the Sandwell & Dudley Low Fare Zone."
+                            },
+                            {
+                                "type": "line",
+                                "val": ""
+                            },
+                            {
+                                "type":"text",
+                                "val":"This ticket is valid for unlimited travel from the time of activation until the following 2.59am"
+                            },
+                            {
+                                "type": "line",
+                                "val": ""
+                            },
+                            {
+                                "type": "text",
+                                "val": "You may activate this ticket as many times as required during the validity windows."
+                            }
+                        ]
+                    },
+                    "All Day- Walsall": {
+                        "name": "All Day- Walsall",
+                        "price": 3.00,
+                        "subline": "Unlimited travel on all National Express West Midlands busses anywhere within the Walsall zone.",
                         "info": [{
                             "type": "text",
-                            "val": "This ticket allows for 10 trips on one bus each to be made on any services provided by:"
+                            "val": "This ticket allows for travel on any services provided by:"
                         },
                         {
                             "type": "list",
                             "val": [
-                                "National Express Conventry"
+                                "National Express West Midlands"
                             ]
                         },
                         {
@@ -130,28 +246,26 @@
                             "val": ""
                         },
                         {
+                            "type":"text",
+                            "val":"This ticket is only valid within the Sandwell & Dudley Low Fare Zone."
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"This ticket is valid for unlimited travel from the time of activation until the following 2.59am"
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
                             "type": "text",
-                            "val": "This ticket may only be activated once."
+                            "val": "You may activate this ticket as many times as required during the validity windows."
                         }
                     ]
-
-                    }
-                },
-                "Anytime Daysaver Tickets": {
-                    "All Day- West Midlands":{
-                        "name":"All Day- West Midlands",
-                        "price":4.00,
-                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
-                    },
-                    "All Day- Sandwell & Dudley":{
-                        "name":"All Day- Sandwell & Dudley",
-                        "price":3.00,
-                        "subline":"Unlimited travel on all National Express West Midlands busses anywhere within the Sandwell & Dudley zone."
-                    },
-                    "All Day- Walsall":{
-                        "name":"All Day- Walsall",
-                        "price":3.00,
-                        "subline":"Unlimited travel on all National Express West Midlands busses anywhere within the Walsall zone."
                     }
                 },
                 "Flexible Ticket Bundles": {
