@@ -269,22 +269,142 @@
                     }
                 },
                 "Flexible Ticket Bundles": {
+                    "All day- West Midlands (5 Pack)":{
+                        "name":"All Day- West Midlands (5 Pack)",
+                        "price":19.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                        "info": [{
+                            "type": "text",
+                            "val": "This ticket allows for travel on any services provided by:"
+                        },
+                        {
+                            "type": "list",
+                            "val": [
+                                "National Express West Midlands",
+                                "National Express Conventry"
+                            ]
+                        },
+                        {
+                            "type": "link",
+                            "val": {
+                                "leading": "For details of our coverage area please visit our website at",
+                                "link": "https://nxbus.co.uk"
+                            }
 
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"Each ticket is valid for unlimited travel from the time of activation until the following 2.59am"
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"You may activate each ticket as many times as required during the validity window."
+                        }
+                       
+                    ]
+                    },
+                    "All day- West Midlands (10 Pack)":{
+                        "name":"All day- West Midlands (10 Pack)",
+                        "price":36.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry busses anywhere within the West Midlands zone.",
+                        "info": [{
+                            "type": "text",
+                            "val": "This ticket allows for travel on any services provided by:"
+                        },
+                        {
+                            "type": "list",
+                            "val": [
+                                "National Express West Midlands",
+                                "National Express Conventry"
+                            ]
+                        },
+                        {
+                            "type": "link",
+                            "val": {
+                                "leading": "For details of our coverage area please visit our website at",
+                                "link": "https://nxbus.co.uk"
+                            }
+
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"Each ticket is valid for unlimited travel from the time of activation until the following 2.59am"
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"You may activate each ticket as many times as required during the validity window."
+                        }
+                       
+                    ]
+                    },
+                    "All day- Sandwell & Dudley (5 Pack)":{
+                        "name":"All day- Sandwell & Dudley (5 Pack)",
+                        "price":14.00,
+                        "subline":"Unlimited travel on all National Express West Midlands busses anywhere within the Sandwell & Dudley zone."
+                    },
+                    "All day- Sandwell & Dudley (10 Pack)":{
+                        "name":"All day- Sandwell & Dudley (10 Pack)",
+                        "price":27.00,
+                        "subline":"Unlimited travel on all National Express West Midlands busses anywhere within the Sandwell & Dudley zone."
+                    },
+                    "All day- Walsall (5 Pack)":{
+                        "name":"All day- Walsall (5 Pack)",
+                        "price":14.00,
+                        "subline":"Unlimited travel on all National Express West Midlands busses anywhere within the Walsall zone."
+                    },
+                    "All day- Walsall (10 Pack)":{
+                        "name":"All day- Walsall (10 Pack)",
+                        "price":27.00,
+                        "subline":"Unlimited travel on all National Express West Midlands busses anywhere within the Walsall zone."
+                    },
+                    "After 9.30am- Outer Birmingham (Mon-Fri) (10 pack)":{
+                        "name":"After 9.30am- Outer Birmingham (Mon-Fri) (10 pack)",
+                        "price":27.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Outher Birmingham zone."
+                    }
                 },
                 "Off-Peak Daysaver Tickets": {
-
+                    "After 9.30am- Outer Birmingham (Mon-Fri)":{
+                        "price":3.00
+                    },
+                    "All day- Outer Birmingham (Sat & Sun)":{
+                        "price":3.00
+                    }
                 },
                 "Evening Saver Tickets": {
-
+                    "Evening after 6pm":{}
                 },
                 "Group Daysaver Tickets": {
-
+                    "Group":{},
+                    "Group after 6pm":{}
                 },
                 "Edgbaston Cricket 501 Shuttle": {
-
+                    "Cricket 501 Shuttle- Single (Adult)":{},
+                    "Cricket 501 Shuttle- Return (Adult)":{},
+                    "Cricket 501 Shuttle- Single (Child)":{},
+                    "Cricket 501 Shuttle- Return (Child)":{}
                 },
                 "Warwick University Tickets": {
-
+                    "Uni Hop":{},
+                    "Leamingon Hop":{},
+                    "Uni Hip (10 pack)":{},
+                    "Leamington Hop (10 pack)":{}
                 }
             }
         },
