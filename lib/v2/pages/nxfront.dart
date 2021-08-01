@@ -1,5 +1,4 @@
 import 'package:BubbleGum/pages/ticketwalletv2.dart';
-import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:BubbleGum/components/daysaveractive.dart';
 import 'package:BubbleGum/pages/help.dart';
 import 'package:BubbleGum/pages/offers.dart';
 import 'package:BubbleGum/pages/selectticket.dart';
-import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/pages/tripTools.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
@@ -76,7 +74,7 @@ class NxfrontState extends State<Nxfront> {
                             letterSpaceing: _letterSpaceing,
                             heightOf: heightOf,
                             title: "Singles & Daysavers",
-                            icon: Image.asset("images/v7/tickets.png",width: 50,),
+                            icon: Image.asset("images/v7/v7ticketone.png",width: 40,),
                             child: SelectTicket(),
                           ),
                           
@@ -85,7 +83,7 @@ class NxfrontState extends State<Nxfront> {
                           ),
                           NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing,
                           title: "NX 1 Week and 4 Week",
-                          icon: Image.asset("images/ticket.png",width: 50,),
+                          icon: Image.asset("images/v7/v7tickettwo.png",width: 40,),
                           child: Offers(),
                           ),
                           SizedBox(

@@ -6,6 +6,7 @@ import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/components/ticketColor.dart';
@@ -154,7 +155,7 @@ class ActualTicketState extends State<ActualTicket> {
             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Nxfront()),
+                                  builder: (context) => AfterDisclaimer()),
                             );
           });
         }

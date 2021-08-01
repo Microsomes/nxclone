@@ -1,4 +1,3 @@
-import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/setupMain.dart';
 import 'package:BubbleGum/splash.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
@@ -12,14 +11,9 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import "./pages/ticketwalletv2.dart";
 
-import "./debug/ticketWalletDebug.dart";
 
-import '0mymetro/pages/home.dart';
-import 'pages/journey/ticket.dart';
 import 'v2/models/sharedprefkey/main.dart';
-import 'v2/pages/ticket.dart';
 import 'v7/afterDisclaimerQuickMenu.dart';
 
 class HomePagePre extends StatefulWidget {
