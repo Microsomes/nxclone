@@ -381,30 +381,78 @@
                 },
                 "Off-Peak Daysaver Tickets": {
                     "After 9.30am- Outer Birmingham (Mon-Fri)":{
-                        "price":3.00
+                        "name":"After 9.30am- Outer Birmingham (Mon-Fri)",
+                        "price":3.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Outer Birmingham zone."
                     },
                     "All day- Outer Birmingham (Sat & Sun)":{
-                        "price":3.00
+                        "name":"All day- Outer Birmingham (Sat & Sun)",
+                        "price":3.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Outer Birmingham zone."
                     }
                 },
                 "Evening Saver Tickets": {
-                    "Evening after 6pm":{}
+                    "Evening after 6pm":{
+                        "name":"Evening after 6pm",
+                        "price":3.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry busses anywhere within the West Midlands zone."
+                    }
                 },
                 "Group Daysaver Tickets": {
-                    "Group":{},
-                    "Group after 6pm":{}
+                    "Group":{
+                        "name":"Group",
+                        "price":7.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    },
+                    "Group after 6pm":{
+                        "name":"Group after 6pm",
+                        "price":4.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    }
                 },
                 "Edgbaston Cricket 501 Shuttle": {
-                    "Cricket 501 Shuttle- Single (Adult)":{},
-                    "Cricket 501 Shuttle- Return (Adult)":{},
-                    "Cricket 501 Shuttle- Single (Child)":{},
-                    "Cricket 501 Shuttle- Return (Child)":{}
+                    "Cricket 501 Shuttle- Single (Adult)":{
+                        "name":"Cricket 501 Shuttle- Single (Adult)",
+                        "price":3.00,
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                    },
+                    "Cricket 501 Shuttle- Return (Adult)":{
+                        "name":"Cricket 501 Shuttle- Return (Adult)",
+                        "price":5.00,
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                    },
+                    "Cricket 501 Shuttle- Single (Child)":{
+                        "name":"Cricket 501 Shuttle- Single (Child)",
+                        "price":2.00,
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                    },
+                    "Cricket 501 Shuttle- Return (Child)":{
+                        "name":"Cricket 501 Shuttle- Return (Child)",
+                        "price":3.50,
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                    }
                 },
                 "Warwick University Tickets": {
-                    "Uni Hop":{},
-                    "Leamingon Hop":{},
-                    "Uni Hip (10 pack)":{},
-                    "Leamington Hop (10 pack)":{}
+                    "Uni Hop":{
+                        "name":"Uni Hop",
+                        "price":1.00,
+                        "subline":"Travel on any National Express Conventry buses within the Uni Hop zone."
+                    },
+                    "Leamingon Hop":{
+                        "name":"Leamingon Hop",
+                        "price":1.00,
+                        "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone."
+                    },
+                    "Uni Hip (10 pack)":{
+                        "name":"Uni Hip (10 pack)",
+                        "price":9.00,
+                        "subline":"Travel on any National Express Conventry buses within the Uni Hop zone."
+                    },
+                    "Leamington Hop (10 pack)":{
+                        "name":"Leamington Hop (10 pack)",
+                        "price":9.00,
+                        "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone."
+                    }
                 }
             }
         },
