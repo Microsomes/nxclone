@@ -796,51 +796,324 @@
                     "Group after 6pm":{
                         "name":"Group after 6pm",
                         "price":4.00,
-                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                        "info": [{
+                            "type": "text",
+                            "val": "This ticket allows for travel on any services provided by:"
+                        },
+                        {
+                            "type": "list",
+                            "val": [
+                                "National Express West Midlands",
+                                "National Express Conventry"
+                            ]
+                        },
+                        {
+                            "type": "link",
+                            "val": {
+                                "leading": "For details of our coverage area please visit our website at",
+                                "link": "https://nxbus.co.uk"
+                            }
+
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"With this ticket up 5 adults or 2 adults and up to 4 children may travel together."
+                        },
+                        {
+                            "type":"text",
+                            "val":"This ticket is valid for unlimited travel from the time of activation until the following 2.59am"
+                        },
+                        {
+                            "type": "line",
+                            "val": ""
+                        },
+                        {
+                            "type":"text",
+                            "val":"You may activate each ticket as many times as required during the validity window."
+                        }
+                       
+                    ]
                     }
                 },
                 "Edgbaston Cricket 501 Shuttle": {
                     "Cricket 501 Shuttle- Single (Adult)":{
                         "name":"Cricket 501 Shuttle- Single (Adult)",
                         "price":3.00,
-                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service",
+                        "info":[
+                            {
+                                "type":"text",
+                                "val":"This Shuttle Bus service will be available for selected fixtures in 2021. Please check the specific fixture Spectator Guide for more details about the match you are attending."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"The 501 Shuttle Bus pick-up point is located right outside New Street Station on Smallbrook Queensway (opposite TK Maxx and close to the Bullring). The Service is convenient for users of both New Street and Moor Street Train Stations."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Buses will be returning back from the stadium to the city centre after the close of play."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Each ticket can be activated only once and so do not activate your ticket until you are ready to travel."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Tickets are valid for use up to 30 days from the day of purchase."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },{
+                                "type":"text",
+                                "val":"If you are travelling with young children you cna buy additional tickets on one device on their behalf and activate multiple tickets simulateneously."
+                            }
+                        ]
                     },
                     "Cricket 501 Shuttle- Return (Adult)":{
                         "name":"Cricket 501 Shuttle- Return (Adult)",
                         "price":5.00,
-                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service",
+                        "info":[
+                            {
+                                "type":"text",
+                                "val":"This Shuttle Bus service will be available for selected fixtures in 2021. Please check the specific fixture Spectator Guide for more details about the match you are attending."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"The 501 Shuttle Bus pick-up point is located right outside New Street Station on Smallbrook Queensway (opposite TK Maxx and close to the Bullring). The Service is convenient for users of both New Street and Moor Street Train Stations."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Buses will be returning back from the stadium to the city centre after the close of play."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Each ticket can be activated only once and so do not activate your ticket until you are ready to travel."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Tickets are valid for use up to 30 days from the day of purchase."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },{
+                                "type":"text",
+                                "val":"If you are travelling with young children you cna buy additional tickets on one device on their behalf and activate multiple tickets simulateneously."
+                            }
+                        ]
                     },
                     "Cricket 501 Shuttle- Single (Child)":{
                         "name":"Cricket 501 Shuttle- Single (Child)",
                         "price":2.00,
-                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service",
+                        "info":[
+                            {
+                                "type":"text",
+                                "val":"This Shuttle Bus service will be available for selected fixtures in 2021. Please check the specific fixture Spectator Guide for more details about the match you are attending."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"The 501 Shuttle Bus pick-up point is located right outside New Street Station on Smallbrook Queensway (opposite TK Maxx and close to the Bullring). The Service is convenient for users of both New Street and Moor Street Train Stations."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Buses will be returning back from the stadium to the city centre after the close of play."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Each ticket can be activated only once and so do not activate your ticket until you are ready to travel."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Tickets are valid for use up to 30 days from the day of purchase."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },{
+                                "type":"text",
+                                "val":"If you are travelling with young children you cna buy additional tickets on one device on their behalf and activate multiple tickets simulateneously."
+                            }
+                        ]
                     },
                     "Cricket 501 Shuttle- Return (Child)":{
                         "name":"Cricket 501 Shuttle- Return (Child)",
                         "price":3.50,
-                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service"
+                        "subline":"Valid for a single journey on the Edgbaston 501 Shuttle Service",
+                        "info":[
+                            {
+                                "type":"text",
+                                "val":"This Shuttle Bus service will be available for selected fixtures in 2021. Please check the specific fixture Spectator Guide for more details about the match you are attending."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"The 501 Shuttle Bus pick-up point is located right outside New Street Station on Smallbrook Queensway (opposite TK Maxx and close to the Bullring). The Service is convenient for users of both New Street and Moor Street Train Stations."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Buses will be returning back from the stadium to the city centre after the close of play."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Each ticket can be activated only once and so do not activate your ticket until you are ready to travel."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },
+                            {
+                                "type":"text",
+                                "val":"Tickets are valid for use up to 30 days from the day of purchase."
+                            },
+                            {
+                                "type":"line",
+                                "val":""
+                            },{
+                                "type":"text",
+                                "val":"If you are travelling with young children you cna buy additional tickets on one device on their behalf and activate multiple tickets simulateneously."
+                            }
+                        ]
                     }
                 },
                 "Warwick University Tickets": {
                     "Uni Hop":{
                         "name":"Uni Hop",
                         "price":1.00,
-                        "subline":"Travel on any National Express Conventry buses within the Uni Hop zone."
+                        "subline":"Travel on any National Express Conventry buses within the Uni Hop zone.",
+                        "info":[
+                            {
+                                "type":"link2",
+                                "val": {
+                                    "leading": "Includes travel on all our buses within the",
+                                    "link": {
+                                        "val":"Uni Hop short hop zone",
+                                        "link":"https://nxbus.co.uk/coventry/services-timetables"
+                                    }
+                                }
+
+                            }
+                        ]
                     },
                     "Leamingon Hop":{
                         "name":"Leamingon Hop",
                         "price":1.00,
-                        "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone."
+                        "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone.",
+                        "info":[
+                            {
+                                "type":"link2",
+                                "val": {
+                                    "leading": "Includes travel on all our buses within the",
+                                    "link": {
+                                        "val":"Leamington Spa short hop zone",
+                                        "link":"https://nxbus.co.uk/coventry/services-timetables"
+                                    }
+                                }
+
+                            }
+                        ]
                     },
                     "Uni Hip (10 pack)":{
                         "name":"Uni Hip (10 pack)",
                         "price":9.00,
-                        "subline":"Travel on any National Express Conventry buses within the Uni Hop zone."
+                        "subline":"Travel on any National Express Conventry buses within the Uni Hop zone.",
+                        "info":[
+                            {
+                                "type":"link2",
+                                "val": {
+                                    "leading": "Includes travel on all our buses within the",
+                                    "link": {
+                                        "val":"Uni Hop short hop zone",
+                                        "link":"https://nxbus.co.uk/coventry/services-timetables"
+                                    }
+                                }
+
+                            }
+                        ]
                     },
                     "Leamington Hop (10 pack)":{
                         "name":"Leamington Hop (10 pack)",
                         "price":9.00,
-                        "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone."
+                        "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone.",
+                        "info":[
+                            {
+                                "type":"link2",
+                                "val": {
+                                    "leading": "Includes travel on all our buses within the",
+                                    "link": {
+                                        "val":"Leamington Spa short hop zone",
+                                        "link":"https://nxbus.co.uk/coventry/services-timetables"
+                                    }
+                                }
+
+                            }
+                        ]
                     }
                 }
             }
