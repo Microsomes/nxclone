@@ -1122,11 +1122,86 @@
             "name": "NX 1 Week and 4 Week",
             "icon": "",
             "sections": {
-                "West Midlands": {},
-                "Conventry": {},
-                "Sandwell & Dudley Low Fare Zone": {},
-                "Walsall Low Fare Zone": {},
-                "West Midlands Metro": {}
+                "West Midlands": {
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":15.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":55.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    },
+                    "Student 4 Week":{
+                        "name":"Student 4 Week",
+                        "price":40.00,
+                        "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    }
+                },
+                "Conventry": {
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":51.50,
+                        "subline":"Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone."
+                    },
+                    "Student 4 Week":{
+                        "name":"Student 4 Week",
+                        "price":33.00,
+                        "subline":"Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone."
+                    }
+                },
+                "Sandwell & Dudley Low Fare Zone": {
+                    "Adult 1 Week":{
+                        "name":"Sandwell & Dudley Low Fare Zone",
+                        "price":11.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Sandwell & Dudley zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":40.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Sandwell & Dudley zone."
+                    }
+                },
+                "Walsall Low Fare Zone": {
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":11.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Walsall zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":40.00,
+                        "subline":"Unlimited travel on all National Express West Midlands buses anywhere within the Walsall zone."
+                    }
+                },
+                "West Midlands Metro": {
+                    "Adult 1 Week Metro & Bus":{
+                        "name":"Adult 1 Week Metro & Bus",
+                        "price":25.90,
+                        "subline":"Unlimited travel on the West Midlands Metro tram and all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    },
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":22.50,
+                        "subline":"Unlimited travel on the West Midlands Metro tram."
+                    },
+                    "Adult 4 Week Metro & Bus":{
+                        "name":"Adult 1 Week Metro & Bus",
+                        "price":90.85,
+                        "subline":"Unlimited travel on the West Midlands Metro tram and all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":77.00,
+                        "subline":"Unlimited travel on the West Midlands Metro tram."
+                    },
+                    "Student 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":63.00,
+                        "subline":"Unlimited travel on the West Midlands Metro tram."
+                    }
+                }
             }
         },
         "Multi Operator 1 Week and 4 Week": {
