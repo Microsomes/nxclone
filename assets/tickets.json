@@ -1208,10 +1208,59 @@
             "name": "Multi Operator 1 Week and 4 Week",
             "icon": "",
             "sections": {
-                "West Midlands": {},
-                "Conventry": {},
-                "Sandwell & Dudley Low Fare Zone": {},
-                "Walsall Low Fare Zone": {},
+                "West Midlands": {
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":15.80,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":58.00,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus zone."
+                    },
+                    "Student 4 Week":{
+                        "name":"Student 4 Week",
+                        "price":48.00,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus zone."
+                    }
+                },
+                "Conventry": {
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":54.00,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus Conventry zone."
+                    },
+                    "Student 4 Week":{
+                        "name":"Student 4 Week",
+                        "price":36.00,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus Conventry zone."
+                    }
+                },
+                "Sandwell & Dudley Low Fare Zone": {
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":11.60,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere the nBus Sandwell & Dudley zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":42.00,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere the nBus Sandwell & Dudley zone."
+                    }
+                },
+                "Walsall Low Fare Zone": {
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":"11.60",
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere the nBus Walsall zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 4 Week",
+                        "price":42.00,
+                        "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere the nBus Walsall zone."
+                    }
+                },
                 "West Midlands Metro": {}
             }
         }
