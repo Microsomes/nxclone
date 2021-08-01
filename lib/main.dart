@@ -159,6 +159,10 @@ void main() async {
         Color.fromRGBO(0, 0, 0, 1), // navigation bar color
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
+
+
+  NXHelp().runInit();
+
   return runApp(Phoenix(
     child: FutureBuilder(
       future: Future.delayed(Duration(seconds: 3)),

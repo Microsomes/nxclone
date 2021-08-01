@@ -4,7 +4,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'v2/helper/NxHelp.dart';
 
 class Splash extends StatefulWidget{
   @override
@@ -15,7 +14,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    NXHelp().runInit();//init
+    // NXHelp().runInit();//init
 
   }
   @override

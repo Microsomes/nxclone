@@ -960,6 +960,7 @@ class NXHelp {
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     int defTicketID = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+    
 
     if (defTicketID != null) {
       List<Map> deftikData = await this.getTicketByID(defTicketID);

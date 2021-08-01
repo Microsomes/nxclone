@@ -22,9 +22,7 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
   void initState() {
     super.initState();
     _controller = AnimatedTextController.play;
-    NXHelp().runInit().then((value) {
-      print("imported");
-    });
+    
   }
 
   @override

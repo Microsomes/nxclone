@@ -39,11 +39,13 @@ class NxfrontState extends State<Nxfront> {
 
     //call method to grab a preactivated default ticket useful
     NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
-      setState(() {
-        defaultTicketid = preactivatedid['ticketid'];
-        state = preactivatedid['state'];
-        tickettype = preactivatedid['tickettype'];
-      });
+      print(preactivatedid);
+    //   setState(() {
+    //   //   defaultTicketid = preactivatedid['ticketid'];
+    //   //   state = preactivatedid['state'];
+    //   //   tickettype = preactivatedid['tickettype'];
+    //   // });
+    // });
     });
   }
 
