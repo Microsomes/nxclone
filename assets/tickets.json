@@ -1261,7 +1261,33 @@
                         "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere the nBus Walsall zone."
                     }
                 },
-                "West Midlands Metro": {}
+                "West Midlands Metro": {
+                    "Adult 1 Week Metro & Bus":{
+                        "name":"Adult 1 Week Metro & Bus",
+                        "price":27.20,
+                        "subline":"Unlimited travel on the West Midlands Metro tram and all bus operators that are part of the nBus scheme anywhere within the nBus zone."
+                    },
+                    "Adult 1 Week":{
+                        "name":"Adult 1 Week",
+                        "price":22.50,
+                        "subline":"Unlimited travel on the West Midlands Metro tram"
+                    },
+                    "Adult 4 Week Metro & Bus":{
+                        "name":"Adult 1 Week Metro & Bus",
+                        "price":95.50,
+                        "subline":"Unlimited travel on the West Midlands Metro tram and all bus operators that are part of the nBus scheme anywhere within the nBus zone."
+                    },
+                    "Adult 4 Week":{
+                        "name":"Adult 1 Week",
+                        "price":77.00,
+                        "subline":"Unlimited travel on the West Midlands Metro tram"
+                    },
+                    "Student 4 Week":{
+                        "name":"Student 4 Week",
+                        "price":63.00,
+                        "subline":"Unlimited travel on the West Midlands Metro tram"
+                    }
+                }
             }
         }
     }
