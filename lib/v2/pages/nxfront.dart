@@ -1,12 +1,11 @@
 import 'package:BubbleGum/pages/ticketwalletv2.dart';
-import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/components/daysaveractive.dart';
 import 'package:BubbleGum/pages/help.dart';
 import 'package:BubbleGum/pages/offers.dart';
 import 'package:BubbleGum/pages/selectticket.dart';
-import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/pages/tripTools.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
@@ -40,11 +39,13 @@ class NxfrontState extends State<Nxfront> {
 
     //call method to grab a preactivated default ticket useful
     NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
-      setState(() {
-        defaultTicketid = preactivatedid['ticketid'];
-        state = preactivatedid['state'];
-        tickettype = preactivatedid['tickettype'];
-      });
+      print(preactivatedid);
+    //   setState(() {
+    //   //   defaultTicketid = preactivatedid['ticketid'];
+    //   //   state = preactivatedid['state'];
+    //   //   tickettype = preactivatedid['tickettype'];
+    //   // });
+    // });
     });
   }
 
@@ -52,7 +53,10 @@ class NxfrontState extends State<Nxfront> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return WillPopScope(
-      onWillPop: () {},
+      onWillPop: () {
+        Navigator.pop(context);
+        return;
+      },
       child: Scaffold(
           body: Container(
               height: 1000,
@@ -71,104 +75,21 @@ class NxfrontState extends State<Nxfront> {
                           SizedBox(
                             height: 15,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SelectTicket()),
-                              );
-                            },
-                            focusColor: Colors.red,
-                            highlightColor: Colors.pink,
-                            child: Container(
-                              width: 380,
-                              height: heightOf,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Row(children: <Widget>[
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Image.asset(
-                                  "images/busicon.png",
-                                  width: 50,
-                                ),
-                                SizedBox(
-                                  width: 6,
-                                ),
-                                Text("Buy tickets",
-                                    style: GoogleFonts.roboto(
-                                        letterSpacing: _letterSpaceing,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18)),
-                                Expanded(
-                                  child: Text(""),
-                                ),
-                                Image.asset("images/rightarrow.png", width: 35),
-                                SizedBox(
-                                  width: 4,
-                                )
-                              ]),
-                            ),
+                          NXItem(
+                            letterSpaceing: _letterSpaceing,
+                            heightOf: heightOf,
+                            title: "Singles & Daysavers",
+                            icon: Image.asset("images/v7/v7ticketone.png",width: 40,),
+                            child: SelectTicket(),
                           ),
+                          
                           SizedBox(
                             height: spaceApart,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Offers()),
-                              );
-                            },
-                            child: Container(
-                              width: 380,
-                              height: heightOf,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Row(children: <Widget>[
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Image.asset(
-                                  "images/offers.png",
-                                  width: 50,
-                                ),
-                                SizedBox(
-                                  width: 6,
-                                ),
-                                Text(
-                                  "Offers",
-                                  style: GoogleFonts.roboto(
-                                      letterSpacing: _letterSpaceing,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 18),
-                                ),
-                                Expanded(
-                                  child: Text(""),
-                                ),
-                                Image.asset("images/rightarrow.png", width: 35),
-                                SizedBox(
-                                  width: 4,
-                                )
-                              ]),
-                            ),
+                          NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing,
+                          title: "NX 1 Week and 4 Week",
+                          icon: Image.asset("images/v7/v7tickettwo.png",width: 40,),
+                          child: Offers(),
                           ),
                           SizedBox(
                             height: spaceApart,
@@ -257,104 +178,19 @@ class NxfrontState extends State<Nxfront> {
                           SizedBox(
                             height: spaceApart,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Triptools()),
-                              );
-                            },
-                            child: Container(
-                              width: 380,
-                              height: heightOf,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Row(children: <Widget>[
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Image.asset(
-                                  "images/triptool.png",
-                                  width: 50,
-                                ),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Text(
-                                  "Trip tools",
-                                  style: GoogleFonts.roboto(
-                                      letterSpacing: _letterSpaceing,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 18),
-                                ),
-                                Expanded(
-                                  child: Text(""),
-                                ),
-                                Image.asset("images/rightarrow.png", width: 35),
-                                SizedBox(
-                                  width: 4,
-                                )
-                              ]),
-                            ),
-                          ),
+                          NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing, 
+                          title: "Trip tools", 
+                          icon: Image.asset("images/triptool.png",width: 50,), 
+                          child: Triptools()),
+                         
                           SizedBox(
                             height: spaceApart,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Help()),
-                              );
-                            },
-                            child: Container(
-                              width: 380,
-                              height: heightOf,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Row(children: <Widget>[
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Image.asset(
-                                  "images/ottom.png",
-                                  width: 50,
-                                ),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Text(
-                                  "Help",
-                                  style: GoogleFonts.roboto(
-                                      letterSpacing: _letterSpaceing,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 18),
-                                ),
-                                Expanded(
-                                  child: Text(""),
-                                ),
-                                Image.asset("images/rightarrow.png", width: 35),
-                                SizedBox(
-                                  width: 4,
-                                )
-                              ]),
-                            ),
-                          ),
+                          NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing,
+                           title: "Help", 
+                           icon: Image.asset("images/ottom.png",width: 50,),
+                            child: Help()),
+                         
                           SizedBox(
                             height: 300,
                           )
@@ -364,6 +200,80 @@ class NxfrontState extends State<Nxfront> {
                   )),
                 ],
               ))),
+    );
+  }
+}
+
+class NXItem extends StatefulWidget {
+
+  final String title;
+  final Image icon;
+  final Widget child;
+
+  const NXItem({
+    Key key,
+    @required this.heightOf,
+    @required double letterSpaceing,
+    @required this.title,
+    @required this.icon,
+    @required this.child
+  }) : _letterSpaceing = letterSpaceing, super(key: key);
+
+  final double heightOf;
+  final double _letterSpaceing;
+
+  @override
+  _NXItemState createState() => _NXItemState();
+}
+
+class _NXItemState extends State<NXItem> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Offers()),
+        );
+      },
+      child: Container(
+        width: 380,
+        height: widget.heightOf,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  color: Color.fromRGBO(215, 216, 218, 1),
+                  offset: new Offset(0, 3))
+            ]),
+        child: Row(children: <Widget>[
+          SizedBox(
+            width: 10,
+          ),
+          
+          widget.icon,
+          SizedBox(
+            width: 6,
+          ),
+          Text(
+            widget.title,
+            style: GoogleFonts.roboto(
+                letterSpacing: widget._letterSpaceing,
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 18),
+          ),
+          Expanded(
+            child: Text(""),
+          ),
+          Image.asset("images/rightarrow.png", width: 35),
+          SizedBox(
+            width: 4,
+          )
+        ]),
+      ),
     );
   }
 }
@@ -536,7 +446,7 @@ class _NXFront_TopBarState extends State<NXFront_TopBar> {
               GestureDetector(
                 onLongPress: (){
                     Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PiHome()));
+                      MaterialPageRoute(builder: (context) => AfterDisclaimer()));
                 },
                 onTap: () {
                   Navigator.push(context,

@@ -6,6 +6,7 @@ import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/components/ticketColor.dart';
@@ -82,7 +83,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     print("BLOCKING SCREENSHOTS");
 
-    // Screen.setBrightness(1.0);
+     Screen.setBrightness(1.0);
 
     // FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
     //     .then((value) {
@@ -123,18 +124,6 @@ class ActualTicketState extends State<ActualTicket> {
       });
     });
 
-    // NXHelp().getTicketById(id: widget.txid).then((ticket) {
-    //   print(ticket);
-    //   print(widget.txid);
-
-    //   setState(() {
-    //     state = ticket["list"][0]['state'];
-    //     ticketTitle = ticket["list"][0]['tickettype'];
-    //     subtitle = ticket["subtitle"];
-    //     print(state);
-    //     print(ticketTitle);
-    //   });
-    // });
   }
 
   @override
@@ -160,6 +149,15 @@ class ActualTicketState extends State<ActualTicket> {
           } else {
             print(defaultEjectionID);
           }
+        }else{
+          Screen.setBrightness(0.1);
+          Future.delayed(Duration(seconds: 1),(){
+            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AfterDisclaimer()),
+                            );
+          });
         }
       });
       return;
@@ -194,11 +192,13 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
+                            Screen.setBrightness(0.1).then((value) {
+                              Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Nxfront()),
                             );
+                            });
                           },
                           child: Row(
                             children: <Widget>[

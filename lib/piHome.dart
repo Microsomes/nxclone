@@ -201,7 +201,9 @@ class PiHomeState extends State<PiHome> {
                   ),
                 ),
               )
-                ,IconButton(
+                ,
+                
+                widget.isHide ?Container(): IconButton(
                 icon: Icon(Icons.settings,color:Colors.white),
                 onPressed: (){
                     Navigator.push(

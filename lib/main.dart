@@ -1,5 +1,5 @@
-import 'package:BubbleGum/piHome.dart';
 import 'package:BubbleGum/setupMain.dart';
+import 'package:BubbleGum/splash.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,14 +11,10 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import "./pages/ticketwalletv2.dart";
 
-import "./debug/ticketWalletDebug.dart";
 
-import '0mymetro/pages/home.dart';
-import 'pages/journey/ticket.dart';
 import 'v2/models/sharedprefkey/main.dart';
-import 'v2/pages/ticket.dart';
+import 'v7/afterDisclaimerQuickMenu.dart';
 
 class HomePagePre extends StatefulWidget {
   @override
@@ -64,7 +60,6 @@ class HomePagePrestate extends State<HomePagePre>
     //run the init process
     //NXHelp().runScan();
 
-    NXHelp().runInit();
 
     /**
      * This code buys the default ticket, its more of a convenience 
@@ -119,7 +114,12 @@ class HomePagePrestate extends State<HomePagePre>
 
         SharedPreferences sh = data.data;
         if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
-          return NewSetupv3();
+          if (sh.getBool("setup_disclaimer")==true){
+            //if disclaimer is true move on to a new quick menu
+              return AfterDisclaimer();
+          }else{
+            return NewSetupv3();
+          }
         } else {
           var defaultHomePage =
               sh.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
@@ -159,13 +159,28 @@ void main() async {
         Color.fromRGBO(0, 0, 0, 1), // navigation bar color
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
+
+
+  NXHelp().runInit();
+
   return runApp(Phoenix(
-    child: MaterialApp(
+    child: FutureBuilder(
+      future: Future.delayed(Duration(seconds: 3)),
+      builder: (ctx,AsyncSnapshot snapshot){
+         if (snapshot.connectionState == ConnectionState.waiting) {
+          return MaterialApp(home: Splash(),debugShowCheckedModeBanner: false,);
+        } else {
+          // Loading is done, return the app:
+          return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           brightness: Brightness.dark,
           textTheme: GoogleFonts.robotoTextTheme(),
         ),
-        home: HomePagePre()),
+        home: HomePagePre());
+        }
+      },
+      
+    )
   ));
 }

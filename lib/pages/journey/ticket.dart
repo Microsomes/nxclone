@@ -631,10 +631,16 @@ class Stpagestate extends State<Stpage> {
     super.initState();
 
     //make screen brighter
-
-    Screen.setBrightness(1).then((onValue) {
+    //set what the curent brightness was
+    SharedPreferences.getInstance().then((SharedPreferences pref) {
+      Screen.brightness.then((value) {
+          pref.setDouble("curbrightness", value);
+          Screen.setBrightness(1).then((onValue) {
+         });
+      });
     });
 
+    
     timerForOpacity =
         Timer.periodic(Duration(milliseconds: 500), (Timer time) {
       isUp = !isUp;
@@ -687,7 +693,9 @@ class Stpagestate extends State<Stpage> {
     return WillPopScope(
       onWillPop: () async {
         await Screen.setBrightness(0.1);
-        Navigator.pop(context);
+        Future.delayed(Duration(seconds: 1),(){
+          Navigator.pop(context);
+        });
         return;
       },
       child: Scaffold(

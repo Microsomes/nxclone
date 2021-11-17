@@ -49,8 +49,10 @@ dependencies:
   fluttertoast: ^7.1.8
   flutter_windowmanager: ^0.0.2
   clay_containers: ^0.2.3
+  getwidget: 1.2.4
 
 
+  hive: 1.4.4+1
 
   
 
@@ -88,6 +90,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    
    - images/logo.png
    - images/busicon.png
    - images/rightarrow.png
@@ -212,7 +215,21 @@ flutter:
 
    - images/mymetro/logo1.png
 
-   
+   - images/v7/startup.png
+   - images/v7/v7ticket.png
+   - images/v7/nog.png
+   - images/v7/supply-chain.png
+   - images/v7/drill.png
+   - images/v7/eggs.png
+   - images/v7/tickets.png
+   - images/screen4.png
+   - images/v7/v7wallet.png
+   - images/v7/v7ticketone.png
+   - images/v7/v7tickettwo.png
+   - images/v7/bus.png
+   - images/v7/tram.png
+   - images/v7/students.png
+  
 
 
   #  - images/a_dot_ham.jpeg
