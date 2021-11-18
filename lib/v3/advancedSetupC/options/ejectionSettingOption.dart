@@ -10,9 +10,7 @@ class EjectionSetOption extends StatefulWidget {
   final bool isDisclaimer;
   final Function onDone;
 
-  EjectionSetOption({@required this.isDisclaimer,
-  @required this.onDone
-  });
+  EjectionSetOption({@required this.isDisclaimer, @required this.onDone});
 
   @override
   _EjectionSetOptionState createState() => _EjectionSetOptionState();
@@ -26,10 +24,10 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
   @override
   void initState() {
     SharedPreferences.getInstance().then((value) {
-      if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+      if (value.getString(SettingsPrefKeys.ejectionSettingKey) != null) {
         setState(() {
           defaultEjectionID =
-              value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+              value.getString(SettingsPrefKeys.ejectionSettingKey);
 
           ejectionName =
               NXHelp().getEjectionSettingByID(defaultEjectionID).name;
@@ -68,8 +66,7 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                                       .getEjectionSettingByID(defaultEjectionID)
                                       .name;
                                 });
-                                        widget.onDone();
-
+                                widget.onDone();
 
                                 Navigator.pop(context);
                               });
@@ -82,7 +79,7 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
-                       Container(
+                      Container(
                         alignment: Alignment.center,
                         height: 100,
                         width: MediaQuery.of(context).size.width,
@@ -107,7 +104,6 @@ class _EjectionSetOptionState extends State<EjectionSetOption> {
                             )
                           : Container()
                     ],
-               
                   ),
                   height: 80,
                   margin: EdgeInsets.only(left: 20, right: 20, top: 0),

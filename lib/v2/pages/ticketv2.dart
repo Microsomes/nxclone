@@ -135,10 +135,10 @@ class ActualTicketState extends State<ActualTicket> {
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop: () async {
       SharedPreferences.getInstance().then((value) {
-        if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+        if (value.getString(SettingsPrefKeys.ejectionSettingKey) != null) {
           setState(() {
             defaultEjectionID =
-                value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+                value.getString(SettingsPrefKeys.ejectionSettingKey);
           });
           if (defaultEjectionID == "nothing") {
           } else {
@@ -818,7 +818,7 @@ class _QRState extends State<QR> {
       });
     });
 
-    listOfQrCollections = List();
+    listOfQrCollections = [];
     listOfQrCollections.add("images/v2/v2assets/bar1.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar2.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar3.PNG");

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/pages/settings.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,8 +12,9 @@ class UtilitiesMenu extends StatefulWidget {
     return new UtilitiesMenuState();
   }
 }
+
 void launchURL(String url) async {
-   if (await canLaunch(url)) {
+  if (await canLaunch(url)) {
     await launch(url);
   } else {
     throw 'Could not launch $url';
@@ -43,132 +43,127 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
         //   ),
         // ),
         body: Container(
-          height: double.infinity,
-          width: sizeW,
-          color: Color.fromRGBO(167, 27, 26, 1),
-          child: SafeArea(
-                      child: Column(
-              children: <Widget>[
-                PhysicalModel(
-                      elevation: 2,
-                      color: Colors.red,
-                      shadowColor: Color.fromRGBO(215, 216, 218, 1),
-                      child: Stack(
-                        alignment: Alignment.centerLeft,
-                        children: [
-                          Container(
-                        child: Center(
-                          child: Text(
-                            "Utilities",
+      height: double.infinity,
+      width: sizeW,
+      color: Color.fromRGBO(167, 27, 26, 1),
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            PhysicalModel(
+                elevation: 2,
+                color: Colors.red,
+                shadowColor: Color.fromRGBO(215, 216, 218, 1),
+                child: Stack(
+                  alignment: Alignment.centerLeft,
+                  children: [
+                    Container(
+                      child: Center(
+                        child: Text("Utilities",
                             style: GoogleFonts.roboto(
-                              color: Color.fromRGBO(189, 156, 106, 1),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16
-                            )
-                          ),
-                        ),
-                        height: 55,
-                        color: Colors.white,
+                                color: Color.fromRGBO(189, 156, 106, 1),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16)),
                       ),
-                       GestureDetector(
-                         onTap: (){
-                           Navigator.pop(context);
-                         },
-                         child: Image.asset("images/leftarrow.png", width: 35)),
-                        ],
-                      )
+                      height: 55,
+                      color: Colors.white,
                     ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      "ACCOUNT",
-                      style: GoogleFonts.roboto(
-                          color: Colors.white, letterSpacing: 1),
-                    ),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset("images/leftarrow.png", width: 35)),
                   ],
-                ),
+                )),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
                 SizedBox(
-                  height: 3,
+                  width: 20,
                 ),
-                NavItem(
-                  image: Image.asset(
-                    "images/v3/people.png",
-                    width: 30,
-                  ),
-                  onTap: () {
-                    print("profile page");
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (ctx) => MyProfile()));
-                  },
-                  name: "My Profile",
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      "TOOLS",
-                      style: GoogleFonts.roboto(
-                          color: Colors.white, letterSpacing: 1),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                NavItem(
-                  onTap: (){
-                    launchURL("https://nxbus.co.uk");
-                  },
-                  image: Image.asset(
-                    "images/v3/pointer.png",
-                    width: 30,
-                  ),
-                  name: "nxbus.co.uk",
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                NavItem(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (ctx)=>SocialMediaPage()
-                    ));
-                  },
-                  image: Image.asset(
-                    "images/v3/thumb.png",
-                    width: 30,
-                  ),
-                  name: "Social Media",
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                NavItem(
-                  onTap: (){
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (ctx) => MyProfile()));
-                  },
-                  image: Image.asset(
-                    "images/v3/scan.png",
-                    width: 30,
-                  ),
-                  name: "Payzone Barcode",
+                Text(
+                  "ACCOUNT",
+                  style:
+                      GoogleFonts.roboto(color: Colors.white, letterSpacing: 1),
                 ),
               ],
             ),
-          ),
-        ));
+            SizedBox(
+              height: 3,
+            ),
+            NavItem(
+              image: Image.asset(
+                "images/v3/people.png",
+                width: 30,
+              ),
+              onTap: () {
+                print("profile page");
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => MyProfile()));
+              },
+              name: "My Profile",
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  "TOOLS",
+                  style:
+                      GoogleFonts.roboto(color: Colors.white, letterSpacing: 1),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            NavItem(
+              onTap: () {
+                launchURL("https://nxbus.co.uk");
+              },
+              image: Image.asset(
+                "images/v3/pointer.png",
+                width: 30,
+              ),
+              name: "nxbus.co.uk",
+            ),
+            SizedBox(
+              height: 13,
+            ),
+            NavItem(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => SocialMediaPage()));
+              },
+              image: Image.asset(
+                "images/v3/thumb.png",
+                width: 30,
+              ),
+              name: "Social Media",
+            ),
+            SizedBox(
+              height: 13,
+            ),
+            NavItem(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => MyProfile()));
+              },
+              image: Image.asset(
+                "images/v3/scan.png",
+                width: 30,
+              ),
+              name: "Payzone Barcode",
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
 

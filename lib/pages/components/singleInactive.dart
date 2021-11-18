@@ -5,70 +5,66 @@ import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/ticket.dart';
 
 class SingleInactiveTicket extends StatefulWidget {
-   final int id;
-
-
+  final int id;
 
   final bool isUsed;
 
-  const SingleInactiveTicket(
-      {Key key,
-        @required this.id,
-       @required this.isUsed,
-       })
-      : super(key: key);
+  const SingleInactiveTicket({
+    Key key,
+    @required this.id,
+    @required this.isUsed,
+  }) : super(key: key);
 
   @override
   _SingleInactiveTicketState createState() => _SingleInactiveTicketState();
 }
 
 class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
-
-  String state="nkjnkj";
-  String ticketType="kjbjhb";
-  String ticketExpiryDate="nkj";
+  String state = "nkjnkj";
+  String ticketType = "kjbjhb";
+  String ticketExpiryDate = "nkj";
 
   @override
   void initState() {
-
     NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
-      List<TicketWalletModel> alT= value;
+      List<TicketWalletModel> alT = value;
       alT[0].getTicketData().then((value) {
-          TicketModel tikData=value;
-          setState(() {
-            state=tikData.state;
-            ticketType=tikData.tickettitle;
-            alT[0].getTimeRemainingIdle_Human().then((value) {
-               setState(() {
-                 ticketExpiryDate=value;
-               });
+        TicketModel tikData = value;
+        setState(() {
+          state = tikData.state;
+          ticketType = tikData.tickettitle;
+          alT[0].getTimeRemainingHuman().then((value) {
+            setState(() {
+              ticketExpiryDate = value;
             });
           });
+        });
       });
     });
 
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
-    var sizeW= MediaQuery.of(context).size.width;
+    var sizeW = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Ticket2(
-              txdbid: widget.id,
-            )));
+            context,
+            MaterialPageRoute(
+                builder: (context) => Ticket2(
+                      txdbid: widget.id,
+                    )));
       },
       child: Container(
           width: sizeW * 0.9,
-          height:  widget.isUsed? 90: 110,
+          height: widget.isUsed ? 90 : 110,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(15)),
           child: Column(
             children: <Widget>[
-               Row(
+              Row(
                 children: <Widget>[
                   SizedBox(
                     width: 10,
@@ -81,8 +77,9 @@ class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
                         Text(
                           "$state",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15,
-                              ),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
                         ),
                         Text(
                           "$ticketType",
@@ -98,7 +95,7 @@ class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
                   Container(
                     height: 40,
                     child: Text(
-                      this.widget.isUsed!=true?"INACTIVE":"USED",
+                      this.widget.isUsed != true ? "INACTIVE" : "USED",
                       style: TextStyle(
                           color: Color.fromRGBO(211, 211, 211, 1),
                           fontSize: 17,
@@ -118,16 +115,18 @@ class _SingleInactiveTicketState extends State<SingleInactiveTicket> {
               Expanded(
                 child: Text(""),
               ),
-              widget.isUsed==true ?Container(): Container(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text(
-                    "Expires $ticketExpiryDate",
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ),
+              widget.isUsed == true
+                  ? Container()
+                  : Container(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Text(
+                          "Expires $ticketExpiryDate",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ),
               SizedBox(
                 height: 10,
               )

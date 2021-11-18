@@ -1,6 +1,5 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/advancedSetupC/options/defaultHomePageOption.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,9 +22,9 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
   @override
   void initState() {
     SharedPreferences.getInstance().then((pref) {
-      if (pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY) != null) {
+      if (pref.getInt(SettingsPrefKeys.defaultTicketKey) != null) {
         setState(() {
-          defVal = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+          defVal = pref.getInt(SettingsPrefKeys.defaultTicketKey);
         });
       } else {
         print("null");
@@ -120,10 +119,10 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
             Container(
               height: 50,
               child: Center(
-                  child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                color: Colors.white,
+                  child: ElevatedButton(
+                // shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(20)),
+                // color: Colors.white,
                 onPressed: () {
                   Navigator.pop(context);
                 },

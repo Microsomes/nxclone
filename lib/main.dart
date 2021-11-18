@@ -11,8 +11,6 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
 import 'v2/models/sharedprefkey/main.dart';
 import 'v7/afterDisclaimerQuickMenu.dart';
 
@@ -60,7 +58,6 @@ class HomePagePrestate extends State<HomePagePre>
     //run the init process
     //NXHelp().runScan();
 
-
     /**
      * This code buys the default ticket, its more of a convenience 
      * so the user doesnt have to buy the real app themselves everytime
@@ -86,7 +83,7 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
-         if (data.connectionState == ConnectionState.waiting) {
+        if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(
             child: CircularProgressIndicator(
@@ -107,22 +104,20 @@ class HomePagePrestate extends State<HomePagePre>
         //   print(value);
         // });
 
-         // return TicketDebug();
+        // return TicketDebug();
 
         //return TicketWalletV2();
 
-
         SharedPreferences sh = data.data;
-        if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
-          if (sh.getBool("setup_disclaimer")==true){
+        if (sh.getBool(SettingsPrefKeys.startUpSetup) == null) {
+          if (sh.getBool("setup_disclaimer") == true) {
             //if disclaimer is true move on to a new quick menu
-              return AfterDisclaimer();
-          }else{
+            return AfterDisclaimer();
+          } else {
             return NewSetupv3();
           }
         } else {
-          var defaultHomePage =
-              sh.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
+          var defaultHomePage = sh.getString(SettingsPrefKeys.disclaimerKey);
           print(defaultHomePage);
 
           if (defaultHomePage == "non_sim_home") {
@@ -135,7 +130,7 @@ class HomePagePrestate extends State<HomePagePre>
               builder: (ctx, snapshot) {
                 if (snapshot.data != null) {
                   var ticketid = snapshot.data;
-                
+
                   return ActualTicket(
                     txid: ticketid,
                   );
@@ -160,27 +155,27 @@ void main() async {
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
 
-
   NXHelp().runInit();
 
   return runApp(Phoenix(
-    child: FutureBuilder(
-      future: Future.delayed(Duration(seconds: 3)),
-      builder: (ctx,AsyncSnapshot snapshot){
-         if (snapshot.connectionState == ConnectionState.waiting) {
-          return MaterialApp(home: Splash(),debugShowCheckedModeBanner: false,);
-        } else {
-          // Loading is done, return the app:
-          return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          textTheme: GoogleFonts.robotoTextTheme(),
-        ),
-        home: HomePagePre());
-        }
-      },
-      
-    )
-  ));
+      child: FutureBuilder(
+    future: Future.delayed(Duration(seconds: 3)),
+    builder: (ctx, AsyncSnapshot snapshot) {
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return MaterialApp(
+          home: Splash(),
+          debugShowCheckedModeBanner: false,
+        );
+      } else {
+        // Loading is done, return the app:
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              brightness: Brightness.dark,
+              textTheme: GoogleFonts.robotoTextTheme(),
+            ),
+            home: HomePagePre());
+      }
+    },
+  )));
 }

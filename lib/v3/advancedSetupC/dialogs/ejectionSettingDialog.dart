@@ -4,6 +4,7 @@ import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class SetEjectionSettings extends StatefulWidget {
   final Function onSelectEjection;
 
@@ -24,24 +25,20 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
 
   @override
   void initState() {
-
-     SharedPreferences.getInstance().then((value) {
-      if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+    SharedPreferences.getInstance().then((value) {
+      if (value.getString(SettingsPrefKeys.ejectionSettingKey) != null) {
         setState(() {
           defaultEjectionID =
-              value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+              value.getString(SettingsPrefKeys.ejectionSettingKey);
         });
-      }else{
+      } else {
         setState(() {
-          defaultEjectionID="nothing";
+          defaultEjectionID = "nothing";
         });
       }
     });
 
-
     ejectionSettings = NXHelp().getAllEjectionSettings();
-
-
 
     super.initState();
   }
@@ -52,7 +49,6 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
       padding: EdgeInsets.all(40),
       color: Colors.redAccent,
       child: Column(
-     
         children: [
           Text(
             "Ejection Selection",
@@ -74,9 +70,10 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
                 itemBuilder: (ctx, index) {
                   return Material(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    color: defaultEjectionID== ejectionSettings[index].id ? Colors.yellowAccent: Colors.transparent,
+                        borderRadius: BorderRadius.circular(10)),
+                    color: defaultEjectionID == ejectionSettings[index].id
+                        ? Colors.yellowAccent
+                        : Colors.transparent,
                     child: ListTile(
                       leading: IconButton(
                         icon: Icon(
@@ -86,34 +83,35 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
                         onPressed: () {
                           showDialog(
                               context: context,
-                              builder:(_)=> AlertDialog(
-                                backgroundColor: Colors.redAccent,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                title: Text(ejectionSettings[index].name),
-                                content: Container(
-                                  height: 150,
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          ejectionSettings[index].info,
-                                          style:
-                                              GoogleFonts.roboto(fontSize: 15),
+                              builder: (_) => AlertDialog(
+                                    backgroundColor: Colors.redAccent,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    title: Text(ejectionSettings[index].name),
+                                    content: Container(
+                                      height: 150,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              ejectionSettings[index].info,
+                                              style: GoogleFonts.roboto(
+                                                  fontSize: 15),
+                                            ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ));
+                                  ));
                         },
                       ),
                       // trailing:defaultEjectionID== ejectionSettings[index].id? Icon( Icons.check):Icon(Icons.check,color: Colors.redAccent,),
                       onTap: () {
                         setState(() {
-                          defaultEjectionID=ejectionSettings[index].id;
+                          defaultEjectionID = ejectionSettings[index].id;
                         });
-                        Future.delayed(Duration(milliseconds: 300),(){
+                        Future.delayed(Duration(milliseconds: 300), () {
                           widget.onSelectEjection(ejectionSettings[index].id);
                         });
                       },
@@ -135,10 +133,10 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
           Container(
             height: 50,
             child: Center(
-                child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: Colors.white,
+                child: ElevatedButton(
+              // shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(20)),
+              // color: Colors.white,
               onPressed: () {
                 Navigator.pop(context);
               },

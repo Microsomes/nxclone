@@ -30,8 +30,7 @@ class NxfrontState extends State<Nxfront> {
   String tickettype = "";
   final double _letterSpaceing = 0.8;
 
-
-  bool isShowTicket=true;
+  bool isShowTicket = true;
 
   @override
   void initState() {
@@ -40,12 +39,12 @@ class NxfrontState extends State<Nxfront> {
     //call method to grab a preactivated default ticket useful
     NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
       print(preactivatedid);
-    //   setState(() {
-    //   //   defaultTicketid = preactivatedid['ticketid'];
-    //   //   state = preactivatedid['state'];
-    //   //   tickettype = preactivatedid['tickettype'];
-    //   // });
-    // });
+      //   setState(() {
+      //   //   defaultTicketid = preactivatedid['ticketid'];
+      //   //   state = preactivatedid['state'];
+      //   //   tickettype = preactivatedid['tickettype'];
+      //   // });
+      // });
     });
   }
 
@@ -79,17 +78,24 @@ class NxfrontState extends State<Nxfront> {
                             letterSpaceing: _letterSpaceing,
                             heightOf: heightOf,
                             title: "Singles & Daysavers",
-                            icon: Image.asset("images/v7/v7ticketone.png",width: 40,),
+                            icon: Image.asset(
+                              "images/v7/v7ticketone.png",
+                              width: 40,
+                            ),
                             child: SelectTicket(),
                           ),
-                          
                           SizedBox(
                             height: spaceApart,
                           ),
-                          NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing,
-                          title: "NX 1 Week and 4 Week",
-                          icon: Image.asset("images/v7/v7tickettwo.png",width: 40,),
-                          child: Offers(),
+                          NXItem(
+                            heightOf: heightOf,
+                            letterSpaceing: _letterSpaceing,
+                            title: "NX 1 Week and 4 Week",
+                            icon: Image.asset(
+                              "images/v7/v7tickettwo.png",
+                              width: 40,
+                            ),
+                            child: Offers(),
                           ),
                           SizedBox(
                             height: spaceApart,
@@ -145,52 +151,64 @@ class NxfrontState extends State<Nxfront> {
                           SizedBox(
                             height: 3,
                           ),
-                         isShowTicket==true ? FutureBuilder(
-                            future: NXHelp().buyDefaultTicketAndActivatev2(),
-                            builder: (ctx,snapshot){
-                              print(snapshot.data);
-                              if(snapshot.connectionState==ConnectionState.waiting){
-                                return CircularProgressIndicator();
-                              }else{
-                              return ShowTicketOnNx(sizeW: sizeW, defaultTicketid: snapshot.data,
-                                requestRefresh: (id){
-                                  
+                          isShowTicket == true
+                              ? FutureBuilder(
+                                  future:
+                                      NXHelp().buyDefaultTicketAndActivatev2(),
+                                  builder: (ctx, snapshot) {
+                                    print(snapshot.data);
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return CircularProgressIndicator();
+                                    } else {
+                                      return ShowTicketOnNx(
+                                        sizeW: sizeW,
+                                        defaultTicketid: snapshot.data,
+                                        requestRefresh: (id) {
+                                          if (mounted) {
+                                            setState(() {
+                                              isShowTicket = false;
+                                            });
+                                          }
 
-                                  if(mounted){
-                                  setState(() {
-                                    isShowTicket=false;
-                                  });
-                                  }
-
-                                  Future.delayed(Duration(seconds: 1),(){
-                                   if(mounted){
-                                    setState(() {
-                                      isShowTicket=true;
-                                    });
-                                   }
-                                  });
-
-                                },
-                              );
-                              }
-                            },
-                          ):Container(),
+                                          Future.delayed(Duration(seconds: 1),
+                                              () {
+                                            if (mounted) {
+                                              setState(() {
+                                                isShowTicket = true;
+                                              });
+                                            }
+                                          });
+                                        },
+                                      );
+                                    }
+                                  },
+                                )
+                              : Container(),
                           SizedBox(
                             height: spaceApart,
                           ),
-                          NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing, 
-                          title: "Trip tools", 
-                          icon: Image.asset("images/triptool.png",width: 50,), 
-                          child: Triptools()),
-                         
+                          NXItem(
+                              heightOf: heightOf,
+                              letterSpaceing: _letterSpaceing,
+                              title: "Trip tools",
+                              icon: Image.asset(
+                                "images/triptool.png",
+                                width: 50,
+                              ),
+                              child: Triptools()),
                           SizedBox(
                             height: spaceApart,
                           ),
-                          NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing,
-                           title: "Help", 
-                           icon: Image.asset("images/ottom.png",width: 50,),
-                            child: Help()),
-                         
+                          NXItem(
+                              heightOf: heightOf,
+                              letterSpaceing: _letterSpaceing,
+                              title: "Help",
+                              icon: Image.asset(
+                                "images/ottom.png",
+                                width: 50,
+                              ),
+                              child: Help()),
                           SizedBox(
                             height: 300,
                           )
@@ -205,19 +223,19 @@ class NxfrontState extends State<Nxfront> {
 }
 
 class NXItem extends StatefulWidget {
-
   final String title;
   final Image icon;
   final Widget child;
 
-  const NXItem({
-    Key key,
-    @required this.heightOf,
-    @required double letterSpaceing,
-    @required this.title,
-    @required this.icon,
-    @required this.child
-  }) : _letterSpaceing = letterSpaceing, super(key: key);
+  const NXItem(
+      {Key key,
+      @required this.heightOf,
+      @required double letterSpaceing,
+      @required this.title,
+      @required this.icon,
+      @required this.child})
+      : _letterSpaceing = letterSpaceing,
+        super(key: key);
 
   final double heightOf;
   final double _letterSpaceing;
@@ -233,8 +251,7 @@ class _NXItemState extends State<NXItem> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-              builder: (context) => Offers()),
+          MaterialPageRoute(builder: (context) => Offers()),
         );
       },
       child: Container(
@@ -252,7 +269,6 @@ class _NXItemState extends State<NXItem> {
           SizedBox(
             width: 10,
           ),
-          
           widget.icon,
           SizedBox(
             width: 6,
@@ -295,24 +311,17 @@ class ShowTicketOnNx extends StatefulWidget {
 }
 
 class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
-
-
-
-  bool isOn=true;
-
-
+  bool isOn = true;
 
   @override
   void initState() {
-
     NXHelp().getTicketWalletInfoByID(id: widget.defaultTicketid).then((value) {
-      List<TicketWalletModel> tw= value;
-      print(">"+tw[0].activeStatus.toString());
+      List<TicketWalletModel> tw = value;
+      print(">" + tw[0].activeStatus.toString());
     });
 
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -342,27 +351,19 @@ class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              ActualTicket(
-                                  txid:
-                                      widget.defaultTicketid)));
+                              ActualTicket(txid: widget.defaultTicketid)));
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 12, right: 12, top: 3),
+                  padding: const EdgeInsets.only(left: 12, right: 12, top: 3),
                   child: Container(
                     height: 123,
-                    width: MediaQuery.of(context)
-                            .size
-                            .width *
-                        0.92,
+                    width: MediaQuery.of(context).size.width * 0.92,
                     child: TicketTwo(
-                      onExpire: (id){
+                      onExpire: (id) {
                         print("THIS TICKET HAS EXPIRED YO");
                         widget.requestRefresh(id);
                       },
-
                       id: widget.defaultTicketid,
-
                     ),
                   ),
                 ),
@@ -371,11 +372,8 @@ class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
             padding: const EdgeInsets.only(top: 17),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            TicketWalletV2()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TicketWalletV2()));
                 //Ticketwallet
               },
               child: Container(
@@ -383,8 +381,7 @@ class _ShowTicketOnNxState extends State<ShowTicketOnNx> {
                   width: widget.sizeW,
                   height: 17,
                   child: Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       Text(
                         "MORE TICKETS",
@@ -420,10 +417,12 @@ class NXFront_TopBar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _NXFront_TopBarState createState() => _NXFront_TopBarState();
+  NxFrontTopBarState createState() => NxFrontTopBarState();
 }
 
-class _NXFront_TopBarState extends State<NXFront_TopBar> {
+//_NXFront_TopBarState
+
+class NxFrontTopBarState extends State<NXFront_TopBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -435,7 +434,7 @@ class _NXFront_TopBarState extends State<NXFront_TopBar> {
             alignment: Alignment.centerRight,
             children: [
               Container(
-                 width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
                 child: Center(
                   child: Image.asset(
                     "images/v4/header.png",
@@ -444,9 +443,11 @@ class _NXFront_TopBarState extends State<NXFront_TopBar> {
                 ),
               ),
               GestureDetector(
-                onLongPress: (){
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AfterDisclaimer()));
+                onLongPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AfterDisclaimer()));
                 },
                 onTap: () {
                   Navigator.push(context,

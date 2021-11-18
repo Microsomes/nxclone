@@ -1,6 +1,5 @@
 import 'package:BubbleGum/pages/ticketwalletv2.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,7 +21,8 @@ class PaymentConfirmed extends StatelessWidget {
           backgroundColor: Colors.white,
           leading: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>Nxfront()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => Nxfront()));
               },
               child: PreferredSize(
                   preferredSize: Size.fromHeight(500),

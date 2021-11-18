@@ -11,9 +11,7 @@ class DefaultHomePageOption extends StatefulWidget {
 
   final Function onDone;
 
-  DefaultHomePageOption({@required this.isDisclaimer,
-  @required this.onDone
-  });
+  DefaultHomePageOption({@required this.isDisclaimer, @required this.onDone});
 
   @override
   _DefaultHomePageOptionState createState() => _DefaultHomePageOptionState();
@@ -27,16 +25,14 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
   @override
   void initState() {
     SharedPreferences.getInstance().then((value) {
-      if (value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY) != null) {
+      if (value.getString(SettingsPrefKeys.disclaimerKey) != null) {
         setState(() {
-          defHomeID = value.getString(SettingsPrefKeys.DEFAULT_HOME__PAGE_KEY);
+          defHomeID = value.getString(SettingsPrefKeys.disclaimerKey);
 
           defHomeName = NXHelp().getDefHomeOptionById(defHomeID).name;
         });
         widget.onDone();
-      }else{
-        
-      }
+      } else {}
     });
     super.initState();
   }
@@ -60,7 +56,7 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
                                 sharedpref.setString("def_home_adv", val);
 
                                 setState(() {
-                                          widget.onDone();
+                                  widget.onDone();
 
                                   defHomeID = val;
                                   defHomeName =
@@ -91,18 +87,20 @@ class _DefaultHomePageOptionState extends State<DefaultHomePageOption> {
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      
-                      defHomeName!=null ?Container(
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Text(
-                          "(" + defHomeName.toString() + ")",
-                          style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
-                      ):Container()
+                      defHomeName != null
+                          ? Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                "(" + defHomeName.toString() + ")",
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            )
+                          : Container()
                     ],
                   ),
                   height: 80,

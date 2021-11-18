@@ -13,18 +13,15 @@ class StaticTicketColor extends StatefulWidget {
 class _StaticTicketColorState extends State<StaticTicketColor> {
   RandomColor _randomColor = RandomColor();
 
-
   Color random1;
   Color random2;
   Color random3;
 
-
   @override
   void initState() {
-    // TODO: implement initState
-    random1= _randomColor.randomColor();
-    random2= _randomColor.randomColor();
-    random3= _randomColor.randomColor();
+    random1 = _randomColor.randomColor();
+    random2 = _randomColor.randomColor();
+    random3 = _randomColor.randomColor();
     super.initState();
   }
 
@@ -32,7 +29,7 @@ class _StaticTicketColorState extends State<StaticTicketColor> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-         this.widget.pickedColor(this.random1,this.random2,this.random3);
+        this.widget.pickedColor(this.random1, this.random2, this.random3);
       },
       child: Container(
         margin: EdgeInsets.only(top: 20),
@@ -45,7 +42,7 @@ class _StaticTicketColorState extends State<StaticTicketColor> {
             children: [
               Expanded(
                 child: Container(
-                   decoration: BoxDecoration(
+                  decoration: BoxDecoration(
                       color: random1,
                       borderRadius:
                           BorderRadius.only(topLeft: Radius.circular(20))),
@@ -60,7 +57,6 @@ class _StaticTicketColorState extends State<StaticTicketColor> {
               ),
               Expanded(
                 child: Container(
-                  
                   height: 200,
                   decoration: BoxDecoration(
                       color: random3,

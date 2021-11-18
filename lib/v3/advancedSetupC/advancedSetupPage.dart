@@ -41,9 +41,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   bool isReadySetup = false;
 
-  /**
-   * the boolean checksums to confirm whats been done
-   */
+  /// the boolean checksums to confirm whats been done
   bool defHome = false;
   bool defTicket = false;
   bool defEjection = false;
@@ -76,10 +74,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     //load default home pref
 
     SharedPreferences.getInstance().then((value) {
-      if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
+      if (value.getString(SettingsPrefKeys.ejectionSettingKey) != null) {
         setState(() {
           defaultEjectionID =
-              value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
+              value.getString(SettingsPrefKeys.ejectionSettingKey);
         });
       }
 
@@ -99,7 +97,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
       }
     });
 
-    allPageOptions = new List();
+    allPageOptions = [];
 
     allPageOptions.add(DefHome(pageName: "Home", pageid: 0));
     allPageOptions.add(DefHome(pageName: "NX Home", pageid: 1));
@@ -134,9 +132,9 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                         ),
                   isDisclaimer == false
                       ? Container()
-                      : RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                      : ElevatedButton(
+                          // shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(10)),
                           onPressed: () async {
                             setState(() {
                               isV6 = true;
@@ -303,10 +301,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                 SizedBox(
                                   width: 30,
                                 ),
-                                RaisedButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5)),
-                                  color: Colors.greenAccent,
+                                ElevatedButton(
+                                  // shape: RoundedRectangleBorder(
+                                  //     borderRadius: BorderRadius.circular(5)),
+                                  // color: Colors.greenAccent,
                                   child: Text(
                                     "I Accept",
                                     style: GoogleFonts.roboto(
@@ -330,9 +328,9 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                                 AfterDisclaimer()));
                                   },
                                 ),
-                                RaisedButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
+                                ElevatedButton(
+                                  // shape: RoundedRectangleBorder(
+                                  //     borderRadius: BorderRadius.circular(10)),
                                   child: Text(
                                     "I don't accept",
                                     style: GoogleFonts.roboto(
@@ -340,7 +338,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                         fontWeight: FontWeight.bold),
                                     textAlign: TextAlign.center,
                                   ),
-                                  color: Colors.redAccent,
+                                  // color: Colors.redAccent,
                                   onPressed: () {
                                     print("i do not accept");
                                     SystemNavigator.pop();
@@ -395,7 +393,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                   SizedBox(
                     height: 10,
                   ),
-                  defaultTicketOption(
+                  DefaultTicketOption(
                     onDone: () {
                       setState(() {
                         defTicket = true;
@@ -421,10 +419,10 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                   ),
                   isReadySetup != true
                       ? Container()
-                      : RaisedButton(
-                          color: Colors.yellowAccent,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
+                      : ElevatedButton(
+                          // color: Colors.yellowAccent,
+                          // shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -450,8 +448,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                             print("continue");
 
                             SharedPreferences.getInstance().then((pref) {
-                              pref.setBool(
-                                  SettingsPrefKeys.START_UP_SETUP, true);
+                              pref.setBool(SettingsPrefKeys.startUpSetup, true);
                               //flag first time setup is completed
                             });
                             Navigator.push(

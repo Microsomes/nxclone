@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
-/**
- * tickettwo represents a single ticket on the ticket wallet
- */
+/// tickettwo represents a single ticket on the ticket wallet
 class TicketTwo extends StatefulWidget {
   final int id;
   final Function onExpire;
-  TicketTwo({@required this.id,this.onExpire});
+  TicketTwo({@required this.id, this.onExpire});
   @override
   _TicketTwoState createState() => _TicketTwoState();
 }
@@ -34,24 +32,21 @@ class _TicketTwoState extends State<TicketTwo> {
 
   @override
   void initState() {
-    one=Timer.periodic(Duration(minutes: 1), (timer) {
+    one = Timer.periodic(Duration(minutes: 1), (timer) {
       print("....");
       setState(() {
         allC[0].getTimeRemaining().then((value) {
           print(value);
-          if(value<=0){
-            
-            if(widget.onExpire!=null){
-              
+          if (value <= 0) {
+            if (widget.onExpire != null) {
               widget.onExpire(widget.id);
               one.cancel();
-            }else{
-                            one.cancel();
-
+            } else {
+              one.cancel();
             }
-           }
+          }
         });
-        allC[0].getTimeRemaining_human().then((value) {
+        allC[0].getTimeRemainingHuman().then((value) {
           setState(() {
             whenActivated = value.toString();
           });
@@ -60,25 +55,25 @@ class _TicketTwoState extends State<TicketTwo> {
     });
 
     NXHelp().getTicketWalletInfoByID(id: widget.id).then((value) {
-      if(mounted){
-      List<TicketWalletModel> all = value;
-      setState(() {
-        allC = all;
-      });
-      all[0].getTicketData().then((value) {
-        TicketModel tikData = value;
+      if (mounted) {
+        List<TicketWalletModel> all = value;
         setState(() {
-          state = tikData.state;
-          tickettype = tikData.tickettitle;
-          all[0].getTimeRemaining_human().then((value) {
-            if(mounted){
-            setState(() {
-              whenActivated = value.toString();
+          allC = all;
+        });
+        all[0].getTicketData().then((value) {
+          TicketModel tikData = value;
+          setState(() {
+            state = tikData.state;
+            tickettype = tikData.tickettitle;
+            all[0].getTimeRemainingHuman().then((value) {
+              if (mounted) {
+                setState(() {
+                  whenActivated = value.toString();
+                });
+              }
             });
-            }
           });
         });
-      });
       }
     });
 

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TermesOfUseP extends StatelessWidget {
-  Function onaccept;
-  Function ondisconnect;
-  TermesOfUseP({@required this.onaccept,@required this.ondisconnect});
+  final Function onaccept;
+  final Function ondisconnect;
+  TermesOfUseP({@required this.onaccept, @required this.ondisconnect});
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +43,17 @@ class TermesOfUseP extends StatelessWidget {
                 onaccept();
               },
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             MaterialButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               color: Colors.white,
               child: Text(
                 "I Do not accept",
-                style: GoogleFonts.acme(color: Colors.black,
-                
+                style: GoogleFonts.acme(
+                  color: Colors.black,
                 ),
                 textAlign: TextAlign.center,
               ),

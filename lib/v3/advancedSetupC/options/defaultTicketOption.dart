@@ -3,42 +3,31 @@ import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
 import 'package:BubbleGum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
 import "package:flutter/material.dart";
 
-
-
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class defaultTicketOption extends StatefulWidget{
+class DefaultTicketOption extends StatefulWidget {
   final bool isDisclaimer;
   final Function onDone;
-  defaultTicketOption({
-    @required this.isDisclaimer,
-    @required this.onDone
-  });
+  DefaultTicketOption({@required this.isDisclaimer, @required this.onDone});
   @override
-  _defaultTicketOptionState createState() => _defaultTicketOptionState();
+  DefaultTicketOptionState createState() => DefaultTicketOptionState();
 }
 
-class _defaultTicketOptionState extends State<defaultTicketOption> {
-  
-
-   //controls the ticket default name
+class DefaultTicketOptionState extends State<DefaultTicketOption> {
+  //controls the ticket default name
   String ticketDefNameSelected;
-
 
   @override
   void initState() {
-
-
     SharedPreferences.getInstance().then((value) {
-int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+      int tikDef = value.getInt(SettingsPrefKeys.defaultTicketKey);
 
       if (tikDef != null) {
         String tikDefName =
-            value.getString(SettingsPrefKeys.DEFAULT_TICKET_NAME_KEY);
+            value.getString(SettingsPrefKeys.defaultTicketNameKey);
         String tikDefState =
-            value.getString(SettingsPrefKeys.DEFAULT_TICKET_STATE_KEY);
+            value.getString(SettingsPrefKeys.defaultTicketStateKey);
 
         setState(() {
           ticketDefNameSelected = tikDefName + "/" + tikDefState;
@@ -48,16 +37,14 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
       }
     });
 
-
     super.initState();
   }
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-         widget.isDisclaimer == null || widget.isDisclaimer == false
+        widget.isDisclaimer == null || widget.isDisclaimer == false
             ? Container()
             : GestureDetector(
                 onTap: () {
@@ -85,8 +72,7 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
                                               ['tickettitle'] +
                                           "/" +
                                           tikInfo[0]['state'];
-                                                  widget.onDone();
-
+                                      widget.onDone();
                                     });
                                   });
                                 });
@@ -140,7 +126,6 @@ int tikDef = value.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
                       ]),
                 ),
               ),
-        
       ],
     );
   }

@@ -26,7 +26,7 @@ class AfterDisclaimer extends StatefulWidget {
 }
 
 class _AfterDisclaimerState extends State<AfterDisclaimer> {
-  List<AfterDisclaimerModel> allOptions = new List();
+  List<AfterDisclaimerModel> allOptions = [];
 
   @override
   void initState() {

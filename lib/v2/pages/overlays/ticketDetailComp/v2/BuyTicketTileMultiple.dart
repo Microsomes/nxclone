@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:BubbleGum/v2/pages/buyflow/components/ticketoption.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/buyflow/payment/pickMethod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'comp/multipleIndicator.dart';
@@ -38,9 +36,9 @@ class BuyTicketTypesState extends State<BuyTicketTypesMultiple> {
   void initState() {
     super.initState();
 
-    inBasket = List<Map>();
+    inBasket = [];
 
-    ticketTypes = List();
+    ticketTypes = [];
 
     nxhelp = NXHelp();
 
@@ -49,40 +47,32 @@ class BuyTicketTypesState extends State<BuyTicketTypesMultiple> {
       setState(() {});
     });
 
-    one= Timer.periodic(Duration(seconds: 1), (timer) { 
-      if(basket!=null){
-        double totalToSend=0;
-        basket.forEach((key, value) { 
-         int qty=value['count'];
+    one = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (basket != null) {
+        double totalToSend = 0;
+        basket.forEach((key, value) {
+          int qty = value['count'];
 
-         double price= value['price'];
+          double price = value['price'];
 
-         double totalLocal= price*=qty;
+          double totalLocal = price *= qty;
 
-         print(totalLocal);
+          print(totalLocal);
 
-         totalToSend+=totalLocal;
-
-         });
+          totalToSend += totalLocal;
+        });
         setState(() {
-          totalPrice=totalToSend;
+          totalPrice = totalToSend;
         });
       }
     });
-
-
-
   }
-
-  
 
   double totalPrice = 0;
 
   Map basket = Map();
 
-  String totalFromBasket(){
-
-  }
+  // String totalFromBasket() {}
 
   @override
   Widget build(BuildContext context) {
@@ -126,15 +116,11 @@ class BuyTicketTypesState extends State<BuyTicketTypesMultiple> {
                                         };
                                       }
 
-                       
-
                                       // basket.forEach((key, value) {
                                       //     setState(() {
                                       //       totalPrice= value['totalP'];
                                       //     });
                                       // });
-
-
 
                                       // print(val);
                                       // setState(() {

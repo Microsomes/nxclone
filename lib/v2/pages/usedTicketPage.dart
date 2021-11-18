@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/overlays/ticketPreActivate.dart';
 import 'package:BubbleGum/v2/components/movingText.dart';
 import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
@@ -137,14 +136,13 @@ class Ticket2State extends State<UsedTicketPage> {
                                     state: state,
                                   )),
                             ),
-                            
                             Container(
                               child: Center(
-                                child: Text("Used on 28 Mar 2021 04:07",
-                                style: GoogleFonts.roboto(
-                                  color:Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),
+                                child: Text(
+                                  "Used on 28 Mar 2021 04:07",
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                               margin: const EdgeInsets.only(
@@ -200,16 +198,15 @@ class Ticket2State extends State<UsedTicketPage> {
                                       IconButton(
                                         icon: Icon(
                                           Icons.more_horiz,
-                                          color:Color.fromRGBO(
-                                                5, 121, 160, 1),
+                                          color: Color.fromRGBO(5, 121, 160, 1),
                                         ),
                                         onPressed: () {},
                                       ),
                                       Text(
                                         "Actions",
                                         style: TextStyle(
-                                            color: Color.fromRGBO(
-                                                5, 121, 160, 1),
+                                            color:
+                                                Color.fromRGBO(5, 121, 160, 1),
                                             fontWeight: FontWeight.bold),
                                       )
                                     ],
@@ -236,8 +233,8 @@ class Ticket2State extends State<UsedTicketPage> {
                                         IconButton(
                                           icon: Icon(
                                             Icons.format_list_bulleted,
-                                            color: Color.fromRGBO(
-                                                5, 121, 160, 1),
+                                            color:
+                                                Color.fromRGBO(5, 121, 160, 1),
                                           ),
                                           onPressed: () {},
                                         ),
@@ -245,7 +242,7 @@ class Ticket2State extends State<UsedTicketPage> {
                                           "Details",
                                           style: TextStyle(
                                               color: Color.fromRGBO(
-                                                5, 121, 160, 1),
+                                                  5, 121, 160, 1),
                                               fontWeight: FontWeight.bold),
                                         )
                                       ],

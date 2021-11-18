@@ -4,8 +4,6 @@ import '../../v2/helper/NxHelp.dart';
 
 import './ticketModel.dart';
 
-import 'dart:math' as math;
-
 class TicketWalletModel {
   final int id;
   final int ticketid;
@@ -74,7 +72,7 @@ class TicketWalletModel {
     "Dec"
   ];
 
-  Future getTimeRemaining_human() async {
+  Future getTimeRemainingHuman() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.activefor);
     var toC = activeForMilli += this.whenActivated;
@@ -110,7 +108,7 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inDays;
   }
 
-  Future getTimeRemainingIdle_Human() async {
+  Future getTimeRemainingIdleHuman() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
     var toC = activeForMilli += this.created;
@@ -121,7 +119,7 @@ class TicketWalletModel {
     return "Expires in " + diff.inDays.toString() + " days";
   }
 
-  Future getTimeRemainingIdle_Human2() async {
+  Future getTimeRemainingIdleHuman2() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
     var toC = activeForMilli += this.created;
@@ -142,7 +140,7 @@ class TicketWalletModel {
         futureData.minute.toString();
   }
 
-  Future getTimeRemainingIdle_seconds() async {
+  Future getTImeRemainingIdleSeconds() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
     var toC = activeForMilli += this.created;
@@ -153,7 +151,7 @@ class TicketWalletModel {
 
   /// the ticket wasnt used so it expired and was not used
   Future setExpireTicket() {
-    this.getTimeRemainingIdle_seconds().then((value) {
+    this.getTImeRemainingIdleSeconds().then((value) {
       if (value <= -1) {
         NXHelp().expireTicketv2(id: this.id).then((value) {
           return value;
@@ -164,6 +162,7 @@ class TicketWalletModel {
         return value;
       }
     });
+    return null;
   }
 
   DateTime getTimeCreated() {

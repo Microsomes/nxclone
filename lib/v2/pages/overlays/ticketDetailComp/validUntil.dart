@@ -3,60 +3,52 @@ import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 class ValidUntilComp extends StatefulWidget {
-
   final TicketWalletModel ticketWalletInfo;
-  final TicketModel   ticketDetail;
+  final TicketModel ticketDetail;
 
-  final bool isDaysLeft=true;
+  final bool isDaysLeft = true;
 
-  ValidUntilComp({
-    @required this.ticketWalletInfo,
-    @required this.ticketDetail
-  });
+  ValidUntilComp(
+      {@required this.ticketWalletInfo, @required this.ticketDetail});
 
   @override
   _ValidUntilCompState createState() => _ValidUntilCompState();
 }
 
 class _ValidUntilCompState extends State<ValidUntilComp> {
-
-
-  String validUntil="...";
-  String expireON="";
-  int expiredDayLeft=0;
+  String validUntil = "...";
+  String expireON = "";
+  int expiredDayLeft = 0;
 
   @override
   void initState() {
-
-    if(widget.ticketWalletInfo.activeStatus==1){
+    if (widget.ticketWalletInfo.activeStatus == 1) {
       setState(() {
-        validUntil="VALID UNTIL";
+        validUntil = "VALID UNTIL";
         widget.ticketWalletInfo.validUntilHuman().then((value) {
           setState(() {
-            expireON=value;
+            expireON = value;
           });
         });
       });
-    }else if(widget.ticketWalletInfo.activeStatus==-1){
+    } else if (widget.ticketWalletInfo.activeStatus == -1) {
       print(widget.ticketWalletInfo.activeStatus);
       setState(() {
-
-      widget.ticketWalletInfo.getTimeRemainingIdle().then((value) {
-        print(value);
-        setState(() {
-          expiredDayLeft=value;
-        });
-      });
-
-        validUntil="VALID UNTIL";
-        widget.ticketWalletInfo.getTimeRemainingIdle_Human2().then((value) {
+        widget.ticketWalletInfo.getTimeRemainingIdle().then((value) {
+          print(value);
           setState(() {
-            expireON=value;
+            expiredDayLeft = value;
+          });
+        });
+
+        validUntil = "VALID UNTIL";
+        widget.ticketWalletInfo.getTimeRemainingIdleHuman2().then((value) {
+          setState(() {
+            expireON = value;
           });
         });
       });
     }
-
 
     super.initState();
   }
@@ -81,7 +73,7 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
             SizedBox(
               height: 16,
             ),
-          Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
@@ -91,28 +83,30 @@ class _ValidUntilCompState extends State<ValidUntilComp> {
                       fontWeight: FontWeight.bold,
                       fontSize: 16),
                 ),
-                SizedBox(height:10),
-              expiredDayLeft==0?Container():  Container(
-                  height: 20,
-                  width: 90,
-                  decoration: BoxDecoration(
-                      color: widget.isDaysLeft == true
-                          ? Colors.blue
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.all(Radius.circular(1))),
-                  child: widget.isDaysLeft == true
-                      ? Center(
-                          child: Text(
-                            "$expiredDayLeft DAYS LEFT",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        )
-                      : Container(),
-                ),
+                SizedBox(height: 10),
+                expiredDayLeft == 0
+                    ? Container()
+                    : Container(
+                        height: 20,
+                        width: 90,
+                        decoration: BoxDecoration(
+                            color: widget.isDaysLeft == true
+                                ? Colors.blue
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.all(Radius.circular(1))),
+                        child: widget.isDaysLeft == true
+                            ? Center(
+                                child: Text(
+                                  "$expiredDayLeft DAYS LEFT",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            : Container(),
+                      ),
               ],
             ),
             SizedBox(

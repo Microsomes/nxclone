@@ -86,26 +86,28 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
                         onPressed: () {
                           showDialog(
                               context: context,
-                              builder: (_)=> AlertDialog(
-                                backgroundColor: Colors.redAccent,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                title: Text(allHomePageSettings[index].name),
-                                content: Container(
-                                  height: 150,
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          allHomePageSettings[index].info,
-                                          style:
-                                              GoogleFonts.roboto(fontSize: 15),
+                              builder: (_) => AlertDialog(
+                                    backgroundColor: Colors.redAccent,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    title:
+                                        Text(allHomePageSettings[index].name),
+                                    content: Container(
+                                      height: 150,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              allHomePageSettings[index].info,
+                                              style: GoogleFonts.roboto(
+                                                  fontSize: 15),
+                                            ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ));
+                                  ));
                         },
                       ),
                       onTap: () {
@@ -134,10 +136,10 @@ class _DefHomePageDialogState extends State<DefHomePageDialog> {
           Container(
             height: 50,
             child: Center(
-                child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: Colors.white,
+                child: ElevatedButton(
+              // shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(20)),
+              // color: Colors.white,
               onPressed: () {
                 Navigator.pop(context);
               },

@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/buyflow/components/allPaymentOptions.dart';
 import 'package:BubbleGum/v2/pages/buyflow/payment/paymentFinal.dart';
 
-class PickPaymentMethodAndConfirmItem extends StatelessWidget {
+class PickPaymentMethodAndConfirmItem extends StatefulWidget {
   final String selectedState;
   final selectedTicket;
 
-  final String priceOfTicket = "0.00";
   String tickettitle = "";
 
   PickPaymentMethodAndConfirmItem(
       {@required this.selectedState, @required this.selectedTicket}) {
-    final priceOfTicket = this.selectedTicket['price'];
+    // final priceOfTicket = this.selectedTicket['price'];
     tickettitle =
         this.selectedTicket['state'] + " " + this.selectedTicket['tickettitle'];
   }
+
+  @override
+  State<PickPaymentMethodAndConfirmItem> createState() =>
+      _PickPaymentMethodAndConfirmItemState();
+}
+
+class _PickPaymentMethodAndConfirmItemState
+    extends State<PickPaymentMethodAndConfirmItem> {
+  final String priceOfTicket = "0.00";
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +72,7 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
                   width: 15,
                 ),
                 Text(
-                  "$tickettitle",
+                  "${widget.tickettitle}",
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w300),
                 ),
@@ -137,12 +145,12 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
           InkWell(
               onTap: () {
                 print("purcahse");
-                print(selectedTicket);
+                print(widget.selectedTicket);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => PaymentFinal(
-                            id: selectedTicket['id'],
+                            id: widget.selectedTicket['id'],
                           )),
                 );
               },
