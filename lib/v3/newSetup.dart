@@ -1,30 +1,18 @@
-import 'package:BubbleGum/v2/pages/setupflow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'advancedSetup.dart';
 import 'advancedSetupC/advancedSetupPage.dart';
 
 class NewSetupv3 extends StatefulWidget {
-
-
   final bool hideDetails;
 
-  NewSetupv3({
-    this.hideDetails=false
-  });
+  NewSetupv3({this.hideDetails = false});
 
   @override
   _NewSetupv3State createState() => _NewSetupv3State();
 }
 
 class _NewSetupv3State extends State<NewSetupv3> {
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +31,9 @@ class _NewSetupv3State extends State<NewSetupv3> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-              SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Expanded(
             child: Container(
               padding: EdgeInsets.all(20),
@@ -54,9 +44,9 @@ class _NewSetupv3State extends State<NewSetupv3> {
               decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.only(
-                    // topRight: Radius.circular(20),
-                    // topLeft: Radius.circular(20),
-                  ),
+                      // topRight: Radius.circular(20),
+                      // topLeft: Radius.circular(20),
+                      ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),

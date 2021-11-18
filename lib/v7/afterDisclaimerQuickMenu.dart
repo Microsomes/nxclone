@@ -1,7 +1,6 @@
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v7/newAdvanced.dart';
 import 'package:flutter/material.dart';
@@ -137,8 +136,12 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                               builder: (ctx) =>
                                                   ActualTicket(txid: txid)));
                                     });
-                                  }else if(allOptions[index].title=="Advanced Option"){
-                                    Navigator.push(context,MaterialPageRoute(builder:(ctx)=>NewAdvanced()));
+                                  } else if (allOptions[index].title ==
+                                      "Advanced Option") {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (ctx) => NewAdvanced()));
                                   }
                                 },
                                 title: allOptions[index].title,
@@ -169,42 +172,37 @@ class TopImage extends StatefulWidget {
   _TopImageState createState() => _TopImageState();
 }
 
-class _TopImageState extends State<TopImage> with SingleTickerProviderStateMixin {
-
+class _TopImageState extends State<TopImage>
+    with SingleTickerProviderStateMixin {
   AnimationController _animationController;
 
   @override
   void dispose() {
     super.dispose();
-      _animationController.dispose();
-
+    _animationController.dispose();
   }
 
   @override
   void initState() {
     super.initState();
-   _animationController=  new AnimationController(
-    duration: Duration(seconds: 10),
-    vsync: this
-  );
+    _animationController =
+        new AnimationController(duration: Duration(seconds: 10), vsync: this);
 
-  _animationController.forward(from: 0.0); // it starts the animation
-  _animationController.repeat();
-
-
+    _animationController.forward(from: 0.0); // it starts the animation
+    _animationController.repeat();
   }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (ctx) => Nxfront()));
+        Navigator.push(context, MaterialPageRoute(builder: (ctx) => Nxfront()));
       },
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: RotationTransition(
-          turns: Tween(begin:0.0,end:1.0).animate(_animationController),
-                  child: Image.asset(
+          turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
+          child: Image.asset(
             "images/v7/supply-chain.png",
             width: 200,
           ),

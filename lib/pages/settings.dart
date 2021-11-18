@@ -1,10 +1,8 @@
 import 'package:BubbleGum/piHome.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -58,21 +56,17 @@ class SettingsState extends State<Settings> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                 
-                 
                   MaterialButton(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                    ),
+                        borderRadius: BorderRadius.circular(20)),
                     child: Text(
                       "PI HOME",
                       style: TextStyle(color: Colors.white),
                     ),
                     color: Colors.lightBlue,
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (ctx)=>PiHome()
-                      ));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (ctx) => PiHome()));
                     },
                   )
                 ],

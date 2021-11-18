@@ -26,17 +26,16 @@ class Stpagestate extends State<Ticketwallet> {
 
   @override
   void initState() {
-
-     allUnactivatdTickets = List();
-    allHistoricalTickets = List();
+    allUnactivatdTickets = [];
+    allHistoricalTickets = [];
 
     NXHelp().getAllHistoricalTickets().then((value) {
       allHistoricalTickets = value;
 
       NXHelp().getAllUseableTickets().then((value) {
-      allUnactivatdTickets = value;
-            setState(() {});
-    });
+        allUnactivatdTickets = value;
+        setState(() {});
+      });
     });
 
     super.initState();
@@ -128,7 +127,6 @@ class Stpagestate extends State<Ticketwallet> {
                   SizedBox(
                     height: 1,
                   ),
-
                   Expanded(
                     child: PageView(
                       controller: _pageController,
@@ -149,7 +147,6 @@ class Stpagestate extends State<Ticketwallet> {
                             itemBuilder: (context, index) {
                               if (allUnactivatdTickets[index]['isActive'] ==
                                   -1) {
-
                               } else {
                                 return InkWell(
                                   onTap: () {
@@ -168,9 +165,7 @@ class Stpagestate extends State<Ticketwallet> {
                                       height: 110,
                                       width: MediaQuery.of(context).size.width *
                                           0.92,
-                                      child: TicketTwo(
-id: 2
-                                      ),
+                                      child: TicketTwo(id: 2),
                                     ),
                                   ),
                                 );
@@ -181,10 +176,13 @@ id: 2
                                 child: SingleInactiveTicket(
                                   id: 2,
                                   isUsed: false,
-                                 ),
+                                ),
                               );
                             }),
-                        HistoryWallet(allHistoricalTickets: allHistoricalTickets, isTickets: isTickets, sizeW: sizeW),
+                        HistoryWallet(
+                            allHistoricalTickets: allHistoricalTickets,
+                            isTickets: isTickets,
+                            sizeW: sizeW),
                       ],
                     ),
                   )
@@ -193,9 +191,6 @@ id: 2
             : CircularProgressIndicator());
   }
 }
-
-
-
 
 class HistoryWallet extends StatefulWidget {
   const HistoryWallet({
@@ -214,90 +209,79 @@ class HistoryWallet extends StatefulWidget {
 }
 
 class _HistoryWalletState extends State<HistoryWallet> {
-
   /*
    * All historical tickets will stay here
    */
   List<TicketModel> historicalTickets;
-  
-
 
   @override
   void initState() {
     super.initState();
 
-    historicalTickets= List<TicketModel>();
+    historicalTickets = [];
 
     //populate all historical tickets in the model
     widget.allHistoricalTickets.forEach((element) {
-      var id= element["id"];
-      var state= element["state"];
-      var ticketType= element["tickettype"];
+      var id = element["id"];
+      var state = element["state"];
+      var ticketType = element["tickettype"];
       var expires = element["expires"];
       var isActive = element["isActive"];
       var purchaseDate = element["purchaseddate"];
-      var ticketID= element["ticketid"];
-      var tag= element["tag"];
-    historicalTickets.add(
-      TicketModel(
-        id: id,
-        state: state,
-        tickettype: ticketType,
-        expires: expires,
-        isActive: isActive,
-        purchaseDate: purchaseDate,
-        ticketid: ticketID,
-        tag: tag
-      )
-    );
-     });
+      var ticketID = element["ticketid"];
+      var tag = element["tag"];
+      historicalTickets.add(TicketModel(
+          id: id,
+          state: state,
+          tickettype: ticketType,
+          expires: expires,
+          isActive: isActive,
+          purchaseDate: purchaseDate,
+          ticketid: ticketID,
+          tag: tag));
+    });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: widget.allHistoricalTickets.length,
         itemBuilder: (context, index) {
-          if (widget.allHistoricalTickets[index]['isActive'] ==
-              -1) {
+          if (widget.allHistoricalTickets[index]['isActive'] == -1) {
+            return Container();
           } else {
+            double paddingTop = 12;
 
- 
-            double paddingTop=12;
-
-            if(index==0){
-              paddingTop=12;
-            }else{
-              paddingTop=6;
+            if (index == 0) {
+              paddingTop = 12;
+            } else {
+              paddingTop = 6;
             }
 
-             return  Padding(
-            padding:  EdgeInsets.only(
-                left: 12, right: 12, top:paddingTop,bottom: 12),
-            child: SingleHistoryInactive(
-              onTap: (){
-                print("single history inactive");
-                 Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => UsedTicketPage(
-                      txdbid:  historicalTickets[index].id,
-                    )));
-              },
-              ticketModel: historicalTickets[index],
-              isUsed: widget.isTickets,
-              sizeW: widget.sizeW,
-              ticketType: widget.allHistoricalTickets[index]
-                  ['tickettype'],
-              state: widget.allHistoricalTickets[index]['state'],
-              txdbid: widget.allHistoricalTickets[index]['id'],
-              ticketExpiryDate: widget.allHistoricalTickets[index]
-                  ['ticketExpiry'],
-            ),
-          );
-             
+            return Padding(
+              padding: EdgeInsets.only(
+                  left: 12, right: 12, top: paddingTop, bottom: 12),
+              child: SingleHistoryInactive(
+                onTap: () {
+                  print("single history inactive");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UsedTicketPage(
+                                txdbid: historicalTickets[index].id,
+                              )));
+                },
+                ticketModel: historicalTickets[index],
+                isUsed: widget.isTickets,
+                sizeW: widget.sizeW,
+                ticketType: widget.allHistoricalTickets[index]['tickettype'],
+                state: widget.allHistoricalTickets[index]['state'],
+                txdbid: widget.allHistoricalTickets[index]['id'],
+                ticketExpiryDate: widget.allHistoricalTickets[index]
+                    ['ticketExpiry'],
+              ),
+            );
           }
-           
         });
   }
 }

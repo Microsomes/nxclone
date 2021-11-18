@@ -26,41 +26,46 @@ class _NewAdvancedState extends State<NewAdvanced> {
             ),
             Expanded(
               child: GFTabs(
+                controller: null,
                 tabBarColor: Color.fromRGBO(0, 0, 139, 1),
                 initialIndex: 0,
                 length: 4,
                 tabs: <Widget>[
                   Tab(
-                    icon: Image.asset("images/v7/bus.png",
-                    width: 20,
-                    color: Colors.white,
+                    icon: Image.asset(
+                      "images/v7/bus.png",
+                      width: 20,
+                      color: Colors.white,
                     ),
                     child: Text(
                       "Bus",
                     ),
                   ),
                   Tab(
-                    icon: Image.asset("images/v7/tram.png",
-                    width: 20,
-                    color: Colors.white,
+                    icon: Image.asset(
+                      "images/v7/tram.png",
+                      width: 20,
+                      color: Colors.white,
                     ),
                     child: Text(
                       "Tram",
                     ),
                   ),
-                   Tab(
-                    icon: Image.asset("images/v7/tram.png",
-                    width: 20,
-                    color: Colors.white,
+                  Tab(
+                    icon: Image.asset(
+                      "images/v7/tram.png",
+                      width: 20,
+                      color: Colors.white,
                     ),
                     child: Text(
                       "Group",
                     ),
                   ),
-                 Tab(
-                    icon: Image.asset("images/v7/students.png",
-                    width: 20,
-                    color: Colors.white,
+                  Tab(
+                    icon: Image.asset(
+                      "images/v7/students.png",
+                      width: 20,
+                      color: Colors.white,
                     ),
                     child: Text(
                       "Students",
@@ -68,6 +73,7 @@ class _NewAdvancedState extends State<NewAdvanced> {
                   ),
                 ],
                 tabBarView: GFTabBarView(
+                  controller: null,
                   children: <Widget>[
                     Container(
                       child: Icon(Icons.directions_bike),

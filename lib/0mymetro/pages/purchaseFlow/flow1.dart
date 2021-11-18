@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
- import 'package:google_fonts/google_fonts.dart';
- import '../../helper/metroHelper.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../helper/metroHelper.dart';
 
 class PurchaseFlow1 extends StatefulWidget {
-  List<MetroTicketModel> allTickets;
-  String catName;
+  final List<MetroTicketModel> allTickets;
+  final String catName;
 
-  PurchaseFlow1({
-    @required this.allTickets,
-    @required this.catName
-  });
-
+  PurchaseFlow1({@required this.allTickets, @required this.catName});
 
   @override
   _PurchasePageState createState() => _PurchasePageState();
 }
 
 class _PurchasePageState extends State<PurchaseFlow1> {
- 
   @override
   void initState() {
-    setState(() {
-     });
+    setState(() {});
 
     super.initState();
   }
@@ -32,33 +26,33 @@ class _PurchasePageState extends State<PurchaseFlow1> {
       appBar: AppBar(
         title: Text(widget.catName),
       ),
-          body: SafeArea(
-                      child: Column(
-        children: [
+      body: SafeArea(
+        child: Column(
+          children: [
             for (var i = 0; i < widget.allTickets.length; i++)
               Container(
-                 width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
                 child: ListTile(
-                   title: Text(widget.allTickets[i].type,
-                   style: GoogleFonts.roboto(
-                     color: Colors.black
-                   ),
-                   ),
+                  title: Text(
+                    widget.allTickets[i].type,
+                    style: GoogleFonts.roboto(color: Colors.black),
+                  ),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(height: 3,),
-                      Text(widget.allTickets[i].desc,
-                      style: GoogleFonts.roboto(
-                        color:Colors.black
+                      SizedBox(
+                        height: 3,
                       ),
+                      Text(
+                        widget.allTickets[i].desc,
+                        style: GoogleFonts.roboto(color: Colors.black),
                       )
                     ],
                   ),
                 ),
                 margin: EdgeInsets.all(10),
-                 decoration: BoxDecoration(
+                decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
@@ -70,9 +64,9 @@ class _PurchasePageState extends State<PurchaseFlow1> {
                       ),
                     ]),
               )
-        ],
+          ],
+        ),
       ),
-          ),
     );
   }
 }

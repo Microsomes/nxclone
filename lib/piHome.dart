@@ -1,18 +1,11 @@
-import 'dart:math';
-
-import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
 import 'components/piHomeOptions.dart';
 import 'v2/helper/NxHelp.dart';
-import 'v2/main/quickOptions.dart';
-import 'v2/pages/nxfront.dart';
-import 'v2/pages/setupflow.dart';
-import 'v2/pages/ticket.dart';
+
 import 'v2/pages/ticketv2.dart';
 import 'v3/newSetup.dart';
 import 'package:random_color/random_color.dart';
@@ -90,10 +83,10 @@ class PiHomeState extends State<PiHome> {
 
     super.initState();
 
-    ticketTypes = List<Map>();
+    ticketTypes = [];
 
     ticketTypes.add({"Name": "West Midlands", "Icon": Icons.track_changes});
- 
+
     ticketTypes.add({"Name": "Singles", "Icon": Icons.track_changes});
 
     ticketTypes.add({"Name": "Day", "Icon": Icons.dynamic_feed});
@@ -125,17 +118,16 @@ class PiHomeState extends State<PiHome> {
         builder: (ctx) => HideDisclaimerDialog(
               onval: (val) {
                 if (val) {
-                      Fluttertoast.showToast(
-            msg: "Click the title to change the value",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 1,
-            backgroundColor: scaffCol,
-            textColor: textCol,
-            fontSize: 16.0
-        );
+                  Fluttertoast.showToast(
+                      msg: "Click the title to change the value",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: scaffCol,
+                      textColor: textCol,
+                      fontSize: 16.0);
 
-        Navigator.pop(context);
+                  Navigator.pop(context);
                   setState(() {
                     showDisclaimer = false;
                   });
@@ -153,6 +145,7 @@ class PiHomeState extends State<PiHome> {
     return WillPopScope(
       onWillPop: () async {
         //well were not going back so block that request
+        return false;
       },
       child: Scaffold(
           appBar: AppBar(
@@ -200,21 +193,21 @@ class PiHomeState extends State<PiHome> {
                         radius: 13, backgroundColor: scaffCol.withGreen(20)),
                   ),
                 ),
-              )
-                ,
-                
-                widget.isHide ?Container(): IconButton(
-                icon: Icon(Icons.settings,color:Colors.white),
-                onPressed: (){
-                    Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NewSetupv3(
-                                      hideDetails: true,
-                                    )),
-                              );
-                },
               ),
+              widget.isHide
+                  ? Container()
+                  : IconButton(
+                      icon: Icon(Icons.settings, color: Colors.white),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewSetupv3(
+                                    hideDetails: true,
+                                  )),
+                        );
+                      },
+                    ),
             ],
           ),
           backgroundColor: scaffCol,
@@ -352,23 +345,25 @@ class PiHomeState extends State<PiHome> {
                                                 // var ticketState =
                                                 //     filteredTickets[index]
                                                 //         ['state'];
-                                                int id= filteredTickets[index]['id'];
-                                                NXHelp().buyTicketv2(ticketID: id, tag: "non_sim").then((valid) {
-                                                  
-                                                  NXHelp().activeTicketv2(id: valid).then((value) {
-                                                       Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              ActualTicket(
-                                                                  txid:
-                                                                      valid)));
+                                                int id = filteredTickets[index]
+                                                    ['id'];
+                                                NXHelp()
+                                                    .buyTicketv2(
+                                                        ticketID: id,
+                                                        tag: "non_sim")
+                                                    .then((valid) {
+                                                  NXHelp()
+                                                      .activeTicketv2(id: valid)
+                                                      .then((value) {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                ActualTicket(
+                                                                    txid:
+                                                                        valid)));
                                                   });
-                                                  
                                                 });
-
-
-                                              
                                               },
                                               leading: Container(
                                                 width: 50,
@@ -424,7 +419,7 @@ class PiHomeState extends State<PiHome> {
                       ? GestureDetector(
                           onTap: () {
                             print("remove disclaimer");
-                           showHideDisclaimerDialog();
+                            showHideDisclaimerDialog();
                           },
                           child: Text(
                             "Educational Purposes Only, Demonstration only. Please do not use this application to really fool the drivers. You might get in serious trouble.",
@@ -463,14 +458,12 @@ class HideDisclaimerDialog extends StatefulWidget {
 class _HideDisclaimerDialogState extends State<HideDisclaimerDialog> {
   bool isHideDialog = false;
 
-
   @override
   void initState() {
-   
     SharedPreferences.getInstance().then((value) {
-      if(value.getBool("hide_disclaimer")!=null){
+      if (value.getBool("hide_disclaimer") != null) {
         setState(() {
-          isHideDialog=value.getBool("hide_disclaimer");
+          isHideDialog = value.getBool("hide_disclaimer");
         });
       }
     });
@@ -533,7 +526,7 @@ class _ColorSelectorDIalogState extends State<ColorSelectorDIalog> {
 
   @override
   void initState() {
-    randomCols = new List();
+    randomCols = [];
 
     for (var i = 0; i < 100; i++) {
       Color _color = _randomColor.randomColor();

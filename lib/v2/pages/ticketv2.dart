@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 
 import 'package:BubbleGum/piHome.dart';
@@ -16,9 +15,6 @@ import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:launch_review/launch_review.dart';
-import 'package:app_launcher/app_launcher.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 import 'package:screen/screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -83,7 +79,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     print("BLOCKING SCREENSHOTS");
 
-     Screen.setBrightness(1.0);
+    Screen.setBrightness(1.0);
 
     // FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
     //     .then((value) {
@@ -97,7 +93,7 @@ class ActualTicketState extends State<ActualTicket> {
       });
     });
 
-    listOfQrCollections = List();
+    listOfQrCollections = [];
     listOfQrCollections.add("images/v2/v2assets/bar1.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar2.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar3.PNG");
@@ -123,7 +119,6 @@ class ActualTicketState extends State<ActualTicket> {
         });
       });
     });
-
   }
 
   @override
@@ -149,14 +144,13 @@ class ActualTicketState extends State<ActualTicket> {
           } else {
             print(defaultEjectionID);
           }
-        }else{
+        } else {
           Screen.setBrightness(0.1);
-          Future.delayed(Duration(seconds: 1),(){
+          Future.delayed(Duration(seconds: 1), () {
             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AfterDisclaimer()),
-                            );
+              context,
+              MaterialPageRoute(builder: (context) => AfterDisclaimer()),
+            );
           });
         }
       });
@@ -194,10 +188,10 @@ class ActualTicketState extends State<ActualTicket> {
                           onTap: () {
                             Screen.setBrightness(0.1).then((value) {
                               Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Nxfront()),
-                            );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Nxfront()),
+                              );
                             });
                           },
                           child: Row(
@@ -211,9 +205,8 @@ class ActualTicketState extends State<ActualTicket> {
                                 child: Text(
                                   "Close",
                                   style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                  ),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
                                 ),
                               )
                             ],
@@ -309,12 +302,14 @@ class Ac extends StatelessWidget {
                           ctx: context,
                         ),
                       ),
-                      ticketTitle=="Anytime Daysaver Tickets All Day"
-                      || ticketTitle=="Daysaver"
-                      ? NXSigAnytime():Container(),
-                      ticketTitle!= "Anytime Daysaver Tickets All Day"
-                      && ticketTitle!="Daysaver"
-                      ? OtherSig(ticketTitle: ticketTitle, state: state):Container(),
+                      ticketTitle == "Anytime Daysaver Tickets All Day" ||
+                              ticketTitle == "Daysaver"
+                          ? NXSigAnytime()
+                          : Container(),
+                      ticketTitle != "Anytime Daysaver Tickets All Day" &&
+                              ticketTitle != "Daysaver"
+                          ? OtherSig(ticketTitle: ticketTitle, state: state)
+                          : Container(),
                       InkWell(
                         onTap: () {
                           print("Show rewards");
@@ -453,7 +448,6 @@ class Ac extends StatelessWidget {
                     )
                   ],
                 ),
-               
               ],
             ),
           ),
@@ -476,14 +470,14 @@ class OtherSig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 0),
-                  child: Nxsig(
-                    isRounded: ticketTitle == "Group Daysaver" ? true : false,
-                    state: state,
-                    isBottomRounded: true,
-                    ticketType: ticketTitle,
-                  ),
-                );
+      padding: EdgeInsets.only(left: 20, right: 20, top: 0),
+      child: Nxsig(
+        isRounded: ticketTitle == "Group Daysaver" ? true : false,
+        state: state,
+        isBottomRounded: true,
+        ticketType: ticketTitle,
+      ),
+    );
   }
 }
 
@@ -503,8 +497,8 @@ class NXSigAnytime extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                   color: Color.fromRGBO(165, 28, 26, 1),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(5))),
+                  borderRadius:
+                      BorderRadius.only(bottomLeft: Radius.circular(5))),
               width: 18,
             ),
             Expanded(
@@ -514,16 +508,11 @@ class NXSigAnytime extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      padding: EdgeInsets.only(
-                        top:5,
-                        bottom: 15
-                      ),
+                      padding: EdgeInsets.only(top: 5, bottom: 15),
                       margin: EdgeInsets.all(4),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(
-                              217, 217, 215, 1),
-                          borderRadius: BorderRadius.all(
-                              Radius.circular(5))),
+                          color: Color.fromRGBO(217, 217, 215, 1),
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Image.asset("images/v6/vm.png"),
                     ),
                   ),
@@ -533,38 +522,31 @@ class NXSigAnytime extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Container(
-                                padding:EdgeInsets.only(top:5),
-                            width: MediaQuery.of(context)
-                                .size
-                                .width,
+                            padding: EdgeInsets.only(top: 5),
+                            width: MediaQuery.of(context).size.width,
                             child: Image.asset("images/v6/adult.png"),
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(
-                                    217, 217, 215, 1),
+                                color: Color.fromRGBO(217, 217, 215, 1),
                                 borderRadius:
-                                    BorderRadius.all(
-                                        Radius.circular(5))),
+                                    BorderRadius.all(Radius.circular(5))),
                             margin: EdgeInsets.all(4),
                           )),
                           Expanded(
                               child: Container(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        padding: EdgeInsets.all(10),
-                                         child: Image.asset("images/v4/nationalexpress.png")
-                                      ),
-                                    ),
-
-                                  ],
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          "images/v4/nationalexpress.png")),
                                 ),
+                              ],
+                            ),
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(
-                                    217, 217, 215, 1),
+                                color: Color.fromRGBO(217, 217, 215, 1),
                                 borderRadius:
-                                    BorderRadius.all(
-                                        Radius.circular(5))),
+                                    BorderRadius.all(Radius.circular(5))),
                             margin: EdgeInsets.all(4),
                           )),
                         ],
@@ -578,8 +560,8 @@ class NXSigAnytime extends StatelessWidget {
               width: 18,
               decoration: BoxDecoration(
                   color: Color.fromRGBO(165, 28, 26, 1),
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(5))),
+                  borderRadius:
+                      BorderRadius.only(bottomRight: Radius.circular(5))),
             )
           ],
         ),
@@ -786,9 +768,9 @@ class _TicketSwicherState extends State<TicketSwicher> {
             ),
             SizedBox(height: 20),
             Expanded(
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),
+              child: ElevatedButton(
+                // shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(50)),
                 onPressed: () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (ctx) => PiHome()));
@@ -810,7 +792,7 @@ class QR extends StatefulWidget {
 
 class _QRState extends State<QR> {
   var currentQR;
-  var listOfQrCollections = List();
+  var listOfQrCollections = [];
 
   Timer mainTimer;
 

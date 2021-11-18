@@ -2,12 +2,7 @@ import 'package:BubbleGum/piHome.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animated_text/animated_text.dart';
-import 'package:cube_transition/cube_transition.dart';
 import 'package:page_transition/page_transition.dart';
-
-import 'v2/helper/NxHelp.dart';
-import 'v2/pages/nxfront.dart';
-import 'v2/pages/ticketv2.dart';
 
 class StartScreenSetup extends StatefulWidget {
   @override
@@ -22,7 +17,6 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
   void initState() {
     super.initState();
     _controller = AnimatedTextController.play;
-    
   }
 
   @override
@@ -35,7 +29,7 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
           speed: Duration(milliseconds: 1000),
           controller: _controller,
           displayTime: Duration(milliseconds: 100),
-          wordList: ["V6","..."],
+          wordList: ["V6", "..."],
           textStyle: TextStyle(
               color: Colors.white, fontSize: 55, fontWeight: FontWeight.w700),
           onAnimate: (index) {
@@ -48,10 +42,15 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
               Future.delayed(Duration(milliseconds: 1), () {
                 //lets load up the logic
 
-                Widget h=PiHome();
-                
+                Widget h = PiHome();
+
                 Navigator.push(
-                    context, PageTransition(child: h,duration: Duration(seconds: 1),type:PageTransitionType.downToUp,alignment: Alignment.topCenter));
+                    context,
+                    PageTransition(
+                        child: h,
+                        duration: Duration(seconds: 1),
+                        type: PageTransitionType.bottomToTop,
+                        alignment: Alignment.topCenter));
               });
             }
           },

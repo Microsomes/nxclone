@@ -592,7 +592,7 @@ class Stpagestate extends State<Stpage> {
           ),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
-            new FlatButton(
+            new ElevatedButton(
               child: new Text("Close"),
               onPressed: () {
                 Navigator.pop(context);
@@ -611,8 +611,7 @@ class Stpagestate extends State<Stpage> {
     timerForOpacity.cancel();
     timerForOpacity2.cancel();
 
-    Screen.setBrightness(0.1).then((onValue) {
-    });
+    Screen.setBrightness(0.1).then((onValue) {});
   }
 
   double nextOpacity = 2;
@@ -634,15 +633,12 @@ class Stpagestate extends State<Stpage> {
     //set what the curent brightness was
     SharedPreferences.getInstance().then((SharedPreferences pref) {
       Screen.brightness.then((value) {
-          pref.setDouble("curbrightness", value);
-          Screen.setBrightness(1).then((onValue) {
-         });
+        pref.setDouble("curbrightness", value);
+        Screen.setBrightness(1).then((onValue) {});
       });
     });
 
-    
-    timerForOpacity =
-        Timer.periodic(Duration(milliseconds: 500), (Timer time) {
+    timerForOpacity = Timer.periodic(Duration(milliseconds: 500), (Timer time) {
       isUp = !isUp;
 
       if (isUp) {
@@ -664,7 +660,6 @@ class Stpagestate extends State<Stpage> {
         formattedDate = DateFormat.Hms().format(now);
       });
       elaspedTime++;
-
 
       if (currentRange != 0.58) {
         setState(() {
@@ -689,11 +684,10 @@ class Stpagestate extends State<Stpage> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
 
-
     return WillPopScope(
       onWillPop: () async {
         await Screen.setBrightness(0.1);
-        Future.delayed(Duration(seconds: 1),(){
+        Future.delayed(Duration(seconds: 1), () {
           Navigator.pop(context);
         });
         return;
@@ -1176,7 +1170,6 @@ class Stpagestate extends State<Stpage> {
                                     ]),
                                 child: InkWell(
                                     onTap: () {
-
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(

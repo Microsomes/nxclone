@@ -29,23 +29,23 @@ class _TicketDebugState extends State<TicketDebug> {
                 showDialog(
                     context: context,
                     builder: (_) => ShowAvailableTicketsToPurchaseDebug(
-                      onTicketPicked: (int id) {
-                        NXHelp()
-                            .buyTicketv2(ticketID: id, tag: "active")
-                            .then((value) {
-                          setState(() {
-                            isAvailable = !isAvailable;
-                          });
-                          Future.delayed(Duration(milliseconds: 1), () {
-                            setState(() {
-                              isAvailable = !isAvailable;
-                            });
-                          });
+                          onTicketPicked: (int id) {
+                            NXHelp()
+                                .buyTicketv2(ticketID: id, tag: "active")
+                                .then((value) {
+                              setState(() {
+                                isAvailable = !isAvailable;
+                              });
+                              Future.delayed(Duration(milliseconds: 1), () {
+                                setState(() {
+                                  isAvailable = !isAvailable;
+                                });
+                              });
 
-                          Navigator.pop(context);
-                        });
-                      },
-                    ));
+                              Navigator.pop(context);
+                            });
+                          },
+                        ));
               },
             ),
             IconButton(
@@ -68,7 +68,7 @@ class _TicketDebugState extends State<TicketDebug> {
         ),
         body: Column(
           children: [
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 setState(() {
                   isAvailable = !isAvailable;
@@ -77,7 +77,7 @@ class _TicketDebugState extends State<TicketDebug> {
               child: Center(
                 child: Text(isAvailable == true ? "TO ACTIVATE" : "ACTIVATED"),
               ),
-              color: Colors.black,
+              // color: Colors.black,
             ),
             isAvailable == true
                 ? Expanded(child: ShowAvailableTickets(
@@ -142,11 +142,11 @@ class _ShowAvailableTicketsState extends State<ShowAvailableTickets> {
                                 });
                               },
                               trailing: GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   print("expire the ticket");
                                   all[index].setExpireTicket();
                                 },
-                                                              child: CircleAvatar(
+                                child: CircleAvatar(
                                   child: Center(
                                     child: Icon(Icons.close),
                                   ),
@@ -293,9 +293,9 @@ class _ShowAvailableTicketsToPurchaseDebugState
                                     snapshot.data[i]['state'].toString(),
                                 textAlign: TextAlign.center,
                               ),
-                              RaisedButton(
+                              ElevatedButton(
                                 child: Text("Pick"),
-                                color: Colors.green,
+                                // color: Colors.green,
                                 onPressed: () {
                                   widget.onTicketPicked(snapshot.data[i]['id']);
                                 },

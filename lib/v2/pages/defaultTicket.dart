@@ -18,7 +18,7 @@ class DefaultTicket extends StatefulWidget {
 }
 
 class DefaultTicketState extends State<DefaultTicket> {
-  List ticketOptions = List();
+  List ticketOptions = [];
   bool isShowing = false;
   String currentTicketTitle = "";
 
@@ -122,7 +122,7 @@ class DefaultTicketState extends State<DefaultTicket> {
           child: BarV2(),
         ),
         body: SingleChildScrollView(
-                  child: Column(
+          child: Column(
             children: <Widget>[
               Container(
                 padding: EdgeInsets.all(20),
@@ -131,8 +131,7 @@ class DefaultTicketState extends State<DefaultTicket> {
                 child: currentTicket != null
                     ? SingleInactiveTicket(
                         isUsed: false,
-
-
+                        id: 0,
                       )
                     // ticketTwo(title: currentTicket['val'],id: 1,)
                     : Container(
@@ -202,7 +201,8 @@ class DefaultTicketState extends State<DefaultTicket> {
                                   padding: const EdgeInsets.all(20.0),
                                   child: FancyOptions(
                                     title: "",
-                                    isSelected: ticketOptions[index]['selected'],
+                                    isSelected: ticketOptions[index]
+                                        ['selected'],
                                     assetRoute: ticketOptions[index]['asset'],
                                     clicked: () {
                                       saveOption("defaultticket",

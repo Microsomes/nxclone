@@ -1,9 +1,7 @@
 import 'package:BubbleGum/0mymetro/pages/home.dart';
 import 'package:BubbleGum/pages/Info/intro.dart';
-import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:BubbleGum/v2/pages/setupflow.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
 import 'package:cube_transition/cube_transition.dart';
@@ -25,7 +23,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
   @override
   void initState() {
     super.initState();
-    allOptions = List<Map>();
+    allOptions = [];
 
     allOptions.add({
       "name": "My Metro (BETA)",
@@ -44,14 +42,11 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
       "image": "images/v5/tickets.png",
     });
 
-  
     allOptions.add({
       "name": "Learn",
       "id": "info",
       "image": "images/v5/edu.png",
     });
-
- 
   }
 
   @override
@@ -107,12 +102,14 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                             case "ticket":
 
                               //we need to request a ticket id
-                              NXHelp().buyDefaultTicketAndActivatev2().then((id) {
+                              NXHelp()
+                                  .buyDefaultTicketAndActivatev2()
+                                  .then((id) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => ActualTicket(
-                                            txid: id)));
+                                        builder: (context) =>
+                                            ActualTicket(txid: id)));
                               });
 
                               break;
@@ -151,7 +148,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
                                             fontSize: 18,
                                             color: widget.textColor,
                                             fontWeight: FontWeight.w500),
-                                            textAlign: TextAlign.center,
+                                        textAlign: TextAlign.center,
                                       ),
                                     ),
                                   ),

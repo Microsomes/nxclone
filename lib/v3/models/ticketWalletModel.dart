@@ -38,23 +38,41 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inMinutes;
   }
 
-
   Future validUntilHuman() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.activefor);
     var toC = activeForMilli += this.whenActivated;
     DateTime activeForDate = DateTime.fromMillisecondsSinceEpoch(toC);
     DateTime cur = DateTime.now();
-    int amountOfSeconds=activeForDate.difference(cur).inSeconds;
+    int amountOfSeconds = activeForDate.difference(cur).inSeconds;
 
-    DateTime futureData= cur.add(Duration(seconds: amountOfSeconds));
+    DateTime futureData = cur.add(Duration(seconds: amountOfSeconds));
 
- 
-
-    return  futureData.day.toString()+" "+allMonths[futureData.month-1].toString()+" "+futureData.year.toString()+" "+futureData.hour.toString()+":"+futureData.minute.toString();
+    return futureData.day.toString() +
+        " " +
+        allMonths[futureData.month - 1].toString() +
+        " " +
+        futureData.year.toString() +
+        " " +
+        futureData.hour.toString() +
+        ":" +
+        futureData.minute.toString();
   }
 
-    List<String> allMonths=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+  List<String> allMonths = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
 
   Future getTimeRemaining_human() async {
     TicketModel timeRemaining = await this.getTicketData();
@@ -64,18 +82,22 @@ class TicketWalletModel {
     DateTime cur = DateTime.now();
     Duration a = activeForDate.difference(cur);
 
-    int inMinutes= a.inMinutes;
-    
-    double hours= inMinutes/60;
+    int inMinutes = a.inMinutes;
 
-    int totalHours= hours.floor();
+    double hours = inMinutes / 60;
 
-    int totalMinutes= inMinutes-totalHours*60;
+    int totalHours = hours.floor();
+
+    int totalMinutes = inMinutes - totalHours * 60;
 
     if (a.inMinutes >= 30) {
-      return "Expires in " + totalHours.toString()+" hours, "+totalMinutes.toString()+" minutes";
+      return "Expires in " +
+          totalHours.toString() +
+          " hours, " +
+          totalMinutes.toString() +
+          " minutes";
     } else {
-      return "Expires in " + a.inMinutes.toString()+" minutes";
+      return "Expires in " + a.inMinutes.toString() + " minutes";
     }
   }
 
@@ -107,10 +129,17 @@ class TicketWalletModel {
     DateTime cur = DateTime.now();
     Duration diff = activeForDate.difference(cur);
 
-    DateTime futureData= cur.add(Duration(seconds: diff.inSeconds));
+    DateTime futureData = cur.add(Duration(seconds: diff.inSeconds));
 
-
-    return  futureData.day.toString()+" "+allMonths[futureData.month-1].toString()+" "+futureData.year.toString()+" "+futureData.hour.toString()+":"+futureData.minute.toString();
+    return futureData.day.toString() +
+        " " +
+        allMonths[futureData.month - 1].toString() +
+        " " +
+        futureData.year.toString() +
+        " " +
+        futureData.hour.toString() +
+        ":" +
+        futureData.minute.toString();
   }
 
   Future getTimeRemainingIdle_seconds() async {
@@ -122,9 +151,7 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inSeconds;
   }
 
-  /**
-   * the ticket wasnt used so it expired and was not used
-   */
+  /// the ticket wasnt used so it expired and was not used
   Future setExpireTicket() {
     this.getTimeRemainingIdle_seconds().then((value) {
       if (value <= -1) {
@@ -143,9 +170,17 @@ class TicketWalletModel {
     return DateTime.fromMillisecondsSinceEpoch(this.created);
   }
 
-  String getPurchaseDateHuman(){
-    DateTime cr= this.getTimeCreated();
-    return cr.day.toString()+" "+allMonths[cr.month]+" "+cr.year.toString()+" "+cr.hour.toString().padLeft(2,"0")+":"+cr.minute.toString();
+  String getPurchaseDateHuman() {
+    DateTime cr = this.getTimeCreated();
+    return cr.day.toString() +
+        " " +
+        allMonths[cr.month] +
+        " " +
+        cr.year.toString() +
+        " " +
+        cr.hour.toString().padLeft(2, "0") +
+        ":" +
+        cr.minute.toString();
   }
 
   String getTimeCreatedHuman() {

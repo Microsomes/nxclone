@@ -6,8 +6,6 @@ import 'components/HalifaxNav.dart';
 //will show some details
 
 class AccountDetails extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState() {
     return AccountDetailsState();
@@ -20,7 +18,7 @@ class AccountDetailsState extends State {
   @override
   void initState() {
     super.initState();
-    availableMonths = List<AvailableMonth>();
+    availableMonths = [];
 
     availableMonths.add(AvailableMonth(label: "January", isSelected: false));
 
@@ -333,13 +331,15 @@ class AccountDetailsState extends State {
                                     ),
                                     Text(
                                       "+ £200",
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.w600),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600),
                                     ),
                                   ],
                                 ),
                               ),
-                              SizedBox(width: 10,),
+                              SizedBox(
+                                width: 10,
+                              ),
                             ],
                           )),
                         ),
@@ -355,7 +355,9 @@ class AccountDetailsState extends State {
           )
         ],
       ),
-      bottomNavigationBar: HalifaxNav(context: context,),
+      bottomNavigationBar: HalifaxNav(
+        context: context,
+      ),
     );
   }
 }

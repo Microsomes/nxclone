@@ -56,13 +56,13 @@ class States {
   static String warwickUni = "Warwick University";
 }
 
-class TicketType{
-  static String TTYPE_BUS_VERIFIED="bus";
-  static String TTYPE_BUS="busOLD";
-  static String TTYPE_TRAM="tram";
-  static String TTYPE_GROUP="group";
-  static String TTYPE_STUDENTs="student";
-  static String TTYPE_TEST="textticket";
+class TicketType {
+  static String TTYPE_BUS_VERIFIED = "bus";
+  static String TTYPE_BUS = "busOLD";
+  static String TTYPE_TRAM = "tram";
+  static String TTYPE_GROUP = "group";
+  static String TTYPE_STUDENTs = "student";
+  static String TTYPE_TEST = "textticket";
 }
 
 class SimType {
@@ -108,12 +108,13 @@ class NXHelp {
       "type": SimType.test,
       "notusedexpiry": Duration(minutes: 1),
       "activefor": Duration(minutes: 1),
-      "typev2":TicketType.TTYPE_TEST
+      "typev2": TicketType.TTYPE_TEST
     });
 
-     ticketTypes.add({
+    ticketTypes.add({
       "title": "Anytime Daysaver Tickets All Day",
-      "subtitle": "Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+      "subtitle":
+          "Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
       "price": "4.60",
       "state": States.westMidlands,
       "info": [
@@ -131,9 +132,8 @@ class NXHelp {
       "type": SimType.sv6,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_BUS_VERIFIED
+      "typev2": TicketType.TTYPE_BUS_VERIFIED
     });
-
 
     /**
      * All outer Birmingham Tickets
@@ -149,7 +149,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -163,7 +163,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -177,7 +177,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -191,7 +191,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -205,7 +205,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_GROUP
+      "typev2": TicketType.TTYPE_GROUP
     });
 
     ticketTypes.add({
@@ -219,7 +219,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2":TicketType.TTYPE_GROUP
+      "typev2": TicketType.TTYPE_GROUP
     });
 
     ticketTypes.add({
@@ -233,7 +233,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -247,7 +247,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -261,7 +261,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -275,7 +275,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -289,7 +289,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-       "typev2":TicketType.TTYPE_STUDENTs
+      "typev2": TicketType.TTYPE_STUDENTs
     });
 
     ticketTypes.add({
@@ -303,7 +303,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-     "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -316,7 +316,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -329,7 +329,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -342,7 +342,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2":TicketType.TTYPE_GROUP
+      "typev2": TicketType.TTYPE_GROUP
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
@@ -355,7 +355,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2":TicketType.TTYPE_GROUP
+      "typev2": TicketType.TTYPE_GROUP
     });
 
     ////////conventry
@@ -376,7 +376,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2":TicketType.TTYPE_BUS
+      "typev2": TicketType.TTYPE_BUS
     });
 
     ticketTypes.add({
@@ -899,6 +899,8 @@ class NXHelp {
             element["notusedexpiry"],
             element["activefor"]);
 
+        print(id);
+
         Future.delayed(Duration(seconds: 1));
         //saves to db
         //var title = element['title'];
@@ -921,10 +923,10 @@ class NXHelp {
     return id;
   }
 
-
   Future findAndDeleteAutoBuy() async {
     var db = await openDatabase(NXHelp.DB_NAME);
-    var res=await db.rawQuery("DELETE FROM ticketwalletv2 WHERE tag=?",["AUTO_BUY"]);
+    var res = await db
+        .rawQuery("DELETE FROM ticketwalletv2 WHERE tag=?", ["AUTO_BUY"]);
     return res;
   }
 
@@ -960,7 +962,6 @@ class NXHelp {
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     int defTicketID = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
-    
 
     if (defTicketID != null) {
       List<Map> deftikData = await this.getTicketByID(defTicketID);
@@ -1047,10 +1048,8 @@ class NXHelp {
   }
 
   //get tickets by id
-  /**
-   * will grab a ticket by id
-   * i dont know why the fuck i forgot to add this
-   */
+  /// will grab a ticket by id
+  /// i dont know why the fuck i forgot to add this
 
   Future getTicketByID(int id) async {
     var db = await openDatabase(NXHelp.DB_NAME);
@@ -1105,7 +1104,7 @@ class NXHelp {
   }
 
   List<DefHomePageModel> getAllDefHomeOptions() {
-    List<DefHomePageModel> allHomePageSettings = new List();
+    List<DefHomePageModel> allHomePageSettings = [];
     allHomePageSettings.add(DefHomePageModel(
         name: "Non Simulated (Home)",
         id: "non_sim_home",
@@ -1132,57 +1131,55 @@ class NXHelp {
     return allHomePageSettings;
   }
 
-
   List<EjectionSettingModel> getAllEjectionSettings2() {
-    List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
+    List<EjectionSettingModel> ejectionSettings = [];
 
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Will launch the real NX App",
+        infoSmall: "Will launch the real NX App",
         id: "launch_real",
         name: "Launch Real App",
         info:
             "Launch the real NX App when clicking back on the ticket page. This is for the most paranoid and risk averse people. True ninjas don't use this."));
 
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Will fake an error message",
+        infoSmall: "Will fake an error message",
         id: "fake_error",
         name: "Fake Error Message",
         info:
             "Shows a fake error message, can be used to bluff your way. Shows when clicking back from the ticket page."));
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Will go back to NX Home Page",
+        infoSmall: "Will go back to NX Home Page",
         id: "simulated_real",
         name: "Simulated Real",
         info:
             "When clicking back, on the ticket page would take you to the simulated clone home page. Its the clone of the home page as well, where you can buy tickets and act like the real app. "));
-    return ejectionSettings; 
-   
+    return ejectionSettings;
   }
 
   List<EjectionSettingModel> getAllEjectionSettings() {
     List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Well wont do anything",
+        infoSmall: "Well wont do anything",
         id: "nothing",
         name: "Do Nothing",
         info:
             "Selecting this will ensure nothing happens when using the back button on the ticket page. Back button = null"));
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Will go back to NX Home Page",
+        infoSmall: "Will go back to NX Home Page",
         id: "simulated_real",
         name: "Simulated Real",
         info:
             "When clicking back, on the ticket page would take you to the simulated clone home page. Its the clone of the home page as well, where you can buy tickets and act like the real app. "));
 
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Will launch the real NX App",
+        infoSmall: "Will launch the real NX App",
         id: "launch_real",
         name: "Launch Real App",
         info:
             "Launch the real NX App when clicking back on the ticket page. This is for the most paranoid and risk averse people. True ninjas don't use this."));
 
     ejectionSettings.add(EjectionSettingModel(
-      infoSmall: "Will fake an error message",
+        infoSmall: "Will fake an error message",
         id: "fake_error",
         name: "Fake Error Message",
         info:
@@ -1262,8 +1259,8 @@ class NXHelp {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=?  OR activeStatus=?  ORDER BY created DESC",
-        [2,3]);
-         List<TicketWalletModel> allTicketsA = List();
+        [2, 3]);
+    List<TicketWalletModel> allTicketsA = List();
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1278,15 +1275,14 @@ class NXHelp {
     return allTicketsA;
   }
 
-
-   /**
+  /**
    * Returns all the available tickets in your ticket walletv2
    */
   Future getActiveAndUsableTicketsv2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? OR activeStatus=? ORDER BY created DESC",
-        [-1,1]);
+        [-1, 1]);
     List<TicketWalletModel> allTicketsA = List();
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
@@ -1302,19 +1298,16 @@ class NXHelp {
 
     List<TicketWalletModel> allTicketsAA = List();
 
-    allTicketsA.forEach((element) { 
+    allTicketsA.forEach((element) {
       element.setInactive().then((value) {
-        if(value==0){
+        if (value == 0) {
           allTicketsAA.add(element);
         }
       });
     });
 
-
-
     return allTicketsA;
   }
-
 
   /**
    * Returns all the available tickets in your ticket walletv2
@@ -1462,25 +1455,26 @@ class NXHelp {
     return allTInfo;
   }
 
-
-  Future findTicketWithStateAndTitleID({@required state,@required title}) async {
+  Future findTicketWithStateAndTitleID(
+      {@required state, @required title}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
-    List<Map> d= await db.rawQuery("SELECT * FROM tickets WHERE state=? AND tickettitle=?",[state,title]);
-    if(d.length>=1){
-      var element= d[0];
-      TicketModel toReturn= TicketModel(
-        id: element['id'],
-        state: element['state'],
-        tickettitle: element['tickettitle'],
-        ticketsubtitle: element['ticketsubtitle'],
-        price: element['price'],
-        info: element['info'],
-        tag: element['tag'],
-        notusedexpiry: element['notusedexpiry'],
-        activefor: element['activefor']
-      );
+    List<Map> d = await db.rawQuery(
+        "SELECT * FROM tickets WHERE state=? AND tickettitle=?",
+        [state, title]);
+    if (d.length >= 1) {
+      var element = d[0];
+      TicketModel toReturn = TicketModel(
+          id: element['id'],
+          state: element['state'],
+          tickettitle: element['tickettitle'],
+          ticketsubtitle: element['ticketsubtitle'],
+          price: element['price'],
+          info: element['info'],
+          tag: element['tag'],
+          notusedexpiry: element['notusedexpiry'],
+          activefor: element['activefor']);
       return toReturn;
-    }else{
+    } else {
       return null;
     }
   }

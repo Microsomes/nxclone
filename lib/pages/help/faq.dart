@@ -16,47 +16,47 @@ class Faqobj {
 }
 
 class FaqPage extends StatelessWidget {
-  List<Faqobj> allQuestions;
-
-  FaqPage() {
-    allQuestions = new List<Faqobj>();
-    allQuestions.add(new Faqobj(
+  final List<Faqobj> allQuestions = [
+    new Faqobj(
         question: "Where can i use my mTicket?",
-        answer: "You can use your mTicket on any West Midlands services"));
-    allQuestions.add(new Faqobj(
+        answer: "You can use your mTicket on any West Midlands services"),
+    new Faqobj(
         question: "Which mobile phones can i use?",
         answer:
-            "iPhone and Android devices are both supported by mTicket App. For iPhone users your operating system needs to be iOS 9.0 or higher and for Android users your operating system needs to be 4.4 or higher."));
-    allQuestions.add(new Faqobj(
+            "iPhone and Android devices are both supported by mTicket App. For iPhone users your operating system needs to be iOS 9.0 or higher and for Android users your operating system needs to be 4.4 or higher."),
+    new Faqobj(
         question: "Does it matter which mobile network i use?",
-        answer: "No, our mTicket App can be used across all mobile networks."));
-    allQuestions.add(new Faqobj(
+        answer: "No, our mTicket App can be used across all mobile networks."),
+    new Faqobj(
         question: "How do i get my mTicket?",
         answer:
-            "Once purchased you will find your tickets in the Ticket Wallet."));
-    allQuestions.add(new Faqobj(
+            "Once purchased you will find your tickets in the Ticket Wallet."),
+    new Faqobj(
         question: "Which mTickets can i purchase?",
         answer:
-            "You may purchase adult single tickets, Daysavers, adult weekly and 4 weekly ticket, child tickets, student tickets and group tickets through the app."));
-    allQuestions.add(new Faqobj(
+            "You may purchase adult single tickets, Daysavers, adult weekly and 4 weekly ticket, child tickets, student tickets and group tickets through the app."),
+    new Faqobj(
         question: "How do i know the price of the mTicket before i purchase?",
         answer:
-            "All mTickets prices are clearly visible prior to payment being taken."));
-    allQuestions.add(new Faqobj(
+            "All mTickets prices are clearly visible prior to payment being taken."),
+    new Faqobj(
         question: "How do i pay for my mTicket?",
         answer:
-            "Payment will be taken by debit or credit card at the time of purchase. It is not possible to add the amount to your mobile phone bill."));
-    allQuestions.add(new Faqobj(
+            "Payment will be taken by debit or credit card at the time of purchase. It is not possible to add the amount to your mobile phone bill."),
+    new Faqobj(
         question: "Will you store my card details?",
         answer:
-            "Only if you choose to. At the end of your purchase you will be given the opportunity to store your card details for quicker future purchases. Those card details are stored securely using non-reversible encryption."));
-    allQuestions.add(new Faqobj(
+            "Only if you choose to. At the end of your purchase you will be given the opportunity to store your card details for quicker future purchases. Those card details are stored securely using non-reversible encryption."),
+    new Faqobj(
         question: "What if i do not activate or use my mTicket?",
         answer:
-            "1 week and 4 week passes are valid immediately after purchase. Single and Daysaver tickets are valid for use within the timespan specified on the ticket. No refunds can be provided."));
-    allQuestions.add(new Faqobj(
+            "1 week and 4 week passes are valid immediately after purchase. Single and Daysaver tickets are valid for use within the timespan specified on the ticket. No refunds can be provided."),
+    new Faqobj(
         question: "What if i buy the wrong mTicket?",
-        answer: "Please contact us for assistance."));
+        answer: "Please contact us for assistance."),
+  ];
+
+  FaqPage() {
     allQuestions.add(new Faqobj(
         question: "Can i purchase in advance?",
         answer:
@@ -101,7 +101,7 @@ class FaqPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: InkWell(
@@ -124,20 +124,26 @@ class FaqPage extends StatelessWidget {
               itemCount: allQuestions.length,
               itemBuilder: (BuildContext ctxt, int index) {
                 return Container(
-                     child: Column(
+                    child: Column(
                   children: <Widget>[
-                    SizedBox(height: 5,),
-                    Container(
-                       width: 400,
-                      child: Text(allQuestions[index].getQuestion(), style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                      ),),
+                    SizedBox(
+                      height: 5,
                     ),
-                    SizedBox(height: 5,),
-                    Text(allQuestions[index].getAnswer(), style: TextStyle(
-                      fontSize: 15
-                    ),),
+                    Container(
+                      width: 400,
+                      child: Text(
+                        allQuestions[index].getQuestion(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      allQuestions[index].getAnswer(),
+                      style: TextStyle(fontSize: 15),
+                    ),
                   ],
                 ));
               }),

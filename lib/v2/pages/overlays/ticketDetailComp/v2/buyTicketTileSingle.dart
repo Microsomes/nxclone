@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/buyflow/payment/pickMethod.dart';
 
- 
 class BuyTicketTypesSingle extends StatefulWidget {
   final String selectedState;
 
@@ -24,7 +23,7 @@ class BuyTicketTypesState extends State<BuyTicketTypesSingle> {
   void initState() {
     super.initState();
 
-    ticketTypes = List();
+    ticketTypes = [];
 
     nxhelp = NXHelp();
 

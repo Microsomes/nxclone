@@ -1,7 +1,5 @@
 import 'package:BubbleGum/pages/ticketwallet/models/ticketType.dart';
-import 'package:BubbleGum/v2/pages/usedTicketPage.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SingleHistoryInactive extends StatelessWidget {
@@ -19,7 +17,6 @@ class SingleHistoryInactive extends StatelessWidget {
 
   const SingleHistoryInactive(
       {Key key,
-
       @required this.onTap,
       @required this.sizeW,
       @required this.ticketType,
@@ -37,7 +34,6 @@ class SingleHistoryInactive extends StatelessWidget {
     return InkWell(
       onTap: () {
         this.onTap();
-        
       },
       child: Container(
           width: sizeW * 0.9,
@@ -116,7 +112,7 @@ class SingleHistoryInactive extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20),
-                  child: Text("Used "+ticketModel.purchaseDate,
+                  child: Text("Used " + ticketModel.purchaseDate,
                       style: GoogleFonts.roboto(
                           fontWeight: FontWeight.w500,
                           fontSize: 12,

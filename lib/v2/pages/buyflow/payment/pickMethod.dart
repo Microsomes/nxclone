@@ -6,14 +6,12 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
   final String selectedState;
   final selectedTicket;
 
-  String priceOfTicket = "0.00";
+  final String priceOfTicket = "0.00";
   String tickettitle = "";
 
   PickPaymentMethodAndConfirmItem(
       {@required this.selectedState, @required this.selectedTicket}) {
- 
- 
-    priceOfTicket = this.selectedTicket['price'];
+    final priceOfTicket = this.selectedTicket['price'];
     tickettitle =
         this.selectedTicket['state'] + " " + this.selectedTicket['tickettitle'];
   }
@@ -140,7 +138,7 @@ class PickPaymentMethodAndConfirmItem extends StatelessWidget {
               onTap: () {
                 print("purcahse");
                 print(selectedTicket);
-                 Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => PaymentFinal(
