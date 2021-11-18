@@ -23,7 +23,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
   bool isShowing = true;
 
   Future saveOption(String key, String val) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
@@ -32,7 +32,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
   }
 
   Future restoreOption(String key) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1', [key]);
     return list;
@@ -61,7 +61,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
       clicked: () async {
         await this.saveOption("defaultsplashscreen", "blackpie");
         if (widget.shallRestart) {
-         } else {
+        } else {
           setState(() {
             option2.isSelected = false;
             option1.isSelected = true;
@@ -80,7 +80,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
       clicked: () async {
         await this.saveOption("defaultsplashscreen", "nxhome");
         if (widget.shallRestart) {
-         } else {
+        } else {
           setState(() {
             option1.isSelected = false;
             option2.isSelected = true;
@@ -96,7 +96,7 @@ class SlashScreenOptionsState extends State<SlashScreenOptions> {
       if (value.length == 0) {
       } else {
         if (value[0]['val'] == "blackpie") {
-           option2.isSelected = false;
+          option2.isSelected = false;
           option1.isSelected = true;
         } else {
           option1.isSelected = false;

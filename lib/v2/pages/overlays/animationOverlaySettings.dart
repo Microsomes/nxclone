@@ -20,7 +20,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   double _currentColorSpeed = 500.00;
 
   Future saveOption(String key, String val) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     var iid = await db
@@ -29,7 +29,7 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
   }
 
   Future restoreOption(String key) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM config WHERE key=? ORDER BY id DESC limit 1', [key]);
     return list;
@@ -110,11 +110,10 @@ class AnimationOverlayContentState extends State<AnimationOverlayContent> {
               height: 200,
               child: Stack(
                 children: <Widget>[
-                   
                   TicketColor(
-                        ctx: context,
-                        speed: _currentColorSpeed,
-                      ),
+                    ctx: context,
+                    speed: _currentColorSpeed,
+                  ),
                   Positioned(
                     top: 60,
                     left: 2,

@@ -57,12 +57,12 @@ class States {
 }
 
 class TicketType {
-  static String TTYPE_BUS_VERIFIED = "bus";
-  static String TTYPE_BUS = "busOLD";
-  static String TTYPE_TRAM = "tram";
-  static String TTYPE_GROUP = "group";
-  static String TTYPE_STUDENTs = "student";
-  static String TTYPE_TEST = "textticket";
+  static String typeBusVerified = "bus";
+  static String typeBus = "busOLD";
+  static String typeTram = "tram";
+  static String typeGroup = "group";
+  static String typeStudents = "student";
+  static String typeTest = "textticket";
 }
 
 class SimType {
@@ -78,7 +78,7 @@ class SimType {
 }
 
 class NXSIGImg {
-  static String DAY_SAVER = "";
+  static String daySaver = "";
 }
 
 class SharedPrefKeys {
@@ -88,11 +88,11 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
-  static String DB_NAME = "main30.db";
+  static String dbName = "main30.db";
 
   NXHelp() {
     //load and create table
-    ticketTypes = List();
+    ticketTypes = [];
 
     /**
      * Create EDU Fake Ticket
@@ -108,7 +108,7 @@ class NXHelp {
       "type": SimType.test,
       "notusedexpiry": Duration(minutes: 1),
       "activefor": Duration(minutes: 1),
-      "typev2": TicketType.TTYPE_TEST
+      "typev2": TicketType.typeTest
     });
 
     ticketTypes.add({
@@ -132,7 +132,7 @@ class NXHelp {
       "type": SimType.sv6,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS_VERIFIED
+      "typev2": TicketType.typeBusVerified
     });
 
     /**
@@ -149,7 +149,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -163,7 +163,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -177,7 +177,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -191,7 +191,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -205,7 +205,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_GROUP
+      "typev2": TicketType.typeGroup
     });
 
     ticketTypes.add({
@@ -219,7 +219,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2": TicketType.TTYPE_GROUP
+      "typev2": TicketType.typeGroup
     });
 
     ticketTypes.add({
@@ -233,7 +233,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -247,7 +247,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -261,7 +261,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -275,7 +275,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -289,7 +289,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_STUDENTs
+      "typev2": TicketType.typeStudents
     });
 
     ticketTypes.add({
@@ -303,7 +303,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
     ticketTypes.add({
       "title": Ttype.daySaversatsun,
@@ -316,7 +316,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
     ticketTypes.add({
       "title": Ttype.eveningSaverafter6,
@@ -329,7 +329,7 @@ class NXHelp {
       "type": SimType.day,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaver,
@@ -342,7 +342,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(days: 1),
-      "typev2": TicketType.TTYPE_GROUP
+      "typev2": TicketType.typeGroup
     });
     ticketTypes.add({
       "title": Ttype.groupdaysaverafter6,
@@ -355,7 +355,7 @@ class NXHelp {
       "type": SimType.group,
       "notusedexpiry": Duration(days: 99),
       "activefor": Duration(hours: 6),
-      "typev2": TicketType.TTYPE_GROUP
+      "typev2": TicketType.typeGroup
     });
 
     ////////conventry
@@ -376,7 +376,7 @@ class NXHelp {
       "type": SimType.single,
       "notusedexpiry": Duration(days: 7),
       "activefor": Duration(minutes: 30),
-      "typev2": TicketType.TTYPE_BUS
+      "typev2": TicketType.typeBus
     });
 
     ticketTypes.add({
@@ -861,12 +861,12 @@ class NXHelp {
   }
 
   Future deleteAllTickets() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     await db.rawDelete("DELETE FROM ticketwallet");
   }
 
   Future init() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     await db.execute(
         "CREATE TABLE IF NOT EXISTS config ( id integer  PRIMARY KEY AUTOINCREMENT, key text, val text)");
     await db.execute(
@@ -924,7 +924,7 @@ class NXHelp {
   }
 
   Future findAndDeleteAutoBuy() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var res = await db
         .rawQuery("DELETE FROM ticketwalletv2 WHERE tag=?", ["AUTO_BUY"]);
     return res;
@@ -1033,14 +1033,14 @@ class NXHelp {
   }
 
   Future getAllActiveTickets() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive=? ORDER BY id DESC", [1]);
     return list;
   }
 
   Future getAllAvailableToPurchaseTickets() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list =
         await db.rawQuery("SELECT * FROM tickets ORDER BY state desc");
     await Future.delayed(Duration(milliseconds: 200), () {});
@@ -1052,17 +1052,15 @@ class NXHelp {
   /// i dont know why the fuck i forgot to add this
 
   Future getTicketByID(int id) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> one = await db.rawQuery("SELECT * FROM tickets WHERE id=?", [id]);
     return one;
   }
 
-  /**
-   * Return ticket by id, but instead of returning a dynamic map
-   * //return a proper model 
-   */
+  /// Return ticket by id, but instead of returning a dynamic map
+  /// //return a proper model
   Future getTicketByIDV2(int id) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> one = await db.rawQuery("SELECT * FROM tickets WHERE id=?", [id]);
     if (one.length >= 1) {
       var element = one[0];
@@ -1157,7 +1155,7 @@ class NXHelp {
   }
 
   List<EjectionSettingModel> getAllEjectionSettings() {
-    List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
+    List<EjectionSettingModel> ejectionSettings = [];
     ejectionSettings.add(EjectionSettingModel(
         infoSmall: "Well wont do anything",
         id: "nothing",
@@ -1189,7 +1187,7 @@ class NXHelp {
 
   //returns ticket by id
   Future getInfoOnTicketById(int id) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var details =
         await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?", [id]);
     return details;
@@ -1198,7 +1196,7 @@ class NXHelp {
   //method will cause expiry to the ticket
   Future expireTicket(int id) async {
     print("expires ticket");
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var status = await db
         .rawUpdate("UPDATE ticketwallet SET isActive=? WHERE id=?", [2, id]);
     print(status);
@@ -1207,9 +1205,9 @@ class NXHelp {
 
   //returns all historical tickets
   Future getAllHistoricalTickets() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
 
-    List<Map> modifiedList = List<Map>();
+    List<Map> modifiedList = [];
 
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive=2  ORDER BY isActive DESC, expires DESC");
@@ -1252,15 +1250,13 @@ class NXHelp {
     return modifiedList;
   }
 
-  /**
-   * get all tickets that are either used or expired
-   */
+  /// get all tickets that are either used or expired
   Future getAllUsedTicketsv2() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=?  OR activeStatus=?  ORDER BY created DESC",
         [2, 3]);
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA = [];
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1275,15 +1271,13 @@ class NXHelp {
     return allTicketsA;
   }
 
-  /**
-   * Returns all the available tickets in your ticket walletv2
-   */
+  /// Returns all the available tickets in your ticket walletv2
   Future getActiveAndUsableTicketsv2() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? OR activeStatus=? ORDER BY created DESC",
         [-1, 1]);
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA = [];
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1296,7 +1290,7 @@ class NXHelp {
           tag: element['tag']));
     });
 
-    List<TicketWalletModel> allTicketsAA = List();
+    List<TicketWalletModel> allTicketsAA = [];
 
     allTicketsA.forEach((element) {
       element.setInactive().then((value) {
@@ -1309,15 +1303,13 @@ class NXHelp {
     return allTicketsA;
   }
 
-  /**
-   * Returns all the available tickets in your ticket walletv2
-   */
+  /// Returns all the available tickets in your ticket walletv2
   Future getAllUseableTicketsv2() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
         [-1]);
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA = [];
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1332,17 +1324,15 @@ class NXHelp {
     return allTicketsA;
   }
 
-  /**
-   * Return all active tickets
-   */
+  /// Return all active tickets
 
   Future getAllActiveTicketsV2() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY whenActivated DESC",
         [1]);
 
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA = [];
 
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
@@ -1359,15 +1349,15 @@ class NXHelp {
   }
 
   Future deleteAllTicketWalletV2() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     return await db.rawQuery("DELETE FROM ticketwalletv2");
   }
 
   //returns all tickets that can be useable
   Future getAllUseableTickets() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
 
-    List<Map> modifiedList = List<Map>();
+    List<Map> modifiedList = [];
 
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive!=2  ORDER BY isActive DESC, expires DESC");
@@ -1412,7 +1402,7 @@ class NXHelp {
 
   //get ticket by id
   Future getTicketById({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list =
         await db.rawQuery("SELECT * FROM ticketwallet WHERE id=?", [id]);
     if (list.length >= 1) {
@@ -1434,11 +1424,11 @@ class NXHelp {
   }
 
   Future getTicketWalletInfoByID({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> ticketWalletInfo = await db
         .rawQuery("SELECT * from ticketwalletv2 WHERE id=? LIMIT 1", [id]);
 
-    List<TicketWalletModel> allTInfo = List();
+    List<TicketWalletModel> allTInfo = [];
 
     ticketWalletInfo.forEach((element) {
       allTInfo.add(TicketWalletModel(
@@ -1457,7 +1447,7 @@ class NXHelp {
 
   Future findTicketWithStateAndTitleID(
       {@required state, @required title}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> d = await db.rawQuery(
         "SELECT * FROM tickets WHERE state=? AND tickettitle=?",
         [state, title]);
@@ -1479,11 +1469,9 @@ class NXHelp {
     }
   }
 
-  /**
-   * This funciton will activate tickets for ticketwalletv2
-   */
+  /// This funciton will activate tickets for ticketwalletv2
   Future activeTicketv2({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
     List<TicketWalletModel> ticketInfoFromWallet =
         await this.getTicketWalletInfoByID(id: id);
@@ -1505,13 +1493,13 @@ class NXHelp {
   }
 
   Future expireTicketv2({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
-    var updateID = await db.rawQuery(
+    var db = await openDatabase(NXHelp.dbName);
+    await db.rawQuery(
         "UPDATE ticketwalletv2 SET activeStatus=? WHERE id=?", [3, id]);
   }
 
   Future deactivateTicketv2({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
     List<TicketWalletModel> ticketInfoFromWallet =
         await this.getTicketWalletInfoByID(id: id);
@@ -1530,7 +1518,7 @@ class NXHelp {
       if (DateTime.now().millisecondsSinceEpoch > toA) {
         print("fff");
         print("can set off");
-        var updateID = await db.rawQuery(
+        await db.rawQuery(
             "UPDATE ticketwalletv2 SET activeStatus=?, whenExpired=? WHERE id=?",
             [2, currentTime, id]);
         return 1;
@@ -1549,7 +1537,7 @@ class NXHelp {
   //activates ticket by id
   //current time placed in expires to safe time
   Future activateTicket({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     //lets grab the timestamp as well
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
     var updateid = await db.rawQuery(
@@ -1563,7 +1551,7 @@ class NXHelp {
    * we need to use it to deactivate all other tickets not currently the main one
    */
   Future deactivateTicket({@required id}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var currentTime = new DateTime.now().microsecondsSinceEpoch;
     var updateid = await db.rawQuery(
         "UPDATE ticketwallet SET isActive=?,expires=?  WHERE id=?",
@@ -1572,7 +1560,7 @@ class NXHelp {
   }
 
   Future getAutoBuyTickets() async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> allTiksAutoBUy = await db
         .rawQuery("SELECT * FROM ticketwallet WHERE tag=?", ["AUTO_BUY"]);
     return allTiksAutoBUy;
@@ -1581,7 +1569,7 @@ class NXHelp {
   //stores ticket in to db and generates a unique ID
   Future buyTicket(
       {@required tickettype, @required state, @required price, tag}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;
 
     var id = await db.rawInsert(
@@ -1592,7 +1580,7 @@ class NXHelp {
 
   //stores ticket in to db and generates a unique ID
   Future buyTicketv2({@required ticketID, @required tag}) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> getTicket = await this.getTicketByID(ticketID);
     if (getTicket.length >= 1) {
       //the ticket exists lets order it
@@ -1607,7 +1595,7 @@ class NXHelp {
   }
 
   Future loadConfig(String key, int limit) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM config WHERE key=? ORDER BY id DESC limit ?',
         [key, limit]);
@@ -1616,35 +1604,35 @@ class NXHelp {
   }
 
   Future saveConfig(String key, String val) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var iid = await db
         .rawInsert("INSERT INTO config(key, val) VALUES(?, ?)", [key, val]);
     return iid;
   }
 
   Future getAllTickets(String state) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list =
         await db.rawQuery('SELECT * FROM tickets WHERE state=?', [state]);
     return list;
   }
 
   Future getTicketByState(String state) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list =
         await db.rawQuery("SELECT * FROM tickets WHERE state=?", [state]);
     return list;
   }
 
   Future getTicketsByTag(String type) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list =
         await db.rawQuery("SELECT * FROM tickets WHERE tag=?", [type]);
     return list;
   }
 
   Future checkTicketByState(String type, String state) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     List<Map> list = await db.rawQuery(
         'SELECT * FROM tickets WHERE  state=? AND tickettitle=?',
         [state, type]);
@@ -1660,7 +1648,7 @@ class NXHelp {
       String tag,
       Duration notusedexpiry,
       Duration activefor) async {
-    var db = await openDatabase(NXHelp.DB_NAME);
+    var db = await openDatabase(NXHelp.dbName);
     var iid = await db.rawInsert(
         "INSERT INTO tickets(tickettitle,state,price,ticketsubtitle,info,tag,notusedexpiry,activefor) VALUES (?,?,?,?,?,?,?,?)",
         [

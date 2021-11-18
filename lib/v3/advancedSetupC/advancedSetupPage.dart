@@ -90,7 +90,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
         });
       }
 
-      bool isDis = value.getBool(SettingsPrefKeys.DISCLAIMER_KEY);
+      bool isDis = value.getBool(SettingsPrefKeys.disclaimerKey);
 
       if (isDis != null) {
         setState(() {

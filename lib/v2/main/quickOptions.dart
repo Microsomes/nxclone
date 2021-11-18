@@ -17,7 +17,7 @@ class _QuickOptionState extends State<QuickOptions> {
   @override
   void initState() {
     super.initState();
-    quickOptions = new List();
+    quickOptions = [];
     quickOptions.add({
       "title": "Landing Page",
       "icon": Icons.settings,
@@ -76,17 +76,14 @@ class _QuickOptionState extends State<QuickOptions> {
                   }
                 },
                 child: Container(
-                  margin: EdgeInsets.only(
-                    top: 10
-                  ),
+                  margin: EdgeInsets.only(top: 10),
                   decoration: BoxDecoration(
-                    color: Colors.red.withOpacity(0),
-                    borderRadius: BorderRadius.circular(20)
-                  ),
+                      color: Colors.red.withOpacity(0),
+                      borderRadius: BorderRadius.circular(20)),
                   child: ListTile(
                     leading: CircleAvatar(
                       radius: 20,
-                      backgroundColor:Colors.blue,
+                      backgroundColor: Colors.blue,
                       child: Text(
                         quickOptions[index]['title'][0],
                         style: TextStyle(
@@ -94,13 +91,10 @@ class _QuickOptionState extends State<QuickOptions> {
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
-                     ),
-                    title: Text(quickOptions[index]['title'],
-                    style: GoogleFonts.acme(
-                      fontSize: 20,
-                      color: Colors.white
-                    )
                     ),
+                    title: Text(quickOptions[index]['title'],
+                        style: GoogleFonts.acme(
+                            fontSize: 20, color: Colors.white)),
                   ),
                 ),
               );
