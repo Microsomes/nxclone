@@ -1,6 +1,6 @@
-import 'package:BubbleGum/pages/ticketwalletv2.dart';
+import 'package:bubble_gum/pages/ticketwalletv2.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/pages/nxfront.dart';
+import 'package:bubble_gum/v2/pages/nxfront.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PaymentConfirmed extends StatelessWidget {

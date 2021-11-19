@@ -1,5 +1,5 @@
-import 'package:BubbleGum/v3/models/ticketModel.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/v3/models/ticketModel.dart';
+import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,7 +33,7 @@ class _TripDetailModelState extends State<TripDetailModel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(left:12,right:12),
+        padding: EdgeInsets.only(left: 12, right: 12),
         alignment: Alignment.centerLeft,
         height: 100,
         width: MediaQuery.of(context).size.width,
@@ -54,30 +54,22 @@ class _TripDetailModelState extends State<TripDetailModel> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
-                  child: Text(
-                    "$ticketTitle",
+                  child: Text("$ticketTitle",
+                      style: GoogleFonts.roboto(
+                          color: Color.fromRGBO(61, 61, 61, 1),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17)),
+                ),
+                Text("£$price",
                     style: GoogleFonts.roboto(
                         color: Color.fromRGBO(61, 61, 61, 1),
                         fontWeight: FontWeight.bold,
-                        fontSize: 17
-                    )
-                  ),
-                  
-                ),
-                Text(
-                    "£$price",
-                    style: GoogleFonts.roboto(
-                      color: Color.fromRGBO(61, 61, 61, 1),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17
-                    )
-                  ),
+                        fontSize: 17)),
               ],
             ),
             SizedBox(
               height: 15,
             ),
-            
             SizedBox(
               height: 17,
             ),

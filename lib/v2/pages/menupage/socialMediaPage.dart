@@ -1,4 +1,4 @@
-import 'package:BubbleGum/v2/pages/menupage/topMenuPage.dart';
+import 'package:bubble_gum/v2/pages/menupage/topMenuPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -47,34 +47,31 @@ class _SocialMediaPageState extends State<SocialMediaPage> {
               child: Column(
                 children: <Widget>[
                   PhysicalModel(
-                    elevation: 2,
-                    color: Colors.red,
-                    shadowColor: Color.fromRGBO(215, 216, 218, 1),
-                    child: Stack(
-                      alignment: Alignment.centerLeft,
-                      children: [
-                        Container(
-                      child: Center(
-                        child: Text(
-                          "Social media",
-                          style: GoogleFonts.roboto(
-                            color: Color.fromRGBO(189, 156, 106, 1),
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16
-                          )
-                        ),
-                      ),
-                      height: 55,
-                      color: Colors.white,
-                    ),
-                     GestureDetector(
-                       onTap: (){
-                         Navigator.pop(context);
-                       },
-                       child: Image.asset("images/leftarrow.png", width: 35)),
-                      ],
-                    )
-                  ),
+                      elevation: 2,
+                      color: Colors.red,
+                      shadowColor: Color.fromRGBO(215, 216, 218, 1),
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        children: [
+                          Container(
+                            child: Center(
+                              child: Text("Social media",
+                                  style: GoogleFonts.roboto(
+                                      color: Color.fromRGBO(189, 156, 106, 1),
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16)),
+                            ),
+                            height: 55,
+                            color: Colors.white,
+                          ),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Image.asset("images/leftarrow.png",
+                                  width: 35)),
+                        ],
+                      )),
                   SizedBox(height: 17),
                   NavItem(
                       onTap: () {

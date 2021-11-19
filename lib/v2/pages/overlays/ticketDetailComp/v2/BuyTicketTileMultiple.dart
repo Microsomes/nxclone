@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'comp/multipleIndicator.dart';

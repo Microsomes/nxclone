@@ -1,6 +1,6 @@
-import 'package:BubbleGum/pages/components/singleInactive.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/pages/components/singleInactive.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 class TicketAlreadyUsed extends StatelessWidget {

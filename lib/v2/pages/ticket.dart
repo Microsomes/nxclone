@@ -1,12 +1,12 @@
-import 'package:BubbleGum/v3/models/ticketModel.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/v3/models/ticketModel.dart';
+import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/components/nxsig.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/overlays/ticketPreActivate.dart';
-import 'package:BubbleGum/v2/components/movingText.dart';
-import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
-import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
+import 'package:bubble_gum/v2/components/nxsig.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/pages/overlays/ticketPreActivate.dart';
+import 'package:bubble_gum/v2/components/movingText.dart';
+import 'package:bubble_gum/v2/pages/overlays/ticketDetail.dart';
+import 'package:bubble_gum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Ticket2 extends StatefulWidget {
@@ -24,27 +24,25 @@ class Ticket2State extends State<Ticket2> {
   var currentTicket;
   //will load the current ticket
 
-  String state="klkjn";
+  String state = "klkjn";
 
-  String tickettype="jknhjb";
+  String tickettype = "jknhjb";
 
   @override
   void initState() {
     super.initState();
 
     NXHelp().getTicketWalletInfoByID(id: widget.txdbid).then((value) {
-
-      List<TicketWalletModel> allT= value;
+      List<TicketWalletModel> allT = value;
 
       allT[0].getTicketData().then((value) {
-        TicketModel tikData=value;
+        TicketModel tikData = value;
         setState(() {
-          state=tikData.state;
-          tickettype= tikData.tickettitle;
-          currentTicket="d";
+          state = tikData.state;
+          tickettype = tikData.tickettitle;
+          currentTicket = "d";
         });
       });
-
     });
 
     // NXHelp().getTicketById(id: widget.txdbid).then((ticket) {
@@ -61,7 +59,7 @@ class Ticket2State extends State<Ticket2> {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: currentTicket != null
@@ -81,13 +79,9 @@ class Ticket2State extends State<Ticket2> {
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 20, top: 10),
-                          child: Text(
-                            "Close",
-                            style:GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15
-                            )
-                          ),
+                          child: Text("Close",
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold, fontSize: 15)),
                         ),
                       )
                     ],
@@ -184,8 +178,8 @@ class Ticket2State extends State<Ticket2> {
                               child: InkWell(
                                 onTap: () {
                                   //displayActivationDialog(context);
-                                  TicketOverlayHelper()
-                                      .displayActivationDialog(context,widget.txdbid);
+                                  TicketOverlayHelper().displayActivationDialog(
+                                      context, widget.txdbid);
                                 },
                                 child: Container(
                                   color: Color.fromRGBO(46, 150, 32, 1),
@@ -245,8 +239,11 @@ class Ticket2State extends State<Ticket2> {
                                   child: Row(
                                     children: <Widget>[
                                       IconButton(
-                                        icon: Icon(Icons.more_horiz,color: Color.fromRGBO(
-                                                103, 119, 138, 1),),
+                                        icon: Icon(
+                                          Icons.more_horiz,
+                                          color:
+                                              Color.fromRGBO(103, 119, 138, 1),
+                                        ),
                                         onPressed: () {},
                                       ),
                                       Text(
@@ -268,9 +265,9 @@ class Ticket2State extends State<Ticket2> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => TicketDetail(
-                                            txid: widget.txdbid,
-                                            isDaysLeft: true,
-                                          )),
+                                                txid: widget.txdbid,
+                                                isDaysLeft: true,
+                                              )),
                                     );
                                   },
                                   child: Padding(
@@ -278,10 +275,11 @@ class Ticket2State extends State<Ticket2> {
                                     child: Row(
                                       children: <Widget>[
                                         IconButton(
-                                          icon:
-                                              Icon(Icons.format_list_bulleted,
-                                              color: Color.fromRGBO(
-                                                103, 119, 138, 1),),
+                                          icon: Icon(
+                                            Icons.format_list_bulleted,
+                                            color: Color.fromRGBO(
+                                                103, 119, 138, 1),
+                                          ),
                                           onPressed: () {},
                                         ),
                                         Text(

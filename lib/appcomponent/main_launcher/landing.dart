@@ -1,6 +1,6 @@
-import 'package:BubbleGum/appcomponent/HalifaxClone/main.dart';
-import 'package:BubbleGum/pages/journey/ticket.dart';
-import 'package:BubbleGum/v2/pages/nxfront.dart';
+import 'package:bubble_gum/appcomponent/HalifaxClone/main.dart';
+import 'package:bubble_gum/pages/journey/ticket.dart';
+import 'package:bubble_gum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
@@ -52,7 +52,7 @@ class MainLauncherState extends State<MainLauncher> {
                           icon: Icon(Icons.menu),
                           onPressed: () {
                             _keymenu.currentState.openDrawer();
-                           },
+                          },
                         ),
                         Expanded(
                           child: TextField(
@@ -134,7 +134,7 @@ class MainLauncherState extends State<MainLauncher> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                         Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Ticket()),
                         );
@@ -196,7 +196,7 @@ class MainLauncherState extends State<MainLauncher> {
                     ),
                     InkWell(
                       onTap: () {
-                         Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Nxfront()),
                         );
@@ -256,12 +256,12 @@ class MainLauncherState extends State<MainLauncher> {
                         ),
                       ),
                     ),
-
-                     InkWell(
+                    InkWell(
                       onTap: () {
-                         Navigator.push(
+                        Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomePagePre()),
+                          MaterialPageRoute(
+                              builder: (context) => HomePagePre()),
                         );
                       },
                       child: Padding(
@@ -280,11 +280,17 @@ class MainLauncherState extends State<MainLauncher> {
                                   ),
                                   child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child:Container(color: Colors.black,
-                                      child: Center(child: Text("NX-CONFIG",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
-                                      )
-                                      
-                                      ),
+                                      child: Container(
+                                        color: Colors.black,
+                                        child: Center(
+                                          child: Text(
+                                            "NX-CONFIG",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      )),
                                 ),
                               ),
                               SizedBox(
@@ -327,9 +333,7 @@ class MainLauncherState extends State<MainLauncher> {
                 ))
               ]),
             ),
-
-
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
@@ -383,7 +387,7 @@ class MainLauncherState extends State<MainLauncher> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                         Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Halifax()),
                         );
@@ -404,7 +408,8 @@ class MainLauncherState extends State<MainLauncher> {
                                   ),
                                   child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset("images/v3/halifax.png")),
+                                      child:
+                                          Image.asset("images/v3/halifax.png")),
                                 ),
                               ),
                               SizedBox(
@@ -443,17 +448,10 @@ class MainLauncherState extends State<MainLauncher> {
                         ),
                       ),
                     ),
-                    
-
-                     
-                   
                   ],
                 ))
               ]),
             )
-
-
-
           ],
         ),
       ),
@@ -471,10 +469,12 @@ class MainLauncherState extends State<MainLauncher> {
                   height: 10,
                 ),
                 Text("PGP-Protected"),
-               
                 Container(
-                  height: 80,
-                  child: Image.asset("images/mrskeleton.png",width: 80,))
+                    height: 80,
+                    child: Image.asset(
+                      "images/mrskeleton.png",
+                      width: 80,
+                    ))
               ],
             )),
             Text(
@@ -486,12 +486,14 @@ class MainLauncherState extends State<MainLauncher> {
             ),
             MaterialButton(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-                  side: BorderSide(color: Colors.lightBlue)
-              ),
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(color: Colors.lightBlue)),
               color: Colors.white,
               height: 30,
-              child: Text("Select Landing Page",style: TextStyle(color: Colors.black),),
+              child: Text(
+                "Select Landing Page",
+                style: TextStyle(color: Colors.black),
+              ),
               onPressed: () {},
             )
           ],

@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:BubbleGum/setupMain.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/defaultTicket.dart';
-import 'package:BubbleGum/v2/pages/ejection.dart';
-import 'package:BubbleGum/v2/pages/landingPage.dart';
+import 'package:bubble_gum/setupMain.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/pages/defaultTicket.dart';
+import 'package:bubble_gum/v2/pages/ejection.dart';
+import 'package:bubble_gum/v2/pages/landingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,7 +104,7 @@ class SetupFlowState extends State<SetupFlow> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "Welcome from BubbleGum, hope you enjoy our app",
+                      "Welcome from bubble_gum, hope you enjoy our app",
                       style:
                           GoogleFonts.acme(color: Colors.white, fontSize: 30),
                       textAlign: TextAlign.center,

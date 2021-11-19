@@ -1,6 +1,6 @@
-import 'package:BubbleGum/debug/ticketWalletDebug.dart';
-import 'package:BubbleGum/pages/journey/ticket.dart';
-import 'package:BubbleGum/pages/terms.dart';
+import 'package:bubble_gum/debug/ticketWalletDebug.dart';
+import 'package:bubble_gum/pages/journey/ticket.dart';
+import 'package:bubble_gum/pages/terms.dart';
 import 'package:flutter/material.dart';
 
 import './help/applicationinfo.dart';
@@ -9,7 +9,7 @@ import './help/customerService.dart';
 
 import './help/faq.dart';
 
-import 'package:BubbleGum/pages/settings.dart';
+import 'package:bubble_gum/pages/settings.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -60,10 +60,10 @@ class Stpagestate extends State<Stpage> {
               ),
               InkWell(
                 onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ApplicationInfoPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ApplicationInfoPage()));
                 },
                 child: Container(
                   width: 380,
@@ -88,18 +88,17 @@ class Stpagestate extends State<Stpage> {
                       width: 6,
                     ),
                     GestureDetector(
-                      onTap: (){
-                          Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ApplicationInfoPage()));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ApplicationInfoPage()));
                       },
-                      onDoubleTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (ctx)=> Ticket()
-                        ));
+                      onDoubleTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (ctx) => Ticket()));
                       },
-                                            child: Text(
+                      child: Text(
                         "App info",
                         style: GoogleFonts.roboto(
                             color: Colors.black,
@@ -173,8 +172,9 @@ class Stpagestate extends State<Stpage> {
                 height: 10,
               ),
               InkWell(
-                onDoubleTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>TicketDebug()));
+                onDoubleTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (ctx) => TicketDebug()));
                 },
                 onTap: () {
                   Navigator.push(context,
@@ -228,7 +228,10 @@ class Stpagestate extends State<Stpage> {
                       MaterialPageRoute(builder: (context) => Settings()));
                 },
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsAndConditions()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TermsAndConditions()));
                 },
                 child: Container(
                   width: 380,

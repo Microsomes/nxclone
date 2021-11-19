@@ -1,7 +1,7 @@
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/components/fancyOptions.dart';
-import 'package:BubbleGum/v2/main/bar.dart';
+import 'package:bubble_gum/v2/components/fancyOptions.dart';
+import 'package:bubble_gum/v2/main/bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sqflite/sqflite.dart';
 

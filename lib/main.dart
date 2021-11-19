@@ -1,11 +1,11 @@
-import 'package:BubbleGum/setupMain.dart';
-import 'package:BubbleGum/splash.dart';
-import 'package:BubbleGum/v3/newSetup.dart';
+import 'package:bubble_gum/setupMain.dart';
+import 'package:bubble_gum/splash.dart';
+import 'package:bubble_gum/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:BubbleGum/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/pages/nxfront.dart';
+import 'package:bubble_gum/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,6 +83,7 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
+
         if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(
@@ -109,8 +110,12 @@ class HomePagePrestate extends State<HomePagePre>
         //return TicketWalletV2();
 
         SharedPreferences sh = data.data;
+
+
         if (sh.getBool(SettingsPrefKeys.startUpSetup) == null) {
-          if (sh.getBool("setup_disclaimer") == true) {
+
+
+          if (sh.getBool(SettingsPrefKeys.setupDisclaimer) == true) {
             //if disclaimer is true move on to a new quick menu
             return AfterDisclaimer();
           } else {

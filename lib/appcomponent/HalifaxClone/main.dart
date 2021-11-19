@@ -1,4 +1,4 @@
-import 'package:BubbleGum/appcomponent/HalifaxClone/accountDetails.dart';
+import 'package:bubble_gum/appcomponent/HalifaxClone/accountDetails.dart';
 import 'package:flutter/material.dart';
 
 import 'components/HalifaxNav.dart';
@@ -11,7 +11,6 @@ class Halifax extends StatefulWidget {
 }
 
 class HalifaxState extends State<Halifax> {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,13 +28,12 @@ class HalifaxState extends State<Halifax> {
             height: 15,
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               //AccountDetails
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context)=> AccountDetails()
-              ));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AccountDetails()));
             },
-                      child: Container(
+            child: Container(
               padding: EdgeInsets.all(0),
               height: 100,
               width: MediaQuery.of(context).size.width,
@@ -395,7 +393,9 @@ class HalifaxState extends State<Halifax> {
           ),
         ],
       ),
-      bottomNavigationBar: HalifaxNav(context: context,),
+      bottomNavigationBar: HalifaxNav(
+        context: context,
+      ),
     );
   }
 }

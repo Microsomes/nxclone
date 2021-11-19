@@ -1,52 +1,41 @@
 import 'dart:convert';
 
-import 'package:BubbleGum/v3/models/ticketModel.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/v3/models/ticketModel.dart';
+import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:crypto/crypto.dart';
 
 class TicketDetailIDModel extends StatefulWidget {
-
   final TicketWalletModel ticketWalletInfo;
   final TicketModel ticketDetail;
 
-
-  TicketDetailIDModel({
-    @required this.ticketWalletInfo,
-    @required this.ticketDetail
-  });
-
-
+  TicketDetailIDModel(
+      {@required this.ticketWalletInfo, @required this.ticketDetail});
 
   @override
   _TicketDetailIDModelState createState() => _TicketDetailIDModelState();
 }
 
 class _TicketDetailIDModelState extends State<TicketDetailIDModel> {
-
-
   String generatedID;
 
   @override
   void initState() {
-   
     setState(() {
-      generatedID="AT3VYUNC57J";
+      generatedID = "AT3VYUNC57J";
 
-  var bytes1 = utf8.encode(widget.ticketWalletInfo.id.toString());         // data being hashed
- var digest1 = sha256.convert(bytes1);         // Hashing Process
- print("Digest as bytes: ${digest1.bytes}");   // Print Bytes
+      var bytes1 = utf8
+          .encode(widget.ticketWalletInfo.id.toString()); // data being hashed
+      var digest1 = sha256.convert(bytes1); // Hashing Process
+      print("Digest as bytes: ${digest1.bytes}"); // Print Bytes
 
-    setState(() {
-      generatedID="AT"+digest1.toString().substring(0,9).toUpperCase();
-    });
-
-
+      setState(() {
+        generatedID = "AT" + digest1.toString().substring(0, 9).toUpperCase();
+      });
     });
 
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {

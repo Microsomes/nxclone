@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
 
 class TermsConditions extends StatefulWidget {
   @override
@@ -62,35 +62,35 @@ class TermsConditionsState extends State<TermsConditions> {
                           child: Column(
                             children: <Widget>[
                               Container(
-                                 width: MediaQuery.of(context).size.width,
+                                width: MediaQuery.of(context).size.width,
                                 child: Padding(
-                                      padding: const EdgeInsets.all(20),
-                                      child: Text(
-                                        "TERMS",
-                                        style: TextStyle(
-                                            color:
-                                                Color.fromRGBO(110, 110, 110, 1),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16),
-                                      ),
-                                    ),
+                                  padding: const EdgeInsets.all(20),
+                                  child: Text(
+                                    "TERMS",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(110, 110, 110, 1),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                ),
                               ),
                               Expanded(
-                                  child:ListView.builder(
-                                                itemCount: NXHelp().termsForSingle().length,
-                                                itemBuilder: (context, index) {
-                                                  return Padding(
-                                                    padding: const EdgeInsets.only(bottom:15,left:15,right:15),
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: <Widget>[
-                                                        SizedBox(height: 15),
-                                                    NXHelp().termsForDaysaver()[index]
-
-                                                      ],
-                                                    ),
-                                                  );
-                                                }),
+                                child: ListView.builder(
+                                    itemCount: NXHelp().termsForSingle().length,
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                        padding: const EdgeInsets.only(
+                                            bottom: 15, left: 15, right: 15),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            SizedBox(height: 15),
+                                            NXHelp().termsForDaysaver()[index]
+                                          ],
+                                        ),
+                                      );
+                                    }),
                               ),
                               Row(
                                 children: <Widget>[

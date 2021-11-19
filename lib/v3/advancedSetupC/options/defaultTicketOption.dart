@@ -1,6 +1,6 @@
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/models/sharedprefkey/main.dart';
+import 'package:bubble_gum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
 import "package:flutter/material.dart";
 
 import 'package:google_fonts/google_fonts.dart';

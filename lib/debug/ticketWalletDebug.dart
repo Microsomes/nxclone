@@ -1,4 +1,4 @@
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
 import '../v3/models/ticketWalletModel.dart';
 import './activatedTile.dart';
 import 'package:flutter/material.dart';

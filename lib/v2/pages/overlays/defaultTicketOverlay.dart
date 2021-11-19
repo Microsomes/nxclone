@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefaultTicketOverlay {
-  void showDefaultOverlay(BuildContext btx,Function onChange) {
+  void showDefaultOverlay(BuildContext btx, Function onChange) {
     showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -22,9 +22,7 @@ class DefaultTicketOverlay {
                   Text(
                     "Select a Default Ticket",
                     style: GoogleFonts.acme(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30
-                    ),
+                        fontWeight: FontWeight.bold, fontSize: 30),
                   ),
                   SizedBox(
                     height: 30,
@@ -47,12 +45,13 @@ class DefaultTicketOverlay {
                                                 snapshot.data[index]
                                                     ['tickettitle'])
                                         .then((value) {
-                                          onChange();
-                                          Navigator.pop(context);
-                                     });
+                                      onChange();
+                                      Navigator.pop(context);
+                                    });
                                   },
-                                  title: Text(snapshot.data[index]['state'],
-                                  style: GoogleFonts.acme(),
+                                  title: Text(
+                                    snapshot.data[index]['state'],
+                                    style: GoogleFonts.acme(),
                                   ),
                                   subtitle: Text(
                                     snapshot.data[index]['tickettitle'],

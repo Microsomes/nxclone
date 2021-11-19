@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/overlays/colorSelectorOver.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/pages/overlays/colorSelectorOver.dart';
 
 class TicketColor extends StatefulWidget {
   final BuildContext ctx;
@@ -149,7 +149,7 @@ class TicketColorState extends State<TicketColor> {
             opt1 = col;
           });
         }
-       // var cid = await NXHelp().saveConfig("opt1col", col.toString());
+        // var cid = await NXHelp().saveConfig("opt1col", col.toString());
 
         break;
       case 2:
@@ -158,7 +158,7 @@ class TicketColorState extends State<TicketColor> {
             opt2 = col;
           });
         }
-       // var cid = await NXHelp().saveConfig("opt2col", col.toString());
+        // var cid = await NXHelp().saveConfig("opt2col", col.toString());
         break;
       case 3:
         if (this.mounted) {
@@ -166,7 +166,7 @@ class TicketColorState extends State<TicketColor> {
             opt3 = col;
           });
         }
-       // var cid = await NXHelp().saveConfig("opt3col", col.toString());
+        // var cid = await NXHelp().saveConfig("opt3col", col.toString());
         break;
     }
   }
@@ -185,7 +185,6 @@ class TicketColorState extends State<TicketColor> {
         alignment: Alignment.center,
         child: Stack(
           alignment: Alignment.center,
-          
           children: <Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -193,11 +192,11 @@ class TicketColorState extends State<TicketColor> {
               children: <Widget>[
                 Expanded(
                   flex: 1,
-                                  child: InkWell(
-                                    onDoubleTap: (){
-                                       ColorSelectOver(toSend: changeCol, index: 1)
+                  child: InkWell(
+                    onDoubleTap: () {
+                      ColorSelectOver(toSend: changeCol, index: 1)
                           .colorOverlay(context);
-                                    },
+                    },
                     onTap: () {
                       // ColorSelectOver(toSend: changeCol, index: 1)
                       //     .colorOverlay(context);
@@ -209,15 +208,15 @@ class TicketColorState extends State<TicketColor> {
                         height: 110,
                         decoration: BoxDecoration(
                             color: opt1,
-                            borderRadius:
-                                BorderRadius.only(topLeft: Radius.circular(10))),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10))),
                       ),
                     ),
                   ),
                 ),
                 Expanded(
                   flex: 1,
-                                  child: InkWell(
+                  child: InkWell(
                     onDoubleTap: () {
                       ColorSelectOver(toSend: changeCol, index: 2)
                           .colorOverlay(context);
@@ -235,7 +234,7 @@ class TicketColorState extends State<TicketColor> {
                 ),
                 Expanded(
                   flex: 1,
-                                  child: InkWell(
+                  child: InkWell(
                     onDoubleTap: () {
                       ColorSelectOver(toSend: changeCol, index: 3)
                           .colorOverlay(context);
@@ -247,8 +246,8 @@ class TicketColorState extends State<TicketColor> {
                         height: 110,
                         decoration: BoxDecoration(
                             color: opt3,
-                            borderRadius:
-                                BorderRadius.only(topRight: Radius.circular(10))),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10))),
                       ),
                     ),
                   ),
@@ -256,56 +255,55 @@ class TicketColorState extends State<TicketColor> {
               ],
             ),
             AnimatedPositioned(
-              duration: Duration(milliseconds: widget.speed.toInt()+300),
+              duration: Duration(milliseconds: widget.speed.toInt() + 300),
               left: sizeW * currentRange,
               child: IgnorePointer(
-                ignoring: true,
-                child: Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        "$formattedDate",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 23,
-                            shadows: [
-                              Shadow(
-                                blurRadius: 10.0,
-                                color: Color.fromRGBO(19, 8, 23, 1),
-                                offset: Offset(0, 4),
-                              ),
-                              Shadow(
-                                blurRadius: 10.0,
-                                color: Colors.black,
-                                offset: Offset(-2, 0),
-                              ),
-                            ]),
-                      ),
-                      SizedBox(height:3),
-                      Text(
-                        "$df",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            shadows: [
-                              Shadow(
-                                blurRadius: 10.0,
-                                color: Color.fromRGBO(19, 8, 23, 1),
-                                offset: Offset(0, 4),
-                              ),
-                              Shadow(
-                                blurRadius: 10.0,
-                                color: Colors.black,
-                                offset: Offset(-2, 0),
-                              ),
-                            ]),
-                      ),
-                    ],
-                  ),
-                )
-              ),
+                  ignoring: true,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Text(
+                          "$formattedDate",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 23,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: Color.fromRGBO(19, 8, 23, 1),
+                                  offset: Offset(0, 4),
+                                ),
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: Colors.black,
+                                  offset: Offset(-2, 0),
+                                ),
+                              ]),
+                        ),
+                        SizedBox(height: 3),
+                        Text(
+                          "$df",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: Color.fromRGBO(19, 8, 23, 1),
+                                  offset: Offset(0, 4),
+                                ),
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: Colors.black,
+                                  offset: Offset(-2, 0),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    ),
+                  )),
             ),
           ],
         ));

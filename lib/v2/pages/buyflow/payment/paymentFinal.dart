@@ -1,7 +1,7 @@
-import 'package:BubbleGum/v3/models/ticketModel.dart';
+import 'package:bubble_gum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/buyflow/payment/paymentConfirmed.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/pages/buyflow/payment/paymentConfirmed.dart';
 
 class PaymentFinal extends StatefulWidget {
   final int id;
@@ -25,11 +25,10 @@ class PaymentFinalState extends State<PaymentFinal> {
     NXHelp().getTicketByIDV2(widget.id).then((value) {
       TicketModel m = value;
       setState(() {
-        tickettitle=m.state+" "+ m.tickettitle;
-        priceOfTicket= m.price;
+        tickettitle = m.state + " " + m.tickettitle;
+        priceOfTicket = m.price;
       });
     });
-
   }
 
   @override
@@ -227,10 +226,13 @@ class PaymentFinalState extends State<PaymentFinal> {
                         // var tstate = widget.selectedTicket['state'];
                         // var tprice = widget.selectedTicket['price'];
 
-                        NXHelp().buyTicketv2(ticketID: widget.id, tag: "self_buy").then((value) {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (ctx)=>PaymentConfirmed()
-                          ));
+                        NXHelp()
+                            .buyTicketv2(ticketID: widget.id, tag: "self_buy")
+                            .then((value) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (ctx) => PaymentConfirmed()));
                         });
 
                         // NXHelp()

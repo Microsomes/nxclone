@@ -1,5 +1,5 @@
-import 'package:BubbleGum/v3/models/ticketModel.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/v3/models/ticketModel.dart';
+import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 class ValidUntilComp extends StatefulWidget {

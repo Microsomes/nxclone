@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/pages/buyflow/components/allPaymentOptions.dart';
-import 'package:BubbleGum/v2/pages/buyflow/payment/paymentFinal.dart';
+import 'package:bubble_gum/v2/pages/buyflow/components/allPaymentOptions.dart';
+import 'package:bubble_gum/v2/pages/buyflow/payment/paymentFinal.dart';
 
 class PickPaymentMethodAndConfirmItem extends StatefulWidget {
   final String selectedState;

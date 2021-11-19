@@ -1,19 +1,19 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:BubbleGum/piHome.dart';
-import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
-import 'package:BubbleGum/v3/models/ticketModel.dart';
-import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
+import 'package:bubble_gum/piHome.dart';
+import 'package:bubble_gum/v2/models/sharedprefkey/main.dart';
+import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/v3/models/ticketModel.dart';
+import 'package:bubble_gum/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/components/nxsig.dart';
-import 'package:BubbleGum/v2/components/ticketColor.dart';
-import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:BubbleGum/v2/components/movingText.dart';
-import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
-import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/components/nxsig.dart';
+import 'package:bubble_gum/v2/components/ticketColor.dart';
+import 'package:bubble_gum/v2/pages/nxfront.dart';
+import 'package:bubble_gum/v2/components/movingText.dart';
+import 'package:bubble_gum/v2/pages/overlays/ticketDetail.dart';
+import 'package:bubble_gum/v2/pages/overlays/actionsOverlay.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:screen/screen.dart';

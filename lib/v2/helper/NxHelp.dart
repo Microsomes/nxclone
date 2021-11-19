@@ -1,7 +1,7 @@
 //helper class for helping with logic
-import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
-import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
-import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
+import 'package:bubble_gum/v2/models/defaultHomePageModel.dart';
+import 'package:bubble_gum/v2/models/ejectionSettingModel.dart';
+import 'package:bubble_gum/v2/models/sharedprefkey/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../v3/models/ticketWalletModel.dart';
 import '../../v3/models/ticketModel.dart';
@@ -918,7 +918,7 @@ class NXHelp {
 
   Future buyDefaultTicket() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    int defTicketID = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+    int defTicketID = pref.getInt(SettingsPrefKeys.defaultTicketKey);
     var id = await this.buyTicketv2(ticketID: defTicketID, tag: "AUTO_BUY");
     return id;
   }
@@ -961,7 +961,7 @@ class NXHelp {
      */
     SharedPreferences pref = await SharedPreferences.getInstance();
 
-    int defTicketID = pref.getInt(SettingsPrefKeys.DEFAULT_TICKET_KEY);
+    int defTicketID = pref.getInt(SettingsPrefKeys.defaultTicketKey);
 
     if (defTicketID != null) {
       List<Map> deftikData = await this.getTicketByID(defTicketID);
