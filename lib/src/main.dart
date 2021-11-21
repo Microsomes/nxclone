@@ -1,18 +1,18 @@
 import 'package:bubble_gum/setupMain.dart';
 import 'package:bubble_gum/splash.dart';
-import 'package:bubble_gum/src/v3/newSetup.dart';
+import 'package:bubble_gum/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/src/v2/pages/nxfront.dart';
-import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/v2/pages/nxfront.dart';
+import 'package:bubble_gum/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'src/v2/models/sharedprefkey/main.dart';
-import 'src/v7/afterDisclaimerQuickMenu.dart';
+import 'v2/models/sharedprefkey/main.dart';
+import 'v7/afterDisclaimerQuickMenu.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
