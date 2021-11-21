@@ -1,5 +1,5 @@
-import 'package:bubble_gum/v2/pages/menupage/profile/components/login.dart';
-import 'package:bubble_gum/v2/pages/menupage/profile/components/newAccount.dart';
+import 'package:bubble_gum/src/v2/pages/menupage/profile/components/login.dart';
+import 'package:bubble_gum/src/v2/pages/menupage/profile/components/newAccount.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -1,4 +1,4 @@
-import 'package:bubble_gum/appcomponent/HalifaxClone/models/AvailableMonth.dart';
+import 'package:bubble_gum/src/appcomponent/HalifaxClone/models/AvailableMonth.dart';
 import 'package:flutter/material.dart';
 
 import 'components/HalifaxNav.dart';

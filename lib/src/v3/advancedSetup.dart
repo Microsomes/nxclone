@@ -1,6 +1,6 @@
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/main/quickOptions.dart';
-import 'package:bubble_gum/v2/pages/setupflow.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/main/quickOptions.dart';
+import 'package:bubble_gum/src/v2/pages/setupflow.dart';
 import 'package:flutter/material.dart';
 
 class AdvancedSetup extends StatefulWidget {

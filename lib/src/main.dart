@@ -1,11 +1,11 @@
-import 'package:bubble_gum/setupMain.dart';
-import 'package:bubble_gum/splash.dart';
-import 'package:bubble_gum/v3/newSetup.dart';
+import 'package:bubble_gum/src/setupMain.dart';
+import 'package:bubble_gum/src/splash.dart';
+import 'package:bubble_gum/src/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/nxfront.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/nxfront.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';

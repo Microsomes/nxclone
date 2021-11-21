@@ -1,7 +1,7 @@
 //helper class for helping with logic
-import 'package:bubble_gum/v2/models/defaultHomePageModel.dart';
-import 'package:bubble_gum/v2/models/ejectionSettingModel.dart';
-import 'package:bubble_gum/v2/models/sharedprefkey/main.dart';
+import 'package:bubble_gum/src/v2/models/defaultHomePageModel.dart';
+import 'package:bubble_gum/src/v2/models/ejectionSettingModel.dart';
+import 'package:bubble_gum/src/v2/models/sharedprefkey/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../v3/models/ticketWalletModel.dart';
 import '../../v3/models/ticketModel.dart';

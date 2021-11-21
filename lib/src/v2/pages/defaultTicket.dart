@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/pages/components/singleInactive.dart';
-import 'package:bubble_gum/v2/components/fancyOptions.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/pages/components/singleInactive.dart';
+import 'package:bubble_gum/src/v2/components/fancyOptions.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../main/bar.dart';
-import 'package:bubble_gum/v2/pages/overlays/defaultTicketOverlay.dart';
+import 'package:bubble_gum/src/v2/pages/overlays/defaultTicketOverlay.dart';
 
 import 'package:sqflite/sqflite.dart';
 

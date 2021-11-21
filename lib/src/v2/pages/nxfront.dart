@@ -1,15 +1,15 @@
-import 'package:bubble_gum/pages/ticketwalletv2.dart';
-import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
-import 'package:bubble_gum/v7/afterDisclaimerQuickMenu.dart';
+import 'package:bubble_gum/src/pages/ticketwalletv2.dart';
+import 'package:bubble_gum/src/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/src/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/components/daysaveractive.dart';
-import 'package:bubble_gum/pages/help.dart';
-import 'package:bubble_gum/pages/offers.dart';
-import 'package:bubble_gum/pages/selectticket.dart';
-import 'package:bubble_gum/pages/tripTools.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/ticket.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/components/daysaveractive.dart';
+import 'package:bubble_gum/src/pages/help.dart';
+import 'package:bubble_gum/src/pages/offers.dart';
+import 'package:bubble_gum/src/pages/selectticket.dart';
+import 'package:bubble_gum/src/pages/tripTools.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/ticket.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'menupage/topMenuPage.dart';

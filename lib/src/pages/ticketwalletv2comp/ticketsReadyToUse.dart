@@ -1,8 +1,8 @@
-import 'package:bubble_gum/components/daysaveractive.dart';
-import 'package:bubble_gum/pages/components/singleInactive.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
-import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/src/components/daysaveractive.dart';
+import 'package:bubble_gum/src/pages/components/singleInactive.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 
 class TicketReadyToUse extends StatefulWidget {

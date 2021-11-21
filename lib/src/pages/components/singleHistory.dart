@@ -1,4 +1,4 @@
-import 'package:bubble_gum/pages/ticketwallet/models/ticketType.dart';
+import 'package:bubble_gum/src/pages/ticketwallet/models/ticketType.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

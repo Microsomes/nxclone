@@ -1,4 +1,4 @@
-import 'package:bubble_gum/piHome.dart';
+import 'package:bubble_gum/src/piHome.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animated_text/animated_text.dart';

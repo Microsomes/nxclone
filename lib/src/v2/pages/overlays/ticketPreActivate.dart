@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 
 class TicketOverlayHelper {
   void displayActivationDialog(BuildContext context, int txid) {

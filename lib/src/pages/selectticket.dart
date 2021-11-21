@@ -1,5 +1,5 @@
-import 'package:bubble_gum/v2/pages/overlays/ticketDetailComp/v2/BuyTicketTileMultiple.dart';
-import 'package:bubble_gum/v2/pages/overlays/ticketDetailComp/v2/buyTicketTileSingle.dart';
+import 'package:bubble_gum/src/v2/pages/overlays/ticketDetailComp/v2/BuyTicketTileMultiple.dart';
+import 'package:bubble_gum/src/v2/pages/overlays/ticketDetailComp/v2/buyTicketTileSingle.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

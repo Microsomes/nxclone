@@ -1,6 +1,6 @@
-import 'package:bubble_gum/piHome.dart';
-import 'package:bubble_gum/v2/components/staticTicketColor.dart';
-import 'package:bubble_gum/v7/afterDisclaimerQuickMenu.dart';
+import 'package:bubble_gum/src/piHome.dart';
+import 'package:bubble_gum/src/v2/components/staticTicketColor.dart';
+import 'package:bubble_gum/src/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';

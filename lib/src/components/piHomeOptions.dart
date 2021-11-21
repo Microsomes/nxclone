@@ -1,9 +1,9 @@
-import 'package:bubble_gum/0mymetro/pages/home.dart';
-import 'package:bubble_gum/pages/Info/intro.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/nxfront.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
-import 'package:bubble_gum/v3/newSetup.dart';
+import 'package:bubble_gum/src/0mymetro/pages/home.dart';
+import 'package:bubble_gum/src/pages/Info/intro.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/nxfront.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/v3/newSetup.dart';
 import 'package:cube_transition/cube_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

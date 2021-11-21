@@ -1,6 +1,6 @@
-import 'package:bubble_gum/debug/ticketWalletDebug.dart';
-import 'package:bubble_gum/pages/journey/ticket.dart';
-import 'package:bubble_gum/pages/terms.dart';
+import 'package:bubble_gum/src/debug/ticketWalletDebug.dart';
+import 'package:bubble_gum/src/pages/journey/ticket.dart';
+import 'package:bubble_gum/src/pages/terms.dart';
 import 'package:flutter/material.dart';
 
 import './help/applicationinfo.dart';
@@ -9,7 +9,7 @@ import './help/customerService.dart';
 
 import './help/faq.dart';
 
-import 'package:bubble_gum/pages/settings.dart';
+import 'package:bubble_gum/src/pages/settings.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 

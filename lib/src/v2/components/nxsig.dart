@@ -1,4 +1,4 @@
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 import 'package:flutter/material.dart';
 
 class Nxsig extends StatefulWidget {

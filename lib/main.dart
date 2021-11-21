@@ -1,5 +1,5 @@
-import 'package:bubble_gum/setupMain.dart';
-import 'package:bubble_gum/splash.dart';
+import 'package:bubble_gum/src/setupMain.dart';
+import 'package:bubble_gum/src/splash.dart';
 import 'package:bubble_gum/src/v3/newSetup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

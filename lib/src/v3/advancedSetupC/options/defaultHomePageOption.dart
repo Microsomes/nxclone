@@ -1,7 +1,7 @@
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/models/defaultHomePageModel.dart';
-import 'package:bubble_gum/v2/models/sharedprefkey/main.dart';
-import 'package:bubble_gum/v3/advancedSetupC/dialogs/defHomeDialog.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/models/defaultHomePageModel.dart';
+import 'package:bubble_gum/src/v2/models/sharedprefkey/main.dart';
+import 'package:bubble_gum/src/v3/advancedSetupC/dialogs/defHomeDialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';

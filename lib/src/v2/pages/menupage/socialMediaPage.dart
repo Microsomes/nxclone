@@ -1,4 +1,4 @@
-import 'package:bubble_gum/v2/pages/menupage/topMenuPage.dart';
+import 'package:bubble_gum/src/v2/pages/menupage/topMenuPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:bubble_gum/v3/models/ticketModel.dart';
-import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/src/v3/models/ticketModel.dart';
+import 'package:bubble_gum/src/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
 import 'package:crypto/crypto.dart';
 

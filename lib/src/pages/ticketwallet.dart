@@ -1,7 +1,7 @@
-import 'package:bubble_gum/v2/pages/usedTicketPage.dart';
+import 'package:bubble_gum/src/v2/pages/usedTicketPage.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 import './../components/daysaveractive.dart';
 import 'components/singleHistory.dart';
 import 'components/singleInactive.dart';

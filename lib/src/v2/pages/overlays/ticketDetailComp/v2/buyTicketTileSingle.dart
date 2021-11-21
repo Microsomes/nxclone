@@ -1,7 +1,7 @@
-import 'package:bubble_gum/v2/pages/buyflow/components/ticketoption.dart';
+import 'package:bubble_gum/src/v2/pages/buyflow/components/ticketoption.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/buyflow/payment/pickMethod.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/buyflow/payment/pickMethod.dart';
 
 class BuyTicketTypesSingle extends StatefulWidget {
   final String selectedState;

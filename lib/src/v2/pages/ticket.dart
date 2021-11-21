@@ -1,12 +1,12 @@
-import 'package:bubble_gum/v3/models/ticketModel.dart';
-import 'package:bubble_gum/v3/models/ticketWalletModel.dart';
+import 'package:bubble_gum/src/v3/models/ticketModel.dart';
+import 'package:bubble_gum/src/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/v2/components/nxsig.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/overlays/ticketPreActivate.dart';
-import 'package:bubble_gum/v2/components/movingText.dart';
-import 'package:bubble_gum/v2/pages/overlays/ticketDetail.dart';
-import 'package:bubble_gum/v2/pages/overlays/actionsOverlay.dart';
+import 'package:bubble_gum/src/v2/components/nxsig.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/overlays/ticketPreActivate.dart';
+import 'package:bubble_gum/src/v2/components/movingText.dart';
+import 'package:bubble_gum/src/v2/pages/overlays/ticketDetail.dart';
+import 'package:bubble_gum/src/v2/pages/overlays/actionsOverlay.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Ticket2 extends StatefulWidget {

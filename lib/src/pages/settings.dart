@@ -1,8 +1,8 @@
-import 'package:bubble_gum/piHome.dart';
+import 'package:bubble_gum/src/piHome.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble_gum/v2/pages/nxfront.dart';
+import 'package:bubble_gum/src/v2/pages/nxfront.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 
 class Settings extends StatefulWidget {
   @override

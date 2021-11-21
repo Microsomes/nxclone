@@ -1,8 +1,8 @@
-import 'package:bubble_gum/pages/journey/ticket.dart';
-import 'package:bubble_gum/v2/helper/NxHelp.dart';
-import 'package:bubble_gum/v2/pages/nxfront.dart';
-import 'package:bubble_gum/v2/pages/ticketv2.dart';
-import 'package:bubble_gum/v7/newAdvanced.dart';
+import 'package:bubble_gum/src/pages/journey/ticket.dart';
+import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
+import 'package:bubble_gum/src/v2/pages/nxfront.dart';
+import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
+import 'package:bubble_gum/src/v7/newAdvanced.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
