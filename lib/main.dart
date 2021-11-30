@@ -1,4 +1,5 @@
 import 'package:bubble_gum/HomePagePre.dart';
+import 'package:bubble_gum/data/nxbus/nxdb.dart';
 import 'package:bubble_gum/src/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +7,7 @@ import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +21,15 @@ void main() async {
   NXHelp().runInit();
 
   runApp(Phoenix(
-      child: FutureBuilder(
+      child: Provider(
+    create: (ctx) => NXDatabase(),
+    child: getHomeFuture(),
+    dispose: (context, db) => db.close(),
+  )));
+}
+
+Widget getHomeFuture() {
+  return FutureBuilder(
     future: Future.delayed(Duration(seconds: 3)),
     builder: (ctx, AsyncSnapshot snapshot) {
       if (snapshot.connectionState == ConnectionState.waiting) {
@@ -38,5 +48,5 @@ void main() async {
             home: HomePagePre());
       }
     },
-  )));
+  );
 }

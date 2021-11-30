@@ -1,3 +1,4 @@
+import 'package:bubble_gum/data/nxbus/nxdb.dart';
 import 'package:bubble_gum/src/setupMain.dart';
 import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 import 'package:bubble_gum/src/v2/models/sharedprefkey/main.dart';
@@ -6,6 +7,7 @@ import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 import 'package:bubble_gum/src/v3/newSetup.dart';
 import 'package:bubble_gum/src/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,6 +35,8 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
+        Provider.of<NXDatabase>(context);
+
         if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(
