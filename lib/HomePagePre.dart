@@ -37,15 +37,6 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
-        print("....");
-        // Provider.of<NXDatabase>(context).getTicketCategories().then((value) {
-        //   print(value);
-        // });
-
-        Provider.of<NxTickets>(context).getTicketCategories().then((value) {
-          print(value);
-        });
-
         if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(
