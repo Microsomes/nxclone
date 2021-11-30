@@ -11,6 +11,8 @@ import 'package:provider/provider.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'data/nxbus/modules/nx_tickets.dart';
+
 class HomePagePre extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -35,7 +37,14 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
-        Provider.of<NXDatabase>(context);
+        print("....");
+        // Provider.of<NXDatabase>(context).getTicketCategories().then((value) {
+        //   print(value);
+        // });
+
+        Provider.of<NxTickets>(context).getTicketCategories().then((value) {
+          print(value);
+        });
 
         if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(

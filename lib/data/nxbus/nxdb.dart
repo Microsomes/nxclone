@@ -6,6 +6,10 @@ import 'package:sqflite/sqflite.dart';
 class NXDatabase {
   static const DB_NAME = "main_new18.db";
 
+  Future getDbInstance() async {
+    return openDatabase(DB_NAME);
+  }
+
   final database =
       openDatabase(DB_NAME, version: 1, onCreate: (db, version) async {
     var batch = db.batch();

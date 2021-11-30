@@ -1,4 +1,5 @@
 import 'package:bubble_gum/HomePagePre.dart';
+import 'package:bubble_gum/data/nxbus/modules/nx_tickets.dart';
 import 'package:bubble_gum/data/nxbus/nxdb.dart';
 import 'package:bubble_gum/src/splash.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +22,12 @@ void main() async {
   NXHelp().runInit();
 
   runApp(Phoenix(
-      child: Provider(
-    create: (ctx) => NXDatabase(),
+      child: MultiProvider(
+    providers: [
+      Provider(create: (_) => NXDatabase()),
+      Provider(create: (_) => NxTickets()),
+    ],
     child: getHomeFuture(),
-    dispose: (context, db) => db.close(),
   )));
 }
 
