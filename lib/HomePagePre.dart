@@ -51,6 +51,7 @@ class HomePagePrestate extends State<HomePagePre>
         if (sh.getBool(SettingsPrefKeys.startUpSetup) == null) {
           if (sh.getBool(SettingsPrefKeys.setupDisclaimer) == true) {
             //if disclaimer is true move on to a new quick menu
+            return Nxfront();
             return AfterDisclaimer();
           } else {
             return NewSetupv3();

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bubble_gum/src/main.dart';
 import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 import 'package:bubble_gum/src/v2/models/sharedprefkey/main.dart';
+import 'package:bubble_gum/src/v2/pages/nxfront.dart';
 import 'package:bubble_gum/src/v3/advancedSetupC/options/defaultHomePageOption.dart';
 import 'package:bubble_gum/src/v3/advancedSetupC/options/ejectionSettingOption.dart';
 import 'package:bubble_gum/src/v7/afterDisclaimerQuickMenu.dart';
@@ -189,68 +190,9 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                   textAlign: TextAlign.center)
                     ],
                   ),
-                  Image.asset("images/v7/startup.png"),
-                  Container(
-                    height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-                    padding: EdgeInsets.only(left: 3, right: 3, top: 3),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 2, color: Colors.yellow),
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.white,
-                    ),
-                    child: Row(
-                      children: [
-                        SizedBox(width: 20),
-                        GestureDetector(
-                          onTap: () {
-                            if (fontSize <= 5) {
-                            } else {
-                              setState(() {
-                                fontSize--;
-                              });
-                            }
-                          },
-                          child: CircleAvatar(
-                            child: Icon(Icons.exposure_minus_1,
-                                color: Colors.white),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "$fontSize",
-                              style: GoogleFonts.roboto(fontSize: 20),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            if (fontSize >= 30) {
-                            } else {
-                              setState(() {
-                                fontSize++;
-                              });
-                            }
-                          },
-                          child: CircleAvatar(
-                              child: Icon(Icons.exposure_plus_1,
-                                  color: Colors.white)),
-                        ),
-                        SizedBox(width: 20),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 2),
-                  Text(
-                    "(Font Control) ^",
-                    style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 10,
-                        fontStyle: FontStyle.italic),
-                  ),
-                  SizedBox(height: 5),
+                  // Image.asset("images/v7/startup.png"),
+
+                  SizedBox(height: 15),
                   widget.hideDetails
                       ? Container()
                       : (isDisclaimer == true)
@@ -324,8 +266,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                AfterDisclaimer()));
+                                            builder: (context) => Nxfront()));
                                   },
                                 ),
                                 ElevatedButton(
