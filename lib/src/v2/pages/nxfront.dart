@@ -80,7 +80,7 @@ class NxfrontState extends State<Nxfront> {
                             title: "Singles & Daysavers",
                             icon: Image.asset(
                               "images/v7/v7ticketone.png",
-                              width: 40,
+                              width: 30,
                             ),
                             child: SelectTicket(),
                           ),
@@ -93,7 +93,20 @@ class NxfrontState extends State<Nxfront> {
                             title: "NX 1 Week and 4 Week",
                             icon: Image.asset(
                               "images/v7/v7tickettwo.png",
-                              width: 40,
+                              width: 30,
+                            ),
+                            child: Offers(),
+                          ),
+                          SizedBox(
+                            height: spaceApart,
+                          ),
+                          NXItem(
+                            heightOf: heightOf,
+                            letterSpaceing: _letterSpaceing,
+                            title: "Multi Operator 1 Week and 4 Week",
+                            icon: Image.asset(
+                              "images/v7/v7tickettwo.png",
+                              width: 30,
                             ),
                             child: Offers(),
                           ),
@@ -121,21 +134,21 @@ class NxfrontState extends State<Nxfront> {
                                   ]),
                               child: Row(children: <Widget>[
                                 SizedBox(
-                                  width: 10,
+                                  width: 15,
                                 ),
                                 Image.asset(
-                                  "images/wallet.png",
+                                  "images/v7/v7wallet.png",
                                   width: 30,
                                 ),
                                 SizedBox(
-                                  width: 10,
+                                  width: 15,
                                 ),
                                 Text(
                                   "Ticket wallet",
                                   style: GoogleFonts.roboto(
                                       letterSpacing: _letterSpaceing,
                                       color: Colors.black,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w700,
                                       fontSize: 18),
                                 ),
                                 Expanded(
@@ -151,40 +164,7 @@ class NxfrontState extends State<Nxfront> {
                           SizedBox(
                             height: 3,
                           ),
-                          isShowTicket == true
-                              ? FutureBuilder(
-                                  future:
-                                      NXHelp().buyDefaultTicketAndActivatev2(),
-                                  builder: (ctx, snapshot) {
-                                    print(snapshot.data);
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.waiting) {
-                                      return CircularProgressIndicator();
-                                    } else {
-                                      return ShowTicketOnNx(
-                                        sizeW: sizeW,
-                                        defaultTicketid: snapshot.data,
-                                        requestRefresh: (id) {
-                                          if (mounted) {
-                                            setState(() {
-                                              isShowTicket = false;
-                                            });
-                                          }
-
-                                          Future.delayed(Duration(seconds: 1),
-                                              () {
-                                            if (mounted) {
-                                              setState(() {
-                                                isShowTicket = true;
-                                              });
-                                            }
-                                          });
-                                        },
-                                      );
-                                    }
-                                  },
-                                )
-                              : Container(),
+                          NoTicketWalletState(),
                           SizedBox(
                             height: spaceApart,
                           ),
@@ -222,6 +202,44 @@ class NxfrontState extends State<Nxfront> {
   }
 }
 
+class NoTicketWalletState extends StatelessWidget {
+  const NoTicketWalletState({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(123, 23, 17, 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      height: 70,
+      child: Row(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width * 0.20,
+            color: Colors.transparent,
+          ),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: Text(
+              "Your top tickets will appear here for quick access",
+              style: GoogleFonts.roboto(
+                letterSpacing: 0.8,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 15,
+              ),
+            ),
+          ))
+        ],
+      ),
+    );
+  }
+}
+
 class NXItem extends StatefulWidget {
   final String title;
   final Image icon;
@@ -255,7 +273,7 @@ class _NXItemState extends State<NXItem> {
         );
       },
       child: Container(
-        width: 380,
+        width: MediaQuery.of(context).size.width * 0.99,
         height: widget.heightOf,
         decoration: BoxDecoration(
             color: Colors.white,
@@ -267,26 +285,26 @@ class _NXItemState extends State<NXItem> {
             ]),
         child: Row(children: <Widget>[
           SizedBox(
-            width: 10,
+            width: 15,
           ),
           widget.icon,
           SizedBox(
-            width: 6,
+            width: 15,
           ),
-          Text(
-            widget.title,
-            style: GoogleFonts.roboto(
-                letterSpacing: widget._letterSpaceing,
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-                fontSize: 18),
-          ),
-          Expanded(
-            child: Text(""),
+          Flexible(
+            fit: FlexFit.tight,
+            child: Text(
+              widget.title,
+              style: GoogleFonts.roboto(
+                  letterSpacing: widget._letterSpaceing,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18),
+            ),
           ),
           Image.asset("images/rightarrow.png", width: 35),
           SizedBox(
-            width: 4,
+            width: 8,
           )
         ]),
       ),
