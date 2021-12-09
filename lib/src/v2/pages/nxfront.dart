@@ -36,16 +36,16 @@ class NxfrontState extends State<Nxfront> {
   void initState() {
     super.initState();
 
-    //call method to grab a preactivated default ticket useful
-    NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
-      print(preactivatedid);
-      //   setState(() {
-      //   //   defaultTicketid = preactivatedid['ticketid'];
-      //   //   state = preactivatedid['state'];
-      //   //   tickettype = preactivatedid['tickettype'];
-      //   // });
-      // });
-    });
+    // //call method to grab a preactivated default ticket useful
+    // NXHelp().buyAndActivateDefaultTicket().then((preactivatedid) {
+    //   print(preactivatedid);
+    //   //   setState(() {
+    //   //   //   defaultTicketid = preactivatedid['ticketid'];
+    //   //   //   state = preactivatedid['state'];
+    //   //   //   tickettype = preactivatedid['tickettype'];
+    //   //   // });
+    //   // });
+    // });
   }
 
   @override
@@ -426,41 +426,54 @@ class NxFrontTopBarState extends State<NXFront_TopBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-          height: 60,
+        child: Column(children: <Widget>[
+      Container(
+          height: 55,
           width: MediaQuery.of(context).size.width,
           color: Colors.white,
-          child: Stack(
-            alignment: Alignment.centerRight,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: Center(
-                  child: Image.asset(
-                    "images/v4/header.png",
-                    width: 300,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Stack(
+              alignment: Alignment.centerRight,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Center(
+                    child: Image.asset(
+                      "images/v4/header.png",
+                      width: 300,
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onLongPress: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AfterDisclaimer()));
-                },
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UtilitiesMenu()));
-                },
-                child: Image.asset(
-                  "images/v3/menu_icon.png",
-                  width: 50,
-                  height: 25,
-                ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: GestureDetector(
+                    onLongPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AfterDisclaimer()));
+                    },
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => UtilitiesMenu()));
+                    },
+                    child: Image.asset(
+                      "images/v3/menu_icon.png",
+                      width: 50,
+                      height: 22,
+                    ),
+                  ),
+                )
+              ],
+            ),
           )),
-    );
+      Container(
+        height: 3,
+        color: Color.fromRGBO(220, 220, 220, 1),
+      ),
+    ]));
   }
 }

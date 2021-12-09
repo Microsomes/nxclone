@@ -16,7 +16,7 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
         Color.fromRGBO(0, 0, 0, 1), // navigation bar color
-    statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
+    statusBarColor: Color.fromRGBO(169, 27, 26, 1), // status bar color
   ));
 
   NXHelp().runInit();
