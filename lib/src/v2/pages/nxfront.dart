@@ -218,8 +218,16 @@ class NoTicketWalletState extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * 0.20,
+            width: MediaQuery.of(context).size.width * 0.18,
             color: Colors.transparent,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 15.0, top: 15.0, bottom: 15.0, right: 5),
+              child: Image.asset(
+                "images/v7/ticketwalletv7nowalletstate.png",
+                width: 30,
+              ),
+            ),
           ),
           Expanded(
               child: Padding(
