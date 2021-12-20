@@ -1,7 +1,12 @@
+import 'package:bubble_gum/src/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketPageHasBeenUpdated extends StatelessWidget {
+  void goToHome(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (ctx) => Nxfront()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,24 +47,29 @@ class TicketPageHasBeenUpdated extends StatelessWidget {
                   color: Colors.transparent,
                   height: 90,
                   child: Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color.fromRGBO(169, 27, 26, 1),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color.fromRGBO(185, 147, 146, 1),
-                                offset: const Offset(0.0, 2.0)),
-                          ]),
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: 65,
-                      child: Center(
-                        child: Text(
-                          "Done",
-                          style: GoogleFonts.roboto(
-                              color: Colors.white,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold),
+                    child: InkWell(
+                      onTap: () {
+                        this.goToHome(context);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromRGBO(169, 27, 26, 1),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromRGBO(185, 147, 146, 1),
+                                  offset: const Offset(0.0, 2.0)),
+                            ]),
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: 65,
+                        child: Center(
+                          child: Text(
+                            "Done",
+                            style: GoogleFonts.roboto(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),
@@ -68,21 +78,26 @@ class TicketPageHasBeenUpdated extends StatelessWidget {
               ],
             ),
           )),
-          Container(
-            height: 90,
-            color: Colors.transparent,
-            child: Row(
-              children: [
-                Expanded(child: Container()),
-                Text(
-                  "SKIP",
-                  style: GoogleFonts.roboto(
-                      color: Color.fromRGBO(142, 61, 60, 1), fontSize: 17),
-                ),
-                SizedBox(
-                  width: 20,
-                )
-              ],
+          GestureDetector(
+            onTap: () {
+              this.goToHome(context);
+            },
+            child: Container(
+              height: 90,
+              color: Colors.transparent,
+              child: Row(
+                children: [
+                  Expanded(child: Container()),
+                  Text(
+                    "SKIP",
+                    style: GoogleFonts.roboto(
+                        color: Color.fromRGBO(142, 61, 60, 1), fontSize: 17),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  )
+                ],
+              ),
             ),
           )
         ],

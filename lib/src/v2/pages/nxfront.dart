@@ -54,160 +54,167 @@ class NxfrontState extends State<Nxfront> {
     final sizeW = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () {
-        Navigator.pop(context);
+        //Navigator.pop(context);
         return;
       },
-      child: Scaffold(
-          body: Container(
-              height: 1000,
-              width: double.infinity,
-              color: Color.fromRGBO(169, 27, 26, 1),
-              child: Column(
-                children: <Widget>[
-                  NXFront_TopBar(),
-                  Expanded(
-                      child: SingleChildScrollView(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.95,
-                      color: Colors.transparent,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 15,
-                          ),
-                          NXItem(
-                            letterSpaceing: _letterSpaceing,
-                            heightOf: heightOf,
-                            title: "Singles & Daysavers",
-                            icon: Image.asset(
-                              "images/v7/v7ticketone.png",
-                              width: 30,
+      child: WillPopScope(
+        onWillPop: () async {
+          return false;
+        },
+        child: Scaffold(
+            body: Container(
+                height: 1000,
+                width: double.infinity,
+                color: Color.fromRGBO(169, 27, 26, 1),
+                child: Column(
+                  children: <Widget>[
+                    NXFront_TopBar(),
+                    Expanded(
+                        child: SingleChildScrollView(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        color: Colors.transparent,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 15,
                             ),
-                            child: SelectTicket(),
-                          ),
-                          SizedBox(
-                            height: spaceApart,
-                          ),
-                          NXItem(
-                            heightOf: heightOf,
-                            letterSpaceing: _letterSpaceing,
-                            title: "NX 1 Week and 4 Week",
-                            icon: Image.asset(
-                              "images/v7/v7tickettwo.png",
-                              width: 30,
+                            NXItem(
+                              letterSpaceing: _letterSpaceing,
+                              heightOf: heightOf,
+                              title: "Singles & Daysavers",
+                              icon: Image.asset(
+                                "images/v7/v7ticketone.png",
+                                width: 30,
+                              ),
+                              child: SelectTicket(),
                             ),
-                            child: Offers(),
-                          ),
-                          SizedBox(
-                            height: spaceApart,
-                          ),
-                          NXItem(
-                            heightOf: heightOf,
-                            letterSpaceing: _letterSpaceing,
-                            title: "Multi Operator 1 Week and 4 Week",
-                            icon: Image.asset(
-                              "images/v7/bus2.jpeg",
-                              width: 30,
+                            SizedBox(
+                              height: spaceApart,
                             ),
-                            child: Offers(),
-                          ),
-                          SizedBox(
-                            height: spaceApart,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TicketWalletV2()),
-                              );
-                            },
-                            child: Container(
-                              width: 370,
-                              height: heightOf,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(215, 216, 218, 1),
-                                        offset: new Offset(0, 3))
-                                  ]),
-                              child: Row(children: <Widget>[
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Image.asset(
-                                  "images/v7/v7wallet.png",
-                                  width: 30,
-                                ),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Text(
-                                  "Ticket wallet",
-                                  style: GoogleFonts.roboto(
-                                      letterSpacing: _letterSpaceing,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 18),
-                                ),
-                                Expanded(
-                                  child: Text(""),
-                                ),
-                                Image.asset("images/rightarrow.png", width: 35),
-                                SizedBox(
-                                  width: 4,
-                                )
-                              ]),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 3,
-                          ),
-                          NoTicketWalletState(),
-                          SizedBox(
-                            height: spaceApart,
-                          ),
-                          NXItem(
+                            NXItem(
                               heightOf: heightOf,
                               letterSpaceing: _letterSpaceing,
-                              title: "Trip tools",
+                              title: "NX 1 Week and 4 Week",
                               icon: Image.asset(
-                                "images/triptool.png",
-                                width: 50,
+                                "images/v7/v7tickettwo.png",
+                                width: 30,
                               ),
-                              child: Triptools()),
-                          SizedBox(
-                            height: spaceApart,
-                          ),
-                          NXItem(
+                              child: Offers(),
+                            ),
+                            SizedBox(
+                              height: spaceApart,
+                            ),
+                            NXItem(
                               heightOf: heightOf,
                               letterSpaceing: _letterSpaceing,
-                              title: "Help",
+                              title: "Multi Operator 1 Week and 4 Week",
                               icon: Image.asset(
-                                "images/ottom.png",
-                                width: 50,
+                                "images/v7/bus2.jpeg",
+                                width: 30,
                               ),
-                              child: Help()),
-                          SizedBox(
-                            height: 100,
-                          ),
-                          Container(
-                            height: 100,
-                            child: Center(
-                              child: Image.asset(
-                                "images/v7/poweredbyjustride.jpeg",
-                                width: 200,
+                              child: Offers(),
+                            ),
+                            SizedBox(
+                              height: spaceApart,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TicketWalletV2()),
+                                );
+                              },
+                              child: Container(
+                                width: 370,
+                                height: heightOf,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color:
+                                              Color.fromRGBO(215, 216, 218, 1),
+                                          offset: new Offset(0, 3))
+                                    ]),
+                                child: Row(children: <Widget>[
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Image.asset(
+                                    "images/v7/v7wallet.png",
+                                    width: 30,
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text(
+                                    "Ticket wallet",
+                                    style: GoogleFonts.roboto(
+                                        letterSpacing: _letterSpaceing,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 18),
+                                  ),
+                                  Expanded(
+                                    child: Text(""),
+                                  ),
+                                  Image.asset("images/rightarrow.png",
+                                      width: 35),
+                                  SizedBox(
+                                    width: 4,
+                                  )
+                                ]),
                               ),
                             ),
-                          )
-                        ],
+                            SizedBox(
+                              height: 3,
+                            ),
+                            NoTicketWalletState(),
+                            SizedBox(
+                              height: spaceApart,
+                            ),
+                            NXItem(
+                                heightOf: heightOf,
+                                letterSpaceing: _letterSpaceing,
+                                title: "Trip tools",
+                                icon: Image.asset(
+                                  "images/triptool.png",
+                                  width: 50,
+                                ),
+                                child: Triptools()),
+                            SizedBox(
+                              height: spaceApart,
+                            ),
+                            NXItem(
+                                heightOf: heightOf,
+                                letterSpaceing: _letterSpaceing,
+                                title: "Help",
+                                icon: Image.asset(
+                                  "images/ottom.png",
+                                  width: 50,
+                                ),
+                                child: Help()),
+                            SizedBox(
+                              height: 100,
+                            ),
+                            Container(
+                              height: 100,
+                              child: Center(
+                                child: Image.asset(
+                                  "images/v7/poweredbyjustride.jpeg",
+                                  width: 200,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  )),
-                ],
-              ))),
+                    )),
+                  ],
+                ))),
+      ),
     );
   }
 }
