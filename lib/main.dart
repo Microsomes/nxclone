@@ -2,6 +2,8 @@ import 'package:bubble_gum/HomePagePre.dart';
 import 'package:bubble_gum/data/nxbus/modules/nx_tickets.dart';
 import 'package:bubble_gum/data/nxbus/nxdb.dart';
 import 'package:bubble_gum/src/splash.dart';
+import 'package:bubble_gum/src/v2/pages/menupage/profile/LoginIn.dart';
+import 'package:bubble_gum/src/v2/pages/menupage/profile/components/newAccount.dart';
 import 'package:bubble_gum/src/v8/ticket_page_has_been_updated.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -49,7 +51,9 @@ Widget getHomeFuture() {
               brightness: Brightness.dark,
               textTheme: GoogleFonts.robotoTextTheme(),
             ),
-            home: TicketPageHasBeenUpdated());
+            home: MyProfile());
+
+        //TicketPageHasBeenUpdated());
 
         // HomePagePre());
       }

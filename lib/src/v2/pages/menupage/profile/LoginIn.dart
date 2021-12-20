@@ -108,8 +108,10 @@ class _MyProfileState extends State<MyProfile> {
               ),
             ),
             Expanded(
-              child: Container(
-                child: isTickets ? LoginSection() : SignUpSection(),
+              child: SingleChildScrollView(
+                child: Container(
+                  child: isTickets ? LoginSection() : SignUpSection(),
+                ),
               ),
             )
           ],

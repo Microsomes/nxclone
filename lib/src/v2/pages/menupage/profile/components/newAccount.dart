@@ -7,6 +7,10 @@ class SignUpSection extends StatefulWidget {
 }
 
 class _SignUpSectionState extends State<SignUpSection> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,6 +30,12 @@ class _SignUpSectionState extends State<SignUpSection> {
           ),
           Container(
             height: 40,
+            child: Center(
+              child: TextField(
+                decoration: InputDecoration.collapsed(hintText: ""),
+                scrollPadding: EdgeInsets.only(left: 5),
+              ),
+            ),
             decoration: BoxDecoration(
                 color: Color.fromRGBO(240, 240, 240, 1),
                 border: Border(
@@ -46,12 +56,9 @@ class _SignUpSectionState extends State<SignUpSection> {
           SizedBox(
             height: 10,
           ),
-          Text("Passwords should be at least 8 characters long and include a number, a lowercase and an uppercase letter.",
-          style: GoogleFonts.roboto(
-            color: Colors.black45,
-            fontSize: 16
-
-          ),
+          Text(
+            "Passwords should be at least 8 characters long and include a number, a lowercase and an uppercase letter.",
+            style: GoogleFonts.roboto(color: Colors.black45, fontSize: 16),
           ),
           SizedBox(
             height: 5,
@@ -64,7 +71,6 @@ class _SignUpSectionState extends State<SignUpSection> {
                     bottom: BorderSide(
                         color: Color.fromRGBO(215, 216, 218, 1), width: 2))),
           ),
-
           SizedBox(
             height: 10,
           ),
@@ -76,7 +82,7 @@ class _SignUpSectionState extends State<SignUpSection> {
               ),
             ],
           ),
-          SizedBox(height:10),
+          SizedBox(height: 10),
           Container(
             height: 40,
             decoration: BoxDecoration(
@@ -85,7 +91,6 @@ class _SignUpSectionState extends State<SignUpSection> {
                     bottom: BorderSide(
                         color: Color.fromRGBO(215, 216, 218, 1), width: 2))),
           ),
-
           SizedBox(
             height: 50,
           ),
@@ -103,18 +108,14 @@ class _SignUpSectionState extends State<SignUpSection> {
                   ),
                 ]),
             child: Center(
-              child: Text("Create new account",
-              style: GoogleFonts.roboto(
-                fontSize: 20,
-                color: Color.fromRGBO(136,136,136,1)
-              ),
+              child: Text(
+                "Create new account",
+                style: GoogleFonts.roboto(
+                    fontSize: 20, color: Color.fromRGBO(136, 136, 136, 1)),
               ),
             ),
-          )
-,
-SizedBox(height:40),
-         
-        
+          ),
+          SizedBox(height: 40),
         ],
       ),
     );
