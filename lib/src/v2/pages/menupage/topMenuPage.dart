@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import './socialMediaPage.dart';
@@ -22,26 +23,27 @@ void launchURL(String url) async {
 }
 
 class UtilitiesMenuState extends State<UtilitiesMenu> {
+  bool isLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    SharedPreferences.getInstance().then((value) {
+      value.setBool("is_logged_in", true);
+      if (value.get("is_logged_in") != null) {
+        isLoggedIn = true;
+        setState(() {});
+      } else {
+        print("user is not logged in");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: Colors.white,
-        //   leading: InkWell(
-        //       onTap: () {
-        //         Navigator.pop(context, true);
-        //       },
-        //       child: PreferredSize(
-        //           preferredSize: Size.fromHeight(500),
-        //           child: Image.asset("images/leftarrow.png", width: 4))),
-        //   title: Center(
-        //     child: Text(
-        //       "Utilities",
-        //       style: TextStyle(color: Color.fromRGBO(189, 156, 106, 1)),
-        //     ),
-        //   ),
-        // ),
         body: Container(
       height: double.infinity,
       width: sizeW,
@@ -62,7 +64,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
                             style: GoogleFonts.roboto(
                                 color: Color.fromRGBO(189, 156, 106, 1),
                                 fontWeight: FontWeight.w700,
-                                fontSize: 16)),
+                                fontSize: 17)),
                       ),
                       height: 55,
                       color: Colors.white,
@@ -90,12 +92,12 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               ],
             ),
             SizedBox(
-              height: 3,
+              height: 5,
             ),
             NavItem(
               image: Image.asset(
                 "images/v3/people.png",
-                width: 30,
+                width: 25,
               ),
               onTap: () {
                 print("profile page");
@@ -104,6 +106,22 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               },
               name: "My Profile",
             ),
+            SizedBox(
+              height: 10,
+            ),
+            isLoggedIn == true
+                ? NavItem(
+                    image: Image.asset(
+                      "images/v7/marketingicon_1.jpeg",
+                      width: 22,
+                    ),
+                    onTap: () {
+                      launchURL(
+                          "https://nxbusportal.co.uk/masabi/?appid&accountid");
+                    },
+                    name: "Marketing Preferences",
+                  )
+                : Container(),
             SizedBox(
               height: 10,
             ),
@@ -120,7 +138,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               ],
             ),
             SizedBox(
-              height: 3,
+              height: 5,
             ),
             NavItem(
               onTap: () {
@@ -128,12 +146,12 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               },
               image: Image.asset(
                 "images/v3/pointer.png",
-                width: 30,
+                width: 23,
               ),
               name: "nxbus.co.uk",
             ),
             SizedBox(
-              height: 13,
+              height: 10,
             ),
             NavItem(
               onTap: () {
@@ -142,12 +160,12 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               },
               image: Image.asset(
                 "images/v3/thumb.png",
-                width: 30,
+                width: 25,
               ),
               name: "Social Media",
             ),
             SizedBox(
-              height: 13,
+              height: 10,
             ),
             NavItem(
               onTap: () {
@@ -156,7 +174,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               },
               image: Image.asset(
                 "images/v3/scan.png",
-                width: 30,
+                width: 25,
               ),
               name: "Payzone Barcode",
             ),
@@ -199,7 +217,7 @@ class NavItem extends StatelessWidget {
             ]),
         child: Row(children: <Widget>[
           SizedBox(
-            width: 10,
+            width: 20,
           ),
           // Icon(
           //   Icons.account_circle,
@@ -208,7 +226,7 @@ class NavItem extends StatelessWidget {
           // ),
           image,
           SizedBox(
-            width: 10,
+            width: 25,
           ),
           Expanded(
             child: Text(

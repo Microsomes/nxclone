@@ -11,6 +11,7 @@ import 'package:bubble_gum/src/v2/helper/NxHelp.dart';
 import 'package:bubble_gum/src/v2/pages/ticket.dart';
 import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'menupage/topMenuPage.dart';
 
@@ -190,7 +191,16 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               child: Help()),
                           SizedBox(
-                            height: 300,
+                            height: 120,
+                          ),
+                          Container(
+                            height: 120,
+                            child: Center(
+                              child: Image.asset(
+                                "images/v7/poweredbyjustride.jpeg",
+                                width: 200,
+                              ),
+                            ),
                           )
                         ],
                       ),
@@ -483,8 +493,14 @@ class NxFrontTopBarState extends State<NXFront_TopBar> {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => UtilitiesMenu()));
+                          PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              child: UtilitiesMenu()));
+
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => UtilitiesMenu()));
                     },
                     child: Image.asset(
                       "images/v3/menu_icon.png",
@@ -496,10 +512,7 @@ class NxFrontTopBarState extends State<NXFront_TopBar> {
               ],
             ),
           )),
-      Container(
-        height: 3,
-        color: Color.fromRGBO(220, 220, 220, 1),
-      ),
+      Container(height: 3, color: Colors.pink),
     ]));
   }
 }
