@@ -2,7 +2,15 @@ import 'package:bubble_gum/src/v2/pages/ticketv2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginSection extends StatelessWidget {
+class LoginSection extends StatefulWidget {
+  @override
+  State<LoginSection> createState() => _LoginSectionState();
+}
+
+class _LoginSectionState extends State<LoginSection> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   void forgotPasswordDialog(BuildContext context) {
     showDialog(
         context: context,
@@ -31,6 +39,12 @@ class LoginSection extends StatelessWidget {
             height: 5,
           ),
           Container(
+            child: Center(
+              child: TextField(
+                controller: emailController,
+                decoration: InputDecoration.collapsed(hintText: ""),
+              ),
+            ),
             height: 40,
             decoration: BoxDecoration(
                 color: Color.fromRGBO(240, 240, 240, 1),
@@ -116,7 +130,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 280,
+      width: MediaQuery.of(context).size.width * .7,
       child: Column(
         children: [
           Text(
@@ -131,6 +146,65 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             "Please enter your email",
             style:
                 GoogleFonts.roboto(fontWeight: FontWeight.normal, fontSize: 16),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 40,
+            decoration: BoxDecoration(
+                color: Colors.transparent,
+                border: Border.all(
+                    color: Color.fromRGBO(188, 83, 83, 1), width: 2)),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            child: Center(
+              child: Text(
+                "Cancel",
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(48, 51, 57, 1)),
+              ),
+            ),
+            height: 55,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.transparent,
+                border: Border.all(
+                    color: Color.fromRGBO(188, 83, 83, 1), width: 2)),
+          ),
+          Container(
+            color: Colors.transparent,
+            height: 90,
+            child: Center(
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromRGBO(169, 27, 26, 1),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromRGBO(185, 147, 146, 1),
+                            offset: const Offset(0.0, 2.0)),
+                      ]),
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 65,
+                  child: Center(
+                    child: Text(
+                      "OK",
+                      style: GoogleFonts.roboto(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           )
         ],
       ),
