@@ -30,7 +30,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
     super.initState();
 
     SharedPreferences.getInstance().then((value) {
-      value.setBool("is_logged_in", true);
+      value.setBool("is_logged_in", false);
       if (value.get("is_logged_in") != null) {
         isLoggedIn = true;
         setState(() {});

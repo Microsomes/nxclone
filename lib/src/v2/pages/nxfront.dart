@@ -106,7 +106,7 @@ class NxfrontState extends State<Nxfront> {
                             letterSpaceing: _letterSpaceing,
                             title: "Multi Operator 1 Week and 4 Week",
                             icon: Image.asset(
-                              "images/v7/v7tickettwo.png",
+                              "images/v7/bus2.jpeg",
                               width: 30,
                             ),
                             child: Offers(),
@@ -191,10 +191,10 @@ class NxfrontState extends State<Nxfront> {
                               ),
                               child: Help()),
                           SizedBox(
-                            height: 120,
+                            height: 100,
                           ),
                           Container(
-                            height: 120,
+                            height: 100,
                             child: Center(
                               child: Image.asset(
                                 "images/v7/poweredbyjustride.jpeg",
