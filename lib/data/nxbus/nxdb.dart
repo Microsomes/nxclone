@@ -14,8 +14,19 @@ class NXDatabase {
       openDatabase(DB_NAME, version: 1, onCreate: (db, version) async {
     var batch = db.batch();
 
+    //create nx_tickets table
     batch.rawQuery(
         'CREATE TABLE nx_tickets(id integer AUTO_INCREMENT, name text NOT NULL, price text NOT NULL, subline text NOT NULL, parentCatrgory text NOT NULL, childCategory text NOT NULL, PRIMARY KEY(id))');
+
+    //create user account table, to store registered accounts
+
+    batch.rawQuery(
+        'CREATE TABLE nx_account(id integer AUTO_INCREMENT,PRIMARY KEY(id), emailAddress text, password text)');
+
+    //create ticket wallet table to store purchased tickets
+
+    batch.rawQuery(
+        'CREATE TABLE nx_wallet(id integer AUTO_INCREMENT,PRIMARY KEY(id), ticketid integer, purchased TIMESTAMP DEFAULT CURRENT_TIMESTAMP)');
 
     final String response = await rootBundle.loadString('assets/tickets.json');
     final data = await json.decode(response);
