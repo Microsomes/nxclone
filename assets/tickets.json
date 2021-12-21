@@ -1,4 +1,31 @@
 {
+	"timeflair":{
+		"Single":{
+			"expiresin":"7days",
+			"activefor":"30min"
+		},
+		"Cricket":{
+			"expiresin":"7days",
+			"activefor":"30min"
+		},
+		"Uni":{
+			"expiresin":"7days",
+			"activefor":"30min"
+		},
+		"All Day":{
+			"expiresin":"99days",
+			"activefor":"24hour"
+		},
+		"Evening":{
+			"expiresin":"99days",
+			"activefor":"24hour"
+		},
+		"Group":{
+			"expiresin":"99days",
+			"activefor":"24hour"
+		}
+	},
+	
 	"sections": {
 		"Singles & Daysavers": {
 			"icon": "",
