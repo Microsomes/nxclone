@@ -1325,12 +1325,100 @@
 					"Adult 4 Week": {
 						"name": "Adult 4 Week",
 						"price": 51.50,
-						"subline": "Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone."
+						"subline": "Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone.",
+						"info": [{
+							"type": "text",
+							"val": "This ticket allows for travel on any services provided by:"
+						},
+						{
+							"type": "list",
+							"val": [
+								"National Express Conventry"
+							]
+						},
+						 {
+							"leading": "For details of our coverage area please visit our website at",
+							"link": {
+								"val": "nxbus.co.uk",
+								"link": "nxbus.co.uk"
+							}
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"This ticket is only valid within the Coventry Area."
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"The ticket is valid immediately and the day of purchase counts as one of your validity days."
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"You may activate each ticket as many times as required during the validity window."
+						},
+						{
+							"type":"line"
+						}
+					]
 					},
 					"Student 4 Week": {
 						"name": "Student 4 Week",
 						"price": 33.00,
-						"subline": "Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone."
+						"subline": "Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone.",
+						"info": [{
+							"type": "text",
+							"val": "This ticket allows for travel on any services provided by:"
+						},
+						{
+							"type": "list",
+							"val": [
+								"National Express Conventry"
+							]
+						},
+						 {
+							"leading": "For details of our coverage area please visit our website at",
+							"link": {
+								"val": "nxbus.co.uk",
+								"link": "nxbus.co.uk"
+							}
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"This ticket is only valid within the Coventry Area."
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"The ticket is valid immediately and the day of purchase counts as one of your validity days."
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"You may activate each ticket as many times as required during the validity window."
+						},
+						{
+							"type":"line"
+						},
+						{
+							"type":"text",
+							"val":"This is a discounted ticket designed for students studying for 12 or more hours per week. You will be asked to provide evidence of your entitlement to student-rate travel and you should carry your college or university issues Student ID card with you for inspection by a member of staff if requested."
+						}
+					]
 					}
 				},
 				"Sandwell & Dudley Low Fare Zone": {
