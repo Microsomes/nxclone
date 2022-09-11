@@ -37,7 +37,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         title: "Day Saver",
         isSetting: true,
         subtitle:
-            "A Daysaver would allow you to use any bus (had it been real the app), any time",
+            "...",
         image: Image.asset(
           "images/v7/v7ticket.png",
         )));
@@ -64,7 +64,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         //images/v7/supply-chain.png
       },
       child: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -85,14 +85,18 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                       ),
                     ),
                   ),
-                  Text(
-                    "V7",
+                
+                  TopImage(),
+                    Text(
+                    "BubbleGum 22",
                     style: GoogleFonts.roboto(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
-                  TopImage(),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Expanded(
                     child: ListView.builder(
                       itemCount: allOptions.length,
@@ -142,7 +146,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                   }
                                 },
                                 title: allOptions[index].title,
-                                subtitle: allOptions[index].subtitle,
                                 image: allOptions[index].image,
                               ),
                               SizedBox(width: 10),
@@ -275,14 +278,14 @@ class OptionWidget extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            Container(
+                            subtitle != null ? Container(
                               alignment: Alignment.center,
                               child: Text(
                                 "$subtitle",
                                 style: GoogleFonts.roboto(fontSize: 12),
                                 textAlign: TextAlign.center,
                               ),
-                            ),
+                            ):Container(),
                           ],
                         )),
                   ],
