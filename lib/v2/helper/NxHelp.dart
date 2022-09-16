@@ -57,11 +57,17 @@ class States {
 }
 
 class TicketType{
+    // ignore: non_constant_identifier_names
   static String TTYPE_BUS_VERIFIED="bus";
+  // ignore: non_constant_identifier_names
   static String TTYPE_BUS="busOLD";
+    // ignore: non_constant_identifier_names
   static String TTYPE_TRAM="tram";
+    // ignore: non_constant_identifier_names
   static String TTYPE_GROUP="group";
+    // ignore: non_constant_identifier_names
   static String TTYPE_STUDENTs="student";
+    // ignore: non_constant_identifier_names
   static String TTYPE_TEST="textticket";
 }
 
@@ -78,6 +84,7 @@ class SimType {
 }
 
 class NXSIGImg {
+    // ignore: non_constant_identifier_names
   static String DAY_SAVER = "";
 }
 
@@ -88,11 +95,12 @@ class SharedPrefKeys {
 class NXHelp {
   List ticketTypes;
 
+  // ignore: non_constant_identifier_names
   static String DB_NAME = "main30.db";
 
   NXHelp() {
     //load and create table
-    ticketTypes = List();
+    ticketTypes = [];
 
     /**
      * Create EDU Fake Ticket
@@ -889,6 +897,7 @@ class NXHelp {
       if (dup.length == 0) {
         print("no dublicates");
         //DO NOT COMMENT THIS CODE OITU ITS VERY IMPORTANT
+        // ignore: unused_local_variable
         var id = await this.addTicket(
             element['title'],
             element['state'],
@@ -1047,10 +1056,8 @@ class NXHelp {
   }
 
   //get tickets by id
-  /**
-   * will grab a ticket by id
-   * i dont know why the fuck i forgot to add this
-   */
+  /// will grab a ticket by id
+  /// i dont know why the fuck i forgot to add this
 
   Future getTicketByID(int id) async {
     var db = await openDatabase(NXHelp.DB_NAME);
@@ -1058,10 +1065,8 @@ class NXHelp {
     return one;
   }
 
-  /**
-   * Return ticket by id, but instead of returning a dynamic map
-   * //return a proper model 
-   */
+  /// Return ticket by id, but instead of returning a dynamic map
+  /// //return a proper model 
   Future getTicketByIDV2(int id) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> one = await db.rawQuery("SELECT * FROM tickets WHERE id=?", [id]);
@@ -1105,7 +1110,7 @@ class NXHelp {
   }
 
   List<DefHomePageModel> getAllDefHomeOptions() {
-    List<DefHomePageModel> allHomePageSettings = new List();
+    List<DefHomePageModel> allHomePageSettings = [];
     allHomePageSettings.add(DefHomePageModel(
         name: "Non Simulated (Home)",
         id: "non_sim_home",
@@ -1255,9 +1260,7 @@ class NXHelp {
     return modifiedList;
   }
 
-  /**
-   * get all tickets that are either used or expired
-   */
+  /// get all tickets that are either used or expired
   Future getAllUsedTicketsv2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
@@ -1316,9 +1319,7 @@ class NXHelp {
   }
 
 
-  /**
-   * Returns all the available tickets in your ticket walletv2
-   */
+  /// Returns all the available tickets in your ticket walletv2
   Future getAllUseableTicketsv2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
     List<Map> allTickets = await db.rawQuery(
@@ -1339,9 +1340,7 @@ class NXHelp {
     return allTicketsA;
   }
 
-  /**
-   * Return all active tickets
-   */
+  /// Return all active tickets
 
   Future getAllActiveTicketsV2() async {
     var db = await openDatabase(NXHelp.DB_NAME);
@@ -1485,9 +1484,7 @@ class NXHelp {
     }
   }
 
-  /**
-   * This funciton will activate tickets for ticketwalletv2
-   */
+  /// This funciton will activate tickets for ticketwalletv2
   Future activeTicketv2({@required id}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
     var currentTime = new DateTime.now().millisecondsSinceEpoch;

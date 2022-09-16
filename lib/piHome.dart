@@ -1,6 +1,4 @@
-import 'dart:math';
 
-import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,10 +7,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'components/piHomeOptions.dart';
 import 'v2/helper/NxHelp.dart';
-import 'v2/main/quickOptions.dart';
-import 'v2/pages/nxfront.dart';
-import 'v2/pages/setupflow.dart';
-import 'v2/pages/ticket.dart';
 import 'v2/pages/ticketv2.dart';
 import 'v3/newSetup.dart';
 import 'package:random_color/random_color.dart';
@@ -90,7 +84,7 @@ class PiHomeState extends State<PiHome> {
 
     super.initState();
 
-    ticketTypes = List<Map>();
+    ticketTypes = [];
 
     ticketTypes.add({"Name": "West Midlands", "Icon": Icons.track_changes});
  
@@ -151,6 +145,7 @@ class PiHomeState extends State<PiHome> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+      // ignore: missing_return
       onWillPop: () async {
         //well were not going back so block that request
       },
@@ -533,7 +528,7 @@ class _ColorSelectorDIalogState extends State<ColorSelectorDIalog> {
 
   @override
   void initState() {
-    randomCols = new List();
+    randomCols = [];
 
     for (var i = 0; i < 100; i++) {
       Color _color = _randomColor.randomColor();

@@ -27,8 +27,8 @@ class Stpagestate extends State<Ticketwallet> {
   @override
   void initState() {
 
-     allUnactivatdTickets = List();
-    allHistoricalTickets = List();
+     allUnactivatdTickets = [];
+    allHistoricalTickets = [];
 
     NXHelp().getAllHistoricalTickets().then((value) {
       allHistoricalTickets = value;
@@ -226,7 +226,7 @@ class _HistoryWalletState extends State<HistoryWallet> {
   void initState() {
     super.initState();
 
-    historicalTickets= List<TicketModel>();
+    historicalTickets= [];
 
     //populate all historical tickets in the model
     widget.allHistoricalTickets.forEach((element) {
@@ -257,6 +257,7 @@ class _HistoryWalletState extends State<HistoryWallet> {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: widget.allHistoricalTickets.length,
+        // ignore: missing_return
         itemBuilder: (context, index) {
           if (widget.allHistoricalTickets[index]['isActive'] ==
               -1) {

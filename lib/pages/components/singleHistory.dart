@@ -1,7 +1,5 @@
 import 'package:BubbleGum/pages/ticketwallet/models/ticketType.dart';
-import 'package:BubbleGum/v2/pages/usedTicketPage.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SingleHistoryInactive extends StatelessWidget {

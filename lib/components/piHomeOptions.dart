@@ -23,7 +23,7 @@ class _PiHomeOptionsState extends State<PiHomeOptions> {
   @override
   void initState() {
     super.initState();
-    allOptions = List<Map>();
+    allOptions = [];
 
     allOptions.add({
       "name": "My Metro (BETA)",

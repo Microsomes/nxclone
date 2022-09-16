@@ -21,6 +21,7 @@ class _StaticTicketColorState extends State<StaticTicketColor> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     random1= _randomColor.randomColor();
     random2= _randomColor.randomColor();

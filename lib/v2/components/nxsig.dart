@@ -97,6 +97,7 @@ class NxsigState extends State<Nxsig> {
       );
     }
 
+    // ignore: dead_code
     return Container(
       decoration: BoxDecoration(
           color: widget.ticketType == "Group Daysaver"

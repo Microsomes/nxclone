@@ -1,7 +1,6 @@
 //init and show nx home screen
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 

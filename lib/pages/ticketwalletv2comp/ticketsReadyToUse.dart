@@ -1,7 +1,6 @@
 import 'package:BubbleGum/components/daysaveractive.dart';
 import 'package:BubbleGum/pages/components/singleInactive.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/ticket.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';

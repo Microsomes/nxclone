@@ -15,11 +15,12 @@ class Faqobj {
   }
 }
 
+// ignore: must_be_immutable
 class FaqPage extends StatelessWidget {
   List<Faqobj> allQuestions;
 
   FaqPage() {
-    allQuestions = new List<Faqobj>();
+    allQuestions = [];
     allQuestions.add(new Faqobj(
         question: "Where can i use my mTicket?",
         answer: "You can use your mTicket on any West Midlands services"));
