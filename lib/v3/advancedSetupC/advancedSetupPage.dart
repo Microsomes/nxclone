@@ -220,7 +220,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                   Container(
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "Please understand this clone app is for educational purposes only!",
+                                      "Please understand this  App is for educational purposes only",
                                       textAlign: TextAlign.center,
                                       style: GoogleFonts.roboto(
                                           fontWeight: FontWeight.bold,
