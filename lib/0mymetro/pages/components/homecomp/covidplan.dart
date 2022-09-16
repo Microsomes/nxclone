@@ -57,12 +57,11 @@ class CovidPlanner extends StatelessWidget{
             margin: EdgeInsets.only(left:20,right:20,bottom: 10),
             child: ButtonTheme(
               minWidth: MediaQuery.of(context).size.width,
-               child: RaisedButton(
-                 shape: RoundedRectangleBorder(
-                   borderRadius: BorderRadius.circular(5)
-                 ),
-
-                color: Color.fromRGBO(1, 117, 202, 1),
+               child: ElevatedButton(
+                style: ButtonStyle(
+                  
+                ),
+              
                 onPressed: (){
 
                 },

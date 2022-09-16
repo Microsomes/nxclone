@@ -90,10 +90,8 @@ class ColorSelectOver {
                   SizedBox(
                     height: 10,
                   ),
-                RaisedButton(
-                    color: Color.fromRGBO(165, 28, 26, 1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                TextButton(
+           
                     child: Center(
                       child: Text(
                         "Go Back to (Main) Home 🏠",

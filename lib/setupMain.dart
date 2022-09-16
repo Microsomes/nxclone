@@ -2,12 +2,9 @@ import 'package:BubbleGum/piHome.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animated_text/animated_text.dart';
-import 'package:cube_transition/cube_transition.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'v2/helper/NxHelp.dart';
-import 'v2/pages/nxfront.dart';
-import 'v2/pages/ticketv2.dart';
+
 
 class StartScreenSetup extends StatefulWidget {
   @override
@@ -51,7 +48,7 @@ class _StartScreenSetupState extends State<StartScreenSetup> {
                 Widget h=PiHome();
                 
                 Navigator.push(
-                    context, PageTransition(child: h,duration: Duration(seconds: 1),type:PageTransitionType.downToUp,alignment: Alignment.topCenter));
+                    context, PageTransition(child: h,duration: Duration(seconds: 1),type:PageTransitionType.bottomToTop,alignment: Alignment.topCenter));
               });
             }
           },

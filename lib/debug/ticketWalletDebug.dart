@@ -68,7 +68,7 @@ class _TicketDebugState extends State<TicketDebug> {
         ),
         body: Column(
           children: [
-            RaisedButton(
+            TextButton(
               onPressed: () {
                 setState(() {
                   isAvailable = !isAvailable;
@@ -77,7 +77,6 @@ class _TicketDebugState extends State<TicketDebug> {
               child: Center(
                 child: Text(isAvailable == true ? "TO ACTIVATE" : "ACTIVATED"),
               ),
-              color: Colors.black,
             ),
             isAvailable == true
                 ? Expanded(child: ShowAvailableTickets(
@@ -97,6 +96,7 @@ class _TicketDebugState extends State<TicketDebug> {
         ));
   }
 }
+
 
 class ShowAvailableTickets extends StatefulWidget {
   final Function onActive;
@@ -293,9 +293,8 @@ class _ShowAvailableTicketsToPurchaseDebugState
                                     snapshot.data[i]['state'].toString(),
                                 textAlign: TextAlign.center,
                               ),
-                              RaisedButton(
+                              TextButton(
                                 child: Text("Pick"),
-                                color: Colors.green,
                                 onPressed: () {
                                   widget.onTicketPicked(snapshot.data[i]['id']);
                                 },

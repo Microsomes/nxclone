@@ -52,27 +52,19 @@ class _MyMetroState extends State<MyMetro> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.train,color: Colors.grey,),
-          title: Text("Home",style: GoogleFonts.roboto(
-                color: Colors.grey
-              ),)
+          label: "Home"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart,color: Colors.grey,),
-              title: Text("Purchase",style: GoogleFonts.roboto(
-                color: Colors.grey
-              ),)
+              label:"Purchase"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.app_settings_alt_rounded,color: Colors.grey,),
-              title: Text("My Tickets",style: GoogleFonts.roboto(
-                  color: Colors.grey
-              ),)
+              label: "My Tickets"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings,color: Colors.grey,),
-              title: Text("Settings",style: GoogleFonts.roboto(
-                  color: Colors.grey
-              ),)
+              label: "Settings"
           ),
 
 
@@ -81,6 +73,7 @@ class _MyMetroState extends State<MyMetro> {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: SingleChildScrollView(
         child: Builder(
+          // ignore: missing_return
           builder: (ctx){
             if(bottomIndex==0){
             return Home();

@@ -592,7 +592,7 @@ class Stpagestate extends State<Stpage> {
           ),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
-            new FlatButton(
+            new TextButton(
               child: new Text("Close"),
               onPressed: () {
                 Navigator.pop(context);

@@ -1,8 +1,6 @@
-import 'package:BubbleGum/v2/pages/setupflow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'advancedSetup.dart';
 import 'advancedSetupC/advancedSetupPage.dart';
 
 class NewSetupv3 extends StatefulWidget {

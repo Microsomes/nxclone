@@ -23,26 +23,24 @@ class HalifaxNav extends StatelessWidget{
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            label:'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.monetization_on),
-            title: Text(
+            label:
               'Apply',
-              style: TextStyle(color: Colors.black),
-            ),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.directions_walk),
-            title: Text('Pay & transfer'),
+            label: 'Pay & transfer',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.help),
-            title: Text('Support'),
+            label: 'Support',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.menu),
-            title: Text('More'),
+            label: 'More'
           ),
         ],
         currentIndex: 0,
