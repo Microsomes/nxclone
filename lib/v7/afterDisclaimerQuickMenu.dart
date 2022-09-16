@@ -40,7 +40,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         isSetting: true,
         type: "dual",
         subtitle:
-            "A Daysaver would allow you to use any bus (had it been real the app), any time",
+            "...",
         image: Image.asset(
           "images/v7/v7ticket.png",
         )));
@@ -333,14 +333,14 @@ class OptionWidget extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            Container(
+                            subtitle != null ? Container(
                               alignment: Alignment.center,
                               child: Text(
                                 "$subtitle",
                                 style: GoogleFonts.roboto(fontSize: 12),
                                 textAlign: TextAlign.center,
                               ),
-                            ),
+                            ):Container(),
                           ],
                         )),
                   ],
