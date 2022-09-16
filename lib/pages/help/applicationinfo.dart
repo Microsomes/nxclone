@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:device_info/device_info.dart';
 
 class ApplicationInfoPage extends StatefulWidget {
   @override
@@ -22,15 +21,15 @@ class _ApplicationInfoPageState extends State<ApplicationInfoPage> {
       applicationIdentifier="AAXPEINFLH7";
     });
 
-    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    // DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
 
-    deviceInfo.androidInfo.then((value) {
-      AndroidDeviceInfo dv = value;
-      setState(() {
-        deviceModel = dv.device;
-        platformName=dv.version.sdkInt.toString();
-      });
-    });
+    // deviceInfo.androidInfo.then((value) {
+    //   AndroidDeviceInfo dv = value;
+    //   setState(() {
+    //     deviceModel = dv.device;
+    //     platformName=dv.version.sdkInt.toString();
+    //   });
+    // });
 
     super.initState();
   }
