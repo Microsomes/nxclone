@@ -16,7 +16,6 @@ import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:screen/screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'overlays/v2/ejectionOverlay.dart';
@@ -79,7 +78,7 @@ class ActualTicketState extends State<ActualTicket> {
 
     print("BLOCKING SCREENSHOTS");
 
-     Screen.setBrightness(1.0);
+    //  Screen.setBrightness(1.0);
 
     // FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE)
     //     .then((value) {
@@ -126,7 +125,7 @@ class ActualTicketState extends State<ActualTicket> {
   void dispose() {
     super.dispose();
 
-    Screen.setBrightness(0.5);
+    // Screen.setBrightness(0.5);
 
     _qrTimer.cancel();
   }
@@ -146,7 +145,7 @@ class ActualTicketState extends State<ActualTicket> {
             print(defaultEjectionID);
           }
         }else{
-          Screen.setBrightness(0.1);
+          // Screen.setBrightness(0.1);
           Future.delayed(Duration(seconds: 1),(){
             Navigator.push(
                               context,
@@ -188,13 +187,14 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                         InkWell(
                           onTap: () {
-                            Screen.setBrightness(0.1).then((value) {
                               Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Nxfront()),
                             );
-                            });
+                            // Screen.setBrightness(0.1).then((value) {
+                            
+                            // });
                           },
                           child: Row(
                             children: <Widget>[

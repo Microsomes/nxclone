@@ -5,7 +5,6 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import './ticketInfo.dart';
-import 'package:screen/screen.dart';
 
 class Ticket extends StatefulWidget {
   @override
@@ -611,8 +610,8 @@ class Stpagestate extends State<Stpage> {
     timerForOpacity.cancel();
     timerForOpacity2.cancel();
 
-    Screen.setBrightness(0.1).then((onValue) {
-    });
+    // Screen.setBrightness(0.1).then((onValue) {
+    // });
   }
 
   double nextOpacity = 2;
@@ -633,11 +632,11 @@ class Stpagestate extends State<Stpage> {
     //make screen brighter
     //set what the curent brightness was
     SharedPreferences.getInstance().then((SharedPreferences pref) {
-      Screen.brightness.then((value) {
-          pref.setDouble("curbrightness", value);
-          Screen.setBrightness(1).then((onValue) {
-         });
-      });
+      // Screen.brightness.then((value) {
+      //     pref.setDouble("curbrightness", value);
+      //     Screen.setBrightness(1).then((onValue) {
+      //    });
+      // });
     });
 
     
@@ -692,7 +691,7 @@ class Stpagestate extends State<Stpage> {
 
     return WillPopScope(
       onWillPop: () async {
-        await Screen.setBrightness(0.1);
+        // await Screen.setBrightness(0.1);
         Future.delayed(Duration(seconds: 1),(){
           Navigator.pop(context);
         });
