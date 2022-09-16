@@ -102,7 +102,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             child: Row(
                           children: <Widget>[
                             Flexible(
-                                child: new Text("Welcome to BubbleGum 2022",
+                                child: new Text("Welcome to Bubble Gum 2022",
                                     style: GoogleFonts.roboto(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700,
@@ -256,7 +256,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         boxShadow: [
                           BoxShadow(
                             color:
-                                Colors.grey.withOpacity(0.5), //color of shadow
+                                Colors.grey.withOpacity(0.1), //color of shadow
                             spreadRadius: 5, //spread radius
                             blurRadius: 7, // blur radius
                             offset: Offset(0, 2), // changes position of shadow
@@ -267,7 +267,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         //you can set more BoxShadow() here
 
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(5)),
                   ))
                 ],
               )),
