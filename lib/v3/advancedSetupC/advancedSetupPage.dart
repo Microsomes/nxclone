@@ -41,15 +41,13 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   bool isReadySetup = false;
 
-
   bool defHome = false;
   bool defTicket = false;
   bool defEjection = false;
 
   Timer mainTimer;
 
-
-  int fontSize=15;
+  int fontSize = 20;
   //global font size
 
   @override
@@ -107,332 +105,294 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
     super.initState();
   }
 
-  var isV6=false;
+  var isV6 = false;
   //dirty code
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () {
         return null;
       },
-          child: SingleChildScrollView(
-        child: isV6==true ? Container(): Column(
-          children: [
-           isDisclaimer==false ? Container(): Text(
-              "NOTE. Emergency patch commencing. 12/6/2021 We have updated the app and only the Anytime daysaver is advisable. Click the recommended config button to continue. Or you can yolo it up to you",
-              style: GoogleFonts.aBeeZee(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-              textAlign: TextAlign.center,
-            ),
-           isDisclaimer==false ? Container(): TextButton(
-
-              onPressed: () async {
-                setState(() {
-                  isV6=true;
-                });
-                var anytime = await NXHelp().getTicketsByTag("V6");
-                var anytimeid = anytime[0]['id'];
-
-                //set default home on behalf of user
-                SharedPreferences.getInstance().then((pref) {
-                  //sets default home page
-                  pref.setString("def_home_adv", "sim_ticket_view");
-
-                  //sets default ticket
-                  pref.setInt("def_ticket_adv_id", anytimeid);
-                  pref.setString(
-                      "def_ticket_adv_name", anytime[0]['tickettitle']);
-                  pref.setString("def_ticket_adv_state", anytime[0]['state']);
-
-                  //set ejection settings
-                  pref.setString(
-                                      "ejected_setting_adv", "nothing");
-                });
-
-                Future.delayed(Duration(seconds: 1),(){
-                  setState(() {
-                    isV6=false;
-                  });
-                });
-              },
-              child: Text("V6 Patch Default<- Highly Recommended"),
-            ),
-            widget.hideDetails
-                ? Container()
-                : SizedBox(
-                    height: 0,
-                  ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                widget.hideDetails
-                    ? Container()
-                    : SizedBox(
-                        width: 30,
-                      ),
-                widget.hideDetails
-                    ? Container()
-                    : (isDisclaimer==true) ? Container() :Text(
-                        "First time Setup",
-                        style:
-                            GoogleFonts.roboto(fontSize: 30, color: Colors.white),
-                            textAlign: TextAlign.center
-                      )
-              ],
-            ),
-                      Image.asset("images/v7/startup.png"),
-            Container(
-              height: 50,
-              margin: EdgeInsets.only(left:20,right:20,top:20),
-              padding: EdgeInsets.only(left:3,right:3,top:3),
-              decoration: BoxDecoration(
-                border: Border.all(width:2,color:Colors.yellow),
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.white,
-              ),
-              child: Row(
+      child: SingleChildScrollView(
+        child: isV6 == true
+            ? Container()
+            : Column(
                 children: [
-                  SizedBox(width:20),
-                  GestureDetector(
-                    onTap: (){
-                      if(fontSize<=5){
-
-                      }else{
-                      setState(() {
-                        fontSize--;
-                      });
-                      }
-                    },
-                                    child: CircleAvatar(
-                      child: Icon(Icons.exposure_minus_1,color:Colors.white),
-                    ),
-                  ),
-                  Expanded(child: Container(
-                    alignment: Alignment.center,
-                    child: Text("$fontSize",
-                    style: GoogleFonts.roboto(fontSize: 20),
-                    ),
-                  ),),
-                  GestureDetector(
-                    onTap: (){
-                      if(fontSize>=30){
-
-                      }else{
-                      setState(() {
-                        fontSize++;
-                      });
-                      }
-                    },
-                      child: CircleAvatar(
-                        
-                        child: Icon(Icons.exposure_plus_1,color:Colors.white)),
-                    ),
-                  
-                  SizedBox(width:20),
-                ],
-              ),
-            ),
-                      SizedBox(height:2),
-            Text("(Font Control) ^",style: GoogleFonts.roboto(color:Colors.white,
-            fontSize: 10,
-            fontStyle: FontStyle.italic
-            ),),
-            SizedBox(height:5),
-            widget.hideDetails
-                ? Container()
-                : (isDisclaimer==true) ? Container() :Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "The clone requires you to firstly agree with the Legal disclaimer that you will not use the app for any illegal purposes. Also you will be prompted to set your default ticket, home page and ejection settings.\n\nBy Clicking I accept button below you agree to use this app in a legal manner (educational purposes) and do not try and pass the app to a real Bus/ Bus drivers",
-                      style:
-                          GoogleFonts.roboto(fontSize: fontSize.toDouble(), color: Colors.white),
+                  isDisclaimer == false
+                      ? Container()
+                      : Text(
+                          "NOTE. Emergency patch commencing. 12/6/2021 We have updated the app and only the Anytime daysaver is advisable. Click the recommended config button to continue. Or you can yolo it up to you",
+                          style: GoogleFonts.aBeeZee(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
                           textAlign: TextAlign.center,
-                    ),
-                  ),
-            isDisclaimer != true
-                ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.only(left: 50, right: 50, top: 20),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(width:2,color:Colors.yellow),
-                              boxShadow: [
-                               
-                              ]),
-                          child: Stack(children: [
-                            Container(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Please understand this clone app is for educational purposes only!",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold, fontSize: fontSize.toDouble(),
-                                      color: Colors.white
-                                      ),
-                                ),)
-                          ])),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          SizedBox(
-                            width: 30,
-                          ),
-                          TextButton(
-                            child: Text(
-                              "I Accept",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            onPressed: () {
-                              SharedPreferences.getInstance().then((value) {
-                                value.setBool("setup_disclaimer", true);
-                                //set the value
-                              });
-                              print("Accept Disclaimer");
-                              setState(() {
-                                isDisclaimer = true;
-                              });
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>AfterDisclaimer()));
-                            },
-                          ),
-                         
-                          TextButton(
-
-                            child: Text(
-                              "I don't accept",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.center,
-                            ),
-                            onPressed: () {
-                              print("i do not accept");
-                              SystemNavigator.pop();
-                            },
-                          ),
-                          SizedBox(
-                            width: 30,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "V7 IS HERE. The best clone in the world. Wanna find out more. Then accept the disclaimer.",
-                        style: GoogleFonts.roboto(
-                          color: Colors.white,
                         ),
-                        textAlign: TextAlign.center,
-                      )
-                    ],
-                  )
-                : Column(
+                  isDisclaimer == false
+                      ? Container()
+                      : TextButton(
+                          onPressed: () async {
+                            setState(() {
+                              isV6 = true;
+                            });
+                            var anytime = await NXHelp().getTicketsByTag("V6");
+                            var anytimeid = anytime[0]['id'];
+
+                            //set default home on behalf of user
+                            SharedPreferences.getInstance().then((pref) {
+                              //sets default home page
+                              pref.setString("def_home_adv", "sim_ticket_view");
+
+                              //sets default ticket
+                              pref.setInt("def_ticket_adv_id", anytimeid);
+                              pref.setString("def_ticket_adv_name",
+                                  anytime[0]['tickettitle']);
+                              pref.setString(
+                                  "def_ticket_adv_state", anytime[0]['state']);
+
+                              //set ejection settings
+                              pref.setString("ejected_setting_adv", "nothing");
+                            });
+
+                            Future.delayed(Duration(seconds: 1), () {
+                              setState(() {
+                                isV6 = false;
+                              });
+                            });
+                          },
+                          child: Text("V6 Patch Default<- Highly Recommended"),
+                        ),
+                  widget.hideDetails
+                      ? Container()
+                      : SizedBox(
+                          height: 0,
+                        ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("We"),
-                      SizedBox(
-                        height: 40,
-                      ),
                       widget.hideDetails
                           ? Container()
-                          : Text(
-                              "(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
-                              style: GoogleFonts.roboto(
-                                  color: Colors.white, fontSize: 18),
-                              textAlign: TextAlign.center,
+                          : SizedBox(
+                              width: 30,
                             ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      widget.hideDetails
+                          ? Container()
+                          : (isDisclaimer == true)
+                              ? Container()
+                              : Text("",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 30, color: Colors.white),
+                                  textAlign: TextAlign.center)
                     ],
                   ),
-            DefaultHomePageOption(
-              onDone: () {
-                print("default home page is done");
-                setState(() {
-                  defHome = true;
-                  this.checkSettingState();
-                });
-              },
-              isDisclaimer: isDisclaimer,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            defaultTicketOption(
-              onDone: () {
-                setState(() {
-                  defTicket = true;
-                  this.checkSettingState();
-                });
-              },
-              isDisclaimer: isDisclaimer,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            EjectionSetOption(
-              isDisclaimer: isDisclaimer,
-              onDone: () {
-                setState(() {
-                  defEjection = true;
-                  this.checkSettingState();
-                });
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            isReadySetup != true
-                ? Container()
-                : TextButton(
-          
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Continue",
-                          style: GoogleFonts.roboto(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Icon(
-                          Icons.check,
-                          color: Colors.black,
-                          size: 20,
+                  SizedBox(height: 2),
+                  SizedBox(height: 5),
+                  widget.hideDetails
+                      ? Container()
+                      : (isDisclaimer == true)
+                          ? Container()
+                          : Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "This App requires you to firstly agree with the Legal disclaimer. You will not use this App for any illegal purposes.",
+                                style: GoogleFonts.roboto(
+                                    fontSize: fontSize.toDouble(),
+                                    color: Colors.white),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                  SizedBox(height: 20),
+                  isDisclaimer != true
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                padding: EdgeInsets.all(10),
+                                margin: EdgeInsets.only(
+                                    left: 50, right: 50, top: 20),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        width: 2, color: Colors.yellow),
+                                    boxShadow: []),
+                                child: Stack(children: [
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Please understand this clone app is for educational purposes only!",
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.roboto(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: fontSize.toDouble(),
+                                          color: Colors.white),
+                                    ),
+                                  )
+                                ])),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                TextButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(Colors.green)
+                                  ),
+                                  child: Text(
+                                    "I Accept",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: fontSize.toDouble(),
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  onPressed: () {
+                                    SharedPreferences.getInstance()
+                                        .then((value) {
+                                      value.setBool("setup_disclaimer", true);
+                                      //set the value
+                                    });
+                                    print("Accept Disclaimer");
+                                    setState(() {
+                                      isDisclaimer = true;
+                                    });
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                AfterDisclaimer()));
+                                  },
+                                ),
+                                SizedBox(height:20),
+                                TextButton(
+                                  style:ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(Colors.white)
+                                  ),
+                                  child: Text(
+                                    "I don't accept",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: fontSize.toDouble(),
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  onPressed: () {
+                                    print("i do not accept");
+                                    SystemNavigator.pop();
+                                  },
+                                ),
+                                SizedBox(
+                                  width: 30,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            
+                          ],
                         )
-                      ],
-                    ),
-                    onPressed: () {
-                      print("continue");
-
-                      SharedPreferences.getInstance().then((pref) {
-                        pref.setBool(SettingsPrefKeys.START_UP_SETUP, true);
-                        //flag first time setup is completed
+                      : Column(
+                          children: [
+                            Text("We"),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            widget.hideDetails
+                                ? Container()
+                                : Text(
+                                    "(Now just click on the yellow buttons to set your default home, default ticket and ejection settings.)",
+                                    style: GoogleFonts.roboto(
+                                        color: Colors.white, fontSize: 18),
+                                    textAlign: TextAlign.center,
+                                  ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                          ],
+                        ),
+                  DefaultHomePageOption(
+                    onDone: () {
+                      print("default home page is done");
+                      setState(() {
+                        defHome = true;
+                        this.checkSettingState();
                       });
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (ctx) => HomePagePre()));
+                    },
+                    isDisclaimer: isDisclaimer,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  defaultTicketOption(
+                    onDone: () {
+                      setState(() {
+                        defTicket = true;
+                        this.checkSettingState();
+                      });
+                    },
+                    isDisclaimer: isDisclaimer,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  EjectionSetOption(
+                    isDisclaimer: isDisclaimer,
+                    onDone: () {
+                      setState(() {
+                        defEjection = true;
+                        this.checkSettingState();
+                      });
                     },
                   ),
-            Text("Note: V6")
-          ],
-        ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  isReadySetup != true
+                      ? Container()
+                      : TextButton(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Continue",
+                                style: GoogleFonts.roboto(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Icon(
+                                Icons.check,
+                                color: Colors.black,
+                                size: 20,
+                              )
+                            ],
+                          ),
+                          onPressed: () {
+                            print("continue");
+
+                            SharedPreferences.getInstance().then((pref) {
+                              pref.setBool(
+                                  SettingsPrefKeys.START_UP_SETUP, true);
+                              //flag first time setup is completed
+                            });
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => HomePagePre()));
+                          },
+                        ),
+                  Text("Note: V6")
+                ],
+              ),
       ),
     );
   }
