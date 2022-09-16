@@ -108,10 +108,8 @@ class ColorSelectOver {
                  crossAxisAlignment: CrossAxisAlignment.center,
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                  children: [
-                     RaisedButton(
-                    color: Color.fromRGBO(165, 28, 26, 1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                     TextButton(
+                   
                     child: Center(
                       child: Text(
                         "Change Ticket (Fast)",
@@ -122,10 +120,8 @@ class ColorSelectOver {
                       changeTicketOverlay(context);
                     },
                   ),
-                 RaisedButton(
-                    color: Color.fromRGBO(165, 28, 26, 1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                 TextButton(
+               
                     child: Center(
                       child: Text(
                         isCustomColor==false ?"Pick your own Color ✏️":"Pick Random Colors",

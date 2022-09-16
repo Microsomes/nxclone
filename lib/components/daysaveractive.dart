@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
-/**
- * tickettwo represents a single ticket on the ticket wallet
- */
+/// tickettwo represents a single ticket on the ticket wallet
 class TicketTwo extends StatefulWidget {
   final int id;
   final Function onExpire;

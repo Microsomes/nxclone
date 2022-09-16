@@ -1,6 +1,5 @@
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/advancedSetupC/options/defaultHomePageOption.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -120,10 +119,8 @@ class _PIckDefTicketDialogState extends State<PIckDefTicketDialog> {
             Container(
               height: 50,
               child: Center(
-                  child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                color: Colors.white,
+                  child: TextButton(
+              
                 onPressed: () {
                   Navigator.pop(context);
                 },

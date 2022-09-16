@@ -2,9 +2,7 @@ import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v3/fakeerror/main.dart';
-import 'package:app_launcher/app_launcher.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 import 'package:google_fonts/google_fonts.dart';
 
 class EjectionOverlay {
@@ -71,9 +69,9 @@ class _EjectionSetWidgetState extends State<EjectionSetWidget> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (ctx) => Nxfront()));
                   } else if (mo.id == "launch_real") {
-                    AppLauncher.openApp(
-                      androidApplicationId: "com.justride.nxwm",
-                    ).then((value) {});
+                    // AppLauncher.openApp(
+                    //   androidApplicationId: "com.justride.nxwm",
+                    // ).then((value) {});
                   }else if(mo.id=="fake_error"){
                     Navigator.push(context,MaterialPageRoute(builder:(ctx)=>ErrorPage()));
                   }

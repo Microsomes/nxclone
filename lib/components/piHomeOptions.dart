@@ -1,9 +1,7 @@
 import 'package:BubbleGum/0mymetro/pages/home.dart';
 import 'package:BubbleGum/pages/Info/intro.dart';
-import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:BubbleGum/v2/pages/setupflow.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
 import 'package:cube_transition/cube_transition.dart';

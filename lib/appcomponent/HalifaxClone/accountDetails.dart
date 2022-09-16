@@ -20,7 +20,7 @@ class AccountDetailsState extends State {
   @override
   void initState() {
     super.initState();
-    availableMonths = List<AvailableMonth>();
+    availableMonths = [];
 
     availableMonths.add(AvailableMonth(label: "January", isSelected: false));
 

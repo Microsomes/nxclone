@@ -18,7 +18,7 @@ class DefaultTicket extends StatefulWidget {
 }
 
 class DefaultTicketState extends State<DefaultTicket> {
-  List ticketOptions = List();
+  List ticketOptions = [];
   bool isShowing = false;
   String currentTicketTitle = "";
 
@@ -131,6 +131,7 @@ class DefaultTicketState extends State<DefaultTicket> {
                 child: currentTicket != null
                     ? SingleInactiveTicket(
                         isUsed: false,
+                        id: -1,
 
 
                       )

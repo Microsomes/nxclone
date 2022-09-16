@@ -135,10 +135,8 @@ class _SetEjectionSettingsState extends State<SetEjectionSettings> {
           Container(
             height: 50,
             child: Center(
-                child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: Colors.white,
+                child: TextButton(
+      
               onPressed: () {
                 Navigator.pop(context);
               },

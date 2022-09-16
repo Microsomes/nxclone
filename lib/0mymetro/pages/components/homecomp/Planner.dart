@@ -71,7 +71,7 @@ class TextInputPlanner extends StatelessWidget {
       child: Theme(
         data: ThemeData(
             primaryColor: Colors.black.withOpacity(0.7),
-            accentColor: Colors.orange,
+            secondaryHeaderColor: Colors.orange,
             hintColor: Colors.green
         ),
         child: TextField(

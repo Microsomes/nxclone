@@ -2,12 +2,7 @@ import 'dart:async';
 
 import 'package:BubbleGum/main.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/models/defaultHomePageModel.dart';
-import 'package:BubbleGum/v2/models/ejectionSettingModel.dart';
 import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/advancedSetupC/dialogs/defHomeDialog.dart';
-import 'package:BubbleGum/v3/advancedSetupC/dialogs/ejectionSettingDialog.dart';
-import 'package:BubbleGum/v3/advancedSetupC/dialogs/pickDefTicketDialog.dart';
 import 'package:BubbleGum/v3/advancedSetupC/options/defaultHomePageOption.dart';
 import 'package:BubbleGum/v3/advancedSetupC/options/ejectionSettingOption.dart';
 import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
@@ -46,9 +41,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
 
   bool isReadySetup = false;
 
-  /**
-   * the boolean checksums to confirm whats been done
-   */
+
   bool defHome = false;
   bool defTicket = false;
   bool defEjection = false;
@@ -105,7 +98,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
       }
     });
 
-    allPageOptions = new List();
+    allPageOptions = [];
 
     allPageOptions.add(DefHome(pageName: "Home", pageid: 0));
     allPageOptions.add(DefHome(pageName: "NX Home", pageid: 1));
@@ -134,9 +127,8 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
               ),
               textAlign: TextAlign.center,
             ),
-           isDisclaimer==false ? Container(): RaisedButton(
-              shape:
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+           isDisclaimer==false ? Container(): TextButton(
+
               onPressed: () async {
                 setState(() {
                   isV6=true;
@@ -295,10 +287,7 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                           SizedBox(
                             width: 30,
                           ),
-                          RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)),
-                            color: Colors.greenAccent,
+                          TextButton(
                             child: Text(
                               "I Accept",
                               style: GoogleFonts.roboto(
@@ -318,9 +307,8 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                             },
                           ),
                          
-                          RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
+                          TextButton(
+
                             child: Text(
                               "I don't accept",
                               style: GoogleFonts.roboto(
@@ -328,7 +316,6 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
                                   fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.center,
                             ),
-                            color: Colors.redAccent,
                             onPressed: () {
                               print("i do not accept");
                               SystemNavigator.pop();
@@ -409,10 +396,8 @@ class _AdvancedSetupPageState extends State<AdvancedSetupPage> {
             ),
             isReadySetup != true
                 ? Container()
-                : RaisedButton(
-                    color: Colors.yellowAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                : TextButton(
+          
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,

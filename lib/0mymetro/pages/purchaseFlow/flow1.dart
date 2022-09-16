@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
  import 'package:google_fonts/google_fonts.dart';
  import '../../helper/metroHelper.dart';
 
+// ignore: must_be_immutable
 class PurchaseFlow1 extends StatefulWidget {
   List<MetroTicketModel> allTickets;
   String catName;

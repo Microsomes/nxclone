@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 
 import 'package:BubbleGum/piHome.dart';
@@ -16,9 +15,6 @@ import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:launch_review/launch_review.dart';
-import 'package:app_launcher/app_launcher.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 import 'package:screen/screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -97,7 +93,7 @@ class ActualTicketState extends State<ActualTicket> {
       });
     });
 
-    listOfQrCollections = List();
+    listOfQrCollections = [];
     listOfQrCollections.add("images/v2/v2assets/bar1.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar2.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar3.PNG");
@@ -786,9 +782,8 @@ class _TicketSwicherState extends State<TicketSwicher> {
             ),
             SizedBox(height: 20),
             Expanded(
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),
+              child: TextButton(
+           
                 onPressed: () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (ctx) => PiHome()));
@@ -810,7 +805,7 @@ class QR extends StatefulWidget {
 
 class _QRState extends State<QR> {
   var currentQR;
-  var listOfQrCollections = List();
+  var listOfQrCollections = [];
 
   Timer mainTimer;
 
@@ -836,7 +831,7 @@ class _QRState extends State<QR> {
       });
     });
 
-    listOfQrCollections = List();
+    listOfQrCollections = [];
     listOfQrCollections.add("images/v2/v2assets/bar1.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar2.PNG");
     listOfQrCollections.add("images/v2/v2assets/bar3.PNG");
