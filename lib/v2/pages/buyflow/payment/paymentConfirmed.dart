@@ -1,6 +1,5 @@
 import 'package:BubbleGum/pages/ticketwalletv2.dart';
 import 'package:flutter/material.dart';
-import 'package:BubbleGum/pages/ticketwallet.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:url_launcher/url_launcher.dart';
 

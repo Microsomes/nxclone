@@ -16,7 +16,7 @@ class Ejection extends StatefulWidget{
 class EjectionState extends State<Ejection>{
 
 
-  List ejectionOptions=List();
+  List ejectionOptions= [];
 
   bool isShowing=true;
 

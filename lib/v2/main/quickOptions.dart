@@ -17,7 +17,7 @@ class _QuickOptionState extends State<QuickOptions> {
   @override
   void initState() {
     super.initState();
-    quickOptions = new List();
+    quickOptions = [];
     quickOptions.add({
       "title": "Landing Page",
       "icon": Icons.settings,

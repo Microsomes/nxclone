@@ -1139,7 +1139,7 @@ class NXHelp {
 
 
   List<EjectionSettingModel> getAllEjectionSettings2() {
-    List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
+    List<EjectionSettingModel> ejectionSettings = [];
 
     ejectionSettings.add(EjectionSettingModel(
       infoSmall: "Will launch the real NX App",
@@ -1165,7 +1165,7 @@ class NXHelp {
   }
 
   List<EjectionSettingModel> getAllEjectionSettings() {
-    List<EjectionSettingModel> ejectionSettings = List<EjectionSettingModel>();
+    List<EjectionSettingModel> ejectionSettings = [];
     ejectionSettings.add(EjectionSettingModel(
       infoSmall: "Well wont do anything",
         id: "nothing",
@@ -1217,7 +1217,7 @@ class NXHelp {
   Future getAllHistoricalTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
 
-    List<Map> modifiedList = List<Map>();
+    List<Map> modifiedList = [];
 
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive=2  ORDER BY isActive DESC, expires DESC");
@@ -1266,7 +1266,7 @@ class NXHelp {
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=?  OR activeStatus=?  ORDER BY created DESC",
         [2,3]);
-         List<TicketWalletModel> allTicketsA = List();
+         List<TicketWalletModel> allTicketsA = [];
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1282,6 +1282,7 @@ class NXHelp {
   }
 
 
+   // ignore: slash_for_doc_comments
    /**
    * Returns all the available tickets in your ticket walletv2
    */
@@ -1290,7 +1291,7 @@ class NXHelp {
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? OR activeStatus=? ORDER BY created DESC",
         [-1,1]);
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA = [];
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1303,7 +1304,7 @@ class NXHelp {
           tag: element['tag']));
     });
 
-    List<TicketWalletModel> allTicketsAA = List();
+    List<TicketWalletModel> allTicketsAA = [];
 
     allTicketsA.forEach((element) { 
       element.setInactive().then((value) {
@@ -1325,7 +1326,7 @@ class NXHelp {
     List<Map> allTickets = await db.rawQuery(
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY created DESC",
         [-1]);
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA =  [];
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
           id: element['id'],
@@ -1348,7 +1349,7 @@ class NXHelp {
         "SELECT * FROM ticketwalletv2 WHERE activeStatus=? ORDER BY whenActivated DESC",
         [1]);
 
-    List<TicketWalletModel> allTicketsA = List();
+    List<TicketWalletModel> allTicketsA = [];
 
     allTickets.forEach((element) {
       allTicketsA.add(TicketWalletModel(
@@ -1373,7 +1374,7 @@ class NXHelp {
   Future getAllUseableTickets() async {
     var db = await openDatabase(NXHelp.DB_NAME);
 
-    List<Map> modifiedList = List<Map>();
+    List<Map> modifiedList = [];
 
     List<Map> list = await db.rawQuery(
         "SELECT * FROM ticketwallet WHERE isActive!=2  ORDER BY isActive DESC, expires DESC");
@@ -1444,7 +1445,7 @@ class NXHelp {
     List<Map> ticketWalletInfo = await db
         .rawQuery("SELECT * from ticketwalletv2 WHERE id=? LIMIT 1", [id]);
 
-    List<TicketWalletModel> allTInfo = List();
+    List<TicketWalletModel> allTInfo = [];
 
     ticketWalletInfo.forEach((element) {
       allTInfo.add(TicketWalletModel(
@@ -1509,6 +1510,7 @@ class NXHelp {
 
   Future expireTicketv2({@required id}) async {
     var db = await openDatabase(NXHelp.DB_NAME);
+    // ignore: unused_local_variable
     var updateID = await db.rawQuery(
         "UPDATE ticketwalletv2 SET activeStatus=? WHERE id=?", [3, id]);
   }
@@ -1533,6 +1535,7 @@ class NXHelp {
       if (DateTime.now().millisecondsSinceEpoch > toA) {
         print("fff");
         print("can set off");
+        // ignore: unused_local_variable
         var updateID = await db.rawQuery(
             "UPDATE ticketwalletv2 SET activeStatus=?, whenExpired=? WHERE id=?",
             [2, currentTime, id]);
