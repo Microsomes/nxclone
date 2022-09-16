@@ -191,12 +191,70 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                          Container(
-                            color: Colors.black,
+                        Container(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: double.infinity,
+                                     child: Text("Emergency Mode", style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18
+                                     ),),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: double.infinity,
+                                     child: Text("Settings",style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18
+                                     ),),
+                                  ),
+                                )
+                              ],
+                            ),
+                            margin: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10)),
                           ),
-                          Container(
-                            color: Colors.black,
-                          )
+                         Container(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: double.infinity,
+                                     child: Text("Change Logs", style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18
+                                     ),),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: double.infinity,
+                                     child: Text("Suggest",style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18
+                                     ),),
+                                  ),
+                                )
+                              ],
+                            ),
+                            margin: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10)),
+                          ),
                         ]),
                     decoration: BoxDecoration(
                         boxShadow: [
