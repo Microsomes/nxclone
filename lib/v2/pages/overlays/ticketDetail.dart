@@ -37,7 +37,7 @@ class TicketDetailState extends State<TicketDetail> {
   @override
   void initState() {
 
-    allInfoPanels=List();
+    allInfoPanels= [];
 
 
 

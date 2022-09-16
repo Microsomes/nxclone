@@ -21,8 +21,7 @@ class ColorSelectOver {
 
 
   void changeTicketOverlay(BuildContext context) {
-                bool isCustomColor=false;
-
+ 
     showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,

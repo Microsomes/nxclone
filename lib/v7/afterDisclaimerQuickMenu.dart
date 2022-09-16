@@ -1,9 +1,5 @@
 import 'package:BubbleGum/pages/journey/ticket.dart';
-import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
-import 'package:BubbleGum/v2/pages/ticket.dart';
-import 'package:BubbleGum/v2/pages/ticketv2.dart';
-import 'package:BubbleGum/v7/newAdvanced.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,7 +25,7 @@ class AfterDisclaimer extends StatefulWidget {
 }
 
 class _AfterDisclaimerState extends State<AfterDisclaimer> {
-  List<AfterDisclaimerModel> allOptions = new List();
+  List<AfterDisclaimerModel> allOptions = [];
 
   @override
   void initState() {

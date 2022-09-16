@@ -24,7 +24,7 @@ class BuyTicketTypesState extends State<BuyTicketTypesSingle> {
   void initState() {
     super.initState();
 
-    ticketTypes = List();
+    ticketTypes = [];
 
     nxhelp = NXHelp();
 

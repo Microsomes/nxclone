@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:BubbleGum/v2/pages/buyflow/components/ticketoption.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/buyflow/payment/pickMethod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'comp/multipleIndicator.dart';
@@ -38,9 +36,9 @@ class BuyTicketTypesState extends State<BuyTicketTypesMultiple> {
   void initState() {
     super.initState();
 
-    inBasket = List<Map>();
+    inBasket = [];
 
-    ticketTypes = List();
+    ticketTypes = [];
 
     nxhelp = NXHelp();
 
@@ -80,6 +78,7 @@ class BuyTicketTypesState extends State<BuyTicketTypesMultiple> {
 
   Map basket = Map();
 
+  // ignore: missing_return
   String totalFromBasket(){
 
   }

@@ -423,6 +423,7 @@ class NXFront_TopBar extends StatefulWidget {
   _NXFront_TopBarState createState() => _NXFront_TopBarState();
 }
 
+// ignore: camel_case_types
 class _NXFront_TopBarState extends State<NXFront_TopBar> {
   @override
   Widget build(BuildContext context) {

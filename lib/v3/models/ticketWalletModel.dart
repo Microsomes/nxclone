@@ -4,7 +4,6 @@ import '../../v2/helper/NxHelp.dart';
 
 import './ticketModel.dart';
 
-import 'dart:math' as math;
 
 class TicketWalletModel {
   final int id;
@@ -56,6 +55,7 @@ class TicketWalletModel {
 
     List<String> allMonths=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
 
+  // ignore: non_constant_identifier_names
   Future getTimeRemaining_human() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.activefor);
@@ -88,6 +88,7 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inDays;
   }
 
+  // ignore: non_constant_identifier_names
   Future getTimeRemainingIdle_Human() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
@@ -99,6 +100,7 @@ class TicketWalletModel {
     return "Expires in " + diff.inDays.toString() + " days";
   }
 
+  // ignore: non_constant_identifier_names
   Future getTimeRemainingIdle_Human2() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
@@ -113,6 +115,7 @@ class TicketWalletModel {
     return  futureData.day.toString()+" "+allMonths[futureData.month-1].toString()+" "+futureData.year.toString()+" "+futureData.hour.toString()+":"+futureData.minute.toString();
   }
 
+  // ignore: non_constant_identifier_names
   Future getTimeRemainingIdle_seconds() async {
     TicketModel timeRemaining = await this.getTicketData();
     var activeForMilli = int.parse(timeRemaining.notusedexpiry);
@@ -122,9 +125,8 @@ class TicketWalletModel {
     return activeForDate.difference(cur).inSeconds;
   }
 
-  /**
-   * the ticket wasnt used so it expired and was not used
-   */
+  /// the ticket wasnt used so it expired and was not used
+  // ignore: missing_return
   Future setExpireTicket() {
     this.getTimeRemainingIdle_seconds().then((value) {
       if (value <= -1) {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
-import 'package:BubbleGum/v2/pages/overlays/ticketPreActivate.dart';
 import 'package:BubbleGum/v2/components/movingText.dart';
 import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';

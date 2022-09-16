@@ -9,6 +9,7 @@ import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: camel_case_types
 class defaultTicketOption extends StatefulWidget{
   final bool isDisclaimer;
   final Function onDone;
@@ -20,6 +21,7 @@ class defaultTicketOption extends StatefulWidget{
   _defaultTicketOptionState createState() => _defaultTicketOptionState();
 }
 
+// ignore: camel_case_types
 class _defaultTicketOptionState extends State<defaultTicketOption> {
   
 

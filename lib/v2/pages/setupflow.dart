@@ -5,14 +5,11 @@ import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/defaultTicket.dart';
 import 'package:BubbleGum/v2/pages/ejection.dart';
 import 'package:BubbleGum/v2/pages/landingPage.dart';
-import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'components/termsOfUseNotice.dart';
-import 'overlays/animationOverlaySettings.dart';
 
 class SetupFlow extends StatefulWidget {
   @override
