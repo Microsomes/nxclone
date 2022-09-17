@@ -116,9 +116,9 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                       child: Container(
                     alignment: Alignment.center,
                     child: GridView(
-                        shrinkWrap: true,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
+                          
+                            crossAxisCount: 1,
                             childAspectRatio: 1.0,
                             crossAxisSpacing: 10.0,
                             mainAxisSpacing: 10.0),
@@ -128,23 +128,25 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                               children: [
                                 Expanded(
                                   child: Container(
+                                    color: Colors.white30,
                                     alignment: Alignment.center,
                                     width: double.infinity,
-                                     child: Text("Single Ticket", style: GoogleFonts.roboto(
+                                     child: Text("Single Ticket", style: GoogleFonts.aBeeZee(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18
+                                      fontSize: 30
                                      ),),
                                   ),
                                 ),
                                 Expanded(
                                   child: Container(
+                                    color: Colors.pink,
                                     alignment: Alignment.center,
                                     width: double.infinity,
-                                     child: Text("Day Saver",style: GoogleFonts.roboto(
+                                     child: Text("Day Saver",style: GoogleFonts.aBeeZee(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18
+                                      fontSize: 30
                                      ),),
                                   ),
                                 )
@@ -292,8 +294,9 @@ class _TopImageState extends State<TopImage>
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+        super.dispose();
+
   }
 
   @override
