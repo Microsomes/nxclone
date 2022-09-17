@@ -608,7 +608,7 @@ class Stpagestate extends State<Stpage> {
     super.dispose();
     _timer.cancel();
     timerForOpacity.cancel();
-    timerForOpacity2.cancel();
+    // timerForOpacity2.cancel();
 
     // Screen.setBrightness(0.1).then((onValue) {
     // });

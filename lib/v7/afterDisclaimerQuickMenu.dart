@@ -103,10 +103,11 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                           children: <Widget>[
                             Flexible(
                                 child: new Text("Welcome to Bubble Gum 2022",
+                                textAlign: TextAlign.center,
                                     style: GoogleFonts.roboto(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 16))),
+                                        fontSize: 30))),
                           ],
                         )),
                       )
