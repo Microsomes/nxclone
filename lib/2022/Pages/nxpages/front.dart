@@ -14,10 +14,59 @@ class _NxPagesFrontState extends State<NxPagesFront> {
 
   var options = [
     {
-      "label":"Singles & Daysavers"
+      "type":"link",
+      "page":"",
+      "label":"Singles & Daysavers",
+      "icon":"images/front/single-ticket.svg",
+      "iconColor":Color.fromRGBO(168, 25, 31, 1)
     },
     {
-      "label":"NX 1 Week and 4 Week"
+      "type":"link",
+      "page":"",
+      "label":"NX 1 Week and 4 Week",
+      "icon":"images/front/tickets.svg",
+      "iconColor":Color.fromRGBO(168, 25, 31, 1)
+
+    },
+    {
+      "type":"link",
+      "page":"",
+      "label":"Multi Operator 1 Week and 4 Week",
+      "icon":"images/front/tickets.svg",
+      "iconColor":Color.fromRGBO(168, 25, 31, 1)
+    },
+    {
+       "type":"walletlink",
+      "page":"",
+      "label":"Ticket Wallet",
+      "icon":"images/front/ticket-wallet.svg",
+      "iconColor":Color.fromRGBO(168, 25, 31, 1)
+    },
+    {
+       "type":"wallet",
+      "page":"",
+      "label":"Your top tickets will appear here for quick access",
+      "icon":"images/front/single-ticket.svg"
+
+    },
+    {
+       "type":"link",
+      "page":"",
+      "label":"Payzone Barcode",
+      "icon":"images/front/DBarcode.svg"
+
+    },
+    {
+       "type":"link",
+      "page":"",
+      "label":"Trip Tools",
+      "icon":"images/front/trip-tools.svg"
+    },
+    {
+       "type":"link",
+      "page":"",
+      "label":"Help",
+      "icon":"images/front/uni68.svg"
     }
   ];
 
@@ -106,6 +155,51 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                   child: ListView.builder(
                     itemCount: options.length,
                     itemBuilder: (ctx,index){
+
+                      switch(options[index]['type']){
+                        case "link":
+                        return Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(right:30),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left:20.0),
+                                  child: SvgPicture.asset(options[index]['icon']),
+                                )
+                              ),
+                              Expanded(
+                                child: Container(
+                                  child: Text(options[index]['label'],
+                                  style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16
+                                  ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 60,
+                                child: Icon(Icons.chevron_right,
+                                size: 35,
+                                color: Color.fromRGBO(172, 22, 32, 1),),
+                              )
+                            ],
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(7)
+                          ),
+                          height: 45,
+                          margin: EdgeInsets.only(top:index == 0 ? 0 : 20,
+                          left: 10,
+                          right: 10
+                          ),
+                        );
+                        case "wallet":
+                        return Text("wallet");
+                      }
+
                     return Text(options[index]['label']);
                   
                   }),
