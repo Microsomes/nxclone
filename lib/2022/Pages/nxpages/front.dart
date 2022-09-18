@@ -204,7 +204,10 @@ class Kt extends StatelessWidget {
                         alignment: Alignment.topCenter,
                         color: Colors.transparent,
                         width: 40,
-                        child: Icon(Icons.info_outline),
+                        child: SvgPicture.asset("images/front/info.svg",
+                        color: Colors.black,
+                        width: 18,
+                        )
                       ),
                       Expanded(
                         child: Container(
