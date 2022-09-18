@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 
+import '2022/Pages/nxpages/front.dart';
 import 'v2/models/sharedprefkey/main.dart';
 import 'v7/afterDisclaimerQuickMenu.dart';
 
@@ -167,6 +168,11 @@ void main() async {
     child: FutureBuilder(
       future: Future.delayed(Duration(seconds: 3)),
       builder: (ctx,AsyncSnapshot snapshot){
+
+        return MaterialApp(
+          home: NxPagesFront(),
+        );
+
          if (snapshot.connectionState == ConnectionState.waiting) {
           return MaterialApp(home: Splash(),debugShowCheckedModeBanner: false,);
         } else {

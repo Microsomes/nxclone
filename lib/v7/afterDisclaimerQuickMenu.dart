@@ -125,6 +125,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             mainAxisSpacing: 10.0),
                         children: [
                           Container(
+                            padding: EdgeInsets.all(20),
                             child: Column(
                               children: [
                                 Expanded(
@@ -155,7 +156,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             ),
                             margin: EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: Colors.green,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                             Container(
@@ -269,7 +270,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         ],
                         //you can set more BoxShadow() here
 
-                        color: Colors.white,
+                        color: Colors.redAccent.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(5)),
                   ))
                 ],
