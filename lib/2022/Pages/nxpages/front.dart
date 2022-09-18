@@ -8,65 +8,65 @@ class NxPagesFront extends StatefulWidget {
 }
 
 class _NxPagesFrontState extends State<NxPagesFront> {
-
-
-  var message = "We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.";
+  var message =
+      "We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.";
 
   var options = [
     {
-      "type":"link",
-      "page":"",
-      "label":"Singles & Daysavers",
-      "icon":"images/front/single-ticket.svg",
-      "iconColor":Color.fromRGBO(168, 25, 31, 1)
+      "type": "link",
+      "page": "",
+      "label": "Singles & Daysavers",
+      "icon": "images/front/single-ticket.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-      "type":"link",
-      "page":"",
-      "label":"NX 1 Week and 4 Week",
-      "icon":"images/front/tickets.svg",
-      "iconColor":Color.fromRGBO(168, 25, 31, 1)
-
+      "type": "link",
+      "page": "",
+      "label": "NX 1 Week and 4 Week",
+      "icon": "images/front/tickets.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-      "type":"link",
-      "page":"",
-      "label":"Multi Operator 1 Week and 4 Week",
-      "icon":"images/front/tickets.svg",
-      "iconColor":Color.fromRGBO(168, 25, 31, 1)
+      "type": "link",
+      "page": "",
+      "label": "Multi Operator 1 Week and 4 Week",
+      "icon": "images/front/busicon.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-       "type":"walletlink",
-      "page":"",
-      "label":"Ticket Wallet",
-      "icon":"images/front/ticket-wallet.svg",
-      "iconColor":Color.fromRGBO(168, 25, 31, 1)
+      "type": "link",
+      "page": "",
+      "label": "Ticket Wallet",
+      "icon": "images/front/ticket-wallet.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-       "type":"wallet",
-      "page":"",
-      "label":"Your top tickets will appear here for quick access",
-      "icon":"images/front/single-ticket.svg"
-
+      "type": "wallet",
+      "page": "",
+      "label": "Your top tickets will appear here for quick access",
+      "icon": "images/front/single-ticket.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-       "type":"link",
-      "page":"",
-      "label":"Payzone Barcode",
-      "icon":"images/front/DBarcode.svg"
-
+      "type": "link",
+      "page": "",
+      "label": "Payzone Barcode",
+      "icon": "images/front/DBarcode.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-       "type":"link",
-      "page":"",
-      "label":"Trip Tools",
-      "icon":"images/front/trip-tools.svg"
+      "type": "link",
+      "page": "",
+      "label": "Trip Tools",
+      "icon": "images/front/trip-tools.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     },
     {
-       "type":"link",
-      "page":"",
-      "label":"Help",
-      "icon":"images/front/uni68.svg"
+      "type": "link",
+      "page": "",
+      "label": "Help",
+      "icon": "images/front/uni68.svg",
+      "iconColor": Color.fromRGBO(168, 25, 31, 1)
     }
   ];
 
@@ -117,17 +117,16 @@ class _NxPagesFrontState extends State<NxPagesFront> {
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10, top: 20),
+                  margin: EdgeInsets.only(left: 10, right: 10, top: 14),
                   height: 120,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(188, 156, 107, 0.7),
-                    borderRadius: BorderRadius.circular(5)
-                  ),
+                      color: Color.fromRGBO(189, 156, 107, 1),
+                      borderRadius: BorderRadius.circular(5)),
                   child: Row(
                     children: [
                       Container(
-                        padding: EdgeInsets.only(top:20),
+                        padding: EdgeInsets.only(top: 20),
                         alignment: Alignment.topCenter,
                         color: Colors.transparent,
                         width: 40,
@@ -135,80 +134,155 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                       ),
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.only(
-                            left:0,
-                            right: 10
-                          ),
+                          padding: EdgeInsets.only(left: 0, right: 10),
                           color: Colors.transparent,
-                          child: Text(message,
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17
+                          child: Text(
+                            message,
+                            style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.bold, fontSize: 17),
                           ),
-                        ),
                         ),
                       )
                     ],
                   ),
                 ),
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: options.length,
-                    itemBuilder: (ctx,index){
-
-                      switch(options[index]['type']){
-                        case "link":
-                        return Container(
-                          child: Row(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(right:30),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left:20.0),
-                                  child: SvgPicture.asset(options[index]['icon']),
-                                )
-                              ),
-                              Expanded(
-                                child: Container(
-                                  child: Text(options[index]['label'],
-                                  style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                  ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 60,
-                                child: Icon(Icons.chevron_right,
-                                size: 35,
-                                color: Color.fromRGBO(172, 22, 32, 1),),
-                              )
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(7)
-                          ),
-                          height: 45,
-                          margin: EdgeInsets.only(top:index == 0 ? 0 : 20,
-                          left: 10,
-                          right: 10
-                          ),
-                        );
-                        case "wallet":
-                        return Text("wallet");
-                      }
-
-                    return Text(options[index]['label']);
-                  
-                  }),
-                )
+                    child: CustomScrollView(
+                  slivers: [
+                    SliverFillRemaining(
+                      hasScrollBody: false,
+                      child: Kt(options: options),
+                    )
+                  ],
+                ))
               ],
             ),
           ))
         ],
       )),
     );
+  }
+}
+
+class Kt extends StatelessWidget {
+  const Kt({
+    Key key,
+    @required this.options,
+  }) : super(key: key);
+
+  final List<Map<String, Object>> options;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          children: [
+            for (var i = 0; i < options.length; i++)
+              Builder(builder: (ctx) {
+                var currentType = options[i]['type'];
+
+                if (currentType == "wallet") {
+                  return Container(
+                    margin: EdgeInsets.only(top: 15, right: 10, left: 10),
+                    height: 60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: 60,
+                          child: Center(
+                            child: SvgPicture.asset(
+                              "images/front/single-ticket.svg",
+                              color: Colors.white,
+                              width: 18,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                              alignment: Alignment.centerLeft,
+                              height: 60,
+                              child: Text(
+                                options[i]['label'],
+                                style: GoogleFonts.roboto(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        )
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(124, 26, 17, 1),
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(123, 26, 17, 1),
+                            spreadRadius: 1,
+                            blurRadius: 0,
+                            offset: Offset(0, 2), // changes position of shadow
+                          ),
+                        ]),
+                  );
+                }
+
+                if (currentType == "link") {
+                  return Container(
+                    child: Row(
+                      children: [
+                        Container(
+                            margin: EdgeInsets.only(right: 10),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: SvgPicture.asset(
+                                options[i]['icon'],
+                                color: options[i]['iconColor'],
+                                height: 25,
+                              ),
+                            )),
+                        Expanded(
+                          child: Container(
+                            child: Text(
+                              options[i]['label'],
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 60,
+                          child: Icon(
+                            Icons.chevron_right,
+                            size: 35,
+                            color: Color.fromRGBO(172, 22, 32, 1),
+                          ),
+                        )
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(158, 25, 26, 1),
+                            spreadRadius: 1,
+                            blurRadius: 0,
+                            offset: Offset(0, 1), // changes position of shadow
+                          ),
+                      ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(7)),
+                    height: 45,
+                    margin: EdgeInsets.only(
+                        top: i == 0 ? 0 : 20, left: 10, right: 10),
+                  );
+                }
+
+                return Text(currentType);
+              })
+          ],
+        ));
   }
 }
