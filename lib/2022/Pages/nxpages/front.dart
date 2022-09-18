@@ -21,28 +21,44 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "page": "",
       "label": "Singles & Daysavers",
       "icon": "images/front/single-ticket.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+      "func":()=>{
+        //go to Single page
+        print("single catalogue page")
+      }
     },
     {
       "type": "link",
       "page": "",
       "label": "NX 1 Week and 4 Week",
       "icon": "images/front/tickets.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+       "func":()=>{
+        //go to Single page
+        print("nx1 week and 4 week page")
+      }
     },
     {
       "type": "link",
       "page": "",
       "label": "Multi Operator 1 Week and 4 Week",
       "icon": "images/front/busicon.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+       "func":()=>{
+        //go to Single page
+        print("multi operator page 1 week and 4 week")
+      }
     },
     {
       "type": "link",
       "page": "",
       "label": "Ticket Wallet",
       "icon": "images/front/ticket-wallet.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+       "func":()=>{
+        //go to Single page
+        print("ticket wallet page")
+      }
     },
     {
       "type": "wallet",
@@ -56,21 +72,33 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "page": "",
       "label": "Payzone Barcode",
       "icon": "images/front/DBarcode.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+       "func":()=>{
+        //go to Single page
+        print("payzone barcode page")
+      }
     },
     {
       "type": "link",
       "page": "",
       "label": "Trip Tools",
       "icon": "images/front/trip-tools.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+       "func":()=>{
+        //go to Single page
+        print("trip tools page")
+      }
     },
     {
       "type": "link",
       "page": "",
       "label": "Help",
       "icon": "images/front/uni68.svg",
-      "iconColor": Color.fromRGBO(168, 25, 31, 1)
+      "iconColor": Color.fromRGBO(168, 25, 31, 1),
+       "func":()=>{
+        //go to Single page
+        print("help page")
+      }
     },
     {
       "type":"justridelogo",
