@@ -170,6 +170,7 @@ void main() async {
       builder: (ctx,AsyncSnapshot snapshot){
 
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           home: NxPagesFront(),
         );
 

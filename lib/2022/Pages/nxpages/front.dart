@@ -13,6 +13,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
 
   var options = [
     {
+      "type":"noticemessage",
+      "label":"We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.",
+    },
+    {
       "type": "link",
       "page": "",
       "label": "Singles & Daysavers",
@@ -67,6 +71,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Help",
       "icon": "images/front/uni68.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1)
+    },
+    {
+      "type":"justridelogo",
+      "label":"just ride logo"
     }
   ];
 
@@ -116,36 +124,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
             color: Color.fromRGBO(168, 27, 26, 1),
             child: Column(
               children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10, right: 10, top: 14),
-                  height: 120,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(189, 156, 107, 1),
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(top: 20),
-                        alignment: Alignment.topCenter,
-                        color: Colors.transparent,
-                        width: 40,
-                        child: Icon(Icons.info_outline),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 0, right: 10),
-                          color: Colors.transparent,
-                          child: Text(
-                            message,
-                            style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.bold, fontSize: 17),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+               
                 Expanded(
                     child: CustomScrollView(
                   slivers: [
@@ -181,6 +160,39 @@ class Kt extends StatelessWidget {
             for (var i = 0; i < options.length; i++)
               Builder(builder: (ctx) {
                 var currentType = options[i]['type'];
+
+                if(currentType == "noticemessage"){
+                  return  Container(
+                  margin: EdgeInsets.only(left: 10, right: 10, top: 0),
+                  height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(189, 156, 107, 1),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(top: 20),
+                        alignment: Alignment.topCenter,
+                        color: Colors.transparent,
+                        width: 40,
+                        child: Icon(Icons.info_outline),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 0, right: 10),
+                          color: Colors.transparent,
+                          child: Text(
+                            options[i]['label'],
+                            style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.bold, fontSize: 17),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                );
+                }
 
                 if (currentType == "wallet") {
                   return Container(
@@ -277,6 +289,18 @@ class Kt extends StatelessWidget {
                     height: 45,
                     margin: EdgeInsets.only(
                         top: i == 0 ? 0 : 20, left: 10, right: 10),
+                  );
+                }
+
+                if(currentType == "justridelogo"){
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                      top:80,
+                      left:8.0,
+                      right:8,
+                      bottom: 10),
+                    child: SvgPicture.asset("images/front/just-ride-full-logo.svg",
+                    color: Colors.white,),
                   );
                 }
 
