@@ -14,6 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 import '2022/Pages/nxpages/front.dart';
+import '2022/components/backButton.dart';
 import 'v2/models/sharedprefkey/main.dart';
 import 'v7/afterDisclaimerQuickMenu.dart';
 
@@ -168,6 +169,16 @@ void main() async {
     child: FutureBuilder(
       future: Future.delayed(Duration(seconds: 3)),
       builder: (ctx,AsyncSnapshot snapshot){
+
+        // return MaterialApp(
+        //   home: Scaffold(
+        //     body: Center(
+        //       child: BackButtonCus((){
+        //         print("back button pressed");
+        //       })
+        //     ),
+        //   ),
+        // );
 
         return MaterialApp(
           debugShowCheckedModeBanner: false,

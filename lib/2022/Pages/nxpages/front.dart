@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:google_fonts/google_fonts.dart";
 
+import '../../../v2/pages/menupage/topMenuPage.dart';
+
 class NxPagesFront extends StatefulWidget {
   @override
   State<NxPagesFront> createState() => _NxPagesFrontState();
@@ -134,15 +136,21 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                   Positioned(
                     right: -20,
                     bottom: -1,
-                    child: Container(
-                      child: SizedBox(
-                          height: 50,
-                          width: 100,
-                          child: Icon(
-                            Icons.menu,
-                            color: Color.fromRGBO(168, 27, 26, 1),
-                            size: 30,
-                          )),
+                    child: GestureDetector(
+                      onTap: () {
+                            Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UtilitiesMenu()));
+                      },
+                      child: Container(
+                        child: SizedBox(
+                            height: 50,
+                            width: 100,
+                            child: Icon(
+                              Icons.menu,
+                              color: Color.fromRGBO(168, 27, 26, 1),
+                              size: 30,
+                            )),
+                      ),
                     ),
                   )
                 ],
