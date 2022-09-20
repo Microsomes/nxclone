@@ -3,9 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import './socialMediaPage.dart';
-
-import 'profile/LoginIn.dart';
 
 class UtilitiesMenu extends StatefulWidget {
   @override
@@ -224,64 +221,3 @@ class UtilitiesList extends StatelessWidget {
   }
 }
 
-class NavItem extends StatelessWidget {
-  final String name;
-  final Function onTap;
-  final Widget image;
-
-  const NavItem({
-    @required this.name,
-    @required this.image,
-    this.onTap,
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        this.onTap();
-      },
-      child: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
-        width: 380,
-        height: 55,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                  color: Color.fromRGBO(215, 216, 218, 1),
-                  offset: new Offset(0, 3))
-            ]),
-        child: Row(children: <Widget>[
-          SizedBox(
-            width: 10,
-          ),
-          // Icon(
-          //   Icons.account_circle,
-          //   color: Colors.black,
-          //   size: 30,
-          // ),
-          image,
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: Text(
-              "$name",
-              style: GoogleFonts.roboto(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 17),
-            ),
-          ),
-          Image.asset("images/rightarrow.png", width: 35),
-          SizedBox(
-            width: 4,
-          )
-        ]),
-      ),
-    );
-  }
-}

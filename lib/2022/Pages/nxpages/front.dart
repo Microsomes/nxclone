@@ -1,3 +1,5 @@
+import 'package:BubbleGum/pages/help.dart';
+import 'package:BubbleGum/pages/tripTools.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:google_fonts/google_fonts.dart";
@@ -86,9 +88,12 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Trip Tools",
       "icon": "images/front/trip-tools.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":()=>{
+       "func":(BuildContext ctx){
         //go to Single page
-        print("trip tools page")
+        print("trip tools page");
+
+       Navigator.push(ctx,
+                      MaterialPageRoute(builder: (context) => TripTools()));
       }
     },
     {
@@ -97,9 +102,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Help",
       "icon": "images/front/uni68.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":()=>{
+       "func":(BuildContext ctx){
         //go to Single page
-        print("help page")
+         Navigator.push(ctx,
+                      MaterialPageRoute(builder: (context) => HelpPage()));
       }
     },
     {
@@ -282,52 +288,59 @@ class Kt extends StatelessWidget {
                 }
 
                 if (currentType == "link") {
-                  return Container(
-                    child: Row(
-                      children: [
-                        Container(
-                            margin: EdgeInsets.only(right: 10),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: SvgPicture.asset(
-                                options[i]['icon'],
-                                color: options[i]['iconColor'],
-                                height: 25,
+                  return GestureDetector(
+                    onTap: (){
+                      print("link was selected");
+                      Function fn = options[i]['func'];
+                      fn(context);
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(right: 10),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: SvgPicture.asset(
+                                  options[i]['icon'],
+                                  color: options[i]['iconColor'],
+                                  height: 25,
+                                ),
+                              )),
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                options[i]['label'],
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.bold, fontSize: 16),
                               ),
-                            )),
-                        Expanded(
-                          child: Container(
-                            child: Text(
-                              options[i]['label'],
-                              style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
                             ),
                           ),
-                        ),
-                        Container(
-                          width: 60,
-                          child: Icon(
-                            Icons.chevron_right,
-                            size: 35,
-                            color: Color.fromRGBO(172, 22, 32, 1),
-                          ),
-                        )
-                      ],
+                          Container(
+                            width: 60,
+                            child: Icon(
+                              Icons.chevron_right,
+                              size: 35,
+                              color: Color.fromRGBO(172, 22, 32, 1),
+                            ),
+                          )
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                            BoxShadow(
+                              color: Color.fromRGBO(158, 25, 26, 1),
+                              spreadRadius: 1,
+                              blurRadius: 0,
+                              offset: Offset(0, 1), // changes position of shadow
+                            ),
+                        ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(7)),
+                      height: 45,
+                      margin: EdgeInsets.only(
+                          top: i == 0 ? 0 : 20, left: 10, right: 10),
                     ),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(158, 25, 26, 1),
-                            spreadRadius: 1,
-                            blurRadius: 0,
-                            offset: Offset(0, 1), // changes position of shadow
-                          ),
-                      ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(7)),
-                    height: 45,
-                    margin: EdgeInsets.only(
-                        top: i == 0 ? 0 : 20, left: 10, right: 10),
                   );
                 }
 

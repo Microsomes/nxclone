@@ -181,7 +181,7 @@ class NxfrontState extends State<Nxfront> {
                           NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing, 
                           title: "Trip tools", 
                           icon: Image.asset("images/triptool.png",width: 50,), 
-                          child: Triptools()),
+                          child: TripTools()),
                          
                           SizedBox(
                             height: spaceApart,
@@ -189,7 +189,7 @@ class NxfrontState extends State<Nxfront> {
                           NXItem(heightOf: heightOf, letterSpaceing: _letterSpaceing,
                            title: "Help", 
                            icon: Image.asset("images/ottom.png",width: 50,),
-                            child: Help()),
+                            child: HelpPage()),
                          
                           SizedBox(
                             height: 300,
