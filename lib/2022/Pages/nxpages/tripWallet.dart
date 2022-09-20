@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-class HelpPage extends StatefulWidget {
+class TripWallet extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new UtilitiesMenuState();
@@ -19,36 +19,28 @@ void launchURL(String url) async {
   }
 }
 
-class UtilitiesMenuState extends State<HelpPage> {
+class UtilitiesMenuState extends State<TripWallet> {
   var sections = [
     {
-      "section": "",
+      "section": "Departure Information",
       "links": [
         {
           "type": "link",
-          "label": "App info",
-          "icon": "images/front/app-info.svg",
-          "action": (){}
-        },
-         {
-          "type": "link",
-          "label": "Customer service",
-          "icon": "images/front/customer-service.svg",
-          "action": (){}
-        },
-         {
-          "type": "link",
-          "label": "FAQ",
-          "icon": "images/front/faq.svg",
-          "action": (){}
-        },
-         {
-          "type": "link",
-          "label": "Terms and conditions",
-          "icon": "images/front/terms-and-conditions.svg",
+          "label": "Timetables",
+          "icon": "images/front/clock.svg",
           "action": (){}
         }
-
+      ]
+    },
+    {
+      "section": "Service changes",
+      "links": [
+        {
+          "type": "link",
+          "label": "Service changes",
+          "icon": "images/front/customer-alerts.svg",
+          "action": (){}
+        }
       ]
     }
   ];
@@ -100,7 +92,7 @@ class UtilitiesMenuState extends State<HelpPage> {
                       )),
                   Positioned(
                     top: 50,
-                    child: Text("Help",
+                    child: Text("Ticket wallet",
                         style: GoogleFonts.roboto(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
@@ -135,6 +127,7 @@ class UtilitiesList extends StatelessWidget {
       color: Colors.transparent,
       child: Column(
         children: [
+          SizedBox(height: 30,),
           for (var i = 0; i < sections.length; i++)
             Builder(builder: (ctx) {
               List links = sections[i]['links'];
@@ -152,6 +145,7 @@ class UtilitiesList extends StatelessWidget {
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
+                    SizedBox(height: 10,),
                     for (var l = 0; l < links.length; l++)
                       Container(
                         child: Row(
@@ -203,7 +197,7 @@ class UtilitiesList extends StatelessWidget {
                             borderRadius: BorderRadius.circular(7)),
                         height: 45,
                         margin: EdgeInsets.only(
-                            top: l == 0 ? 0 : 13,
+                            top: l == 0 ? 0 : 20,
                             left: 0,
                             right: 10),
                       )

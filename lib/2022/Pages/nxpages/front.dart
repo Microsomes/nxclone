@@ -1,3 +1,5 @@
+import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
 import 'package:BubbleGum/pages/help.dart';
 import 'package:BubbleGum/pages/tripTools.dart';
 import "package:flutter/material.dart";
@@ -59,9 +61,12 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Ticket Wallet",
       "icon": "images/front/ticket-wallet.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":()=>{
+       "func":(BuildContext ctx){
         //go to Single page
-        print("ticket wallet page")
+
+         Navigator.push(ctx,
+          MaterialPageRoute(builder: (context) => TripWallet())
+        );
       }
     },
     {
@@ -77,9 +82,13 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Payzone Barcode",
       "icon": "images/front/DBarcode.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":()=>{
+       "func":(BuildContext ctx){
         //go to Single page
-        print("payzone barcode page")
+
+       Navigator.push(ctx,
+          MaterialPageRoute(builder: (context) => MyProfile())
+        );
+        
       }
     },
     {
