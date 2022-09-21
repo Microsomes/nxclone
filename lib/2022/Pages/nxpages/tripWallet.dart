@@ -48,7 +48,7 @@ class UtilitiesMenuState extends State<TripWallet> {
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: Color.fromRGBO(168, 27, 28, 1),
+        backgroundColor: Colors.white,
         body: Center(
             child: Column(
           children: [
@@ -149,42 +149,86 @@ class UtilitiesMenuState extends State<TripWallet> {
                             ),
                             Expanded(
                               child: Container(
-                                child: Center(
-                                  child: Column(
-                                    children: [
-                                      SizedBox(height: 120,),
-                                      SvgPicture.asset(
-                                        "images/front/tickets.svg",
-                                        color: Color.fromRGBO(168, 26, 25, 1),
-                                        width: 100,
-                                      
-                                      ),
-                                      SizedBox(height: 20,),
-                                      Text("Can't see your tickets?",
+                                  child: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 120,
+                                    ),
+                                    SvgPicture.asset(
+                                      "images/front/tickets.svg",
+                                      color: Color.fromRGBO(168, 26, 25, 1),
+                                      width: 100,
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Can't see your tickets?",
                                       style: GoogleFonts.roboto(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 19
-                                      ),
-                                      ),
-                                      SizedBox(height: 5,),
-                                      Text("Log in or create an account below",
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 19),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "Log in or create an account below",
                                       style: GoogleFonts.roboto(
-                                        fontSize: 16
-                                      ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ),
+                                          fontSize: 16,
+                                          color:
+                                              Color.fromRGBO(109, 109, 109, 1)),
+                                    )
+                                  ],
+                                ),
+                              )),
                             )
-                          
                           ],
                         )))
               ],
             )),
             Container(
-              color: Colors.red,
-              height: 120,
+              color: Colors.transparent,
+              height: 93,
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Container(
+                    height: 50,
+                    margin: EdgeInsets.only(left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(199, 199, 199, 1),
+                            spreadRadius: 0,
+                            blurRadius: 2,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                        color: Color.fromRGBO(194, 154, 99, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Center(
+                      child: Text(
+                        "Buy tickets",
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    child: Center(
+                      child: Text(
+                        "Log in to view tickets",
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         )));
