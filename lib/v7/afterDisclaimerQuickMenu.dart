@@ -3,6 +3,7 @@ import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../2022/Pages/nxpages/front.dart';
 import 'settingSaver.dart';
 
 class AfterDisclaimerModel {
@@ -315,7 +316,7 @@ class _TopImageState extends State<TopImage>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (ctx) => Nxfront()));
+        Navigator.push(context, MaterialPageRoute(builder: (ctx) => NxPagesFront()));
       },
       child: Padding(
         padding: const EdgeInsets.all(20),

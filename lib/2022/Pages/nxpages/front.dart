@@ -2,6 +2,7 @@ import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
 import 'package:BubbleGum/pages/help.dart';
 import 'package:BubbleGum/pages/tripTools.dart';
+import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:google_fonts/google_fonts.dart";
@@ -152,6 +153,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                     right: -20,
                     bottom: -1,
                     child: GestureDetector(
+                      onLongPress: () {
+                        Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AfterDisclaimer()));
+                      },
                       onTap: () {
                             Navigator.push(context,
                       MaterialPageRoute(builder: (context) => UtilitiesMenu()));
