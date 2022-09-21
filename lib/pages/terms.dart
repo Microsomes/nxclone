@@ -306,19 +306,30 @@ class AppInfo extends StatelessWidget {
               width: double.infinity,
               padding: EdgeInsets.only(
                 left: 30,
+                right: 12,
                 top: 5,
                 bottom: 5
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MarkdownBody(data:options[i])
+                  MarkdownBody(data:options[i],
+                  styleSheet: MarkdownStyleSheet(
+                    h2: GoogleFonts.roboto(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17
+                    ),
+                    p: GoogleFonts.roboto(
+                      fontSize: 17,
+                    )
+                  ),
+                  )
                   // Text(options[i]['label'],
                   // style: GoogleFonts.roboto(
                   //   fontWeight: FontWeight.w800,
                   //   fontSize: 15
                   // ),
-                  // ),
+                  // ),p
                   //   Text(options[i]['val'],
                   // style: GoogleFonts.roboto(
                   //   fontSize: 15
