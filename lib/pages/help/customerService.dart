@@ -15,8 +15,12 @@ class _ApplicationInfoPageState extends State<CustomerServicePage> {
   int buildNumber;
 
   var options = [
-    {"label": "Phone", "val": "0121 254 7272"},
-    {"label": "Website", "val": "www.nxbus.co.uk/"},
+    {
+     "type": "default",
+      "label": "Phone", "val": "0121 254 7272"},
+    {
+      "type": "default",
+      "label": "Website", "val": "www.nxbus.co.uk/"},
     {
       "type": "custom",
       "label": "",
@@ -157,6 +161,24 @@ class AppInfo extends StatelessWidget {
           ),
           for (var i = 0; i < options.length; i++)
             Builder(builder: (ctx) {
+
+              var type = options[i]['type'];
+
+              if(type == "custom"){
+                return Container(
+                  padding: EdgeInsets.only(left: 15),
+                  child: Text(options[i]['val'],
+                  style: GoogleFonts.roboto(
+                    fontSize: 17
+                  ),
+                  
+                  ),
+                );
+              }
+
+
+
+
               return Container(
                 width: double.infinity,
                 padding: EdgeInsets.only(left: 20, top: 5, bottom: 5),
