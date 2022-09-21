@@ -28,6 +28,17 @@ void launchURL(String url) async {
 }
 
 class UtilitiesMenuState extends State<BuyFlowPhase1> {
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    //load json assets/ticket.json
+
+
+  }
+
   var sections = [
     {
       "section": "Departure Information",

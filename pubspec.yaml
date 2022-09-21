@@ -226,6 +226,8 @@ flutter:
    - images/v7/bus.png
    - images/v7/tram.png
    - images/v7/students.png
+
+   - assets/tickets.json
   
 
 
