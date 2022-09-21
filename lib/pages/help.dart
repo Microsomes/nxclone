@@ -1,6 +1,7 @@
 import 'package:BubbleGum/pages/help/applicationinfo.dart';
 import 'package:BubbleGum/pages/help/customerService.dart';
 import 'package:BubbleGum/pages/help/faq.dart';
+import 'package:BubbleGum/pages/terms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,7 +56,9 @@ class UtilitiesMenuState extends State<HelpPage> {
           "type": "link",
           "label": "Terms and conditions",
           "icon": "images/front/terms-and-conditions.svg",
-          "action": (){}
+          "action": (BuildContext ctx){
+           Navigator.push(ctx, MaterialPageRoute(builder: (ctx)=> TermsAndConditions() ));
+          }
         }
 
       ]
