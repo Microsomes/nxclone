@@ -20,10 +20,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.";
 
   var options = [
-    {
-      "type":"noticemessage",
-      "label":"We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.",
-    },
+    // {
+    //   "type":"noticemessage",
+    //   "label":"We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.",
+    // },
     {
       "type": "link",
       "page": "",
