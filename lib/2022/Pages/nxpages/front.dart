@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import "package:google_fonts/google_fonts.dart";
 
 import '../../../v2/pages/menupage/topMenuPage.dart';
+import 'buyflow/phase1.dart';
 
 class NxPagesFront extends StatefulWidget {
   @override
@@ -29,9 +30,14 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Singles & Daysavers",
       "icon": "images/front/single-ticket.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func":()=>{
+      "func":(BuildContext ctx){
         //go to Single page
-        print("single catalogue page")
+        print("single catalogue page");
+
+               Navigator.push(ctx,
+          MaterialPageRoute(builder: (context) => BuyFlowPhase1()));
+
+
       }
     },
     {
