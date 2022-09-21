@@ -35,7 +35,9 @@ class _NxPagesFrontState extends State<NxPagesFront> {
         print("single catalogue page");
 
                Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => BuyFlowPhase1()));
+          MaterialPageRoute(builder: (context) => BuyFlowPhase1(
+            subtitle: "Singles & Daysavers",
+          )));
 
 
       }
@@ -46,9 +48,14 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "NX 1 Week and 4 Week",
       "icon": "images/front/tickets.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":()=>{
+       "func":(BuildContext ctx){
         //go to Single page
-        print("nx1 week and 4 week page")
+        print("nx1 week and 4 week page");
+             Navigator.push(ctx,
+          MaterialPageRoute(builder: (context) => BuyFlowPhase1(
+            subtitle: "NX 1 Week and 4 Week",
+          )));
+
       }
     },
     {
@@ -57,9 +64,14 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Multi Operator 1 Week and 4 Week",
       "icon": "images/front/busicon.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":()=>{
+       "func":(BuildContext ctx){
         //go to Single page
-        print("multi operator page 1 week and 4 week")
+        print("multi operator page 1 week and 4 week");
+             Navigator.push(ctx,
+          MaterialPageRoute(builder: (context) => BuyFlowPhase1(
+            subtitle: "Multi Operator 1 Week and 4 Week",
+          )));
+
       }
     },
     {

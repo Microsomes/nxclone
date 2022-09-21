@@ -6,6 +6,13 @@ import 'package:url_launcher/url_launcher.dart';
 
 
 class BuyFlowPhase1 extends StatefulWidget {
+
+
+  String subtitle;
+
+  BuyFlowPhase1({@required this.subtitle});
+
+
   @override
   State<StatefulWidget> createState() {
     return new UtilitiesMenuState();
@@ -103,6 +110,22 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
                             fontSize: 16)),
                   )
                 ])),
+            
+            Container(
+              alignment: Alignment.centerLeft,
+              width: double.infinity,
+              color: Color.fromRGBO(141, 0, 7,1),
+              height: 40,
+              child: Padding(
+                padding: const EdgeInsets.only(left:10),
+                child: Text(widget.subtitle,
+                style: GoogleFonts.roboto(
+                  color: Colors.white,
+                  fontSize: 15
+                ),
+                ),
+              ),
+            ),
             Expanded(
               child:Container(
                 color: Colors.white,
