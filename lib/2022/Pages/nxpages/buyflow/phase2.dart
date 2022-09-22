@@ -10,7 +10,9 @@ class BuyFlowPhase2 extends StatefulWidget {
   String subtitle;
   String title;
 
-  BuyFlowPhase2({@required this.title, @required this.subtitle});
+  Map tickets;
+
+  BuyFlowPhase2({@required this.title, @required this.subtitle, this.tickets});
 
   @override
   State<StatefulWidget> createState() {
@@ -27,20 +29,24 @@ void launchURL(String url) async {
 }
 
 class UtilitiesMenuState extends State<BuyFlowPhase2> {
-  Future readTicketFile() async {
-    final String response = await rootBundle.loadString("assets/tickets.json");
-    final data = await jsonDecode(response);
 
-    final sections = data['sections'];
 
-    final pickedOne = sections[widget.subtitle];
+  var niceTickets = [];
 
-    return pickedOne;
-  }
 
   @override
   void initState() {
     super.initState();
+
+    print("init");
+
+
+  for(var key in widget.tickets.keys){
+    niceTickets.add({
+      "name":widget.tickets[key]['name']
+    });              
+  }           
+
   }
 
   @override
@@ -168,7 +174,35 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
           ),
           Expanded(
             child: Container(
+              width: double.infinity,
               color: Colors.white,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    for(var i=0;i<niceTickets.length;i++)
+                    Builder(builder: (ctx){
+                      return Container(
+                        margin: EdgeInsets.only(top:20),
+                        height: 100,
+                        child: Row(
+                          children: [
+                            Container(width: 40,color: Colors.black,),
+                            Expanded(
+                              child: Container(
+                                color: Colors.pink,
+                              ),
+                            ),
+                            Container(
+                              width: 100,
+                              color: Colors.red,
+                            )
+                          ],
+                        ),
+                      );
+                    })
+                  ],
+                ),
+              ),
             ),
           )
         ],

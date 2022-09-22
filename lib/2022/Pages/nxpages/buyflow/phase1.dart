@@ -147,9 +147,17 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
 
                         var niceSections = [];
 
-                        for(var key in sections.keys){
+
+                        for(var key in sections.keys) {
+
+                          print("get tickets");
+
+                          Map ticketsSec = sections[key];
+
+                        
                           niceSections.add({
-                            "name":key
+                            "name":key,
+                            "tickets":ticketsSec
                           });
                         }                    
 
@@ -160,7 +168,11 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
                        Builder(builder: (ctx){
                         return GestureDetector(
                           onTap: (){
+
+                            
+
                             Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase2(
+                              tickets: niceSections[i]['tickets'],
                               title: widget.subtitle,
                               subtitle: niceSections[i]['name']) ));
                           },
