@@ -14,10 +14,10 @@ class TicketInfoPage extends StatelessWidget{
             Container(
                 width: double.infinity,
                 height: 80,
-                color: Colors.red,
+                color: Color.fromRGBO(185, 0, 9, 1),
                 child: Stack(alignment: Alignment.center, children: [
                   Positioned(
-                      left: 0,
+                      right: -50,
                       top: 50,
                       child: GestureDetector(
                         onTap: () {
@@ -36,9 +36,8 @@ class TicketInfoPage extends StatelessWidget{
                                 SizedBox(
                                   width: 2,
                                 ),
-                                SvgPicture.asset("images/front/cross.svg",
-                                color: Colors.white,
-                                )
+                                Icon(Icons.close,
+                                color: Colors.white,)
                               ],
                             ),
                           ),
@@ -48,7 +47,7 @@ class TicketInfoPage extends StatelessWidget{
                     top: 50,
                     child: Text("Info",
                         style: GoogleFonts.roboto(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500,
                             fontSize: 16)),
                   )
