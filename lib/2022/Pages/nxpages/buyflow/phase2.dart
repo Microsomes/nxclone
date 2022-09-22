@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:BubbleGum/2022/Pages/nxpages/overlay/ticketInfo.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/overlay/ticketRegulation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,10 +30,7 @@ void launchURL(String url) async {
 }
 
 class UtilitiesMenuState extends State<BuyFlowPhase2> {
-
-
   var niceTickets = [];
-
 
   @override
   void initState() {
@@ -40,18 +38,16 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
 
     print("init");
 
+    for (var key in widget.tickets.keys) {
+      print(widget.tickets[key]);
 
-  for(var key in widget.tickets.keys){
-
-    print(widget.tickets[key]);
-
-    niceTickets.add({
-      "name":widget.tickets[key]['name'],
-      "price": num.parse(widget.tickets[key]['price'].toString()).toStringAsFixed(2),
-      "subtitle":widget.tickets[key]['subline']
-    });              
-  }           
-
+      niceTickets.add({
+        "name": widget.tickets[key]['name'],
+        "price": num.parse(widget.tickets[key]['price'].toString())
+            .toStringAsFixed(2),
+        "subtitle": widget.tickets[key]['subline']
+      });
+    }
   }
 
   @override
@@ -184,78 +180,98 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    for(var i=0;i<niceTickets.length;i++)
-                    Builder(builder: (ctx){
-                      return Container(
-                        margin: EdgeInsets.only(top:i==0 ? 5: 15),
-                        child: Row(
-                          children: [
-                            Container(width: 50,color: Colors.transparent,
-                            child: Center(
-                              child: GestureDetector(
-                                onTap: (){
-                                    Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => TicketInfoPage(
-          )));
-                                  
-                                },
-                                child: Icon(Icons.info_outline,
-                                size: 20,
-                                color: Color.fromRGBO(180, 64, 70, 1),
+                    for (var i = 0; i < niceTickets.length; i++)
+                      Builder(builder: (ctx) {
+                        return GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> TicketRegulatorPage()));
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(top: i == 0 ? 5 : 15),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 50,
+                                  color: Colors.transparent,
+                                  child: Center(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            ctx,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    TicketInfoPage()));
+                                      },
+                                      child: Icon(
+                                        Icons.info_outline,
+                                        size: 20,
+                                        color: Color.fromRGBO(180, 64, 70, 1),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                padding: EdgeInsets.only(left: 1),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 20,),
-                                    Text(niceTickets[i]['name'],
-                                    style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 17
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 1),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          niceTickets[i]['name'],
+                                          style: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 17),
+                                        ),
+                                        SizedBox(
+                                          height: 12,
+                                        ),
+                                        Text(
+                                          niceTickets[i]['subtitle'],
+                                          style: GoogleFonts.roboto(
+                                              fontSize: 12,
+                                              color:
+                                                  Colors.black.withOpacity(0.6)),
+                                        )
+                                      ],
                                     ),
-                                    ),
-                                    SizedBox(height: 12,),
-                                     Text(niceTickets[i]['subtitle'],
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 12,
-                                      color: Colors.black.withOpacity(0.6)
-                                    ),
-                                    )
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              child: Center(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Container(),
-                                    ),
-                                    Text("£"+niceTickets[i]['price'].toString(),
-                                    style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17
-                                    ),),
-                                    SizedBox(width: 5,),
-                                    RotatedBox(
-                                  quarterTurns: 2,
-                                  child: SvgPicture.asset("images/front/back.svg")),
-                                  SizedBox(width: 10,),
-                                  ],
+                                Container(
+                                  width: 100,
+                                  child: Center(
+                                      child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Container(),
+                                      ),
+                                      Text(
+                                        "£" + niceTickets[i]['price'].toString(),
+                                        style: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      RotatedBox(
+                                          quarterTurns: 2,
+                                          child: SvgPicture.asset(
+                                              "images/front/back.svg")),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                    ],
+                                  )),
                                 )
-                              ),
-                            )
-                          ],
-                        ),
-                      );
-                    })
+                              ],
+                            ),
+                          ),
+                        );
+                      })
                   ],
                 ),
               ),
