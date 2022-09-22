@@ -165,6 +165,7 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
                               subtitle: niceSections[i]['name']) ));
                           },
                           child: Container(
+                            width: double.infinity,
                             height: 68,
                             child: Row(
                               children: [

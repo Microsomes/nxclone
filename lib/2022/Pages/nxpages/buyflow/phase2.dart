@@ -10,7 +10,7 @@ class BuyFlowPhase2 extends StatefulWidget {
   String subtitle;
   String title;
 
-  BuyFlowPhase2({@required this.title,@required this.subtitle});
+  BuyFlowPhase2({@required this.title, @required this.subtitle});
 
   @override
   State<StatefulWidget> createState() {
@@ -112,19 +112,58 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
               ),
             ),
           ),
-           Container(
+          Container(
             alignment: Alignment.centerLeft,
             width: double.infinity,
             color: Color.fromRGBO(238, 238, 238, 1),
-            height: 35,
+            height: 40,
             child: Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
                 widget.subtitle,
-                style: GoogleFonts.roboto(color: Colors.black, fontSize: 15,
-                fontWeight: FontWeight.bold
-                ),
+                style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
               ),
+            ),
+          ),
+          Container(
+            color: Color.fromRGBO(168, 28, 25, 1),
+            height: 47,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:
+                            BorderRadius.only(topRight: Radius.circular(5))),
+                    child: Center(
+                        child: Text(
+                      "Single",
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold, fontSize: 16),
+                    )),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(139, 0, 7, 1),
+                        borderRadius:
+                            BorderRadius.only(topLeft: Radius.circular(5))),
+                    child: Center(
+                        child: Text(
+                      "Multiple",
+                      style: GoogleFonts.roboto(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    )),
+                  ),
+                )
+              ],
             ),
           ),
           Expanded(
