@@ -1,5 +1,9 @@
 
+import 'dart:convert';
+
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,43 +33,24 @@ void launchURL(String url) async {
 
 class UtilitiesMenuState extends State<BuyFlowPhase1> {
 
+  Future readTicketFile() async {
+    final String response = await rootBundle.loadString("assets/tickets.json");
+    final data = await jsonDecode(response);
+
+    final sections = data['sections'];
+
+    final pickedOne = sections[widget.subtitle];
+
+    return pickedOne;
+  }
+
 
   @override
   void initState() {
     super.initState();
-
-    //load json assets/ticket.json
-
-    //load json 
-    
-
-
   }
 
-  var sections = [
-    {
-      "section": "Departure Information",
-      "links": [
-        {
-          "type": "link",
-          "label": "Timetables",
-          "icon": "images/front/clock.svg",
-          "action": (){}
-        }
-      ]
-    },
-    {
-      "section": "Service changes",
-      "links": [
-        {
-          "type": "link",
-          "label": "Service changes",
-          "icon": "images/front/customer-alerts.svg",
-          "action": (){}
-        }
-      ]
-    }
-  ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -143,13 +128,87 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
             Expanded(
               child:Container(
                 color: Colors.white,
-                child: CustomScrollView(
-                  slivers: [
-                    SliverFillRemaining(
-                      child:  UtilitiesList(sections: sections),
+                child: SingleChildScrollView(
+                  child: Container(
+                    width: double.infinity,
+                    child: FutureBuilder(
+                      future: readTicketFile(),
+                      builder: (context, snapshot) {
+                        if(snapshot.connectionState == ConnectionState.waiting){
+                          return Container(
+                            height: 100,
+                            child: Center(child: CircularProgressIndicator(
+                              color: Color.fromRGBO(168, 25, 26, 1),
+                            )),
+                          );
+                        }
+
+                        Map sections = snapshot.data['sections'];
+
+                        var niceSections = [];
+
+                        for(var key in sections.keys){
+                          niceSections.add({
+                            "name":key
+                          });
+                        }                    
+
+                        return Column(
+                      children: [
+                        SizedBox(height: 10,),
+                       for(var i=0;i<niceSections.length;i++)
+                       Builder(builder: (ctx){
+                        return GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase2(
+                              title: widget.subtitle,
+                              subtitle: niceSections[i]['name']) ));
+                          },
+                          child: Container(
+                            height: 68,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 20),
+                                    alignment: Alignment.centerLeft,
+                                    width: double.infinity,
+                                    child: Text(niceSections[i]['name'],
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 17
+                                    ),
+                                    ),
+                                  ),
+                                ),
+                                Divider()
+                              ],
+                            ),
+                                ),
+                                Container(
+                                  width: 40,
+                                  child: Center(
+                                    child: RotatedBox(
+                                      child: SvgPicture.asset("images/front/back.svg",
+                                      color: Color.fromRGBO(168, 0, 8, 1),
+                                      ),
+                                      quarterTurns: 2,
+                                      ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ),
+                        );
+                       })
+                      ],
+                    );
+                      },
                     )
-                  ],
-                ),
+                  ),
+                )
               )
             )
           ],
@@ -157,101 +216,4 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
   }
 }
 
-class UtilitiesList extends StatelessWidget {
-  const UtilitiesList({
-    Key key,
-    @required this.sections,
-  }) : super(key: key);
-
-  final List<Map<String, Object>> sections;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-      child: Column(
-        children: [
-          SizedBox(height: 30,),
-          for (var i = 0; i < sections.length; i++)
-            Builder(builder: (ctx) {
-              List links = sections[i]['links'];
-              return Container(
-                padding: EdgeInsets.only(left: 10),
-                margin: EdgeInsets.only(top: i ==0 ? 0 :20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      sections[i]['section'],
-                      style: GoogleFonts.roboto(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 10,),
-                    for (var l = 0; l < links.length; l++)
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(right: 10),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20.0),
-                                  child: SvgPicture.asset(
-                                  
-                                    links[l]['icon'],
-                                    // color: links[i]['iconColor'],
-                                    height: 22,
-                                    color: Color.fromRGBO(169, 26, 25, 1),
-                                  ),
-                                )),
-                            Expanded(
-                              child: Container(
-                                child: Text(
-                                  links[l]['label'],
-                                  style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 60,
-                              child: Icon(
-                                Icons.chevron_right,
-                                size: 35,
-                                color: Color.fromRGBO(172, 22, 32, 1),
-                              ),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(158, 25, 26, 1),
-                                spreadRadius: 1,
-                                blurRadius: 0,
-                                offset: Offset(0,
-                                    1), // changes position of shadow
-                              ),
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(7)),
-                        height: 45,
-                        margin: EdgeInsets.only(
-                            top: l == 0 ? 0 : 20,
-                            left: 0,
-                            right: 10),
-                      )
-                  ],
-                ),
-              );
-            })
-        ],
-      ),
-    );
-  }
-}
 
