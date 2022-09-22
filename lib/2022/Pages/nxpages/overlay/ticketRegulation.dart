@@ -53,7 +53,7 @@ class TicketRegulatorPage extends StatelessWidget {
                 ])),
             Expanded(
                 child: Container(
-              padding: EdgeInsets.only(left: 20,right: 50),
+              padding: EdgeInsets.only(left: 20,right: 30),
               width: double.infinity,
               color: Colors.white,
               child: SingleChildScrollView(
@@ -82,15 +82,87 @@ class TicketRegulatorPage extends StatelessWidget {
                     ),
                     SizedBox(height: 20,),
                      Text(
-                      "Valid on all National Express West Midlands and National Express Coventry buses.",
+                      "ATTENTION - The activation time frame of this ticket type has changed. Tickets must be used within 3 days of purchase.\nThere are now fewer days to activate your ticket to cut down on fraud. This is to make sure everyone that catches the bus using mobile tickets pays for their travel.",
                       style: GoogleFonts.roboto(
-                         fontSize: 16),
+                         fontSize: 17,
+                         fontWeight: FontWeight.bold,
+                         wordSpacing: 1.2,
+                         height: 1.2
+                         ),
                     ),
-
+                       SizedBox(height: 20,),
+                     Text(
+                      "You must be over 16 to purchase this type of ticket",
+                      style: GoogleFonts.roboto(
+                        wordSpacing: 1.1,
+                         fontSize: 17),
+                    ),
+                    SizedBox(height: 5,),
+                     Text(
+                      "mTicket must be able to be displayed throughout the journey if requested by a driver or member of staff.",
+                      style: GoogleFonts.roboto(
+                        wordSpacing: 1.1,
+                         fontSize: 17),
+                    ),
+                        SizedBox(height: 5,),
+                     Text(
+                      "No refunds can be provided",
+                      style: GoogleFonts.roboto(
+                        wordSpacing: 1.1,
+                         fontSize: 17),
+                    ),
+                      SizedBox(height: 5,),
+                     Text(
+                      "All mTickets issues are subject to the terms and conditions of the respective operator upon which you make your journey.",
+                      style: GoogleFonts.roboto(
+                        wordSpacing: 1.1,
+                         fontSize: 17),
+                    ),
+                    Divider(color: Colors.black.withOpacity(0.2),)
                   ],
                 ),
               ),
             ))
+          
+          ,Container(
+            alignment: Alignment.center,
+              color: Colors.white,
+              height: 62,
+              width: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                
+                children: [
+                  Container(
+                    height:50,
+                    margin: EdgeInsets.only(left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(199, 199, 199, 1),
+                            spreadRadius: 0,
+                            blurRadius: 2,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                        color: Color.fromRGBO(194, 154, 99, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Center(
+                      child: Text(
+                        "Accept & Continue",
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                 
+                ],
+              ),
+            )
+          
           ],
         )));
   }
