@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import 'package:BubbleGum/2022/Pages/nxpages/overlay/ticketInfo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -192,9 +192,17 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
                           children: [
                             Container(width: 50,color: Colors.transparent,
                             child: Center(
-                              child: Icon(Icons.info_outline,
-                              size: 20,
-                              color: Color.fromRGBO(180, 64, 70, 1),
+                              child: GestureDetector(
+                                onTap: (){
+                                    Navigator.push(ctx,
+          MaterialPageRoute(builder: (context) => TicketInfoPage(
+          )));
+                                  
+                                },
+                                child: Icon(Icons.info_outline,
+                                size: 20,
+                                color: Color.fromRGBO(180, 64, 70, 1),
+                                ),
                               ),
                             ),
                             ),
