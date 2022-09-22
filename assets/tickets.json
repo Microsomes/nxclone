@@ -8,7 +8,7 @@
                 "Single- West Midlands":{
                    "name":"Single- West Midlands",
                    "price":2.40,
-                   "subline":"Travel on any National Express West Midlands or National Express Conventry bus within the West Midlands Zone",
+                   "subline":"Travel on any National Express West Midlands or National Express Coventry bus within the West Midlands Zone",
                    "info":[
                       {
                          "type":"text",
@@ -18,7 +18,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -38,10 +38,10 @@
                       }
                    ]
                 },
-                "Single- Conventry":{
-                   "name":"Single- Conventry",
+                "Single- Coventry":{
+                   "name":"Single- Coventry",
                    "price":2.20,
-                   "subline":"Travel on any National Express Conventry bus within the Coventry zone",
+                   "subline":"Travel on any National Express Coventry bus within the Coventry zone",
                    "info":[
                       {
                          "type":"text",
@@ -50,7 +50,7 @@
                       {
                          "type":"list",
                          "val":[
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -73,7 +73,7 @@
                 "Single - West Midlands (10 Pack)":{
                    "name":"Single - West Midlands (10 Pack)",
                    "price":21.50,
-                   "subline":"Travel on any National Express West Midlands or National Express Conventry bus within the West Midlands zone.",
+                   "subline":"Travel on any National Express West Midlands or National Express Coventry bus within the West Midlands zone.",
                    "info":[
                       {
                          "type":"text",
@@ -83,7 +83,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -103,10 +103,10 @@
                       }
                    ]
                 },
-                "Single- Conventry (10 Pack)":{
-                   "name":"Single- Conventry (10 Pack)",
+                "Single- Coventry (10 Pack)":{
+                   "name":"Single- Coventry (10 Pack)",
                    "price":19.50,
-                   "subline":"Travel on any National Express Conventry bus within the Coventry zone",
+                   "subline":"Travel on any National Express Coventry bus within the Coventry zone",
                    "info":[
                       {
                          "type":"text",
@@ -115,7 +115,7 @@
                       {
                          "type":"list",
                          "val":[
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -140,7 +140,7 @@
                 "All Day- West Midlands":{
                    "name":"All Day- West Midlands",
                    "price":4.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone.",
                    "info":[
                       {
                          "type":"text",
@@ -150,7 +150,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -271,7 +271,7 @@
                 "All day- West Midlands (5 Pack)":{
                    "name":"All Day- West Midlands (5 Pack)",
                    "price":19.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone.",
                    "info":[
                       {
                          "type":"text",
@@ -281,7 +281,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -312,7 +312,7 @@
                 "All day- West Midlands (10 Pack)":{
                    "name":"All day- West Midlands (10 Pack)",
                    "price":36.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry busses anywhere within the West Midlands zone.",
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry busses anywhere within the West Midlands zone.",
                    "info":[
                       {
                          "type":"text",
@@ -322,7 +322,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -595,7 +595,7 @@
                 "Group":{
                    "name":"Group",
                    "price":7.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone.",
                    "info":[
                       {
                          "type":"text",
@@ -605,7 +605,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -640,7 +640,7 @@
                 "Group after 6pm":{
                    "name":"Group after 6pm",
                    "price":4.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone.",
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone.",
                    "info":[
                       {
                          "type":"text",
@@ -650,7 +650,7 @@
                          "type":"list",
                          "val":[
                             "National Express West Midlands",
-                            "National Express Conventry"
+                            "National Express Coventry"
                          ]
                       },
                       {
@@ -893,7 +893,7 @@
                 "Uni Hop":{
                    "name":"Uni Hop",
                    "price":1.00,
-                   "subline":"Travel on any National Express Conventry buses within the Uni Hop zone.",
+                   "subline":"Travel on any National Express Coventry buses within the Uni Hop zone.",
                    "info":[
                       {
                          "type":"link2",
@@ -910,7 +910,7 @@
                 "Leamingon Hop":{
                    "name":"Leamingon Hop",
                    "price":1.00,
-                   "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone.",
+                   "subline":"Travel on any National Express Coventry buses within the Leamington Hop zone.",
                    "info":[
                       {
                          "type":"link2",
@@ -927,7 +927,7 @@
                 "Uni Hip (10 pack)":{
                    "name":"Uni Hip (10 pack)",
                    "price":9.00,
-                   "subline":"Travel on any National Express Conventry buses within the Uni Hop zone.",
+                   "subline":"Travel on any National Express Coventry buses within the Uni Hop zone.",
                    "info":[
                       {
                          "type":"link2",
@@ -944,7 +944,7 @@
                 "Leamington Hop (10 pack)":{
                    "name":"Leamington Hop (10 pack)",
                    "price":9.00,
-                   "subline":"Travel on any National Express Conventry buses within the Leamington Hop zone.",
+                   "subline":"Travel on any National Express Coventry buses within the Leamington Hop zone.",
                    "info":[
                       {
                          "type":"link2",
@@ -969,29 +969,29 @@
                 "Adult 1 Week":{
                    "name":"Adult 1 Week",
                    "price":15.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone."
                 },
                 "Adult 4 Week":{
                    "name":"Adult 4 Week",
                    "price":55.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone."
                 },
                 "Student 4 Week":{
                    "name":"Student 4 Week",
                    "price":40.00,
-                   "subline":"Unlimited travel on all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                   "subline":"Unlimited travel on all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone."
                 }
              },
-             "Conventry":{
+             "Coventry":{
                 "Adult 4 Week":{
                    "name":"Adult 4 Week",
                    "price":51.50,
-                   "subline":"Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone."
+                   "subline":"Unlimited travel on all National Express Coventry buses anywhere within the Coventry zone."
                 },
                 "Student 4 Week":{
                    "name":"Student 4 Week",
                    "price":33.00,
-                   "subline":"Unlimited travel on all National Express Conventry buses anywhere within the Conventry zone."
+                   "subline":"Unlimited travel on all National Express Coventry buses anywhere within the Coventry zone."
                 }
              },
              "Sandwell & Dudley Low Fare Zone":{
@@ -1022,7 +1022,7 @@
                 "Adult 1 Week Metro & Bus":{
                    "name":"Adult 1 Week Metro & Bus",
                    "price":25.90,
-                   "subline":"Unlimited travel on the West Midlands Metro tram and all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                   "subline":"Unlimited travel on the West Midlands Metro tram and all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone."
                 },
                 "Adult 1 Week":{
                    "name":"Adult 1 Week",
@@ -1032,7 +1032,7 @@
                 "Adult 4 Week Metro & Bus":{
                    "name":"Adult 1 Week Metro & Bus",
                    "price":90.85,
-                   "subline":"Unlimited travel on the West Midlands Metro tram and all National Express West Midlands and National Express Conventry buses anywhere within the West Midlands zone."
+                   "subline":"Unlimited travel on the West Midlands Metro tram and all National Express West Midlands and National Express Coventry buses anywhere within the West Midlands zone."
                 },
                 "Adult 4 Week":{
                    "name":"Adult 4 Week",
@@ -1068,16 +1068,16 @@
                    "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus zone."
                 }
              },
-             "Conventry":{
+             "Coventry":{
                 "Adult 4 Week":{
                    "name":"Adult 4 Week",
                    "price":54.00,
-                   "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus Conventry zone."
+                   "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus Coventry zone."
                 },
                 "Student 4 Week":{
                    "name":"Student 4 Week",
                    "price":36.00,
-                   "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus Conventry zone."
+                   "subline":"Unlimited travel on all bus operators that are part of the nBus scheme anywhere within the nBus Coventry zone."
                 }
              },
              "Sandwell & Dudley Low Fare Zone":{
