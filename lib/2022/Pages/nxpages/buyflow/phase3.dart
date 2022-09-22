@@ -60,6 +60,22 @@ class BuyFlowPhase3 extends StatelessWidget{
                             fontSize: 16)),
                   )
                 ])),
+                Container(
+                  width: double.infinity,
+                  height: 40,
+                  color: Color.fromRGBO(134, 8, 5, 1),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 3,),
+                      Container(
+                        width: 200,
+                        height: 6,
+                        color: Color.fromRGBO(191, 156, 102, 1),
+                      )
+                    ],
+                  ),
+                ),
             Expanded(
               child:Container(
                 color: Colors.white,
