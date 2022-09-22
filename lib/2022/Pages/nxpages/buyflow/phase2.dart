@@ -130,7 +130,7 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
           ),
           Container(
             color: Color.fromRGBO(168, 28, 25, 1),
-            height: 47,
+            height: 45,
             child: Row(
               children: [
                 Expanded(
