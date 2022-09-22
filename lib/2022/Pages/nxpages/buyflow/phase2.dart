@@ -45,7 +45,8 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
         "name": widget.tickets[key]['name'],
         "price": num.parse(widget.tickets[key]['price'].toString())
             .toStringAsFixed(2),
-        "subtitle": widget.tickets[key]['subline']
+        "subtitle": widget.tickets[key]['subline'],
+        "info":widget.tickets[key]['info']
       });
     }
   }

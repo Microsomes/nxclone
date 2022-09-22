@@ -1,17 +1,12 @@
 import "package:flutter/material.dart";
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class TicketInfoPage extends StatelessWidget {
-
-  List infos;
-
-  TicketInfoPage({@required this.infos});
-
+class BuyFlowPhase3 extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+        return Scaffold(
         backgroundColor: Color.fromRGBO(168, 27, 28, 1),
         body: Center(
             child: Column(
@@ -22,7 +17,7 @@ class TicketInfoPage extends StatelessWidget {
                 color: Color.fromRGBO(185, 0, 9, 1),
                 child: Stack(alignment: Alignment.center, children: [
                   Positioned(
-                      right: -50,
+                      left: 0,
                       top: 50,
                       child: GestureDetector(
                         onTap: () {
@@ -34,15 +29,23 @@ class TicketInfoPage extends StatelessWidget {
                             top: 4,
                             child: Row(
                               children: [
-                                SizedBox(
+                               SizedBox(
                                   width: 5,
                                 ),
-                                
+                                SvgPicture.asset(
+                                  "images/front/back.svg",
+                                  width: 21,
+                                  color: Colors.white,
+                                ),
                                 SizedBox(
                                   width: 2,
                                 ),
-                                Icon(Icons.close,
-                                color: Colors.white,)
+                                Text(
+                                  "Back",
+                                  style: GoogleFonts.roboto(fontSize: 16,
+                                  color: Colors.white
+                                  ),
+                                )
                               ],
                             ),
                           ),
@@ -50,7 +53,7 @@ class TicketInfoPage extends StatelessWidget {
                       )),
                   Positioned(
                     top: 50,
-                    child: Text("Info",
+                    child: Text("Select payment method  ",
                         style: GoogleFonts.roboto(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,

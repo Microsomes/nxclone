@@ -1,3 +1,4 @@
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase3.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
@@ -124,44 +125,49 @@ class TicketRegulatorPage extends StatelessWidget {
               ),
             ))
           
-          ,Container(
-            alignment: Alignment.center,
-              color: Colors.white,
-              height: 62,
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                
-                children: [
-                  Container(
-                    height:50,
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(199, 199, 199, 1),
-                            spreadRadius: 0,
-                            blurRadius: 2,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                        color: Color.fromRGBO(194, 154, 99, 1),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: Center(
-                      child: Text(
-                        "Accept & Continue",
-                        style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.bold, fontSize: 17),
+          ,GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase3()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+                color: Colors.white,
+                height: 62,
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  
+                  children: [
+                    Container(
+                      height:50,
+                      margin: EdgeInsets.only(left: 20, right: 20),
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromRGBO(199, 199, 199, 1),
+                              spreadRadius: 0,
+                              blurRadius: 2,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Color.fromRGBO(194, 154, 99, 1),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      child: Center(
+                        child: Text(
+                          "Accept & Continue",
+                          style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                 
-                ],
+                    SizedBox(
+                      height: 5,
+                    ),
+                   
+                  ],
+                ),
               ),
-            )
+          )
           
           ],
         )));

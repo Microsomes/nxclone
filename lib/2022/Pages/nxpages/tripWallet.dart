@@ -27,7 +27,6 @@ class UtilitiesMenuState extends State<TripWallet> {
           "type": "link",
           "label": "Timetables",
           "icon": "images/front/clock.svg",
-          "action": () {}
         }
       ]
     },
