@@ -2,11 +2,10 @@ import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-class BuyFlowPhase3 extends StatelessWidget{
+class BuyFlowPhase3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-        return Scaffold(
+    return Scaffold(
         backgroundColor: Color.fromRGBO(168, 27, 28, 1),
         body: Center(
             child: Column(
@@ -29,7 +28,7 @@ class BuyFlowPhase3 extends StatelessWidget{
                             top: 4,
                             child: Row(
                               children: [
-                               SizedBox(
+                                SizedBox(
                                   width: 5,
                                 ),
                                 SvgPicture.asset(
@@ -42,9 +41,8 @@ class BuyFlowPhase3 extends StatelessWidget{
                                 ),
                                 Text(
                                   "Back",
-                                  style: GoogleFonts.roboto(fontSize: 16,
-                                  color: Colors.white
-                                  ),
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 16, color: Colors.white),
                                 )
                               ],
                             ),
@@ -60,29 +58,153 @@ class BuyFlowPhase3 extends StatelessWidget{
                             fontSize: 16)),
                   )
                 ])),
-                Container(
-                  width: double.infinity,
-                  height: 40,
-                  color: Color.fromRGBO(134, 8, 5, 1),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 3,),
-                      Container(
-                        width: 200,
-                        height: 6,
-                        color: Color.fromRGBO(191, 156, 102, 1),
-                      )
-                    ],
+            Container(
+              width: double.infinity,
+              height: 40,
+              color: Color.fromRGBO(134, 8, 5, 1),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 3,
                   ),
-                ),
+                  Container(
+                    width: 200,
+                    height: 6,
+                    color: Color.fromRGBO(191, 156, 102, 1),
+                  ),
+                  Expanded(
+                      child: Container(
+                    padding: EdgeInsets.only(left: 5),
+                    alignment: Alignment.centerLeft,
+                    color: Colors.transparent,
+                    child: Text(
+                      "Singles and Daysavers",
+                      style: GoogleFonts.roboto(
+                          color: Colors.white.withOpacity(0.9)),
+                    ),
+                  ))
+                ],
+              ),
+            ),
+            Container(
+              height: 40,
+              color: Color.fromRGBO(238, 238, 238, 1),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: Text(
+                      "All day - West Midlands",
+                      style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Container(),
+                  ),
+                  Text(
+                    "1x",
+                    style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Container(),
+                  ),
+                  Text(
+                    "£4.00",
+                    style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 40,
+              color: Color.fromRGBO(185, 0, 9, 1),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: Text(
+                      "TOTAL                              ",
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Container(),
+                  ),
+                  Text(
+                    "  ",
+                    style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Container(),
+                  ),
+                  Text(
+                    "£4.00",
+                    style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                ],
+              ),
+            ),
             Expanded(
-              child:Container(
-                color: Colors.white,
-              )
-            )
+                child: Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 85,
+                          color: Colors.transparent,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 70,
+                                child: Center(
+                                  child: SvgPicture.asset("images/front/large-plus.svg",
+                                  color: Color.fromRGBO(185, 0, 9, 1),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(height: 20,),
+
+                                    Text("Add and Pay with New Card",
+                                    style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16
+                                    ),
+                                    ),
+                                    SizedBox(height: 7,),
+                                    Text("Cards can be saved for quick access",
+                                    style: GoogleFonts.roboto(
+                                    ),
+                                    ),
+                                                                        SizedBox(height: 7,),
+
+                                    Divider()
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    )))
           ],
         )));
   }
-
 }
