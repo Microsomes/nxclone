@@ -1,9 +1,8 @@
-import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase4.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BuyFlowPhase3 extends StatelessWidget {
+class BuyFlowPhase4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +51,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                       )),
                   Positioned(
                     top: 50,
-                    child: Text("Select payment method  ",
+                    child: Text("Enter card information",
                         style: GoogleFonts.roboto(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -159,57 +158,22 @@ class BuyFlowPhase3 extends StatelessWidget {
               ),
             ),
             Expanded(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase4()));
-                  },
-                  child: Container(
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 85,
-                            color: Colors.transparent,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 70,
-                                  child: Center(
-                                    child: SvgPicture.asset("images/front/large-plus.svg",
-                                    color: Color.fromRGBO(185, 0, 9, 1),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SizedBox(height: 20,),
-                
-                                      Text("Add and Pay with New Card",
-                                      style: GoogleFonts.roboto(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16
-                                      ),
-                                      ),
-                                      SizedBox(height: 7,),
-                                      Text("Cards can be saved for quick access",
-                                      style: GoogleFonts.roboto(
-                                      ),
-                                      ),
-                                                                          SizedBox(height: 7,),
-                
-                                      Divider()
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                child: Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 85,
+                          width: double.infinity,
+                          color: Colors.transparent,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [],
                           ),
-                        ],
-                      )),
-                ))
+                        ),
+                      ],
+                    )))
           ],
         )));
   }
