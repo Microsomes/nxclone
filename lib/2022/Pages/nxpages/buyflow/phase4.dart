@@ -8,9 +8,21 @@ class BuyFlowPhase4 extends StatefulWidget {
 }
 
 class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
+  final _formKey = GlobalKey<FormState>();
+
   var formInputs = [
-    {"type": "input", "label": "Name on card", "default": ""},
-    {"type": "input", "label": "Card number", "default": ""},
+    {
+      "type": "input",
+      "label": "Name on card",
+      "default": "",
+      "controller": TextEditingController(text: "")
+    },
+    {
+      "type": "input",
+      "label": "Card number",
+      "default": "",
+      "controller": TextEditingController(text: "")
+    },
     {"type": "input", "label": "Expiration date", "default": "MM/YY"},
     {
       "type": "inputwithinfo",
@@ -97,10 +109,10 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                   )
                 ])),
             Expanded(
-                child: SingleChildScrollView(
-              child: Container(
-                color: Colors.white,
-                width: double.infinity,
+                child: Container(
+              color: Colors.white,
+              width: double.infinity,
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -213,53 +225,61 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                               ],
                             ),
                           ),
+                        ],
+                      ),
+                    ),
+                    Form(
+                      child: Column(
+                        children: [
                           for (var i = 0; i < formInputs.length; i++)
                             Builder(builder: (ctx) {
                               if (formInputs[i]['type'] == "input") {
                                 return NXInput(
                                   label: formInputs[i]['label'],
                                 );
-                              } else if(formInputs[i]['type'] == "terms"){
+                              } else if (formInputs[i]['type'] == "terms") {
                                 return Container(
                                   margin: EdgeInsets.only(top: 10),
                                   padding: EdgeInsets.only(left: 20),
-                                  child: Text(formInputs[i]['label'],
-                                  style: GoogleFonts.roboto(
-                                    color: Color.fromRGBO(149, 84, 92, 1)
-                                  ),
+                                  child: Text(
+                                    formInputs[i]['label'],
+                                    style: GoogleFonts.roboto(
+                                        color: Color.fromRGBO(149, 84, 92, 1)),
                                   ),
                                 );
-                              }
-                              else if (formInputs[i]['type'] ==
+                              } else if (formInputs[i]['type'] ==
                                   "checkboxcircle") {
                                 return Container(
                                   margin: EdgeInsets.only(top: 10),
                                   child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(left: 5),
                                         child: Transform.scale(
                                           scale: 1.4,
                                           child: Checkbox(
-                                              fillColor: MaterialStateColor.resolveWith((states) => Color.fromRGBO(
-                                                    42, 165, 0, 1),) ,
-                                              side: MaterialStateBorderSide
-                                                  .resolveWith(
-                                                (states) => BorderSide(
-                                                    width: 0.8,
-                                                    color:  saveCard == true ? Colors.transparent : Colors.black),
-                                              ),
-                                              value: saveCard,
-                                              shape: CircleBorder(),
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  saveCard = value;
-                                                });
-                                              },
+                                            fillColor:
+                                                MaterialStateColor.resolveWith(
+                                              (states) =>
+                                                  Color.fromRGBO(42, 165, 0, 1),
                                             ),
-                                          
+                                            side: MaterialStateBorderSide
+                                                .resolveWith(
+                                              (states) => BorderSide(
+                                                  width: 0.8,
+                                                  color: saveCard == true
+                                                      ? Colors.transparent
+                                                      : Colors.black),
+                                            ),
+                                            value: saveCard,
+                                            shape: CircleBorder(),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                saveCard = value;
+                                              });
+                                            },
+                                          ),
                                         ),
                                       ),
                                       Expanded(
@@ -293,12 +313,10 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                                 return Container(
                                   margin: EdgeInsets.only(top: 10),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
+                                        padding: const EdgeInsets.only(left: 20),
                                         child: Text(
                                           formInputs[i]['label'],
                                           style: GoogleFonts.roboto(
@@ -309,8 +327,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                                         ),
                                       ),
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
+                                        padding: const EdgeInsets.only(left: 20),
                                         child: Text(
                                           formInputs[i]['tip'],
                                           style: GoogleFonts.roboto(
@@ -325,8 +342,8 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                                       Container(
                                         color: Colors.transparent,
                                         height: 50,
-                                        margin: EdgeInsets.only(
-                                            left: 20, right: 20),
+                                        margin:
+                                            EdgeInsets.only(left: 20, right: 20),
                                         child: Container(
                                           height: 50,
                                           decoration: BoxDecoration(
@@ -343,12 +360,10 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                                 return Container(
                                   margin: EdgeInsets.only(top: 10),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
+                                        padding: const EdgeInsets.only(left: 20),
                                         child: Text(
                                           formInputs[i]['label'],
                                           style: GoogleFonts.roboto(
@@ -364,8 +379,8 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                                       Container(
                                         color: Colors.transparent,
                                         height: 50,
-                                        margin: EdgeInsets.only(
-                                            left: 20, right: 20),
+                                        margin:
+                                            EdgeInsets.only(left: 20, right: 20),
                                         child: Row(
                                           children: [
                                             Container(
@@ -391,53 +406,60 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4> {
                                 );
                               } else {
                                 return GestureDetector(
-            onTap: (){
-              // Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase3()));
-            },
-            child: Container(
-              alignment: Alignment.center,
-                color: Colors.white,
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  
-                  children: [
-                    Container(
-                      height:50,
-                      margin: EdgeInsets.only(left: 25, right: 25,bottom: 20,top: 10),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(199, 199, 199, 1),
-                              spreadRadius: 0,
-                              blurRadius: 2,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                          color: Color.fromRGBO(107,107,107,1),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Center(
-                        child: Text(
-                          formInputs[i]['label'],
-                          style: GoogleFonts.roboto(
-                            color: Colors.white,
-                              fontWeight: FontWeight.bold, fontSize: 17),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                   
-                  ],
-                ),
-              ),
-          );
+                                  onTap: () {
+                                    // Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase3()));
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    color: Colors.white,
+                                    width: double.infinity,
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 50,
+                                          margin: EdgeInsets.only(
+                                              left: 25,
+                                              right: 25,
+                                              bottom: 20,
+                                              top: 10),
+                                          decoration: BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Color.fromRGBO(
+                                                      199, 199, 199, 1),
+                                                  spreadRadius: 0,
+                                                  blurRadius: 2,
+                                                  offset: Offset(0,
+                                                      3), // changes position of shadow
+                                                ),
+                                              ],
+                                              color: Color.fromRGBO(
+                                                  107, 107, 107, 1),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          child: Center(
+                                            child: Text(
+                                              formInputs[i]['label'],
+                                              style: GoogleFonts.roboto(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 17),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
                               }
                             })
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -475,6 +497,18 @@ class NXInput extends StatelessWidget {
             height: 9,
           ),
           Container(
+            child: TextFormField(
+              validator: (val){
+                if(val.length == 0){
+                  return "Please enter the name printed on your card";
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(left: 5),
+              ),
+            ),
             margin: EdgeInsets.only(left: 20, right: 20),
             height: 47,
             decoration: BoxDecoration(
