@@ -37,7 +37,7 @@ class BuyFlowPhase4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor:Colors.white,
+        backgroundColor: Colors.white,
         body: Center(
             child: Column(
           children: [
@@ -89,7 +89,20 @@ class BuyFlowPhase4 extends StatelessWidget {
                             fontSize: 16)),
                   )
                 ])),
-            Container(
+          
+            Expanded(
+                child: SingleChildScrollView(
+              child: Container(
+                color: Colors.white,
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                            Container(
               width: double.infinity,
               height: 40,
               color: Color.fromRGBO(134, 8, 5, 1),
@@ -188,27 +201,114 @@ class BuyFlowPhase4 extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                              color: Colors.white,
-                              width: double.infinity,
-                              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
                           for (var i = 0; i < formInputs.length; i++)
                             Builder(builder: (ctx) {
-
-                              if(formInputs[i]['type'] == "input"){
-
-                              return NXInput(
-                                label: formInputs[i]['label'],
-                              );
-                              }else{
+                              if (formInputs[i]['type'] == "input") {
+                                return NXInput(
+                                  label: formInputs[i]['label'],
+                                );
+                              } else if (formInputs[i]['type'] ==
+                                  "inputwithtip") {
+                                return Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 20),
+                                        child: Text(
+                                          formInputs[i]['label'],
+                                          style: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.bold,
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
+                                              fontSize: 16),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 20),
+                                        child: Text(
+                                          formInputs[i]['tip'],
+                                          style: GoogleFonts.roboto(
+                                              color:
+                                                  Colors.black.withOpacity(0.6),
+                                              fontSize: 15),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        color: Colors.transparent,
+                                        height: 50,
+                                        margin: EdgeInsets.only(
+                                            left: 20, right: 20),
+                                        child: Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all()),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              } else if (formInputs[i]['type'] ==
+                                  "inputwithinfo") {
+                                return Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 20),
+                                        child: Text(
+                                          formInputs[i]['label'],
+                                          style: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.bold,
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
+                                              fontSize: 16),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        color: Colors.transparent,
+                                        height: 50,
+                                        margin: EdgeInsets.only(
+                                            left: 20, right: 20),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              height: 50,
+                                              width: 150,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  border: Border.all()),
+                                            ),
+                                            Container(
+                                              width: 50,
+                                              color: Colors.transparent,
+                                              child: Center(
+                                                child: Icon(Icons.info_outline),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              } else {
                                 return Text("not inplemented type");
                               }
                             })
@@ -216,23 +316,18 @@ class BuyFlowPhase4 extends StatelessWidget {
                       ),
                     )
                   ],
-                              ),
-                            ),
-                ))
+                ),
+              ),
+            ))
           ],
         )));
   }
 }
 
 class NXInput extends StatelessWidget {
-
-
   var label;
 
-   NXInput({
-    Key key,
-    @required this.label
-  }) : super(key: key);
+  NXInput({Key key, @required this.label}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -257,14 +352,12 @@ class NXInput extends StatelessWidget {
             height: 9,
           ),
           Container(
-            margin:
-                EdgeInsets.only(left: 20, right: 20),
+            margin: EdgeInsets.only(left: 20, right: 20),
             height: 47,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.transparent,
-                border:
-                    Border.all(color: Colors.black)),
+                border: Border.all(color: Colors.black)),
           )
         ],
       ),
