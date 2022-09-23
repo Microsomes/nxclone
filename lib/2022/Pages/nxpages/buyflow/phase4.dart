@@ -3,10 +3,41 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuyFlowPhase4 extends StatelessWidget {
+  var formInputs = [
+    {"type": "input", "label": "Name on card", "default": ""},
+    {"type": "input", "label": "Card number", "default": ""},
+    {"type": "input", "label": "Expiration date", "default": "MM/YY"},
+    {
+      "type": "inputwithinfo",
+      "label": "Security code",
+      "default": "",
+      "action": () {}
+    },
+    {"type": "input", "label": "Post code", "default": ""},
+    {
+      "type": "inputwithtip",
+      "label": "Your email",
+      "tip":
+          "Enter the email address below that you would like your receipt sent to.",
+      "default": ""
+    },
+    {
+      "type": "checkboxcircle",
+      "label": "Save card",
+      "tip": "Your card will be saved after a successful payment"
+    },
+    {
+      "type": "terms",
+      "label":
+          "This ticket purchase is subject to accepting the terms and conditions"
+    },
+    {"type": "submitbuybutton", "label": "Accept & pay £2.40"}
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(168, 27, 28, 1),
+        backgroundColor:Colors.white,
         body: Center(
             child: Column(
           children: [
@@ -158,23 +189,85 @@ class BuyFlowPhase4 extends StatelessWidget {
               ),
             ),
             Expanded(
-                child: Container(
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 85,
-                          width: double.infinity,
-                          color: Colors.transparent,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [],
-                          ),
-                        ),
-                      ],
-                    )))
+                child: SingleChildScrollView(
+                  child: Container(
+                              color: Colors.white,
+                              width: double.infinity,
+                              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (var i = 0; i < formInputs.length; i++)
+                            Builder(builder: (ctx) {
+
+                              if(formInputs[i]['type'] == "input"){
+
+                              return NXInput(
+                                label: formInputs[i]['label'],
+                              );
+                              }else{
+                                return Text("not inplemented type");
+                              }
+                            })
+                        ],
+                      ),
+                    )
+                  ],
+                              ),
+                            ),
+                ))
           ],
         )));
+  }
+}
+
+class NXInput extends StatelessWidget {
+
+
+  var label;
+
+   NXInput({
+    Key key,
+    @required this.label
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              label,
+              style: GoogleFonts.roboto(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black.withOpacity(0.8),
+                  fontSize: 16),
+            ),
+          ),
+          SizedBox(
+            height: 9,
+          ),
+          Container(
+            margin:
+                EdgeInsets.only(left: 20, right: 20),
+            height: 47,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.transparent,
+                border:
+                    Border.all(color: Colors.black)),
+          )
+        ],
+      ),
+    );
   }
 }
