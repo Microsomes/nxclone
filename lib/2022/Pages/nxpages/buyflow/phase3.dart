@@ -1,4 +1,5 @@
 import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase4.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase4SavedCart.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -159,15 +160,94 @@ class BuyFlowPhase3 extends StatelessWidget {
               ),
             ),
             Expanded(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase4()));
-                  },
-                  child: Container(
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          Container(
+                child: Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase4WithCard()));
+                          },
+                          child: Container(
+                            color: Colors.transparent,
+                            child: Row(
+                              children: [
+                                Container(
+                                  color: Colors.transparent,
+                                  width: 90,
+                                  child: Center(
+                                    child: SvgPicture.asset(
+                                      "images/front/visa.svg",
+                                      width: 40,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              ".... .... ....",
+                                              style: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0, top: 10),
+                                              child: Text(
+                                                "3940",
+                                                style: GoogleFonts.roboto(),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "Expires 02/26",
+                                          style: GoogleFonts.roboto(),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 50,
+                                  child: Center(
+                                    child: RotatedBox(
+                                        quarterTurns: 2,
+                                        child: SvgPicture.asset(
+                                          "images/front/back.svg",
+                                          color: Color.fromRGBO(166, 53, 61, 1),
+                                        )),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(left: 85),
+                            child: Divider()),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => BuyFlowPhase4()));
+                          },
+                          child: Container(
                             height: 85,
                             color: Colors.transparent,
                             child: Row(
@@ -175,31 +255,37 @@ class BuyFlowPhase3 extends StatelessWidget {
                                 Container(
                                   width: 70,
                                   child: Center(
-                                    child: SvgPicture.asset("images/front/large-plus.svg",
-                                    color: Color.fromRGBO(185, 0, 9, 1),
+                                    child: SvgPicture.asset(
+                                      "images/front/large-plus.svg",
+                                      color: Color.fromRGBO(185, 0, 9, 1),
                                     ),
                                   ),
                                 ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(height: 20,),
-                
-                                      Text("Add and Pay with New Card",
-                                      style: GoogleFonts.roboto(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                      SizedBox(
+                                        height: 20,
                                       ),
+                                      Text(
+                                        "Add and Pay with New Card",
+                                        style: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
                                       ),
-                                      SizedBox(height: 7,),
-                                      Text("Cards can be saved for quick access",
-                                      style: GoogleFonts.roboto(
+                                      SizedBox(
+                                        height: 7,
                                       ),
+                                      Text(
+                                        "Cards can be saved for quick access",
+                                        style: GoogleFonts.roboto(),
                                       ),
-                                                                          SizedBox(height: 7,),
-                
+                                      SizedBox(
+                                        height: 7,
+                                      ),
                                       Divider()
                                     ],
                                   ),
@@ -207,9 +293,9 @@ class BuyFlowPhase3 extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ],
-                      )),
-                ))
+                        ),
+                      ],
+                    )))
           ],
         )));
   }
