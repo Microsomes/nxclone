@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase2.dart';
@@ -8,14 +7,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class BuyFlowPhase1 extends StatefulWidget {
-
-
   String subtitle;
 
   BuyFlowPhase1({@required this.subtitle});
-
 
   @override
   State<StatefulWidget> createState() {
@@ -32,7 +27,6 @@ void launchURL(String url) async {
 }
 
 class UtilitiesMenuState extends State<BuyFlowPhase1> {
-
   Future readTicketFile() async {
     final String response = await rootBundle.loadString("assets/tickets.json");
     final data = await jsonDecode(response);
@@ -44,13 +38,31 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
     return pickedOne;
   }
 
+  Map<int, Color> tileColorBG = Map();
+
+  var niceSections = [];
+
+  bool isReady = false;
 
   @override
   void initState() {
     super.initState();
-  }
 
-  
+    readTicketFile().then((data) {
+      Map sections = data['sections'];
+
+      for (var key in sections.keys) {
+        print("get tickets");
+
+        Map ticketsSec = sections[key];
+
+        niceSections.add({"name": key, "tickets": ticketsSec});
+      }
+      setState(() {
+        isReady = true;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +103,8 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
                                 ),
                                 Text(
                                   "Back",
-                                  style: GoogleFonts.roboto(fontSize: 16,
-                                  color: Colors.white
-                                  ),
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 16, color: Colors.white),
                                 )
                               ],
                             ),
@@ -109,124 +120,130 @@ class UtilitiesMenuState extends State<BuyFlowPhase1> {
                             fontSize: 16)),
                   )
                 ])),
-            
             Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
-              color: Color.fromRGBO(141, 0, 7,1),
+              color: Color.fromRGBO(141, 0, 7, 1),
               height: 40,
               child: Padding(
-                padding: const EdgeInsets.only(left:10),
-                child: Text(widget.subtitle,
-                style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 15
-                ),
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  widget.subtitle,
+                  style: GoogleFonts.roboto(color: Colors.white, fontSize: 15),
                 ),
               ),
             ),
             Expanded(
-              child:Container(
-                color: Colors.white,
-                child: SingleChildScrollView(
-                  child: Container(
-                    width: double.infinity,
-                    child: FutureBuilder(
-                      future: readTicketFile(),
-                      builder: (context, snapshot) {
-                        if(snapshot.connectionState == ConnectionState.waiting){
-                          return Container(
-                            height: 100,
-                            child: Center(child: CircularProgressIndicator(
-                              color: Color.fromRGBO(168, 25, 26, 1),
-                            )),
-                          );
-                        }
-
-                        Map sections = snapshot.data['sections'];
-
-                        var niceSections = [];
-
-
-                        for(var key in sections.keys) {
-
-                          print("get tickets");
-
-                          Map ticketsSec = sections[key];
-
-                        
-                          niceSections.add({
-                            "name":key,
-                            "tickets":ticketsSec
-                          });
-                        }                    
-
-                        return Column(
-                      children: [
-                        SizedBox(height: 10,),
-                       for(var i=0;i<niceSections.length;i++)
-                       Builder(builder: (ctx){
-                        return GestureDetector(
-                          onTap: (){
-
-                            
-
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase2(
-                              tickets: niceSections[i]['tickets'],
-                              title: widget.subtitle,
-                              subtitle: niceSections[i]['name']) ));
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            height: 68,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 20),
-                                    alignment: Alignment.centerLeft,
-                                    width: double.infinity,
-                                    child: Text(niceSections[i]['name'],
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 17
-                                    ),
-                                    ),
-                                  ),
-                                ),
-                                Divider()
-                              ],
-                            ),
-                                ),
-                                Container(
-                                  width: 40,
+                child: Container(
+                    color: Colors.white,
+                    child: SingleChildScrollView(
+                      child: Container(
+                          width: double.infinity,
+                          child: Builder(
+                            builder: (context) {
+                              if (!isReady) {
+                                return Container(
+                                  height: 100,
                                   child: Center(
-                                    child: RotatedBox(
-                                      child: SvgPicture.asset("images/front/back.svg",
-                                      color: Color.fromRGBO(168, 0, 8, 1),
-                                      ),
-                                      quarterTurns: 2,
-                                      ),
+                                      child: CircularProgressIndicator(
+                                    color: Color.fromRGBO(168, 25, 26, 1),
+                                  )),
+                                );
+                              }
+
+                              return Column(
+                                children: [
+                                  SizedBox(
+                                    height: 10,
                                   ),
-                                )
-                              ],
-                            )
-                          ),
-                        );
-                       })
-                      ],
-                    );
-                      },
-                    )
-                  ),
-                )
-              )
-            )
+                                  for (var i = 0; i < niceSections.length; i++)
+                                    Builder(builder: (ctx) {
+                                      return Listener(
+                                        onPointerDown: (event) {
+                                          setState(() {
+                                            tileColorBG[i] = Color.fromRGBO(
+                                                224, 224, 224, 1);
+                                          });
+                                        },
+                                        onPointerUp: (event) {
+                                          setState(() {
+                                            tileColorBG[i] = Colors.white;
+                                          });
+                                        },
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (ctx) =>
+                                                        BuyFlowPhase2(
+                                                            tickets:
+                                                                niceSections[i][
+                                                                    'tickets'],
+                                                            title:
+                                                                widget.subtitle,
+                                                            subtitle:
+                                                                niceSections[i]
+                                                                    ['name'])));
+                                          },
+                                          child: Container(
+                                              width: double.infinity,
+                                              height: 68,
+                                              color: tileColorBG[i] != null
+                                                  ? tileColorBG[i]
+                                                  : Colors.white,
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Column(
+                                                      children: [
+                                                        Expanded(
+                                                          child: Container(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: 20),
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            width:
+                                                                double.infinity,
+                                                            child: Text(
+                                                              niceSections[i]
+                                                                  ['name'],
+                                                              style: GoogleFonts
+                                                                  .roboto(
+                                                                      fontSize:
+                                                                          17),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Divider()
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 40,
+                                                    child: Center(
+                                                      child: RotatedBox(
+                                                        child: SvgPicture.asset(
+                                                          "images/front/back.svg",
+                                                          color: Color.fromRGBO(
+                                                              168, 0, 8, 1),
+                                                        ),
+                                                        quarterTurns: 2,
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              )),
+                                        ),
+                                      );
+                                    })
+                                ],
+                              );
+                            },
+                          )),
+                    )))
           ],
         )));
   }
 }
-
-
