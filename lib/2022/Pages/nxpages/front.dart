@@ -217,7 +217,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
   }
 }
 
-class Kt extends StatelessWidget {
+class Kt extends StatefulWidget {
   const Kt({
     Key key,
     @required this.options,
@@ -226,14 +226,19 @@ class Kt extends StatelessWidget {
   final List<Map<String, Object>> options;
 
   @override
+  State<Kt> createState() => _KtState();
+}
+
+class _KtState extends State<Kt> {
+  @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(top: 20),
         child: Column(
           children: [
-            for (var i = 0; i < options.length; i++)
+            for (var i = 0; i < widget.options.length; i++)
               Builder(builder: (ctx) {
-                var currentType = options[i]['type'];
+                var currentType = widget.options[i]['type'];
 
                 if(currentType == "noticemessage"){
                   return  Container(
@@ -260,7 +265,7 @@ class Kt extends StatelessWidget {
                           padding: EdgeInsets.only(left: 0, right: 10),
                           color: Colors.transparent,
                           child: Text(
-                            options[i]['label'],
+                            widget.options[i]['label'],
                             style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.bold, fontSize: 17),
                           ),
@@ -296,7 +301,7 @@ class Kt extends StatelessWidget {
                               alignment: Alignment.centerLeft,
                               height: 60,
                               child: Text(
-                                options[i]['label'],
+                                widget.options[i]['label'],
                                 style: GoogleFonts.roboto(
                                     color: Colors.white,
                                     fontSize: 13,
@@ -320,58 +325,81 @@ class Kt extends StatelessWidget {
                 }
 
                 if (currentType == "link") {
-                  return GestureDetector(
-                    onTap: (){
-                      print("link was selected");
-                      Function fn = options[i]['func'];
-                      fn(context);
+                  return Listener(
+                    onPointerDown: (event){
+                      print("point down");
+                      widget.options[i]['hov']= Color.fromRGBO(134, 8, 5, 1);
+                      widget.options[i]['hovText']= Colors.white;
+                      setState(() {
+                        
+                      });
                     },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 20.0),
-                                child: SvgPicture.asset(
-                                  options[i]['icon'],
-                                  color: options[i]['iconColor'],
-                                  height: 25,
+                    onPointerUp: (event) {
+                      print("point up");
+                      widget.options[i]['hov']= Colors.white;
+                      widget.options[i]['hovText']= Colors.black;
+
+
+                      setState(() {
+                        
+                      });
+                    
+                    },
+                    child: GestureDetector(
+                      
+                      onTap: (){
+                        print("link was selected");
+                        Function fn = widget.options[i]['func'];
+                        fn(context);
+                      },
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(right: 10),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20.0),
+                                  child: SvgPicture.asset(
+                                    widget.options[i]['icon'],
+                                    color: widget.options[i]['iconColor'],
+                                    height: 25,
+                                  ),
+                                )),
+                            Expanded(
+                              child: Container(
+                                child: Text(
+                                  widget.options[i]['label'],
+                                  style: GoogleFonts.roboto(
+                                    color:  widget.options[i]['hovText'] != null ? widget.options[i]['hovText']: Colors.black,
+                                      fontWeight: FontWeight.bold, fontSize: 16),
                                 ),
-                              )),
-                          Expanded(
-                            child: Container(
-                              child: Text(
-                                options[i]['label'],
-                                style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: 60,
-                            child: Icon(
-                              Icons.chevron_right,
-                              size: 35,
-                              color: Color.fromRGBO(172, 22, 32, 1),
-                            ),
-                          )
-                        ],
+                            Container(
+                              width: 60,
+                              child: Icon(
+                                Icons.chevron_right,
+                                size: 35,
+                                color: Color.fromRGBO(172, 22, 32, 1),
+                              ),
+                            )
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(158, 25, 26, 1),
+                                spreadRadius: 1,
+                                blurRadius: 0,
+                                offset: Offset(0, 1), // changes position of shadow
+                              ),
+                          ],
+                            color: widget.options[i]['hov']  != null ? widget.options[i]['hov'] : Colors.white,
+                            borderRadius: BorderRadius.circular(7)),
+                        height: 45,
+                        margin: EdgeInsets.only(
+                            top: i == 0 ? 0 : 20, left: 10, right: 10),
                       ),
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(158, 25, 26, 1),
-                              spreadRadius: 1,
-                              blurRadius: 0,
-                              offset: Offset(0, 1), // changes position of shadow
-                            ),
-                        ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(7)),
-                      height: 45,
-                      margin: EdgeInsets.only(
-                          top: i == 0 ? 0 : 20, left: 10, right: 10),
                     ),
                   );
                 }
