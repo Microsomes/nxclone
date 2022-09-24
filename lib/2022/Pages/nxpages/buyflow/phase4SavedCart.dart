@@ -4,6 +4,21 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuyFlowPhase4WithCard extends StatefulWidget {
+
+
+      final String ticketName;
+  final String ticketSubtitle;
+  final String ticketPrice;
+
+
+    BuyFlowPhase4WithCard({
+    @required this.ticketName,
+    @required this.ticketSubtitle,
+    @required this.ticketPrice
+  });
+
+
+
   @override
   State<BuyFlowPhase4WithCard> createState() => _BuyFlowPhase4State();
 }
@@ -48,7 +63,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
       "label":
           "This ticket purchase is subject to accepting the terms and conditions"
     },
-    {"type": "submitbuybutton", "label": "Accept & pay £2.40"}
+    {"type": "submitbuybutton", "label": "Accept & pay"}
   ];
 
   @override
@@ -156,7 +171,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                                   alignment: Alignment.centerLeft,
                                   color: Colors.transparent,
                                   child: Text(
-                                    "Singles and Daysavers",
+                                    widget.ticketSubtitle,
                                     style: GoogleFonts.roboto(
                                         color: Colors.white.withOpacity(0.9)),
                                   ),
@@ -172,7 +187,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 15.0),
                                   child: Text(
-                                    "All day - West Midlands",
+                                    widget.ticketName,
                                     style: GoogleFonts.roboto(
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -191,7 +206,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                                   child: Container(),
                                 ),
                                 Text(
-                                  "£4.00",
+                                  "£"+widget.ticketPrice,
                                   style: GoogleFonts.roboto(
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -229,7 +244,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                                   child: Container(),
                                 ),
                                 Text(
-                                  "£4.00",
+                                  "£"+widget.ticketPrice,
                                   style: GoogleFonts.roboto(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white),
@@ -460,7 +475,11 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                               } else {
                                 return GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase5Success()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase5Success(
+                                      ticketSubtitle: widget.ticketSubtitle,
+                                      ticketName: widget.ticketName,
+                                      ticketPrice: widget.ticketPrice,
+                                    )));
                                   },
                                   child: Container(
                                     alignment: Alignment.center,
@@ -492,8 +511,8 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(10))),
                                           child: Center(
-                                            child: Text(
-                                              formInputs[i]['label'],
+                                            child: Text(""+
+                                              formInputs[i]['label']+" £"+widget.ticketPrice,
                                               style: GoogleFonts.roboto(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold,

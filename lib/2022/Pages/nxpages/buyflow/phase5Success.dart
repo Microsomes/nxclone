@@ -6,6 +6,21 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuyFlowPhase5Success extends StatelessWidget {
+
+
+    final String ticketName;
+  final String ticketSubtitle;
+  final String ticketPrice;
+
+
+    BuyFlowPhase5Success({
+    @required this.ticketName,
+    @required this.ticketSubtitle,
+    @required this.ticketPrice
+  });
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

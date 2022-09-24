@@ -185,7 +185,16 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
                       Builder(builder: (ctx) {
                         return GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> TicketRegulatorPage()));
+
+                            print("selected ticket");
+
+                            print(niceTickets[i]['name']);
+
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> TicketRegulatorPage(
+                              ticketName: niceTickets[i]['name'],
+                              ticketSubtitle: widget.title,
+                              ticketPrice: niceTickets[i]['price'].toString(),
+                            )));
                           },
                           child: Container(
                             margin: EdgeInsets.only(top: i == 0 ? 5 : 15),

@@ -5,6 +5,18 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuyFlowPhase3 extends StatelessWidget {
+
+    final String ticketName;
+  final String ticketSubtitle;
+  final String ticketPrice;
+
+
+    BuyFlowPhase3({
+    @required this.ticketName,
+    @required this.ticketSubtitle,
+    @required this.ticketPrice
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +93,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     color: Colors.transparent,
                     child: Text(
-                      "Singles and Daysavers",
+                     ticketSubtitle,
                       style: GoogleFonts.roboto(
                           color: Colors.white.withOpacity(0.9)),
                     ),
@@ -97,7 +109,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
                     child: Text(
-                      "All day - West Midlands",
+                      ticketName,
                       style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -114,7 +126,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                     child: Container(),
                   ),
                   Text(
-                    "£4.00",
+                    "£"+ticketPrice,
                     style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                   ),
                   Expanded(
@@ -141,15 +153,15 @@ class BuyFlowPhase3 extends StatelessWidget {
                     child: Container(),
                   ),
                   Text(
-                    "  ",
+                    "   ",
                     style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                   ),
                   Expanded(
-                    flex: 4,
+                    flex: 8,
                     child: Container(),
                   ),
                   Text(
-                    "£4.00",
+                    "£"+ticketPrice,
                     style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
@@ -166,7 +178,11 @@ class BuyFlowPhase3 extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase4WithCard()));
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase4WithCard(
+                              ticketName: ticketName,
+                              ticketSubtitle: ticketSubtitle,
+                              ticketPrice: ticketPrice,
+                            )));
                           },
                           child: Container(
                             color: Colors.transparent,
@@ -245,7 +261,11 @@ class BuyFlowPhase3 extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (ctx) => BuyFlowPhase4()));
+                                    builder: (ctx) => BuyFlowPhase4(
+                                      ticketSubtitle: ticketSubtitle,
+                                      ticketName: ticketName,
+                                      ticketPrice: ticketPrice,
+                                    )));
                           },
                           child: Container(
                             height: 85,

@@ -1,8 +1,22 @@
+import 'dart:ffi';
+
 import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase3.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketRegulatorPage extends StatelessWidget {
+
+  final String ticketName;
+  final String ticketSubtitle;
+  final String ticketPrice;
+
+  TicketRegulatorPage({
+    @required this.ticketName,
+    @required this.ticketSubtitle,
+    @required this.ticketPrice
+  });
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +141,11 @@ class TicketRegulatorPage extends StatelessWidget {
           
           ,GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase3()));
+              Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase3(
+                ticketName: ticketName,
+                ticketSubtitle: ticketSubtitle,
+                ticketPrice: ticketPrice,
+              )));
             },
             child: Container(
               alignment: Alignment.center,
