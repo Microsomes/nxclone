@@ -1,3 +1,4 @@
+import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/setupMain.dart';
 import 'package:BubbleGum/splash.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
@@ -182,7 +183,12 @@ void main() async {
 
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: NxPagesFront(),
+          home: FutureBuilder(
+            future: NXInitApp(),
+            builder: (ctx,snapshot){
+              return NxPagesFront();
+            },
+          )
         );
 
          if (snapshot.connectionState == ConnectionState.waiting) {

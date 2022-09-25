@@ -1,3 +1,4 @@
+import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
 import 'package:BubbleGum/pages/help.dart';
@@ -277,7 +278,12 @@ class _KtState extends State<Kt> {
                 }
 
                 if (currentType == "wallet") {
-                  return Container(
+                  return FutureBuilder(
+                    future: NXAllTickets(),
+                    builder: (ctx,snapshot){
+
+
+                    return Container(
                     margin: EdgeInsets.only(top: 15, right: 10, left: 10),
                     height: 60,
                     child: Row(
@@ -322,6 +328,8 @@ class _KtState extends State<Kt> {
                           ),
                         ]),
                   );
+
+                  });
                 }
 
                 if (currentType == "link") {
