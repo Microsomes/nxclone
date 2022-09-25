@@ -293,7 +293,7 @@ class Ac extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(left: 20, right: 20, bottom: 0),
                       child: TicketColor(
-                        speed: 20,
+                        speed: 1000,
                         ctx: context,
                       ),
                     ),

@@ -102,6 +102,19 @@ class ColorSelectOver {
                       AfterDisclaimer()));
                     },
                   ),
+                     TextButton(
+           
+                    child: Center(
+                      child: Text(
+                        "Emergency Mode",
+                        style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
+                      AfterDisclaimer()));
+                    },
+                  ),
 
                 Column(
                  crossAxisAlignment: CrossAxisAlignment.center,
