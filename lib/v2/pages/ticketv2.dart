@@ -598,9 +598,8 @@ class Subtitleticket extends StatelessWidget {
       child: Text(subtitle,
           textAlign: TextAlign.center,
           style: GoogleFonts.roboto(
-              fontSize: 15,
-              letterSpacing: 3,
-              height: 1.6,
+              fontSize: 17,
+              height: 1.2,
               fontWeight: FontWeight.bold,
               color: Color.fromRGBO(
                 110,
