@@ -45,13 +45,11 @@ Future GetFirstAvailableTicket() async {
 }
 
 
-Future<List> NXAllTickets() async {
+Future<List> NXAllTicketsAvailable() async {
   print("all tickets");
   var db = await openDB();
   List<Map> tickets = await db
       .rawQuery("SELECT * FROM wallet WHERE isActive=?",[-1]);
-
-      print(tickets);
   return tickets;
 }
 

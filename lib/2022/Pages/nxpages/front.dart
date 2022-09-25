@@ -290,150 +290,41 @@ class _KtState extends State<Kt> {
                               height: 200,
                               child: Column(
                                 children: [
-                                  Container(
-                                    height: 140,
-                                    child: Center(
-                                      child: Container(
-                                        margin: EdgeInsets.only(
-                                            left: 30, right: 30, top: 30),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color:
-                                                  Colors.grey.withOpacity(0.5),
-                                              spreadRadius: 1,
-                                              blurRadius: 7,
-                                              offset: Offset(0,
-                                                  3), // changes position of shadow
-                                            ),
-                                          ],
-                                          color: Colors.white,
-                                        ),
-                                        child: Column(
+                                  InactiveTicketComp(
+                                    marginBias: 30,
+                                    ticketId: snapshot.data['id'],
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>TripWallet()));
+                                    },
+                                    child: Container(
+                                        padding:
+                                            EdgeInsets.only(right: 30, top: 20),
+                                        width: double.infinity,
+                                        alignment: Alignment.bottomRight,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
                                           children: [
+                                            Text(
+                                              "More tickets",
+                                              style: GoogleFonts.roboto(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16),
+                                            ),
                                             SizedBox(
-                                              height: 5,
+                                              width: 10,
                                             ),
-                                            Row(
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 20,
-                                                              top: 10),
-                                                      child: Text(
-                                                        "Single Tickets",
-                                                        style:
-                                                            GoogleFonts.roboto(
-                                                                color: Colors
-                                                                    .black,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontSize: 16),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 20, top: 2),
-                                                      child: Text(
-                                                        "Single - West Midlands",
-                                                        style:
-                                                            GoogleFonts.roboto(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                                fontSize: 15),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                Expanded(
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.centerRight,
-                                                    width: double.infinity,
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              right: 20),
-                                                      child: Text(
-                                                        "INACTIVE",
-                                                        style:
-                                                            GoogleFonts.roboto(
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        106,
-                                                                        106,
-                                                                        106,
-                                                                        1),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 20, right: 20),
-                                              child: Divider(
-                                                  color: Colors.grey
-                                                      .withOpacity(0.8)),
-                                            ),
-                                            Container(
-                                              alignment: Alignment.bottomLeft,
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 20, top: 6),
-                                                child: Text(
-                                                  "Expires in 2 days, 7 hours",
-                                                  style: GoogleFonts.roboto(
-                                                      color: Colors.red,
-                                                      fontSize: 12),
-                                                ),
-                                              ),
+                                            SvgPicture.asset(
+                                              "images/front/arrow.svg",
+                                              color: Colors.white,
+                                              width: 20,
                                             )
                                           ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                      padding:
-                                          EdgeInsets.only(right: 30, top: 20),
-                                      width: double.infinity,
-                                      alignment: Alignment.bottomRight,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            "More tickets",
-                                            style: GoogleFonts.roboto(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 16),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          SvgPicture.asset(
-                                            "images/front/arrow.svg",
-                                            color: Colors.white,
-                                            width: 20,
-                                          )
-                                        ],
-                                      ))
+                                        )),
+                                  )
                                 ],
                               ),
                               decoration: BoxDecoration(
@@ -596,5 +487,140 @@ class _KtState extends State<Kt> {
               })
           ],
         ));
+  }
+}
+
+class InactiveTicketComp extends StatelessWidget {
+
+
+  final double marginBias;
+  final int ticketId;
+
+  const InactiveTicketComp({
+    Key key,
+    @required this.marginBias,
+    @required this.ticketId
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 140,
+      child: Center(
+        child: Container(
+          margin: EdgeInsets.only(
+              left: marginBias, right: 30, top: marginBias),
+          decoration: BoxDecoration(
+            borderRadius:
+                BorderRadius.circular(5),
+            boxShadow: [
+              BoxShadow(
+                color:
+                    Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 7,
+                offset: Offset(0,
+                    3), // changes position of shadow
+              ),
+            ],
+            color: Colors.white,
+          ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(
+                                left: 20,
+                                top: 10),
+                        child: Text(
+                          "Single Tickets",
+                          style:
+                              GoogleFonts.roboto(
+                                  color: Colors
+                                      .black,
+                                  fontWeight:
+                                      FontWeight
+                                          .bold,
+                                  fontSize: 16),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(
+                                left: 20, top: 2),
+                        child: Text(
+                          "Single - West Midlands",
+                          style:
+                              GoogleFonts.roboto(
+                                  fontWeight:
+                                      FontWeight
+                                          .w400,
+                                  fontSize: 15),
+                        ),
+                      )
+                    ],
+                  ),
+                  Expanded(
+                    child: Container(
+                      alignment:
+                          Alignment.centerRight,
+                      width: double.infinity,
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(
+                                right: 20),
+                        child: Text(
+                          "INACTIVE",
+                          style:
+                              GoogleFonts.roboto(
+                                  color: Color
+                                      .fromRGBO(
+                                          106,
+                                          106,
+                                          106,
+                                          1),
+                                  fontWeight:
+                                      FontWeight
+                                          .bold),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20),
+                child: Divider(
+                    color: Colors.grey
+                        .withOpacity(0.8)),
+              ),
+              Container(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 20, top: 6),
+                  child: Text(
+                    "Expires in 2 days, 7 hours",
+                    style: GoogleFonts.roboto(
+                        color: Colors.red,
+                        fontSize: 12),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

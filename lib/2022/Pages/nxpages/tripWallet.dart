@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../v2/pages/nxfront.dart';
+import '../../2022helper.dart';
 import 'front.dart';
 
 class TripWallet extends StatefulWidget {
@@ -46,11 +47,34 @@ class UtilitiesMenuState extends State<TripWallet> {
     }
   ];
 
+  bool isBuyButtonOn = false;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+
+    NXAllTicketsAvailable().then((List value) {
+      if(value.length>=1){
+        setState(() {
+          isBuyButtonOn = false;
+        });
+      }else{
+        setState(() {
+          isBuyButtonOn = true;
+        });
+      }
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     final sizeW = MediaQuery.of(context).size.width;
     return WillPopScope(
-     onWillPop: () async {
+      onWillPop: () async {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => Nxfront()),
@@ -73,10 +97,11 @@ class UtilitiesMenuState extends State<TripWallet> {
                         child: GestureDetector(
                           onTap: () {
                             //Navigator.pop(context);
- Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => NxPagesFront()),
-        );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NxPagesFront()),
+                            );
                           },
                           child: Container(
                             width: 100,
@@ -162,40 +187,69 @@ class UtilitiesMenuState extends State<TripWallet> {
                                 ),
                               ),
                               Expanded(
-                                child: Container(
-                                    child: Center(
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 120,
-                                      ),
-                                      SvgPicture.asset(
-                                        "images/front/tickets.svg",
-                                        color: Color.fromRGBO(168, 26, 25, 1),
-                                        width: 100,
-                                      ),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      Text(
-                                        "Can't see your tickets?",
-                                        style: GoogleFonts.roboto(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 19),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        "Log in or create an account below",
-                                        style: GoogleFonts.roboto(
-                                            fontSize: 16,
-                                            color:
-                                                Color.fromRGBO(109, 109, 109, 1)),
-                                      )
-                                    ],
+                                child: SingleChildScrollView(
+                                  child: FutureBuilder(
+                                    future: NXAllTicketsAvailable(),
+                                
+                                    builder: (context, snapshot) {
+                                
+                                      if(snapshot.connectionState == ConnectionState.done){
+                                        print("check");
+                                        List<Map> tickets = snapshot.data;
+                                
+                                        if(tickets.length>=1){
+                                          return Column(
+                                            children: [
+                                              for(var i=0;i<tickets.length;i++)
+                                              Builder(builder: (ctx){
+                                
+                                                return InactiveTicketComp(
+                                                  marginBias: 20,
+                                                  ticketId: tickets[i]['id'],
+                                                );
+                                              })
+                                            ],
+                                          );
+                                        }
+                                      }
+                                
+                                      return Container(
+                                      child: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 120,
+                                        ),
+                                        SvgPicture.asset(
+                                          "images/front/tickets.svg",
+                                          color: Color.fromRGBO(168, 26, 25, 1),
+                                          width: 100,
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "Can't see your tickets?",
+                                          style: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 19),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "Log in or create an account below",
+                                          style: GoogleFonts.roboto(
+                                              fontSize: 16,
+                                              color: Color.fromRGBO(
+                                                  109, 109, 109, 1)),
+                                        )
+                                      ],
+                                    ),
+                                  ));
+                                    },
                                   ),
-                                )),
+                                )
                               )
                             ],
                           )))
@@ -207,7 +261,7 @@ class UtilitiesMenuState extends State<TripWallet> {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    Container(
+                 isBuyButtonOn == true?   Container(
                       height: 50,
                       margin: EdgeInsets.only(left: 20, right: 20),
                       decoration: BoxDecoration(
@@ -216,7 +270,8 @@ class UtilitiesMenuState extends State<TripWallet> {
                               color: Color.fromRGBO(199, 199, 199, 1),
                               spreadRadius: 0,
                               blurRadius: 2,
-                              offset: Offset(0, 3), // changes position of shadow
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
                             ),
                           ],
                           color: Color.fromRGBO(194, 154, 99, 1),
@@ -228,9 +283,9 @@ class UtilitiesMenuState extends State<TripWallet> {
                               fontWeight: FontWeight.bold, fontSize: 17),
                         ),
                       ),
-                    ),
+                    ):Container(),
                     SizedBox(
-                      height: 5,
+                      height:  isBuyButtonOn== true ? 5: 60,
                     ),
                     Container(
                       child: Center(
