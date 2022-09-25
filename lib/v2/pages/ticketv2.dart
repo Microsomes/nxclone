@@ -307,7 +307,9 @@ class Ac extends StatelessWidget {
                       ),
                       ticketTitle=="Anytime Daysaver Tickets All Day"
                       || ticketTitle=="Daysaver"
-                      ? NXSigAnytime():Container(),
+                      ? NXSigAnytime(
+                        isGroup: false,
+                      ):Container(),
                       ticketTitle!= "Anytime Daysaver Tickets All Day"
                       && ticketTitle!="Daysaver"
                       ? OtherSig(ticketTitle: ticketTitle, state: state):Container(),
@@ -484,8 +486,12 @@ class OtherSig extends StatelessWidget {
 }
 
 class NXSigAnytime extends StatelessWidget {
+  
+  final bool isGroup;
+
   const NXSigAnytime({
     Key key,
+    @required this.isGroup
   }) : super(key: key);
 
   @override
@@ -533,7 +539,7 @@ class NXSigAnytime extends StatelessWidget {
                             width: MediaQuery.of(context)
                                 .size
                                 .width,
-                            child: Image.asset("images/v6/adult.png"),
+                            child: isGroup  == true ? Image.asset("images/v6/group.png") : Image.asset("images/v6/adult.png"),
                             decoration: BoxDecoration(
                                 color: Color.fromRGBO(
                                     217, 217, 215, 1),

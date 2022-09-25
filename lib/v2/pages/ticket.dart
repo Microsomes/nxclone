@@ -1,3 +1,4 @@
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
 import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:flutter/material.dart';
@@ -157,10 +158,21 @@ class Ticket2State extends State<Ticket2> {
                               child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 10, right: 10, top: 10),
-                                  child: Nxsig(
-                                    isRounded: true,
-                                    state: state,
-                                  )),
+                                  child: Builder(
+                                    builder: (ctx){
+                                      print("-----");
+                                      print(state);
+
+                                      var isGroup = state == "Anytime Daysaver Tickets" ? true : false;
+
+                                    
+
+                                      return NXSigAnytime(
+                                    isGroup: isGroup,
+                                  );
+                                    },
+                                  )
+                              )
                             ),
                             SizedBox(
                               height: 10,
