@@ -152,21 +152,7 @@ class Ticket2State extends State<Ticket2> {
                             SizedBox(
                               height: 10,
                             ),
-                            Container(
-                              child: Text(
-                                "ANY BUS ACROSS OUR NETWORK",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    letterSpacing: 0.3,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(
-                                      124,
-                                      126,
-                                      136,
-                                      1,
-                                    )),
-                              ),
-                            ),
+                         
                             Container(
                               child: Padding(
                                   padding: const EdgeInsets.only(
@@ -180,18 +166,17 @@ class Ticket2State extends State<Ticket2> {
                               height: 10,
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width / 1.7,
                               child: Text(
                                 "ACTIVATE JUST BEFORE BOARDING",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 14,
                                     letterSpacing: 0.3,
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromRGBO(
-                                      124,
-                                      126,
-                                      136,
+                                      112,
+                                      112,
+                                      112,
                                       1,
                                     )),
                               ),
@@ -201,13 +186,8 @@ class Ticket2State extends State<Ticket2> {
                                   right: 12, left: 12, top: 6),
                               child: InkWell(
                                 onTap: () {
-                                  //displayActivationDialog(context);
-                                  // TicketOverlayHelper()
-                                  //     .displayActivationDialog(context,widget.txdbid);
-                                   NXGetTicketDetails(widget.txdbid).then((value) {
-      print(value);
-    });
-
+                                  TicketOverlayHelper()
+                                      .displayActivationDialog(context,widget.txdbid);
                                 },
                                 child: Container(
                                   color: Color.fromRGBO(46, 150, 32, 1),

@@ -10,35 +10,25 @@ class TicketOverlayHelper {
         builder: (ctx) {
           return Container(
             color: Colors.white,
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: MediaQuery.of(context).size.height * 0.60,
             child: Center(
                 child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
                   child: Text(
                     "ADULT WEST MIDLANDS SINGLE JOURNEY",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color.fromRGBO(62, 68, 91, 1),
                         fontWeight: FontWeight.bold,
-                        fontSize: 16),
+                        fontSize: 14),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 30.0, top: 10),
-                    child: Text(
-                      "Ticket Activation",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
+                SizedBox(height: 10,),
+                
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Padding(
@@ -46,18 +36,22 @@ class TicketOverlayHelper {
                     child: Text(
                       "Please activate your ticket before just before boarding. A ticket remains active for only 30 minutes.",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, height: 1.5),
+                          TextStyle(fontWeight: FontWeight.w500, height: 1.5,
+                          fontSize: 16
+                          ),
                     ),
                   ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 30, top: 20),
+                    padding: const EdgeInsets.only(left: 30, top: 10),
                     child: Text(
                       "You may only activate your mTicket\nonce so please do not continue unless\nyou are travelling.",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, height: 1.5),
+                          TextStyle(fontWeight: FontWeight.w500, height: 1.5,
+                          fontSize: 16
+                          ),
                     ),
                   ),
                 ),
@@ -98,34 +92,39 @@ class TicketOverlayHelper {
                     ),
                   ),
                 ),
-                Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 30),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(0.0),
-                            width: 30,
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.close,
-                                color: Color.fromRGBO(81, 108, 137, 1),
-                                size: 20,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.all(0.0),
+                              width: 30,
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.close,
+                                  color: Color.fromRGBO(81, 108, 137, 1),
+                                  size: 20,
+                                ),
+                                onPressed: () {},
                               ),
-                              onPressed: () {},
                             ),
-                          ),
-                          Text(
-                            "Close",
-                            style: TextStyle(
-                                color: Color.fromRGBO(103, 119, 138, 1),
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      ),
-                    ))
+                            Text(
+                              "Close",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(103, 119, 138, 1),
+                                  fontWeight: FontWeight.w500),
+                            )
+                          ],
+                        ),
+                      )),
+                )
               ],
             )),
           );
