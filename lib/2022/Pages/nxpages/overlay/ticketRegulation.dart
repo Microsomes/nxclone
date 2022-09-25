@@ -8,11 +8,13 @@ class TicketRegulatorPage extends StatelessWidget {
 
   final String ticketName;
   final String ticketSubtitle;
+  final String ticketsubtitle2;
   final String ticketPrice;
 
   TicketRegulatorPage({
     @required this.ticketName,
     @required this.ticketSubtitle,
+    @required this.ticketsubtitle2,
     @required this.ticketPrice
   });
 
@@ -144,6 +146,7 @@ class TicketRegulatorPage extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase3(
                 ticketName: ticketName,
                 ticketSubtitle: ticketSubtitle,
+                ticketSubtitle2: ticketsubtitle2,
                 ticketPrice: ticketPrice,
               )));
             },

@@ -282,6 +282,9 @@ class _KtState extends State<Kt> {
                     future: NXAllTickets(),
                     builder: (ctx,snapshot){
 
+                      print(snapshot.connectionState);
+                      print(snapshot.data);
+
 
                     return Container(
                     margin: EdgeInsets.only(top: 15, right: 10, left: 10),

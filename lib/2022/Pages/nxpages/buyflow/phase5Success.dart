@@ -1,3 +1,4 @@
+import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase4.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase4SavedCart.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
@@ -6,20 +7,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuyFlowPhase5Success extends StatelessWidget {
-
-
-    final String ticketName;
+  final String ticketName;
   final String ticketSubtitle;
+  final String ticketSubtitle2;
   final String ticketPrice;
 
-
-    BuyFlowPhase5Success({
-    @required this.ticketName,
-    @required this.ticketSubtitle,
-    @required this.ticketPrice
-  });
-
-
+  BuyFlowPhase5Success(
+      {@required this.ticketName,
+      @required this.ticketSubtitle,
+      @required this.ticketSubtitle2,
+      @required this.ticketPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -145,8 +142,15 @@ class BuyFlowPhase5Success extends StatelessWidget {
                           height: 20,
                         ),
                         GestureDetector(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> TripWallet()));                          },
+                          onTap: () {
+                            NXBuyTicket(ticketName, ticketSubtitle, ticketSubtitle2, ticketPrice)
+                                .then((value) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (ctx) => TripWallet()));
+                            });
+                          },
                           child: Container(
                             height: 50,
                             margin: EdgeInsets.only(left: 39, right: 30),
@@ -171,7 +175,7 @@ class BuyFlowPhase5Success extends StatelessWidget {
                             ),
                           ),
                         ),
-                         SizedBox(
+                        SizedBox(
                           height: 15,
                         ),
                         Container(
@@ -193,8 +197,9 @@ class BuyFlowPhase5Success extends StatelessWidget {
                             child: Text(
                               "NX Rewards Cashback",
                               style: GoogleFonts.roboto(
-                                color: Color.fromRGBO(194, 149, 99, 1),
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  color: Color.fromRGBO(194, 149, 99, 1),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
                             ),
                           ),
                         )

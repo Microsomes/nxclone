@@ -7,12 +7,14 @@ class BuyFlowPhase4 extends StatefulWidget {
 
        final String ticketName;
   final String ticketSubtitle;
+  final String ticketSubtitle2;
   final String ticketPrice;
 
 
     BuyFlowPhase4({
     @required this.ticketName,
     @required this.ticketSubtitle,
+    @required this.ticketSubtitle2,
     @required this.ticketPrice
   });
 

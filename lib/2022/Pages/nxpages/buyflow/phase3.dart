@@ -5,17 +5,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuyFlowPhase3 extends StatelessWidget {
-
-    final String ticketName;
+  final String ticketName;
   final String ticketSubtitle;
+  final String ticketSubtitle2;
   final String ticketPrice;
 
-
-    BuyFlowPhase3({
-    @required this.ticketName,
-    @required this.ticketSubtitle,
-    @required this.ticketPrice
-  });
+  BuyFlowPhase3(
+      {@required this.ticketName,
+      @required this.ticketSubtitle,
+      @required this.ticketSubtitle2,
+      @required this.ticketPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +92,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     color: Colors.transparent,
                     child: Text(
-                     ticketSubtitle,
+                      ticketSubtitle,
                       style: GoogleFonts.roboto(
                           color: Colors.white.withOpacity(0.9)),
                     ),
@@ -126,7 +125,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                     child: Container(),
                   ),
                   Text(
-                    "£"+ticketPrice,
+                    "£" + ticketPrice,
                     style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                   ),
                   Expanded(
@@ -161,7 +160,7 @@ class BuyFlowPhase3 extends StatelessWidget {
                     child: Container(),
                   ),
                   Text(
-                    "£"+ticketPrice,
+                    "£" + ticketPrice,
                     style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
@@ -177,12 +176,16 @@ class BuyFlowPhase3 extends StatelessWidget {
                     child: Column(
                       children: [
                         GestureDetector(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase4WithCard(
-                              ticketName: ticketName,
-                              ticketSubtitle: ticketSubtitle,
-                              ticketPrice: ticketPrice,
-                            )));
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => BuyFlowPhase4WithCard(
+                                          ticketName: ticketName,
+                                          ticketSubtitle: ticketSubtitle,
+                                          ticketSubtitle2: ticketSubtitle2,
+                                          ticketPrice: ticketPrice,
+                                        )));
                           },
                           child: Container(
                             color: Colors.transparent,
@@ -262,10 +265,11 @@ class BuyFlowPhase3 extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (ctx) => BuyFlowPhase4(
-                                      ticketSubtitle: ticketSubtitle,
-                                      ticketName: ticketName,
-                                      ticketPrice: ticketPrice,
-                                    )));
+                                          ticketSubtitle: ticketSubtitle,
+                                          ticketSubtitle2: ticketSubtitle2,
+                                          ticketName: ticketName,
+                                          ticketPrice: ticketPrice,
+                                        )));
                           },
                           child: Container(
                             height: 85,

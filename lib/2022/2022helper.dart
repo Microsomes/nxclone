@@ -32,9 +32,12 @@ Future<void> NXBuyTicket(
 }
 
 Future<List> NXAllTickets() async {
+  print("all tickets");
   var db = await openDB();
   List<Map> tickets = await db
-      .rawQuery("SELECT * FROM wallet WHERE isActive=? ORDER BY id DESC", [0]);
+      .rawQuery("SELECT * FROM wallet");
+
+      print(tickets);
   return tickets;
 }
 

@@ -190,9 +190,12 @@ class UtilitiesMenuState extends State<BuyFlowPhase2> {
 
                             print(niceTickets[i]['name']);
 
+                            // print(widget.subtitle);
+
                             Navigator.push(context, MaterialPageRoute(builder: (ctx)=> TicketRegulatorPage(
                               ticketName: niceTickets[i]['name'],
                               ticketSubtitle: widget.title,
+                              ticketsubtitle2: widget.subtitle,
                               ticketPrice: niceTickets[i]['price'].toString(),
                             )));
                           },

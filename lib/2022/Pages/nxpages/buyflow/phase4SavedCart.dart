@@ -8,12 +8,14 @@ class BuyFlowPhase4WithCard extends StatefulWidget {
 
       final String ticketName;
   final String ticketSubtitle;
+  final String ticketSubtitle2;
   final String ticketPrice;
 
 
     BuyFlowPhase4WithCard({
     @required this.ticketName,
     @required this.ticketSubtitle,
+    @required this.ticketSubtitle2,
     @required this.ticketPrice
   });
 
@@ -478,6 +480,7 @@ class _BuyFlowPhase4State extends State<BuyFlowPhase4WithCard> {
                                     Navigator.push(context, MaterialPageRoute(builder: (ctx)=> BuyFlowPhase5Success(
                                       ticketSubtitle: widget.ticketSubtitle,
                                       ticketName: widget.ticketName,
+                                      ticketSubtitle2: widget.ticketSubtitle2,
                                       ticketPrice: widget.ticketPrice,
                                     )));
                                   },
