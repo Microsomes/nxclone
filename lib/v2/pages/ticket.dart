@@ -163,7 +163,7 @@ class Ticket2State extends State<Ticket2> {
                                       print("-----");
                                       print(state);
 
-                                      var isGroup = state == "Anytime Daysaver Tickets" ? true : false;
+                                      var isGroup = state == "Group Daysaver Tickets" ? true : false;
 
                                     
 

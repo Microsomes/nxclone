@@ -18,6 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../2022/2022helper.dart';
 import '../../2022/Pages/nxpages/front.dart';
 import 'overlays/v2/ejectionOverlay.dart';
 
@@ -64,7 +65,6 @@ class ActualTicketState extends State<ActualTicket> {
     //   });
     // });
 
-
     Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
         showT = true;
@@ -110,10 +110,22 @@ class ActualTicketState extends State<ActualTicket> {
 
     currentQR = listOfQrCollections[0];
 
-    setState(() {
-      state = "example state";
-      ticketTitle = "example ticket title";
-      subtitle = "example subtitle";
+    // setState(() {
+    //   state = "example state";
+    //   ticketTitle = "example ticket title";
+    //   subtitle = "example subtitle";
+    // });
+
+    NXGetTicketDetails(widget.txid).then((value) {
+      NXFindRawTicket(value['ticketSubtitle'], value['ticketSubtitle2'],
+              value['ticketName'])
+          .then((value2) {
+        setState(() {
+          subtitle = value2['subline'];
+          ticketTitle = value['ticketName'];
+          state = value['ticketSubtitle2'];
+        });
+      });
     });
 
     // NXHelp().getTicketWalletInfoByID(id: activeTicketID).then((value) {
@@ -128,7 +140,6 @@ class ActualTicketState extends State<ActualTicket> {
     //     });
     //   });
     // });
-
   }
 
   @override
@@ -143,30 +154,7 @@ class ActualTicketState extends State<ActualTicket> {
   String defaultEjectionID;
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(onWillPop: () async {
-      SharedPreferences.getInstance().then((value) {
-        if (value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY) != null) {
-          setState(() {
-            defaultEjectionID =
-                value.getString(SettingsPrefKeys.EJECTION_SETTING_KEY);
-          });
-          if (defaultEjectionID == "nothing") {
-          } else {
-            print(defaultEjectionID);
-          }
-        }else{
-          // Screen.setBrightness(0.1);
-          Future.delayed(Duration(seconds: 1),(){
-            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AfterDisclaimer()),
-                            );
-          });
-        }
-      });
-      return;
-    }, child: FutureBuilder(
+    return FutureBuilder(
       builder: (ctx, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Scaffold(
@@ -177,7 +165,6 @@ class ActualTicketState extends State<ActualTicket> {
             ),
           );
         }
-
         return state == null
             ? Scaffold(
                 backgroundColor: Colors.black,
@@ -197,13 +184,13 @@ class ActualTicketState extends State<ActualTicket> {
                         ),
                         InkWell(
                           onTap: () {
-                              Navigator.push(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => NxPagesFront()),
                             );
                             // Screen.setBrightness(0.1).then((value) {
-                            
+
                             // });
                           },
                           child: Row(
@@ -216,38 +203,36 @@ class ActualTicketState extends State<ActualTicket> {
                                     const EdgeInsets.only(right: 20, top: 15),
                                 child: Text(
                                   "Close",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 18
-                                  ),
+                                  style: GoogleFonts.roboto(fontSize: 18),
                                 ),
                               )
                             ],
                           ),
                         ),
-                        // Expanded(
-                        //   child: Container(
-                        //     child: showT == true
-                        //         ? Ac(
-                        //             changeTik: (int id) {
-                        //               changeTicket(id: id);
-                        //             },
-                        //             ticketid: activeTicketID,
-                        //             speedConfig: speedConfig,
-                        //             state: state,
-                        //             ticketTitle: ticketTitle,
-                        //             currentQR: currentQR,
-                        //             subtitle: subtitle,
-                        //             widget: widget)
-                        //         : Container(),
-                        //   ),
-                        // )
+                        Expanded(
+                          child: Container(
+                            child: showT == true
+                                ? Ac(
+                                    changeTik: (int id) {
+                                      changeTicket(id: id);
+                                    },
+                                    ticketid: activeTicketID,
+                                    speedConfig: speedConfig,
+                                    state: state,
+                                    ticketTitle: ticketTitle,
+                                    currentQR: currentQR,
+                                    subtitle: subtitle,
+                                    widget: widget)
+                                : Container(),
+                          ),
+                        )
                       ],
                     ),
                   ),
                 ),
               );
       },
-    ));
+    );
   }
 }
 
@@ -275,194 +260,205 @@ class Ac extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3),
-                  )
-                ]),
-            child: Column(
-              children: <Widget>[
-                TicketTopPart(
-                    speedConfig: speedConfig,
-                    state: state,
-                    ticketTitle: ticketTitle),
-                Expanded(
-                  child: SingleChildScrollView(
-                      child: Column(
-                    children: [
-                      SizedBox(
-                        height: state == States.warwickUni ? 5 : 10,
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                )
+              ]),
+          child: Column(
+            children: <Widget>[
+              TicketTopPart(
+                  speedConfig: speedConfig,
+                  state: state,
+                  ticketTitle: ticketTitle),
+              Expanded(
+                child: SingleChildScrollView(
+                    child: Column(
+                  children: [
+                    SizedBox(
+                      height: state == States.warwickUni ? 5 : 10,
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 20, right: 20, bottom: 0),
+                      child: TicketColor(
+                        speed: 20,
+                        ctx: context,
                       ),
-                      Container(
-                        padding:
-                            EdgeInsets.only(left: 20, right: 20, bottom: 0),
-                        child: TicketColor(
-                          speed: 20,
-                          ctx: context,
-                        ),
-                      ),
-                      ticketTitle=="Anytime Daysaver Tickets All Day"
-                      || ticketTitle=="Daysaver"
-                      ? NXSigAnytime(
-                        isGroup: false,
-                      ):Container(),
-                      ticketTitle!= "Anytime Daysaver Tickets All Day"
-                      && ticketTitle!="Daysaver"
-                      ? OtherSig(ticketTitle: ticketTitle, state: state):Container(),
-                      InkWell(
-                        onTap: () {
-                          print("Show rewards");
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              right: 20, left: 20, top: 8),
-                          child: Container(
-                            color: Color.fromRGBO(5, 126, 176, 1),
-                            height: 60,
-                            child: Center(
-                                child: Row(
-                              children: <Widget>[
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Icon(
-                                  Icons.launch,
-                                  color: Colors.white.withOpacity(0.7),
-                                  size: 16,
-                                ),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Text(
-                                  "NX Rewards Cashback",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      letterSpacing: 0.3),
-                                ),
-                              ],
-                            )),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Subtitleticket(subtitle: subtitle),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      QR(),
-                    ],
-                  )),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      for (var i = 0; i < 100; i++)
-                        Container(
-                          height: 1,
-                          width: 1,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Color.fromRGBO(103, 119, 138, 1)),
-                        )
-                    ],
-                  ),
-                ),
-                Row(
-                  children: <Widget>[
+                    ),
+                    Builder(
+                      builder: (ctx) {
+                        if (ticketTitle == "All Day- West Midlands" ||
+                            ticketTitle == "Daysaver") {
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: NXSigAnytime(
+                              isGroup: false,
+                            ),
+                          );
+                        }else if(ticketTitle == "Group"){
+
+                           return Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: NXSigAnytime(
+                              isGroup: true,
+                            ),
+                          );
+                        }
+
+                        return  OtherSig(ticketTitle: ticketTitle, state: state);
+                      },
+                    ),
                     InkWell(
-                      onLongPress: () {
-                        print("open ejection overlay");
-                        EjectionOverlay().display(context);
-                      },
                       onTap: () {
-                        ActionOverlay().display(context);
+                        print("Show rewards");
                       },
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(right: 20, left: 20, top: 8),
+                        child: Container(
+                          color: Color.fromRGBO(5, 126, 176, 1),
+                          height: 60,
+                          child: Center(
+                              child: Row(
+                            children: <Widget>[
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Icon(
+                                Icons.launch,
+                                color: Colors.white.withOpacity(0.7),
+                                size: 16,
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text(
+                                "NX Rewards Cashback",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    letterSpacing: 0.3),
+                              ),
+                            ],
+                          )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Subtitleticket(subtitle: subtitle),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    QR(),
+                  ],
+                )),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    for (var i = 0; i < 100; i++)
+                      Container(
+                        height: 1,
+                        width: 1,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color.fromRGBO(103, 119, 138, 1)),
+                      )
+                  ],
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  InkWell(
+                    onLongPress: () {
+                      print("open ejection overlay");
+                      EjectionOverlay().display(context);
+                    },
+                    onTap: () {
+                      ActionOverlay().display(context);
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        IconButton(
+                          icon: Icon(Icons.more_horiz,
+                              color: Color.fromRGBO(103, 119, 138, 1)),
+                          onPressed: () {},
+                        ),
+                        Text("Actions",
+                            style: GoogleFonts.roboto(
+                                color: Color.fromRGBO(5, 121, 160, 1),
+                                fontWeight: FontWeight.w800))
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  InkWell(
+                    onLongPress: () {
+                      showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                                backgroundColor: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                content: TicketSwicher(
+                                  changeTicket: (int id) {
+                                    this.changeTik(id);
+                                    Navigator.of(context, rootNavigator: true)
+                                        .pop('dialog');
+                                  },
+                                ),
+                              ));
+                    },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TicketDetail(
+                                  txid: ticketid,
+                                )),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 17.0),
                       child: Row(
                         children: <Widget>[
                           IconButton(
-                            icon: Icon(Icons.more_horiz,
-                                color: Color.fromRGBO(103, 119, 138, 1)),
+                            icon: Icon(
+                              Icons.format_list_bulleted,
+                              color: Color.fromRGBO(5, 121, 160, 1),
+                            ),
                             onPressed: () {},
                           ),
-                          Text("Actions",
+                          Text("Details",
                               style: GoogleFonts.roboto(
                                   color: Color.fromRGBO(5, 121, 160, 1),
                                   fontWeight: FontWeight.w800))
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: Container(),
-                    ),
-                    InkWell(
-                      onLongPress: () {
-                        showDialog(
-                            context: context,
-                            builder: (ctx) => AlertDialog(
-                                  backgroundColor: Colors.black,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  content: TicketSwicher(
-                                    changeTicket: (int id) {
-                                      this.changeTik(id);
-                                      Navigator.of(context, rootNavigator: true)
-                                          .pop('dialog');
-                                    },
-                                  ),
-                                ));
-                      },
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TicketDetail(
-                                    txid: ticketid,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 17.0),
-                        child: Row(
-                          children: <Widget>[
-                            IconButton(
-                              icon: Icon(
-                                Icons.format_list_bulleted,
-                                color: Color.fromRGBO(5, 121, 160, 1),
-                              ),
-                              onPressed: () {},
-                            ),
-                            Text("Details",
-                                style: GoogleFonts.roboto(
-                                    color: Color.fromRGBO(5, 121, 160, 1),
-                                    fontWeight: FontWeight.w800))
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-               
-              ],
-            ),
+                  )
+                ],
+              ),
+            ],
           ),
         ),
       ),
@@ -483,25 +479,21 @@ class OtherSig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 0),
-                  child: Nxsig(
-                    isRounded: ticketTitle == "Group Daysaver" ? true : false,
-                    state: state,
-                    isBottomRounded: true,
-                    ticketType: ticketTitle,
-                  ),
-                );
+      padding: EdgeInsets.only(left: 20, right: 20, top: 0),
+      child: Nxsig(
+        isRounded: ticketTitle == "Group Daysaver" ? true : false,
+        state: state,
+        isBottomRounded: true,
+        ticketType: ticketTitle,
+      ),
+    );
   }
 }
 
 class NXSigAnytime extends StatelessWidget {
-  
   final bool isGroup;
 
-  const NXSigAnytime({
-    Key key,
-    @required this.isGroup
-  }) : super(key: key);
+  const NXSigAnytime({Key key, @required this.isGroup}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -516,8 +508,7 @@ class NXSigAnytime extends StatelessWidget {
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(5),
-                      topLeft: Radius.circular(5)
-                      )),
+                      topLeft: Radius.circular(5))),
               width: 18,
             ),
             Expanded(
@@ -527,16 +518,11 @@ class NXSigAnytime extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      padding: EdgeInsets.only(
-                        top:5,
-                        bottom: 15
-                      ),
+                      padding: EdgeInsets.only(top: 5, bottom: 15),
                       margin: EdgeInsets.all(4),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(
-                              217, 217, 215, 1),
-                          borderRadius: BorderRadius.all(
-                              Radius.circular(5))),
+                          color: Color.fromRGBO(217, 217, 215, 1),
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Image.asset("images/v6/vm.png"),
                     ),
                   ),
@@ -546,38 +532,33 @@ class NXSigAnytime extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Container(
-                                padding:EdgeInsets.only(top:5),
-                            width: MediaQuery.of(context)
-                                .size
-                                .width,
-                            child: isGroup  == true ? Image.asset("images/v6/group.png") : Image.asset("images/v6/adult.png"),
+                            padding: EdgeInsets.only(top: 5),
+                            width: MediaQuery.of(context).size.width,
+                            child: isGroup == true
+                                ? Image.asset("images/v6/group.png")
+                                : Image.asset("images/v6/adult.png"),
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(
-                                    217, 217, 215, 1),
+                                color: Color.fromRGBO(217, 217, 215, 1),
                                 borderRadius:
-                                    BorderRadius.all(
-                                        Radius.circular(5))),
+                                    BorderRadius.all(Radius.circular(5))),
                             margin: EdgeInsets.all(4),
                           )),
                           Expanded(
                               child: Container(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        padding: EdgeInsets.all(10),
-                                         child: Image.asset("images/v4/nationalexpress.png")
-                                      ),
-                                    ),
-
-                                  ],
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          "images/v4/nationalexpress.png")),
                                 ),
+                              ],
+                            ),
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(
-                                    217, 217, 215, 1),
+                                color: Color.fromRGBO(217, 217, 215, 1),
                                 borderRadius:
-                                    BorderRadius.all(
-                                        Radius.circular(5))),
+                                    BorderRadius.all(Radius.circular(5))),
                             margin: EdgeInsets.all(4),
                           )),
                         ],
@@ -593,8 +574,7 @@ class NXSigAnytime extends StatelessWidget {
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(5),
-                      topRight: Radius.circular(5)
-                      )),
+                      topRight: Radius.circular(5))),
             )
           ],
         ),
@@ -661,7 +641,7 @@ class TicketTopPart extends StatelessWidget {
               child: MovingText(
                 velocity: 20,
                 textContent: "$ticketTitle - $state",
-                isUpper: true,
+                isUpper: false,
               ))
         ],
       ),
@@ -802,7 +782,6 @@ class _TicketSwicherState extends State<TicketSwicher> {
             SizedBox(height: 20),
             Expanded(
               child: TextButton(
-           
                 onPressed: () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (ctx) => PiHome()));
