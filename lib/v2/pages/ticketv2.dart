@@ -18,6 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../2022/Pages/nxpages/front.dart';
 import 'overlays/v2/ejectionOverlay.dart';
 
 class ActualTicket extends StatefulWidget {
@@ -49,18 +50,21 @@ class ActualTicketState extends State<ActualTicket> {
       showT = false;
       activeTicketID = id;
     });
-    NXHelp().getTicketWalletInfoByID(id: id).then((value) {
-      List<TicketWalletModel> tikdata = value;
 
-      tikdata[0].getTicketData().then((value) {
-        TicketModel tkData = value;
-        setState(() {
-          state = tkData.state;
-          ticketTitle = tkData.tickettitle;
-          subtitle = tkData.ticketsubtitle;
-        });
-      });
-    });
+    // NXHelp().getTicketWalletInfoByID(id: id).then((value) {
+    //   List<TicketWalletModel> tikdata = value;
+
+    //   tikdata[0].getTicketData().then((value) {
+    //     TicketModel tkData = value;
+    //     setState(() {
+    //       state = tkData.state;
+    //       ticketTitle = tkData.tickettitle;
+    //       subtitle = tkData.ticketsubtitle;
+    //     });
+    //   });
+    // });
+
+
     Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
         showT = true;
@@ -106,18 +110,24 @@ class ActualTicketState extends State<ActualTicket> {
 
     currentQR = listOfQrCollections[0];
 
-    NXHelp().getTicketWalletInfoByID(id: activeTicketID).then((value) {
-      List<TicketWalletModel> tikdata = value;
-
-      tikdata[0].getTicketData().then((value) {
-        TicketModel tkData = value;
-        setState(() {
-          state = tkData.state;
-          ticketTitle = tkData.tickettitle;
-          subtitle = tkData.ticketsubtitle;
-        });
-      });
+    setState(() {
+      state = "example state";
+      ticketTitle = "example ticket title";
+      subtitle = "example subtitle";
     });
+
+    // NXHelp().getTicketWalletInfoByID(id: activeTicketID).then((value) {
+    //   List<TicketWalletModel> tikdata = value;
+
+    //   tikdata[0].getTicketData().then((value) {
+    //     TicketModel tkData = value;
+    //     setState(() {
+    //       state = tkData.state;
+    //       ticketTitle = tkData.tickettitle;
+    //       subtitle = tkData.ticketsubtitle;
+    //     });
+    //   });
+    // });
 
   }
 
@@ -190,7 +200,7 @@ class ActualTicketState extends State<ActualTicket> {
                               Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Nxfront()),
+                                  builder: (context) => NxPagesFront()),
                             );
                             // Screen.setBrightness(0.1).then((value) {
                             
@@ -207,7 +217,6 @@ class ActualTicketState extends State<ActualTicket> {
                                 child: Text(
                                   "Close",
                                   style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.bold,
                                       fontSize: 18
                                   ),
                                 ),
@@ -215,23 +224,23 @@ class ActualTicketState extends State<ActualTicket> {
                             ],
                           ),
                         ),
-                        Expanded(
-                          child: Container(
-                            child: showT == true
-                                ? Ac(
-                                    changeTik: (int id) {
-                                      changeTicket(id: id);
-                                    },
-                                    ticketid: activeTicketID,
-                                    speedConfig: speedConfig,
-                                    state: state,
-                                    ticketTitle: ticketTitle,
-                                    currentQR: currentQR,
-                                    subtitle: subtitle,
-                                    widget: widget)
-                                : Container(),
-                          ),
-                        )
+                        // Expanded(
+                        //   child: Container(
+                        //     child: showT == true
+                        //         ? Ac(
+                        //             changeTik: (int id) {
+                        //               changeTicket(id: id);
+                        //             },
+                        //             ticketid: activeTicketID,
+                        //             speedConfig: speedConfig,
+                        //             state: state,
+                        //             ticketTitle: ticketTitle,
+                        //             currentQR: currentQR,
+                        //             subtitle: subtitle,
+                        //             widget: widget)
+                        //         : Container(),
+                        //   ),
+                        // )
                       ],
                     ),
                   ),
@@ -301,7 +310,7 @@ class Ac extends StatelessWidget {
                         padding:
                             EdgeInsets.only(left: 20, right: 20, bottom: 0),
                         child: TicketColor(
-                          speed: double.parse(speedConfig['bottom'][0]['val']),
+                          speed: 20,
                           ctx: context,
                         ),
                       ),
@@ -646,7 +655,7 @@ class TicketTopPart extends StatelessWidget {
           Positioned(
               left: 10,
               child: MovingText(
-                velocity: double.parse(speedConfig['top'][0]['val']),
+                velocity: 20,
                 textContent: "$ticketTitle - $state",
                 isUpper: true,
               ))

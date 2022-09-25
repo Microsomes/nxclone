@@ -10,7 +10,7 @@ class TicketOverlayHelper {
         builder: (ctx) {
           return Container(
             color: Colors.white,
-            height: MediaQuery.of(context).size.height * 0.60,
+            height: MediaQuery.of(context).size.height * 0.66,
             child: Center(
                 child: Column(
               children: <Widget>[
@@ -27,18 +27,19 @@ class TicketOverlayHelper {
                         fontSize: 14),
                   ),
                 ),
-                SizedBox(height: 10,),
-                
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30, top: 30),
                     child: Text(
                       "Please activate your ticket before just before boarding. A ticket remains active for only 30 minutes.",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, height: 1.5,
-                          fontSize: 16
-                          ),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          height: 1.5,
+                          fontSize: 16),
                     ),
                   ),
                 ),
@@ -48,10 +49,10 @@ class TicketOverlayHelper {
                     padding: const EdgeInsets.only(left: 30, top: 10),
                     child: Text(
                       "You may only activate your mTicket\nonce so please do not continue unless\nyou are travelling.",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, height: 1.5,
-                          fontSize: 16
-                          ),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          height: 1.5,
+                          fontSize: 16),
                     ),
                   ),
                 ),
@@ -66,15 +67,21 @@ class TicketOverlayHelper {
                          * 
                          */
 
-                      NXHelp().activeTicketv2(id: txid).then((value) {
-                        Navigator.push(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => ActualTicket(
                                     txid: txid,
-                                  )),
-                        );
-                      });
+                                  )));
+                      // NXHelp().activeTicketv2(id: txid).then((value) {
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => ActualTicket(
+                      //               txid: txid,
+                      //             )),
+                      //   );
+                      // });
                     },
                     child: Container(
                       color: Color.fromRGBO(46, 150, 32, 1),
@@ -93,7 +100,7 @@ class TicketOverlayHelper {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pop(context);
                   },
                   child: Container(
