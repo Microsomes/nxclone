@@ -53,5 +53,27 @@ Future<List> NXAllTicketsAvailable() async {
   return tickets;
 }
 
+Future<Map> NXGetTicketDetails(int id) async {
+  var db = await openDB();
+
+  List<Map> tickets = await db.rawQuery("SELECT * FROM wallet WHERE id=?",[id]);
+
+  Map selectedTicket= new Map();
+  
+  if(tickets.length>=1){
+    selectedTicket = tickets[0];
+  }else{
+    selectedTicket= null;
+  }
+  print("------");
+  print("="+selectedTicket['id'].toString());
+  print("="+selectedTicket['ticketName'].toString());
+  print("="+selectedTicket['ticketPrice'].toString());
+  print("="+selectedTicket['ticketSubtitle'].toString());
+  print("="+selectedTicket['ticketSubtitle2'].toString());
+
+  return selectedTicket;
+}
+
 Future<void> ExpireTicket(int id) async {}
 Future<void> clearAllTickets() async {}

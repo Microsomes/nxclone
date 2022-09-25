@@ -490,7 +490,7 @@ class _KtState extends State<Kt> {
   }
 }
 
-class InactiveTicketComp extends StatelessWidget {
+class InactiveTicketComp extends StatefulWidget {
 
 
   final double marginBias;
@@ -503,13 +503,36 @@ class InactiveTicketComp extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<InactiveTicketComp> createState() => _InactiveTicketCompState();
+}
+
+class _InactiveTicketCompState extends State<InactiveTicketComp> {
+
+  String title= "";
+  String nameOfTicket = "";
+
+  @override
+  void initState() {
+    super.initState();
+    NXGetTicketDetails(widget.ticketId).then((value) {
+      print(value);
+
+      setState(() {
+        title = value['ticketSubtitle2'];
+        nameOfTicket= value['ticketName'];
+      });
+
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 140,
       child: Center(
         child: Container(
           margin: EdgeInsets.only(
-              left: marginBias, right: 30, top: marginBias),
+              left: widget.marginBias, right: 30, top: widget.marginBias),
           decoration: BoxDecoration(
             borderRadius:
                 BorderRadius.circular(5),
@@ -542,7 +565,7 @@ class InactiveTicketComp extends StatelessWidget {
                                 left: 20,
                                 top: 10),
                         child: Text(
-                          "Single Tickets",
+                          title,
                           style:
                               GoogleFonts.roboto(
                                   color: Colors
@@ -558,7 +581,7 @@ class InactiveTicketComp extends StatelessWidget {
                             const EdgeInsets.only(
                                 left: 20, top: 2),
                         child: Text(
-                          "Single - West Midlands",
+                          nameOfTicket,
                           style:
                               GoogleFonts.roboto(
                                   fontWeight:
