@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import "package:google_fonts/google_fonts.dart";
 
 import '../../../v2/pages/menupage/topMenuPage.dart';
+import '../../../v2/pages/overlays/ticketPreActivate.dart';
 import 'buyflow/phase1.dart';
 
 class NxPagesFront extends StatefulWidget {
@@ -511,6 +512,8 @@ class _InactiveTicketCompState extends State<InactiveTicketComp> {
   String title= "";
   String nameOfTicket = "";
 
+  Color backgroundColor= Colors.white;
+
   @override
   void initState() {
     super.initState();
@@ -527,120 +530,137 @@ class _InactiveTicketCompState extends State<InactiveTicketComp> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 140,
-      child: Center(
+    return Listener(
+      onPointerDown: (event) {
+        print("point down");
+        backgroundColor = Colors.white70.withOpacity(0.9);
+        setState(() {});
+      },
+      onPointerUp: (event) {
+        print("point up");
+        backgroundColor = Colors.white;
+        setState(() {});
+      },
+      child: GestureDetector(
+        onTap: (){
+           
+        },
         child: Container(
-          margin: EdgeInsets.only(
-              left: widget.marginBias, right: 30, top: widget.marginBias),
-          decoration: BoxDecoration(
-            borderRadius:
-                BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                color:
-                    Colors.grey.withOpacity(0.5),
-                spreadRadius: 1,
-                blurRadius: 7,
-                offset: Offset(0,
-                    3), // changes position of shadow
+          height: 140,
+          child: Center(
+            child: Container(
+              margin: EdgeInsets.only(
+                  left: widget.marginBias, right: 30, top: widget.marginBias),
+              decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.circular(5),
+                boxShadow: [
+                  BoxShadow(
+                    color:
+                        Colors.grey.withOpacity(0.5),
+                    spreadRadius: 1,
+                    blurRadius: 7,
+                    offset: Offset(0,
+                        3), // changes position of shadow
+                  ),
+                ],
+                color:backgroundColor,
               ),
-            ],
-            color: Colors.white,
-          ),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 5,
-              ),
-              Row(
+              child: Column(
                 children: [
-                  Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Row(
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(
-                                left: 20,
-                                top: 10),
-                        child: Text(
-                          title,
-                          style:
-                              GoogleFonts.roboto(
-                                  color: Colors
-                                      .black,
-                                  fontWeight:
-                                      FontWeight
-                                          .bold,
-                                  fontSize: 16),
-                        ),
+                      Column(
+                        crossAxisAlignment:
+                            CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(
+                                    left: 20,
+                                    top: 10),
+                            child: Text(
+                              title,
+                              style:
+                                  GoogleFonts.roboto(
+                                      color: Colors
+                                          .black,
+                                      fontWeight:
+                                          FontWeight
+                                              .bold,
+                                      fontSize: 16),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(
+                                    left: 20, top: 2),
+                            child: Text(
+                              nameOfTicket,
+                              style:
+                                  GoogleFonts.roboto(
+                                      fontWeight:
+                                          FontWeight
+                                              .w400,
+                                      fontSize: 15),
+                            ),
+                          )
+                        ],
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(
-                                left: 20, top: 2),
-                        child: Text(
-                          nameOfTicket,
-                          style:
-                              GoogleFonts.roboto(
-                                  fontWeight:
-                                      FontWeight
-                                          .w400,
-                                  fontSize: 15),
+                      Expanded(
+                        child: Container(
+                          alignment:
+                              Alignment.centerRight,
+                          width: double.infinity,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(
+                                    right: 20),
+                            child: Text(
+                              "INACTIVE",
+                              style:
+                                  GoogleFonts.roboto(
+                                      color: Color
+                                          .fromRGBO(
+                                              106,
+                                              106,
+                                              106,
+                                              1),
+                                      fontWeight:
+                                          FontWeight
+                                              .bold),
+                            ),
+                          ),
                         ),
                       )
                     ],
                   ),
-                  Expanded(
-                    child: Container(
-                      alignment:
-                          Alignment.centerRight,
-                      width: double.infinity,
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(
-                                right: 20),
-                        child: Text(
-                          "INACTIVE",
-                          style:
-                              GoogleFonts.roboto(
-                                  color: Color
-                                      .fromRGBO(
-                                          106,
-                                          106,
-                                          106,
-                                          1),
-                                  fontWeight:
-                                      FontWeight
-                                          .bold),
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20, right: 20),
+                    child: Divider(
+                        color: Colors.grey
+                            .withOpacity(0.8)),
+                  ),
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, top: 6),
+                      child: Text(
+                        "Expires in 2 days, 7 hours",
+                        style: GoogleFonts.roboto(
+                            color: Colors.red,
+                            fontSize: 12),
                       ),
                     ),
                   )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 20, right: 20),
-                child: Divider(
-                    color: Colors.grey
-                        .withOpacity(0.8)),
-              ),
-              Container(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 20, top: 6),
-                  child: Text(
-                    "Expires in 2 days, 7 hours",
-                    style: GoogleFonts.roboto(
-                        color: Colors.red,
-                        fontSize: 12),
-                  ),
-                ),
-              )
-            ],
+            ),
           ),
         ),
       ),

@@ -36,7 +36,7 @@ Future GetFirstAvailableTicket() async {
   print("all tickets");
   var db = await openDB();
   List<Map> tickets = await db
-      .rawQuery("SELECT * FROM wallet WHERE isActive=? limit 1",[-1]);
+      .rawQuery("SELECT * FROM wallet WHERE isActive=? ORDER BY id desc limit 1",[-1]);
   if(tickets.length>=1){
     return tickets[0];
   }else{
