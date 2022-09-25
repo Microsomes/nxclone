@@ -10,6 +10,7 @@ import "package:google_fonts/google_fonts.dart";
 
 import '../../../v2/pages/menupage/topMenuPage.dart';
 import '../../../v2/pages/overlays/ticketPreActivate.dart';
+import '../../../v2/pages/ticket.dart';
 import 'buyflow/phase1.dart';
 
 class NxPagesFront extends StatefulWidget {
@@ -543,7 +544,9 @@ class _InactiveTicketCompState extends State<InactiveTicketComp> {
       },
       child: GestureDetector(
         onTap: (){
-           
+           Navigator.push(context, MaterialPageRoute(builder: (ctx)=> Ticket2(
+            txdbid: widget.ticketId,
+           )));
         },
         child: Container(
           height: 140,

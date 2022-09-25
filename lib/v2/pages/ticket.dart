@@ -21,7 +21,7 @@ class Ticket2 extends StatefulWidget {
 }
 
 class Ticket2State extends State<Ticket2> {
-  var currentTicket;
+  var currentTicket= "s";
   //will load the current ticket
 
   String state="klkjn";
@@ -32,20 +32,20 @@ class Ticket2State extends State<Ticket2> {
   void initState() {
     super.initState();
 
-    NXHelp().getTicketWalletInfoByID(id: widget.txdbid).then((value) {
+    // NXHelp().getTicketWalletInfoByID(id: widget.txdbid).then((value) {
 
-      List<TicketWalletModel> allT= value;
+    //   List<TicketWalletModel> allT= value;
 
-      allT[0].getTicketData().then((value) {
-        TicketModel tikData=value;
-        setState(() {
-          state=tikData.state;
-          tickettype= tikData.tickettitle;
-          currentTicket="d";
-        });
-      });
+    //   allT[0].getTicketData().then((value) {
+    //     TicketModel tikData=value;
+    //     setState(() {
+    //       state=tikData.state;
+    //       tickettype= tikData.tickettitle;
+    //       currentTicket="d";
+    //     });
+    //   });
 
-    });
+    // });
 
     // NXHelp().getTicketById(id: widget.txdbid).then((ticket) {
     //   if (ticket.length == 0) {
@@ -84,8 +84,7 @@ class Ticket2State extends State<Ticket2> {
                           child: Text(
                             "Close",
                             style:GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15
+                              fontSize: 16
                             )
                           ),
                         ),
@@ -115,7 +114,7 @@ class Ticket2State extends State<Ticket2> {
                               height: 35,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
-                                  color: Color.fromRGBO(117, 28, 21, 1),
+                                  color: Color.fromRGBO(185, 0, 9, 1),
                                   borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(10),
                                       topLeft: Radius.circular(10))),
