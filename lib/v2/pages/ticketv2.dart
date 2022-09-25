@@ -508,14 +508,16 @@ class NXSigAnytime extends StatelessWidget {
     return Container(
       height: 150,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        padding: const EdgeInsets.only(left: 0, right: 0),
         child: Row(
           children: [
             Container(
               decoration: BoxDecoration(
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(5))),
+                      bottomLeft: Radius.circular(5),
+                      topLeft: Radius.circular(5)
+                      )),
               width: 18,
             ),
             Expanded(
@@ -590,7 +592,9 @@ class NXSigAnytime extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(5))),
+                      bottomRight: Radius.circular(5),
+                      topRight: Radius.circular(5)
+                      )),
             )
           ],
         ),

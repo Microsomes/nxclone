@@ -43,17 +43,17 @@ class TicketDetailState extends State<TicketDetail> {
 
    
 
-    //load the ticket information
-    NXHelp().getTicketWalletInfoByID(id: widget.txid).then((value) {
-      List<TicketWalletModel> al= value;
-      al[0].getTicketData().then((value) async {
-        TicketModel md= value;
-        setState(() {
-          ticketModel=md;
-          ticketWalletModel=al[0];
-        });
-      });
-    });
+    // //load the ticket information
+    // NXHelp().getTicketWalletInfoByID(id: widget.txid).then((value) {
+    //   List<TicketWalletModel> al= value;
+    //   al[0].getTicketData().then((value) async {
+    //     TicketModel md= value;
+    //     setState(() {
+    //       ticketModel=md;
+    //       ticketWalletModel=al[0];
+    //     });
+    //   });
+    // });
 
 
     super.initState();
@@ -87,8 +87,7 @@ class TicketDetailState extends State<TicketDetail> {
                                   child: Text(
                                     "Close",
                                     style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                        fontSize: 15
                                     )
                                   ),
                                 ),
@@ -117,6 +116,8 @@ class TicketDetailState extends State<TicketDetail> {
                                     Expanded(
                                         child: ListView(
                                       children: <Widget>[
+                                        SizedBox(height: 10,),
+                                        Center(child: Text("Ticket details cannot be loaded")),
                                         ticketModel==null ?Container():ValidUntilComp(
                                           ticketDetail: ticketModel,
                                           ticketWalletInfo: ticketWalletModel,
