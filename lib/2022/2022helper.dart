@@ -4,6 +4,9 @@
  *  Helper file to handle wallet purchasing and record keeping
  */
 
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import "package:sqflite/sqflite.dart";
 
 Future<Database> openDB() async {
@@ -65,15 +68,23 @@ Future<Map> NXGetTicketDetails(int id) async {
   }else{
     selectedTicket= null;
   }
-  print("------");
-  print("="+selectedTicket['id'].toString());
-  print("="+selectedTicket['ticketName'].toString());
-  print("="+selectedTicket['ticketPrice'].toString());
-  print("="+selectedTicket['ticketSubtitle'].toString());
-  print("="+selectedTicket['ticketSubtitle2'].toString());
+
 
   return selectedTicket;
 }
+
+  Future NXFindRawTicket(String title,subtitle2,name) async {
+    print("finding ticket:"+name);
+    final String response = await rootBundle.loadString("assets/tickets.json");
+    final data = await jsonDecode(response);
+
+    var ticketRawDetails = data["sections"][title]['sections'][subtitle2][name];
+
+    return ticketRawDetails;
+  }
+
+
+
 
 Future<void> ExpireTicket(int id) async {}
 Future<void> clearAllTickets() async {}

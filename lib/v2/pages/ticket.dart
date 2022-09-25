@@ -9,6 +9,8 @@ import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../2022/2022helper.dart';
+
 class Ticket2 extends StatefulWidget {
   final int txdbid;
 
@@ -28,9 +30,26 @@ class Ticket2State extends State<Ticket2> {
 
   String tickettype="jknhjb";
 
+  String subline = "...";
+
   @override
   void initState() {
     super.initState();
+
+    NXGetTicketDetails(widget.txdbid).then((value) {
+      print(value['ticketSubtitle']);
+      print(value['ticketName']);
+      print(value);
+
+      NXFindRawTicket(value['ticketSubtitle'],value['ticketSubtitle2'],value['ticketName']).then((value2) {
+        setState(() {
+          subline = value2['subline'];
+
+          state = value['ticketSubtitle2'];
+          tickettype = value['ticketName'];
+        });
+      });
+    });
 
     // NXHelp().getTicketWalletInfoByID(id: widget.txdbid).then((value) {
 
@@ -125,7 +144,7 @@ class Ticket2State extends State<Ticket2> {
                                       left: 10,
                                       child: MovingText(
                                         textContent: "$state $tickettype",
-                                        isUpper: true,
+                                        isUpper: false,
                                       ))
                                 ],
                               ),
@@ -183,8 +202,12 @@ class Ticket2State extends State<Ticket2> {
                               child: InkWell(
                                 onTap: () {
                                   //displayActivationDialog(context);
-                                  TicketOverlayHelper()
-                                      .displayActivationDialog(context,widget.txdbid);
+                                  // TicketOverlayHelper()
+                                  //     .displayActivationDialog(context,widget.txdbid);
+                                   NXGetTicketDetails(widget.txdbid).then((value) {
+      print(value);
+    });
+
                                 },
                                 child: Container(
                                   color: Color.fromRGBO(46, 150, 32, 1),
@@ -234,7 +257,26 @@ class Ticket2State extends State<Ticket2> {
                                 )),
                               ),
                             ),
-                            Expanded(child: Text("")),
+                            SizedBox(height: 15,),
+                            Expanded(child: Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 20,
+                                  right: 20,
+                                ),
+                                child: Text(subline,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromRGBO(127, 127, 127, 1),
+                                  fontSize: 16
+                                ),
+                                ),
+                              ),
+                            )),
+                            MySeparator(
+                              color: Color.fromRGBO(211, 211, 211, 1),
+                            ),
                             Row(
                               children: <Widget>[
                                 InkWell(
@@ -244,15 +286,13 @@ class Ticket2State extends State<Ticket2> {
                                   child: Row(
                                     children: <Widget>[
                                       IconButton(
-                                        icon: Icon(Icons.more_horiz,color: Color.fromRGBO(
-                                                103, 119, 138, 1),),
+                                        icon: Icon(Icons.more_horiz,color: Color.fromRGBO(24,142,177,1)),
                                         onPressed: () {},
                                       ),
                                       Text(
                                         "Actions",
                                         style: TextStyle(
-                                            color: Color.fromRGBO(
-                                                103, 119, 138, 1),
+                                            color: Color.fromRGBO(24,142,177,1),
                                             fontWeight: FontWeight.w500),
                                       )
                                     ],
@@ -275,19 +315,20 @@ class Ticket2State extends State<Ticket2> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(right: 17.0),
                                     child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: <Widget>[
                                         IconButton(
                                           icon:
                                               Icon(Icons.format_list_bulleted,
-                                              color: Color.fromRGBO(
-                                                103, 119, 138, 1),),
+                                              size: 20,
+                                              color: Color.fromRGBO(24,142,177,1),
+                                              ),
                                           onPressed: () {},
                                         ),
                                         Text(
                                           "Details",
                                           style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  103, 119, 138, 1),
+                                              color: Color.fromRGBO(24,142,177,1),
                                               fontWeight: FontWeight.w500),
                                         )
                                       ],
@@ -305,6 +346,40 @@ class Ticket2State extends State<Ticket2> {
               )
             : Container(),
       ),
+    );
+  }
+}
+
+
+
+class MySeparator extends StatelessWidget {
+  const MySeparator({Key key, this.height = 1, this.color = Colors.black})
+      : super(key: key);
+  final double height;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final boxWidth = constraints.constrainWidth();
+        const dashWidth = 3.0;
+        final dashHeight = height;
+        final dashCount = (boxWidth / (2 * dashWidth)).floor();
+        return Flex(
+          children: List.generate(dashCount, (_) {
+            return SizedBox(
+              width: dashWidth,
+              height: dashHeight,
+              child: DecoratedBox(
+                decoration: BoxDecoration(color: color),
+              ),
+            );
+          }),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          direction: Axis.horizontal,
+        );
+      },
     );
   }
 }
