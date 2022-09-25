@@ -31,16 +31,16 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Singles & Daysavers",
       "icon": "images/front/single-ticket.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
         print("single catalogue page");
 
-               Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => BuyFlowPhase1(
-            subtitle: "Singles & Daysavers",
-          )));
-
-
+        Navigator.push(
+            ctx,
+            MaterialPageRoute(
+                builder: (context) => BuyFlowPhase1(
+                      subtitle: "Singles & Daysavers",
+                    )));
       }
     },
     {
@@ -49,14 +49,15 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "NX 1 Week and 4 Week",
       "icon": "images/front/tickets.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
         print("nx1 week and 4 week page");
-             Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => BuyFlowPhase1(
-            subtitle: "NX 1 Week and 4 Week",
-          )));
-
+        Navigator.push(
+            ctx,
+            MaterialPageRoute(
+                builder: (context) => BuyFlowPhase1(
+                      subtitle: "NX 1 Week and 4 Week",
+                    )));
       }
     },
     {
@@ -65,14 +66,15 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Multi Operator 1 Week and 4 Week",
       "icon": "images/front/busicon.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
         print("multi operator page 1 week and 4 week");
-             Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => BuyFlowPhase1(
-            subtitle: "Multi Operator 1 Week and 4 Week",
-          )));
-
+        Navigator.push(
+            ctx,
+            MaterialPageRoute(
+                builder: (context) => BuyFlowPhase1(
+                      subtitle: "Multi Operator 1 Week and 4 Week",
+                    )));
       }
     },
     {
@@ -81,12 +83,11 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Ticket Wallet",
       "icon": "images/front/ticket-wallet.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
 
-         Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => TripWallet())
-        );
+        Navigator.push(
+            ctx, MaterialPageRoute(builder: (context) => TripWallet()));
       }
     },
     {
@@ -102,13 +103,11 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Payzone Barcode",
       "icon": "images/front/DBarcode.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
 
-       Navigator.push(ctx,
-          MaterialPageRoute(builder: (context) => MyProfile())
-        );
-        
+        Navigator.push(
+            ctx, MaterialPageRoute(builder: (context) => MyProfile()));
       }
     },
     {
@@ -117,12 +116,12 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Trip Tools",
       "icon": "images/front/trip-tools.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
         print("trip tools page");
 
-       Navigator.push(ctx,
-                      MaterialPageRoute(builder: (context) => TripTools()));
+        Navigator.push(
+            ctx, MaterialPageRoute(builder: (context) => TripTools()));
       }
     },
     {
@@ -131,16 +130,13 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Help",
       "icon": "images/front/uni68.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-       "func":(BuildContext ctx){
+      "func": (BuildContext ctx) {
         //go to Single page
-         Navigator.push(ctx,
-                      MaterialPageRoute(builder: (context) => HelpPage()));
+        Navigator.push(
+            ctx, MaterialPageRoute(builder: (context) => HelpPage()));
       }
     },
-    {
-      "type":"justridelogo",
-      "label":"just ride logo"
-    }
+    {"type": "justridelogo", "label": "just ride logo"}
   ];
 
   @override
@@ -173,12 +169,16 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                     bottom: -1,
                     child: GestureDetector(
                       onLongPress: () {
-                        Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AfterDisclaimer()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AfterDisclaimer()));
                       },
                       onTap: () {
-                            Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UtilitiesMenu()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UtilitiesMenu()));
                       },
                       child: Container(
                         child: SizedBox(
@@ -199,7 +199,6 @@ class _NxPagesFrontState extends State<NxPagesFront> {
             color: Color.fromRGBO(168, 27, 26, 1),
             child: Column(
               children: [
-               
                 Expanded(
                     child: CustomScrollView(
                   slivers: [
@@ -241,124 +240,251 @@ class _KtState extends State<Kt> {
               Builder(builder: (ctx) {
                 var currentType = widget.options[i]['type'];
 
-                if(currentType == "noticemessage"){
-                  return  Container(
-                  margin: EdgeInsets.only(left: 10, right: 10, top: 0),
-                  height: 120,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(189, 156, 107, 1),
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(top: 20),
-                        alignment: Alignment.topCenter,
-                        color: Colors.transparent,
-                        width: 40,
-                        child: SvgPicture.asset("images/front/info.svg",
-                        color: Colors.black,
-                        width: 18,
-                        )
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 0, right: 10),
-                          color: Colors.transparent,
-                          child: Text(
-                            widget.options[i]['label'],
-                            style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.bold, fontSize: 17),
+                if (currentType == "noticemessage") {
+                  return Container(
+                    margin: EdgeInsets.only(left: 10, right: 10, top: 0),
+                    height: 120,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(189, 156, 107, 1),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Row(
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 20),
+                            alignment: Alignment.topCenter,
+                            color: Colors.transparent,
+                            width: 40,
+                            child: SvgPicture.asset(
+                              "images/front/info.svg",
+                              color: Colors.black,
+                              width: 18,
+                            )),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 0, right: 10),
+                            color: Colors.transparent,
+                            child: Text(
+                              widget.options[i]['label'],
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold, fontSize: 17),
+                            ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                );
+                        )
+                      ],
+                    ),
+                  );
                 }
 
                 if (currentType == "wallet") {
                   return FutureBuilder(
-                    future: NXAllTickets(),
-                    builder: (ctx,snapshot){
+                      future: GetFirstAvailableTicket(),
+                      builder: (ctx, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          if (snapshot.data != null) {
+                            print(snapshot.data['id']);
+                            return Container(
+                              width: double.infinity,
+                              margin:
+                                  EdgeInsets.only(top: 15, right: 10, left: 10),
+                              height: 220,
+                              child: Column(
+                                children: [
 
-                      print(snapshot.connectionState);
-                      print(snapshot.data);
+                                  Container(
+                                    height: 140,
+                                    child: Center(
+                                      child: Container(
+                                        margin: EdgeInsets.only(left: 30,right: 30,top: 30),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(5),
+                                          color: Colors.white,
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 5,),
+                                            Row(
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(left: 20,top: 10),
+                                                      child: Text("Single Tickets",
+                                                      style:GoogleFonts.roboto(
+                                                        color: Colors.black,
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 16
+                                                      ),),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(left: 20,top: 2),
+                                                      child: Text("Single - West Midlands",
+                                                      style: GoogleFonts.roboto(
+                                                        fontWeight: FontWeight.w400,
+                                                        fontSize: 15
+                                                      ),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    alignment: Alignment.centerRight,
+                                                    width: double.infinity,
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.only(right: 20),
+                                                      child: Text("INACTIVE",
+                                                      style: GoogleFonts.roboto(
+                                                        color: Color.fromRGBO(106, 106, 106, 1),
+                                                        fontWeight: FontWeight.bold
+                                                      ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                left: 20,right: 20
+                                              ),
+                                              child: Divider(
+                                                color: Colors.grey.withOpacity(0.8)
+                                              ),
+                                            ),
+                                            Container(
+                                              alignment: Alignment.bottomLeft,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                  left: 20,
+                                                  top: 6
+                                                ),
+                                                child: Text("Expires in 2 days, 7 hours",
+                                                style: GoogleFonts.roboto(
+                                                  color: Colors.red,
+                                                  fontSize: 12
+                                                ),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                      right: 30,
+                                      top: 30
+                                    ),
+                                    width: double.infinity,
+                                    alignment: Alignment.bottomRight,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text("More tickets",
+                                        style: GoogleFonts.roboto(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16
+                                        ),
+                                        ),
+                                        SizedBox(width: 10,),
+                                        SvgPicture.asset("images/front/arrow.svg",
+                                        color: Colors.white,
+                                        width: 20,
+                                        )
 
+                                      ],
+                                    )
+                                  )
 
-                    return Container(
-                    margin: EdgeInsets.only(top: 15, right: 10, left: 10),
-                    height: 60,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                          width: 60,
-                          child: Center(
-                            child: SvgPicture.asset(
-                              "images/front/single-ticket.svg",
-                              color: Colors.white,
-                              width: 18,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                              alignment: Alignment.centerLeft,
-                              height: 60,
-                              child: Text(
-                                widget.options[i]['label'],
-                                style: GoogleFonts.roboto(
+                                ],
+                              ),
+                              
+                              decoration: BoxDecoration(
+                                  color: Color.fromRGBO(124, 26, 17, 1),
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(123, 26, 17, 1),
+                                      spreadRadius: 1,
+                                      blurRadius: 0,
+                                      offset: Offset(
+                                          0, 2), // changes position of shadow
+                                    ),
+                                  ]),
+                            );
+                          }
+                        }
+
+                        return Container(
+                          margin: EdgeInsets.only(top: 15, right: 10, left: 10),
+                          height: 60,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                width: 60,
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    "images/front/single-ticket.svg",
                                     color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold),
-                              )),
-                        )
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(124, 26, 17, 1),
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(123, 26, 17, 1),
-                            spreadRadius: 1,
-                            blurRadius: 0,
-                            offset: Offset(0, 2), // changes position of shadow
+                                    width: 18,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    height: 60,
+                                    child: Text(
+                                      widget.options[i]['label'],
+                                      style: GoogleFonts.roboto(
+                                          color: Colors.white,
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              )
+                            ],
                           ),
-                        ]),
-                  );
-
-                  });
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(124, 26, 17, 1),
+                              borderRadius: BorderRadius.circular(5),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(123, 26, 17, 1),
+                                  spreadRadius: 1,
+                                  blurRadius: 0,
+                                  offset: Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ]),
+                        );
+                      });
                 }
 
                 if (currentType == "link") {
                   return Listener(
-                    onPointerDown: (event){
+                    onPointerDown: (event) {
                       print("point down");
-                      widget.options[i]['hov']= Color.fromRGBO(134, 8, 5, 1);
-                      widget.options[i]['hovText']= Colors.white;
-                      setState(() {
-                        
-                      });
+                      widget.options[i]['hov'] = Color.fromRGBO(134, 8, 5, 1);
+                      widget.options[i]['hovText'] = Colors.white;
+                      setState(() {});
                     },
                     onPointerUp: (event) {
                       print("point up");
-                      widget.options[i]['hov']= Colors.white;
-                      widget.options[i]['hovText']= Colors.black;
+                      widget.options[i]['hov'] = Colors.white;
+                      widget.options[i]['hovText'] = Colors.black;
 
-
-                      setState(() {
-                        
-                      });
-                    
+                      setState(() {});
                     },
                     child: GestureDetector(
-                      
-                      onTap: (){
+                      onTap: () {
                         print("link was selected");
                         Function fn = widget.options[i]['func'];
                         fn(context);
@@ -381,8 +507,12 @@ class _KtState extends State<Kt> {
                                 child: Text(
                                   widget.options[i]['label'],
                                   style: GoogleFonts.roboto(
-                                    color:  widget.options[i]['hovText'] != null ? widget.options[i]['hovText']: Colors.black,
-                                      fontWeight: FontWeight.bold, fontSize: 16),
+                                      color:
+                                          widget.options[i]['hovText'] != null
+                                              ? widget.options[i]['hovText']
+                                              : Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
                                 ),
                               ),
                             ),
@@ -397,15 +527,18 @@ class _KtState extends State<Kt> {
                           ],
                         ),
                         decoration: BoxDecoration(
-                          boxShadow: [
+                            boxShadow: [
                               BoxShadow(
                                 color: Color.fromRGBO(158, 25, 26, 1),
                                 spreadRadius: 1,
                                 blurRadius: 0,
-                                offset: Offset(0, 1), // changes position of shadow
+                                offset:
+                                    Offset(0, 1), // changes position of shadow
                               ),
-                          ],
-                            color: widget.options[i]['hov']  != null ? widget.options[i]['hov'] : Colors.white,
+                            ],
+                            color: widget.options[i]['hov'] != null
+                                ? widget.options[i]['hov']
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(7)),
                         height: 45,
                         margin: EdgeInsets.only(
@@ -415,15 +548,14 @@ class _KtState extends State<Kt> {
                   );
                 }
 
-                if(currentType == "justridelogo"){
+                if (currentType == "justridelogo") {
                   return Padding(
                     padding: const EdgeInsets.only(
-                      top:80,
-                      left:8.0,
-                      right:8,
-                      bottom: 10),
-                    child: SvgPicture.asset("images/front/just-ride-full-logo.svg",
-                    color: Colors.white,),
+                        top: 80, left: 8.0, right: 8, bottom: 10),
+                    child: SvgPicture.asset(
+                      "images/front/just-ride-full-logo.svg",
+                      color: Colors.white,
+                    ),
                   );
                 }
 

@@ -31,11 +31,25 @@ Future<void> NXBuyTicket(
   return null;
 }
 
+
+Future GetFirstAvailableTicket() async {
+  print("all tickets");
+  var db = await openDB();
+  List<Map> tickets = await db
+      .rawQuery("SELECT * FROM wallet WHERE isActive=? limit 1",[-1]);
+  if(tickets.length>=1){
+    return tickets[0];
+  }else{
+    return null;
+  }  
+}
+
+
 Future<List> NXAllTickets() async {
   print("all tickets");
   var db = await openDB();
   List<Map> tickets = await db
-      .rawQuery("SELECT * FROM wallet");
+      .rawQuery("SELECT * FROM wallet WHERE isActive=?",[-1]);
 
       print(tickets);
   return tickets;
