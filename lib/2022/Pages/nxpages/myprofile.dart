@@ -3,7 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class MyProfile extends StatelessWidget{
+class MyProfile extends StatefulWidget{
+  @override
+  State<MyProfile> createState() => _MyProfileState();
+}
+
+class _MyProfileState extends State<MyProfile> {
+
+
+  bool isLogin = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,12 +21,12 @@ class MyProfile extends StatelessWidget{
         children: [
            Container(
                 width: double.infinity,
-                height: 82,
+                height: 70,
                 color: Colors.transparent,
                 child: Stack(alignment: Alignment.center, children: [
                   Positioned(
                       right: 0,
-                      top: 50,
+                      top: 35,
                       child: GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
@@ -31,7 +40,7 @@ class MyProfile extends StatelessWidget{
                                   width: 60,
                                 ),
                                 Icon(Icons.close,
-                                size: 25,
+                                size: 28,
                                 color: Colors.white.withOpacity(0.95),
                                 )
                               ],
@@ -40,14 +49,66 @@ class MyProfile extends StatelessWidget{
                         ),
                       )),
                   Positioned(
-                    top: 50,
+                    top: 40,
                     child: Text("My profile",
                         style: GoogleFonts.roboto(
                             color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold,
                             fontSize: 16)),
                   )
                 ])),
+                Container(
+                  height: 50,
+                  color: Color.fromRGBO(139, 0, 8, 1),
+                  child: Row(children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            isLogin = true;
+                          });
+                        },
+                        child: Container(
+                          child: Center(
+                            child: Text("Log in",
+                            style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w500,
+                              color: isLogin == false ? Colors.white : Colors.black
+                            ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: isLogin == false ? Color.fromRGBO(139, 0, 8, 1): Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(5),
+                      
+                            )
+                          ),
+                        ),
+                      ),
+                    ),
+                     Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                            setState(() {
+                            isLogin = false;
+                          });
+                        },
+                        child: Container(
+                          child: Center(
+                            child: Text("New Account",
+                            style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w500,
+                              color: isLogin == true ? Colors.white : Colors.black
+                            ),
+                            ),
+                          ),
+                          color: isLogin == true ? Color.fromRGBO(139, 0, 8, 1): Colors.white,
+                        ),
+                      ),
+                    )
+                  ],),
+                ),
           Expanded(
             child:Container(
               color: Colors.white,
