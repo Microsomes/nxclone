@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
 
 
 class TripTools extends StatefulWidget {
@@ -28,7 +30,10 @@ class UtilitiesMenuState extends State<TripTools> {
           "type": "link",
           "label": "Timetables",
           "icon": "images/front/clock.svg",
-          "action": (){}
+          "action": (BuildContext ctx){
+            print("timetables");
+            launchURL("http://nxbus.co.uk/west-midlands/plan-your-journey#");
+          }
         }
       ]
     },
@@ -39,7 +44,9 @@ class UtilitiesMenuState extends State<TripTools> {
           "type": "link",
           "label": "Service changes",
           "icon": "images/front/customer-alerts.svg",
-          "action": (){}
+          "action": (BuildContext ctx){
+           launchURL("http://nxbus.co.uk/west-midlands/information/service-changes");
+          }
         }
       ]
     }
@@ -147,59 +154,64 @@ class UtilitiesList extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     for (var l = 0; l < links.length; l++)
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(right: 10),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20.0),
-                                  child: SvgPicture.asset(
-                                  
-                                    links[l]['icon'],
-                                    // color: links[i]['iconColor'],
-                                    height: 22,
-                                    color: Color.fromRGBO(169, 26, 25, 1),
+                      GestureDetector(
+                        onTap: (){
+                          links[l]['action'](context);
+                        },
+                        child: Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(right: 10),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20.0),
+                                    child: SvgPicture.asset(
+                                    
+                                      links[l]['icon'],
+                                      // color: links[i]['iconColor'],
+                                      height: 22,
+                                      color: Color.fromRGBO(169, 26, 25, 1),
+                                    ),
+                                  )),
+                              Expanded(
+                                child: Container(
+                                  child: Text(
+                                    links[l]['label'],
+                                    style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
                                   ),
-                                )),
-                            Expanded(
-                              child: Container(
-                                child: Text(
-                                  links[l]['label'],
-                                  style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 60,
-                              child: Icon(
-                                Icons.chevron_right,
-                                size: 35,
-                                color: Color.fromRGBO(172, 22, 32, 1),
-                              ),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(158, 25, 26, 1),
-                                spreadRadius: 1,
-                                blurRadius: 0,
-                                offset: Offset(0,
-                                    1), // changes position of shadow
-                              ),
+                              Container(
+                                width: 60,
+                                child: Icon(
+                                  Icons.chevron_right,
+                                  size: 35,
+                                  color: Color.fromRGBO(172, 22, 32, 1),
+                                ),
+                              )
                             ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(7)),
-                        height: 45,
-                        margin: EdgeInsets.only(
-                            top: l == 0 ? 0 : 20,
-                            left: 0,
-                            right: 10),
+                          ),
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(158, 25, 26, 1),
+                                  spreadRadius: 1,
+                                  blurRadius: 0,
+                                  offset: Offset(0,
+                                      1), // changes position of shadow
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(7)),
+                          height: 45,
+                          margin: EdgeInsets.only(
+                              top: l == 0 ? 0 : 20,
+                              left: 0,
+                              right: 10),
+                        ),
                       )
                   ],
                 ),

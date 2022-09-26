@@ -141,6 +141,21 @@ class _NxPagesFrontState extends State<NxPagesFront> {
     {"type": "justridelogo", "label": "just ride logo"}
   ];
 
+  var availableTicket = null;
+
+  @override
+  void initState() {
+    super.initState();
+   
+
+    GetFirstAvailableTicket().then((value) {
+      setState(() {
+        availableTicket = value;
+      
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,7 +221,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                   slivers: [
                     SliverFillRemaining(
                       hasScrollBody: false,
-                      child: Kt(options: options),
+                      child: Kt(options: options, availableTicket: availableTicket,),
                     )
                   ],
                 ))
@@ -220,9 +235,11 @@ class _NxPagesFrontState extends State<NxPagesFront> {
 }
 
 class Kt extends StatefulWidget {
+  final availableTicket;
   const Kt({
     Key key,
     @required this.options,
+    @required this.availableTicket
   }) : super(key: key);
 
   final List<Map<String, Object>> options;
@@ -279,12 +296,9 @@ class _KtState extends State<Kt> {
                 }
 
                 if (currentType == "wallet") {
-                  return FutureBuilder(
-                      future: GetFirstAvailableTicket(),
-                      builder: (ctx, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.done) {
-                          if (snapshot.data != null) {
-                            print(snapshot.data['id']);
+                  return Builder(
+                      builder: (ctx) {
+                        if (widget.availableTicket!=null) {
                             return Container(
                               width: double.infinity,
                               margin:
@@ -294,7 +308,7 @@ class _KtState extends State<Kt> {
                                 children: [
                                   InactiveTicketComp(
                                     marginBias: 30,
-                                    ticketId: snapshot.data['id'],
+                                    ticketId: widget.availableTicket['id'],
                                   ),
                                   GestureDetector(
                                     onTap: (){
@@ -343,7 +357,7 @@ class _KtState extends State<Kt> {
                                   ]),
                             );
                           }
-                        }
+                        
 
                         return Container(
                           margin: EdgeInsets.only(top: 15, right: 10, left: 10),
