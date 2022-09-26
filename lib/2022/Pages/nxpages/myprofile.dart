@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../components/form/NXFormInput.dart';
+
 
 class MyProfile extends StatefulWidget{
   @override
@@ -112,6 +114,24 @@ class _MyProfileState extends State<MyProfile> {
           Expanded(
             child:Container(
               color: Colors.white,
+              child: SingleChildScrollView(
+                child: Form(
+                  child: Column(
+                    children: [
+                      NXFormInputComponent(
+                        label: "Email",
+                        tip: "",
+                        validator: (String val){
+                          if(val.length<=5){
+                            return "Please enter a valid email";
+                          }
+                          return null;
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           )
         ],
