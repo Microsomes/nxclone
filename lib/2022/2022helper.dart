@@ -84,6 +84,39 @@ Future<Map> NXGetTicketDetails(int id) async {
   }
 
 
+  Future CheckTicketsForExpiry() async {
+      var db = await openDB();
+
+      print("check for expiry");
+
+      List<Map> tickets = await db.rawQuery("select * from wallet");//scans all tickets
+
+      tickets.forEach((element) {
+        
+        print(element['id']);
+        print(element['isActive']);
+        print(element['purchasedDate']);
+
+        if(element['isActive'] == -1){
+          //ticket is not activated check if it was brought more then 3 days ago
+          var date = DateTime.parse(element['purchasedDate']);
+          //elapsed in hours from date          
+
+          var now = DateTime.now();
+          var differenceMins = now.difference(date).inMinutes;
+
+          if(differenceMins>= Duration(days: 3).inMinutes){
+            db.rawUpdate("UPDATE wallet SET isActive=? WHERE id=?",[0,element['id']]);
+          }
+          
+        }
+
+       });
+
+
+  }
+
+
 
 
 Future<void> ExpireTicket(int id) async {}

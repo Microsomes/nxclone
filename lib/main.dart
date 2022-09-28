@@ -186,7 +186,9 @@ void main() async {
           home: FutureBuilder(
             future: NXInitApp(),
             builder: (ctx,snapshot){
-              return NxPagesFront();
+              return FutureBuilder(
+                future: CheckTicketsForExpiry(),
+                builder:(ctx,snapshot)=> NxPagesFront());
             },
           )
         );
