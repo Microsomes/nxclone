@@ -306,7 +306,7 @@ class _KtState extends State<Kt> {
                               height: 200,
                               child: Column(
                                 children: [
-                                  InactiveTicketComp(
+                                  TicketComp(
                                     marginBias: 30,
                                     ticketId: widget.availableTicket['id'],
                                   ),
@@ -506,26 +506,30 @@ class _KtState extends State<Kt> {
   }
 }
 
-class InactiveTicketComp extends StatefulWidget {
+class TicketComp extends StatefulWidget {
 
 
   final double marginBias;
   final int ticketId;
+  final int ticketStatus;
 
-  const InactiveTicketComp({
+  const TicketComp({
     Key key,
     @required this.marginBias,
-    @required this.ticketId
+    @required this.ticketId,
+    @required this.ticketStatus,
   }) : super(key: key);
 
   @override
-  State<InactiveTicketComp> createState() => _InactiveTicketCompState();
+  State<TicketComp> createState() => _InactiveTicketCompState();
 }
 
-class _InactiveTicketCompState extends State<InactiveTicketComp> {
+class _InactiveTicketCompState extends State<TicketComp> {
 
   String title= "";
   String nameOfTicket = "";
+
+  String usedDate = "";
 
   Color backgroundColor= Colors.white;
 
@@ -539,6 +543,10 @@ class _InactiveTicketCompState extends State<InactiveTicketComp> {
         title = value['ticketSubtitle2'];
         nameOfTicket= value['ticketName'];
       });
+
+      if(widget.ticketStatus == 0){
+        print("calculate when used");
+      }
 
     });
   }
@@ -637,7 +645,7 @@ class _InactiveTicketCompState extends State<InactiveTicketComp> {
                                 const EdgeInsets.only(
                                     right: 20),
                             child: Text(
-                              "INACTIVE",
+                              widget.ticketStatus == -1 ? "INACTIVE" : "USED",
                               style:
                                   GoogleFonts.roboto(
                                       color: Color

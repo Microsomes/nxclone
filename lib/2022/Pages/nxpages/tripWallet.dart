@@ -1,3 +1,4 @@
+import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,7 +48,9 @@ class UtilitiesMenuState extends State<TripWallet> {
     }
   ];
 
-  bool isBuyButtonOn = false;
+  bool isBuyButtonOn = true;
+
+  bool isHistoryActive = false;
 
 
   @override
@@ -153,40 +156,55 @@ class UtilitiesMenuState extends State<TripWallet> {
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(5))),
-                                        child: Center(
-                                            child: Text(
-                                          "Tickets",
-                                          style: GoogleFonts.roboto(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16),
-                                        )),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isHistoryActive = false;
+                                          });
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: isHistoryActive == false ? Colors.white : Color.fromRGBO(139, 0, 7, 1),
+                                              borderRadius: BorderRadius.only(
+                                                  topRight: Radius.circular(5))),
+                                          child: Center(
+                                              child: Text(
+                                            "Tickets",
+                                            style: GoogleFonts.roboto(
+                                              color: isHistoryActive == false ? Colors.black : Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16),
+                                          )),
+                                        ),
                                       ),
                                     ),
                                     Expanded(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            color: Color.fromRGBO(139, 0, 7, 1),
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(5))),
-                                        child: Center(
-                                            child: Text(
-                                          "History",
-                                          style: GoogleFonts.roboto(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16),
-                                        )),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isHistoryActive = true;
+                                          });
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: isHistoryActive == true ? Colors.white : Color.fromRGBO(139, 0, 7, 1),
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(5))),
+                                          child: Center(
+                                              child: Text(
+                                            "History",
+                                            style: GoogleFonts.roboto(
+                                                color: isHistoryActive == true ? Colors.black : Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16),
+                                          )),
+                                        ),
                                       ),
                                     )
                                   ],
                                 ),
                               ),
-                              Expanded(
+                              isHistoryActive == false ? Expanded(
                                 child: SingleChildScrollView(
                                   child: FutureBuilder(
                                     future: NXAllTicketsAvailable(),
@@ -202,8 +220,8 @@ class UtilitiesMenuState extends State<TripWallet> {
                                             children: [
                                               for(var i=0;i<tickets.length;i++)
                                               Builder(builder: (ctx){
-                                
-                                                return InactiveTicketComp(
+                                                return TicketComp(
+                                                  ticketStatus: tickets[i]['isActive'],
                                                   marginBias: 20,
                                                   ticketId: tickets[i]['id'],
                                                 );
@@ -237,12 +255,89 @@ class UtilitiesMenuState extends State<TripWallet> {
                                         SizedBox(
                                           height: 5,
                                         ),
+                                        GestureDetector(
+                                          onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> MyProfile()));
+                                          },
+                                          child: Text(
+                                            "Log in or create an account below",
+                                            style: GoogleFonts.roboto(
+                                                fontSize: 16,
+                                                color: Color.fromRGBO(
+                                                    109, 109, 109, 1)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ));
+                                    },
+                                  ),
+                                )
+                              ): Expanded(
+                                child:SingleChildScrollView(
+                                  child: FutureBuilder(
+                                    future: NXAllUsedTickets(),
+                                
+                                    builder: (context, snapshot) {
+                                
+                                      if(snapshot.connectionState == ConnectionState.done){
+                                        print("check");
+                                        List<Map> tickets = snapshot.data;
+                                
+                                        if(tickets.length>=1){
+                                          return Column(
+                                            children: [
+                                              for(var i=0;i<tickets.length;i++)
+                                              Builder(builder: (ctx){
+
+                                                
+                                
+                                                return TicketComp(
+                                                  ticketStatus: tickets[i]['isActive'],
+                                                  marginBias: 20,
+                                                  ticketId: tickets[i]['id'],
+                                                );
+                                              })
+                                            ],
+                                          );
+                                        }
+                                      }
+                                
+                                      return Container(
+                                      child: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 120,
+                                        ),
+                                        SvgPicture.asset(
+                                          "images/front/tickets.svg",
+                                          color: Color.fromRGBO(168, 26, 25, 1),
+                                          width: 100,
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
                                         Text(
-                                          "Log in or create an account below",
+                                          "Can't see your tickets?",
                                           style: GoogleFonts.roboto(
-                                              fontSize: 16,
-                                              color: Color.fromRGBO(
-                                                  109, 109, 109, 1)),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 19),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        GestureDetector(
+                                          onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> MyProfile()));
+                                          },
+                                          child: Text(
+                                            "Log in or create an account below",
+                                            style: GoogleFonts.roboto(
+                                                fontSize: 16,
+                                                color: Color.fromRGBO(
+                                                    109, 109, 109, 1)),
+                                          ),
                                         )
                                       ],
                                     ),
@@ -287,12 +382,17 @@ class UtilitiesMenuState extends State<TripWallet> {
                     SizedBox(
                       height:  isBuyButtonOn== true ? 5: 60,
                     ),
-                    Container(
-                      child: Center(
-                        child: Text(
-                          "Log in to view tickets",
-                          style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold, fontSize: 16),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (ctx)=> MyProfile()));
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            "Log in to view tickets",
+                            style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
                         ),
                       ),
                     )
