@@ -7,6 +7,7 @@ import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:google_fonts/google_fonts.dart";
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../v2/pages/menupage/topMenuPage.dart';
 import '../../../v2/pages/overlays/ticketPreActivate.dart';
@@ -23,6 +24,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.";
 
   var options = [
+    {
+      "type":"saveonfuture",
+      "label:":""
+    },
     // {
     //   "type":"noticemessage",
     //   "label":"We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.",
@@ -252,12 +257,84 @@ class _KtState extends State<Kt> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(top: 10),
         child: Column(
           children: [
             for (var i = 0; i < widget.options.length; i++)
               Builder(builder: (ctx) {
                 var currentType = widget.options[i]['type'];
+
+                if(currentType == "saveonfuture"){
+                  return GestureDetector(
+                    onTap: (){
+                      //link
+                      var url = "https://www.nxrewards.com/";
+                      launch(url);
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: 8,
+                        right: 8
+                      ),
+                      height: 148,
+                      decoration: BoxDecoration(
+                      color: Color.fromRGBO(188, 156, 107, 1),
+                      borderRadius: BorderRadius.circular(5)
+                      ),
+                      child:Padding(
+                        padding: const EdgeInsets.only(top:8.0),
+                        child: Row(
+                          children: [
+                            Container(
+                              color: Colors.transparent,
+                              height: double.infinity,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left:14,
+                                  top: 9
+                                  ),
+                                child: Icon(Icons.info_outline,
+                                size: 18,),
+                              ),
+                              alignment: Alignment.topCenter,
+                            ),
+                            SizedBox(width: 10,),
+                            Expanded(
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    right: 25,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(height: 10,),
+                                      Text("Save on your future orders!",
+                                      style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16
+                                      ),
+                                      ),
+                                      SizedBox(height: 5,),
+                                      Text("Tap here to claim your £16.87 CASH BACK on your next National Express Bus order!",
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 13
+                                      ),
+                                      ),
+                                      SizedBox(height: 20,),
+                                      Text("By tapping, you can join NX Rewards for £15 per month and claim your incentive.")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ),
+                  );
+                }
 
                 if (currentType == "noticemessage") {
                   return Container(
@@ -480,7 +557,7 @@ class _KtState extends State<Kt> {
                                 ? widget.options[i]['hov']
                                 : Colors.white,
                             borderRadius: BorderRadius.circular(7)),
-                        height: 45,
+                        height: 48,
                         margin: EdgeInsets.only(
                             top: i == 0 ? 0 : 20, left: 10, right: 10),
                       ),
