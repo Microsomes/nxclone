@@ -116,9 +116,7 @@ Future<Map> NXGetTicketDetails(int id) async {
           if(differenceMins>= Duration(days: 3).inMinutes){
             db.rawUpdate("UPDATE wallet SET isActive=? WHERE id=?",[0,element['id']]);
           }
-          
         }
-
        });
 
 

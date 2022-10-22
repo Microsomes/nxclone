@@ -192,19 +192,6 @@ void main() async {
             },
           )
         );
-
-         if (snapshot.connectionState == ConnectionState.waiting) {
-          return MaterialApp(home: Splash(),debugShowCheckedModeBanner: false,);
-        } else {
-          // Loading is done, return the app:
-          return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          textTheme: GoogleFonts.robotoTextTheme(),
-        ),
-        home: HomePagePre());
-        }
       },
       
     )
