@@ -1,8 +1,10 @@
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../2022/2022helper.dart';
 import '../2022/Pages/nxpages/front.dart';
 import 'settingSaver.dart';
 
@@ -207,14 +209,57 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                   ),
                                 ),
                                 Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                     child: Text("Settings",style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                     ),),
+                                  child: GestureDetector(
+                                    onTap:(){
+                                      //dialog to ask are you sure
+                                      //if yes, then go to emergency mode
+                                      //if no, then do nothing
+
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text("Are you sure?"),
+                                            content: Text("This will delete all tickets and data"),
+                                            actions: [
+                                              TextButton(
+                                                child: Text("Yes"),
+                                                onPressed: (){
+                                                  NXDeleteAllTickets();
+                                                  //show toast
+                                                  Navigator.pop(context);
+
+                                                  Fluttertoast.showToast(
+                                                    msg: "All tickets deleted",
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor: Colors.red,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0
+                                                  );
+                                                },
+                                              ),
+                                              TextButton(
+                                                child: Text("No"),
+                                                onPressed: (){
+                                                  Navigator.pop(context);
+                                                },
+                                              )
+                                            ],
+                                          );
+                                        }
+                                      );
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                       child: Text("Reset App",style: GoogleFonts.roboto(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18
+                                       ),),
+                                    ),
                                   ),
                                 )
                               ],

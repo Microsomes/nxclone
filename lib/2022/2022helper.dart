@@ -122,6 +122,11 @@ Future<Map> NXGetTicketDetails(int id) async {
 
   }
 
+  NXDeleteAllTickets() async {
+    var db = await openDB();
+    await db.rawDelete("DELETE FROM wallet");
+  }
+
 
 
 
