@@ -1,7 +1,10 @@
+import 'package:BubbleGum/v2/pages/menupage/socialMediaPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../2022/Pages/nxpages/myprofile.dart';
 
 
 class UtilitiesMenu extends StatefulWidget {
@@ -28,7 +31,9 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "type": "link",
           "label": "My Profile",
           "icon": "images/front/account.svg",
-          "action": (){}
+          "action": (BuildContext ctx){
+            Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
+          }
         }
       ]
     },
@@ -39,19 +44,26 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "type": "link",
           "label": "nxbus.co.uk",
           "icon": "images/front/website.svg",
-          "action": (){}
+          "action": (BuildContext ctx){
+            var url = "https://nxbus.co.uk";
+            launchURL(url);
+          }
         },
         {
           "type": "link",
           "label": "Social media",
           "icon": "images/front/social-media.svg",
-          "action": (){}
+          "action": (BuildContext context){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SocialMediaPage()));
+          }
         },
         {
           "type": "link",
           "label": "Payzone Barcode",
           "icon": "images/front/DBarcode.svg",
-          "action": (){}
+          "action": (BuildContext context){
+            Navigator.push(context,MaterialPageRoute(builder: (ctx)=> MyProfile()));
+          }
         }
       ]
     }
@@ -143,6 +155,7 @@ class UtilitiesList extends StatelessWidget {
           for (var i = 0; i < sections.length; i++)
             Builder(builder: (ctx) {
               List links = sections[i]['links'];
+
               return Container(
                 padding: EdgeInsets.only(left: 10),
                 margin: EdgeInsets.only(top: i ==0 ? 0 :20),
@@ -159,57 +172,62 @@ class UtilitiesList extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     for (var l = 0; l < links.length; l++)
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(right: 10),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20.0),
-                                  child: SvgPicture.asset(
-                                    links[l]['icon'],
-                                    // color: links[i]['iconColor'],
-                                    height: 25,
+                      GestureDetector(
+                        onTap: (){
+                          links[l]['action'](ctx);
+                        },
+                        child: Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(right: 10),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20.0),
+                                    child: SvgPicture.asset(
+                                      links[l]['icon'],
+                                      // color: links[i]['iconColor'],
+                                      height: 25,
+                                    ),
+                                  )),
+                              Expanded(
+                                child: Container(
+                                  child: Text(
+                                    links[l]['label'],
+                                    style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
                                   ),
-                                )),
-                            Expanded(
-                              child: Container(
-                                child: Text(
-                                  links[l]['label'],
-                                  style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 60,
-                              child: Icon(
-                                Icons.chevron_right,
-                                size: 35,
-                                color: Color.fromRGBO(172, 22, 32, 1),
-                              ),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(158, 25, 26, 1),
-                                spreadRadius: 1,
-                                blurRadius: 0,
-                                offset: Offset(0,
-                                    1), // changes position of shadow
-                              ),
+                              Container(
+                                width: 60,
+                                child: Icon(
+                                  Icons.chevron_right,
+                                  size: 35,
+                                  color: Color.fromRGBO(172, 22, 32, 1),
+                                ),
+                              )
                             ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(7)),
-                        height: 45,
-                        margin: EdgeInsets.only(
-                            top: l == 0 ? 0 : 20,
-                            left: 0,
-                            right: 10),
+                          ),
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(158, 25, 26, 1),
+                                  spreadRadius: 1,
+                                  blurRadius: 0,
+                                  offset: Offset(0,
+                                      1), // changes position of shadow
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(7)),
+                          height: 45,
+                          margin: EdgeInsets.only(
+                              top: l == 0 ? 0 : 20,
+                              left: 0,
+                              right: 10),
+                        ),
                       )
                   ],
                 ),
