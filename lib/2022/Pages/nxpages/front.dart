@@ -24,10 +24,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.";
 
   var options = [
-    {
-      "type":"saveonfuture",
-      "label:":""
-    },
+    {"type": "saveonfuture", "label:": ""},
     // {
     //   "type":"noticemessage",
     //   "label":"We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.",
@@ -153,12 +150,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
   @override
   void initState() {
     super.initState();
-   
 
     GetFirstAvailableTicket().then((value) {
       setState(() {
         availableTicket = value;
-      
       });
     });
   }
@@ -228,7 +223,10 @@ class _NxPagesFrontState extends State<NxPagesFront> {
                   slivers: [
                     SliverFillRemaining(
                       hasScrollBody: false,
-                      child: Kt(options: options, availableTicket: availableTicket,),
+                      child: Kt(
+                        options: options,
+                        availableTicket: availableTicket,
+                      ),
                     )
                   ],
                 ))
@@ -243,11 +241,8 @@ class _NxPagesFrontState extends State<NxPagesFront> {
 
 class Kt extends StatefulWidget {
   final availableTicket;
-  const Kt({
-    Key key,
-    @required this.options,
-    @required this.availableTicket
-  }) : super(key: key);
+  const Kt({Key key, @required this.options, @required this.availableTicket})
+      : super(key: key);
 
   final List<Map<String, Object>> options;
 
@@ -266,75 +261,80 @@ class _KtState extends State<Kt> {
               Builder(builder: (ctx) {
                 var currentType = widget.options[i]['type'];
 
-                if(currentType == "saveonfuture"){
+                if (currentType == "saveonfuture") {
                   return GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       //link
                       var url = "https://www.nxrewards.com/";
                       launch(url);
                     },
                     child: Container(
-                      margin: EdgeInsets.only(
-                        left: 8,
-                        right: 8
-                      ),
-                      height: 148,
-                      decoration: BoxDecoration(
-                      color: Color.fromRGBO(188, 156, 107, 1),
-                      borderRadius: BorderRadius.circular(5)
-                      ),
-                      child:Padding(
-                        padding: const EdgeInsets.only(top:8.0),
-                        child: Row(
-                          children: [
-                            Container(
-                              color: Colors.transparent,
-                              height: double.infinity,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left:14,
-                                  top: 9
-                                  ),
-                                child: Icon(Icons.info_outline,
-                                size: 18,),
-                              ),
-                              alignment: Alignment.topCenter,
-                            ),
-                            SizedBox(width: 10,),
-                            Expanded(
-                              child: Container(
+                        margin: EdgeInsets.only(left: 8, right: 8),
+                        height: 148,
+                        decoration: BoxDecoration(
+                            color: Color.fromRGBO(188, 156, 107, 1),
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Row(
+                            children: [
+                              Container(
                                 color: Colors.transparent,
+                                height: double.infinity,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    right: 25,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(height: 10,),
-                                      Text("Save on your future orders!",
-                                      style: GoogleFonts.roboto(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 16
-                                      ),
-                                      ),
-                                      SizedBox(height: 5,),
-                                      Text("Tap here to claim your £16.87 CASH BACK on your next National Express Bus order!",
-                                      style: GoogleFonts.roboto(
-                                        fontSize: 13
-                                      ),
-                                      ),
-                                      SizedBox(height: 20,),
-                                      Text("By tapping, you can join NX Rewards for £15 per month and claim your incentive.")
-                                    ],
+                                  padding:
+                                      const EdgeInsets.only(left: 14, top: 9),
+                                  child: Icon(
+                                    Icons.info_outline,
+                                    size: 18,
                                   ),
                                 ),
+                                alignment: Alignment.topCenter,
                               ),
-                            )
-                          ],
-                        ),
-                      )
-                    ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  color: Colors.transparent,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                      right: 25,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "Save on your future orders!",
+                                          style: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 16),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "Tap here to claim your £16.87 CASH BACK on your next National Express Bus order!",
+                                          style:
+                                              GoogleFonts.roboto(fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                            "By tapping, you can join NX Rewards for £15 per month and claim your incentive.")
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )),
                   );
                 }
 
@@ -375,117 +375,115 @@ class _KtState extends State<Kt> {
                 }
 
                 if (currentType == "wallet") {
-                  return Builder(
-                      builder: (ctx) {
-                        if (widget.availableTicket!=null) {
-                            return Container(
-                              width: double.infinity,
-                              margin:
-                                  EdgeInsets.only(top: 15, right: 10, left: 10),
-                              height: 200,
-                              child: Column(
-                                children: [
-                                  TicketComp(
-                                    ticketStatus: widget.availableTicket['isActive'],
-                                    marginBias: 30,
-                                    ticketId: widget.availableTicket['id'],
-                                  ),
-                                  GestureDetector(
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>TripWallet()));
-                                    },
-                                    child: Container(
-                                        padding:
-                                            EdgeInsets.only(right: 30, top: 20),
-                                        width: double.infinity,
-                                        alignment: Alignment.bottomRight,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Text(
-                                              "More tickets",
-                                              style: GoogleFonts.roboto(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16),
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            SvgPicture.asset(
-                                              "images/front/arrow.svg",
-                                              color: Colors.white,
-                                              width: 20,
-                                            )
-                                          ],
-                                        )),
-                                  )
-                                ],
+                  return Builder(builder: (ctx) {
+                    if (widget.availableTicket != null) {
+                      return Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(top: 15, right: 10, left: 10),
+                        height: 200,
+                        child: Column(
+                          children: [
+                            TicketComp(
+                              ticketStatus: widget.availableTicket['isActive'],
+                              marginBias: 30,
+                              ticketId: widget.availableTicket['id'],
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (ctx) => TripWallet()));
+                              },
+                              child: Container(
+                                  padding: EdgeInsets.only(right: 30, top: 20),
+                                  width: double.infinity,
+                                  alignment: Alignment.bottomRight,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        "More tickets",
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      SvgPicture.asset(
+                                        "images/front/arrow.svg",
+                                        color: Colors.white,
+                                        width: 20,
+                                      )
+                                    ],
+                                  )),
+                            )
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            color: Color.fromRGBO(124, 26, 17, 1),
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(123, 26, 17, 1),
+                                spreadRadius: 1,
+                                blurRadius: 0,
+                                offset:
+                                    Offset(0, 2), // changes position of shadow
                               ),
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(124, 26, 17, 1),
-                                  borderRadius: BorderRadius.circular(5),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color.fromRGBO(123, 26, 17, 1),
-                                      spreadRadius: 1,
-                                      blurRadius: 0,
-                                      offset: Offset(
-                                          0, 2), // changes position of shadow
-                                    ),
-                                  ]),
-                            );
-                          }
-                        
+                            ]),
+                      );
+                    }
 
-                        return Container(
-                          margin: EdgeInsets.only(top: 15, right: 10, left: 10),
-                          height: 60,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                width: 60,
-                                child: Center(
-                                  child: SvgPicture.asset(
-                                    "images/front/single-ticket.svg",
-                                    color: Colors.white,
-                                    width: 18,
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    alignment: Alignment.centerLeft,
-                                    height: 60,
-                                    child: Text(
-                                      widget.options[i]['label'],
-                                      style: GoogleFonts.roboto(
-                                          color: Colors.white,
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                              )
-                            ],
+                    return Container(
+                      margin: EdgeInsets.only(top: 15, right: 10, left: 10),
+                      height: 60,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 10,
                           ),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(124, 26, 17, 1),
-                              borderRadius: BorderRadius.circular(5),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(123, 26, 17, 1),
-                                  spreadRadius: 1,
-                                  blurRadius: 0,
-                                  offset: Offset(
-                                      0, 2), // changes position of shadow
-                                ),
-                              ]),
-                        );
-                      });
+                          Container(
+                            width: 60,
+                            child: Center(
+                              child: SvgPicture.asset(
+                                "images/front/single-ticket.svg",
+                                color: Colors.white,
+                                width: 18,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                                alignment: Alignment.centerLeft,
+                                height: 60,
+                                child: Text(
+                                  widget.options[i]['label'],
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          )
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(124, 26, 17, 1),
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromRGBO(123, 26, 17, 1),
+                              spreadRadius: 1,
+                              blurRadius: 0,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ]),
+                    );
+                  });
                 }
 
                 if (currentType == "link") {
@@ -587,8 +585,6 @@ class _KtState extends State<Kt> {
 }
 
 class TicketComp extends StatefulWidget {
-
-
   final double marginBias;
   final int ticketId;
   final int ticketStatus;
@@ -605,15 +601,15 @@ class TicketComp extends StatefulWidget {
 }
 
 class _InactiveTicketCompState extends State<TicketComp> {
-
-  String title= "";
+  String title = "";
   String nameOfTicket = "";
 
   String usedDate = "";
 
-  Color backgroundColor= Colors.white;
+  Color backgroundColor = Colors.white;
 
-   var expiresIn = null;
+  var expiresIn = null;
+  var hoursLeft = null;
 
   @override
   void initState() {
@@ -623,23 +619,30 @@ class _InactiveTicketCompState extends State<TicketComp> {
 
       setState(() {
         title = value['ticketSubtitle2'];
-        nameOfTicket= value['ticketName'];
+        nameOfTicket = value['ticketName'];
       });
 
-      if(widget.ticketStatus == 0){
+      if (widget.ticketStatus == 0) {
         print("calculate when used");
       }
 
-      if(widget.ticketStatus == 1){
-        
-       NXCalculateWhenTicketExpire(value['id']).then((value) {
-        setState(() {
-          expiresIn = value;
-        
+      if (widget.ticketStatus == -1) {
+        NXCalculateWhenInActiveTicketExpire(value['id']).then((value) {
+          setState(() {
+            print(value);
+            expiresIn = value[0];
+            hoursLeft = value[1];
+          });
         });
-       });
       }
 
+      if (widget.ticketStatus == 1) {
+        NXCalculateWhenActiveTicketExpire(value['id']).then((value) {
+          setState(() {
+            expiresIn = value;
+          });
+        });
+      }
     });
   }
 
@@ -657,10 +660,13 @@ class _InactiveTicketCompState extends State<TicketComp> {
         setState(() {});
       },
       child: GestureDetector(
-        onTap: (){
-           Navigator.push(context, MaterialPageRoute(builder: (ctx)=> Ticket2(
-            txdbid: widget.ticketId,
-           )));
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (ctx) => Ticket2(
+                        txdbid: widget.ticketId,
+                      )));
         },
         child: Container(
           height: 140,
@@ -669,19 +675,16 @@ class _InactiveTicketCompState extends State<TicketComp> {
               margin: EdgeInsets.only(
                   left: widget.marginBias, right: 30, top: widget.marginBias),
               decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(5),
                 boxShadow: [
                   BoxShadow(
-                    color:
-                        Colors.grey.withOpacity(0.5),
+                    color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 1,
                     blurRadius: 7,
-                    offset: Offset(0,
-                        3), // changes position of shadow
+                    offset: Offset(0, 3), // changes position of shadow
                   ),
                 ],
-                color:backgroundColor,
+                color: backgroundColor,
               ),
               child: Column(
                 children: [
@@ -691,121 +694,104 @@ class _InactiveTicketCompState extends State<TicketComp> {
                   Row(
                     children: [
                       Column(
-                        crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.only(
-                                    left: 20,
-                                    top: 10),
+                            padding: const EdgeInsets.only(left: 20, top: 10),
                             child: Text(
                               title,
-                              style:
-                                  GoogleFonts.roboto(
-                                      color: Colors
-                                          .black,
-                                      fontWeight:
-                                          FontWeight
-                                              .bold,
-                                      fontSize: 16),
+                              style: GoogleFonts.roboto(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
                             ),
                           ),
                           Padding(
-                            padding:
-                                const EdgeInsets.only(
-                                    left: 20, top: 2),
+                            padding: const EdgeInsets.only(left: 20, top: 2),
                             child: Text(
                               nameOfTicket,
-                              style:
-                                  GoogleFonts.roboto(
-                                      fontWeight:
-                                          FontWeight
-                                              .w400,
-                                      fontSize: 15),
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.w400, fontSize: 15),
                             ),
                           )
                         ],
                       ),
                       Expanded(
                         child: Container(
-                          alignment:
-                              Alignment.centerRight,
+                          alignment: Alignment.centerRight,
                           width: double.infinity,
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(
-                                    right: 20),
-                            child: Builder(
-                              builder: ((context) {
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Builder(
+                                builder: ((context) {
+                                  if (widget.ticketStatus == 1) {
+                                    return Text(
+                                      "ACTIVE",
+                                      style: GoogleFonts.roboto(
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
+                                    );
+                                  }
 
-
-                                if(widget.ticketStatus == 1){
-                                  return Text("ACTIVE", style: GoogleFonts.roboto(
-                                      color: Colors.green,
-                                      fontWeight:
-                                      FontWeight
-                                          .bold,
-                                      fontSize: 16),);
-                                }
-                                
-                                return Text(
-                              widget.ticketStatus == -1 ? "INACTIVE" : "USED",
-                              style:
-                                  GoogleFonts.roboto(
-                                      color: Color
-                                          .fromRGBO(
-                                              106,
-                                              106,
-                                              106,
-                                              1),
-                                      fontWeight:
-                                          FontWeight
-                                              .bold),
-                            );
-
-                              }),
-                            )
-                          ),
+                                  return Text(
+                                    widget.ticketStatus == -1
+                                        ? "INACTIVE"
+                                        : "USED",
+                                    style: GoogleFonts.roboto(
+                                        color: Color.fromRGBO(106, 106, 106, 1),
+                                        fontWeight: FontWeight.bold),
+                                  );
+                                }),
+                              )),
                         ),
                       )
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20, right: 20),
-                    child: Divider(
-                        color: Colors.grey
-                            .withOpacity(0.8)),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Divider(color: Colors.grey.withOpacity(0.8)),
                   ),
                   Container(
                     alignment: Alignment.bottomLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, top: 6),
-                      child: widget.ticketStatus == 1 ? 
-                      Row(
-                        children: [
-                          Icon(Icons.warning,
-                          color: Color.fromRGBO(253, 7, 12, 1),
-                          size: 17,
-                          ),
-                          SizedBox(width: 5,),
-                          Text("Expires in $expiresIn hours, a few seconds",
-                          style: GoogleFonts.roboto(
-                            fontSize: 11,
-                            color: Color.fromRGBO(252, 7, 12, 1)
-                          ),
-                          )
-                        ],
-                      )
-                      : Text(
-                        "Expires in 2 days, 7 hours",
-                        style: GoogleFonts.roboto(
-                            color: Colors.red,
-                            fontSize: 12),
-                      ),
-                    ),
+                        padding: const EdgeInsets.only(left: 20, top: 6),
+                        child: widget.ticketStatus == 1
+                            ? Row(
+                                children: [
+                                  Icon(
+                                    Icons.warning,
+                                    color: Color.fromRGBO(253, 7, 12, 1),
+                                    size: 17,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Expires in $expiresIn hours, a few seconds",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 11,
+                                        color: Color.fromRGBO(252, 7, 12, 1)),
+                                  )
+                                ],
+                              )
+                            : Row(
+                                children: [
+                                  Icon(
+                                    Icons.warning,
+                                    color: Color.fromRGBO(252, 7, 12, 1),
+                                    size: 17,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Expires in $expiresIn days, $hoursLeft hours",
+                                    style: GoogleFonts.roboto(
+                                        color: Colors.red, fontSize: 12),
+                                  ),
+                                ],
+                              )),
                   )
                 ],
               ),

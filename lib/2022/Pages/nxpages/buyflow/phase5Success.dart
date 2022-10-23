@@ -143,19 +143,13 @@ class BuyFlowPhase5Success extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-
-                            print(ticketName);
-                            print(ticketSubtitle);
-                            print(ticketSubtitle2);
-                            print(ticketPrice);
-
-                            // NXBuyTicket(ticketName, ticketSubtitle, ticketSubtitle2, ticketPrice)
-                            //     .then((value) {
-                            //   Navigator.push(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //           builder: (ctx) => TripWallet()));
-                            // });
+                            NXBuyTicket(ticketName, ticketSubtitle, ticketSubtitle2, ticketPrice)
+                                .then((value) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (ctx) => TripWallet()));
+                            });
                           },
                           child: Container(
                             height: 50,

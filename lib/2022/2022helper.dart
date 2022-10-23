@@ -32,7 +32,35 @@ Future<void> NXInitApp() async {
 }
 
 
-Future NXCalculateWhenTicketExpire(int id) async {
+Future NXCalculateWhenInActiveTicketExpire(int id) async {
+   var db = await openDB();
+  var result = await db.rawQuery(
+      'SELECT * FROM wallet WHERE id =?',[id]);
+
+    if(result[0]['isActive'] == -1){
+      var purchaseDate = result[0]['purchasedDate'];
+
+      var expiredIn = DateTime.parse(purchaseDate).add(Duration(days: 3));
+
+      var now = DateTime.now();
+
+      if(now.isAfter(expiredIn)){
+        await db.rawUpdate('UPDATE wallet SET isActive = 0 WHERE id = ?', [id]);
+      }
+
+      //difference in days and hours
+      var difference = expiredIn.difference(now);
+      var days = difference.inDays;
+      var hours = difference.inHours;
+
+      var daysLeft = days.toString();
+      var hoursLeft = (hours - (days * 24)).toString();
+
+      return [days,hoursLeft];
+    }
+}
+
+Future NXCalculateWhenActiveTicketExpire(int id) async {
  
   var db = await openDB();
   var result = await db.rawQuery(
