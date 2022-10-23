@@ -640,7 +640,8 @@ class _InactiveTicketCompState extends State<TicketComp> {
       if (widget.ticketStatus == 1) {
         NXCalculateWhenActiveTicketExpire(value['id']).then((value) {
           setState(() {
-            expiresIn = value;
+            print(value);
+            expiresIn = value[1];
           });
         });
       }

@@ -847,11 +847,11 @@ class _QRState extends State<QR> {
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        height: 190,
+        height: 230,
         child: Image.asset(
           currentQR,
-          width: 180,
-          height: 190,
+          width: 220,
+          height: 240,
         ));
   }
 }

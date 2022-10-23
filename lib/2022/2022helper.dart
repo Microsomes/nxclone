@@ -8,6 +8,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import "package:sqflite/sqflite.dart";
+import 'package:intl/intl.dart';
+
 
 Future<Database> openDB() async {
   const int version = 3;
@@ -76,8 +78,18 @@ Future NXCalculateWhenActiveTicketExpire(int id) async {
   var ticketExpires = DateTime(ticketActivatedDate.year, ticketActivatedDate.month, ticketActivatedDate.day + 1);
   var hoursUntilTicketExpires = ticketExpires.difference(now).inHours;
 
+  //var days left and hours left and minutes left
+  var daysLeft = ticketExpires.difference(now).inDays;
+  var hoursLeft = (hoursUntilTicketExpires - (daysLeft * 24)).toString();
+  var minutesLeft = (ticketExpires.difference(now).inMinutes - (hoursUntilTicketExpires * 60)).toString();
 
-  return hoursUntilTicketExpires;
+  var expiredDate = DateTime(ticketActivatedDate.year, ticketActivatedDate.month, ticketActivatedDate.day + 1);
+
+
+    DateFormat dateFormatDate = DateFormat("dd MMM yyyy");
+    var formattedDate = dateFormatDate.format(expiredDate);
+
+  return [daysLeft,hoursLeft,minutesLeft,formattedDate];
 }
 
 Future NXBuyTicket(String ticketName, String ticketSubtitle,
