@@ -131,27 +131,49 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             padding: EdgeInsets.all(20),
                             child: Column(
                               children: [
+                                Container(
+                                  height: 20,
+                                  child: Center(
+                                    child: Text("Quick Ticket Selection",
+                                    style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontSize: 12
+                                    ),
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        topLeft: Radius.circular(10)
+                                        ),
+                                  ),
+                                ),
                                 Expanded(
                                   child: Container(
-                                    color: Colors.white30,
+                                    color: Colors.white,
                                     alignment: Alignment.center,
                                     width: double.infinity,
                                     child: Text(
-                                      "Single Ticket",
+                                      "Day Saver",
                                       style: GoogleFonts.aBeeZee(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 30),
+                                          fontSize: 35),
                                     ),
                                   ),
                                 ),
                                 Expanded(
                                   child: Container(
-                                    color: Colors.pink,
                                     alignment: Alignment.center,
                                     width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.pink,
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
                                     child: Text(
-                                      "Day Saver",
+                                      "Group Day Saver",
                                       style: GoogleFonts.aBeeZee(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -163,7 +185,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             ),
                             margin: EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                                color: Colors.green,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                           GestureDetector(
