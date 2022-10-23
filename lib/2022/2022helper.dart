@@ -81,6 +81,12 @@ Future<Map> NXGetTicketDetails(int id) async {
   return selectedTicket;
 }
 
+  Future NXChangelogs() async {
+    final String response = await rootBundle.loadString('assets/changelogs.json');
+    final data = await json.decode(response);
+    return data;
+  }
+
   Future NXFindRawTicket(String title,subtitle2,name) async {
     print("finding ticket:"+name);
     final String response = await rootBundle.loadString("assets/tickets.json");

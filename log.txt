@@ -1,0 +1,3247 @@
+commit 433db84b719507308b08b7f0fed7a2881dea9c32
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Oct 23 00:50:27 2022 +0100
+
+    reset all tickets
+
+commit e51a96d801aa01d53b192b0eb8a3fea3db7989c1
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Oct 23 00:44:34 2022 +0100
+
+    WIP top menu
+
+commit 50cc68230e65e02015d3be350cc39d7d02a9cc46
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Oct 23 00:26:21 2022 +0100
+
+    custom scroll view
+
+commit 50e1645f71f60c5580741e6975ed9598ad055931
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Oct 22 23:52:40 2022 +0100
+
+    ...
+
+commit 930734ce2921f6a9f7da0738c676024baba1d410
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Oct 22 23:04:49 2022 +0100
+
+    clean up code
+
+commit 6ddb25a8527d45697f9857354ff49028c15e230b
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Oct 22 23:02:45 2022 +0100
+
+    ...
+
+commit 4257093657aa56787464a787b4eca8014e311b69
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Oct 16 12:58:24 2022 +0100
+
+    WIP ability to see used tickets
+
+commit 11dfb8f6800f5a8996e57a73cee977ff7f1d25bb
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 28 15:50:44 2022 +0100
+
+    ticket expired
+
+commit ba31054fe14dc362c84b0463b1b147aa005fa9a6
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 28 15:33:09 2022 +0100
+
+    removed in app
+
+commit 1a976d5287996f397471895cfd93469d1377e7a8
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Mon Sep 26 11:22:10 2022 +0100
+
+    my profile WIP
+
+commit e0f877434d306e639270ee9c9c1769958ac9c7ca
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Mon Sep 26 11:16:27 2022 +0100
+
+    my profile enhancements
+
+commit 164c17c89b1298725ce91cb294bbf6fc9cbad3e4
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Mon Sep 26 11:05:59 2022 +0100
+
+    bug fixes and more functionality
+
+commit 1dd9f06bd992ec4796a1515b409ec771afbdd287
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 13:45:10 2022 +0100
+
+    d
+
+commit 0472e82e970ad0280347b48b9e6a6ff08ef008bc
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 13:34:53 2022 +0100
+
+    ticket semi working
+
+commit 8c4040483ed9ef3fbdc7bad1485a6ea17319e8f3
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 13:33:52 2022 +0100
+
+    tcket updated
+
+commit ed0024b3de08ffa2160e03bc049a3a0e69e8c0d3
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 13:16:17 2022 +0100
+
+    real ticket page nearly working
+
+commit b649ea42d310798cae3ef64f544924701429c813
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 12:27:23 2022 +0100
+
+    ticket page o negative
+
+commit caef1b49a38275429f51e34f9957fa933174ce72
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 12:18:05 2022 +0100
+
+    adult and group tickets semi working
+
+commit 1fccb3adede4bb7e5e7ec3619b5cd8a3feab57a4
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 11:58:45 2022 +0100
+
+    order by correction
+
+commit 3af958ab3298d4b20ee7e63e793434fd1d67c3a9
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 11:33:49 2022 +0100
+
+    close
+
+commit 55314483f6e513baeadb882e8bf05cc825e08846
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 11:18:02 2022 +0100
+
+    pre
+
+commit 2086af127655860b04a2199336484edd320cd81c
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 10:48:09 2022 +0100
+
+    ticket activation page
+
+commit 6c8ac33b29265924d1705ec8a9d8cc0204aab49a
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 25 10:41:35 2022 +0100
+
+    hovere ffect on ticket
+
+commit ffd2192e120c4de690dbb6636b38e20d3f91722f
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 10:07:06 2022 +0100
+
+    ability to see trip wallets
+
+commit f3d63fb08511006d177530e22d9d6a4c97b70a44
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 09:16:54 2022 +0100
+
+    ability to see trip wallets
+
+commit aec04df0d74ee4e4f4014baa3069b230d4274d4d
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 08:58:33 2022 +0100
+
+    ui engancements
+
+commit 467faaf190662db192b1dadb102ac2614a252628
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 08:53:33 2022 +0100
+
+    show first ticket if purchased
+
+commit 6e90970e33cc4573019d50c1ffccf95c17958dca
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 08:25:32 2022 +0100
+
+    update readme
+
+commit 4085d61366ef78f8e33bc8f25e1ae1d4d97c5552
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 08:21:39 2022 +0100
+
+    can buy ticket now
+
+commit 7768d89caa6056a9ed55b5d94d527aa18863ae84
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 25 08:14:11 2022 +0100
+
+    new helper
+
+commit 27f3735fdbf96e29accf308326d1ecf103c65bd5
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sat Sep 24 17:20:48 2022 +0100
+
+    hover effect
+
+commit 35cb40d1d92295fa611981651fa7554b1c1df32f
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sat Sep 24 16:50:13 2022 +0100
+
+    hover
+
+commit 7d7d6fa706144f3858e6474805f9f93988addf78
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Sep 24 16:07:27 2022 +0100
+
+    ability to buy ticket
+
+commit bb34c9f4b3c8e3681e50fe5d6a9a585b6297e33e
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Sep 24 12:34:46 2022 +0100
+
+    added dynamic support
+
+commit 03374ddc2622f5d7d53c73b9a6123b9f794f14e6
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Sep 24 12:09:27 2022 +0100
+
+    can purchase page
+
+commit 1ea0345add2d53f433561136281ebaa74001de5e
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Fri Sep 23 16:44:48 2022 +0100
+
+    lt
+
+commit 0a66b46c5f42e26475a3833fc6f3ccd748385022
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Fri Sep 23 16:15:50 2022 +0100
+
+    enter info page done
+
+commit 1f4f5593dca25a2cd2b2684629734646acffeeef
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Fri Sep 23 15:32:36 2022 +0100
+
+    cart info enhancements
+
+commit ff874bea62282a9b60657e1d7e22ba9036d8399d
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Fri Sep 23 12:37:05 2022 +0100
+
+    input
+
+commit 79c14d132fff0953d7ea8e963313042e41f500d1
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Fri Sep 23 10:09:34 2022 +0100
+
+    enter card info WIP
+
+commit 180b0b0cc51f10dee5e715cf2c109d54b4986434
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Fri Sep 23 10:03:55 2022 +0100
+
+    select payment screen
+
+commit 90c92da8891e827506166ef01f2f38b02d8138fc
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 22:30:21 2022 +0100
+
+    WIP
+
+commit c869df4337616b8473ac302c960c6c007f76f794
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 22:21:28 2022 +0100
+
+    select payment method
+
+commit 0b665be0c7c7b2d314e84aa128ca86fb88306bb1
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 22:00:51 2022 +0100
+
+    accept and continue
+
+commit a8af36a37697d456a574514b265564da3fd75993
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 20:39:49 2022 +0100
+
+    WIP
+
+commit 71107d67fc58ba84e22ff0f289c7b835a9158e0f
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 16:23:26 2022 +0100
+
+    info overlay
+
+commit 62ea465a59ba93c4aab5d54fba573428d4ed23cd
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 16:15:43 2022 +0100
+
+    coventry spelling mistake fixed
+
+commit c5d6c0c3a197dfe23cd7d95e88bedc7220d0835f
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 16:08:51 2022 +0100
+
+    overlay info page
+
+commit b199c374fc4ba1c16abf1b62e7b14e8979103b6a
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 15:58:12 2022 +0100
+
+    select ticket page looking good
+
+commit 1cbbd68279c7918935285be4c413e8405f2fb0f9
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 15:16:20 2022 +0100
+
+    WIP select type
+
+commit 09486dfe0469f9d9b5a0d575dad2cc7f995ec85b
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 15:01:49 2022 +0100
+
+    select ticket page
+
+commit 4124af81fd339658d8f85aae7cabc2f3484cd8cf
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 15:01:35 2022 +0100
+
+    select ticket page
+
+commit 7197f785e6a166c4bb75e3c596feaefd23e552ac
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Thu Sep 22 14:58:55 2022 +0100
+
+    select ticket page nearly ready
+
+commit 7dcf01f1341f7b04596564b2860552c81edf5117
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 22:39:22 2022 +0100
+
+    ,,
+
+commit d950f02f2e12c60e0883aa2c2808c78337fbc638
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 22:35:27 2022 +0100
+
+    phase1
+
+commit 8a1ce0a80ff0fe449f453eb79cd7e4cdea09bd90
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 22:30:17 2022 +0100
+
+    tickets json reconfigured
+
+commit a3dcd56528215cec48a3bc14ac3a13b93ef2c46a
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 22:25:40 2022 +0100
+
+    buy phase 1 ready wip
+
+commit e5aafda98e394d00123d57593e12381470aac05a
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 22:16:01 2022 +0100
+
+    WIP select ticket type
+
+commit 59ff4009f5962aed75c0a8c34fd66ea4a1e66f18
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 22:06:11 2022 +0100
+
+    terms working
+
+commit fda0d718eafcd0d28351c0f9e14c64fb73e05469
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 21:59:57 2022 +0100
+
+    terms
+
+commit e4053deb0124d5fa7f05251a4aae9e46495760a7
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 21:13:48 2022 +0100
+
+    terms and conditions unfinsihed commit
+
+commit d430fe1d37b0277001188f45b6550184d64917e0
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 16:11:27 2022 +0100
+
+    faq page done
+
+commit 603025ca0fed706c891968f6aa0e375852ab0df5
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 15:47:38 2022 +0100
+
+    customer service
+
+commit 152947449fe0728ead8524775b60deec8cd54a9f
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 15:41:47 2022 +0100
+
+    call button
+
+commit d9b58a8464820eb7a2d806eff025c1809168ada1
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 12:37:11 2022 +0100
+
+    app info done
+
+commit b7bf8064b196fbf73217b6ec86c69b78398328c8
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 01:09:56 2022 +0100
+
+    quick menu updated
+
+commit 10c29632e89b6430fb1780155685b2414ad024d9
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Wed Sep 21 01:05:47 2022 +0100
+
+    WIP
+
+commit c15c034892048e198c2cf1f0f48bb98d1e1a4fd4
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Tue Sep 20 23:52:08 2022 +0100
+
+    ticket wallet
+
+commit eb295af2f971df6a67927eb3bb3ce51faf1b89f0
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Tue Sep 20 23:19:24 2022 +0100
+
+    ticket wallet page
+
+commit d49e129278f29f0b5ad9b5d9c94aa3953c1e2e13
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Tue Sep 20 22:46:47 2022 +0100
+
+    WIP help app nearly ready
+
+commit f950922ebbd5df49bd3f47fb13f6a98348135035
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Mon Sep 19 19:48:07 2022 +0100
+
+    utilities page done
+
+commit 041dbea17eeb019461eb1209750528948644102e
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Mon Sep 19 17:14:14 2022 +0100
+
+    utilities page
+
+commit 3ddfdc80aed417fa2d80604e222501e328a9332a
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Mon Sep 19 00:44:59 2022 +0100
+
+    mac book edition
+
+commit aadfe524813d77fac5c0aa7f3f2079f0e4dcbc12
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 18 20:16:20 2022 +0100
+
+    nx web support added
+
+commit ebabe3c412742d172f15d50b37a1a69dcd382e1c
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 18 18:12:15 2022 +0100
+
+    WIP funtionally
+
+commit 3baf2c779f874791c747fb61dc3051e0eac45086
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 18 18:05:00 2022 +0100
+
+    nx front
+
+commit 2775fd6f00fdf7239961adf41f5419792765ce6a
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 18 17:55:58 2022 +0100
+
+    nx front page looking lit
+
+commit 79fcf1ca9194bb93a83b57adcde6c023f676b55f
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 18 12:54:23 2022 +0100
+
+    got dev setup for ios
+
+commit 3e581bd4bda56bca889ba0742afe997c580e5668
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sun Sep 18 07:01:22 2022 +0100
+
+    new front
+
+commit f82aa35244fa8fe5305cff113780e48f8ec51ff5
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Sep 17 18:57:48 2022 +0100
+
+    WIP ios
+
+commit 547f000ca962210f85ca0381fc313489e3932c78
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Sep 17 18:56:09 2022 +0100
+
+    new ui that looks nicer on ios
+
+commit 0692ec980056696151a9ad8e1e6275311c408cbf
+Author: United Kingdom javed <unitedkingdomjaved@Uniteds-MacBook-Air.local>
+Date:   Sat Sep 17 18:28:54 2022 +0100
+
+    ios support added
+
+commit ebaac0632e55742672a7a37eb3c84ebd306e325f
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sat Sep 17 00:09:37 2022 +0100
+
+    new pages placeholder
+
+commit 993d1a243424aa3e618571e199c7c600e82620df
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 23:37:56 2022 +0100
+
+    new setup styles
+
+commit 4dbdd45e8359eca398fbf65791abd20b7dc650a7
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 23:36:20 2022 +0100
+
+    updated new setup page
+
+commit 332180928f299276080241b737ebebdf0cdb37a6
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 22:57:47 2022 +0100
+
+    ll
+
+commit d3a22984f31ec14049b043c8d2e8d91cc611232d
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 22:36:11 2022 +0100
+
+    WIP
+
+commit d2f6dab2ebf9a227df6708540db57fdb09593e12
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 21:56:35 2022 +0100
+
+    migration complete
+
+commit 64b2a9a78e5a9d4574b5ccc78cd9d3f65c742f7e
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 21:51:11 2022 +0100
+
+    fixed all errors
+
+commit 3edcbcbcfaf98b206d3e88f772f0ffb9518843e4
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 21:47:15 2022 +0100
+
+    WIP
+
+commit 0f40b1ac72262828b22e521cab4b8d413e22f985
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 21:33:05 2022 +0100
+
+    WIP update
+
+commit a48751cc94f36dcca7749f2684b3eaff6747a260
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 21:27:27 2022 +0100
+
+    ff
+
+commit 253e267bd778957d701c8faaa215bcd2f8638fa5
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 17:21:27 2022 +0100
+
+    WIP
+
+commit 5d9fbdb311cc1b691bd3d49b3b9412b32db247a7
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 16:19:14 2022 +0100
+
+    lt all
+
+commit 1346ca2029b5f37df57a07c89fa134b18b41210a
+Merge: 7067d7f 8ee29ef
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 15:47:51 2022 +0100
+
+    ll
+
+commit 7067d7f4fce889c3ec435ff0037dfde3ba15aaec
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 15:47:03 2022 +0100
+
+    update quick menu
+
+commit 8ee29ef6ab8ef283f72677187ae436e71d8715e3
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Fri Sep 16 00:10:28 2022 +0100
+
+    ll
+
+commit 44e882f979e5cb87a5f3331a4a4808d408f0b16c
+Author: Tayyab Javed <tayyab.javed@grv.media>
+Date:   Sun Sep 11 02:19:39 2022 +0100
+
+    new nx home
+
+commit c69cd15db45550ed4a01ca55f5b1a1956e4b102c
+Merge: d2a5b18 2d151e2
+Author: tayyab <tayyab.javed@stickee.co.uk>
+Date:   Wed Nov 17 19:45:35 2021 +0000
+
+    Merge branch '2021-july-reskin'
+
+commit d2a5b185e40d0d68fc96e8d3cd424f97152e97b0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 23:41:49 2021 +0100
+
+    apk
+
+commit 2d151e2a768a20bfca6ad49257b2964dee6a9564
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 23:31:57 2021 +0100
+
+    lt working
+
+commit 0504f2ea6474f796f8220f2d4df3aa2f36894028
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 23:22:31 2021 +0100
+
+    ltt
+
+commit 0499485d7c60549dd4b7e8728e277de5928cac64
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 19:58:30 2021 +0100
+
+    ltt
+
+commit a8c5f4cceb4ad7c1b14101b5fbc0133e9627bf47
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 19:57:39 2021 +0100
+
+    major imporvements
+
+commit 5fe8d5ed8503ee396e6060f71cf886a6bbfecd4a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 19:44:13 2021 +0100
+
+    ldone
+
+commit f755122545f51dc6fe8912d5b619106c30ddb2ea
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 19:40:40 2021 +0100
+
+    3rd nearly done within info
+
+commit 665d5ec7fc3f9059873e8bf4d3901ba88877e089
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 19:26:37 2021 +0100
+
+    second done without info
+
+commit 976f5bee50003ccd6da61066f0ae24ffc26c2a9e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 19:11:38 2021 +0100
+
+    all infos have been added for the first section
+
+commit 0dbdd67df200c34a02587b1d0ae1b8b669c5b589
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 18:57:07 2021 +0100
+
+    t
+
+commit 67ad42fffff18b641591d4dccfc9be51c0e3a4cb
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 18:24:28 2021 +0100
+
+    parcial done
+
+commit c57cfca7866feac9635cb2b6e97239f62e4965bc
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Aug 1 18:10:53 2021 +0100
+
+    llt
+
+commit 77ecc7830dfd76234ee0bb16a9095dfdc201e847
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 19:29:30 2021 +0100
+
+    info added
+
+commit 1e21dd9aa1321ead430791eb9f96dcb698535e80
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 19:16:23 2021 +0100
+
+    tt4
+
+commit 885c9e128658b0a75ad8ec596a1edaa0397ce38c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 19:01:44 2021 +0100
+
+    ticket.json
+
+commit 2f287774ba40be1233f95fd6dbb5a6f07d276e14
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 18:55:36 2021 +0100
+
+    ticket desciption
+
+commit ceea08aa25b53135724e1b7d932a62c3b4b340cf
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 18:33:25 2021 +0100
+
+    upgrade
+
+commit da5627cdc6fee9d39145add7b1344e04bc2100cf
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 18:11:44 2021 +0100
+
+    new advanced coming soon
+
+commit baa21511392645d4e7e2995d285fa4056cb3e4c2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 23 17:20:31 2021 +0100
+
+    done
+
+commit 57516b6cec319d2db451d7d1e699d694a9e5c125
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 02:48:39 2021 +0100
+
+    updating nxfront
+
+commit 62654ced3e8cfc5184890ec226345c4b2859aeda
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 02:35:12 2021 +0100
+
+    v2
+
+commit 803c46065ae0525ed490948a4aa3c23fdd1643e0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 02:30:41 2021 +0100
+
+    working
+
+commit 7f74065e838624e718f74901b5c2dc62d47715cd
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 02:24:50 2021 +0100
+
+    o
+
+commit 6e5eec49786618126e92ba2c9b4291c1d1f4f000
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 02:21:03 2021 +0100
+
+    making improvements to quick options
+
+commit 14f220bf64fc974b5c19d1e48a81d332db03fed9
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 01:27:04 2021 +0100
+
+    legacy ticket fixed for the lolz
+
+commit 408c595cf0a8367b3c87fcd73b6d9777a2f6e8f8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 15 00:48:07 2021 +0100
+
+    settings working
+
+commit 72e7e073780824a991c1817e53362cf4285a7cc2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 14 23:31:12 2021 +0100
+
+    proposal
+
+commit 01c035d34e9ed68838671f409c8e984cb7fd0481
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 14 22:01:33 2021 +0100
+
+    new menu
+
+commit 5684ddd75300afbed6252da0401abf106986f26c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 14 21:31:48 2021 +0100
+
+    new v7 home
+
+commit 3dba52edfa0a84fd6e929d7c904210003f5d0e78
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 14 17:26:37 2021 +0100
+
+    start of something great
+
+commit 9ccc331182bc9958a78a8128a37fb94dddde516c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 14 16:26:21 2021 +0100
+
+    new look
+
+commit 30351c38a4e9c0282d389fe0f501ad615d689924
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun Jun 13 01:58:54 2021 +0100
+
+    d
+
+commit a3d41261b074a26f0ce35fd0a224b668d6ef4907
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun Jun 13 01:47:06 2021 +0100
+
+    done
+
+commit 0d80b3ce7bdd0d83b15fcc11839ff42d335b1f13
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun Jun 13 00:33:51 2021 +0100
+
+    working
+
+commit fbc4bfbdb1d9e26fcffc80d0f7044f14f9ce2db4
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun Jun 13 00:23:56 2021 +0100
+
+    d
+
+commit 902e2cf76c141e3cadee37960d4ad1404f254a36
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat Jun 12 01:46:11 2021 +0100
+
+    bigger version
+
+commit e6cecc79df21cd9a3be9f79d9a49610246d32275
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat Jun 12 01:45:42 2021 +0100
+
+    hfix
+
+commit f94ac26803c47c95f91a282156beea03e925874b
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat Jun 12 01:41:18 2021 +0100
+
+    done
+
+commit f5c0aacf3d253c8cc76db29b344b9de6b52c39e6
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat Jun 12 01:09:16 2021 +0100
+
+    done
+
+commit 8d645f58c5df3c2463e2354834664130db226f2c
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat Jun 12 00:37:44 2021 +0100
+
+    updated UI
+
+commit 5ff78af0cc59df78d38e138a9c663f5ecb3c43d2
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Jun 11 23:37:36 2021 +0100
+
+    done
+
+commit aab64e3a84ffc033669aa77fc9c8bbf0d6e5d7c1
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Jun 11 20:59:28 2021 +0100
+
+    .
+
+commit c9f716b3c856e95cbcc65bc66abc21ad309b33b0
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Jun 11 20:53:58 2021 +0100
+
+    mtic nearly
+
+commit 1d5f76f4762b50026ffd9d7b093ba8ca82ecbafe
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Jun 11 12:40:59 2021 +0100
+
+    fix
+
+commit 29e8cd5556c320912e445707e8d92a73e8fa9ed1
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Jun 11 11:47:05 2021 +0100
+
+    ticket
+
+commit 79be4cb42a5ace3ccad8c947d860d757074535e3
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Jun 11 11:16:31 2021 +0100
+
+    done
+
+commit 90873915bd74391ebfd3977843ba7a76467c0d30
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Tue May 11 10:18:58 2021 +0100
+
+    d
+
+commit 950397badc440880e1a32db9efe822da4768e809
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Mon May 10 13:07:43 2021 +0100
+
+    m
+
+commit 3359de4b7ef2a2951e3deb514335710441f9e71c
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Mon May 10 12:29:45 2021 +0100
+
+    d
+
+commit deb003bebcb7ee45d4aa6165ca1a2400c02359a3
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Mon May 10 11:46:07 2021 +0100
+
+    don
+
+commit 72077becb8a7ebf5861c1f1775df373698a4abc6
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Mon May 10 11:28:03 2021 +0100
+
+    switcher
+
+commit 746e99ada90b596df062720503cc7882e600b63f
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon May 10 10:39:19 2021 +0100
+
+    done
+
+commit c994f8823a4089b7e5379f0107fe8db38f8165a2
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 9 21:49:19 2021 +0100
+
+    fuck=no1 update
+
+commit 9dff84a019910ce4d8f2a45c18cc01612ba13042
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sun May 9 12:48:15 2021 +0100
+
+    dl
+
+commit 42a517bc61a9da4fb4a853d8ed781a306a96c02d
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sun May 9 12:23:10 2021 +0100
+
+    my metro
+
+commit 715ab38ad363797f40e9820d5f01fbb06c9bd60b
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sun May 9 11:09:48 2021 +0100
+
+    all ticket data
+
+commit 70ef0ce54cb4e9e0cb04f650603342635c5011e9
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 9 10:03:19 2021 +0100
+
+    done
+
+commit 7399b0b8e1f0b98e4e11ae000dc795a254717c7d
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 9 02:41:48 2021 +0100
+
+    d
+
+commit 5bff1057ced97c57653023766bd456359e709deb
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 21:44:28 2021 +0100
+
+    works well
+
+commit 5d47acc1f2550c10a1f5c75678997c54fbf0b378
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 13:35:54 2021 +0100
+
+    d
+
+commit dc42a0d0b3108b910ce1c869322bfe0dc8e4e30d
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 12:41:54 2021 +0100
+
+    done
+
+commit 711fb4651ac986b7c5d26f9eb84ad162e830eb56
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 12:37:51 2021 +0100
+
+    do
+
+commit eb0297ad9f7531acec6f580e30811be92a8a4d94
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 11:16:17 2021 +0100
+
+    added new function to get all used tickets
+
+commit 153dd508d15528eb111678e2a5bd016d0c1d5141
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 11:11:10 2021 +0100
+
+    done
+
+commit dc2c89cbabf375968cfacb4b0dba99ca7e31e00c
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 10:57:00 2021 +0100
+
+    done
+
+commit 32c9470da0e45844b03ccfd2331f02780ebd8d10
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 10:50:48 2021 +0100
+
+    ticket info is working
+
+commit aef844be8554caa0e087ad880e2ac35ba662e650
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 10:26:37 2021 +0100
+
+    advanced ticket info
+
+commit 7eadd383377556b5f6a5d91e81db52ce65913fc0
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 09:14:15 2021 +0100
+
+    payment working
+
+commit a1eba4f90a8990722fda7734c2c16d469974f519
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 06:04:24 2021 +0100
+
+    tw
+
+commit 16b34cbbd860c407612d7093d6bb95f1dc626872
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 02:05:25 2021 +0100
+
+    done
+
+commit 9c17a8f3d8d59e25b78e576f1658302675a17e9e
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 8 02:01:24 2021 +0100
+
+    jnj
+
+commit 882370e8c1b266fdf1f5a61073c2e351f494b698
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat May 8 01:25:15 2021 +0100
+
+    simulation
+
+commit 5c553fd0ff2d1f5527e1552bacae29a2d5145d2b
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat May 8 01:22:36 2021 +0100
+
+    dsf
+
+commit 88a3d9716bc7f2ba976a392288468e55865c6e14
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat May 8 01:04:39 2021 +0100
+
+    done
+
+commit 92d670bf1a795aa566fc8d42d83da8020751df31
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Sat May 8 00:56:54 2021 +0100
+
+    d
+
+commit b4fd6782c18c739109ec2f9faca6698a19a60c13
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 21:57:09 2021 +0100
+
+    done
+
+commit baf09ca61290cd13d7df64bdcda8f3b27e6a2ca6
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 12:23:04 2021 +0100
+
+    d
+
+commit a369f2faac28636f4fbd7e18f0db78c72ccbfc4b
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 10:38:51 2021 +0100
+
+    getting connected
+
+commit e1514cc0d4798f2db9cbedf9834db3c302e9e7c5
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri May 7 08:55:38 2021 +0100
+
+    d
+
+commit 38ad6e3a0ae1e14eedb3b5e745e3a6ef2d22e2eb
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri May 7 08:23:45 2021 +0100
+
+    imp
+
+commit d4521b330a19276e77fe8b23ff88add5e57e6304
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 06:00:32 2021 +0100
+
+    doff
+
+commit e732002c36d77999ae7b8cb53d97dad51be19605
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 05:50:29 2021 +0100
+
+    el
+
+commit 6586ee4ac3005574ee71fdabc987c25d26641365
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 05:44:37 2021 +0100
+
+    working
+
+commit 0941c476364c0a6d8917ac9d8cf1b1c8fa1bafd6
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 04:48:35 2021 +0100
+
+    .
+
+commit 34831b5e98de39626cd8371d9de6b215f1085e05
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri May 7 03:02:43 2021 +0100
+
+    f
+
+commit 6f08cf9fef3bdb814b52edd036840b13f4aa5e35
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 01:39:32 2021 +0100
+
+    d
+
+commit f756175400a69d8a8a47e44c30528865843ac375
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Fri May 7 01:11:26 2021 +0100
+
+    d
+
+commit 7bf7192c0f4a3b2cb0ee987233d80da37f2868ff
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 23:05:14 2021 +0100
+
+    l
+
+commit f32e18d97d2dddaddcdea132f23525fca28f95a0
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 20:19:56 2021 +0100
+
+    d
+
+commit 6cda4d75c9825f267b077579fe025e975e05d6a8
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 18:59:26 2021 +0100
+
+    debug
+
+commit 34804c75bbbf1ac492a8011647e0b1d9e046fe4f
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 18:09:33 2021 +0100
+
+    adding v2 functions
+
+commit 55a07aa4981ec15878e37d0fedc9c29f26494345
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 17:34:53 2021 +0100
+
+    ticketwalletv2
+
+commit 8cbe7cd18e63e797707ce5f458f0c872a2e6d866
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 17:15:19 2021 +0100
+
+    fix logic
+
+commit 06f018973f047155639fe473359a752c83e6304d
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 07:38:11 2021 +0100
+
+    dkljn
+
+commit 44a2bcaf0e763fd4caf04ecb07d3c1a348e5a6ee
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 07:35:52 2021 +0100
+
+    done
+
+commit fea59c682af584d16f61b500d267f29e565c4e91
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 07:25:16 2021 +0100
+
+    improving the data logic
+
+commit 21d031c66632b0be5aa1f99df4244c8e487dba67
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 06:28:55 2021 +0100
+
+    ticket used
+
+commit 9848b5e51f1e69391b35012fa119fdcc1129bcd6
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 06:07:20 2021 +0100
+
+    improved the top bar
+
+commit f5981a436f02f8c6fcc86bc059b059000fdec7bc
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 05:51:10 2021 +0100
+
+    sdfdsf
+
+commit cd3164d490341842a0c712c53b7b52ff6ff1a59f
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 05:48:04 2021 +0100
+
+    social media
+
+commit 4e37d5c33bc8645c54e872277c10dc4c52d33334
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 05:21:35 2021 +0100
+
+    social media
+
+commit 9ea584872fa16d9f03047da9a1c83a225f163c7d
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 04:29:20 2021 +0100
+
+    moreimp
+
+commit d9d8197bc7ad7efae44bb01c830ac2edd9838d5d
+Author: Tayyab Javed <tayyabdev@outlook.com>
+Date:   Thu May 6 01:17:49 2021 +0100
+
+    newimp
+
+commit 8958b1db732d9eb46b9280eb3b5777bd1d919665
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 11:51:40 2021 +0100
+
+    new account page working
+
+commit 11c2e6c999f36c32071a4d65a70ff38fbe921273
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 11:49:04 2021 +0100
+
+    done
+
+commit bec3ab80334149597b80ee94e5cc8232c793c27b
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 09:26:20 2021 +0100
+
+    fixed
+
+commit e37ab9d6a1b0f89a491a38b21f15721df4368ba7
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 06:49:30 2021 +0100
+
+    working
+
+commit 151db3485f5c2c6366532710ee34ff15656aadad
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 06:13:49 2021 +0100
+
+    ..
+
+commit 3b9674bc492ec41b5d79ee7edfceb1ab20a9a536
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 05:30:54 2021 +0100
+
+    tos
+
+commit 6575ca33cfbd2db9e2f2433086e98e3e11ba0dc2
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed May 5 02:50:39 2021 +0100
+
+    disclaimr
+
+commit ffa4c655f4fc2432a4f8c2d638754f0409887a31
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon May 3 11:25:29 2021 +0100
+
+    refac more
+
+commit b46082f143b516d51b705fd3a646caedc45fd4a8
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon May 3 11:02:22 2021 +0100
+
+    refactored code
+
+commit 629c1f6e5ad5b3fb09d520c9db8a31eb06221235
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 13:41:56 2021 +0100
+
+    de
+
+commit 72e5156215c5656f8d9bea3e715669ba16912ab0
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 13:25:10 2021 +0100
+
+    indicator
+
+commit 14c89e59ca0037aa1eb9ca570965b7fe02004124
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 13:18:45 2021 +0100
+
+    done
+
+commit 50b87d950ae02ab4be835f256ceb2c927e0d8d80
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 13:10:19 2021 +0100
+
+    adv home
+
+commit ade6fa272ecd59714a58fa069c7965d0f60d1dd8
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 13:04:39 2021 +0100
+
+    done
+
+commit 71bdcad25a99bd1fb5fd87843c867077176470fa
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 12:46:21 2021 +0100
+
+    dedemo
+
+commit e3485e35187b2dc464485c348278d106b7178835
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 09:30:51 2021 +0100
+
+    much improved default ticket selecttion experience
+
+commit a28358e9b590a5fc98143f6f363c487ca711640f
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun May 2 09:10:45 2021 +0100
+
+    ejection settings
+
+commit a51462fd05d6abf69cc42614a1b8a151dd2bd022
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat May 1 19:14:06 2021 +0100
+
+    advanced setup
+
+commit 920096ed7db82e454d31b00d2eabc296d58220a9
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 30 11:49:52 2021 +0100
+
+    default home page
+
+commit 4ea40f5a887d85dc7d1dba00e5dd528444884cc0
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 30 11:40:07 2021 +0100
+
+    done
+
+commit 5073e6f5a813ffe6f1641a81545b567ea9fdcf63
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 30 11:00:25 2021 +0100
+
+    advanced setup
+
+commit 8bf74f3bc7bb558bdc06abc5ce5d474260967f94
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Thu Apr 29 14:31:30 2021 +0100
+
+    black pie done
+
+commit a37204573fe9b21762dae872ecacc29c4e36c560
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Thu Apr 29 14:15:11 2021 +0100
+
+    can change theme
+
+commit 4e5595e3ea144664664a8cdbdd017ea0bd3d01fa
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Thu Apr 29 14:12:17 2021 +0100
+
+    updated theme
+
+commit 79dc1d4d6743b424b16e4458345a92747de943a2
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Apr 3 14:24:39 2021 +0100
+
+    upd
+
+commit 9a14bb36c08262b77016f51d17607715d2224a35
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Apr 3 14:11:01 2021 +0100
+
+    extracted QR
+
+commit 76ee64506d83fad6c6b5ff73c38ebf33a80f124a
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Apr 3 12:36:29 2021 +0100
+
+    adjusted for smaller phones
+
+commit 7b4666644ca8944239981945d209beb5c8729b68
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 01:38:42 2021 +0100
+
+    fixxed bug
+
+commit ee397255be45949979466acc6d24b11931298232
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 01:28:50 2021 +0100
+
+    done
+
+commit 37027f705c23907356a74ed50bf931d4c272d9c0
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 01:27:48 2021 +0100
+
+    done
+
+commit 6b0330e35ff97e7bfc07d06dc2afd642cd4f3849
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 01:26:31 2021 +0100
+
+    made it so the screen gets brigher
+
+commit 706e374307f667d64f63424558f927ad7fd61d62
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 01:08:32 2021 +0100
+
+    new app
+
+commit 8ea2d3ef89459d982f213c1f0f69ded34a17b192
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 00:57:49 2021 +0100
+
+    improved ui
+
+commit 3f6e55dcb9a58122583bbd2e34b5a748d21302fc
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 00:32:30 2021 +0100
+
+    err connection
+
+commit 68e0b4519376a1dbf09365eda36bd84c71e5ac98
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 00:31:08 2021 +0100
+
+    Better Performance
+
+commit d552ba1ba6d9639edf0bb4efac3e443a929b1408
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Apr 2 00:24:52 2021 +0100
+
+    setup imroved
+
+commit 829b9ae432c7017e298be69a5d261ca5a4c3cad7
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Thu Apr 1 21:56:52 2021 +0100
+
+    new setup flow
+
+commit 86e9bed11301dfc0692136eacb0bf90158d11198
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Thu Apr 1 08:00:59 2021 +0100
+
+    improved speed
+
+commit 03e517ae1fc0529000d6f6970a0ecf1034153e86
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 08:54:43 2021 +0100
+
+    improved ui
+
+commit 52e457b7774d05c34eb6b9e0ecbb5c9a60794755
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 08:49:58 2021 +0100
+
+    quick switch ticket
+
+commit a91e6f29a6f38cf7f03bf7e43796dead6ca544a4
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 08:40:45 2021 +0100
+
+    COmmand Control settings from ticket page
+
+commit 739debe51b16be61802a809b77083022fbacc517
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 08:04:39 2021 +0100
+
+    random color mode working
+
+commit f14fd55045a3883256867041df4201e5724cf353
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 07:59:15 2021 +0100
+
+    now you can only open color selector via double tab only
+
+commit 90dfdcdc876e177b7c4bd20c3597ca8011164d07
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 07:57:18 2021 +0100
+
+    still lets you choose any color if you want that option
+
+commit c4dd98ce02c67496740cf0b8e60123156449efec
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 07:49:24 2021 +0100
+
+    advanced color selector
+
+commit 7f9bc85354b9fde69a3fd4b96a310a6916a31987
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 07:13:14 2021 +0100
+
+    done
+
+commit 3ff0a8a48d24e9300776c6a36b29f5ecdda4c967
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 06:47:02 2021 +0100
+
+    ui-more-presentable
+
+commit d3a5ba2997b98809af91a3beb6c8fad4c9ee8501
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 05:15:35 2021 +0100
+
+    improved ui
+
+commit 2905f137da72cfa3d85ff3935eef6f7131f2fedf
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 04:43:53 2021 +0100
+
+    faster simulation
+
+commit 4fb3a43a7c38ddacc8c9ce26707a8f4a965b1046
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 04:25:54 2021 +0100
+
+    tw
+
+commit ee7de9b0b37abde5d2f11314e5366249ed67e257
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 04:17:22 2021 +0100
+
+    updated the code base for ticket wallet- more neater
+
+commit b6be0eb6e7c3b54befe28d4215eea7038eb6dd06
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 03:38:17 2021 +0100
+
+    improved ticket wallet system
+
+commit f0514f72ad423b63459d4929a647d307b902f929
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Wed Mar 31 01:41:56 2021 +0100
+
+    upd code
+
+commit 9e28cfa66f3e5d45355b61b2691b00b62e20e119
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon Mar 29 20:09:42 2021 +0100
+
+    dd
+
+commit 11866e457fe61702e68794e7dedac23ea3f51cfa
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon Mar 29 20:08:44 2021 +0100
+
+    pohome
+
+commit d186f4027152796e95abc49f36dbb9d08aff9710
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon Mar 29 04:14:35 2021 +0100
+
+    clt
+
+commit d88cbc4d16a9666ea32d6962291c56c36ef4035a
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon Mar 29 03:05:45 2021 +0100
+
+    done
+
+commit 3e37b7b326ef42036c269178d8abe05fd50414cd
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon Mar 29 02:27:41 2021 +0100
+
+    piome
+
+commit 9f27ef1b2360366bec255b2e60500629fd3e98e4
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Mon Mar 29 02:22:06 2021 +0100
+
+    nearly ready
+
+commit a9fc95b34abd6f92db63abb7d5c3d64c29c30534
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sun Mar 28 02:10:25 2021 +0100
+
+    upd
+
+commit 72aede7c8829301261b53e8c6e20bcfc51b654a8
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 23:14:56 2021 +0000
+
+    updated good
+
+commit c525379cc2920a24f6c294a4493791fe179c3722
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 22:32:56 2021 +0000
+
+    updated select ticket page
+
+commit acd5d989b1c01a51cf4b719717eeca9437c27c40
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 21:57:10 2021 +0000
+
+    updated code to use subtitle instead of hard coded value2
+
+commit 51e394016ae53305030e5aaa925fafee6884e8df
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 21:54:44 2021 +0000
+
+    nv2
+
+commit 2d9f4c003fba3acfa050d1af34ad360de7c90e04
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 21:10:44 2021 +0000
+
+    clone s
+
+commit f20ee14b3d1c930b3313c673bb4b82e33f3c3cb7
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 16:54:20 2021 +0000
+
+    done
+
+commit 795633aad89e43171c6ed214f594cae16699e1a1
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 16:39:51 2021 +0000
+
+    metro pass
+
+commit c964fb03236b810be3f867e37eee877ad9c1ffbe
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 16:03:02 2021 +0000
+
+    imported all metro tickers
+
+commit c734ac1cf3373e7af5e625e7a143e1feafeefbed
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 15:45:41 2021 +0000
+
+    more tickers
+
+commit 6b91e3a9c1e5444510ed27527e73acfb1bc57aa7
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 14:57:14 2021 +0000
+
+    non sim
+
+commit 8009156b9fdcb2bca361bb0ea0c4d2842e67c24d
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 27 13:24:51 2021 +0000
+
+    updated front page
+
+commit 8b6cccb1f742df6bb36b4603f4468bfd41e8b3dc
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 20 04:22:38 2021 +0000
+
+    bypass mode coming soon
+
+commit ab6a3a8aee09e30a576c8d9054ea56de411c7f38
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 20 04:18:52 2021 +0000
+
+    finished
+
+commit f49e0d58b41c5153ce6326facc28b27f36909051
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 20 03:43:51 2021 +0000
+
+    updated pi design
+
+commit 0e1545695243af97b712af7a2985eec418716d46
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Mar 20 02:57:35 2021 +0000
+
+    new bubblegum home design
+
+commit a840d928a4a701e48fc98ecb3b453431173b21ad
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 14:46:16 2020 +0100
+
+    done
+
+commit 5dd230144f1b6e3ac59a9c50266c3ffc6888758b
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 14:27:09 2020 +0100
+
+    phaseover
+
+commit d32b6d8f378b2b6920aa05cba3193d5680f5bea6
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 14:09:50 2020 +0100
+
+    sripped
+
+commit 155ef24e07a4afcfcf88936e0e3e27f6d6937332
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 14:04:36 2020 +0100
+
+    done
+
+commit 15f4d0fc56679f4e12d829b1ce57510be9cd8dc0
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 00:50:21 2020 +0100
+
+    done
+
+commit 6d83e88ee2246c47a037bd34b777b0e58d46fc9c
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 00:47:35 2020 +0100
+
+    works
+
+commit af0e49a8de9451175d275731141881b3493887a3
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 00:44:48 2020 +0100
+
+    done
+
+commit 40205f4838a083b61d226fb234fbea15df52924c
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 00:29:29 2020 +0100
+
+    all issues fixed
+
+commit d4b35709a2719bacc8d15d745fb6418cb4a02a1b
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Sat Sep 19 00:10:44 2020 +0100
+
+    default clean up is good
+
+commit e441c7b6e6710b1c50893970f1e605e7a7e4ca42
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 23:03:58 2020 +0100
+
+    done
+
+commit a65126749cbb3f03ef7737246a20fbba13b546b7
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 22:56:18 2020 +0100
+
+    terms and conditions
+
+commit f9ea03a3c858eb643c4cc7d020c0137acc881044
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 22:42:58 2020 +0100
+
+    modified the nxsig
+
+commit c0e6e94e916091274ce49f4fffe65e9e57a746c6
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 22:34:42 2020 +0100
+
+    done
+
+commit c6b1b8f57e9450a2a66e96d2d5f526638ab8da89
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 19:22:47 2020 +0100
+
+    ticket wallet
+
+commit 1008d2df4da60cf7a3c67d955ae011c241e10f8d
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 18:53:18 2020 +0100
+
+    all images
+
+commit eacced9169f2d1a87fa88d71bda7011752d8063d
+Author: tayyab <tayyabdev@outlook.com>
+Date:   Fri Sep 18 16:04:57 2020 +0100
+
+    fixed spacing issues
+
+commit 7b511ade1912bc6b736dd311169102a94c2cb439
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 02:23:39 2020 +0100
+
+    fixked walle
+
+commit 53cbdd893c0cb1c1e9656745d326f84e88cad6cc
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 01:47:45 2020 +0100
+
+    doine
+
+commit d266fe3f137009d87545b1ff0c87f4d74d65ed5b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 01:22:58 2020 +0100
+
+    nxhelp
+
+commit 24971db1de457b5fdf35a032d185fd117743ce94
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 01:20:08 2020 +0100
+
+    done
+
+commit 41e0c58f2af34b6b56600addd8fc9bf680e59fcb
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 01:06:47 2020 +0100
+
+    working
+
+commit 8024854923652f28c84d1a5786dd683cfac53a57
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 00:57:48 2020 +0100
+
+    fixed issue
+
+commit 9acf98178a11b2aab805918553208792cd58fe5f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 00:32:33 2020 +0100
+
+    done
+
+commit 1f2e8ce9d756c1f26a32039d4bac4c44c8019c6b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 00:05:06 2020 +0100
+
+    ti
+
+commit fd67b84ae9ed8f42bdfbe92d7fa1e0c5966ad4ae
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Sep 16 00:03:58 2020 +0100
+
+    details page
+
+commit f59f9383ca65dd924b85b0a059995879d99d14f7
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 23:37:28 2020 +0100
+
+    details page working
+
+commit dbfe1698100087048f02706f1bf33f9e36a59940
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 23:35:21 2020 +0100
+
+    formatted tie
+
+commit b9a2ce47529d6ea75c081e60c39096f4f735aca5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 22:03:22 2020 +0100
+
+    overlay working
+
+commit 54b6d1f9e6d89b378bd39ee8912c55de591c7a43
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 21:40:54 2020 +0100
+
+    payment confirmed bg color fixed
+
+commit 59870df2ee8b2e24cdff129d06c4a5d1c967cec8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 21:37:38 2020 +0100
+
+    enter the card info
+
+commit 3d8fcbb860773d02276f3448a23e7ad9eed9a0a3
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 21:34:07 2020 +0100
+
+    history process
+
+commit afe1a83e871b60bc5c9722496821b84d51c090ba
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 21:15:03 2020 +0100
+
+    impoved the front page
+
+commit d074adae79fae2a18f9c157a1ca605b62c9df367
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 01:21:30 2020 +0100
+
+    rough group daysaver
+
+commit d915c1b27c46866e9fa7e287b2abbdc240f3fcf0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 01:09:49 2020 +0100
+
+    group daysaver
+
+commit 6baa19994d5734829368f5bdee5c1a8d2e3f6d65
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 01:05:28 2020 +0100
+
+    rounded for group daysaver
+
+commit 8b3bc5530c266e276f855802e3592bc16d71e99e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Sep 15 00:43:47 2020 +0100
+
+    improved
+
+commit 26b17fccc5836ad104a3b2f7bd74df2f97da37c5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 20:00:28 2020 +0100
+
+    fixed up
+
+commit 9fc28d8b144001aec6a271c0edb25386dc2ea6df
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 19:52:05 2020 +0100
+
+    ticket partially working
+
+commit 9fab1106367832da8a461772fa83832bba438c1a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 11:52:04 2020 +0100
+
+    ticket aliangement
+
+commit 4ce7b39f6b00959b9d64d2712b637a07bc989b3a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 11:38:28 2020 +0100
+
+    ticket improved
+
+commit 093c9f6b54989ebb7dc2ca167e9a1f264bfe1279
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 02:09:36 2020 +0100
+
+    more realism
+
+commit 60a23765cdc8628051d3203e358afa6ca13fd85c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 02:04:04 2020 +0100
+
+    improved the oc
+
+commit 947bc962822d82172c917823d783c240667ba117
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Sep 14 01:02:54 2020 +0100
+
+    improved colors
+
+commit b334117d8da56edbd5b90830cba579a1f5643b85
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 18:17:20 2020 +0100
+
+    partial ejection settings working
+
+commit 8f1e916f07261b720b87964feafe6c738702c23a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 04:37:24 2020 +0100
+
+    cleaned the offers page
+
+commit 21c214724b10ec4477489f4d129b4a9d52cbcb1d
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 04:20:30 2020 +0100
+
+    nxfront spacing
+
+commit aacbb01f479fa533ecda18bb18add8980c9c0b5d
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 04:18:00 2020 +0100
+
+    nx logo is back
+
+commit e139c10f994f138a9f7da185b0a6310c658afd80
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 04:08:50 2020 +0100
+
+    stableised a few things
+
+commit 42b3431f60c7479d83836eb58a458f5a10d64ee8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 03:57:17 2020 +0100
+
+    removed the timer on the customise ticket page as it was not needed
+
+commit fb80d4e595815ac532973038ab67f77b10ecc93a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Sep 13 03:55:26 2020 +0100
+
+    added callback so we dont need  atimer anymore
+
+commit 4f3ff78492f5d8a164f350d6f15f809381613d21
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 21:08:16 2020 +0100
+
+    updated bar
+
+commit 6f90bb2bbf04ca9bcec97e75030176321a3348ad
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 21:06:17 2020 +0100
+
+    default ticket
+
+commit 76da9f1b6212fcbda6222c1fdc68bf42753a6e31
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 21:04:52 2020 +0100
+
+    improved the default ticket page
+
+commit 02f5be32c7eb6f3272f2ebb2511d7194251575c0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 20:59:08 2020 +0100
+
+    fixed landing pages options
+
+commit 8f9ace656de2b7a030fe7b376dc841fde9e1c15a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 20:43:29 2020 +0100
+
+    options
+
+commit 672492e851d28089dcd453cedcb6c59fd45725ad
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 20:17:27 2020 +0100
+
+    terms
+
+commit 21c9b1c259cbe3471ad0cb4778be24ca88385f37
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 15:10:57 2020 +0100
+
+    fixed memory leak
+
+commit b42f1f3910fbc8aa7e62b1373594c6b0d073f27f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Sep 12 14:46:36 2020 +0100
+
+    better animations
+
+commit 888433dfd6a7ee19c09a62fbd5120b9c43e43681
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 11:49:38 2020 +0100
+
+    everything works
+
+commit 07309566aceab6360269ca7936d4b0596ece4f86
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 11:29:05 2020 +0100
+
+    fixed all issues
+
+commit 1a9cedeab12c24f7da4fa0c9cbfcbacd65d34e1e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 11:23:26 2020 +0100
+
+    added ability to send
+
+commit 9163bae23bd29040e3145e05ee34eda752a38306
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 11:22:29 2020 +0100
+
+    fixed issues
+
+commit b280368a78f7cec311954753fd11e6fd15b2893e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 11:21:14 2020 +0100
+
+    fixed issue relating to null top bottom navigation
+
+commit 8ad33024cefcf3aa95ee98e1380ef7b6131eb16e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 10:49:45 2020 +0100
+
+    prepare launch on blackpie 3
+
+commit b63ef3f138f14fe210db44e55911749b20806ad3
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 12 00:05:53 2020 +0100
+
+    newgif
+
+commit 1521e4e178c2a5595f51196cf681cecd5dff3507
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 23:21:23 2020 +0100
+
+    done
+
+commit c62f822f588dd9f7e751c66b4881366c204c11db
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 23:10:32 2020 +0100
+
+    added more animations
+
+commit 3e5cd2e56c7101e102d86585985d2d9b244448d2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 14:11:07 2020 +0100
+
+    fixed
+
+commit cf9b8964dceb8028dce750aaabdf3dc9d3bd88c5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 14:08:20 2020 +0100
+
+    fixed
+
+commit 780eb373a2d0b35c17baff9fb79ee1b4d4cd7990
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 13:47:20 2020 +0100
+
+    done
+
+commit 6d8232a1285736ac6e7e1ad0cb5cc82bf1fd8444
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 13:44:07 2020 +0100
+
+    ticketv2 and helper
+
+commit 1ab8b9c01847ef963e0bc1f6bd4224c0fc83d75c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 13:19:50 2020 +0100
+
+    overlay working
+
+commit 8ab490e63f679b04404a089026273f6a589dbed0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 13:11:55 2020 +0100
+
+    took care of memory leaks
+
+commit eeff51de604bd045ab918ef293fb0896d2d708f5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 13:10:39 2020 +0100
+
+    done
+
+commit 90029e563289009499dddeaa295f3501bcf38b72
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 12:45:09 2020 +0100
+
+    added some sutle animation
+
+commit 4a2408692a966eeae440d5485092a1dff471c7c7
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 12:30:27 2020 +0100
+
+    overlays
+
+commit 219a6694b498ff9cf05f7892a7b9a93782380bf5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 11:38:24 2020 +0100
+
+    updated the ui
+
+commit bf4d43ff1bc3389bdeac1c77a1fd352588192877
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 11:35:49 2020 +0100
+
+    changing text speed works perfectly
+
+commit 467c8664d3291ab46c287307f6fba35151196f73
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 09:45:36 2020 +0100
+
+    finished addming animatino
+
+commit ea0583f32363c69641a387961178e34367c45d55
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 08:38:07 2020 +0100
+
+    setup flow
+
+commit d6094b4f80bb696a5fbd75f9ef866691ac723067
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 08:35:56 2020 +0100
+
+    onboarding refinded
+
+commit c5a65c605c84c2fc6e3905d828822c3704511b4e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 08:26:15 2020 +0100
+
+    updated ui and actions
+
+commit d3285703a4d8cb42cb60672bacff0313a9add455
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 08:20:00 2020 +0100
+
+    setup working properly
+
+commit 4d33bc1167e1ba57a53f0ed348444659d9df7fe2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:47:39 2020 +0100
+
+    updated
+
+commit fbdc1fc2bcabf260c783ffada76b7150b742ce36
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:44:58 2020 +0100
+
+    updated settings
+
+commit e7bd6715e68d152f8f0f4a0b8765e3581913427e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:44:11 2020 +0100
+
+    added a nice blue effect
+
+commit 40319b54b2c8b33d4e8fc0ac803f1f5463af6841
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:40:02 2020 +0100
+
+    linked up the options again
+
+commit f58970cd00d211b5c5ca21eb79f7f06de88afe3a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:31:20 2020 +0100
+
+    added the 2 buttons
+
+commit a83cfea23b2614ad2d82fc9082b6027d2141a8b8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:26:05 2020 +0100
+
+    updated options
+
+commit 28af75918e08804b08445f6d2532e2c61683dd1d
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:23:12 2020 +0100
+
+    improved ui
+
+commit 9786543712a94d27cf42a00e9f4a4211d7882bd1
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 07:14:45 2020 +0100
+
+    new look
+
+commit baaf169d412684377918533541b745f0c9c14f0b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 00:53:12 2020 +0100
+
+    animations overlay settings
+
+commit 50b0246158a00ef5ac5f55de45e17ce47de384ab
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 00:47:33 2020 +0100
+
+    animation settings
+
+commit 4c9616bf043ec3b871f2db0832161f3e4ccc63a1
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 11 00:37:06 2020 +0100
+
+    tweat animatino settings
+
+commit a06f4a306173790b1806be7ea1cce934f41c6c42
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 23:30:50 2020 +0100
+
+    overlay settings
+
+commit 9c0745f82b0ff3b7252ee172208d3e868112cfe1
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 23:24:24 2020 +0100
+
+    tweak settings
+
+commit 62d553b81ae82dc57f102b8bc04592e35393ed79
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 23:16:11 2020 +0100
+
+    updated ui
+
+commit 88bc40bed8ca78d178fe0594d1e7263294cb3dcd
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 23:11:36 2020 +0100
+
+    upgraded ui
+
+commit b3816cd1f52e92a45e40975fca47bf2f07736b77
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 23:02:54 2020 +0100
+
+    updated the pie home
+
+commit 07f5302c423fbba83547a2f9ae2e7385f19ebde1
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 22:56:10 2020 +0100
+
+    fixed
+
+commit 025e772a28512c0f8ee1a3f7002a0317aa8b275f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 22:40:11 2020 +0100
+
+    fixed issues
+
+commit 849a7f0baab50f09906148c7d4fbd62ab396b2aa
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Aug 10 21:53:38 2020 +0100
+
+    main.dart
+
+commit 26febd54e89a92ec1d5236713fd76c37b985eac0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 08:15:47 2020 +0100
+
+    done
+
+commit 7a9194d615c91cd3bb90d94c82e53948580246b5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 08:05:20 2020 +0100
+
+    paytransfer
+
+commit cf761ee6f277efbb3c6ee20674f56474d8117e7e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 07:52:50 2020 +0100
+
+    nearly completed pay and trasnfer
+
+commit 98c7a89ae3852038082459eeeaa9b191b5e0070a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 06:51:22 2020 +0100
+
+    provisioned the pay and transfer page
+
+commit 69464dc13472e92337d16ee046ee5b93113ca005
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 06:41:50 2020 +0100
+
+    added halifax on the banking clones
+
+commit 98710863ee0583a0847d1387abd3446404b4180c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 06:38:29 2020 +0100
+
+    hard coded account details for now
+
+commit 297198e68ab364d6183b93ffd402988bfd50fbc3
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 06:34:10 2020 +0100
+
+    finished account details page
+
+commit 8cffce5ee5d1b4fd18d925c71b68c8140b306ab3
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 06:23:48 2020 +0100
+
+    added pending balance
+
+commit d242eecae979a423943509d668737f8d58507d9a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 05:56:49 2020 +0100
+
+    got reversed list
+
+commit f008a4a51ec6b5d9383add89ffba11f5c09278c2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 04:52:48 2020 +0100
+
+    first part halifax
+
+commit 1d4b05b2d4bd28a09ea58360ec764783d64cbbc6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 04:12:12 2020 +0100
+
+    first part halifax
+
+commit c418364c356859ad02b15b618ecf306a1bbd6202
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 04:09:03 2020 +0100
+
+    first part halifax
+
+commit 6c52a93cf968069c989835bbadf6ee36c6128e7e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 03:58:35 2020 +0100
+
+    first part halifax
+
+commit d14e50ed8b98bfa01e69b00809b93db1c4676731
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Aug 8 03:50:04 2020 +0100
+
+    first part halifax
+
+commit 65116619e68c64c561c13a69cd7c922e22774976
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Aug 6 23:01:57 2020 +0100
+
+    done first step
+
+commit 8c9f4296a1f41f33057caee5269283932df9ab18
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Aug 6 22:56:52 2020 +0100
+
+    added quick options
+
+commit ac338ea7e55ba85c5ae96ef9c947bd684496738b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Aug 6 22:22:52 2020 +0100
+
+    added support for v1 for nastalgic purpsoes
+
+commit fc82091f91229d08b68eebe129f4f0d23642d485
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Aug 6 22:17:41 2020 +0100
+
+    nxhome
+
+commit 2162ed37bcd411e98e0090b644387b3f74f12fe7
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 5 02:11:27 2020 +0100
+
+    optimised ui
+
+commit c712324a949226ba4a0e8e03bb89953e659ad5c4
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 5 02:09:54 2020 +0100
+
+    launch
+
+commit 69ed74c437e6087a9c9ab93c286bf0ec97728670
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Aug 5 02:05:14 2020 +0100
+
+    landing page
+
+commit 379d062679b3656b617f2cfdaa3da6d03e90e913
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Aug 4 23:27:41 2020 +0100
+
+    partial launcher done
+
+commit 60fad0fff6cb37ec2666be9cab40f5d86f16a95f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 28 00:25:54 2020 +0100
+
+    HOTFIX TEXT and spacing modifications
+
+commit f10320b81e0ef47b67fa028e3e2505d1cbdb2ba6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 26 03:05:39 2020 +0100
+
+    hot fix
+
+commit c9c6ed604c7daf0e93f615d2a829f4f42c611592
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 23:05:22 2020 +0100
+
+    hotfix 2 done
+
+commit 0a0e53350965e067e55ace899ab4b99196dc3e63
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 22:57:55 2020 +0100
+
+    new mods
+
+commit 01a0499c76f91e83d88b6a09424485d267b2d1ed
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 22:45:38 2020 +0100
+
+    hotfix-default value
+
+commit c4fc65115bae94c19540239b2c2fd43af24dbb18
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 22:40:56 2020 +0100
+
+    finalise
+
+commit 56d696c35c9a6f811778394e6de9eedb4b2e55f0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 07:07:26 2020 +0100
+
+    nx ready
+
+commit 3d2ec2c207a465bea5c96f9fed82d8f507eb84c7
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 07:01:57 2020 +0100
+
+    ability to restart app
+
+commit 4f84a6890c1731fec538f8fa8794985448f81b28
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 06:56:30 2020 +0100
+
+    updaed
+
+commit 74c53449e6cfa1f7236d8fd21eb935c392034feb
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 06:49:11 2020 +0100
+
+    added function to delete all tickets
+
+commit 321b9fecd1caba563821b7740c8b5140555a1758
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 06:36:07 2020 +0100
+
+    prebuild done for now
+
+commit 6028eb2019a38f911b684b53e735a902a325db21
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 06:11:47 2020 +0100
+
+    fixed qr generation issue
+
+commit a2112fe37c65e5e5718e1757cf8f69a014c751cb
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 05:55:27 2020 +0100
+
+    new assets
+
+commit eb5c7f966836372eeefe5278cd8e6698da2db9c8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 05:16:06 2020 +0100
+
+    modified curve of ticket wallet
+
+commit 7437b3f235b5b32fc7f6fab084e1fe6bb01d7c76
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 05:14:19 2020 +0100
+
+    modified spacing on activated ticket
+
+commit f4ba4a2ad89de6afc48b095e137bb000aa1b4562
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 05:00:24 2020 +0100
+
+    fixed ui issues
+
+commit e04688eea1b577d4fb0c2d1e2c22c7d5b28da1b3
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 03:36:57 2020 +0100
+
+    default ticket working
+
+commit aaadc61b40d037e2d9eba598b8fb787ecdc06e73
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 03:33:32 2020 +0100
+
+    default ticket selection updated
+
+commit e917285da124c7313cc6599dd8aa44c361a34c8e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 03:19:39 2020 +0100
+
+    default ticket
+
+commit 1bf76b814b236ec9ed2f6bd12dcd45a47f7f4313
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 03:18:36 2020 +0100
+
+    default ticket options
+
+commit 811e698e016965a6e8d45fdf9778a6dd46235611
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 02:56:56 2020 +0100
+
+    fixed timing issue
+
+commit c373a309f2fa8a018df22a1ae1d1cf75f0aca7ce
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 02:49:59 2020 +0100
+
+    made ajustments to the date function
+
+commit 56075765a82c32c504c724ddfc39e24030c738f8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 02:43:46 2020 +0100
+
+    date maths done
+
+commit 4b36dcb26cf929c6fabbcfadce27b7a305aeeced
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 00:37:32 2020 +0100
+
+    fixed date issue
+
+commit 25798dc81df853e359d657037ece6c747f7f806a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 00:34:05 2020 +0100
+
+    fixed and hooked up expiry dates
+
+commit 239e19c42a561df90b6eee45e38f13441c5799f6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 00:32:55 2020 +0100
+
+    done
+
+commit a07619ce8b0c4284c7db04043a3f09d01ce56e8b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 25 00:28:55 2020 +0100
+
+    updated expiry system
+
+commit c2597ab79bb74daaaf57a78f8f17e4bfd69f9afc
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 23:50:07 2020 +0100
+
+    helper for expiry
+
+commit df7a63c537ae53cd5cf494f69346edcadb08bc1e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 18:32:50 2020 +0100
+
+    routing issue
+
+commit 14b6346d531fd7ccc9c15299f64a8deceba95023
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 18:12:40 2020 +0100
+
+    daysaver activation works
+
+commit 255aa6a5b58ad59ea725ef16da89ab9eadc8e3b8
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 17:42:51 2020 +0100
+
+    ability to activate ticket in helper
+
+commit 584248e0fb4f0f68b787ec1cbcd2809ae6599267
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 15:50:30 2020 +0100
+
+    color bars are flashing yay
+
+commit d9bf850131ccfe10f447945058f4baa4d7206ff7
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 15:05:13 2020 +0100
+
+    color selector working
+
+commit 9fd28a0db611efea3bd7e31747d384fff0f0d297
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 14:15:23 2020 +0100
+
+    toverlay
+
+commit 5845cecd84bb90102ecb18bec285e9ccf595acb6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 13:59:56 2020 +0100
+
+    moving text
+
+commit f27341287ecd724c0856ef04fc54bdb0b5259b81
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 12:58:26 2020 +0100
+
+    ticketv2 updated to allow db support
+
+commit b59ce177e3eb6fca2d3cb0295390bbc791b60f21
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 12:14:30 2020 +0100
+
+    hooked up action and details on the actual ticket page as well
+
+commit 59fc8074e865026a3daa9f6c81db58a7fdeb7d02
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 12:11:18 2020 +0100
+
+    overlay working
+
+commit 4a24e49503696b57c144524b020afc69479dd844
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 11:59:39 2020 +0100
+
+    overlay for actions nearly done
+
+commit cc5dbf524f43572547c023daed0b156212e9fef4
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 11:50:31 2020 +0100
+
+    actions overlay started
+
+commit 6f2d6ec089e2e117a2c0cca1acb93f52184b4a02
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 11:39:48 2020 +0100
+
+    terms
+
+commit c5aecb0705d8f85aee5bf0ed8c0a1f0194c6e5bc
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 11:19:45 2020 +0100
+
+    terms refactored
+
+commit 9efbc603cf3a4ea367ec638d39fe1435fc449566
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 11:00:46 2020 +0100
+
+    terms page created
+
+commit 4cdc60a9ca0fe072e53cbefef24483617ce42d23
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 10:34:27 2020 +0100
+
+    detail page semi finished
+
+commit c37527a2521d6fb96b84117a289239b683c8c7dd
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 10:22:43 2020 +0100
+
+    second part done
+
+commit b2335f65ce6c9758e26eab241ddd70af37b7f87c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 10:18:06 2020 +0100
+
+    first part of detail page done
+
+commit bcf74f2d52fd85745023f1476087141c5865a7ed
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 09:58:45 2020 +0100
+
+    ticket detail optimisations
+
+commit 3c7b894fe6597047d2a21413b6e37e95d2f383a0
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 09:48:31 2020 +0100
+
+    basic format formed for details page and hooked up back button
+
+commit 0bb311f782d115334733e957a89633748c2c0233
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 09:26:20 2020 +0100
+
+    ticket detail overlay
+
+commit 66a985e81141769c0b315f6c42f6f51b70d2c0ec
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 09:23:39 2020 +0100
+
+    made the close functionality work
+
+commit 9748a01337d10428a71423563466baeed07f9c99
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 09:22:26 2020 +0100
+
+    optimised moving text
+
+commit 8d0a5b1bb25a33393a8841582456902a0b89d30f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Fri Jul 24 09:14:32 2020 +0100
+
+    moving test working
+
+commit 0519dbb6af960a3608afc996c70ba26dce350fc4
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 21:38:56 2020 +0100
+
+    refactored code
+
+commit a1ab690ddceb5701764ec8e652432cd4e7592d6f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 16:12:28 2020 +0200
+
+    optimised for other states
+
+commit 887e41c2d6b48913a722c015f0615e0afd9eb594
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 16:09:26 2020 +0200
+
+    cov
+
+commit 749f2104c312cba03bf0ac2516513f145bdf118c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 15:35:36 2020 +0200
+
+    done
+
+commit d1f666fc447a0230041f3c4b3fe8aaa8fe24c331
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 14:23:39 2020 +0200
+
+    buys ticket then goes to the confirmed page
+
+commit 677cd9192338cd5195e89798124881a60551beb3
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 13:22:42 2020 +0200
+
+    done
+
+commit 4830dc93f391b9ee611dda11c50198a486ba4967
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 03:40:24 2020 +0100
+
+    refactored
+
+commit 3b13a550b79c4f37250c3e879790c281198fa140
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 03:30:37 2020 +0100
+
+    load usable tickets on ticket wallet page
+
+commit 789c3156333ab7a188bdae16c72a58366ee31617
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 03:15:39 2020 +0100
+
+    refactored gode
+
+commit 05b30037ae20c6d0f7357f0120572b67e36ec4bd
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 02:54:06 2020 +0100
+
+    buying tickets working
+
+commit dd648632b9026273a1d75ff38c4d06c561792682
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 02:33:48 2020 +0100
+
+    ability to buy ticket
+
+commit 470954cc6a99300c3b983aa94cf36926cd66ce92
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 01:46:46 2020 +0100
+
+    done
+
+commit da832f47915b12ddaacaadf4e7b568429e61cf59
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 01:38:47 2020 +0100
+
+    ui done
+
+commit a6d6eb591dc60e08c79ab8d5bb3d48f216c87e1f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 01:33:03 2020 +0100
+
+    pagment successful
+
+commit e99e8bf906daa9212af7eb55f6c7c0b080fff063
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 01:23:18 2020 +0100
+
+    partial payment success page
+
+commit 845d942b5c713e108d300d698cf7aad9b2a6ba67
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 23 01:15:01 2020 +0100
+
+    payment confirmation
+
+commit 2f94d972d86dc3c30863f7ca4ab1d9e419996134
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 23:32:23 2020 +0100
+
+    fixed final payment scroll, and made security code and email editable
+
+commit c8a1dc8038ba485d8f42724d4011ed1017b7c594
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 23:26:35 2020 +0100
+
+    enter card
+
+commit 5533a2d0241976221405db255dbb0f6f41d18cbc
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 22:37:51 2020 +0100
+
+    pick method
+
+commit 3e3b6acb9b67171d964af578966240df2541ad57
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 22:36:11 2020 +0100
+
+    grabs correct option
+
+commit 116b825798db4711081f268fea4630030ed16c1a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 22:18:05 2020 +0100
+
+    payment optin
+
+commit ef3cfab0aa57c40bf192e2fb9763e753ac4ffc16
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 22:06:41 2020 +0100
+
+    init
+
+commit e9914be3ec474a2589a75a8d6c193c75aed93664
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 21:44:49 2020 +0100
+
+    ulp
+
+commit cb474242703eb9d522a6746dfdacbd592f2c0593
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 12:07:23 2020 +0100
+
+    payment method
+
+commit fc4e14974cb7e47238c7aa9abedc5db764ed66ae
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 12:00:54 2020 +0100
+
+    ticket selection
+
+commit 720f92c22468d80730920f7055a0f8978dd9044f
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 11:45:36 2020 +0100
+
+    flow partial
+
+commit b8837553ac1d05fd9cec9bd6270ce1e0435c4688
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 11:29:24 2020 +0100
+
+    all the tickets are showing on buy page
+
+commit 3473552bc8bc7b8007608ceaa74312383aadcdef
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 11:04:08 2020 +0100
+
+    fixed annoying bug
+
+commit 625f7a0dc1188c3eeb78f58ca908c81568e8747a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 10:42:12 2020 +0100
+
+    working on helper
+
+commit 72e85ed94374ceaf3dad8a7ab63b4dd9217de75c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 09:38:46 2020 +0100
+
+    saving ticket type
+
+commit 8ddc067c7ac3990656b0d090decd41420c6fd165
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 09:22:33 2020 +0100
+
+    done
+
+commit b905eca794bb4583a56e2f7d4421d53e5f2f95b9
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 09:15:57 2020 +0100
+
+    sandwell and dudley done
+
+commit 6ed7328bc4de66aefaf3af121c17188ef9df4c9a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 03:07:49 2020 +0100
+
+    cleaned up code
+
+commit 9b7c33954d25ee0b86b132f184eec2dab877c0b2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 03:03:31 2020 +0100
+
+    added safer and cleaner code
+
+commit 88a40b498936bbcf0a591e2069bd5bd0274cff34
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 02:44:48 2020 +0100
+
+    conventry area covered
+
+commit b4a079f6c3c09bc9b71be0826b9eee5597fbe813
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 02:39:30 2020 +0100
+
+    partial conventry covered
+
+commit bd0b0b7dbd92dbf64ad9592110c915bd94670893
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 02:33:45 2020 +0100
+
+    added all ticket types for west Midlands
+
+commit 3e38ed2ad1b2bc83e6c395b8640af3254711adac
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 02:22:58 2020 +0100
+
+    done
+
+commit 82fc1181882bcf2790bc5d8fc1de1faf4cfde8c2
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 02:17:14 2020 +0100
+
+    tt
+
+commit 68ec0ca84b215cc59b55716543f342ef0c1f702b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 02:03:14 2020 +0100
+
+    select ticket
+
+commit b65c98fdadcb711039be2c577d39912272cc9b72
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 01:57:22 2020 +0100
+
+    buy flow
+
+commit 7a175f66f93378c80989aa294e599b45040a9d5d
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 01:48:17 2020 +0100
+
+    changes only affect after reboot of app
+
+commit 7b3d6d77421e22d847a7b441508916bc96398c9c
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 01:47:31 2020 +0100
+
+    landing page flow setup with old flow
+
+commit 6107fb09773e3012378423b5dcac899efa643a10
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 01:41:06 2020 +0100
+
+    made it so it redirects to nxclone pages on boot
+
+commit bc276558856a1774632497030f4c40bd6a3afe99
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 01:30:43 2020 +0100
+
+    helper added and new database
+
+commit fd508a9d40ce139d80abe68e0277afd955b9aad4
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jul 22 01:22:24 2020 +0100
+
+    helper class
+
+commit 9c4815bfae1b4061dd6bd0671152852df971a6c5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 10:48:39 2020 +0100
+
+    flow
+
+commit 5a8d34c8de9356f3474511dd706996d7c0cc5343
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 01:41:57 2020 +0100
+
+    push
+
+commit 3f7143da60c0d37b2abf0ee44384870f07191173
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 01:07:36 2020 +0100
+
+    p1 done
+
+commit b402b6851eed23196d91c3203e1e503f8b65b664
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 01:05:47 2020 +0100
+
+    dd
+
+commit ca59471f69a6c08562d543aadd5f8db5d25978ad
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 01:00:11 2020 +0100
+
+    landing page
+
+commit 8af62ee104ee404ea5f2b907b0be29ce0a7dc36b
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 00:56:57 2020 +0100
+
+    done
+
+commit 626d89395f2205268f882e81f21015fd83214285
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Tue Jul 21 00:25:19 2020 +0100
+
+    dialog activae ticket
+
+commit 96c46cb124dd3c0eea73e987b137b125cfaf5a0e
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 23:06:03 2020 +0100
+
+    nxsig rounded works
+
+commit 83fc6fd7b11016d7f0623f18833853be9501f472
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 22:54:46 2020 +0100
+
+    updated spacing on ticket page
+
+commit af244d2606e9f65e83ee417ebacb60742e048516
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 04:26:34 2020 +0100
+
+    finish
+
+commit ea51c390fcb3daaea517e6d7bed7c51896eaabbc
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 04:25:24 2020 +0100
+
+    updared pre activation page
+
+commit e5ea3aab4d6523deafba7b1688e4a3db9fb70bf7
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 04:24:00 2020 +0100
+
+    done
+
+commit dc58172647be59cf7ccbaa7652ef3ee241284d96
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 04:11:53 2020 +0100
+
+    modifications to ticket page"
+
+commit 6857443dedb64e8d2a8441854d4e4a436212de90
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Mon Jul 20 04:03:26 2020 +0100
+
+    nx rewards
+
+commit 01f21fe9b90b1aec2f434d3cf6398f0419dbeafb
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 19:33:18 2020 +0100
+
+    nxsig
+
+commit cbde19afbbb9950d0cbae679176f06041559f286
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 19:26:01 2020 +0100
+
+    nxsig
+
+commit fed0f86857837ad1781c5a281f76c01eb00a8898
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 19:12:37 2020 +0100
+
+    ticket page
+
+commit eadf31de32a68ec6473f095ced89821634194ecf
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 18:33:47 2020 +0100
+
+    ticket color selectopr
+
+commit b4b39a70f71651eba2c9f333888a6f881ed483d6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 18:19:09 2020 +0100
+
+    ticket page half done
+
+commit a472fc2089b6eb3cad564526ae491ceb1d361d66
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 17:54:04 2020 +0100
+
+    ticket activation done
+
+commit 2e19d335d46ec7d9ea5b88bb6d17073d60098212
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 17:50:06 2020 +0100
+
+    show activation dialog
+
+commit 0000761031401d308c54e1fd649e2eb7fa55fdd1
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 17:30:10 2020 +0100
+
+    changed splash screen
+
+commit e6433ebdbf4ca55577342ea02d85694d27ed602a
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 14:22:07 2020 +0100
+
+    done ticket activation screen
+
+commit dfb22d38aca5bd33b63b06634e528c2bacaf8b77
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 14:15:33 2020 +0100
+
+    ticket activation page
+
+commit 5dd07311c8079baaaecc1db23c9bb7b2fc48f261
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 13:41:58 2020 +0100
+
+    resent
+
+commit 614def600f647279dd8dc60abb8ceb5c45761614
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 04:19:26 2020 +0100
+
+    dne
+
+commit e925bbf1dfcfca5b78de6c39e9899ecce7635ad5
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 03:34:35 2020 +0100
+
+    logs current selected ticket
+
+commit 89204473231df4acdfe33d4d70a3adbc1ecb8e82
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 03:28:47 2020 +0100
+
+    default ticket page
+
+commit 9b0f9c0dd95a9e9293720cf140bc4f2579bda735
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 02:53:06 2020 +0100
+
+    customise ticket
+
+commit 7e5666ff6cef9acf2cba1227767bf7fbb9b6aba6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 02:19:04 2020 +0100
+
+    customise ticket
+
+commit 71a36bcab3a27151fd597f772a919b28698db906
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sun Jul 19 01:45:56 2020 +0100
+
+    saving default page works
+
+commit a454495424a1813105493d4a0e3c51fa907c8285
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 22:52:54 2020 +0100
+
+    defualt page black pie
+
+commit 7a6c619c528c02e85cd787e105c9520f7e0caf09
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 21:01:12 2020 +0100
+
+    landing page
+
+commit 2963c3a72d11a594d53b2fa1039fb99692ee62a7
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 20:55:30 2020 +0100
+
+    coding the landing page
+
+commit d7757f58329b64f15fb208f319bcab257e929ac6
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 19:48:10 2020 +0100
+
+    done
+
+commit 96bd2f614d177904f375cb31f24278c48f893c5d
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 19:18:10 2020 +0100
+
+    used sq
+
+commit 609a9d065062fec148433e7305dd8dda69fcb17f
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 18:58:05 2020 +0100
+
+    q
+
+commit 59f185a9ce28384056ff43acd1b2bef7ee0b05d3
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 18:57:36 2020 +0100
+
+    quick action images done
+
+commit f141e2e5c91655f19e76b71bc01986bede294083
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 18:14:31 2020 +0100
+
+    v2
+
+commit fee9da0efc74dd71b9ceca25fcbcb0288f53f5bc
+Author: Microsomes <tayyabdev@outlook.com>
+Date:   Sat Jul 18 16:08:55 2020 +0100
+
+    remvoed useless
+
+commit 7f6fb46a401a12b18e169b908a9cea7d4fe2c609
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Thu Jul 16 13:58:44 2020 +0100
+
+    and
+
+commit fc9b2c96146701b915050a4466d68f29e60de7c6
+Author: microsomes <tayyabdev@outlook.com>
+Date:   Wed Jun 17 11:31:04 2020 +0100
+
+    init

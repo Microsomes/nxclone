@@ -229,6 +229,7 @@ flutter:
    - images/v7/students.png
 
    - assets/tickets.json
+   - assets/changelogs.json
   
 
 

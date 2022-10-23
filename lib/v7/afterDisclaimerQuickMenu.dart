@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../2022/2022helper.dart';
+import '../2022/Pages/changeLogs.dart';
 import '../2022/Pages/nxpages/front.dart';
 import 'settingSaver.dart';
 
@@ -273,14 +274,19 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             child: Column(
                               children: [
                                 Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                     child: Text("Change Logs", style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                     ),),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChangeLogs()));
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                       child: Text("Change Logs", style: GoogleFonts.roboto(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18
+                                       ),),
+                                    ),
                                   ),
                                 ),
                                 Expanded(
