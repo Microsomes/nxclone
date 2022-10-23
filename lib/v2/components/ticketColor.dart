@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
@@ -31,6 +33,12 @@ class TicketColorState extends State<TicketColor> {
   @override
   void initState() {
     super.initState();
+
+
+    //get random colors
+    opt1 = NxHelp.getRandomColor();
+    opt2 = NxHelp.getRandomColor();
+    opt3 = NxHelp.getRandomColor();
 
     NXHelp().loadConfig("opt1col", 1).then((opt1colconfig) {
       if (opt1colconfig.length == 0) {
@@ -309,5 +317,12 @@ class TicketColorState extends State<TicketColor> {
             ),
           ],
         ));
+  }
+}
+
+class NxHelp {
+  static getRandomColor(){
+    var r = Random();
+    return Color.fromRGBO(r.nextInt(255), r.nextInt(255), r.nextInt(255), 1);
   }
 }
