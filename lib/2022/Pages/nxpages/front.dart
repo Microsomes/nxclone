@@ -3,6 +3,7 @@ import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
 import 'package:BubbleGum/pages/help.dart';
 import 'package:BubbleGum/pages/tripTools.dart';
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
@@ -661,6 +662,18 @@ class _InactiveTicketCompState extends State<TicketComp> {
       },
       child: GestureDetector(
         onTap: () {
+
+          if(widget.ticketStatus == 1){
+            //actual ticket
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ActualTicket(
+                          txid: widget.ticketId,
+                        )));
+                        return;
+          }
+
           Navigator.push(
               context,
               MaterialPageRoute(
