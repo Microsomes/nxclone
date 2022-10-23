@@ -199,14 +199,55 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             child: Column(
                               children: [
                                 Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                     child: Text("Emergency Mode", style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                     ),),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      //open model to show modal
+
+
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text("Emergency Mode?"),
+                                            content: Text("Are you sure you want to enter this mode?"),
+                                            actions: [
+                                              TextButton(
+                                                child: Text("Yes"),
+                                                onPressed: (){
+                                                  Fluttertoast.showToast(
+                                                    msg: "Emergency Mode not available",
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor: Colors.red,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0
+                                                  );
+                                                },
+                                              ),
+                                              TextButton(
+                                                child: Text("No"),
+                                                onPressed: (){
+                                                  Navigator.pop(context);
+                                                },
+                                              )
+                                            ],
+                                          );
+                                        }
+                                      );
+
+
+                                      
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                       child: Text("Emergency Mode", style: GoogleFonts.roboto(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18
+                                       ),),
+                                    ),
                                   ),
                                 ),
                                 Expanded(
