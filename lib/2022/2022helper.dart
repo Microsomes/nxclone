@@ -35,6 +35,9 @@ Future<void> NXBuyTicket(
 }
 
 
+Future<void> NXBuyDaysaverTicket() async {}
+Future<void> NXBuyGroupSaver() async {}
+
 Future GetFirstAvailableTicket() async {
   print("all tickets");
   var db = await openDB();
