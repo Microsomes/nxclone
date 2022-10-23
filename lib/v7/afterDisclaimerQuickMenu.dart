@@ -150,16 +150,21 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                   ),
                                 ),
                                 Expanded(
-                                  child: Container(
-                                    color: Colors.white,
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                    child: Text(
-                                      "Day Saver",
-                                      style: GoogleFonts.aBeeZee(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 35),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      NXBuyDaysaverTicket();
+                                    },
+                                    child: Container(
+                                      color: Colors.white,
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                      child: Text(
+                                        "Day Saver",
+                                        style: GoogleFonts.aBeeZee(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 35),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -187,6 +192,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
+                          
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -319,6 +325,56 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
+
+                          Container(
+                            color: Colors.black,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(Icons.settings,
+                                    color: Colors.white,
+                                    size: 20,),
+                                  ),
+                                  Text("Quick Settings",
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 20,
+                                    color: Colors.white
+                                  ),
+                                  ),
+                                    ],
+                                  ),
+                                  Divider(
+                                    color: Colors.white,
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Text("Home page:",
+                                        style: GoogleFonts.roboto(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white
+                                        ),),
+                                        Spacer(),
+                                        DropdownButton(
+                                          value: "",
+                                          
+                                       
+                                        )
+                                      ],
+                                    ),
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          )
+                        
                         ]),
                     decoration: BoxDecoration(
                         boxShadow: [

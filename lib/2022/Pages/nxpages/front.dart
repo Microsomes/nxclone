@@ -148,6 +148,8 @@ class _NxPagesFrontState extends State<NxPagesFront> {
 
   var availableTicket = null;
 
+  var ticketStatus = 1;
+
   @override
   void initState() {
     super.initState();
@@ -384,6 +386,7 @@ class _KtState extends State<Kt> {
                               child: Column(
                                 children: [
                                   TicketComp(
+                                    ticketStatus: widget.availableTicket['isActive'],
                                     marginBias: 30,
                                     ticketId: widget.availableTicket['id'],
                                   ),
@@ -610,6 +613,8 @@ class _InactiveTicketCompState extends State<TicketComp> {
 
   Color backgroundColor= Colors.white;
 
+   var expiresIn = null;
+
   @override
   void initState() {
     super.initState();
@@ -623,6 +628,16 @@ class _InactiveTicketCompState extends State<TicketComp> {
 
       if(widget.ticketStatus == 0){
         print("calculate when used");
+      }
+
+      if(widget.ticketStatus == 1){
+        
+       NXCalculateWhenTicketExpire(value['id']).then((value) {
+        setState(() {
+          expiresIn = value;
+        
+        });
+       });
       }
 
     });
@@ -721,7 +736,20 @@ class _InactiveTicketCompState extends State<TicketComp> {
                             padding:
                                 const EdgeInsets.only(
                                     right: 20),
-                            child: Text(
+                            child: Builder(
+                              builder: ((context) {
+
+
+                                if(widget.ticketStatus == 1){
+                                  return Text("ACTIVE", style: GoogleFonts.roboto(
+                                      color: Colors.green,
+                                      fontWeight:
+                                      FontWeight
+                                          .bold,
+                                      fontSize: 16),);
+                                }
+                                
+                                return Text(
                               widget.ticketStatus == -1 ? "INACTIVE" : "USED",
                               style:
                                   GoogleFonts.roboto(
@@ -734,7 +762,10 @@ class _InactiveTicketCompState extends State<TicketComp> {
                                       fontWeight:
                                           FontWeight
                                               .bold),
-                            ),
+                            );
+
+                              }),
+                            )
                           ),
                         ),
                       )
@@ -752,7 +783,23 @@ class _InactiveTicketCompState extends State<TicketComp> {
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 20, top: 6),
-                      child: Text(
+                      child: widget.ticketStatus == 1 ? 
+                      Row(
+                        children: [
+                          Icon(Icons.warning,
+                          color: Color.fromRGBO(253, 7, 12, 1),
+                          size: 17,
+                          ),
+                          SizedBox(width: 5,),
+                          Text("Expires in $expiresIn hours, a few seconds",
+                          style: GoogleFonts.roboto(
+                            fontSize: 11,
+                            color: Color.fromRGBO(252, 7, 12, 1)
+                          ),
+                          )
+                        ],
+                      )
+                      : Text(
                         "Expires in 2 days, 7 hours",
                         style: GoogleFonts.roboto(
                             color: Colors.red,
