@@ -96,14 +96,19 @@ Future activateTicket(int id) async {
       [id]);
 }
 
-Future<void> NXBuyDaysaverTicket() async {
+Future<int> NXBuyDaysaverTicket() async {
   var id = await NXBuyTicket("All Day- West Midlands", "Singles & Daysavers",
       "Anytime Daysaver Tickets", "4,00");
   activateTicket(id);
-  print("ticket activated");
+  return id;
 }
 
-Future<void> NXBuyGroupSaver() async {}
+Future<int> NXBuyGroupSaver() async {
+   var id = await NXBuyTicket("Group", "Singles & Daysavers",
+      "Group Daysaver Tickets", "7,00");
+  activateTicket(id);
+  return id;
+}
 
 Future GetAllActivatedTickets() async {
   var db = await openDB();

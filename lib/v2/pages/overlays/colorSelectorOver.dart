@@ -102,36 +102,36 @@ class ColorSelectOver {
                       AfterDisclaimer()));
                     },
                   ),
-                     TextButton(
+                  //    TextButton(
            
-                    child: Center(
-                      child: Text(
-                        "Emergency Mode",
-                        style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
-                      AfterDisclaimer()));
-                    },
-                  ),
+                  //   child: Center(
+                  //     child: Text(
+                  //       "Emergency Mode",
+                  //       style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                  //     ),
+                  //   ),
+                  //   onPressed: () {
+                  //     Navigator.push(context, MaterialPageRoute(builder: (ctx)=>
+                  //     AfterDisclaimer()));
+                  //   },
+                  // ),
 
                 Column(
                  crossAxisAlignment: CrossAxisAlignment.center,
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                  children: [
-                     TextButton(
+                  //    TextButton(
                    
-                    child: Center(
-                      child: Text(
-                        "Change Ticket (Fast)",
-                        style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    onPressed: () {
-                      changeTicketOverlay(context);
-                    },
-                  ),
+                  //   child: Center(
+                  //     child: Text(
+                  //       "Change Ticket (Fast)",
+                  //       style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                  //     ),
+                  //   ),
+                  //   onPressed: () {
+                  //     changeTicketOverlay(context);
+                  //   },
+                  // ),
                  TextButton(
                
                     child: Center(

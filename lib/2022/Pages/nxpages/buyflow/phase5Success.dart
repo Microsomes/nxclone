@@ -143,6 +143,9 @@ class BuyFlowPhase5Success extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
+
+                        
+
                             NXBuyTicket(ticketName, ticketSubtitle, ticketSubtitle2, ticketPrice)
                                 .then((value) {
                               Navigator.push(

@@ -1,5 +1,6 @@
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
+import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -152,7 +153,12 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 Expanded(
                                   child: GestureDetector(
                                     onTap: (){
-                                      NXBuyDaysaverTicket();
+                                      NXBuyDaysaverTicket().then((value) {
+                                        //actualTicket
+                                          Navigator.push(context, MaterialPageRoute(builder: (ctx) => ActualTicket(
+                                            txid: value,
+                                          )));
+                                      });
                                     },
                                     child: Container(
                                       color: Colors.white,
@@ -169,20 +175,30 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                   ),
                                 ),
                                 Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink,
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(20),
-                                            bottomRight: Radius.circular(20))),
-                                    child: Text(
-                                      "Group Day Saver",
-                                      style: GoogleFonts.aBeeZee(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 30),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                       NXBuyGroupSaver().then((value) {
+                                        //actualTicket
+                                          Navigator.push(context, MaterialPageRoute(builder: (ctx) => ActualTicket(
+                                            txid: value,
+                                          )));
+                                      });
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                          color: Colors.pink,
+                                          borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20))),
+                                      child: Text(
+                                        "Group Day Saver",
+                                        style: GoogleFonts.aBeeZee(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 30),
+                                      ),
                                     ),
                                   ),
                                 )
