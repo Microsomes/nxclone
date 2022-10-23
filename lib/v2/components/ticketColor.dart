@@ -325,4 +325,9 @@ class NxHelp {
     var r = Random();
     return Color.fromRGBO(r.nextInt(255), r.nextInt(255), r.nextInt(255), 1);
   }
+
+  static getRandomNumber(int letters){
+    var r = Random();
+    return r.nextInt(letters);
+  }
 }

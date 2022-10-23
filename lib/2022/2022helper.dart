@@ -66,9 +66,11 @@ Future NXCalculateWhenActiveTicketExpire(int id) async {
  
   var db = await openDB();
   var result = await db.rawQuery(
-      'SELECT activatedDate FROM wallet WHERE id =?',[id]);
+      'SELECT * FROM wallet WHERE id =?',[id]);
   
   var activatedDate = result[0]['activatedDate'];
+
+   var purchaseDate = result[0]['purchasedDate'];
 
   // //check hours until next day
   var now = DateTime.now();
@@ -87,9 +89,16 @@ Future NXCalculateWhenActiveTicketExpire(int id) async {
 
 
     DateFormat dateFormatDate = DateFormat("dd MMM yyyy");
+    DateFormat dateFormatTime = DateFormat("HH:mm");
     var formattedDate = dateFormatDate.format(expiredDate);
 
-  return [daysLeft,hoursLeft,minutesLeft,formattedDate];
+
+    var activatedFomattedDate = dateFormatDate.format(ticketActivatedDate);
+
+    var purchasedDateFormat = dateFormatDate.format(DateTime.parse(purchaseDate));
+    var purchaseDateTimeFormat = dateFormatTime.format(DateTime.parse(purchaseDate));
+
+  return [daysLeft,hoursLeft,minutesLeft,formattedDate, activatedFomattedDate,purchasedDateFormat,purchaseDateTimeFormat];
 }
 
 Future NXBuyTicket(String ticketName, String ticketSubtitle,

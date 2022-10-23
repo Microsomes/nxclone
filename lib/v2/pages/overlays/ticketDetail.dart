@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/pages/overlays/termsandconditions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../components/ticketColor.dart';
 import 'ticketDetailComp/purchaseDetail.dart';
 import 'ticketDetailComp/ticketiddets.dart';
 import 'ticketDetailComp/tripDetail.dart';
@@ -39,11 +40,28 @@ class TicketDetailState extends State<TicketDetail> {
   var expiredInMinutes = null;
   var expiredInDate = null;
 
+  var activatedDate = null;
+
+  var ticketDetail = null;
+
+  var purchaseDate = null;
+  var purchaseTime = null;
+
+  var ticketID = null;
+
   @override
   void initState() {
     allInfoPanels = [];
 
+    //get 10 random digits
+
     NXGetTicketDetails(widget.txid).then((value) {
+
+      setState(() {
+        ticketDetail = value;
+      });
+
+
       if (value['isActive'] == 1) {
         //its active so see how many days left
         NXCalculateWhenActiveTicketExpire(widget.txid).then((value) {
@@ -52,6 +70,9 @@ class TicketDetailState extends State<TicketDetail> {
             expiredInHours = value[1];
             expiredInMinutes = value[2];
             expiredInDate = value[3];
+            activatedDate = value[4];
+            purchaseDate = value[5];
+            purchaseTime = value[6];
           });
         });
       }
@@ -115,13 +136,11 @@ class TicketDetailState extends State<TicketDetail> {
                             SizedBox(
                               height: 10,
                             ),
-                            Center(
-                                child: Text("Ticket details cannot be loaded")),
+                          
                             SizedBox(
                               height: 10,
                             ),
                             Container(
-                              height: 100,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -138,7 +157,6 @@ class TicketDetailState extends State<TicketDetail> {
                                   ),
                                   Text("$expiredInDate at 00:00",
                                   style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.bold,
                                     fontSize: 17,
                                     color: Colors.black.withOpacity(0.7),
                                   ),
@@ -158,10 +176,10 @@ class TicketDetailState extends State<TicketDetail> {
                                           padding: const EdgeInsets.only(
                                               left: 3, right: 10),
                                           child: Text(
-                                            "$expiredInHours hours $expiredInMinutes minutes LEFT",
+                                            "$expiredInHours hours $expiredInMinutes MINUTES LEFT",
                                             style: GoogleFonts.roboto(
                                                 color: Colors.white,
-                                                fontWeight: FontWeight.bold),
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -173,6 +191,117 @@ class TicketDetailState extends State<TicketDetail> {
                                 ],
                               ),
                             ),
+                            Divider(),
+                              Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "ACTIVATED",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromRGBO(106, 106, 106, 1)),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text("$activatedDate at 00:00",
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 17,
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
+                                  ),
+                                  SizedBox(height: 4,),
+                                 
+                                ],
+                              ),
+                            ),
+                            Divider(),
+                             Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "TRIP",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromRGBO(106, 106, 106, 1)),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  ticketDetail !=null ?Text(ticketDetail['ticketName'],
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 17,
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
+                                  ):Container(),
+                                  SizedBox(height: 4,),
+                                 
+                                ],
+                              ),
+                            ),
+                            Divider(),
+                             Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "PURCHASE",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromRGBO(106, 106, 106, 1)),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text("$purchaseDate at $purchaseTime"),
+                                  SizedBox(height: 4,),
+                                  Row(children: [
+                                    Text("Card ending in ****7292"),
+                                    Expanded(child: Container(),),
+                                    Image.asset("images/v2/visa.png",width: 40,),
+                                    SizedBox(width: 20,),
+
+                                  ],)
+                                 
+                                ],
+                              ),
+                            ),
+                            Divider(),
+                             Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "TICKET ID",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromRGBO(106, 106, 106, 1)),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                 ticketDetail != null ? Text("AT"+ticketDetail['id'].toString()+"CFUEN6N",
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 17,
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
+                                  ):Container(),
+                                  SizedBox(height: 4,),
+                                 
+                                ],
+                              ),
+                            ),
+                            
                             ticketModel == null
                                 ? Container()
                                 : ValidUntilComp(
