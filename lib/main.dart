@@ -177,7 +177,7 @@ void main() async {
             builder: (ctx,snapshot){
               return FutureBuilder(
                 future: CheckTicketsForExpiry(),
-                builder:(ctx,snapshot)=> NxPagesFront());
+                builder:(ctx,snapshot)=> AfterDisclaimer());
             },
           )
         );
