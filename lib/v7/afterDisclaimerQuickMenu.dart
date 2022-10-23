@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../2022/2022helper.dart';
 import '../2022/Pages/changeLogs.dart';
 import '../2022/Pages/nxpages/front.dart';
+import '../2022/Pages/viewAllTickets.dart';
 import 'settingSaver.dart';
 
 class AfterDisclaimerModel {
@@ -39,8 +40,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         title: "Day Saver",
         isSetting: true,
         type: "dual",
-        subtitle:
-            "...",
+        subtitle: "...",
         image: Image.asset(
           "images/v7/v7ticket.png",
         )));
@@ -107,7 +107,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                           children: <Widget>[
                             Flexible(
                                 child: new Text("Welcome to Bubble Gum 2022",
-                                textAlign: TextAlign.center,
+                                    textAlign: TextAlign.center,
                                     style: GoogleFonts.roboto(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700,
@@ -122,7 +122,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                     alignment: Alignment.center,
                     child: GridView(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          
                             crossAxisCount: 1,
                             childAspectRatio: 1.0,
                             crossAxisSpacing: 10.0,
@@ -137,11 +136,13 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                     color: Colors.white30,
                                     alignment: Alignment.center,
                                     width: double.infinity,
-                                     child: Text("Single Ticket", style: GoogleFonts.aBeeZee(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 30
-                                     ),),
+                                    child: Text(
+                                      "Single Ticket",
+                                      style: GoogleFonts.aBeeZee(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 30),
+                                    ),
                                   ),
                                 ),
                                 Expanded(
@@ -149,11 +150,13 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                     color: Colors.pink,
                                     alignment: Alignment.center,
                                     width: double.infinity,
-                                     child: Text("Day Saver",style: GoogleFonts.aBeeZee(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 30
-                                     ),),
+                                    child: Text(
+                                      "Day Saver",
+                                      style: GoogleFonts.aBeeZee(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 30),
+                                    ),
                                   ),
                                 )
                               ],
@@ -163,144 +166,96 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 color: Colors.green,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                            Container(
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                     child: Text("View All Tickets", style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                     ),),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                     child: Text("Check Updates",style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                     ),),
-                                  ),
-                                )
-                              ],
-                            ),
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                        Container(
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: GestureDetector(
-                                    onTap: (){
-                                      //open model to show modal
-
-
-                                      showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title: Text("Emergency Mode?"),
-                                            content: Text("Are you sure you want to enter this mode?"),
-                                            actions: [
-                                              TextButton(
-                                                child: Text("Yes"),
-                                                onPressed: (){
-                                                  Fluttertoast.showToast(
-                                                    msg: "Emergency Mode not available",
-                                                    toastLength: Toast.LENGTH_SHORT,
-                                                    gravity: ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor: Colors.red,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0
-                                                  );
-                                                },
-                                              ),
-                                              TextButton(
-                                                child: Text("No"),
-                                                onPressed: (){
-                                                  Navigator.pop(context);
-                                                },
-                                              )
-                                            ],
-                                          );
-                                        }
-                                      );
-
-
-                                      
-                                    },
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ViewAllTickets()));
+                            },
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  Expanded(
                                     child: Container(
                                       alignment: Alignment.center,
                                       width: double.infinity,
-                                       child: Text("Emergency Mode", style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18
-                                       ),),
+                                      child: Text(
+                                        "View All Tickets",
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
                                     ),
                                   ),
-                                ),
+                                ],
+                              ),
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
                                 Expanded(
                                   child: GestureDetector(
-                                    onTap:(){
+                                    onTap: () {
                                       //dialog to ask are you sure
                                       //if yes, then go to emergency mode
                                       //if no, then do nothing
 
                                       showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title: Text("Are you sure?"),
-                                            content: Text("This will delete all tickets and data"),
-                                            actions: [
-                                              TextButton(
-                                                child: Text("Yes"),
-                                                onPressed: (){
-                                                  NXDeleteAllTickets();
-                                                  //show toast
-                                                  Navigator.pop(context);
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text("Are you sure?"),
+                                              content: Text(
+                                                  "This will delete all tickets and data"),
+                                              actions: [
+                                                TextButton(
+                                                  child: Text("Yes"),
+                                                  onPressed: () {
+                                                    NXDeleteAllTickets();
+                                                    //show toast
+                                                    Navigator.pop(context);
 
-                                                  Fluttertoast.showToast(
-                                                    msg: "All tickets deleted",
-                                                    toastLength: Toast.LENGTH_SHORT,
-                                                    gravity: ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor: Colors.red,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0
-                                                  );
-                                                },
-                                              ),
-                                              TextButton(
-                                                child: Text("No"),
-                                                onPressed: (){
-                                                  Navigator.pop(context);
-                                                },
-                                              )
-                                            ],
-                                          );
-                                        }
-                                      );
+                                                    Fluttertoast.showToast(
+                                                        msg:
+                                                            "All tickets deleted",
+                                                        toastLength:
+                                                            Toast.LENGTH_SHORT,
+                                                        gravity:
+                                                            ToastGravity.BOTTOM,
+                                                        timeInSecForIosWeb: 1,
+                                                        backgroundColor:
+                                                            Colors.red,
+                                                        textColor: Colors.white,
+                                                        fontSize: 16.0);
+                                                  },
+                                                ),
+                                                TextButton(
+                                                  child: Text("No"),
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                )
+                                              ],
+                                            );
+                                          });
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
                                       width: double.infinity,
-                                       child: Text("Reset App",style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18
-                                       ),),
+                                      child: Text(
+                                        "Reset App",
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
                                     ),
                                   ),
                                 )
@@ -311,36 +266,31 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                         Container(
+                          Container(
                             child: Column(
                               children: [
                                 Expanded(
                                   child: GestureDetector(
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChangeLogs()));
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ChangeLogs()));
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
                                       width: double.infinity,
-                                       child: Text("Change Logs", style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18
-                                       ),),
+                                      child: Text(
+                                        "Change Logs",
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: double.infinity,
-                                     child: Text("Suggest",style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18
-                                     ),),
-                                  ),
-                                )
                               ],
                             ),
                             margin: EdgeInsets.all(10),
@@ -390,8 +340,7 @@ class _TopImageState extends State<TopImage>
   @override
   void dispose() {
     _animationController.dispose();
-        super.dispose();
-
+    super.dispose();
   }
 
   @override
@@ -408,7 +357,8 @@ class _TopImageState extends State<TopImage>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (ctx) => NxPagesFront()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (ctx) => NxPagesFront()));
       },
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -485,14 +435,16 @@ class OptionWidget extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            subtitle != null ? Container(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "$subtitle",
-                                style: GoogleFonts.roboto(fontSize: 12),
-                                textAlign: TextAlign.center,
-                              ),
-                            ):Container(),
+                            subtitle != null
+                                ? Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "$subtitle",
+                                      style: GoogleFonts.roboto(fontSize: 12),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )
+                                : Container(),
                           ],
                         )),
                   ],

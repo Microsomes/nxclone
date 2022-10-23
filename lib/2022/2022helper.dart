@@ -97,6 +97,14 @@ Future<Map> NXGetTicketDetails(int id) async {
     return ticketRawDetails;
   }
 
+  Future NXALLRawTickets() async {
+    print("finding ticket:");
+    final String response = await rootBundle.loadString("assets/tickets.json");
+    final data = await jsonDecode(response);
+
+    return data;
+  }
+
 
   Future CheckTicketsForExpiry() async {
       var db = await openDB();
