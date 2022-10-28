@@ -53,6 +53,8 @@ class UtilitiesMenuState extends State<TripWallet> {
 
   bool isHistoryActive = false;
 
+  bool isOnlyHistoryBuy = false;
+
 
   @override
   void initState() {
@@ -69,6 +71,10 @@ class UtilitiesMenuState extends State<TripWallet> {
         setState(() {
           isBuyButtonOn = true;
         });
+      }
+
+      if(isBuyButtonOn== false){
+        isOnlyHistoryBuy = true;
       }
     });
 
@@ -161,6 +167,10 @@ class UtilitiesMenuState extends State<TripWallet> {
                                         onTap: () {
                                           setState(() {
                                             isHistoryActive = false;
+
+                                            if(isOnlyHistoryBuy){
+                                              isBuyButtonOn = false;
+                                            }
                                           });
                                         },
                                         child: Container(
@@ -184,6 +194,7 @@ class UtilitiesMenuState extends State<TripWallet> {
                                         onTap: () {
                                           setState(() {
                                             isHistoryActive = true;
+                                            isBuyButtonOn = true;
                                           });
                                         },
                                         child: Container(
