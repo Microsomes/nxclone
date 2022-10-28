@@ -1,3 +1,5 @@
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase1.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/phase2.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -79,6 +81,11 @@ class _MyProfileState extends State<OperatorChoice> {
                     Column(
                       children: [
                         ListTile(
+                           onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyFlowPhase1(
+                              subtitle: 'Multi Operator 1 Week and 4 Week',
+                            )));
+                          },
                           leading: Image.asset(
                             "images/front/header.png",
                             width: 100,
@@ -87,6 +94,11 @@ class _MyProfileState extends State<OperatorChoice> {
                           trailing: Icon(Icons.arrow_forward_ios),
                         ),
                          ListTile(
+                           onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyFlowPhase1(
+                              subtitle: 'NX 1 Week and 4 Week',
+                            )));
+                          },
                           leading: Image.asset(
                             "images/front/header.png",
                             width: 100,
@@ -95,6 +107,11 @@ class _MyProfileState extends State<OperatorChoice> {
                           trailing: Icon(Icons.arrow_forward_ios),
                         ),
                          ListTile(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyFlowPhase1(
+                              subtitle: 'Singles & Daysavers',
+                            )));
+                          },
                           leading: Image.asset(
                             "images/front/header.png",
                             width: 100,
