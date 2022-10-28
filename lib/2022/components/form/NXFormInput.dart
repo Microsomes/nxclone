@@ -29,6 +29,17 @@ class _NXFormInputComponentState extends State<NXFormInputComponent> {
             ),
           ),
           SizedBox(height: 10,),
+          widget.tip.length<=0 ? Container(): Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              bottom: 10,
+              right: 20
+            ),
+            child: Text(widget.tip,style: GoogleFonts.roboto(
+              color: Colors.black.withOpacity(0.7),
+              fontSize: 14
+            ),),
+          ),
           Container(
             height: 50,
             margin: EdgeInsets.only(left: 20, right: 20),

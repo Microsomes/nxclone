@@ -125,7 +125,7 @@ class _MyProfileState extends State<MyProfile> {
                               ],
                             ),
                           ),
-                          LoginForm()
+                          isLogin == true ? LoginForm() :SignUpPage()
                         ],
                       ),
                     )
@@ -174,6 +174,121 @@ class LoginForm extends StatelessWidget {
               return null;
             },
           ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            child: Center(
+              child: Text("Log in",
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500
+              ),
+              ),
+            ),
+            margin: EdgeInsets.only(left: 20, right: 20),
+            height: 50,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(107, 107, 107, 1),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+
+              ]
+            ),
+          ),
+          SizedBox(height: 30,),
+          Container(
+            child: Center(
+              child: Text("Forgot my password",
+              style: GoogleFonts.roboto(
+                fontWeight: FontWeight.bold,
+                fontSize: 17
+              ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 30,
+          ),
+          NXFormInputComponent(
+            label: "Email",
+            tip: "",
+            validator: (String val) {
+              if (val.length <= 5) {
+                return "Please enter a valid email";
+              }
+              return null;
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          NXFormInputComponent(
+            label: "New Password",
+            tip: "Passwords should be at least 8 characters long and include a number, a lowercase and an uppercase letter.",
+            validator: (String val) {
+              if (val.length <= 5) {
+                return "Please enter a valid password";
+              }
+              return null;
+            },
+          ),
+           SizedBox(
+            height: 10,
+          ),
+          NXFormInputComponent(
+            label: "Confirm new password",
+            tip: "",
+            validator: (String val) {
+              if (val.length <= 5) {
+                return "Please enter a valid password";
+              }
+              return null;
+            },
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            child: Center(
+              child: Text("Create new account",
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500
+              ),
+              ),
+            ),
+            margin: EdgeInsets.only(left: 20, right: 20),
+            height: 50,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(107, 107, 107, 1),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+
+              ]
+            ),
+          ),
+         
         ],
       ),
     );
