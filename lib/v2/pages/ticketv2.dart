@@ -127,19 +127,6 @@ class ActualTicketState extends State<ActualTicket> {
         });
       });
     });
-
-    // NXHelp().getTicketWalletInfoByID(id: activeTicketID).then((value) {
-    //   List<TicketWalletModel> tikdata = value;
-
-    //   tikdata[0].getTicketData().then((value) {
-    //     TicketModel tkData = value;
-    //     setState(() {
-    //       state = tkData.state;
-    //       ticketTitle = tkData.tickettitle;
-    //       subtitle = tkData.ticketsubtitle;
-    //     });
-    //   });
-    // });
   }
 
   @override
@@ -179,9 +166,7 @@ class ActualTicketState extends State<ActualTicket> {
                     height: MediaQuery.of(context).size.height,
                     child: Column(
                       children: <Widget>[
-                        SizedBox(
-                          height: 10,
-                        ),
+                
                         InkWell(
                           onTap: () {
                             Navigator.push(
@@ -193,20 +178,22 @@ class ActualTicketState extends State<ActualTicket> {
 
                             // });
                           },
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: Container(),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 20, top: 15),
-                                child: Text(
-                                  "Close",
-                                  style: GoogleFonts.roboto(fontSize: 18),
+                          child: Container(
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Container(),
                                 ),
-                              )
-                            ],
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(right: 20, top: 15),
+                                  child: Text(
+                                    "Close",
+                                    style: GoogleFonts.roboto(fontSize: 18),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         Expanded(
@@ -262,7 +249,12 @@ class Ac extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(18),
+        padding: const EdgeInsets.only(
+          left: 14,
+          right: 14,
+          bottom: 10,
+          top: 10
+        ),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,

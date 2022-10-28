@@ -99,25 +99,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                           ),
                         ],
                       )),
-                  Row(
-                    children: [
-                      TopImage(),
-                      Expanded(
-                        child: new Container(
-                            child: Row(
-                          children: <Widget>[
-                            Flexible(
-                                child: new Text("Welcome to Bubble Gum 2022",
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.roboto(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 30))),
-                          ],
-                        )),
-                      )
-                    ],
-                  ),
+
+                    SizedBox(height: 10,),
                   Expanded(
                       child: Container(
                     alignment: Alignment.center,
@@ -128,6 +111,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             crossAxisSpacing: 10.0,
                             mainAxisSpacing: 10.0),
                         children: [
+                         
                           Container(
                             padding: EdgeInsets.all(20),
                             child: Column(
@@ -378,7 +362,28 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                         ),),
                                         Spacer(),
                                         DropdownButton(
-                                          value: "",
+                                          onChanged: (e) {
+                                            
+                                          },
+                                          value: "NXHome",
+                                          items: [
+                                            DropdownMenuItem(
+                                              child: Text("Home"),
+                                              value: "NXHome",
+                                            ),
+                                            DropdownMenuItem(
+                                              child: Text("View All Tickets"),
+                                              value: "Admin Home",
+                                            ),
+                                            DropdownMenuItem(
+                                              child: Text("Day Saver"),
+                                              value: "DaySaver",
+                                            ),
+                                              DropdownMenuItem(
+                                              child: Text("Group DaySaver"),
+                                              value: "Group DaySaver",
+                                            ),
+                                          ],
                                           
                                        
                                         )
@@ -396,7 +401,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         boxShadow: [
                           BoxShadow(
                             color:
-                                Colors.grey.withOpacity(0.1), //color of shadow
+                                Colors.white.withOpacity(0.9), //color of shadow
                             spreadRadius: 5, //spread radius
                             blurRadius: 7, // blur radius
                             offset: Offset(0, 2), // changes position of shadow
@@ -407,7 +412,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         //you can set more BoxShadow() here
 
                         color: Colors.redAccent.withOpacity(0.4),
-                        borderRadius: BorderRadius.circular(5)),
+                        borderRadius: BorderRadius.circular(3)),
                   ))
                 ],
               )),
