@@ -1,3 +1,6 @@
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/operatorChoice.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:google_fonts/google_fonts.dart';
@@ -23,7 +26,11 @@ class ActionOverlay {
                 Expanded(
                     child: ListView(children: <Widget>[
                   ListTile(
-                    leading: Icon(Icons.launch,color: Color.fromRGBO(40, 128, 105, 1),),
+                    onTap: (){
+                      launchURL("https://nxbus.co.uk");
+                    },
+                    leading: Icon(Icons.launch,color: Color.fromRGBO(40, 128, 105, 1),
+                    ),
                     title: Align(
                         alignment: Alignment(-1.5, 0),
                         child: Text("NX Rewards Cashback",
@@ -34,6 +41,13 @@ class ActionOverlay {
                         )),
                   ),
                   ListTile(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OperatorChoice()),
+                      );
+                    },
+                    
                     leading: Transform.rotate(
                         angle: 45 * math.pi / 180, child: Icon(Icons.replay,color: Color.fromRGBO(40, 128, 105, 1),)),
                     title: Align(
@@ -46,13 +60,52 @@ class ActionOverlay {
                         )),
                   ),
                   ListTile(
+                    onTap: (){
+                      //alert dialog
+                      Navigator.pop(context);
+
+                      showCupertinoDialog(context: context, builder: (ctx)=> Theme(
+                        data: ThemeData.light(),
+                        child: CupertinoAlertDialog(
+                          
+                          
+                          content: Container(
+                            child: Column(
+                              children: [
+                                Text("Receipt Re-sent",
+                                style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold
+                                ),
+                                ),
+                                SizedBox(height: 4,),
+                                Text("Your receipt was re-sent to your email address.")
+                              ],
+                            ),
+                          ),
+                          actions: [
+                            CupertinoDialogAction(
+                              textStyle: GoogleFonts.roboto(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500
+                              ),
+                              child: Text("OK"),
+                              onPressed: (){
+                                Navigator.of(ctx).pop();
+                              },
+                            )
+                          ],
+                        ),
+                      ));
+                    },
                     leading: Icon(Icons.send,color: Color.fromRGBO(40, 128, 105, 1),),
+                    
                     title: Align(
+                      
                         alignment: Alignment(-1.5, 0),
                         child: Text(" Request ticket receipt",
                         style: GoogleFonts.roboto(
                           color: Color.fromRGBO(44, 115, 148, 1),
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.w500
                         ),
                         )),
                   ),

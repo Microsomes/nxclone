@@ -1,22 +1,18 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
 import 'package:BubbleGum/piHome.dart';
-import 'package:BubbleGum/v2/models/sharedprefkey/main.dart';
-import 'package:BubbleGum/v3/models/ticketWalletModel.dart';
 import 'package:BubbleGum/v3/models/ticketModel.dart';
-import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/components/nxsig.dart';
 import 'package:BubbleGum/v2/components/ticketColor.dart';
-import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/components/movingText.dart';
 import 'package:BubbleGum/v2/pages/overlays/ticketDetail.dart';
 import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../2022/2022helper.dart';
 import '../../2022/Pages/nxpages/front.dart';
@@ -52,18 +48,7 @@ class ActualTicketState extends State<ActualTicket> {
       activeTicketID = id;
     });
 
-    // NXHelp().getTicketWalletInfoByID(id: id).then((value) {
-    //   List<TicketWalletModel> tikdata = value;
-
-    //   tikdata[0].getTicketData().then((value) {
-    //     TicketModel tkData = value;
-    //     setState(() {
-    //       state = tkData.state;
-    //       ticketTitle = tkData.tickettitle;
-    //       subtitle = tkData.ticketsubtitle;
-    //     });
-    //   });
-    // });
+  
 
     Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
@@ -315,6 +300,8 @@ class Ac extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         print("Show rewards");
+
+                        launchURL("https://www.nxbus.co.uk/rewards");
                       },
                       child: Padding(
                         padding:

@@ -63,11 +63,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_svg: ^0.19.3
   flutter_markdown: ^0.6.12
+  marquee: ^2.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  marquee: ^1.3.1
   flutter_sequence_animation: ^3.0.1
   intl: ^0.16.1
 
