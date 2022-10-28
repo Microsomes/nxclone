@@ -13,7 +13,6 @@ import 'package:BubbleGum/v2/pages/overlays/actionsOverlay.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 import '../../2022/2022helper.dart';
 import '../../2022/Pages/nxpages/front.dart';
 import 'overlays/v2/ejectionOverlay.dart';
@@ -42,18 +41,29 @@ class ActualTicketState extends State<ActualTicket> {
 
   bool showT = true;
 
+  int currentPage = 1;
+
   void changeTicket({@required id}) {
     setState(() {
       showT = false;
       activeTicketID = id;
     });
 
-  
-
     Future.delayed(Duration(milliseconds: 100), () {
-      setState(() {
-        showT = true;
+
+          NXGetTicketDetails(activeTicketID).then((value) {
+      NXFindRawTicket(value['ticketSubtitle'], value['ticketSubtitle2'],
+              value['ticketName'])
+          .then((value2) {
+        setState(() {
+          subtitle = value2['subline'];
+          ticketTitle = value['ticketName'];
+          state = value['ticketSubtitle2'];
+                  showT = true;
+        });
       });
+    });
+      
     });
   }
 
@@ -151,7 +161,6 @@ class ActualTicketState extends State<ActualTicket> {
                     height: MediaQuery.of(context).size.height,
                     child: Column(
                       children: <Widget>[
-                
                         InkWell(
                           onTap: () {
                             Navigator.push(
@@ -184,17 +193,128 @@ class ActualTicketState extends State<ActualTicket> {
                         Expanded(
                           child: Container(
                             child: showT == true
-                                ? Ac(
-                                    changeTik: (int id) {
-                                      changeTicket(id: id);
-                                    },
-                                    ticketid: activeTicketID,
-                                    speedConfig: speedConfig,
-                                    state: state,
-                                    ticketTitle: ticketTitle,
-                                    currentQR: currentQR,
-                                    subtitle: subtitle,
-                                    widget: widget)
+                                ? Column(
+                                    children: [
+                                      Expanded(
+                                        child: Ac(
+                                            changeTik: (int id) {
+                                              changeTicket(id: id);
+                                            },
+                                            ticketid: activeTicketID,
+                                            speedConfig: speedConfig,
+                                            state: state,
+                                            ticketTitle: ticketTitle,
+                                            currentQR: currentQR,
+                                            subtitle: subtitle,
+                                            widget: widget),
+                                      ),
+                                      FutureBuilder(
+                                          future: NXAllActiveTickets(),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              List<Map> available =
+                                                  snapshot.data;
+                                              int l = available.length;
+
+                                              if (available.length >= 2) {
+                                                return Container(
+                                                  height: 35,
+                                                  child: Container(
+                                                    child: Row(
+                                                      children: [
+                                                        Expanded(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              if (currentPage <=
+                                                                  1) {
+                                                              } else {
+                                                                currentPage--;
+                                                                setState(() {});
+
+                                                                changeTicket(
+                                                                    id: available[
+                                                                            currentPage-1]
+                                                                        ['id']);
+                                                              }
+                                                            },
+                                                            child: Icon(Icons
+                                                                .chevron_left),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 2,
+                                                          child: Text(
+                                                            "$currentPage of $l active",
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: GoogleFonts
+                                                                .roboto(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Divider(),
+                                                        Expanded(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+
+                                                          
+                                                              if (currentPage >=
+                                                                  available
+                                                                      .length) {
+                                                              } else {
+                                                                currentPage++;
+                                                                setState(() {});
+                                                                changeTicket(
+                                                                    id: available[
+                                                                            currentPage-1]
+                                                                        ['id']);
+                                                              }
+                                                            },
+                                                            child: Icon(Icons
+                                                                .chevron_right),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.65,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.5),
+                                                            spreadRadius: 1,
+                                                            blurRadius: 2,
+                                                            offset: Offset(0,
+                                                                3), // changes position of shadow
+                                                          ),
+                                                        ]),
+                                                  ),
+                                                );
+                                              }
+                                            }
+
+                                            return Container();
+                                          }),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                    ],
+                                  )
                                 : Container(),
                           ),
                         )
@@ -234,12 +354,8 @@ class Ac extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.only(
-          left: 14,
-          right: 14,
-          bottom: 10,
-          top: 10
-        ),
+        padding:
+            const EdgeInsets.only(left: 14, right: 14, bottom: 10, top: 10),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -284,9 +400,8 @@ class Ac extends StatelessWidget {
                               isGroup: false,
                             ),
                           );
-                        }else if(ticketTitle == "Group"){
-
-                           return Padding(
+                        } else if (ticketTitle == "Group") {
+                          return Padding(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: NXSigAnytime(
                               isGroup: true,
@@ -294,7 +409,7 @@ class Ac extends StatelessWidget {
                           );
                         }
 
-                        return  OtherSig(ticketTitle: ticketTitle, state: state);
+                        return OtherSig(ticketTitle: ticketTitle, state: state);
                       },
                     ),
                     InkWell(
@@ -382,7 +497,7 @@ class Ac extends StatelessWidget {
                         ),
                         Text("Actions",
                             style: GoogleFonts.roboto(
-                              fontSize: 15,
+                                fontSize: 15,
                                 color: Color.fromRGBO(5, 121, 160, 1),
                                 fontWeight: FontWeight.w500))
                       ],
@@ -488,9 +603,7 @@ class NXSigAnytime extends StatelessWidget {
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(5),
-                  )
-              ),
-                
+                  )),
               width: 18,
             ),
             Expanded(
@@ -555,8 +668,8 @@ class NXSigAnytime extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(5),
-                      )),
+                    bottomRight: Radius.circular(5),
+                  )),
             )
           ],
         ),
