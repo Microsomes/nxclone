@@ -214,7 +214,19 @@ class UtilitiesMenuState extends State<TripWallet> {
                                 
                                       if(snapshot.connectionState == ConnectionState.done){
                                         print("check");
-                                        List<Map> tickets = snapshot.data;
+                                        List<Map> tickets = [];
+
+                                        List<Map> inactiveTickets = snapshot.data[0];
+                                        List<Map> activeTickets = snapshot.data[1];
+
+
+                                        activeTickets.forEach((element) {
+                                            tickets.add(element);
+                                        });
+
+                                        inactiveTickets.forEach((element) {
+                                            tickets.add(element);
+                                        });
                                 
                                         if(tickets.length>=1){
                                           return Column(
