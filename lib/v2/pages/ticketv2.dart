@@ -326,22 +326,22 @@ class Ac extends StatelessWidget {
                               child: Row(
                             children: <Widget>[
                               SizedBox(
-                                width: 15,
+                                width: 40,
                               ),
                               Icon(
                                 Icons.launch,
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white,
                                 size: 16,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               Text(
                                 "NX Rewards Cashback",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w800,
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 19,
                                     letterSpacing: 0.3),
                               ),
                             ],
@@ -350,11 +350,11 @@ class Ac extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
                     Subtitleticket(subtitle: subtitle),
                     SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
                     QR(),
                   ],
@@ -395,8 +395,9 @@ class Ac extends StatelessWidget {
                         ),
                         Text("Actions",
                             style: GoogleFonts.roboto(
+                              fontSize: 15,
                                 color: Color.fromRGBO(5, 121, 160, 1),
-                                fontWeight: FontWeight.w800))
+                                fontWeight: FontWeight.w500))
                       ],
                     ),
                   ),
@@ -499,8 +500,10 @@ class NXSigAnytime extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(5),
-                      topLeft: Radius.circular(5))),
+                    bottomLeft: Radius.circular(5),
+                  )
+              ),
+                
               width: 18,
             ),
             Expanded(
@@ -566,7 +569,7 @@ class NXSigAnytime extends StatelessWidget {
                   color: Color.fromRGBO(165, 28, 26, 1),
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(5),
-                      topRight: Radius.circular(5))),
+                      )),
             )
           ],
         ),

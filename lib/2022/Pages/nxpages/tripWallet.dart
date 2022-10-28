@@ -1,3 +1,4 @@
+import 'package:BubbleGum/2022/Pages/nxpages/buyflow/operatorChoice.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -350,53 +351,59 @@ class UtilitiesMenuState extends State<TripWallet> {
                           )))
                 ],
               )),
-              Container(
-                color: Colors.transparent,
-                height: 93,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                 isBuyButtonOn == true?   Container(
-                      height: 50,
-                      margin: EdgeInsets.only(left: 20, right: 20),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(199, 199, 199, 1),
-                              spreadRadius: 0,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                          color: Color.fromRGBO(194, 154, 99, 1),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Center(
-                        child: Text(
-                          "Buy tickets",
-                          style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold, fontSize: 17),
-                        ),
-                      ),
-                    ):Container(),
-                    SizedBox(
-                      height:  isBuyButtonOn== true ? 5: 60,
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (ctx)=> MyProfile()));
-                      },
-                      child: Container(
+              GestureDetector(
+                onTap: (){
+                  print("buy tickets");
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=> OperatorChoice()));
+                },
+                child: Container(
+                  color: Colors.transparent,
+                  height: 93,
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                   isBuyButtonOn == true?   Container(
+                        height: 50,
+                        margin: EdgeInsets.only(left: 20, right: 20),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(199, 199, 199, 1),
+                                spreadRadius: 0,
+                                blurRadius: 2,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                            color: Color.fromRGBO(194, 154, 99, 1),
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
                         child: Center(
                           child: Text(
-                            "Log in to view tickets",
+                            "Buy tickets",
                             style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.bold, fontSize: 16),
+                                fontWeight: FontWeight.bold, fontSize: 17),
                           ),
                         ),
+                      ):Container(),
+                      SizedBox(
+                        height:  isBuyButtonOn== true ? 5: 60,
                       ),
-                    )
-                  ],
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=> MyProfile()));
+                        },
+                        child: Container(
+                          child: Center(
+                            child: Text(
+                              "Log in to view tickets",
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

@@ -185,6 +185,32 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       ),
                                     ),
                                   ),
+                                ),
+                                SizedBox(height: 10,),
+                                 Expanded(
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NxPagesFront()));
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.green),
+                                          color: Colors.blueAccent,
+                                          borderRadius: BorderRadius.circular(5)),
+                                      child: Text(
+                                        "NX Home",
+                                        style: GoogleFonts.aBeeZee(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 30),
+                                      ),
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
