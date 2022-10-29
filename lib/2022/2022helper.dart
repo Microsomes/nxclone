@@ -124,6 +124,17 @@ Future activateTicket(int id) async {
 }
 
 Future<int> NXBuyDaysaverTicket() async {
+
+  //before we buy lets find one already active
+  var db = await openDB();
+  var result = await db.rawQuery(
+      'SELECT * FROM wallet WHERE ticketName =? AND isActive = 1',["All Day- West Midlands"]);
+
+  if(result.length > 0){
+    print("found already active ticket");
+    return result[0]['id'];
+  }
+
   var id = await NXBuyTicket("All Day- West Midlands", "Singles & Daysavers",
       "Anytime Daysaver Tickets", "4,00");
   activateTicket(id);
@@ -131,6 +142,15 @@ Future<int> NXBuyDaysaverTicket() async {
 }
 
 Future<int> NXBuyGroupSaver() async {
+  var db = await openDB();
+  var result = await db.rawQuery(
+      'SELECT * FROM wallet WHERE ticketName =? AND isActive = 1',["Group"]);
+    
+  if(result.length > 0){
+    print("found already active ticket");
+    return result[0]['id'];
+  }
+
    var id = await NXBuyTicket("Group", "Singles & Daysavers",
       "Group Daysaver Tickets", "7,00");
   activateTicket(id);
