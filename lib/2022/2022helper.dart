@@ -39,6 +39,17 @@ Future<void> NXInitApp() async {
 }
 
 
+Future<bool> NXCheckEmail(String email) async {
+  return false;
+}
+
+Future<void> NXCreateAccount(String email,password) async{
+  return null;
+}
+
+Future<void> NXLoginAccount(String email,password) async{
+  return null;
+}
 
 Future NXCalculateWhenInActiveTicketExpire(int id) async {
    var db = await openDB();
