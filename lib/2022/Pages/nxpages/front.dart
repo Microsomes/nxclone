@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
@@ -148,6 +150,8 @@ class _NxPagesFrontState extends State<NxPagesFront> {
 
   var ticketStatus = 1;
 
+  var timer = null;
+
   @override
   void initState() {
     super.initState();
@@ -157,6 +161,20 @@ class _NxPagesFrontState extends State<NxPagesFront> {
         availableTicket = value;
       });
     });
+
+    timer = Timer.periodic(Duration(seconds: 5), (c){
+      print("checking for expired tickets");
+      CheckTicketsForExpiry();
+      
+    });
+    
+
+  }
+  
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   @override
