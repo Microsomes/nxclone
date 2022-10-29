@@ -287,7 +287,13 @@ Future<int> CheckTicketsForExpiry() async {
       var now = DateTime.now();
       var differenceMins = now.difference(date).inMinutes;
 
-      if (differenceMins >= Duration(days: 1).inMinutes) {
+      //how many hours left in the day it was purchased
+      var hoursLeft = 24 - date.hour;
+
+      print(differenceMins);
+      print(Duration(hours: hoursLeft).inMinutes);
+
+      if (differenceMins >= Duration(hours: hoursLeft).inMinutes) {
         db.rawUpdate(
             "UPDATE wallet SET isActive=? WHERE id=?", [0, element['id']]);
       }

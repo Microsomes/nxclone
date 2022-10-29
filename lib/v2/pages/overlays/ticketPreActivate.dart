@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 
+import '../../../2022/2022helper.dart';
+
 class TicketOverlayHelper {
   void displayActivationDialog(BuildContext context, int txid) {
     showModalBottomSheet(
@@ -59,7 +61,7 @@ class TicketOverlayHelper {
                 Padding(
                   padding: const EdgeInsets.only(right: 20, left: 20, top: 60),
                   child: InkWell(
-                    onTap: () {
+                    onTap: () async  {
                       //displayActivationDialog(context);
 
                       /**
@@ -67,21 +69,15 @@ class TicketOverlayHelper {
                          * 
                          */
 
+                      await  activateTicket(txid);
+
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => ActualTicket(
                                     txid: txid,
                                   )));
-                      // NXHelp().activeTicketv2(id: txid).then((value) {
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => ActualTicket(
-                      //               txid: txid,
-                      //             )),
-                      //   );
-                      // });
+                     
                     },
                     child: Container(
                       color: Color.fromRGBO(46, 150, 32, 1),
