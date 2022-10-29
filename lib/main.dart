@@ -2,6 +2,7 @@ import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/setupMain.dart';
 import 'package:BubbleGum/splash.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
@@ -9,10 +10,9 @@ import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
 
 import '2022/Pages/nxpages/front.dart';
 import '2022/components/backButton.dart';
@@ -63,7 +63,6 @@ class HomePagePrestate extends State<HomePagePre>
     //run the init process
     //NXHelp().runScan();
 
-
     /**
      * This code buys the default ticket, its more of a convenience 
      * so the user doesnt have to buy the real app themselves everytime
@@ -89,7 +88,7 @@ class HomePagePrestate extends State<HomePagePre>
     return FutureBuilder(
       future: SharedPreferences.getInstance(),
       builder: (context, data) {
-         if (data.connectionState == ConnectionState.waiting) {
+        if (data.connectionState == ConnectionState.waiting) {
           return Scaffold(
               body: Center(
             child: CircularProgressIndicator(
@@ -110,17 +109,16 @@ class HomePagePrestate extends State<HomePagePre>
         //   print(value);
         // });
 
-         // return TicketDebug();
+        // return TicketDebug();
 
         //return TicketWalletV2();
 
-
         SharedPreferences sh = data.data;
         if (sh.getBool(SettingsPrefKeys.START_UP_SETUP) == null) {
-          if (sh.getBool("setup_disclaimer")==true){
+          if (sh.getBool("setup_disclaimer") == true) {
             //if disclaimer is true move on to a new quick menu
-              return AfterDisclaimer();
-          }else{
+            return AfterDisclaimer();
+          } else {
             return NewSetupv3();
           }
         } else {
@@ -138,7 +136,7 @@ class HomePagePrestate extends State<HomePagePre>
               builder: (ctx, snapshot) {
                 if (snapshot.data != null) {
                   var ticketid = snapshot.data;
-                
+
                   return ActualTicket(
                     txid: ticketid,
                   );
@@ -163,26 +161,44 @@ void main() async {
     statusBarColor: Color.fromRGBO(0, 0, 0, 1), // status bar color
   ));
 
-
   NXHelp().runInit();
 
+  await GetStorage.init();
+
+  await NXInitApp();
+
+  final Box = GetStorage();
+
   return runApp(Phoenix(
-    child: FutureBuilder(
-      future: Future.delayed(Duration(seconds: 3)),
-      builder: (ctx,AsyncSnapshot snapshot){
-        return MaterialApp(
+      child: FutureBuilder(
+    future: Future.delayed(Duration(seconds: 3)),
+    builder: (ctx, AsyncSnapshot snapshot) {
+      return MaterialApp(
           debugShowCheckedModeBanner: false,
           home: FutureBuilder(
             future: NXInitApp(),
-            builder: (ctx,snapshot){
+            builder: (ctx, snapshot) {
               return FutureBuilder(
-                future: CheckTicketsForExpiry(),
-                builder:(ctx,snapshot)=> AfterDisclaimer());
+                  future: CheckTicketsForExpiry(),
+                  builder: (ctx, snapshot) {
+                    var where = Box.read("BubbleGumSettings");
+
+                    if(snapshot.connectionState == ConnectionState.done){
+                      if(snapshot.data != 0){
+                        return ActualTicket(txid: snapshot.data);
+                      }
+                    }
+
+                    if (where == "bubblegumhome") {
+                      return AfterDisclaimer();
+                    } else if (where == "nxhome") {
+                      return NxPagesFront();
+                    }
+
+                    return AfterDisclaimer();
+                  });
             },
-          )
-        );
-      },
-      
-    )
-  ));
+          ));
+    },
+  )));
 }

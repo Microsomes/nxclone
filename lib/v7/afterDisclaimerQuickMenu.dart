@@ -3,6 +3,7 @@ import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../2022/2022helper.dart';
@@ -33,9 +34,26 @@ class AfterDisclaimer extends StatefulWidget {
 class _AfterDisclaimerState extends State<AfterDisclaimer> {
   List<AfterDisclaimerModel> allOptions = [];
 
+  final Box = GetStorage();
+
+  var currentOption = null;
+
   @override
   void initState() {
     super.initState();
+
+    if(Box.read("BubbleGumSettings") == null ){
+      Box.write("BubbleGumSettings", "NXHome");
+      setState(() {
+        currentOption = "NXHome";
+      });
+    }else{
+      setState(() {
+        currentOption = Box.read("BubbleGumSettings");
+      });
+    }
+
+
 
     allOptions.add(new AfterDisclaimerModel(
         title: "Day Saver",
@@ -61,6 +79,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         subtitle: "Want a custom solution, requires more brains",
         image: Image.asset("images/v7/drill.png")));
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -353,7 +373,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                           ),
 
                           Container(
-                            color: Colors.black,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
@@ -364,13 +383,13 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Icon(Icons.settings,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     size: 20,),
                                   ),
                                   Text("Quick Settings",
                                   style: GoogleFonts.roboto(
                                     fontSize: 20,
-                                    color: Colors.white
+                                    color: Colors.black
                                   ),
                                   ),
                                     ],
@@ -384,22 +403,30 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                         Text("Home page:",
                                         style: GoogleFonts.roboto(
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white
+                                          color: Colors.black,
+                                          fontSize: 20
                                         ),),
                                         Spacer(),
                                         DropdownButton(
+                                          style: GoogleFonts.roboto(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500
+                                          ),
                                           onChanged: (e) {
-                                            
+                                            Box.write("BubbleGumSettings", e);
+                                            setState(() {
+                                              currentOption = e;
+                                            });
                                           },
-                                          value: "NXHome",
+                                          value: currentOption,
                                           items: [
                                             DropdownMenuItem(
-                                              child: Text("Home"),
-                                              value: "NXHome",
+                                              child: Text("Bubble Gum Home"),
+                                              value: "bubblegumhome",
                                             ),
                                             DropdownMenuItem(
-                                              child: Text("View All Tickets"),
-                                              value: "Admin Home",
+                                              child: Text("NX Home"),
+                                              value: "nxhome",
                                             ),
                                             DropdownMenuItem(
                                               child: Text("Day Saver"),
@@ -415,6 +442,12 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                         )
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(height: 5,),
+                                  Text("TIP: Long press on the menu button on the nx home page to come back to this page",
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 15
+                                  ),
                                   )
 
                                 ],
@@ -437,7 +470,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                         ],
                         //you can set more BoxShadow() here
 
-                        color: Colors.redAccent.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(3)),
                   ))
                 ],

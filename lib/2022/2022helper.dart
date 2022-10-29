@@ -7,6 +7,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:get_storage/get_storage.dart';
 import "package:sqflite/sqflite.dart";
 import 'package:intl/intl.dart';
 
@@ -29,9 +30,14 @@ Future<void> NXInitApp() async {
   var db = await openDB();
   await db.execute(
       'CREATE TABLE IF NOT EXISTS wallet (id INTEGER PRIMARY KEY AUTOINCREMENT, ticketName TEXT, ticketPrice TEXT, ticketSubtitle TEXT, ticketSubtitle2 TEXT, isActive INTEGER, purchasedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP, activatedDate TIMESTAMP)');
-  await Future.delayed(Duration(seconds: 1));
+
+  await db.execute(
+    "CREATE TABLE IF NOT EXISTS account (id INTEGER PRIMARY KEY AUTOINCREMENT, accountEmail TEXT, accountPassword TEXT)"
+  );
+
   return null;
 }
+
 
 
 Future NXCalculateWhenInActiveTicketExpire(int id) async {
@@ -145,7 +151,7 @@ Future GetFirstAvailableTicket() async {
 
   if (activatedTickets.length == 0) {
     List<Map> tickets = await db.rawQuery(
-        "SELECT * FROM wallet WHERE IN isActive=? ORDER BY id desc limit 1",
+        "SELECT * FROM wallet WHERE isActive=? ORDER BY id desc limit 1",
         [1, -1]);
     if (tickets.length >= 1) {
       return tickets[0];
@@ -223,8 +229,13 @@ Future NXALLRawTickets() async {
   return data;
 }
 
-Future CheckTicketsForExpiry() async {
+Future<int> CheckTicketsForExpiry() async {
   var db = await openDB();
+
+  var Box = await GetStorage();
+
+  var where = Box.read("BubbleGumSettings");
+
 
   print("check for expiry");
 
@@ -248,8 +259,32 @@ Future CheckTicketsForExpiry() async {
         db.rawUpdate(
             "UPDATE wallet SET isActive=? WHERE id=?", [0, element['id']]);
       }
+    }else if(element['isActive'] == 1){
+      //ticket is activated check if it was brought more then 1 day ago
+      var date = DateTime.parse(element['activatedDate']);
+      //elapsed in hours from date
+
+      var now = DateTime.now();
+      var differenceMins = now.difference(date).inMinutes;
+
+      if (differenceMins >= Duration(days: 1).inMinutes) {
+        db.rawUpdate(
+            "UPDATE wallet SET isActive=? WHERE id=?", [0, element['id']]);
+      }
     }
   });
+
+
+  if(where == "DaySaver"){
+    var daysaverid = await  NXBuyDaysaverTicket();
+    return daysaverid;
+  } else if(where == "Group DaySaver"){
+    return await NXBuyGroupSaver();
+  }
+  else{
+    return 0;
+  }
+
 }
 
 NXDeleteAllTickets() async {

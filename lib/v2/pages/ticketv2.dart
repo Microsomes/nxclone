@@ -130,7 +130,10 @@ class ActualTicketState extends State<ActualTicket> {
 
     // Screen.setBrightness(0.5);
 
-    _qrTimer.cancel();
+    if(_qrTimer != null){
+      _qrTimer.cancel();
+    }
+
   }
 
   String defaultEjectionID;
