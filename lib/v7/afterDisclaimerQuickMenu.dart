@@ -43,9 +43,9 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
     super.initState();
 
     if(Box.read("BubbleGumSettings") == null ){
-      Box.write("BubbleGumSettings", "NXHome");
+      Box.write("BubbleGumSettings", "bubblegumhome");
       setState(() {
-        currentOption = "NXHome";
+        currentOption = "bubblegumhome";
       });
     }else{
       setState(() {
