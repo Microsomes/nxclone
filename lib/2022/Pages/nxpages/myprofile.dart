@@ -265,6 +265,56 @@ class _LoginFormState extends State<LoginForm> {
                     
                       onPressed: (){
                       Navigator.pop(context);
+
+                      showCupertinoDialog(context: context, builder: (ctx)=> CupertinoAlertDialog(
+
+                        //actions column
+
+                        content: Column(
+                          children: [
+                            Text("Log in To New Device",
+                              style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16
+                              ),
+                              ),
+                              SizedBox(height: 7,),
+                              Text("By logging in, your account details and tickets will be moved to this device. You have 3 device switches, if you continue you will only have 2 left. Don't worry, you will get the used switch back in 0 day(s) time")
+                          ],
+                        ),
+
+
+                        actions: [
+
+                         Column(
+                          children: [
+                             CupertinoButton(onPressed: (){
+                            Navigator.pop(context);
+                          }, child: Text("Cancel",
+                          style: GoogleFonts.roboto(
+                            color: Color.fromRGBO(112, 26, 25, 1)
+                          ),
+                          )),
+                          Divider(),
+                          CupertinoButton(onPressed: (){
+                            Navigator.pop(context);
+                          }, child: Text("Continue and login",
+                          style: GoogleFonts.roboto(
+                            color: Color.fromRGBO(112, 26, 25, 1),
+                            fontWeight: FontWeight.bold
+                          ),
+                          )),
+                          
+                          ],
+                         )
+
+                          
+
+                        
+                        ],
+                      ));
+
+                      
                       
                     }, child: Text("OK",
                     style: GoogleFonts.roboto(
