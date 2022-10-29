@@ -167,6 +167,8 @@ void main() async {
 
   await NXInitApp();
 
+  await CheckTicketsForExpiry();
+
   final Box = GetStorage();
 
   return runApp(Phoenix(
