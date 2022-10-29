@@ -372,10 +372,58 @@ class _LoginFormState extends State<LoginForm> {
 
 
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({
     Key key,
   }) : super(key: key);
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+
+  TextEditingController email;
+  TextEditingController password;
+  TextEditingController confirmPassword;
+
+  bool shouldAllowSignup = false;
+
+
+  void checkInputs(){
+        if(email.text.contains("@") && password.text.length > 5 && confirmPassword.text.length > 5){
+        setState(() {
+          shouldAllowSignup = true;
+        });
+        print("should allow");
+      }else{
+        setState(() {
+          shouldAllowSignup = false;
+        });
+      }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    email = TextEditingController();
+    password = TextEditingController();
+    confirmPassword = TextEditingController();
+
+    email.addListener(() {
+      checkInputs();
+     });
+
+     password.addListener(() {
+      checkInputs();
+     });
+
+      confirmPassword.addListener(() {
+        checkInputs();
+      });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -386,6 +434,7 @@ class SignUpPage extends StatelessWidget {
             height: 30,
           ),
           NXFormInputComponent(
+            controller: email,
             label: "Email",
             tip: "",
             validator: (String val) {
@@ -399,6 +448,7 @@ class SignUpPage extends StatelessWidget {
             height: 10,
           ),
           NXFormInputComponent(
+            controller: password,
             label: "New Password",
             tip: "Passwords should be at least 8 characters long and include a number, a lowercase and an uppercase letter.",
             validator: (String val) {
@@ -412,6 +462,7 @@ class SignUpPage extends StatelessWidget {
             height: 10,
           ),
           NXFormInputComponent(
+            controller: confirmPassword,
             label: "Confirm new password",
             tip: "",
             validator: (String val) {
@@ -437,7 +488,7 @@ class SignUpPage extends StatelessWidget {
             margin: EdgeInsets.only(left: 20, right: 20),
             height: 50,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(107, 107, 107, 1),
+              color: shouldAllowSignup == false ? Color.fromRGBO(107, 107, 107, 1) : Color.fromRGBO(188, 156, 107, 1),
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
 
