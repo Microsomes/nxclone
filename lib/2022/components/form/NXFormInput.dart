@@ -5,9 +5,10 @@ class NXFormInputComponent extends StatefulWidget {
   final String label;
   final String tip;
   final Function validator;
+  final TextEditingController controller;
 
   NXFormInputComponent(
-      {@required this.label, @required this.tip, @required this.validator});
+      {@required this.label, @required this.tip, @required this.validator, @required this.controller });
 
   @override
   State<NXFormInputComponent> createState() => _NXFormInputComponentState();
@@ -41,6 +42,15 @@ class _NXFormInputComponentState extends State<NXFormInputComponent> {
             ),),
           ),
           Container(
+            child: Padding(
+              padding: const EdgeInsets.only(left:5),
+              child: Center(
+                child: TextField(
+                  controller: widget.controller,
+                  decoration: InputDecoration.collapsed(hintText: ""),
+                ),
+              ),
+            ),
             height: 50,
             margin: EdgeInsets.only(left: 20, right: 20),
             width: double.infinity,
