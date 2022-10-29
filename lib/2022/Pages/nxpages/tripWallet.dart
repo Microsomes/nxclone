@@ -240,17 +240,20 @@ class UtilitiesMenuState extends State<TripWallet> {
                                         });
                                 
                                         if(tickets.length>=1){
-                                          return Column(
-                                            children: [
-                                              for(var i=0;i<tickets.length;i++)
-                                              Builder(builder: (ctx){
-                                                return TicketComp(
-                                                  ticketStatus: tickets[i]['isActive'],
-                                                  marginBias: 20,
-                                                  ticketId: tickets[i]['id'],
-                                                );
-                                              })
-                                            ],
+                                          return Container(
+                                            padding: EdgeInsets.only(left: 10),
+                                            child: Column(
+                                              children: [
+                                                for(var i=0;i<tickets.length;i++)
+                                                Builder(builder: (ctx){
+                                                  return TicketComp(
+                                                    ticketStatus: tickets[i]['isActive'],
+                                                    marginBias: 20,
+                                                    ticketId: tickets[i]['id'],
+                                                  );
+                                                })
+                                              ],
+                                            ),
                                           );
                                         }
                                       }

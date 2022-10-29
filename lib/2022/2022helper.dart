@@ -192,6 +192,9 @@ Future<List> NXAllActiveTickets() async {
 
 Future<List> NXAllTicketsAvailable() async {
   print("all tickets");
+
+  await CheckTicketsForExpiry();
+
   var db = await openDB();
   List<Map> tickets = await db
       .rawQuery("SELECT * FROM wallet WHERE isActive=? ORDER BY id desc", [-1]);
@@ -201,6 +204,8 @@ Future<List> NXAllTicketsAvailable() async {
 }
 
 Future<List> NXAllUsedTickets() async {
+
+  await CheckTicketsForExpiry();
   print("all used tickets");
   var db = await openDB();
   List<Map> tickets = await db
