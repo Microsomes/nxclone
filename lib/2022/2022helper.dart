@@ -61,8 +61,30 @@ Future<bool> NXCreateAccount(String email,password) async{
   }
 }
 
-Future<void> NXLoginAccount(String email,password) async{
-  return null;
+Future<bool> NXLoginAccount(String email,password) async{
+
+  var db = await openDB();
+
+  print("logging in account for " + email);
+
+  List<Map> account = await db.rawQuery("SELECT * FROM account where accountEmail = ?", [email]);
+
+  if(account.length > 0){
+    print("account exists");
+    if(account[0]["accountPassword"] == password){
+      print("password matches");
+      var box = GetStorage();
+      box.write("email", email);
+      box.write("isLoggedIn", true);
+      return true;
+    }else{
+      print("password does not match");
+      return false;
+    }
+  }else{
+    print("account does not exist");
+    return false;
+  }
 }
 
 Future NXCalculateWhenInActiveTicketExpire(int id) async {

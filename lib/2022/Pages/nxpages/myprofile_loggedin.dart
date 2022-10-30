@@ -90,7 +90,7 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
                     top: 50,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (ctx)=> UtilitiesMenu()));
                       },
                       child: Container(
                         width: 100,

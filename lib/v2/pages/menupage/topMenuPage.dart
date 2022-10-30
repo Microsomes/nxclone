@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../2022/Pages/nxpages/front.dart';
 import '../../../2022/Pages/nxpages/myprofile.dart';
 
 
@@ -105,7 +106,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
                       top: 50,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (ctx)=> NxPagesFront()));
                         },
                         child: Container(
                           width: 100,

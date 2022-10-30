@@ -1,4 +1,5 @@
 import 'package:BubbleGum/2022/2022helper.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/front.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/myprofile_loggedin.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
@@ -6,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../v2/pages/menupage/topMenuPage.dart';
 import '../../components/form/NXFormInput.dart';
 
 class MyProfile extends StatefulWidget {
@@ -305,6 +307,47 @@ class _LoginFormState extends State<LoginForm> {
                                                 CupertinoButton(
                                                     onPressed: () {
                                                       Navigator.pop(context);
+
+                                                      NXLoginAccount(email.text, password.text).then((bool value){
+                                                        if(value){
+                                                          Navigator.push(context,MaterialPageRoute(builder: (ctx)=> MyProfileLoggedIn()));
+                                                        }else{
+                                                          showCupertinoDialog(
+                      context: context,
+                      builder: (ctx) => CupertinoAlertDialog(
+                            title: Text(
+                              "An Error Occured",
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            content: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  "Invalid email or password",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 14,
+                                      color: Colors.black.withOpacity(0.7)),
+                                ),
+                              ],
+                            ),
+                            actions: [
+                              CupertinoButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    "OK",
+                                    style: GoogleFonts.roboto(
+                                        color: Color.fromRGBO(112, 26, 25, 1)),
+                                  ))
+                            ],
+                          ));
+                                                        }
+                                                      });
+
                                                     },
                                                     child: Text(
                                                       "Continue and login",
