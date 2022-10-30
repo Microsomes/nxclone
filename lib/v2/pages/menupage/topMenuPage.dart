@@ -1,6 +1,8 @@
+import 'package:BubbleGum/2022/Pages/nxpages/myprofile_loggedin.dart';
 import 'package:BubbleGum/v2/pages/menupage/socialMediaPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,6 +25,17 @@ void launchURL(String url) async {
 }
 
 class UtilitiesMenuState extends State<UtilitiesMenu> {
+
+  final Box = GetStorage();
+
+  bool isLoggedIn = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   var sections = [
     {
       "section": "Account",
@@ -31,8 +44,13 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "type": "link",
           "label": "My Profile",
           "icon": "images/front/account.svg",
-          "action": (BuildContext ctx){
-            Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
+          "action": (BuildContext ctx, bool isLoggedIn){
+
+            if(isLoggedIn){
+             Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfileLoggedIn()));
+            }else{
+              Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
+            }
           }
         }
       ]
@@ -44,7 +62,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "type": "link",
           "label": "nxbus.co.uk",
           "icon": "images/front/website.svg",
-          "action": (BuildContext ctx){
+          "action": (BuildContext ctx, bool isLoggedIn){
             var url = "https://nxbus.co.uk";
             launchURL(url);
           }
@@ -53,7 +71,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "type": "link",
           "label": "Social media",
           "icon": "images/front/social-media.svg",
-          "action": (BuildContext context){
+          "action": (BuildContext context, bool isLoggedIn){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> SocialMediaPage()));
           }
         },
@@ -61,7 +79,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "type": "link",
           "label": "Payzone Barcode",
           "icon": "images/front/DBarcode.svg",
-          "action": (BuildContext context){
+          "action": (BuildContext context, bool isLoggedIn){
             Navigator.push(context,MaterialPageRoute(builder: (ctx)=> MyProfile()));
           }
         }
@@ -138,12 +156,14 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
 }
 
 class UtilitiesList extends StatelessWidget {
-  const UtilitiesList({
+   UtilitiesList({
     Key key,
     @required this.sections,
   }) : super(key: key);
 
   final List<Map<String, Object>> sections;
+
+  final Box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +194,10 @@ class UtilitiesList extends StatelessWidget {
                     for (var l = 0; l < links.length; l++)
                       GestureDetector(
                         onTap: (){
-                          links[l]['action'](ctx);
+
+                         var isLoggedIn =  Box.read("isLoggedIn");
+
+                          links[l]['action'](ctx,isLoggedIn);
                         },
                         child: Container(
                           child: Row(

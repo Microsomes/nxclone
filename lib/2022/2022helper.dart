@@ -43,8 +43,22 @@ Future<bool> NXCheckEmail(String email) async {
   return false;
 }
 
-Future<void> NXCreateAccount(String email,password) async{
-  return null;
+Future<bool> NXCreateAccount(String email,password) async{
+
+  var db = await openDB();
+
+  print("creating account for " + email);
+  
+  List<Map> account = await db.rawQuery("SELECT * FROM account where accountEmail = ?", [email]);
+
+  if(account.length > 0){
+    print("account already exists");
+    return false;
+  }else{
+    print("account does not exist");
+    await db.rawInsert("INSERT INTO account (accountEmail, accountPassword) VALUES (?,?)", [email,password]);
+    return true;
+  }
 }
 
 Future<void> NXLoginAccount(String email,password) async{
@@ -332,6 +346,7 @@ Future<int> CheckTicketsForExpiry() async {
 NXDeleteAllTickets() async {
   var db = await openDB();
   await db.rawDelete("DELETE FROM wallet");
+  await db.rawDelete("DELETE FROM account");
 }
 
 Future<void> ExpireTicket(int id) async {}
