@@ -145,7 +145,9 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               child:CustomScrollView(
                 slivers: [
                   SliverFillRemaining(
-                    child:  UtilitiesList(sections: sections),
+                    child:  UtilitiesList(
+                      SpacingTop: true,
+                      sections: sections),
                   )
                 ],
               )
@@ -156,9 +158,11 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
 }
 
 class UtilitiesList extends StatelessWidget {
+  final SpacingTop ;
    UtilitiesList({
     Key key,
     @required this.sections,
+    @required this.SpacingTop,
   }) : super(key: key);
 
   final List<Map<String, Object>> sections;
@@ -171,7 +175,7 @@ class UtilitiesList extends StatelessWidget {
       color: Colors.transparent,
       child: Column(
         children: [
-          SizedBox(height: 30,),
+         SpacingTop == true ? SizedBox(height: 30,):Container(),
           for (var i = 0; i < sections.length; i++)
             Builder(builder: (ctx) {
               List links = sections[i]['links'];
@@ -197,7 +201,7 @@ class UtilitiesList extends StatelessWidget {
 
                          var isLoggedIn =  Box.read("isLoggedIn");
 
-                          links[l]['action'](ctx,isLoggedIn);
+                          links[l]['action'](ctx,isLoggedIn == null ? false : isLoggedIn);
                         },
                         child: Container(
                           child: Row(
