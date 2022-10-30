@@ -7,6 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../2022/2022helper.dart';
+import '../2022/Pages/LoginManager.dart';
 import '../2022/Pages/changeLogs.dart';
 import '../2022/Pages/nxpages/front.dart';
 import '../2022/Pages/viewAllTickets.dart';
@@ -239,7 +240,40 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                           
+                         
+                           
                           GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginManager()));
+                            },
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                      child: Text(
+                                        "Login Manager",
+                                        style: GoogleFonts.roboto(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                          ),
+                           GestureDetector(
                             onTap: () {
                               Navigator.push(
                                   context,

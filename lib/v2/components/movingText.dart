@@ -45,7 +45,7 @@ class MovingTextState extends State<MovingText> {
           fontWeight: FontWeight.bold,
           fontSize: 17
       ),
-      pauseAfterRound: Duration(milliseconds: 2000),
+      pauseAfterRound: Duration(milliseconds: 4000),
       blankSpace: 20,
       showFadingOnlyWhenScrolling: true,
     );
