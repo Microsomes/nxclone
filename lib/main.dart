@@ -169,6 +169,9 @@ void main() async {
 
   await CheckTicketsForExpiry();
 
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+
   final Box = GetStorage();
 
   return runApp(Phoenix(

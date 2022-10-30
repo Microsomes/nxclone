@@ -39,28 +39,25 @@ class BuyFlowPhase5Success extends StatelessWidget {
                         },
                         child: Container(
                           width: 100,
-                          child: Positioned(
-                            top: 4,
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                SvgPicture.asset(
-                                  "images/front/back.svg",
-                                  width: 21,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Text(
-                                  "Back",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 16, color: Colors.white),
-                                )
-                              ],
-                            ),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 5,
+                              ),
+                              SvgPicture.asset(
+                                "images/front/back.svg",
+                                width: 21,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Text(
+                                "Back",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 16, color: Colors.white),
+                              )
+                            ],
                           ),
                         ),
                       )),

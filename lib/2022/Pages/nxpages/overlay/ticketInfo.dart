@@ -30,21 +30,18 @@ class TicketInfoPage extends StatelessWidget {
                         },
                         child: Container(
                           width: 100,
-                          child: Positioned(
-                            top: 4,
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Icon(Icons.close,
-                                color: Colors.white,)
-                              ],
-                            ),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 5,
+                              ),
+                              
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Icon(Icons.close,
+                              color: Colors.white,)
+                            ],
                           ),
                         ),
                       )),
