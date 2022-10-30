@@ -38,19 +38,17 @@ class _MyProfileState extends State<MyProfile> {
                       },
                       child: Container(
                         width: 100,
-                        child: Positioned(
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 60,
-                              ),
-                              Icon(
-                                Icons.close,
-                                size: 28,
-                                color: Colors.white.withOpacity(0.95),
-                              )
-                            ],
-                          ),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 60,
+                            ),
+                            Icon(
+                              Icons.close,
+                              size: 28,
+                              color: Colors.white.withOpacity(0.95),
+                            )
+                          ],
                         ),
                       ),
                     )),
