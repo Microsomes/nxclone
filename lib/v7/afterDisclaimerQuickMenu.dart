@@ -480,7 +480,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                   SizedBox(height: 5,),
                                   Text("TIP: Long press on the menu button on the nx home page to come back to this page",
                                   style: GoogleFonts.roboto(
-                                    fontSize: 15
+                                    fontSize: 15,
+                                    color: Colors.black.withOpacity(0.7)
                                   ),
                                   )
 

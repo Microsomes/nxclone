@@ -1,1619 +1,1748 @@
 [
-    [
-      "reset all tickets"
-    ],
-    [
-      "WIP top menu"
-    ],
-    [
-      "custom scroll view"
-    ],
-    [
-      "..."
-    ],
-    [
-      "clean up code"
-    ],
-    [
-      "..."
-    ],
-    [
-      "WIP ability to see used tickets"
-    ],
-    [
-      "ticket expired"
-    ],
-    [
-      "removed in app"
-    ],
-    [
-      "my profile WIP"
-    ],
-    [
-      "my profile enhancements"
-    ],
-    [
-      "bug fixes and more functionality"
-    ],
-    [
-      "d"
-    ],
-    [
-      "ticket semi working"
-    ],
-    [
-      "tcket updated"
-    ],
-    [
-      "real ticket page nearly working"
-    ],
-    [
-      "ticket page o negative"
-    ],
-    [
-      "adult and group tickets semi working"
-    ],
-    [
-      "order by correction"
-    ],
-    [
-      "close"
-    ],
-    [
-      "pre"
-    ],
-    [
-      "ticket activation page"
-    ],
-    [
-      "hovere ffect on ticket"
-    ],
-    [
-      "ability to see trip wallets"
-    ],
-    [
-      "ability to see trip wallets"
-    ],
-    [
-      "ui engancements"
-    ],
-    [
-      "show first ticket if purchased"
-    ],
-    [
-      "update readme"
-    ],
-    [
-      "can buy ticket now"
-    ],
-    [
-      "new helper"
-    ],
-    [
-      "hover effect"
-    ],
-    [
-      "hover"
-    ],
-    [
-      "ability to buy ticket"
-    ],
-    [
-      "added dynamic support"
-    ],
-    [
-      "can purchase page"
-    ],
-    [
-      "lt"
-    ],
-    [
-      "enter info page done"
-    ],
-    [
-      "cart info enhancements"
-    ],
-    [
-      "input"
-    ],
-    [
-      "enter card info WIP"
-    ],
-    [
-      "select payment screen"
-    ],
-    [
-      "WIP"
-    ],
-    [
-      "select payment method"
-    ],
-    [
-      "accept and continue"
-    ],
-    [
-      "WIP"
-    ],
-    [
-      "info overlay"
-    ],
-    [
-      "coventry spelling mistake fixed"
-    ],
-    [
-      "overlay info page"
-    ],
-    [
-      "select ticket page looking good"
-    ],
-    [
-      "WIP select type"
-    ],
-    [
-      "select ticket page"
-    ],
-    [
-      "select ticket page"
-    ],
-    [
-      "select ticket page nearly ready"
-    ],
-    [
-      ",,"
-    ],
-    [
-      "phase1"
-    ],
-    [
-      "tickets json reconfigured"
-    ],
-    [
-      "buy phase 1 ready wip"
-    ],
-    [
-      "WIP select ticket type"
-    ],
-    [
-      "terms working"
-    ],
-    [
-      "terms"
-    ],
-    [
-      "terms and conditions unfinsihed commit"
-    ],
-    [
-      "faq page done"
-    ],
-    [
-      "customer service"
-    ],
-    [
-      "call button"
-    ],
-    [
-      "app info done"
-    ],
-    [
-      "quick menu updated"
-    ],
-    [
-      "WIP"
-    ],
-    [
-      "ticket wallet"
-    ],
-    [
-      "ticket wallet page"
-    ],
-    [
-      "WIP help app nearly ready"
-    ],
-    [
-      "utilities page done"
-    ],
-    [
-      "utilities page"
-    ],
-    [
-      "mac book edition"
-    ],
-    [
-      "nx web support added"
-    ],
-    [
-      "WIP funtionally"
-    ],
-    [
-      "nx front"
-    ],
-    [
-      "nx front page looking lit"
-    ],
-    [
-      "got dev setup for ios"
-    ],
-    [
-      "new front"
-    ],
-    [
-      "WIP ios"
-    ],
-    [
-      "new ui that looks nicer on ios"
-    ],
-    [
-      "ios support added"
-    ],
-    [
-      "new pages placeholder"
-    ],
-    [
-      "new setup styles"
-    ],
-    [
-      "updated new setup page"
-    ],
-    [
-      "ll"
-    ],
-    [
-      "WIP"
-    ],
-    [
-      "migration complete"
-    ],
-    [
-      "fixed all errors"
-    ],
-    [
-      "WIP"
-    ],
-    [
-      "WIP update"
-    ],
-    [
-      "ff"
-    ],
-    [
-      "WIP"
-    ],
-    [
-      "lt all"
-    ],
-    [
-      "Merge: 7067d7f 8ee29ef"
-    ],
-    [],
-    [],
-    [],
-    [
-      "Merge: d2a5b18 2d151e2"
-    ],
-    [
-      "Merge branch '2021-july-reskin'"
-    ],
-    [
-      "apk"
-    ],
-    [
-      "lt working"
-    ],
-    [
-      "ltt"
-    ],
-    [
-      "ltt"
-    ],
-    [
-      "major imporvements"
-    ],
-    [
-      "ldone"
-    ],
-    [
-      "3rd nearly done within info"
-    ],
-    [
-      "second done without info"
-    ],
-    [
-      "all infos have been added for the first section"
-    ],
-    [
-      "t"
-    ],
-    [
-      "parcial done"
-    ],
-    [
-      "llt"
-    ],
-    [
-      "info added"
-    ],
-    [
-      "tt4"
-    ],
-    [
-      "ticket.json"
-    ],
-    [
-      "ticket desciption"
-    ],
-    [
-      "upgrade"
-    ],
-    [
-      "new advanced coming soon"
-    ],
-    [
-      "done"
-    ],
-    [
-      "updating nxfront"
-    ],
-    [
-      "v2"
-    ],
-    [
-      "working"
-    ],
-    [
-      "o"
-    ],
-    [
-      "making improvements to quick options"
-    ],
-    [
-      "legacy ticket fixed for the lolz"
-    ],
-    [
-      "settings working"
-    ],
-    [
-      "proposal"
-    ],
-    [
-      "new menu"
-    ],
-    [
-      "new v7 home"
-    ],
-    [
-      "start of something great"
-    ],
-    [
-      "new look"
-    ],
-    [
-      "d"
-    ],
-    [
-      "done"
-    ],
-    [
-      "working"
-    ],
-    [
-      "d"
-    ],
-    [
-      "bigger version"
-    ],
-    [
-      "hfix"
-    ],
-    [
-      "done"
-    ],
-    [
-      "done"
-    ],
-    [
-      "updated UI"
-    ],
-    [
-      "done"
-    ],
-    [
-      "."
-    ],
-    [
-      "mtic nearly"
-    ],
-    [
-      "fix"
-    ],
-    [
-      "ticket"
-    ],
-    [
-      "done"
-    ],
-    [
-      "d"
-    ],
-    [
-      "m"
-    ],
-    [
-      "d"
-    ],
-    [
-      "don"
-    ],
-    [
-      "switcher"
-    ],
-    [
-      "done"
-    ],
-    [
-      "fuck=no1 update"
-    ],
-    [
-      "dl"
-    ],
-    [
-      "my metro"
-    ],
-    [
-      "all ticket data"
-    ],
-    [
-      "done"
-    ],
-    [
-      "d"
-    ],
-    [
-      "works well"
-    ],
-    [
-      "d"
-    ],
-    [
-      "done"
-    ],
-    [
-      "do"
-    ],
-    [
-      "added new function to get all used tickets"
-    ],
-    [
-      "done"
-    ],
-    [
-      "done"
-    ],
-    [
-      "ticket info is working"
-    ],
-    [
-      "advanced ticket info"
-    ],
-    [
-      "payment working"
-    ],
-    [
-      "tw"
-    ],
-    [
-      "done"
-    ],
-    [
-      "jnj"
-    ],
-    [
-      "simulation"
-    ],
-    [
-      "dsf"
-    ],
-    [
-      "done"
-    ],
-    [
-      "d"
-    ],
-    [
-      "done"
-    ],
-    [
-      "d"
-    ],
-    [
-      "getting connected"
-    ],
-    [
-      "d"
-    ],
-    [
-      "imp"
-    ],
-    [
-      "doff"
-    ],
-    [
-      "el"
-    ],
-    [
-      "working"
-    ],
-    [
-      "."
-    ],
-    [
-      "f"
-    ],
-    [
-      "d"
-    ],
-    [
-      "d"
-    ],
-    [
-      "l"
-    ],
-    [
-      "d"
-    ],
-    [
-      "debug"
-    ],
-    [
-      "adding v2 functions"
-    ],
-    [
-      "ticketwalletv2"
-    ],
-    [
-      "fix logic"
-    ],
-    [
-      "dkljn"
-    ],
-    [
-      "done"
-    ],
-    [
-      "improving the data logic"
-    ],
-    [
-      "ticket used"
-    ],
-    [
-      "improved the top bar"
-    ],
-    [
-      "sdfdsf"
-    ],
-    [
-      "social media"
-    ],
-    [
-      "social media"
-    ],
-    [
-      "moreimp"
-    ],
-    [
-      "newimp"
-    ],
-    [
-      "new account page working"
-    ],
-    [
-      "done"
-    ],
-    [
-      "fixed"
-    ],
-    [
-      "working"
-    ],
-    [
-      ".."
-    ],
-    [
-      "tos"
-    ],
-    [
-      "disclaimr"
-    ],
-    [
-      "refac more"
-    ],
-    [
-      "refactored code"
-    ],
-    [
-      "de"
-    ],
-    [
-      "indicator"
-    ],
-    [
-      "done"
-    ],
-    [
-      "adv home"
-    ],
-    [
-      "done"
-    ],
-    [
-      "dedemo"
-    ],
-    [
-      "much improved default ticket selecttion experience"
-    ],
-    [
-      "ejection settings"
-    ],
-    [
-      "advanced setup"
-    ],
-    [
-      "default home page"
-    ],
-    [
-      "done"
-    ],
-    [
-      "advanced setup"
-    ],
-    [
-      "black pie done"
-    ],
-    [
-      "can change theme"
-    ],
-    [
-      "updated theme"
-    ],
-    [
-      "upd"
-    ],
-    [
-      "extracted QR"
-    ],
-    [
-      "adjusted for smaller phones"
-    ],
-    [
-      "fixxed bug"
-    ],
-    [
-      "done"
-    ],
-    [
-      "done"
-    ],
-    [
-      "made it so the screen gets brigher"
-    ],
-    [
-      "new app"
-    ],
-    [
-      "improved ui"
-    ],
-    [
-      "err connection"
-    ],
-    [
-      "Better Performance"
-    ],
-    [
-      "setup imroved"
-    ],
-    [
-      "new setup flow"
-    ],
-    [
-      "improved speed"
-    ],
-    [
-      "improved ui"
-    ],
-    [
-      "quick switch ticket"
-    ],
-    [
-      "COmmand Control settings from ticket page"
-    ],
-    [
-      "random color mode working"
-    ],
-    [
-      "now you can only open color selector via double tab only"
-    ],
-    [
-      "still lets you choose any color if you want that option"
-    ],
-    [
-      "advanced color selector"
-    ],
-    [
-      "done"
-    ],
-    [
-      "ui-more-presentable"
-    ],
-    [
-      "improved ui"
-    ],
-    [
-      "faster simulation"
-    ],
-    [
-      "tw"
-    ],
-    [
-      "updated the code base for ticket wallet- more neater"
-    ],
-    [
-      "improved ticket wallet system"
-    ],
-    [
-      "upd code"
-    ],
-    [
-      "dd"
-    ],
-    [
-      "pohome"
-    ],
-    [
-      "clt"
-    ],
-    [
-      "done"
-    ],
-    [
-      "piome"
-    ],
-    [
-      "nearly ready"
-    ],
-    [
-      "upd"
-    ],
-    [
-      "updated good"
-    ],
-    [
-      "updated select ticket page"
-    ],
-    [
-      "updated code to use subtitle instead of hard coded value2"
-    ],
-    [
-      "nv2"
-    ],
-    [
-      "clone s"
-    ],
-    [
-      "done"
-    ],
-    [
-      "metro pass"
-    ],
-    [
-      "imported all metro tickers"
-    ],
-    [
-      "more tickers"
-    ],
-    [
-      "non sim"
-    ],
-    [
-      "updated front page"
-    ],
-    [
-      "bypass mode coming soon"
-    ],
-    [
-      "finished"
-    ],
-    [
-      "updated pi design"
-    ],
-    [
-      "new bubblegum home design"
-    ],
-    [
-      "done"
-    ],
-    [
-      "phaseover"
-    ],
-    [
-      "sripped"
-    ],
-    [
-      "done"
-    ],
-    [
-      "done"
-    ],
-    [
-      "works"
-    ],
-    [
-      "done"
-    ],
-    [
-      "all issues fixed"
-    ],
-    [
-      "default clean up is good"
-    ],
-    [
-      "done"
-    ],
-    [
-      "terms and conditions"
-    ],
-    [
-      "modified the nxsig"
-    ],
-    [
-      "done"
-    ],
-    [
-      "ticket wallet"
-    ],
-    [
-      "all images"
-    ],
-    [
-      "fixed spacing issues"
-    ],
-    [
-      "fixked walle"
-    ],
-    [
-      "doine"
-    ],
-    [
-      "nxhelp"
-    ],
-    [
-      "done"
-    ],
-    [
-      "working"
-    ],
-    [
-      "fixed issue"
-    ],
-    [
-      "done"
-    ],
-    [
-      "ti"
-    ],
-    [
-      "details page"
-    ],
-    [
-      "details page working"
-    ],
-    [
-      "formatted tie"
-    ],
-    [
-      "overlay working"
-    ],
-    [
-      "payment confirmed bg color fixed"
-    ],
-    [
-      "enter the card info"
-    ],
-    [
-      "history process"
-    ],
-    [
-      "impoved the front page"
-    ],
-    [
-      "rough group daysaver"
-    ],
-    [
-      "group daysaver"
-    ],
-    [
-      "rounded for group daysaver"
-    ],
-    [
-      "improved"
-    ],
-    [
-      "fixed up"
-    ],
-    [
-      "ticket partially working"
-    ],
-    [
-      "ticket aliangement"
-    ],
-    [
-      "ticket improved"
-    ],
-    [
-      "more realism"
-    ],
-    [
-      "improved the oc"
-    ],
-    [
-      "improved colors"
-    ],
-    [
-      "partial ejection settings working"
-    ],
-    [
-      "cleaned the offers page"
-    ],
-    [
-      "nxfront spacing"
-    ],
-    [
-      "nx logo is back"
-    ],
-    [
-      "stableised a few things"
-    ],
-    [
-      "removed the timer on the customise ticket page as it was not needed"
-    ],
-    [
-      "added callback so we dont need  atimer anymore"
-    ],
-    [
-      "updated bar"
-    ],
-    [
-      "default ticket"
-    ],
-    [
-      "improved the default ticket page"
-    ],
-    [
-      "fixed landing pages options"
-    ],
-    [
-      "options"
-    ],
-    [
-      "terms"
-    ],
-    [
-      "fixed memory leak"
-    ],
-    [
-      "better animations"
-    ],
-    [
-      "everything works"
-    ],
-    [
-      "fixed all issues"
-    ],
-    [
-      "added ability to send"
-    ],
-    [
-      "fixed issues"
-    ],
-    [
-      "fixed issue relating to null top bottom navigation"
-    ],
-    [
-      "prepare launch on blackpie 3"
-    ],
-    [
-      "newgif"
-    ],
-    [
-      "done"
-    ],
-    [
-      "added more animations"
-    ],
-    [
-      "fixed"
-    ],
-    [
-      "fixed"
-    ],
-    [
-      "done"
-    ],
-    [
-      "ticketv2 and helper"
-    ],
-    [
-      "overlay working"
-    ],
-    [
-      "took care of memory leaks"
-    ],
-    [
-      "done"
-    ],
-    [
-      "added some sutle animation"
-    ],
-    [
-      "overlays"
-    ],
-    [
-      "updated the ui"
-    ],
-    [
-      "changing text speed works perfectly"
-    ],
-    [
-      "finished addming animatino"
-    ],
-    [
-      "setup flow"
-    ],
-    [
-      "onboarding refinded"
-    ],
-    [
-      "updated ui and actions"
-    ],
-    [
-      "setup working properly"
-    ],
-    [
-      "updated"
-    ],
-    [
-      "updated settings"
-    ],
-    [
-      "added a nice blue effect"
-    ],
-    [
-      "linked up the options again"
-    ],
-    [
-      "added the 2 buttons"
-    ],
-    [
-      "updated options"
-    ],
-    [
-      "improved ui"
-    ],
-    [
-      "new look"
-    ],
-    [
-      "animations overlay settings"
-    ],
-    [
-      "animation settings"
-    ],
-    [
-      "tweat animatino settings"
-    ],
-    [
-      "overlay settings"
-    ],
-    [
-      "tweak settings"
-    ],
-    [
-      "updated ui"
-    ],
-    [
-      "upgraded ui"
-    ],
-    [
-      "updated the pie home"
-    ],
-    [
-      "fixed"
-    ],
-    [
-      "fixed issues"
-    ],
-    [
-      "main.dart"
-    ],
-    [
-      "done"
-    ],
-    [
-      "paytransfer"
-    ],
-    [
-      "nearly completed pay and trasnfer"
-    ],
-    [
-      "provisioned the pay and transfer page"
-    ],
-    [
-      "added halifax on the banking clones"
-    ],
-    [
-      "hard coded account details for now"
-    ],
-    [
-      "finished account details page"
-    ],
-    [
-      "added pending balance"
-    ],
-    [
-      "got reversed list"
-    ],
-    [
-      "first part halifax"
-    ],
-    [
-      "first part halifax"
-    ],
-    [
-      "first part halifax"
-    ],
-    [
-      "first part halifax"
-    ],
-    [
-      "first part halifax"
-    ],
-    [
-      "done first step"
-    ],
-    [
-      "added quick options"
-    ],
-    [
-      "added support for v1 for nastalgic purpsoes"
-    ],
-    [
-      "nxhome"
-    ],
-    [
-      "optimised ui"
-    ],
-    [
-      "launch"
-    ],
-    [
-      "landing page"
-    ],
-    [
-      "partial launcher done"
-    ],
-    [
-      "HOTFIX TEXT and spacing modifications"
-    ],
-    [
-      "hot fix"
-    ],
-    [
-      "hotfix 2 done"
-    ],
-    [
-      "new mods"
-    ],
-    [
-      "hotfix-default value"
-    ],
-    [
-      "finalise"
-    ],
-    [
-      "nx ready"
-    ],
-    [
-      "ability to restart app"
-    ],
-    [
-      "updaed"
-    ],
-    [
-      "added function to delete all tickets"
-    ],
-    [
-      "prebuild done for now"
-    ],
-    [
-      "fixed qr generation issue"
-    ],
-    [
-      "new assets"
-    ],
-    [
-      "modified curve of ticket wallet"
-    ],
-    [
-      "modified spacing on activated ticket"
-    ],
-    [
-      "fixed ui issues"
-    ],
-    [
-      "default ticket working"
-    ],
-    [
-      "default ticket selection updated"
-    ],
-    [
-      "default ticket"
-    ],
-    [
-      "default ticket options"
-    ],
-    [
-      "fixed timing issue"
-    ],
-    [
-      "made ajustments to the date function"
-    ],
-    [
-      "date maths done"
-    ],
-    [
-      "fixed date issue"
-    ],
-    [
-      "fixed and hooked up expiry dates"
-    ],
-    [
-      "done"
-    ],
-    [
-      "updated expiry system"
-    ],
-    [
-      "helper for expiry"
-    ],
-    [
-      "routing issue"
-    ],
-    [
-      "daysaver activation works"
-    ],
-    [
-      "ability to activate ticket in helper"
-    ],
-    [
-      "color bars are flashing yay"
-    ],
-    [
-      "color selector working"
-    ],
-    [
-      "toverlay"
-    ],
-    [
-      "moving text"
-    ],
-    [
-      "ticketv2 updated to allow db support"
-    ],
-    [
-      "hooked up action and details on the actual ticket page as well"
-    ],
-    [
-      "overlay working"
-    ],
-    [
-      "overlay for actions nearly done"
-    ],
-    [
-      "actions overlay started"
-    ],
-    [
-      "terms"
-    ],
-    [
-      "terms refactored"
-    ],
-    [
-      "terms page created"
-    ],
-    [
-      "detail page semi finished"
-    ],
-    [
-      "second part done"
-    ],
-    [
-      "first part of detail page done"
-    ],
-    [
-      "ticket detail optimisations"
-    ],
-    [
-      "basic format formed for details page and hooked up back button"
-    ],
-    [
-      "ticket detail overlay"
-    ],
-    [
-      "made the close functionality work"
-    ],
-    [
-      "optimised moving text"
-    ],
-    [
-      "moving test working"
-    ],
-    [
-      "refactored code"
-    ],
-    [
-      "optimised for other states"
-    ],
-    [
-      "cov"
-    ],
-    [
-      "done"
-    ],
-    [
-      "buys ticket then goes to the confirmed page"
-    ],
-    [
-      "done"
-    ],
-    [
-      "refactored"
-    ],
-    [
-      "load usable tickets on ticket wallet page"
-    ],
-    [
-      "refactored gode"
-    ],
-    [
-      "buying tickets working"
-    ],
-    [
-      "ability to buy ticket"
-    ],
-    [
-      "done"
-    ],
-    [
-      "ui done"
-    ],
-    [
-      "pagment successful"
-    ],
-    [
-      "partial payment success page"
-    ],
-    [
-      "payment confirmation"
-    ],
-    [
-      "fixed final payment scroll, and made security code and email editable"
-    ],
-    [
-      "enter card"
-    ],
-    [
-      "pick method"
-    ],
-    [
-      "grabs correct option"
-    ],
-    [
-      "payment optin"
-    ],
-    [
-      "init"
-    ],
-    [
-      "ulp"
-    ],
-    [
-      "payment method"
-    ],
-    [
-      "ticket selection"
-    ],
-    [
-      "flow partial"
-    ],
-    [
-      "all the tickets are showing on buy page"
-    ],
-    [
-      "fixed annoying bug"
-    ],
-    [
-      "working on helper"
-    ],
-    [
-      "saving ticket type"
-    ],
-    [
-      "done"
-    ],
-    [
-      "sandwell and dudley done"
-    ],
-    [
-      "cleaned up code"
-    ],
-    [
-      "added safer and cleaner code"
-    ],
-    [
-      "conventry area covered"
-    ],
-    [
-      "partial conventry covered"
-    ],
-    [
-      "added all ticket types for west Midlands"
-    ],
-    [
-      "done"
-    ],
-    [
-      "tt"
-    ],
-    [
-      "select ticket"
-    ],
-    [
-      "buy flow"
-    ],
-    [
-      "changes only affect after reboot of app"
-    ],
-    [
-      "landing page flow setup with old flow"
-    ],
-    [
-      "made it so it redirects to nxclone pages on boot"
-    ],
-    [
-      "helper added and new database"
-    ],
-    [
-      "helper class"
-    ],
-    [
-      "flow"
-    ],
-    [
-      "push"
-    ],
-    [
-      "p1 done"
-    ],
-    [
-      "dd"
-    ],
-    [
-      "landing page"
-    ],
-    [
-      "done"
-    ],
-    [
-      "dialog activae ticket"
-    ],
-    [
-      "nxsig rounded works"
-    ],
-    [
-      "updated spacing on ticket page"
-    ],
-    [
-      "finish"
-    ],
-    [
-      "updared pre activation page"
-    ],
-    [
-      "done"
-    ],
-    [
-      "modifications to ticket page\""
-    ],
-    [
-      "nx rewards"
-    ],
-    [
-      "nxsig"
-    ],
-    [
-      "nxsig"
-    ],
-    [
-      "ticket page"
-    ],
-    [
-      "ticket color selectopr"
-    ],
-    [
-      "ticket page half done"
-    ],
-    [
-      "ticket activation done"
-    ],
-    [
-      "show activation dialog"
-    ],
-    [
-      "changed splash screen"
-    ],
-    [
-      "done ticket activation screen"
-    ],
-    [
-      "ticket activation page"
-    ],
-    [
-      "resent"
-    ],
-    [
-      "dne"
-    ],
-    [
-      "logs current selected ticket"
-    ],
-    [
-      "default ticket page"
-    ],
-    [
-      "customise ticket"
-    ],
-    [
-      "customise ticket"
-    ],
-    [
-      "saving default page works"
-    ],
-    [
-      "defualt page black pie"
-    ],
-    [
-      "landing page"
-    ],
-    [
-      "coding the landing page"
-    ],
-    [
-      "done"
-    ],
-    [
-      "used sq"
-    ],
-    [
-      "q"
-    ],
-    [
-      "quick action images done"
-    ],
-    [
-      "v2"
-    ],
-    [
-      "remvoed useless"
-    ],
-    [
-      "and"
-    ]
+  [
+    "login status"
+  ],
+  [
+    "updated moving text"
+  ],
+  [
+    "WIP ability to login"
+  ],
+  [
+    "WIP: ability to log out"
+  ],
+  [
+    "WIP: logged in my profile"
+  ],
+  [
+    "WIP: import ticket script for server"
+  ],
+  [
+    "WIP: server subcategory tickets"
+  ],
+  [
+    "import ticket job"
+  ],
+  [
+    "WIP: rapid improvements"
+  ],
+  [
+    "WIP SERVER"
+  ],
+  [
+    "api"
+  ],
+  [
+    "s"
+  ],
+  [
+    ".."
+  ],
+  [
+    "ability to sign up"
+  ],
+  [
+    "Wip: ability to login"
+  ],
+  [
+    "WIP: rapid improvements"
+  ],
+  [
+    "LL"
+  ],
+  [
+    "ability to activate tickets purchased"
+  ],
+  [
+    "looks good"
+  ],
+  [
+    "quick settings work now"
+  ],
+  [
+    "optimised quick settings"
+  ],
+  [
+    "WIP: account login parcially working"
+  ],
+  [
+    "WIP: mockups for accounts page"
+  ],
+  [
+    "Multi ticket selection working"
+  ],
+  [
+    "wip: fixed bug where buy button was not showing on the history tab of wallet"
+  ],
+  [
+    "WIP: ability to see active tickets on the wallet page"
+  ],
+  [
+    "WIP: actions hooked up but need to update the UI slightly"
+  ],
+  [
+    "Operator choice buy flow complete"
+  ],
+  [
+    "wip operator choice page"
+  ],
+  [
+    "update ticket page"
+  ],
+  [
+    "WIP: ticket detail page"
+  ],
+  [
+    "ticket receipt page WIP"
+  ],
+  [
+    "randomize colors"
+  ],
+  [
+    "change home page"
+  ],
+  [
+    "hook up everything"
+  ],
+  [
+    "go directly to the ticket"
+  ],
+  [
+    "show correct status of the ticket"
+  ],
+  [
+    "show ticket as expired if thats the case"
+  ],
+  [
+    "WIP: hook up quick ticket selection page"
+  ],
+  [
+    "WIP: bubblegum ui improvements"
+  ],
+  [
+    "emergency mode"
+  ],
+  [
+    ".."
+  ],
+  [
+    "WIP: got change logs working"
+  ],
+  [
+    "reset all tickets"
+  ],
+  [
+    "WIP top menu"
+  ],
+  [
+    "custom scroll view"
+  ],
+  [
+    "..."
+  ],
+  [
+    "clean up code"
+  ],
+  [
+    "..."
+  ],
+  [
+    "WIP ability to see used tickets"
+  ],
+  [
+    "ticket expired"
+  ],
+  [
+    "removed in app"
+  ],
+  [
+    "my profile WIP"
+  ],
+  [
+    "my profile enhancements"
+  ],
+  [
+    "bug fixes and more functionality"
+  ],
+  [
+    "d"
+  ],
+  [
+    "ticket semi working"
+  ],
+  [
+    "tcket updated"
+  ],
+  [
+    "real ticket page nearly working"
+  ],
+  [
+    "ticket page o negative"
+  ],
+  [
+    "adult and group tickets semi working"
+  ],
+  [
+    "order by correction"
+  ],
+  [
+    "close"
+  ],
+  [
+    "pre"
+  ],
+  [
+    "ticket activation page"
+  ],
+  [
+    "hovere ffect on ticket"
+  ],
+  [
+    "ability to see trip wallets"
+  ],
+  [
+    "ability to see trip wallets"
+  ],
+  [
+    "ui engancements"
+  ],
+  [
+    "show first ticket if purchased"
+  ],
+  [
+    "update readme"
+  ],
+  [
+    "can buy ticket now"
+  ],
+  [
+    "new helper"
+  ],
+  [
+    "hover effect"
+  ],
+  [
+    "hover"
+  ],
+  [
+    "ability to buy ticket"
+  ],
+  [
+    "added dynamic support"
+  ],
+  [
+    "can purchase page"
+  ],
+  [
+    "lt"
+  ],
+  [
+    "enter info page done"
+  ],
+  [
+    "cart info enhancements"
+  ],
+  [
+    "input"
+  ],
+  [
+    "enter card info WIP"
+  ],
+  [
+    "select payment screen"
+  ],
+  [
+    "WIP"
+  ],
+  [
+    "select payment method"
+  ],
+  [
+    "accept and continue"
+  ],
+  [
+    "WIP"
+  ],
+  [
+    "info overlay"
+  ],
+  [
+    "coventry spelling mistake fixed"
+  ],
+  [
+    "overlay info page"
+  ],
+  [
+    "select ticket page looking good"
+  ],
+  [
+    "WIP select type"
+  ],
+  [
+    "select ticket page"
+  ],
+  [
+    "select ticket page"
+  ],
+  [
+    "select ticket page nearly ready"
+  ],
+  [
+    ",,"
+  ],
+  [
+    "phase1"
+  ],
+  [
+    "tickets json reconfigured"
+  ],
+  [
+    "buy phase 1 ready wip"
+  ],
+  [
+    "WIP select ticket type"
+  ],
+  [
+    "terms working"
+  ],
+  [
+    "terms"
+  ],
+  [
+    "terms and conditions unfinsihed commit"
+  ],
+  [
+    "faq page done"
+  ],
+  [
+    "customer service"
+  ],
+  [
+    "call button"
+  ],
+  [
+    "app info done"
+  ],
+  [
+    "quick menu updated"
+  ],
+  [
+    "WIP"
+  ],
+  [
+    "ticket wallet"
+  ],
+  [
+    "ticket wallet page"
+  ],
+  [
+    "WIP help app nearly ready"
+  ],
+  [
+    "utilities page done"
+  ],
+  [
+    "utilities page"
+  ],
+  [
+    "mac book edition"
+  ],
+  [
+    "nx web support added"
+  ],
+  [
+    "WIP funtionally"
+  ],
+  [
+    "nx front"
+  ],
+  [
+    "nx front page looking lit"
+  ],
+  [
+    "got dev setup for ios"
+  ],
+  [
+    "new front"
+  ],
+  [
+    "WIP ios"
+  ],
+  [
+    "new ui that looks nicer on ios"
+  ],
+  [
+    "ios support added"
+  ],
+  [
+    "new pages placeholder"
+  ],
+  [
+    "new setup styles"
+  ],
+  [
+    "updated new setup page"
+  ],
+  [
+    "ll"
+  ],
+  [
+    "WIP"
+  ],
+  [
+    "migration complete"
+  ],
+  [
+    "fixed all errors"
+  ],
+  [
+    "WIP"
+  ],
+  [
+    "WIP update"
+  ],
+  [
+    "ff"
+  ],
+  [
+    "WIP"
+  ],
+  [
+    "lt all"
+  ],
+  [
+    "Merge: 7067d7f 8ee29ef"
+  ],
+  [],
+  [],
+  [],
+  [
+    "Merge: d2a5b18 2d151e2"
+  ],
+  [
+    "Merge branch '2021-july-reskin'"
+  ],
+  [
+    "apk"
+  ],
+  [
+    "lt working"
+  ],
+  [
+    "ltt"
+  ],
+  [
+    "ltt"
+  ],
+  [
+    "major imporvements"
+  ],
+  [
+    "ldone"
+  ],
+  [
+    "3rd nearly done within info"
+  ],
+  [
+    "second done without info"
+  ],
+  [
+    "all infos have been added for the first section"
+  ],
+  [
+    "t"
+  ],
+  [
+    "parcial done"
+  ],
+  [
+    "llt"
+  ],
+  [
+    "info added"
+  ],
+  [
+    "tt4"
+  ],
+  [
+    "ticket.json"
+  ],
+  [
+    "ticket desciption"
+  ],
+  [
+    "upgrade"
+  ],
+  [
+    "new advanced coming soon"
+  ],
+  [
+    "done"
+  ],
+  [
+    "updating nxfront"
+  ],
+  [
+    "v2"
+  ],
+  [
+    "working"
+  ],
+  [
+    "o"
+  ],
+  [
+    "making improvements to quick options"
+  ],
+  [
+    "legacy ticket fixed for the lolz"
+  ],
+  [
+    "settings working"
+  ],
+  [
+    "proposal"
+  ],
+  [
+    "new menu"
+  ],
+  [
+    "new v7 home"
+  ],
+  [
+    "start of something great"
+  ],
+  [
+    "new look"
+  ],
+  [
+    "d"
+  ],
+  [
+    "done"
+  ],
+  [
+    "working"
+  ],
+  [
+    "d"
+  ],
+  [
+    "bigger version"
+  ],
+  [
+    "hfix"
+  ],
+  [
+    "done"
+  ],
+  [
+    "done"
+  ],
+  [
+    "updated UI"
+  ],
+  [
+    "done"
+  ],
+  [
+    "."
+  ],
+  [
+    "mtic nearly"
+  ],
+  [
+    "fix"
+  ],
+  [
+    "ticket"
+  ],
+  [
+    "done"
+  ],
+  [
+    "d"
+  ],
+  [
+    "m"
+  ],
+  [
+    "d"
+  ],
+  [
+    "don"
+  ],
+  [
+    "switcher"
+  ],
+  [
+    "done"
+  ],
+  [
+    "fuck=no1 update"
+  ],
+  [
+    "dl"
+  ],
+  [
+    "my metro"
+  ],
+  [
+    "all ticket data"
+  ],
+  [
+    "done"
+  ],
+  [
+    "d"
+  ],
+  [
+    "works well"
+  ],
+  [
+    "d"
+  ],
+  [
+    "done"
+  ],
+  [
+    "do"
+  ],
+  [
+    "added new function to get all used tickets"
+  ],
+  [
+    "done"
+  ],
+  [
+    "done"
+  ],
+  [
+    "ticket info is working"
+  ],
+  [
+    "advanced ticket info"
+  ],
+  [
+    "payment working"
+  ],
+  [
+    "tw"
+  ],
+  [
+    "done"
+  ],
+  [
+    "jnj"
+  ],
+  [
+    "simulation"
+  ],
+  [
+    "dsf"
+  ],
+  [
+    "done"
+  ],
+  [
+    "d"
+  ],
+  [
+    "done"
+  ],
+  [
+    "d"
+  ],
+  [
+    "getting connected"
+  ],
+  [
+    "d"
+  ],
+  [
+    "imp"
+  ],
+  [
+    "doff"
+  ],
+  [
+    "el"
+  ],
+  [
+    "working"
+  ],
+  [
+    "."
+  ],
+  [
+    "f"
+  ],
+  [
+    "d"
+  ],
+  [
+    "d"
+  ],
+  [
+    "l"
+  ],
+  [
+    "d"
+  ],
+  [
+    "debug"
+  ],
+  [
+    "adding v2 functions"
+  ],
+  [
+    "ticketwalletv2"
+  ],
+  [
+    "fix logic"
+  ],
+  [
+    "dkljn"
+  ],
+  [
+    "done"
+  ],
+  [
+    "improving the data logic"
+  ],
+  [
+    "ticket used"
+  ],
+  [
+    "improved the top bar"
+  ],
+  [
+    "sdfdsf"
+  ],
+  [
+    "social media"
+  ],
+  [
+    "social media"
+  ],
+  [
+    "moreimp"
+  ],
+  [
+    "newimp"
+  ],
+  [
+    "new account page working"
+  ],
+  [
+    "done"
+  ],
+  [
+    "fixed"
+  ],
+  [
+    "working"
+  ],
+  [
+    ".."
+  ],
+  [
+    "tos"
+  ],
+  [
+    "disclaimr"
+  ],
+  [
+    "refac more"
+  ],
+  [
+    "refactored code"
+  ],
+  [
+    "de"
+  ],
+  [
+    "indicator"
+  ],
+  [
+    "done"
+  ],
+  [
+    "adv home"
+  ],
+  [
+    "done"
+  ],
+  [
+    "dedemo"
+  ],
+  [
+    "much improved default ticket selecttion experience"
+  ],
+  [
+    "ejection settings"
+  ],
+  [
+    "advanced setup"
+  ],
+  [
+    "default home page"
+  ],
+  [
+    "done"
+  ],
+  [
+    "advanced setup"
+  ],
+  [
+    "black pie done"
+  ],
+  [
+    "can change theme"
+  ],
+  [
+    "updated theme"
+  ],
+  [
+    "upd"
+  ],
+  [
+    "extracted QR"
+  ],
+  [
+    "adjusted for smaller phones"
+  ],
+  [
+    "fixxed bug"
+  ],
+  [
+    "done"
+  ],
+  [
+    "done"
+  ],
+  [
+    "made it so the screen gets brigher"
+  ],
+  [
+    "new app"
+  ],
+  [
+    "improved ui"
+  ],
+  [
+    "err connection"
+  ],
+  [
+    "Better Performance"
+  ],
+  [
+    "setup imroved"
+  ],
+  [
+    "new setup flow"
+  ],
+  [
+    "improved speed"
+  ],
+  [
+    "improved ui"
+  ],
+  [
+    "quick switch ticket"
+  ],
+  [
+    "COmmand Control settings from ticket page"
+  ],
+  [
+    "random color mode working"
+  ],
+  [
+    "now you can only open color selector via double tab only"
+  ],
+  [
+    "still lets you choose any color if you want that option"
+  ],
+  [
+    "advanced color selector"
+  ],
+  [
+    "done"
+  ],
+  [
+    "ui-more-presentable"
+  ],
+  [
+    "improved ui"
+  ],
+  [
+    "faster simulation"
+  ],
+  [
+    "tw"
+  ],
+  [
+    "updated the code base for ticket wallet- more neater"
+  ],
+  [
+    "improved ticket wallet system"
+  ],
+  [
+    "upd code"
+  ],
+  [
+    "dd"
+  ],
+  [
+    "pohome"
+  ],
+  [
+    "clt"
+  ],
+  [
+    "done"
+  ],
+  [
+    "piome"
+  ],
+  [
+    "nearly ready"
+  ],
+  [
+    "upd"
+  ],
+  [
+    "updated good"
+  ],
+  [
+    "updated select ticket page"
+  ],
+  [
+    "updated code to use subtitle instead of hard coded value2"
+  ],
+  [
+    "nv2"
+  ],
+  [
+    "clone s"
+  ],
+  [
+    "done"
+  ],
+  [
+    "metro pass"
+  ],
+  [
+    "imported all metro tickers"
+  ],
+  [
+    "more tickers"
+  ],
+  [
+    "non sim"
+  ],
+  [
+    "updated front page"
+  ],
+  [
+    "bypass mode coming soon"
+  ],
+  [
+    "finished"
+  ],
+  [
+    "updated pi design"
+  ],
+  [
+    "new bubblegum home design"
+  ],
+  [
+    "done"
+  ],
+  [
+    "phaseover"
+  ],
+  [
+    "sripped"
+  ],
+  [
+    "done"
+  ],
+  [
+    "done"
+  ],
+  [
+    "works"
+  ],
+  [
+    "done"
+  ],
+  [
+    "all issues fixed"
+  ],
+  [
+    "default clean up is good"
+  ],
+  [
+    "done"
+  ],
+  [
+    "terms and conditions"
+  ],
+  [
+    "modified the nxsig"
+  ],
+  [
+    "done"
+  ],
+  [
+    "ticket wallet"
+  ],
+  [
+    "all images"
+  ],
+  [
+    "fixed spacing issues"
+  ],
+  [
+    "fixked walle"
+  ],
+  [
+    "doine"
+  ],
+  [
+    "nxhelp"
+  ],
+  [
+    "done"
+  ],
+  [
+    "working"
+  ],
+  [
+    "fixed issue"
+  ],
+  [
+    "done"
+  ],
+  [
+    "ti"
+  ],
+  [
+    "details page"
+  ],
+  [
+    "details page working"
+  ],
+  [
+    "formatted tie"
+  ],
+  [
+    "overlay working"
+  ],
+  [
+    "payment confirmed bg color fixed"
+  ],
+  [
+    "enter the card info"
+  ],
+  [
+    "history process"
+  ],
+  [
+    "impoved the front page"
+  ],
+  [
+    "rough group daysaver"
+  ],
+  [
+    "group daysaver"
+  ],
+  [
+    "rounded for group daysaver"
+  ],
+  [
+    "improved"
+  ],
+  [
+    "fixed up"
+  ],
+  [
+    "ticket partially working"
+  ],
+  [
+    "ticket aliangement"
+  ],
+  [
+    "ticket improved"
+  ],
+  [
+    "more realism"
+  ],
+  [
+    "improved the oc"
+  ],
+  [
+    "improved colors"
+  ],
+  [
+    "partial ejection settings working"
+  ],
+  [
+    "cleaned the offers page"
+  ],
+  [
+    "nxfront spacing"
+  ],
+  [
+    "nx logo is back"
+  ],
+  [
+    "stableised a few things"
+  ],
+  [
+    "removed the timer on the customise ticket page as it was not needed"
+  ],
+  [
+    "added callback so we dont need  atimer anymore"
+  ],
+  [
+    "updated bar"
+  ],
+  [
+    "default ticket"
+  ],
+  [
+    "improved the default ticket page"
+  ],
+  [
+    "fixed landing pages options"
+  ],
+  [
+    "options"
+  ],
+  [
+    "terms"
+  ],
+  [
+    "fixed memory leak"
+  ],
+  [
+    "better animations"
+  ],
+  [
+    "everything works"
+  ],
+  [
+    "fixed all issues"
+  ],
+  [
+    "added ability to send"
+  ],
+  [
+    "fixed issues"
+  ],
+  [
+    "fixed issue relating to null top bottom navigation"
+  ],
+  [
+    "prepare launch on blackpie 3"
+  ],
+  [
+    "newgif"
+  ],
+  [
+    "done"
+  ],
+  [
+    "added more animations"
+  ],
+  [
+    "fixed"
+  ],
+  [
+    "fixed"
+  ],
+  [
+    "done"
+  ],
+  [
+    "ticketv2 and helper"
+  ],
+  [
+    "overlay working"
+  ],
+  [
+    "took care of memory leaks"
+  ],
+  [
+    "done"
+  ],
+  [
+    "added some sutle animation"
+  ],
+  [
+    "overlays"
+  ],
+  [
+    "updated the ui"
+  ],
+  [
+    "changing text speed works perfectly"
+  ],
+  [
+    "finished addming animatino"
+  ],
+  [
+    "setup flow"
+  ],
+  [
+    "onboarding refinded"
+  ],
+  [
+    "updated ui and actions"
+  ],
+  [
+    "setup working properly"
+  ],
+  [
+    "updated"
+  ],
+  [
+    "updated settings"
+  ],
+  [
+    "added a nice blue effect"
+  ],
+  [
+    "linked up the options again"
+  ],
+  [
+    "added the 2 buttons"
+  ],
+  [
+    "updated options"
+  ],
+  [
+    "improved ui"
+  ],
+  [
+    "new look"
+  ],
+  [
+    "animations overlay settings"
+  ],
+  [
+    "animation settings"
+  ],
+  [
+    "tweat animatino settings"
+  ],
+  [
+    "overlay settings"
+  ],
+  [
+    "tweak settings"
+  ],
+  [
+    "updated ui"
+  ],
+  [
+    "upgraded ui"
+  ],
+  [
+    "updated the pie home"
+  ],
+  [
+    "fixed"
+  ],
+  [
+    "fixed issues"
+  ],
+  [
+    "main.dart"
+  ],
+  [
+    "done"
+  ],
+  [
+    "paytransfer"
+  ],
+  [
+    "nearly completed pay and trasnfer"
+  ],
+  [
+    "provisioned the pay and transfer page"
+  ],
+  [
+    "added halifax on the banking clones"
+  ],
+  [
+    "hard coded account details for now"
+  ],
+  [
+    "finished account details page"
+  ],
+  [
+    "added pending balance"
+  ],
+  [
+    "got reversed list"
+  ],
+  [
+    "first part halifax"
+  ],
+  [
+    "first part halifax"
+  ],
+  [
+    "first part halifax"
+  ],
+  [
+    "first part halifax"
+  ],
+  [
+    "first part halifax"
+  ],
+  [
+    "done first step"
+  ],
+  [
+    "added quick options"
+  ],
+  [
+    "added support for v1 for nastalgic purpsoes"
+  ],
+  [
+    "nxhome"
+  ],
+  [
+    "optimised ui"
+  ],
+  [
+    "launch"
+  ],
+  [
+    "landing page"
+  ],
+  [
+    "partial launcher done"
+  ],
+  [
+    "HOTFIX TEXT and spacing modifications"
+  ],
+  [
+    "hot fix"
+  ],
+  [
+    "hotfix 2 done"
+  ],
+  [
+    "new mods"
+  ],
+  [
+    "hotfix-default value"
+  ],
+  [
+    "finalise"
+  ],
+  [
+    "nx ready"
+  ],
+  [
+    "ability to restart app"
+  ],
+  [
+    "updaed"
+  ],
+  [
+    "added function to delete all tickets"
+  ],
+  [
+    "prebuild done for now"
+  ],
+  [
+    "fixed qr generation issue"
+  ],
+  [
+    "new assets"
+  ],
+  [
+    "modified curve of ticket wallet"
+  ],
+  [
+    "modified spacing on activated ticket"
+  ],
+  [
+    "fixed ui issues"
+  ],
+  [
+    "default ticket working"
+  ],
+  [
+    "default ticket selection updated"
+  ],
+  [
+    "default ticket"
+  ],
+  [
+    "default ticket options"
+  ],
+  [
+    "fixed timing issue"
+  ],
+  [
+    "made ajustments to the date function"
+  ],
+  [
+    "date maths done"
+  ],
+  [
+    "fixed date issue"
+  ],
+  [
+    "fixed and hooked up expiry dates"
+  ],
+  [
+    "done"
+  ],
+  [
+    "updated expiry system"
+  ],
+  [
+    "helper for expiry"
+  ],
+  [
+    "routing issue"
+  ],
+  [
+    "daysaver activation works"
+  ],
+  [
+    "ability to activate ticket in helper"
+  ],
+  [
+    "color bars are flashing yay"
+  ],
+  [
+    "color selector working"
+  ],
+  [
+    "toverlay"
+  ],
+  [
+    "moving text"
+  ],
+  [
+    "ticketv2 updated to allow db support"
+  ],
+  [
+    "hooked up action and details on the actual ticket page as well"
+  ],
+  [
+    "overlay working"
+  ],
+  [
+    "overlay for actions nearly done"
+  ],
+  [
+    "actions overlay started"
+  ],
+  [
+    "terms"
+  ],
+  [
+    "terms refactored"
+  ],
+  [
+    "terms page created"
+  ],
+  [
+    "detail page semi finished"
+  ],
+  [
+    "second part done"
+  ],
+  [
+    "first part of detail page done"
+  ],
+  [
+    "ticket detail optimisations"
+  ],
+  [
+    "basic format formed for details page and hooked up back button"
+  ],
+  [
+    "ticket detail overlay"
+  ],
+  [
+    "made the close functionality work"
+  ],
+  [
+    "optimised moving text"
+  ],
+  [
+    "moving test working"
+  ],
+  [
+    "refactored code"
+  ],
+  [
+    "optimised for other states"
+  ],
+  [
+    "cov"
+  ],
+  [
+    "done"
+  ],
+  [
+    "buys ticket then goes to the confirmed page"
+  ],
+  [
+    "done"
+  ],
+  [
+    "refactored"
+  ],
+  [
+    "load usable tickets on ticket wallet page"
+  ],
+  [
+    "refactored gode"
+  ],
+  [
+    "buying tickets working"
+  ],
+  [
+    "ability to buy ticket"
+  ],
+  [
+    "done"
+  ],
+  [
+    "ui done"
+  ],
+  [
+    "pagment successful"
+  ],
+  [
+    "partial payment success page"
+  ],
+  [
+    "payment confirmation"
+  ],
+  [
+    "fixed final payment scroll, and made security code and email editable"
+  ],
+  [
+    "enter card"
+  ],
+  [
+    "pick method"
+  ],
+  [
+    "grabs correct option"
+  ],
+  [
+    "payment optin"
+  ],
+  [
+    "init"
+  ],
+  [
+    "ulp"
+  ],
+  [
+    "payment method"
+  ],
+  [
+    "ticket selection"
+  ],
+  [
+    "flow partial"
+  ],
+  [
+    "all the tickets are showing on buy page"
+  ],
+  [
+    "fixed annoying bug"
+  ],
+  [
+    "working on helper"
+  ],
+  [
+    "saving ticket type"
+  ],
+  [
+    "done"
+  ],
+  [
+    "sandwell and dudley done"
+  ],
+  [
+    "cleaned up code"
+  ],
+  [
+    "added safer and cleaner code"
+  ],
+  [
+    "conventry area covered"
+  ],
+  [
+    "partial conventry covered"
+  ],
+  [
+    "added all ticket types for west Midlands"
+  ],
+  [
+    "done"
+  ],
+  [
+    "tt"
+  ],
+  [
+    "select ticket"
+  ],
+  [
+    "buy flow"
+  ],
+  [
+    "changes only affect after reboot of app"
+  ],
+  [
+    "landing page flow setup with old flow"
+  ],
+  [
+    "made it so it redirects to nxclone pages on boot"
+  ],
+  [
+    "helper added and new database"
+  ],
+  [
+    "helper class"
+  ],
+  [
+    "flow"
+  ],
+  [
+    "push"
+  ],
+  [
+    "p1 done"
+  ],
+  [
+    "dd"
+  ],
+  [
+    "landing page"
+  ],
+  [
+    "done"
+  ],
+  [
+    "dialog activae ticket"
+  ],
+  [
+    "nxsig rounded works"
+  ],
+  [
+    "updated spacing on ticket page"
+  ],
+  [
+    "finish"
+  ],
+  [
+    "updared pre activation page"
+  ],
+  [
+    "done"
+  ],
+  [
+    "modifications to ticket page\""
+  ],
+  [
+    "nx rewards"
+  ],
+  [
+    "nxsig"
+  ],
+  [
+    "nxsig"
+  ],
+  [
+    "ticket page"
+  ],
+  [
+    "ticket color selectopr"
+  ],
+  [
+    "ticket page half done"
+  ],
+  [
+    "ticket activation done"
+  ],
+  [
+    "show activation dialog"
+  ],
+  [
+    "changed splash screen"
+  ],
+  [
+    "done ticket activation screen"
+  ],
+  [
+    "ticket activation page"
+  ],
+  [
+    "resent"
+  ],
+  [
+    "dne"
+  ],
+  [
+    "logs current selected ticket"
+  ],
+  [
+    "default ticket page"
+  ],
+  [
+    "customise ticket"
+  ],
+  [
+    "customise ticket"
+  ],
+  [
+    "saving default page works"
+  ],
+  [
+    "defualt page black pie"
+  ],
+  [
+    "landing page"
+  ],
+  [
+    "coding the landing page"
+  ],
+  [
+    "done"
+  ],
+  [
+    "used sq"
+  ],
+  [
+    "q"
+  ],
+  [
+    "quick action images done"
+  ],
+  [
+    "v2"
+  ],
+  [
+    "remvoed useless"
+  ],
+  [
+    "and"
   ]
+]
