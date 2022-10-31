@@ -41,10 +41,24 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
   var currentOption = null;
   
   var offlineSettings;
+  
+  var resetSettings;
 
   @override
   void initState() {
     super.initState();
+
+    if(Box.read("ResetSettings") == null){
+      //donotreset
+      Box.write("ResetSettings", "donotreset");
+      setState(() {
+        resetSettings = "donotreset";
+      });
+    }else{
+      setState(() {
+      resetSettings = Box.read("ResetSettings");        
+      });
+    }
 
     if(Box.read("OfflineSettings") == null){
       Box.write("OfflineSettings", "Offline");
@@ -421,138 +435,189 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                           ),
 
                           Container(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(Icons.settings,
-                                    color: Colors.black,
-                                    size: 20,),
-                                  ),
-                                  Text("Quick Settings",
-                                  style: GoogleFonts.roboto(
-                                    fontSize: 20,
-                                    color: Colors.black
-                                  ),
-                                  ),
-                                    ],
-                                  ),
-                                  Divider(
-                                    color: Colors.white,
-                                  ),
-                                  Container(
-                                    child: Row(
+                            child: SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
                                       children: [
-                                        Text("Home page:",
-                                        style: GoogleFonts.roboto(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                          fontSize: 20
-                                        ),),
-                                        Spacer(),
-                                        DropdownButton(
+                                        Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Icon(Icons.settings,
+                                      color: Colors.black,
+                                      size: 20,),
+                                    ),
+                                    Text("Quick Settings",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 20,
+                                      color: Colors.black
+                                    ),
+                                    ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color: Colors.white,
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Text("Home page:",
                                           style: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.bold,
                                             color: Colors.black,
-                                            fontWeight: FontWeight.w500
-                                          ),
-                                          onChanged: (e) {
-                                            Box.write("BubbleGumSettings", e);
-                                            setState(() {
-                                              currentOption = e;
-                                            });
-
-                                            //restart app
-                                            Phoenix.rebirth(context);
-                                          },
-                                          value: currentOption,
-                                          items: [
-                                            DropdownMenuItem(
-                                              child: Text("Bubble Gum Home"),
-                                              value: "bubblegumhome",
+                                            fontSize: 20
+                                          ),),
+                                          Spacer(),
+                                          DropdownButton(
+                                            style: GoogleFonts.roboto(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500
                                             ),
-                                            DropdownMenuItem(
-                                              child: Text("NX Home"),
-                                              value: "nxhome",
-                                            ),
-                                            DropdownMenuItem(
-                                              child: Text("Day Saver"),
-                                              value: "DaySaver",
-                                            ),
+                                            onChanged: (e) {
+                                              Box.write("BubbleGumSettings", e);
+                                              setState(() {
+                                                currentOption = e;
+                                              });
+                            
+                                              //restart app
+                                              Phoenix.rebirth(context);
+                                            },
+                                            value: currentOption,
+                                            items: [
                                               DropdownMenuItem(
-                                              child: Text("Group DaySaver"),
-                                              value: "Group DaySaver",
-                                            ),
-                                          ],
-                                        )
-                                      ],
+                                                child: Text("Bubble Gum Home"),
+                                                value: "bubblegumhome",
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text("NX Home"),
+                                                value: "nxhome",
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text("Day Saver"),
+                                                value: "DaySaver",
+                                              ),
+                                                DropdownMenuItem(
+                                                child: Text("Group DaySaver"),
+                                                value: "Group DaySaver",
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Text("TIP: Changing this setting will restart the app, and will take you to a new home page you selected",
-                                  style: GoogleFonts.roboto(
-                                    color: Colors.black.withOpacity(0.7),
-                                    fontSize: 15
-                                
-                                  ),
-                                  ),
-                                   Divider(
-                                    color: Colors.white,
-                                  ),
-                                  Container(
-                                    child: Row(
-                                      children: [
-                                        Text("Always online:",
-                                        style: GoogleFonts.roboto(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                          fontSize: 20
-                                        ),),
-                                        Spacer(),
-                                        DropdownButton(
+                                    Text("TIP: Changing this setting will restart the app, and will take you to a new home page you selected",
+                                    style: GoogleFonts.roboto(
+                                      color: Colors.black.withOpacity(0.7),
+                                      fontSize: 15
+                                  
+                                    ),
+                                    ),
+                                    Divider(
+                                      color: Colors.white,
+                                    ),
+                                     Container(
+                                      child: Row(
+                                        children: [
+                                          Text("Reset On Launch:",
                                           style: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.bold,
                                             color: Colors.black,
-                                            fontWeight: FontWeight.w500
-                                          ),
-                                          onChanged: (e) {
-                                            Box.write("OfflineSettings", e);
-                                            setState(() {
-                                              offlineSettings = e;
-                                            });
-                                          },
-                                          value: offlineSettings,
-                                          items: [
-                                             DropdownMenuItem(
-                                              child: Text("Offline"),
-                                              value: "Offline",
+                                            fontSize: 20
+                                          ),),
+                                          Spacer(),
+                                          DropdownButton(
+                                            style: GoogleFonts.roboto(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500
                                             ),
-                                            DropdownMenuItem(
-                                              child: Text("Always Online"),
-                                              value: "Always Online",
-                                            )
-                                          ],
-                                        )
-                                      ],
+                                            onChanged: (e) {
+                                              Box.write("ResetSettings", e);
+                                              setState(() {
+                                                resetSettings = e;
+                                              });
+                            
+                                              //restart app
+                                            },
+                                            value: resetSettings,
+                                            items: [
+                                              DropdownMenuItem(
+                                                child: Text("Do not reset"),
+                                                value: "donotreset",
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text("Reset on launch"),
+                                                value: "resetonlaunch",
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Text("TIP: Always Online will result in more accuracy but requires internet connection, If you lose connection, the clone will switch to offline mode",
-                                  style: GoogleFonts.roboto(
-                                    fontSize: 13,
-                                    color: Colors.black.withOpacity(0.7)
-                                  ),
-                                  ),
-                                  SizedBox(height: 10,),
-                                  Text("TIP: Long press on the menu button on the nx home page to come back to this page",
-                                  style: GoogleFonts.roboto(
-                                    fontSize: 13,
-                                    color: Colors.black.withOpacity(0.7)
-                                  ),
-                                  )
-
-                                ],
+                                    Text("TIP: Activating this will delete all tickets and reset the app whenever you launch it",
+                                    style: GoogleFonts.roboto(
+                                      color: Colors.black.withOpacity(0.7),
+                                      fontSize: 15
+                                  
+                                    ),
+                                    
+                                    ),
+                                     Divider(
+                                      color: Colors.white,
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Text("Always online:",
+                                          style: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 20
+                                          ),),
+                                          Spacer(),
+                                          DropdownButton(
+                                            style: GoogleFonts.roboto(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500
+                                            ),
+                                            onChanged: (e) {
+                                              Box.write("OfflineSettings", e);
+                                              setState(() {
+                                                offlineSettings = e;
+                                              });
+                                            },
+                                            value: offlineSettings,
+                                            items: [
+                                               DropdownMenuItem(
+                                                child: Text("Offline"),
+                                                value: "Offline",
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text("Always Online"),
+                                                value: "Always Online",
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Text("TIP: Always Online will result in more accuracy but requires internet connection, If you lose connection, the clone will switch to offline mode",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 13,
+                                      color: Colors.black.withOpacity(0.7)
+                                    ),
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Text("TIP: Long press on the menu button on the nx home page to come back to this page",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 13,
+                                      color: Colors.black.withOpacity(0.7)
+                                    ),
+                                    )
+                            
+                                  ],
+                                ),
                               ),
                             ),
                           )

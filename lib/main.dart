@@ -174,6 +174,10 @@ void main() async {
 
   final Box = GetStorage();
 
+  if(Box.read("ResetSettings") == "resetonlaunch"){
+    await NXDeleteAllTickets();
+  }
+
   return runApp(Phoenix(
       child: FutureBuilder(
     future: Future.delayed(Duration(seconds: 3)),
