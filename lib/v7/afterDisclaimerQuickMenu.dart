@@ -614,6 +614,12 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       fontSize: 13,
                                       color: Colors.black.withOpacity(0.7)
                                     ),
+                                    ),
+                                    SizedBox(height: 30,),
+                                    Container(
+                                      child: Center(
+                                        child: Text("V2022"),
+                                      ),
                                     )
                             
                                   ],
