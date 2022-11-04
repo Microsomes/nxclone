@@ -28,39 +28,44 @@ class _MyProfileState extends State<MyProfile> {
               width: double.infinity,
               height: 73,
               color: Colors.transparent,
-              child: Stack(alignment: Alignment.center, children: [
-                Positioned(
-                    right: 0,
-                    top: 38,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        width: 100,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 60,
-                            ),
-                            Icon(
-                              Icons.close,
-                              size: 28,
-                              color: Colors.white.withOpacity(0.95),
-                            )
-                          ],
+              child: GestureDetector(
+                onTap: () {
+                 Navigator.pop(context);
+                },
+                child: Stack(alignment: Alignment.center, children: [
+                  Positioned(
+                      right: 0,
+                      top: 38,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: 100,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 60,
+                              ),
+                              Icon(
+                                Icons.close,
+                                size: 28,
+                                color: Colors.white.withOpacity(0.95),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    )),
-                Positioned(
-                  top: 44,
-                  child: Text("My profile",
-                      style: GoogleFonts.roboto(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16)),
-                )
-              ])),
+                      )),
+                  Positioned(
+                    top: 44,
+                    child: Text("My profile",
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16)),
+                  )
+                ]),
+              )),
           Expanded(
             child: Container(
                 color: Colors.white,

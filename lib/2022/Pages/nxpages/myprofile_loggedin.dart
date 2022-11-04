@@ -18,6 +18,8 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
 
   final Box = GetStorage();
 
+
+
     var sections = [
     {
       "section": "",
@@ -25,7 +27,7 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
         {
           "type": "link",
           "label": "My Cards",
-          "icon": "images/front/account.svg",
+          "icon": "images/front/payment.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
 
             if(isLoggedIn){
@@ -38,7 +40,7 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
          {
           "type": "link",
           "label": "Change Password",
-          "icon": "images/front/account.svg",
+          "icon": "images/front/password.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
 
             if(isLoggedIn){
@@ -51,7 +53,7 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
          {
           "type": "link",
           "label": "Delete Account",
-          "icon": "images/front/account.svg",
+          "icon": "images/front/delete.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
 
             if(isLoggedIn){

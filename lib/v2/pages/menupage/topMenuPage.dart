@@ -53,6 +53,16 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
               Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
             }
           }
+        },
+         {
+          "onlyLoggedIn": true,
+          "type": "link",
+          "label": "Marketing Preferences",
+          "icon": "images/front/app-info.svg",
+          "action": (BuildContext ctx, bool isLoggedIn){
+
+            
+          }
         }
       ]
     },
@@ -155,7 +165,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
   }
 }
 
-class UtilitiesList extends StatelessWidget {
+class UtilitiesList extends StatefulWidget {
   final SpacingTop ;
    UtilitiesList({
     Key key,
@@ -165,7 +175,26 @@ class UtilitiesList extends StatelessWidget {
 
   final List<Map<String, Object>> sections;
 
+  @override
+  State<UtilitiesList> createState() => _UtilitiesListState();
+}
+
+class _UtilitiesListState extends State<UtilitiesList> {
   final Box = GetStorage();
+
+  bool isLoggedIn = false;
+
+@override
+  void initState() {
+    super.initState();
+
+    if(Box.read("isLoggedIn") != null){
+      setState(() {
+        isLoggedIn = Box.read("isLoggedIn");
+      });
+    }
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -173,10 +202,11 @@ class UtilitiesList extends StatelessWidget {
       color: Colors.transparent,
       child: Column(
         children: [
-         SpacingTop == true ? SizedBox(height: 30,):Container(),
-          for (var i = 0; i < sections.length; i++)
+         widget.SpacingTop == true ? SizedBox(height: 30,):Container(),
+          for (var i = 0; i < widget.sections.length; i++)
             Builder(builder: (ctx) {
-              List links = sections[i]['links'];
+              List links = widget.sections[i]['links'];
+              
 
               return Container(
                 padding: EdgeInsets.only(left: 10),
@@ -186,7 +216,7 @@ class UtilitiesList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      sections[i]['section'],
+                      widget.sections[i]['section'],
                       style: GoogleFonts.roboto(
                           fontSize: 25,
                           color: Colors.white,
@@ -194,7 +224,13 @@ class UtilitiesList extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     for (var l = 0; l < links.length; l++)
-                      GestureDetector(
+                   Builder(builder: (ctx){
+
+                    if(links[l]['onlyLoggedIn'] == true  && isLoggedIn == false){
+                      return Container();
+                    }
+
+                    return  GestureDetector(
                         onTap: (){
 
                          var isLoggedIn =  Box.read("isLoggedIn");
@@ -211,8 +247,9 @@ class UtilitiesList extends StatelessWidget {
                                         left: 20.0),
                                     child: SvgPicture.asset(
                                       links[l]['icon'],
+                                      color: Color.fromRGBO(147, 24, 23, 1),
                                       // color: links[i]['iconColor'],
-                                      height: 25,
+                                      height: 22,
                                     ),
                                   )),
                               Expanded(
@@ -253,7 +290,10 @@ class UtilitiesList extends StatelessWidget {
                               left: 0,
                               right: 10),
                         ),
-                      )
+                      );
+
+                   })
+                     
                   ],
                 ),
               );
