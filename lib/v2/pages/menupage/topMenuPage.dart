@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../2022/Pages/nxpages/SocialMedia.dart';
 import '../../../2022/Pages/nxpages/front.dart';
 import '../../../2022/Pages/nxpages/myprofile.dart';
 
@@ -84,7 +85,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "label": "Social media",
           "icon": "images/front/social-media.svg",
           "action": (BuildContext context, bool isLoggedIn){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> SocialMediaPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SocialMediaPagev2()));
           }
         },
         {
