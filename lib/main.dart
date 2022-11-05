@@ -1,8 +1,6 @@
 import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/setupMain.dart';
-import 'package:BubbleGum/splash.dart';
 import 'package:BubbleGum/v3/newSetup.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BubbleGum/v2/helper/NxHelp.dart';
@@ -11,11 +9,10 @@ import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'dart:async';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '2022/Pages/nxpages/front.dart';
-import '2022/components/backButton.dart';
 import 'v2/models/sharedprefkey/main.dart';
 import 'v7/afterDisclaimerQuickMenu.dart';
 
@@ -178,36 +175,64 @@ void main() async {
     await NXDeleteAllTickets();
   }
 
+  final GoRouter _router = GoRouter(
+    routes: <GoRoute>[
+      GoRoute(
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) {
+          return LTW(Box: Box);
+        },
+      )
+    ],
+  );
+
+
   return runApp(Phoenix(
       child: FutureBuilder(
     future: Future.delayed(Duration(seconds: 3)),
     builder: (ctx, AsyncSnapshot snapshot) {
-      return MaterialApp(
+      return MaterialApp.router(
+        title: "BubbleGum",
+        routerConfig:_router ,
           debugShowCheckedModeBanner: false,
-          home: FutureBuilder(
-            future: NXInitApp(),
-            builder: (ctx, snapshot) {
-              return FutureBuilder(
-                  future: CheckTicketsForExpiry(),
-                  builder: (ctx, snapshot) {
-                    var where = Box.read("BubbleGumSettings");
-
-                    if(snapshot.connectionState == ConnectionState.done){
-                      if(snapshot.data != 0){
-                        return ActualTicket(txid: snapshot.data);
-                      }
-                    }
-
-                    if (where == "bubblegumhome") {
-                      return AfterDisclaimer();
-                    } else if (where == "nxhome") {
-                      return NxPagesFront();
-                    }
-
-                    return AfterDisclaimer();
-                  });
-            },
-          ));
+      );
     },
   )));
+}
+
+class LTW extends StatelessWidget {
+  const LTW({
+    Key key,
+    @required this.Box,
+  }) : super(key: key);
+
+  final GetStorage Box;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: NXInitApp(),
+      builder: (ctx, snapshot) {
+        return FutureBuilder(
+            future: CheckTicketsForExpiry(),
+            builder: (ctx, snapshot) {
+              var where = Box.read("BubbleGumSettings");
+
+              if(snapshot.connectionState == ConnectionState.done){
+                if(snapshot.data != 0){
+                  return ActualTicket(txid: snapshot.data);
+                }
+              }
+
+              if (where == "bubblegumhome") {
+                return AfterDisclaimer();
+              } else if (where == "nxhome") {
+                return NxPagesFront();
+              }
+
+              return AfterDisclaimer();
+            });
+      },
+    );
+  }
 }

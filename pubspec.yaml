@@ -65,6 +65,7 @@ dependencies:
   flutter_markdown: ^0.6.12
   marquee: ^2.2.3
   get_storage: ^1.4.0
+  go_router: ^5.1.3
 
 dev_dependencies:
   flutter_test:

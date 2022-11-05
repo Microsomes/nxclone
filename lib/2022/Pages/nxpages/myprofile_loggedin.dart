@@ -7,6 +7,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../v2/pages/menupage/profile/LoginIn.dart';
+import 'changePassword.dart';
+import 'mycards.dart';
 
 class MyProfileLoggedIn extends StatefulWidget {
   @override
@@ -30,11 +32,8 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
           "icon": "images/front/payment.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
 
-            if(isLoggedIn){
-             Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfileLoggedIn()));
-            }else{
-              Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
-            }
+            Navigator.push(ctx, MaterialPageRoute(builder: (ctx)=> MyCards()));
+         
           }
         },
          {
@@ -42,12 +41,7 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
           "label": "Change Password",
           "icon": "images/front/password.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
-
-            if(isLoggedIn){
-             Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfileLoggedIn()));
-            }else{
-              Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
-            }
+           Navigator.push(ctx, MaterialPageRoute(builder: (ctx)=> ChangePassword()));
           }
         },
          {
@@ -56,11 +50,8 @@ class _MyProfileLoggedInState extends State<MyProfileLoggedIn> {
           "icon": "images/front/delete.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
 
-            if(isLoggedIn){
-             Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfileLoggedIn()));
-            }else{
-              Navigator.push(ctx,MaterialPageRoute(builder: (ctx)=> MyProfile()));
-            }
+            launchURL("https://eu-app.justride.com/websales-client/NEWM/deleteAccount/");
+            
           }
         }
       ]

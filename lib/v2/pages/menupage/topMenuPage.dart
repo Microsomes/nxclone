@@ -61,6 +61,7 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "icon": "images/front/app-info.svg",
           "action": (BuildContext ctx, bool isLoggedIn){
 
+            launchURL("https://nxbus.co.uk");
             
           }
         }
