@@ -41,50 +41,48 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
   final Box = GetStorage();
 
   var currentOption = null;
-  
+
   var offlineSettings;
-  
+
   var resetSettings;
 
   @override
   void initState() {
     super.initState();
 
-    if(Box.read("ResetSettings") == null){
+    if (Box.read("ResetSettings") == null) {
       //donotreset
       Box.write("ResetSettings", "donotreset");
       setState(() {
         resetSettings = "donotreset";
       });
-    }else{
+    } else {
       setState(() {
-      resetSettings = Box.read("ResetSettings");        
+        resetSettings = Box.read("ResetSettings");
       });
     }
 
-    if(Box.read("OfflineSettings") == null){
+    if (Box.read("OfflineSettings") == null) {
       Box.write("OfflineSettings", "Offline");
       setState(() {
         offlineSettings = "Offline";
       });
-    }else{
+    } else {
       setState(() {
         offlineSettings = Box.read("OfflineSettings");
       });
     }
 
-    if(Box.read("BubbleGumSettings") == null ){
+    if (Box.read("BubbleGumSettings") == null) {
       Box.write("BubbleGumSettings", "bubblegumhome");
       setState(() {
         currentOption = "bubblegumhome";
       });
-    }else{
+    } else {
       setState(() {
         currentOption = Box.read("BubbleGumSettings");
       });
     }
-
-
 
     allOptions.add(new AfterDisclaimerModel(
         title: "Day Saver",
@@ -110,8 +108,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
         subtitle: "Want a custom solution, requires more brains",
         image: Image.asset("images/v7/drill.png")));
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -150,8 +146,9 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                           ),
                         ],
                       )),
-
-                    SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Expanded(
                       child: Container(
                     alignment: Alignment.center,
@@ -162,7 +159,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             crossAxisSpacing: 10.0,
                             mainAxisSpacing: 10.0),
                         children: [
-                         
                           Container(
                             padding: EdgeInsets.all(20),
                             child: Column(
@@ -170,29 +166,30 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 Container(
                                   height: 20,
                                   child: Center(
-                                    child: Text("Quick Ticket Selection",
-                                    style: GoogleFonts.roboto(
-                                      color: Colors.white,
-                                      fontSize: 12
-                                    ),
+                                    child: Text(
+                                      "Quick Ticket Selection",
+                                      style: GoogleFonts.roboto(
+                                          color: Colors.white, fontSize: 12),
                                     ),
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.black,
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
-                                        topLeft: Radius.circular(10)
-                                        ),
+                                        topLeft: Radius.circular(10)),
                                   ),
                                 ),
                                 Expanded(
                                   child: GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       NXBuyDaysaverTicket().then((value) {
                                         //actualTicket
-                                          Navigator.push(context, MaterialPageRoute(builder: (ctx) => ActualTicket(
-                                            txid: value,
-                                          )));
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (ctx) => ActualTicket(
+                                                      txid: value,
+                                                    )));
                                       });
                                     },
                                     child: Container(
@@ -211,12 +208,15 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 ),
                                 Expanded(
                                   child: GestureDetector(
-                                    onTap: (){
-                                       NXBuyGroupSaver().then((value) {
+                                    onTap: () {
+                                      NXBuyGroupSaver().then((value) {
                                         //actualTicket
-                                          Navigator.push(context, MaterialPageRoute(builder: (ctx) => ActualTicket(
-                                            txid: value,
-                                          )));
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (ctx) => ActualTicket(
+                                                      txid: value,
+                                                    )));
                                       });
                                     },
                                     child: Container(
@@ -226,7 +226,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                           color: Color.fromRGBO(167, 27, 26, 1),
                                           borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20))),
+                                              bottomRight:
+                                                  Radius.circular(20))),
                                       child: Text(
                                         "Group Day Saver",
                                         style: GoogleFonts.aBeeZee(
@@ -237,22 +238,27 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 20,),
-                                 Expanded(
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Expanded(
                                   child: GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => NxPagesFront()));
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  NxPagesFront()));
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.green),
+                                          border:
+                                              Border.all(color: Colors.green),
                                           color: Colors.black,
-                                          borderRadius: BorderRadius.circular(10)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
                                       child: Text(
                                         "NX Home",
                                         style: GoogleFonts.aBeeZee(
@@ -269,138 +275,143 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                          
-                         
-                           
                           Container(
                             child: Column(
                               children: [
                                 Expanded(
                                   child: GestureDetector(
-                                                            onTap: () {
-                                                              Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginManager()));
-                                                            },
-                                                            child: Container(
-                                                              child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        width: double.infinity,
-                                        child: Text(
-                                          "Login Manager",
-                                          style: GoogleFonts.roboto(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                                              ),
-                                                              margin: EdgeInsets.all(10),
-                                                              decoration: BoxDecoration(
-                                    color: Color.fromRGBO(167, 27, 26, 1),
-                                    borderRadius: BorderRadius.circular(10)),
-                                                            ),
-                                                          ),
-                                ),
-                                  Expanded(
-                                  child: GestureDetector(
-                                                            onTap: () {
-                                                              Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ViewAllTickets()));
-                                                            },
-                                                            child: Container(
-                                                              child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        width: double.infinity,
-                                        child: Text(
-                                          "View All Tickets",
-                                          style: GoogleFonts.roboto(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                                              ),
-                                                              margin: EdgeInsets.all(10),
-                                                              decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(10)),
-                                                            ),
-                                                          ),
-                                ),
-                                SizedBox(height: 20,),
-                                GestureDetector(
                                     onTap: () {
-                                      //dialog to ask are you sure
-                                      //if yes, then go to emergency mode
-                                      //if no, then do nothing
-
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return AlertDialog(
-                                              title: Text("Are you sure?"),
-                                              content: Text(
-                                                  "This will delete all tickets and data"),
-                                              actions: [
-                                                TextButton(
-                                                  child: Text("Yes"),
-                                                  onPressed: () {
-                                                    NXDeleteAllTickets();
-                                                    //show toast
-                                                    Navigator.pop(context);
-
-                                                    Fluttertoast.showToast(
-                                                        msg:
-                                                            "All tickets deleted",
-                                                        toastLength:
-                                                            Toast.LENGTH_SHORT,
-                                                        gravity:
-                                                            ToastGravity.BOTTOM,
-                                                        timeInSecForIosWeb: 1,
-                                                        backgroundColor:
-                                                            Colors.red,
-                                                        textColor: Colors.white,
-                                                        fontSize: 16.0);
-                                                  },
-                                                ),
-                                                TextButton(
-                                                  child: Text("No"),
-                                                  onPressed: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                )
-                                              ],
-                                            );
-                                          });
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginManager()));
                                     },
                                     child: Container(
-                                      alignment: Alignment.center,
-                                      width: double.infinity,
-                                      child: Text(
-                                        "Reset App",
-                                        style: GoogleFonts.roboto(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18),
+                                      child: Column(
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              width: double.infinity,
+                                              child: Text(
+                                                "Login Manager",
+                                                style: GoogleFonts.roboto(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
+                                      margin: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          color: Color.fromRGBO(167, 27, 26, 1),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
                                     ),
                                   ),
-                                  SizedBox(height: 20,),
-                                  GestureDetector(
+                                ),
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ViewAllTickets()));
+                                    },
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              width: double.infinity,
+                                              child: Text(
+                                                "View All Tickets",
+                                                style: GoogleFonts.roboto(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      margin: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    //dialog to ask are you sure
+                                    //if yes, then go to emergency mode
+                                    //if no, then do nothing
+
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text("Are you sure?"),
+                                            content: Text(
+                                                "This will delete all tickets and data"),
+                                            actions: [
+                                              TextButton(
+                                                child: Text("Yes"),
+                                                onPressed: () {
+                                                  NXDeleteAllTickets();
+                                                  //show toast
+                                                  Navigator.pop(context);
+
+                                                  Fluttertoast.showToast(
+                                                      msg:
+                                                          "All tickets deleted",
+                                                      toastLength:
+                                                          Toast.LENGTH_SHORT,
+                                                      gravity:
+                                                          ToastGravity.BOTTOM,
+                                                      timeInSecForIosWeb: 1,
+                                                      backgroundColor:
+                                                          Colors.red,
+                                                      textColor: Colors.white,
+                                                      fontSize: 16.0);
+                                                },
+                                              ),
+                                              TextButton(
+                                                child: Text("No"),
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                              )
+                                            ],
+                                          );
+                                        });
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: double.infinity,
+                                    child: Text(
+                                      "Reset App",
+                                      style: GoogleFonts.roboto(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                GestureDetector(
                                     onTap: () {
                                       Navigator.push(
                                           context,
@@ -422,10 +433,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                               ],
                             ),
                           ),
-                           
-                          
-                         
-                         
                           Container(
                             child: SingleChildScrollView(
                               child: Padding(
@@ -436,17 +443,19 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                     Row(
                                       children: [
                                         Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(Icons.settings,
-                                      color: Colors.black,
-                                      size: 20,),
-                                    ),
-                                    Text("Quick Settings",
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 20,
-                                      color: Colors.black
-                                    ),
-                                    ),
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(
+                                            Icons.settings,
+                                            color: Colors.black,
+                                            size: 20,
+                                          ),
+                                        ),
+                                        Text(
+                                          "Quick Settings",
+                                          style: GoogleFonts.roboto(
+                                              fontSize: 20,
+                                              color: Colors.black),
+                                        ),
                                       ],
                                     ),
                                     Divider(
@@ -455,24 +464,24 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                     Container(
                                       child: Row(
                                         children: [
-                                          Text("Home page:",
-                                          style: GoogleFonts.roboto(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 20
-                                          ),),
+                                          Text(
+                                            "Home page:",
+                                            style: GoogleFonts.roboto(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 20),
+                                          ),
                                           Spacer(),
                                           DropdownButton(
                                             style: GoogleFonts.roboto(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500
-                                            ),
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500),
                                             onChanged: (e) {
                                               Box.write("BubbleGumSettings", e);
                                               setState(() {
                                                 currentOption = e;
                                               });
-                            
+
                                               //restart app
                                               Phoenix.rebirth(context);
                                             },
@@ -490,7 +499,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                                 child: Text("Day Saver"),
                                                 value: "DaySaver",
                                               ),
-                                                DropdownMenuItem(
+                                              DropdownMenuItem(
                                                 child: Text("Group DaySaver"),
                                                 value: "Group DaySaver",
                                               ),
@@ -499,37 +508,36 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                         ],
                                       ),
                                     ),
-                                    Text("TIP: Changing this setting will restart the app, and will take you to a new home page you selected",
-                                    style: GoogleFonts.roboto(
-                                      color: Colors.black.withOpacity(0.7),
-                                      fontSize: 15
-                                  
-                                    ),
+                                    Text(
+                                      "TIP: Changing this setting will restart the app, and will take you to a new home page you selected",
+                                      style: GoogleFonts.roboto(
+                                          color: Colors.black.withOpacity(0.7),
+                                          fontSize: 15),
                                     ),
                                     Divider(
                                       color: Colors.white,
                                     ),
-                                     Container(
+                                    Container(
                                       child: Row(
                                         children: [
-                                          Text("Reset On Launch:",
-                                          style: GoogleFonts.roboto(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 20
-                                          ),),
+                                          Text(
+                                            "Reset On Launch:",
+                                            style: GoogleFonts.roboto(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 20),
+                                          ),
                                           Spacer(),
                                           DropdownButton(
                                             style: GoogleFonts.roboto(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500
-                                            ),
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500),
                                             onChanged: (e) {
                                               Box.write("ResetSettings", e);
                                               setState(() {
                                                 resetSettings = e;
                                               });
-                            
+
                                               //restart app
                                             },
                                             value: resetSettings,
@@ -547,32 +555,30 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                         ],
                                       ),
                                     ),
-                                    Text("TIP: Activating this will delete all tickets and reset the app whenever you launch it",
-                                    style: GoogleFonts.roboto(
-                                      color: Colors.black.withOpacity(0.7),
-                                      fontSize: 15
-                                  
+                                    Text(
+                                      "TIP: Activating this will delete all tickets and reset the app whenever you launch it",
+                                      style: GoogleFonts.roboto(
+                                          color: Colors.black.withOpacity(0.7),
+                                          fontSize: 15),
                                     ),
-                                    
-                                    ),
-                                     Divider(
+                                    Divider(
                                       color: Colors.white,
                                     ),
                                     Container(
                                       child: Row(
                                         children: [
-                                          Text("Always online:",
-                                          style: GoogleFonts.roboto(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 20
-                                          ),),
+                                          Text(
+                                            "Always online:",
+                                            style: GoogleFonts.roboto(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 20),
+                                          ),
                                           Spacer(),
                                           DropdownButton(
                                             style: GoogleFonts.roboto(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500
-                                            ),
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500),
                                             onChanged: (e) {
                                               Box.write("OfflineSettings", e);
                                               setState(() {
@@ -581,7 +587,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                             },
                                             value: offlineSettings,
                                             items: [
-                                               DropdownMenuItem(
+                                              DropdownMenuItem(
                                                 child: Text("Offline"),
                                                 value: "Offline",
                                               ),
@@ -594,32 +600,34 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                         ],
                                       ),
                                     ),
-                                    Text("TIP: Always Online will result in more accuracy but requires internet connection, If you lose connection, the clone will switch to offline mode",
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 13,
-                                      color: Colors.black.withOpacity(0.7)
+                                    Text(
+                                      "TIP: Always Online will result in more accuracy but requires internet connection, If you lose connection, the clone will switch to offline mode",
+                                      style: GoogleFonts.roboto(
+                                          fontSize: 13,
+                                          color: Colors.black.withOpacity(0.7)),
                                     ),
+                                    SizedBox(
+                                      height: 10,
                                     ),
-                                    SizedBox(height: 10,),
-                                    Text("TIP: Long press on the menu button on the nx home page to come back to this page",
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 13,
-                                      color: Colors.black.withOpacity(0.7)
+                                    Text(
+                                      "TIP: Long press on the menu button on the nx home page to come back to this page",
+                                      style: GoogleFonts.roboto(
+                                          fontSize: 13,
+                                          color: Colors.black.withOpacity(0.7)),
                                     ),
+                                    SizedBox(
+                                      height: 30,
                                     ),
-                                    SizedBox(height: 30,),
                                     Container(
                                       child: Center(
                                         child: Text("V2022"),
                                       ),
                                     )
-                            
                                   ],
                                 ),
                               ),
                             ),
                           )
-                        
                         ]),
                     decoration: BoxDecoration(
                         boxShadow: [
@@ -637,7 +645,6 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
 
                         borderRadius: BorderRadius.circular(3)),
                   ))
-                  
                 ],
               )),
         ),
