@@ -1,5 +1,6 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +11,9 @@ class Payzone extends StatefulWidget{
 }
 
 class _PayzoneState extends State<Payzone> {
+
+  ScrollController _scrollController =  ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,6 +104,24 @@ class _PayzoneState extends State<Payzone> {
                       data: "6338540012598388327515216", barcode: Barcode.code128()),
                     width: MediaQuery.of(context).size.width*0.7,
                     height: 80,
+                    ),
+                    SizedBox(height: 40,),
+                    Container(
+                      child: MarkdownBody(
+                        styleSheet: MarkdownStyleSheet(
+                          textAlign: WrapAlignment.center,
+                          pPadding: EdgeInsets.only(
+                            right: 25,
+                            left: 25
+                          ),
+                          p: GoogleFonts.roboto(
+                            fontSize: 16,
+                          )
+                        ),
+                        
+                        
+                        data: "**Scan this barcode** at the retailer that supports Payzone purchases. **Purchase your tickets** in store and they will be delivered to your **ticket wallet.**",
+                      ),
                     ),
                 ],
               ),    
