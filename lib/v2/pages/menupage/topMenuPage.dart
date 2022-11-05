@@ -1,4 +1,5 @@
 import 'package:BubbleGum/2022/Pages/nxpages/myprofile_loggedin.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/payzone.dart';
 import 'package:BubbleGum/v2/pages/menupage/socialMediaPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -93,6 +94,10 @@ class UtilitiesMenuState extends State<UtilitiesMenu> {
           "label": "Payzone Barcode",
           "icon": "images/front/DBarcode.svg",
           "action": (BuildContext context, bool isLoggedIn){
+            if(isLoggedIn){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Payzone()));
+              return;
+            }
             Navigator.push(context,MaterialPageRoute(builder: (ctx)=> MyProfile()));
           }
         }
