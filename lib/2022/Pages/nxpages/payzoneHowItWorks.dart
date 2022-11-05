@@ -95,7 +95,7 @@ class PayzoneHowItWorksState extends State<PayzoneHowItWorks> {
                                 fontSize: 17
                               ),
                               ),
-                              SizedBox(height:10),
+                              SizedBox(height:20),
                               Container(
                                 alignment: Alignment.center,
                                 child:Column(
@@ -200,9 +200,58 @@ class PayzoneHowItWorksState extends State<PayzoneHowItWorks> {
                                   ],
                                 )
                               ),
+                              SizedBox(height: 20,),
+
+                                Container(
+                                alignment: Alignment.center,
+                                child:Column(
+                                  children: [
+                                     Row(
+                                  children: [
+                                  SizedBox(width: 20,),
+                                  Container(
+                                    child: Center(
+                                      child: Text("2",
+                                      style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 20
+                                      ),
+                                      ),
+                                    ),
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                    color: Color.fromRGBO(167, 27, 26, 1),
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                  ),
+                                  SizedBox(width: 18,),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: 30
+                                      ),
+                                      child: Text("Show your barcode to the cashier.",
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 16
+                                      ),
+                                      ),
+                                    ),
+                                  )
+                                ],),
+                                SizedBox(height: 20,),
+                                Image.asset("images/front/refreshticket.png",
+                                width: 100,
+                                ),
+                                SizedBox(height: 32,),
+                             
+                                  ],
+                                )
+                              ),
                         
                         
-                             SizedBox(height: 30,),
+                             SizedBox(height: 10,),
 
                             ],
                           ),
