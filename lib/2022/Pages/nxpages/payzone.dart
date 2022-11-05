@@ -1,3 +1,4 @@
+import 'package:barcode_widget/barcode_widget.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -60,11 +61,54 @@ class _PayzoneState extends State<Payzone> {
                 )
               ])),
           Expanded(
-            child: Container(
+            child: CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  child: Column(
+                    children: [
+                      Container(
               color: Colors.white,
               width: double.infinity,
-            
+              child: Column(
+                children: [
+                  SizedBox(height: 30,),
+                  Text("Pay in store.",
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17
+                  ),
+                  ),
+                  SizedBox(height: 7,),
+                  Text("Get tickets on your phone",
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17
+                  ),
+                  ),
+                  SizedBox(height: 40,),
+                  SvgPicture.asset("images/front/payzone-logo.svg"),
+                  SizedBox(height: 60,),
+                  Container(
+                    margin: EdgeInsets.only(left: 20,right: 20),
+                    child: BarcodeWidget(
+                      style: GoogleFonts.roboto(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.2
+                      
+                      ),
+                      data: "6338540012598388327515216", barcode: Barcode.code128()),
+                    width: MediaQuery.of(context).size.width*0.7,
+                    height: 80,
+                    ),
+                ],
+              ),    
             ),
+                    ],
+                  ),
+                )
+              ],
+            )
           )
       ],)
     );

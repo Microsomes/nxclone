@@ -66,6 +66,7 @@ dependencies:
   marquee: ^2.2.3
   get_storage: ^1.4.0
   go_router: ^5.1.3
+  barcode_widget: ^1.5.0
 
 dev_dependencies:
   flutter_test:
