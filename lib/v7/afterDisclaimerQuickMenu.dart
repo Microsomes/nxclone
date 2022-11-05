@@ -223,7 +223,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       alignment: Alignment.center,
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                          color: Colors.pink,
+                                          color: Color.fromRGBO(167, 27, 26, 1),
                                           borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(20),
                                               bottomRight: Radius.circular(20))),
@@ -237,7 +237,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 10,),
+                                SizedBox(height: 20,),
                                  Expanded(
                                   child: GestureDetector(
                                     onTap: (){
@@ -251,8 +251,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         border: Border.all(color: Colors.green),
-                                          color: Colors.blueAccent,
-                                          borderRadius: BorderRadius.circular(5)),
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(10)),
                                       child: Text(
                                         "NX Home",
                                         style: GoogleFonts.aBeeZee(
@@ -265,80 +265,84 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 )
                               ],
                             ),
-                            margin: EdgeInsets.all(10),
+                            margin: EdgeInsets.all(2),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                           
                          
                            
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginManager()));
-                            },
-                            child: Container(
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: double.infinity,
-                                      child: Text(
-                                        "Login Manager",
-                                        style: GoogleFonts.roboto(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                          ),
-                           GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ViewAllTickets()));
-                            },
-                            child: Container(
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: double.infinity,
-                                      child: Text(
-                                        "View All Tickets",
-                                        style: GoogleFonts.roboto(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                          ),
                           Container(
                             child: Column(
                               children: [
                                 Expanded(
                                   child: GestureDetector(
+                                                            onTap: () {
+                                                              Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginManager()));
+                                                            },
+                                                            child: Container(
+                                                              child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: double.infinity,
+                                        child: Text(
+                                          "Login Manager",
+                                          style: GoogleFonts.roboto(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                                              ),
+                                                              margin: EdgeInsets.all(10),
+                                                              decoration: BoxDecoration(
+                                    color: Color.fromRGBO(167, 27, 26, 1),
+                                    borderRadius: BorderRadius.circular(10)),
+                                                            ),
+                                                          ),
+                                ),
+                                  Expanded(
+                                  child: GestureDetector(
+                                                            onTap: () {
+                                                              Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ViewAllTickets()));
+                                                            },
+                                                            child: Container(
+                                                              child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: double.infinity,
+                                        child: Text(
+                                          "View All Tickets",
+                                          style: GoogleFonts.roboto(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                                              ),
+                                                              margin: EdgeInsets.all(10),
+                                                              decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(10)),
+                                                            ),
+                                                          ),
+                                ),
+                                SizedBox(height: 20,),
+                                GestureDetector(
                                     onTap: () {
                                       //dialog to ask are you sure
                                       //if yes, then go to emergency mode
@@ -389,25 +393,14 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       child: Text(
                                         "Reset App",
                                         style: GoogleFonts.roboto(
-                                            color: Colors.white,
+                                            color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 18),
                                       ),
                                     ),
                                   ),
-                                )
-                              ],
-                            ),
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                          Container(
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: GestureDetector(
+                                  SizedBox(height: 20,),
+                                  GestureDetector(
                                     onTap: () {
                                       Navigator.push(
                                           context,
@@ -421,23 +414,18 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                       child: Text(
                                         "Change Logs",
                                         style: GoogleFonts.roboto(
-                                            color: Colors.white,
+                                            color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 18),
                                       ),
-                                    ),
-                                  ),
-                                ),
+                                    )),
                               ],
                             ),
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(10)),
                           ),
+                           
                           
-
-
+                         
+                         
                           Container(
                             child: SingleChildScrollView(
                               child: Padding(
@@ -649,6 +637,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
 
                         borderRadius: BorderRadius.circular(3)),
                   ))
+                  
                 ],
               )),
         ),

@@ -11,7 +11,7 @@
 
 
     <application
-        android:label="BubbleGum"
+        android:label="NX Bus"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
