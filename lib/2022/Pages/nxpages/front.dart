@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:BubbleGum/2022/2022helper.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/myprofile.dart';
+import 'package:BubbleGum/2022/Pages/nxpages/payzone.dart';
 import 'package:BubbleGum/2022/Pages/nxpages/tripWallet.dart';
 import 'package:BubbleGum/pages/help.dart';
 import 'package:BubbleGum/pages/tripTools.dart';
@@ -9,6 +10,7 @@ import 'package:BubbleGum/v2/pages/ticketv2.dart';
 import 'package:BubbleGum/v7/afterDisclaimerQuickMenu.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_storage/get_storage.dart';
 import "package:google_fonts/google_fonts.dart";
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,6 +25,9 @@ class NxPagesFront extends StatefulWidget {
 }
 
 class _NxPagesFrontState extends State<NxPagesFront> {
+
+  final Box = GetStorage();
+
   var message =
       "We join the nation in mouring the death of Her Majesty Queen Elizabeth. Our heartfelt thoughts and sympathies are with the Royal Family at this time.";
 
@@ -38,7 +43,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Singles & Daysavers",
       "icon": "images/front/single-ticket.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx, bool isLogged) {
         //go to Single page
         print("single catalogue page");
 
@@ -56,7 +61,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "NX 1 Week and 4 Week",
       "icon": "images/front/tickets.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx,bool isLogged) {
         //go to Single page
         print("nx1 week and 4 week page");
         Navigator.push(
@@ -73,7 +78,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Multi Operator 1 Week and 4 Week",
       "icon": "images/front/busicon.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx,bool isLogged) {
         //go to Single page
         print("multi operator page 1 week and 4 week");
         Navigator.push(
@@ -90,7 +95,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Ticket Wallet",
       "icon": "images/front/ticket-wallet.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx,bool isLogged) {
         //go to Single page
 
         Navigator.push(
@@ -112,8 +117,14 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Payzone Barcode",
       "icon": "images/front/DBarcode.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx,bool isLogged) {
         //go to Single page
+
+        if(isLogged){
+          Navigator.push(
+              ctx, MaterialPageRoute(builder: (context) => Payzone()));
+              return;
+        }
 
         Navigator.push(
             ctx, MaterialPageRoute(builder: (context) => MyProfile()));
@@ -125,7 +136,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Trip Tools",
       "icon": "images/front/trip-tools.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx,bool isLogged) {
         //go to Single page
         print("trip tools page");
 
@@ -139,7 +150,7 @@ class _NxPagesFrontState extends State<NxPagesFront> {
       "label": "Help",
       "icon": "images/front/uni68.svg",
       "iconColor": Color.fromRGBO(168, 25, 31, 1),
-      "func": (BuildContext ctx) {
+      "func": (BuildContext ctx,bool isLogged) {
         //go to Single page
         Navigator.push(
             ctx, MaterialPageRoute(builder: (context) => HelpPage()));
@@ -527,8 +538,23 @@ class _KtState extends State<Kt> {
                     child: GestureDetector(
                       onTap: () {
                         print("link was selected");
-                        Function fn = widget.options[i]['func'];
-                        fn(context);
+                      
+                      Function fn = widget.options[i]['func'];
+
+
+                    if(GetStorage().read("isLoggedIn")!= null){
+
+                      if(GetStorage().read("isLoggedIn")){
+                          fn(context,true);
+                        return;
+                      }
+
+                    fn(context,false);
+
+
+
+
+                    }
                       },
                       child: Container(
                         child: Row(
