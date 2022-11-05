@@ -189,8 +189,15 @@ void main() async {
 
   return runApp(Phoenix(
       child: FutureBuilder(
-    future: Future.delayed(Duration(seconds: 3)),
+    future: Future.delayed(Duration(seconds: 2)),
     builder: (ctx, AsyncSnapshot snapshot) {
+
+      if(snapshot.connectionState == ConnectionState.waiting){
+        return Container(
+          child: Image.asset("images/front/splash.png"),
+        );
+      }
+
       return MaterialApp.router(
         title: "BubbleGum",
         routerConfig:_router ,
