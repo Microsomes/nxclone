@@ -94,7 +94,9 @@ class _NxPagesFrontState extends State<NxPagesFront> {
         //go to Single page
 
         Navigator.push(
-            ctx, MaterialPageRoute(builder: (context) => TripWallet()));
+            ctx, MaterialPageRoute(builder: (context) => TripWallet(
+              gBack: false,
+            )));
       }
     },
     {
@@ -412,7 +414,9 @@ class _KtState extends State<Kt> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (ctx) => TripWallet()));
+                                        builder: (ctx) => TripWallet(
+                                          gBack: false,
+                                        )));
                               },
                               child: Container(
                                   padding: EdgeInsets.only(right: 30, top: 20),

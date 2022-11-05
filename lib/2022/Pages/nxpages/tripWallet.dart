@@ -10,6 +10,13 @@ import '../../2022helper.dart';
 import 'front.dart';
 
 class TripWallet extends StatefulWidget {
+
+  final gBack;
+
+  TripWallet({
+    @required this.gBack
+  });
+
   @override
   State<StatefulWidget> createState() {
     return new UtilitiesMenuState();
@@ -107,6 +114,10 @@ class UtilitiesMenuState extends State<TripWallet> {
                         child: GestureDetector(
                           onTap: () {
                             //Navigator.pop(context);
+                            if(widget.gBack){
+                              Navigator.pop(context);
+                              return;
+                            }
                             Navigator.push(
                               context,
                               MaterialPageRoute(
