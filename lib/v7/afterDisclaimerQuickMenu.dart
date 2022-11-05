@@ -1,3 +1,4 @@
+import 'package:BubbleGum/0mymetro/pages/home.dart';
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
@@ -12,6 +13,7 @@ import '../2022/Pages/LoginManager.dart';
 import '../2022/Pages/changeLogs.dart';
 import '../2022/Pages/nxpages/front.dart';
 import '../2022/Pages/viewAllTickets.dart';
+import '../appcomponent/HalifaxClone/main.dart';
 import 'settingSaver.dart';
 
 class AfterDisclaimerModel {
@@ -433,6 +435,8 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
+                          
+
 
                           Container(
                             child: SingleChildScrollView(
