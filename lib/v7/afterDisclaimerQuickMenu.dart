@@ -1,4 +1,5 @@
 import 'package:BubbleGum/0mymetro/pages/home.dart';
+import 'package:BubbleGum/2022/Pages/settings.dart';
 import 'package:BubbleGum/pages/journey/ticket.dart';
 import 'package:BubbleGum/v2/pages/nxfront.dart';
 import 'package:BubbleGum/v2/pages/ticketv2.dart';
@@ -40,50 +41,12 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
 
   final Box = GetStorage();
 
-  var currentOption = null;
-
-  var offlineSettings;
-
-  var resetSettings;
 
   @override
   void initState() {
     super.initState();
 
-    if (Box.read("ResetSettings") == null) {
-      //donotreset
-      Box.write("ResetSettings", "donotreset");
-      setState(() {
-        resetSettings = "donotreset";
-      });
-    } else {
-      setState(() {
-        resetSettings = Box.read("ResetSettings");
-      });
-    }
-
-    if (Box.read("OfflineSettings") == null) {
-      Box.write("OfflineSettings", "Offline");
-      setState(() {
-        offlineSettings = "Offline";
-      });
-    } else {
-      setState(() {
-        offlineSettings = Box.read("OfflineSettings");
-      });
-    }
-
-    if (Box.read("BubbleGumSettings") == null) {
-      Box.write("BubbleGumSettings", "bubblegumhome");
-      setState(() {
-        currentOption = "bubblegumhome";
-      });
-    } else {
-      setState(() {
-        currentOption = Box.read("BubbleGumSettings");
-      });
-    }
-
+  
     allOptions.add(new AfterDisclaimerModel(
         title: "Day Saver",
         isSetting: true,
@@ -144,6 +107,11 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                               color: Colors.white,
                             ),
                           ),
+                          IconButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=> SettingsPage()));
+                          }, icon: Icon(Icons.settings,
+                          color: Colors.white,
+                          ))
                         ],
                       )),
                   SizedBox(
@@ -433,201 +401,7 @@ class _AfterDisclaimerState extends State<AfterDisclaimer> {
                               ],
                             ),
                           ),
-                          Container(
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Icon(
-                                            Icons.settings,
-                                            color: Colors.black,
-                                            size: 20,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Quick Settings",
-                                          style: GoogleFonts.roboto(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                    Divider(
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            "Home page:",
-                                            style: GoogleFonts.roboto(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontSize: 20),
-                                          ),
-                                          Spacer(),
-                                          DropdownButton(
-                                            style: GoogleFonts.roboto(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w500),
-                                            onChanged: (e) {
-                                              Box.write("BubbleGumSettings", e);
-                                              setState(() {
-                                                currentOption = e;
-                                              });
-
-                                              //restart app
-                                              Phoenix.rebirth(context);
-                                            },
-                                            value: currentOption,
-                                            items: [
-                                              DropdownMenuItem(
-                                                child: Text("Bubble Gum Home"),
-                                                value: "bubblegumhome",
-                                              ),
-                                              DropdownMenuItem(
-                                                child: Text("NX Home"),
-                                                value: "nxhome",
-                                              ),
-                                              DropdownMenuItem(
-                                                child: Text("Day Saver"),
-                                                value: "DaySaver",
-                                              ),
-                                              DropdownMenuItem(
-                                                child: Text("Group DaySaver"),
-                                                value: "Group DaySaver",
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      "TIP: Changing this setting will restart the app, and will take you to a new home page you selected",
-                                      style: GoogleFonts.roboto(
-                                          color: Colors.black.withOpacity(0.7),
-                                          fontSize: 15),
-                                    ),
-                                    Divider(
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            "Reset On Launch:",
-                                            style: GoogleFonts.roboto(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontSize: 20),
-                                          ),
-                                          Spacer(),
-                                          DropdownButton(
-                                            style: GoogleFonts.roboto(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w500),
-                                            onChanged: (e) {
-                                              Box.write("ResetSettings", e);
-                                              setState(() {
-                                                resetSettings = e;
-                                              });
-
-                                              //restart app
-                                            },
-                                            value: resetSettings,
-                                            items: [
-                                              DropdownMenuItem(
-                                                child: Text("Do not reset"),
-                                                value: "donotreset",
-                                              ),
-                                              DropdownMenuItem(
-                                                child: Text("Reset on launch"),
-                                                value: "resetonlaunch",
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      "TIP: Activating this will delete all tickets and reset the app whenever you launch it",
-                                      style: GoogleFonts.roboto(
-                                          color: Colors.black.withOpacity(0.7),
-                                          fontSize: 15),
-                                    ),
-                                    Divider(
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            "Always online:",
-                                            style: GoogleFonts.roboto(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontSize: 20),
-                                          ),
-                                          Spacer(),
-                                          DropdownButton(
-                                            style: GoogleFonts.roboto(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w500),
-                                            onChanged: (e) {
-                                              Box.write("OfflineSettings", e);
-                                              setState(() {
-                                                offlineSettings = e;
-                                              });
-                                            },
-                                            value: offlineSettings,
-                                            items: [
-                                              DropdownMenuItem(
-                                                child: Text("Offline"),
-                                                value: "Offline",
-                                              ),
-                                              DropdownMenuItem(
-                                                child: Text("Always Online"),
-                                                value: "Always Online",
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      "TIP: Always Online will result in more accuracy but requires internet connection, If you lose connection, the clone will switch to offline mode",
-                                      style: GoogleFonts.roboto(
-                                          fontSize: 13,
-                                          color: Colors.black.withOpacity(0.7)),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "TIP: Long press on the menu button on the nx home page to come back to this page",
-                                      style: GoogleFonts.roboto(
-                                          fontSize: 13,
-                                          color: Colors.black.withOpacity(0.7)),
-                                    ),
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                    Container(
-                                      child: Center(
-                                        child: Text("V2022"),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          )
+                        
                         ]),
                     decoration: BoxDecoration(
                         boxShadow: [

@@ -168,6 +168,9 @@ void main() async {
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+
 
   final Box = GetStorage();
 
