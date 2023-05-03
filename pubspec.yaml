@@ -185,21 +185,21 @@ flutter:
    - images/v4/icons/newmenu.png
    #new images- icons
    - images/v4/icons/cross.png
-   - images/v4/ic_link.png
-   - images/v4/ic_refund.png
-   - images/v4/ic_resend.png
-   - images/v4/info.png
-   - images/v4/left.png
-   - images/v4/leftbig.png
-   - images/v4/menu.png
-   - images/v4/refresh.png
-   - images/v4/reload.png
-   - images/v4/right.png
-   - images/v4/rightbig.png
-   - images/v4/threedots.png
-   - images/v4/ticket_icon.png
-   - images/v4/visa.png
-   - images/v4/warning.png
+   - images/v4/icons/ic_link.png
+   - images/v4/icons/ic_refund.png
+   - images/v4/icons/ic_resend.png
+   - images/v4/icons/info.png
+   - images/v4/icons/left.png
+   - images/v4/icons/leftbig.png
+   - images/v4/icons/menu.png
+   - images/v4/icons/refresh.png
+   - images/v4/icons/reload.png
+   - images/v4/icons/right.png
+   - images/v4/icons/rightbig.png
+   - images/v4/icons/threedots.png
+   - images/v4/icons/ticket_icon.png
+   - images/v4/icons/visa.png
+   - images/v4/icons/warning.png
 
    - images/v4/bubblegum.jpg
 
